@@ -1,0 +1,19 @@
+# Put defined MCU peripherals here (in alphabetical order)
+FEATURES_PROVIDED += periph_adc
+{% strip 2 %}
+    {% if board in ["stk3600", "stk3700", "stk3800", "slwstk6220a"] %}
+        FEATURES_PROVIDED += periph_dac
+    {% endif %}
+{% endstrip %}
+FEATURES_PROVIDED += periph_cpuid
+FEATURES_PROVIDED += periph_gpio
+FEATURES_PROVIDED += periph_i2c
+FEATURES_PROVIDED += periph_pwm
+FEATURES_PROVIDED += periph_rtc
+FEATURES_PROVIDED += periph_rtt
+FEATURES_PROVIDED += periph_spi
+FEATURES_PROVIDED += periph_timer
+FEATURES_PROVIDED += periph_uart
+
+# Various other features (if any)
+FEATURES_PROVIDED += cpp

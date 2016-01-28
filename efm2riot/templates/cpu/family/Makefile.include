@@ -1,0 +1,11 @@
+export CPU_ARCH = cortex-{{ architecture }}
+
+{% strip 2, true %}
+    {% if architecture in ["m0", "m0plus"] %}
+        # CMSIS-DSP is needed for arm_math.h
+        USEPKG += cmsis-dsp
+    {% endif %}
+{% endstrip %}
+
+# include efm32_common
+include $(RIOTCPU)/efm32_common/Makefile.include

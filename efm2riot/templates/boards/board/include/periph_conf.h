@@ -1,0 +1,671 @@
+/*
+ * Copyright (C) 2015 Freie Universität Berlin
+ *
+ * This file is subject to the terms and conditions of the GNU Lesser
+ * General Public License v2.1. See the file LICENSE in the top level
+ * directory for more details.
+ */
+
+/**
+ * @ingroup     boards_{{ board }}
+ * @{
+ *
+ * @file
+ * @brief       Configuration of CPU peripherals for the {{ board_display_name }} starter kit
+ *
+ * @author      Hauke Petersen <hauke.petersen@fu-berlin.de>
+ * @author      Bas Stottelaar <basstottelaar@gmail.com>
+ */
+
+#ifndef PERIPH_CONF_H
+#define PERIPH_CONF_H
+
+#include "cpu.h"
+#include "mutex.h"
+
+#include "periph_cpu.h"
+
+#include "em_cmu.h"
+
+#ifdef __cplusplus
+extern "C" {
+#endif
+
+/**
+ * @brief   Clock configuration
+ * @{
+ */
+#define CLOCK_HF            cmuSelect_HFXO
+#define CLOCK_CORE_DIV      cmuClkDiv_1
+#define CLOCK_LFA           cmuSelect_LFXO
+{% strip 2 %}
+    {% if board in ["stk3200"] %}
+        #define CLOCK_LFB           cmuSelect_CORELEDIV2
+    {% else %}
+        #define CLOCK_LFB           cmuSelect_LFRCO
+    {% endif %}
+{% endstrip %}
+{% strip 2 %}
+    {% if board in ["slstk3401a"] %}
+        #define CLOCK_LFE           cmuSelect_LFRCO
+    {% endif %}
+{% endstrip %}
+/** @} */
+
+/**
+ * @brief ADC configuration
+ * @{
+ */
+static const adc_chan_conf_t adc_channel_config[] = {
+    {% strip 2 %}
+        {% if board in ["stk3600", "stk3700", "stk3800"] %}
+            {
+                adcSingleInputTemp,                 /* channel to use */
+                adcRef1V25,                         /* channel reference */
+                adcAcqTime8                         /* acquisition time */
+            }
+        {% elif board in ["stk3200"] %}
+            {
+                adcSingleInputTemp,                 /* channel to use */
+                adcRef1V25,                         /* channel reference */
+                adcAcqTime8                         /* acquisition time */
+            }
+        {% elif board in ["slstk3401a"] %}
+            {
+                adcPosSelTEMP,                      /* channel to use */
+                adcRef1V25,                         /* channel reference */
+                adcAcqTime8                         /* acquisition time */
+            }
+        {% elif board in ["slwstk6220a"] %}
+            {
+                adcSingleInputTemp,                 /* channel to use */
+                adcRef1V25,                         /* channel reference */
+                adcAcqTime8                         /* acquisition time */
+            }
+        {% endif %}
+    {% endstrip %}
+};
+
+static const adc_conf_t adc_config[] = {
+    {% strip 2 %}
+        {% if board in ["stk3600", "stk3700", "stk3800"] %}
+            {
+                ADC0,                               /* device */
+                cmuClock_ADC0,                      /* CMU register */
+                1,                                  /* number of channels */
+                0,                                  /* channel offset */
+            }
+        {% elif board in ["stk3200"] %}
+            {
+                ADC0,                               /* device */
+                cmuClock_ADC0,                      /* CMU register */
+                1,                                  /* number of channels */
+                0,                                  /* channel offset */
+            }
+        {% elif board in ["slstk3401a"] %}
+            {
+                ADC0,                               /* device */
+                cmuClock_ADC0,                      /* CMU register */
+                1,                                  /* number of channels */
+                0,                                  /* channel offset */
+            }
+        {% elif board in ["slwstk6220a"] %}
+            {
+                ADC0,                               /* device */
+                cmuClock_ADC0,                      /* CMU register */
+                1,                                  /* number of channels */
+                0,                                  /* channel offset */
+            }
+        {% endif %}
+    {% endstrip %}
+};
+
+{% strip 2 %}
+    {% if board in ["stk3600", "stk3700", "stk3800"] %}
+        #define ADC_NUMOF           1
+        #define ADC_0_EN            1
+        #define ADC_MAX_CHANNELS    1
+    {% elif board in ["stk3200"] %}
+        #define ADC_NUMOF           1
+        #define ADC_0_EN            1
+        #define ADC_MAX_CHANNELS    1
+    {% elif board in ["slstk3401a"] %}
+        #define ADC_NUMOF           1
+        #define ADC_0_EN            1
+        #define ADC_MAX_CHANNELS    1
+    {% elif board in ["slwstk6220a"] %}
+        #define ADC_NUMOF           1
+        #define ADC_0_EN            1
+        #define ADC_MAX_CHANNELS    1
+    {% endif %}
+{% endstrip %}
+/** @} */
+
+{% strip 2, true %}
+    {% if board in ["stk3600", "stk3700", "stk3800", "slwstk6220a"] %}
+        /**
+         * @brief DAC configuration
+         * @{
+         */
+        static const dac_chan_conf_t dac_channel_config[] = {
+            {% strip 2 %}
+                {% if board in ["stk3600", "stk3700", "stk3800"] %}
+                    {
+                        0                                   /* channel index */
+                    }
+                {% elif board in ["slwstk6220a"] %}
+                    {
+                        0                                   /* channel index */
+                    }
+                {% endif %}
+            {% endstrip %}
+        };
+
+        static const dac_conf_t dac_config[] = {
+            {% strip 2 %}
+                {% if board in ["stk3600", "stk3700", "stk3800"] %}
+                    {
+                        DAC0,                               /* device */
+                        cmuClock_DAC0,                      /* CMU register */
+                        1,                                  /* number of channels */
+                        0,                                  /* channel offset */
+                    }
+                {% elif board in ["slwstk6220a"] %}
+                    {
+                        DAC0,                               /* device */
+                        cmuClock_DAC0,                      /* CMU register */
+                        1,                                  /* number of channels */
+                        0,                                  /* channel offset */
+                    }
+                {% endif %}
+            {% endstrip %}
+        };
+
+        {% strip 2 %}
+            {% if board in ["stk3600", "stk3700", "stk3800"] %}
+                #define DAC_NUMOF           1
+                #define DAC_0_EN            1
+                #define DAC_MAX_CHANNELS    1
+            {% elif board in ["slwstk6220a"] %}
+                #define DAC_NUMOF           1
+                #define DAC_0_EN            1
+                #define DAC_MAX_CHANNELS    1
+            {% endif %}
+        {% endstrip %}
+        /** @} */
+    {% endif %}
+{% endstrip %}
+
+/**
+ * @brief I2C configuration
+ * @{
+ */
+static const i2c_conf_t i2c_config[] = {
+    {% strip 2 %}
+        {% if board in ["stk3600", "stk3700", "stk3800"] %}
+            {
+                I2C0,                               /* device */
+                GPIO_PIN(PD, 6),                    /* SDA pin */
+                GPIO_PIN(PD, 7),                    /* SCL pin */
+                I2C_ROUTE_LOCATION_LOC1,            /* AF location */
+                cmuClock_I2C0,                      /* CMU register */
+                I2C0_IRQn,                          /* IRQ base channel */
+                MUTEX_INIT                          /* mutex initializer */
+            },
+            {
+                I2C1,                               /* device */
+                GPIO_PIN(PC, 4),                    /* SDA pin */
+                GPIO_PIN(PC, 5),                    /* SCL pin */
+                I2C_ROUTE_LOCATION_LOC0,            /* AF location */
+                cmuClock_I2C1,                      /* CMU register */
+                I2C1_IRQn,                          /* IRQ base channel */
+                MUTEX_INIT                          /* mutex initializer */
+            }
+        {% elif board in ["stk3200"] %}
+            {
+                I2C0,                               /* device */
+                GPIO_PIN(PE, 12),                   /* SDA pin */
+                GPIO_PIN(PE, 13),                   /* SCL pin */
+                I2C_ROUTE_LOCATION_LOC1,            /* AF location */
+                cmuClock_I2C0,                      /* CMU register */
+                I2C0_IRQn,                          /* IRQ base channel */
+                MUTEX_INIT                          /* mutex initializer */
+            }
+        {% elif board in ["slstk3401a"] %}
+            {
+                I2C0,                               /* device */
+                GPIO_PIN(PC, 10),                   /* SDA pin */
+                GPIO_PIN(PC, 11),                   /* SCL pin */
+                I2C_ROUTELOC0_SDALOC_LOC15 |
+                    I2C_ROUTELOC0_SCLLOC_LOC15,     /* AF location */
+                cmuClock_I2C0,                      /* CMU register */
+                I2C0_IRQn,                          /* IRQ base channel */
+                MUTEX_INIT                          /* mutex initializer */
+            }
+        {% elif board in ["slwstk6220a"] %}
+            {
+                I2C1,                               /* device */
+                GPIO_PIN(PE, 0),                    /* SDA pin */
+                GPIO_PIN(PE, 1),                    /* SCL pin */
+                I2C_ROUTE_LOCATION_LOC2,            /* AF location */
+                cmuClock_I2C1,                      /* CMU register */
+                I2C1_IRQn,                          /* IRQ base channel */
+                MUTEX_INIT                          /* mutex initializer */
+            }
+        {% endif %}
+    {% endstrip %}
+};
+
+{% strip 2 %}
+    {% if board in ["stk3600", "stk3700", "stk3800"] %}
+        #define I2C_NUMOF           2
+    {% elif board in ["stk3200"] %}
+        #define I2C_NUMOF           1
+    {% elif board in ["slstk3401a"] %}
+        #define I2C_NUMOF           1
+    {% elif board in ["slwstk6220a"] %}
+        #define I2C_NUMOF           2
+    {% endif %}
+{% endstrip %}
+/** @} */
+
+/**
+ * @brief   PWM configuration
+ * @{
+ */
+static const pwm_chan_conf_t pwm_channel_config[] = {
+    {% strip 2 %}
+        {% if board in ["stk3600", "stk3700", "stk3800"] %}
+            {
+                2,                          /* channel index */
+                GPIO_PIN(PE, 2),            /* PWM pin */
+                TIMER_ROUTE_LOCATION_LOC1,  /* AF location */
+            }
+        {% elif board in ["stk3200"] %}
+            /* no channels */
+        {% elif board in ["slstk3401a"] %}
+            /* no channels */
+        {% elif board in ["slwstk6220a"] %}
+            {
+                0,                          /* channel index */
+                GPIO_PIN(PF, 6),            /* PWM pin */
+                TIMER_ROUTE_LOCATION_LOC2,  /* AF location */
+            },
+            {
+                1,                          /* channel index */
+                GPIO_PIN(PF, 7),            /* PWM pin */
+                TIMER_ROUTE_LOCATION_LOC2,  /* AF location */
+            }
+        {% endif %}
+    {% endstrip %}
+};
+
+static const pwm_conf_t pwm_config[] = {
+    {% strip 2 %}
+        {% if board in ["stk3600", "stk3700", "stk3800"] %}
+            {
+                TIMER3,                     /* device */
+                cmuClock_TIMER3,            /* CMU register */
+                TIMER3_IRQn,                /* IRQ base channel */
+                1,                          /* number of channels */
+                0                           /* channel offset */
+            }
+        {% elif board in ["stk3200"] %}
+            /* no timers left */
+        {% elif board in ["slstk3401a"] %}
+            /* no timers left */
+        {% elif board in ["slwstk6220a"] %}
+            {
+                TIMER0,                     /* device */
+                cmuClock_TIMER0,            /* CMU register */
+                TIMER0_IRQn,                /* IRQ base channel */
+                2,                          /* number of channels */
+                0                           /* channel offset */
+            }
+        {% endif %}
+    {% endstrip %}
+};
+
+{% strip 2 %}
+    {% if board in ["stk3600", "stk3700", "stk3800"] %}
+        #define PWM_NUMOF                    1
+        #define PWM_0_EN                     1
+        #define PWM_0_CHANNELS               1
+    {% elif board in ["stk3200"] %}
+        #define PWM_NUMOF                    0
+    {% elif board in ["slstk3401a"] %}
+        #define PWM_NUMOF                    0
+    {% elif board in ["slwstk6220a"] %}
+        #define PWM_NUMOF                    1
+        #define PWM_0_EN                     1
+        #define PWM_0_CHANNELS               2
+    {% endif %}
+{% endstrip %}
+/** @} */
+
+/**
+ * @brief   RTT and RTC configuration
+ * @{
+ */
+#ifndef RTT_AS_RTC
+#define RTT_AS_RTC                   (0U)
+#endif
+
+#if RTT_AS_RTC
+#define RTC_NUMOF                    (1U)
+#define RTT_NUMOF                    (0U)
+#else
+#define RTC_NUMOF                    (0U)
+#define RTT_NUMOF                    (1U)
+#endif
+
+{% strip 2 %}
+    {% if cpu_platform == 1 %}
+        #define RTT_MAX_VALUE                (0xFFFFFF)
+        #define RTT_FREQUENCY                (1U)
+    {% else %}
+        #define RTT_MAX_VALUE                (0xFFFFFFFF)
+        #define RTT_FREQUENCY                (1U)
+    {% endif %}
+{% endstrip %}
+/** @} */
+
+/**
+ * @brief SPI configuration
+ * @{
+ */
+static const spi_dev_t spi_config[] = {
+    {% strip 2 %}
+        {% if board in ["stk3600", "stk3700", "stk3800"] %}
+            {
+                USART1,                             /* device */
+                GPIO_PIN(PD, 0),                    /* MOSI pin */
+                GPIO_PIN(PD, 1),                    /* MISO pin */
+                GPIO_PIN(PD, 2),                    /* CLK pin */
+                USART_ROUTE_LOCATION_LOC1,          /* AF location */
+                cmuClock_USART1,                    /* CMU register */
+                USART1_RX_IRQn,                     /* IRQ base channel */
+                MUTEX_INIT                          /* mutex initializer */
+            },
+            {
+                USART2,                             /* device */
+                GPIO_UNDEF,                         /* MOSI pin */
+                GPIO_PIN(PC, 3),                    /* MISO pin */
+                GPIO_PIN(PC, 4),                    /* CLK pin */
+                USART_ROUTE_LOCATION_LOC0,          /* AF location */
+                cmuClock_USART2,                    /* CMU register */
+                USART2_RX_IRQn,                     /* IRQ base channel */
+                MUTEX_INIT                          /* mutex initializer */
+            }
+        {% elif board in ["stk3200"] %}
+            {
+                USART1,                             /* device */
+                GPIO_PIN(PD, 7),                    /* MOSI pin */
+                GPIO_PIN(PD, 6),                    /* MISO pin */
+                GPIO_PIN(PC, 15),                   /* CLK pin */
+                USART_ROUTE_LOCATION_LOC1,          /* AF location */
+                cmuClock_USART1,                    /* CMU register */
+                USART1_RX_IRQn,                     /* IRQ base channel */
+                MUTEX_INIT                          /* mutex initializer */
+            }
+        {% elif board in ["slstk3401a"] %}
+            {
+                USART1,                             /* device */
+                GPIO_PIN(PC, 6),                    /* MOSI pin */
+                GPIO_PIN(PC, 7),                    /* MISO pin */
+                GPIO_PIN(PC, 8),                    /* CLK pin */
+                USART_ROUTELOC0_RXLOC_LOC11 |
+                    USART_ROUTELOC0_TXLOC_LOC11 |
+                    USART_ROUTELOC0_CLKLOC_LOC11,   /* AF location */
+                cmuClock_USART1,                    /* CMU register */
+                USART1_RX_IRQn,                     /* IRQ base channel */
+                MUTEX_INIT                          /* mutex initializer */
+            }
+        {% elif board in ["slwstk6220a"] %}
+            {
+                USART1,                             /* device */
+                GPIO_PIN(PD, 0),                    /* MOSI pin */
+                GPIO_PIN(PD, 1),                    /* MISO pin */
+                GPIO_PIN(PD, 2),                   /* CLK pin */
+                USART_ROUTE_LOCATION_LOC1,          /* AF location */
+                cmuClock_USART1,                    /* CMU register */
+                USART1_RX_IRQn,                     /* IRQ base channel */
+                MUTEX_INIT                          /* mutex initializer */
+            }
+        {% endif %}
+    {% endstrip %}
+};
+
+{% strip 2 %}
+    {% if board in ["stk3600", "stk3700", "stk3800"] %}
+        #define SPI_0_EN            1
+        #define SPI_1_EN            1
+        #define SPI_NUMOF           2
+    {% elif board in ["stk3200"] %}
+        #define SPI_0_EN            1
+        #define SPI_NUMOF           1
+    {% elif board in ["slstk3401a"] %}
+        #define SPI_0_EN            1
+        #define SPI_NUMOF           1
+    {% elif board in ["slwstk6220a"] %}
+        #define SPI_0_EN            1
+        #define SPI_NUMOF           1
+    {% endif %}
+{% endstrip %}
+/** @} */
+
+/**
+ * @brief   Timer configuration
+ * @{
+ */
+static const timer_conf_t timer_config[] = {
+    {% strip 2 %}
+        {% if board in ["stk3600", "stk3700", "stk3800"] %}
+            {
+                {
+                    TIMER0,             /* lower numbered timer */
+                    cmuClock_TIMER0,    /* pre-scaler bit in the CMU register */
+                },
+                {
+                    TIMER1,             /* higher numbered timer, this is the one */
+                    cmuClock_TIMER1,    /* pre-scaler bit in the CMU register */
+                },
+                TIMER1_IRQn,            /* IRQn of the higher numbered timer */
+            }
+        {% elif board in ["stk3200"] %}
+            {
+                {
+                    TIMER0,             /* lower numbered timer */
+                    cmuClock_TIMER0,    /* pre-scaler bit in the CMU register */
+                },
+                {
+                    TIMER1,             /* higher numbered timer, this is the one */
+                    cmuClock_TIMER1,    /* pre-scaler bit in the CMU register */
+                },
+                TIMER1_IRQn,            /* IRQn of the higher numbered timer */
+            }
+        {% elif board in ["slstk3401a"] %}
+            {
+                {
+                    TIMER0,             /* lower numbered timer */
+                    cmuClock_TIMER0,    /* pre-scaler bit in the CMU register */
+                },
+                {
+                    TIMER1,             /* higher numbered timer, this is the one */
+                    cmuClock_TIMER1,    /* pre-scaler bit in the CMU register */
+                },
+                TIMER1_IRQn,            /* IRQn of the higher numbered timer */
+            }
+        {% elif board in ["slwstk6220a"] %}
+            {
+                {
+                    TIMER1,             /* lower numbered timer */
+                    cmuClock_TIMER1,    /* pre-scaler bit in the CMU register */
+                },
+                {
+                    TIMER2,             /* higher numbered timer, this is the one */
+                    cmuClock_TIMER2,    /* pre-scaler bit in the CMU register */
+                },
+                TIMER2_IRQn,            /* IRQn of the higher numbered timer */
+            }
+        {% endif %}
+    {% endstrip %}
+};
+
+{% strip 2 %}
+    {% if board in ["stk3600", "stk3700", "stk3800"] %}
+        #define TIMER_0_ISR         isr_timer1
+        #define TIMER_0_MAX_VALUE   (0xffff)
+        #define TIMER_NUMOF         1
+    {% elif board in ["stk3200"] %}
+        #define TIMER_0_ISR         isr_timer1
+        #define TIMER_0_MAX_VALUE   (0xffff)
+        #define TIMER_NUMOF         1
+    {% elif board in ["slstk3401a"] %}
+        #define TIMER_0_ISR         isr_timer1
+        #define TIMER_0_MAX_VALUE   (0xffff)
+        #define TIMER_NUMOF         1
+    {% elif board in ["slwstk6220a"] %}
+        #define TIMER_0_ISR         isr_timer2
+        #define TIMER_0_MAX_VALUE   (0xffff)
+        #define TIMER_NUMOF         1
+    {% endif %}
+{% endstrip %}
+
+/** @} */
+
+/**
+ * @brief   UART configuration
+ * @{
+ */
+static const uart_conf_t uart_config[] = {
+    {% strip 2 %}
+        {% if board in ["stk3600", "stk3700", "stk3800"] %}
+            {
+                UART0,                              /* device */
+                GPIO_PIN(PE, 1),                    /* RX pin */
+                GPIO_PIN(PE, 0),                    /* TX pin */
+                UART_ROUTE_LOCATION_LOC1,           /* AF location */
+                cmuClock_UART0,                     /* CMU register */
+                UART0_RX_IRQn                       /* IRQ base channel */
+            },
+            {
+                USART1,                             /* device */
+                GPIO_PIN(PD, 1),                    /* RX pin */
+                GPIO_PIN(PD, 0),                    /* TX pin */
+                USART_ROUTE_LOCATION_LOC1,          /* AF location */
+                cmuClock_USART1,                    /* CMU register */
+                USART1_RX_IRQn                      /* IRQ base channel */
+            },
+            {
+                LEUART0,                            /* device */
+                GPIO_PIN(PD, 5),                    /* RX pin */
+                GPIO_PIN(PD, 4),                    /* TX pin */
+                LEUART_ROUTE_LOCATION_LOC0,         /* AF location */
+                cmuClock_LEUART0,                   /* CMU register */
+                LEUART0_IRQn                        /* IRQ base channel */
+            }
+        {% elif board in ["stk3200"] %}
+            {
+                LEUART0,                            /* device */
+                GPIO_PIN(PD, 5),                    /* RX pin */
+                GPIO_PIN(PD, 4),                    /* TX pin */
+                LEUART_ROUTE_LOCATION_LOC0,         /* AF location */
+                cmuClock_LEUART0,                   /* CMU register */
+                LEUART0_IRQn                        /* IRQ base channel */
+            },
+            {
+                USART1,                             /* device */
+                GPIO_PIN(PD, 6),                    /* RX pin */
+                GPIO_PIN(PD, 7),                    /* TX pin */
+                USART_ROUTE_LOCATION_LOC2,          /* AF location */
+                cmuClock_USART1,                    /* CMU register */
+                USART1_RX_IRQn                      /* IRQ base channel */
+            }
+        {% elif board in ["slstk3401a"] %}
+            {
+                USART0,                             /* device */
+                GPIO_PIN(PA, 1),                    /* RX pin */
+                GPIO_PIN(PA, 0),                    /* TX pin */
+                USART_ROUTELOC0_RXLOC_LOC0 |
+                    USART_ROUTELOC0_TXLOC_LOC0,     /* AF location */
+                cmuClock_USART0,                    /* CMU register */
+                USART0_RX_IRQn                      /* IRQ base channel */
+            },
+            {
+                USART1,                             /* device */
+                GPIO_PIN(PC, 6),                    /* RX pin */
+                GPIO_PIN(PC, 7),                    /* TX pin */
+                USART_ROUTELOC0_RXLOC_LOC11 |
+                    USART_ROUTELOC0_TXLOC_LOC11,    /* AF location */
+                cmuClock_USART1,                    /* CMU register */
+                USART1_RX_IRQn                      /* IRQ base channel */
+            },
+            {
+                LEUART0,                            /* device */
+                GPIO_PIN(PD, 11),                   /* RX pin */
+                GPIO_PIN(PD, 10),                   /* TX pin */
+                LEUART_ROUTELOC0_RXLOC_LOC18 |
+                    LEUART_ROUTELOC0_TXLOC_LOC18,   /* AF location */
+                cmuClock_LEUART0,                   /* CMU register */
+                LEUART0_IRQn                        /* IRQ base channel */
+            }
+        {% elif board in ["slwstk6220a"] %}
+            {
+                USART2,                             /* device */
+                GPIO_PIN(PB, 4),                    /* RX pin */
+                GPIO_PIN(PB, 3),                    /* TX pin */
+                USART_ROUTE_LOCATION_LOC1,          /* AF location */
+                cmuClock_USART2,                    /* CMU register */
+                USART2_RX_IRQn                      /* IRQ base channel */
+            },
+            {
+                USART1,                             /* device */
+                GPIO_PIN(PD, 1),                    /* RX pin */
+                GPIO_PIN(PD, 0),                    /* TX pin */
+                USART_ROUTE_LOCATION_LOC1,          /* AF location */
+                cmuClock_USART1,                    /* CMU register */
+                USART1_RX_IRQn                      /* IRQ base channel */
+            },
+            {
+                LEUART0,                            /* device */
+                GPIO_PIN(PD, 5),                    /* RX pin */
+                GPIO_PIN(PD, 4),                    /* TX pin */
+                LEUART_ROUTE_LOCATION_LOC0,         /* AF location */
+                cmuClock_LEUART0,                   /* CMU register */
+                LEUART0_IRQn                        /* IRQ base channel */
+            }
+        {% endif %}
+    {% endstrip %}
+};
+
+{% strip 2 %}
+    {% if board in ["stk3600", "stk3700", "stk3800"] %}
+        #define UART_0_ISR_RX       isr_uart0_rx
+        #define UART_1_ISR_RX       isr_usart1_rx
+        #define UART_2_ISR_RX       isr_leuart0
+        #define UART_NUMOF          3
+    {% elif board in ["stk3200"] %}
+        #define UART_0_ISR_RX       isr_leuart0
+        #define UART_1_ISR_RX       isr_usart1_rx
+        #define UART_NUMOF          2
+    {% elif board in ["slstk3401a"] %}
+        #define UART_0_ISR_RX       isr_usart0_rx
+        #define UART_1_ISR_RX       isr_usart1_rx
+        #define UART_2_ISR_RX       isr_leuart0
+        #define UART_NUMOF          3
+    {% elif board in ["slwstk6220a"] %}
+        #define UART_0_ISR_RX       isr_usart1_rx
+        #define UART_1_ISR_RX       isr_usart2_rx
+        #define UART_2_ISR_RX       isr_leuart0
+        #define UART_NUMOF          3
+    {% endif %}
+{% endstrip %}
+/** @} */
+
+#ifdef __cplusplus
+}
+#endif
+
+#endif /* PERIPH_CONF_H */
+/** @} */
