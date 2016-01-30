@@ -44,21 +44,21 @@ static uint32_t speed_to_baud(spi_speed_t speed)
     uint32_t baud = 1000000;
 
     switch (speed) {
-    case SPI_SPEED_100KHZ:
-        baud = 100000;
-        break;
-    case SPI_SPEED_400KHZ:
-        baud = 400000;
-        break;
-    case SPI_SPEED_1MHZ:
-        baud = 1000000;
-        break;
-    case SPI_SPEED_5MHZ:
-        baud = 5000000;
-        break;
-    case SPI_SPEED_10MHZ:
-        baud = 10000000;
-        break;
+        case SPI_SPEED_100KHZ:
+            baud = 100000;
+            break;
+        case SPI_SPEED_400KHZ:
+            baud = 400000;
+            break;
+        case SPI_SPEED_1MHZ:
+            baud = 1000000;
+            break;
+        case SPI_SPEED_5MHZ:
+            baud = 5000000;
+            break;
+        case SPI_SPEED_10MHZ:
+            baud = 10000000;
+            break;
     }
 
     return baud;
@@ -72,18 +72,18 @@ static uint32_t conf_to_cpol(spi_conf_t conf)
     uint32_t cpol = usartClockMode0;
 
     switch (conf) {
-    case SPI_CONF_FIRST_RISING:
-        cpol = usartClockMode0;
-        break;
-    case SPI_CONF_SECOND_RISING:
-        cpol = usartClockMode1;
-        break;
-    case SPI_CONF_FIRST_FALLING:
-        cpol = usartClockMode2;
-        break;
-    case SPI_CONF_SECOND_FALLING:
-        cpol = usartClockMode3;
-        break;
+        case SPI_CONF_FIRST_RISING:
+            cpol = usartClockMode0;
+            break;
+        case SPI_CONF_SECOND_RISING:
+            cpol = usartClockMode1;
+            break;
+        case SPI_CONF_FIRST_FALLING:
+            cpol = usartClockMode2;
+            break;
+        case SPI_CONF_SECOND_FALLING:
+            cpol = usartClockMode3;
+            break;
     }
 
     return cpol;
@@ -91,8 +91,6 @@ static uint32_t conf_to_cpol(spi_conf_t conf)
 
 int spi_init_master(spi_t dev, spi_conf_t conf, spi_speed_t speed)
 {
-    USART_InitSync_TypeDef init = USART_INITSYNC_DEFAULT;
-
     /* check if device is valid */
     if (dev >= UART_NUMOF) {
         return -1;
@@ -106,6 +104,8 @@ int spi_init_master(spi_t dev, spi_conf_t conf, spi_speed_t speed)
     CMU_ClockEnable(spi_config[dev].cmu, true);
 
     /* configure SPI */
+    USART_InitSync_TypeDef init = USART_INITSYNC_DEFAULT;
+    
     init.baudrate = speed_to_baud(speed);
     init.clockMode = conf_to_cpol(conf);
     init.msbf = true;
@@ -114,7 +114,7 @@ int spi_init_master(spi_t dev, spi_conf_t conf, spi_speed_t speed)
 
 #ifdef _SILICON_LABS_32B_PLATFORM_1
     spi_config[dev].dev->ROUTE = (spi_config[dev].loc |
-        USART_ROUTE_RXPEN | USART_ROUTE_TXPEN | USART_ROUTE_CLKPEN);
+                                  USART_ROUTE_RXPEN | USART_ROUTE_TXPEN | USART_ROUTE_CLKPEN);
 #else
     spi_config[dev].dev->ROUTEPEN =
         USART_ROUTEPEN_RXPEN | USART_ROUTEPEN_TXPEN | USART_ROUTEPEN_CLKPEN;
@@ -158,7 +158,8 @@ int spi_transfer_byte(spi_t dev, char out, char *in)
     if (in != NULL) {
         // Send and receive
         (*in) = USART_SpiTransfer(spi_config[dev].dev, out);
-    } else {
+    }
+    else {
         // Send only
         USART_SpiTransfer(spi_config[dev].dev, out);
     }

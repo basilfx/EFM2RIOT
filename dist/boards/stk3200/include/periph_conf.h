@@ -76,7 +76,7 @@ static const i2c_conf_t i2c_config[] = {
         I2C0,                               /* device */
         GPIO_PIN(PE, 12),                   /* SDA pin */
         GPIO_PIN(PE, 13),                   /* SCL pin */
-        I2C_ROUTE_LOCATION_LOC1,            /* AF location */
+        I2C_ROUTE_LOCATION_LOC6,            /* AF location */
         cmuClock_I2C0,                      /* CMU register */
         I2C0_IRQn,                          /* IRQ base channel */
         MUTEX_INIT                          /* mutex initializer */

@@ -81,6 +81,7 @@ static const dac_conf_t dac_config[] = {
     {
         DAC0,                               /* device */
         cmuClock_DAC0,                      /* CMU register */
+        dacRefVDD,                          /* voltage reference */
         1,                                  /* number of channels */
         0,                                  /* channel offset */
     }

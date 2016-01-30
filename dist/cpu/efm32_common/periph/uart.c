@@ -46,11 +46,7 @@ static uart_isr_ctx_t isr_ctx[UART_NUMOF];
  */
 static inline bool _is_usart(uart_t dev)
 {
-#if defined(LEUART_COUNT) && LEUART_COUNT == 0
-    return true;
-#else
     return ((uint32_t) uart_config[dev].dev) < LEUART0_BASE;
-#endif
 }
 
 int uart_init(uart_t dev, uint32_t baudrate, uart_rx_cb_t rx_cb, void *arg)
@@ -76,7 +72,7 @@ int uart_init(uart_t dev, uint32_t baudrate, uart_rx_cb_t rx_cb, void *arg)
         CMU_ClockEnable(cmuClock_HFPER, true);
         CMU_ClockEnable(uart_config[dev].cmu, true);
 
-        /* initialize device */
+        /* initialize device (reset is performed in USART_InitAsync) */
         USART_InitAsync_TypeDef init = USART_INITASYNC_DEFAULT;
 
         init.enable = usartDisable;
@@ -106,7 +102,7 @@ int uart_init(uart_t dev, uint32_t baudrate, uart_rx_cb_t rx_cb, void *arg)
         CMU_ClockEnable(cmuClock_CORELE, true);
         CMU_ClockEnable(uart_config[dev].cmu, true);
 
-        /* initialize device */
+        /* initialize device (reset is performed in LEUART_Init) */
         LEUART_Init_TypeDef init = LEUART_INIT_DEFAULT;
 
         init.enable = leuartDisable;

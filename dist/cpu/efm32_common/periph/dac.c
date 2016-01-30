@@ -59,6 +59,7 @@ int8_t dac_init(dac_t dev, dac_precision_t precision)
         case DAC_RES_10BIT:
             dac_state[dev].shift = 2;
             dac_state[dev].max_value = (1 << 12) - 1;
+            break;
         case DAC_RES_12BIT:
             dac_state[dev].shift = 0;
             dac_state[dev].max_value = (1 << 12) - 1;
@@ -81,11 +82,13 @@ int8_t dac_init(dac_t dev, dac_precision_t precision)
     /* initialize channels */
     DAC_InitChannel_TypeDef channelInit = DAC_INITCHANNEL_DEFAULT;
 
+    channelInit.enable = true;
+
     for (int i = 0; i < dac_config[dev].channels; i++) {
         uint8_t index = dac_config[dev].channel_offset + i;
 
-        DAC_InitChannel(dac_config[dev].dev,
-            &channelInit, dac_channel_config[index].index);
+        DAC_InitChannel(dac_config[dev].dev, &channelInit,
+                        dac_channel_config[index].index);
     }
 
     return 0;
@@ -106,8 +109,8 @@ int8_t dac_write(dac_t dev, uint8_t channel, uint16_t value)
     /* setup channel */
     uint8_t index = dac_config[dev].channel_offset + channel;
 
-    DAC_ChannelOutputSet(
-        dac_config[dev].dev, dac_channel_config[index].index, value << dac_state[dev].shift);
+    DAC_ChannelOutputSet(dac_config[dev].dev, dac_channel_config[index].index,
+                         value << dac_state[dev].shift);
 
     return 0;
 }
