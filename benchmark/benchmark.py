@@ -9,7 +9,7 @@ import json
 import sys
 import os
 
-# GCC *.map file grammar for parsing code size per file
+# GCC *.map file grammar for parsing code size per file.
 hex_word = Regex(r"0x[a-f0-9]+").setParseAction(lambda x: int(x[0], 16))
 
 address = hex_word ^ Literal("[!provide]")
@@ -128,7 +128,7 @@ def parse_map(map_file):
 
 def compile_job(id, riot_directory, board, application, setting):
     """
-    Compile one given setting.
+    Compile one job given the setting.
     """
 
     failed = False
@@ -146,7 +146,7 @@ def compile_job(id, riot_directory, board, application, setting):
     ]
     arguments_b = [
         "make",
-        "-j%d" % multiprocessing.cpu_count() / 2,
+        "-j%d" % (multiprocessing.cpu_count() / 2),
         "BOARD=%s" % board,
         "QUIET=1"
     ] + setting
@@ -228,7 +228,9 @@ def main():
 
     # Write results to file
     with open(arguments.output, "w") as fp:
-        json.dump(results, fp, indent=4)
+        fp.write("window.benchmarks = ")
+        json.dump(results, fp)
+        fp.write(";")
 
     # Done
     sys.stdout.write("Done!\n")

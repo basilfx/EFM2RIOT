@@ -3,17 +3,17 @@
     <head>
         <title>Benchmark Viewer</title>
 
-        <!-- Latest compiled and minified CSS -->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap.min.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.9.1/bootstrap-table.min.css">
 
-        <!-- Latest compiled and minified JavaScript -->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/js/bootstrap.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.9.1/bootstrap-table.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.9.1/extensions/multiple-sort/bootstrap-table-multiple-sort.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.9.1/extensions/filter-control/bootstrap-table-filter-control.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
+
+        <script src="data.js"></script>
 
         <script type="text/javascript">
             var currentFilter = null;
@@ -93,19 +93,34 @@
                         title: "Text",
                         field: "text",
                         sortable: true,
-                        cellStyle: createCellStyle("text")
+                        cellStyle: createCellStyle("text"),
+                        formatter: function(value, row, index) {
+                            if (value !== undefined) {
+                                return "<span style=\"cursor: pointer;\">" + value + "</span>";
+                            }
+                        }
                     },
                     {
                         title: "Data",
                         field: "data",
                         sortable: true,
-                        cellStyle: createCellStyle("data")
+                        cellStyle: createCellStyle("data"),
+                        formatter: function(value, row, index) {
+                            if (value !== undefined) {
+                                return "<span style=\"cursor: pointer;\">" + value + "</span>";
+                            }
+                        }
                     },
                     {
                         title: "BSS",
                         field: "bss",
                         sortable: true,
-                        cellStyle: createCellStyle("bss")
+                        cellStyle: createCellStyle("bss"),
+                        formatter: function(value, row, index) {
+                            if (value !== undefined) {
+                                return "<span style=\"cursor: pointer;\">" + value + "</span>";
+                            }
+                        }
                     },
                     {
                         title: "Total",
@@ -288,29 +303,6 @@
                     columns: columnsSegments
                 });
 
-                // Load the data.
-                $.get("benchmarks.json", function(data) {
-                    window.benchmarks = _.map(JSON.parse(data), function(benchmark) {
-                        benchmark.total = benchmark.dec;
-
-                        _.each(["text", "data", "bss"], function(segment) {
-                            if (benchmark.segments && benchmark.segments[segment]) {
-                                benchmark.segments[segment] = _.map(benchmark.segments[segment], function(key, value) {
-                                    return {
-                                        "file": key,
-                                        "size": value
-                                    }
-                                });
-                            }
-                        });
-
-                        return benchmark;
-                    });
-
-                    // Trigger initial render.
-                    render();
-                });
-
                 // Click handlers for menu.
                 $("#groupby-menu li").each(function(index, element) {
                     var options = {
@@ -370,6 +362,26 @@
                         render();
                     });
                 });
+
+                // Load the data.
+                window.benchmarks = _.map(window.benchmarks, function(benchmark) {
+                    benchmark.total = benchmark.dec;
+
+                    _.each(["text", "data", "bss"], function(segment) {
+                        if (benchmark.segments && benchmark.segments[segment]) {
+                            benchmark.segments[segment] = _.map(benchmark.segments[segment], function(key, value) {
+                                return {
+                                    "file": key,
+                                    "size": value
+                                }
+                            });
+                        }
+                    });
+
+                    return benchmark;
+                });
+
+                render();
             });
         </script>
     </head>
