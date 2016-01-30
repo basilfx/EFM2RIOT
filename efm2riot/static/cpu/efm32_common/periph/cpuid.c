@@ -25,5 +25,5 @@
 
 void cpuid_get(void *id)
 {
-    *(uint64_t*) id = SYSTEM_GetUnique();
+    *(uint64_t *) id = SYSTEM_GetUnique();
 }

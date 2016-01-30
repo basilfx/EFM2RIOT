@@ -43,21 +43,21 @@ static uint32_t speed_to_freq(i2c_speed_t speed)
     uint32_t freq = 100000;
 
     switch (speed) {
-    case I2C_SPEED_LOW:
-        freq = 10000;
-        break;
-    case I2C_SPEED_NORMAL:
-        freq = 100000;
-        break;
-    case I2C_SPEED_FAST:
-        freq = 400000;
-        break;
-    case I2C_SPEED_FAST_PLUS:
-        freq = 1000000;
-        break;
-    case I2C_SPEED_HIGH:
-        freq = 3400000;
-        break;
+        case I2C_SPEED_LOW:
+            freq = 10000;
+            break;
+        case I2C_SPEED_NORMAL:
+            freq = 100000;
+            break;
+        case I2C_SPEED_FAST:
+            freq = 400000;
+            break;
+        case I2C_SPEED_FAST_PLUS:
+            freq = 1000000;
+            break;
+        case I2C_SPEED_HIGH:
+            freq = 3400000;
+            break;
     }
 
     return freq;
@@ -101,7 +101,7 @@ int i2c_init_master(i2c_t dev, i2c_speed_t speed)
 
 #ifdef _SILICON_LABS_32B_PLATFORM_1
     i2c_config[dev].dev->ROUTE = (i2c_config[dev].loc |
-       I2C_ROUTE_SDAPEN | I2C_ROUTE_SCLPEN);
+                                  I2C_ROUTE_SDAPEN | I2C_ROUTE_SCLPEN);
 #else
     i2c_config[dev].dev->ROUTEPEN = I2C_ROUTEPEN_SDAPEN | I2C_ROUTEPEN_SCLPEN;
     i2c_config[dev].dev->ROUTELOC0 = i2c_config[dev].loc;

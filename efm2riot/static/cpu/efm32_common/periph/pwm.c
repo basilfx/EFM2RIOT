@@ -75,7 +75,8 @@ int pwm_init(pwm_t dev, pwm_mode_t mode, unsigned int frequency, unsigned int re
             /* if first prescaler doesn't work, then no pwm frequency fits */
             if (i == 0) {
                 return -2;
-            } else {
+            }
+            else {
                 prescaler = prescalers[i - 1];
                 actual_freq = actual_freq / (1 << (i - 1));
                 break;
@@ -107,9 +108,9 @@ int pwm_init(pwm_t dev, pwm_mode_t mode, unsigned int frequency, unsigned int re
 
         /* setup timer channel */
         TIMER_InitCC(pwm_config[dev].dev,
-            pwm_channel_config[index].index, &ccInit);
+                     pwm_channel_config[index].index, &ccInit);
         TIMER_CompareBufSet(pwm_config[dev].dev,
-            pwm_channel_config[index].index, 0);
+                            pwm_channel_config[index].index, 0);
 
         /* enable pin output */
 #ifdef _SILICON_LABS_32B_PLATFORM_1

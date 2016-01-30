@@ -113,7 +113,7 @@ int adc_sample(adc_t dev, int channel)
     ADC_Start(adc_config[dev].dev, adcStartSingle);
 
     /* wait until the ADC has warmed up */
-    while (adc_config[dev].dev->STATUS & ADC_STATUS_SINGLEACT) {};
+    while (adc_config[dev].dev->STATUS & ADC_STATUS_SINGLEACT);
 
     /* read sample and shift it to match resolution */
     return ADC_DataSingleGet(adc_config[dev].dev) >> adc_state[dev].shift;
