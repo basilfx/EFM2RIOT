@@ -58,9 +58,10 @@ Currently, the following boards (development kits) are supported:
 * [SLWSTK6220A](dist/doc/SLWSTK6220A.md) &mdash; EZR32 Wonder Gecko (untested)
 
 ## TODO
-* Add support for DMA in peripheral drivers
-* I2C: use interrupts for transfer
-* Timer: add LEUART peripherals
+* General: find out which MCUs are limited to run RIOT-OS.
+* General: add support for DMA in peripheral drivers.
+* I2C: use interrupts for transfer.
+* Timer: add LEUART peripherals.
 
 ## FAQ
 
@@ -70,23 +71,25 @@ It started as an experiment on generating code from configuration, but turned ou
 * This port uses a slightly modified version of emlib. When this library is updated, these changes have to be applied again. This generator automates that process.
 * All supported MCUs are extracted from emlib. Using templates, new MCUs that are supported by emlib will also be supported by this port.
 
-### Why is this not part of RIOT-OS?
+### Why is this not (yet) part of RIOT-OS?
 The generator is something completely different and has no intention to be part of the RIOT-OS project.
 
 The generated files (the ones in the `dist/` folder) *could* be part of RIOT-OS. However, the developers have a strong preference for a port that is not dependent on any vendor libraries. While I respect this choice, I have the following arguments for using emlib:
 
-* (New) families are supported, as long as the emlib API stays the same.
-* The library developers have good understanding of the hardware.
-* Chip errata (where possible) ensures consistency across revisions of the same chip.
-* When developing board-specific applications, chances are you will use emlib for accessing peripherals.
 * emlib contains powerful assertions to help development.
-* It cuts the number of errors and development time.
+* (New) families are supported, as long as the emlib API stays the same.
+* Chip errata (where possible) ensures consistency across revisions of the same chip. This is applied during chip setup.
+* When developing board-specific applications, chances are you will use emlib for accessing peripherals.
+* It reduces the number of errors and cuts the development time.
+* The library developers have good understanding of the hardware.
 
 There are doubts on the performance and memory overhead of emlib. I have concluded the following, based on a benchmarking script (included):
 
-* Code size does increase when using emlib. The overhead is in the range of 3 to 5 kb of flash, depending on the target and used peripherals.
-* A large part of the overhead is contained within the clock management unit. This is an integral part and constant part.
-* Most get/set/read/write/enable/clear methods are implemented as macro's or inline methods. They are equally efficient as their direct register variant.
+* Code size does increase when using emlib. The overhead is in the range of 3 to 5 kb of flash, depending on the target and peripherals used.
+* A large part of the overhead is contained within the clock management unit. This is an integral part for proper clock setup and low-power support. It is used by all peripherals and has a constant code size.
+* Most get/set/read/write/enable/clear methods are implemented as macro's or inline methods. They are equally efficient as their direct register alternative.
+
+Some benchmarks are available at http://basilfx.github.io/EFM2Riot.
 
 ## License
 See the `LICENSE` file.
