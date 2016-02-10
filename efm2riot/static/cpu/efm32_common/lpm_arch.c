@@ -39,6 +39,7 @@ enum lpm_mode lpm_arch_set(enum lpm_mode target)
             break;
         case LPM_SLEEP:
         case LPM_POWERDOWN:
+            /* after exiting EM2, clocks are restored */
             EMU_EnterEM2(true);
             break;
 
