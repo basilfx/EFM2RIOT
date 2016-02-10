@@ -14,6 +14,8 @@
  * @brief       Implementation of the CPU initialization
  *
  * @author      Hauke Petersen <hauke.petersen@fu-berlin.de>
+ * @author      Bas Stottelaar <basstottelaar@gmail.com>
+ *
  * @}
  */
 
@@ -26,12 +28,11 @@
 /**
  * @brief   Configure clock sources and the CPU frequency
  *
- * On a EFM32 CPU, we basically have two options for selecting the main clock
+ * On a EFM32 CPU, there are two options for selecting the main clock
  * source, using an external clock source (HFXO), or using the internal RC
  * oscillator (HFRCO, enabled by default).
  *
- * The clocks for the LFA, LFB, LFE and HFPER are also configured. They are
- * also disabled until needed by peripherals, to minimize power consumption.
+ * The clocks for the LFA, LFB, LFE and HFPER are also configured.
  */
 static void clk_init(void)
 {

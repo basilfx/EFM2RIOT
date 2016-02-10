@@ -14,6 +14,7 @@
  * @brief       CPU specific definitions for internal peripheral handling
  *
  * @author      Hauke Petersen <hauke.petersen@fu-berlin.de>
+ * @author      Bas Stottelaar <basstottelaar@gmail.com>
  */
 
 #ifndef CPU_PERIPH_H_
