@@ -33,9 +33,14 @@ extern "C" {
 #endif
 
 /**
- * @brief   Assign the hardware timer
+ * @brief   Xtimer configuration
+ * @{
  */
-#define HW_TIMER            TIMER_DEV(0)
+#define XTIMER                      (0)
+#define XTIMER_CHAN                 (0)
+#define XTIMER_MASK                 (0xffff0000)
+#define XTIMER_SHIFT_ON_COMPARE     (2)
+/** @} */
 
 {% strip 2, true %}
     {% if architecture not in ["m0", "m0plus"] %}
