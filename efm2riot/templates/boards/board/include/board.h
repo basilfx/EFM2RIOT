@@ -179,7 +179,6 @@ extern "C" {
          * @{
          */
         #define SI7021_I2C          (I2C_0)
-        #define SI7021_ADDR         (0x40)
         #define SI7021_EN_PIN       GPIO_PIN(PD, 9)
         /** @} */
     {% elif board in ["slwstk6220a"] %}
@@ -188,7 +187,6 @@ extern "C" {
          * @{
          */
         #define SI7021_I2C          (I2C_0)
-        #define SI7021_ADDR         (0x40)
         #define SI7021_EN_PIN       GPIO_PIN(PF, 8)
         /** @} */
     {% endif %}
