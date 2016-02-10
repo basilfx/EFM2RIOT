@@ -230,7 +230,6 @@ typedef struct {
     uint32_t loc;           /**< location of USART pins */
     CMU_Clock_TypeDef cmu;  /**< the device CMU channel */
     IRQn_Type irq;          /**< the devices base IRQ channel */
-    mutex_t lock;           /**< lock for exclusive access to bus */
 } spi_dev_t;
 
 /**

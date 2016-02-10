@@ -21,7 +21,6 @@
 #define PERIPH_CONF_H
 
 #include "cpu.h"
-#include "mutex.h"
 
 #include "periph_cpu.h"
 
@@ -387,7 +386,6 @@ static const spi_dev_t spi_config[] = {
                 USART_ROUTE_LOCATION_LOC1,          /* AF location */
                 cmuClock_USART1,                    /* CMU register */
                 USART1_RX_IRQn,                     /* IRQ base channel */
-                MUTEX_INIT                          /* mutex initializer */
             },
             {
                 USART2,                             /* device */
@@ -397,7 +395,6 @@ static const spi_dev_t spi_config[] = {
                 USART_ROUTE_LOCATION_LOC0,          /* AF location */
                 cmuClock_USART2,                    /* CMU register */
                 USART2_RX_IRQn,                     /* IRQ base channel */
-                MUTEX_INIT                          /* mutex initializer */
             }
         {% elif board in ["stk3200"] %}
             {
@@ -408,7 +405,6 @@ static const spi_dev_t spi_config[] = {
                 USART_ROUTE_LOCATION_LOC1,          /* AF location */
                 cmuClock_USART1,                    /* CMU register */
                 USART1_RX_IRQn,                     /* IRQ base channel */
-                MUTEX_INIT                          /* mutex initializer */
             }
         {% elif board in ["slstk3401a"] %}
             {
@@ -421,7 +417,6 @@ static const spi_dev_t spi_config[] = {
                     USART_ROUTELOC0_CLKLOC_LOC11,   /* AF location */
                 cmuClock_USART1,                    /* CMU register */
                 USART1_RX_IRQn,                     /* IRQ base channel */
-                MUTEX_INIT                          /* mutex initializer */
             }
         {% elif board in ["slwstk6220a"] %}
             {
@@ -432,7 +427,6 @@ static const spi_dev_t spi_config[] = {
                 USART_ROUTE_LOCATION_LOC1,          /* AF location */
                 cmuClock_USART1,                    /* CMU register */
                 USART1_RX_IRQn,                     /* IRQ base channel */
-                MUTEX_INIT                          /* mutex initializer */
             }
         {% endif %}
     {% endstrip %}
@@ -533,7 +527,6 @@ static const timer_conf_t timer_config[] = {
         #define TIMER_NUMOF         1
     {% endif %}
 {% endstrip %}
-
 /** @} */
 
 /**
