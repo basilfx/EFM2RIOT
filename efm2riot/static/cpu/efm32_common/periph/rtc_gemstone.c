@@ -51,15 +51,8 @@ void rtc_init(void)
     CMU_ClockEnable(cmuClock_CORELE, true);
     CMU_ClockEnable(cmuClock_RTCC, true);
 
-    /* initialize the RTCC */
-    RTCC_Init_TypeDef init = RTCC_INIT_DEFAULT;
-
-    init.enable = false;
-    init.presc = rtccCntPresc_32768;
-    init.cntMode = rtccCntModeCalendar;
-
+    /* reset the peripheral */
     RTCC_Reset();
-    RTCC_Init(&init);
 
     /* initialize alarm channel */
     RTCC_CCChConf_TypeDef channelInit = RTCC_CH_INIT_COMPARE_DEFAULT;
@@ -70,8 +63,13 @@ void rtc_init(void)
     NVIC_ClearPendingIRQ(RTCC_IRQn);
     NVIC_EnableIRQ(RTCC_IRQn);
 
-    /* enable RTCC */
-    RTCC_Enable(true);
+    /* initialize and enable peripheral */
+    RTCC_Init_TypeDef init = RTCC_INIT_DEFAULT;
+
+    init.presc = rtccCntPresc_32768;
+    init.cntMode = rtccCntModeCalendar;
+
+    RTCC_Init(&init);
 }
 
 int rtc_set_time(struct tm *time)

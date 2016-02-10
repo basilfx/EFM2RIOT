@@ -68,13 +68,6 @@ int timer_init(tim_t dev, unsigned int ticks_per_us, void (*callback)(int))
     TIMER_Reset(tim);
     TIMER_Reset(pre);
 
-    /* prepare configuration, using prescaler 32 to minimize overhead */
-    TIMER_Init_TypeDef init_pre = TIMER_INIT_DEFAULT;
-    TIMER_Init_TypeDef init_tim = TIMER_INIT_DEFAULT;
-
-    init_pre.prescale = timerPrescale32;
-    init_tim.clkSel = timerClkSelCascade;
-
     /* configure the prescaler top value */
     uint32_t freq = CMU_ClockFreqGet(timer_config[dev].prescaler.cmu);
     uint32_t top = ((freq / 32 / 1000000) - 1) * ticks_per_us;
@@ -89,7 +82,13 @@ int timer_init(tim_t dev, unsigned int ticks_per_us, void (*callback)(int))
     NVIC_ClearPendingIRQ(timer_config[dev].irq);
     NVIC_EnableIRQ(timer_config[dev].irq);
 
-    /* initialize and start both timers */
+    /* initialize and enable peripherals */
+    TIMER_Init_TypeDef init_pre = TIMER_INIT_DEFAULT;
+    TIMER_Init_TypeDef init_tim = TIMER_INIT_DEFAULT;
+
+    init_pre.prescale = timerPrescale32;
+    init_tim.clkSel = timerClkSelCascade;
+
     TIMER_Init(tim, &init_tim);
     TIMER_Init(pre, &init_pre);
 

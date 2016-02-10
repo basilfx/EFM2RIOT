@@ -47,14 +47,8 @@ void rtt_init(void)
     CMU_ClockEnable(cmuClock_CORELE, true);
     CMU_ClockEnable(cmuClock_RTCC, true);
 
-    /* initialize the RTCC */
-    RTCC_Init_TypeDef init = RTCC_INIT_DEFAULT;
-
-    init.enable = false;
-    init.presc = rtccCntPresc_32768;
-
+    /* reset the peripheral */
     RTCC_Reset();
-    RTCC_Init(&init);
 
     /* initialize alarm channel */
     RTCC_CCChConf_TypeDef channelInit = RTCC_CH_INIT_COMPARE_DEFAULT;
@@ -65,8 +59,12 @@ void rtt_init(void)
     NVIC_ClearPendingIRQ(RTCC_IRQn);
     NVIC_EnableIRQ(RTCC_IRQn);
 
-    /* enable RTCC */
-    RTCC_Enable(true);
+    /* initialize and enable peripheral */
+    RTCC_Init_TypeDef init = RTCC_INIT_DEFAULT;
+
+    init.presc = rtccCntPresc_32768;
+
+    RTCC_Init(&init);
 }
 
 void rtt_set_overflow_cb(rtt_cb_t cb, void *arg)
@@ -74,6 +72,7 @@ void rtt_set_overflow_cb(rtt_cb_t cb, void *arg)
     rtt_state.overflow_cb = cb;
     rtt_state.overflow_arg = arg;
 
+    RTCC_IntClear(RTCC_IFC_OF);
     RTCC_IntEnable(RTCC_IEN_OF);
 }
 

@@ -74,13 +74,15 @@ int adc_init(adc_t dev, adc_precision_t precision)
     CMU_ClockEnable(cmuClock_HFPER, true);
     CMU_ClockEnable(adc_config[dev].cmu, true);
 
-    /* initialize device */
+    /* reset the peripheral */
+    ADC_Reset(adc_config[dev].dev);
+
+    /* initialize and enable peripheral */
     ADC_Init_TypeDef init = ADC_INIT_DEFAULT;
 
     init.timebase = ADC_TimebaseCalc(0);
     init.prescale = ADC_PrescaleCalc(400000, 0);
 
-    ADC_Reset(adc_config[dev].dev);
     ADC_Init(adc_config[dev].dev, &init);
 
     return 0;

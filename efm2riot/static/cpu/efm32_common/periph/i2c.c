@@ -90,7 +90,11 @@ int i2c_init_master(i2c_t dev, i2c_speed_t speed)
         return -1;
     }
 
-    /* configure pins (SCL first) */
+    /* enable clocks */
+    CMU_ClockEnable(cmuClock_HFPER, true);
+    CMU_ClockEnable(i2c_config[dev].cmu, true);
+
+    /* configure the pins */
     gpio_init(i2c_config[dev].scl_pin, GPIO_DIR_BI, GPIO_NOPULL);
     gpio_init(i2c_config[dev].sda_pin, GPIO_DIR_BI, GPIO_NOPULL);
 
@@ -100,32 +104,31 @@ int i2c_init_master(i2c_t dev, i2c_speed_t speed)
         gpio_clear(i2c_config[dev].scl_pin);
     }
 
-    /* enable clock */
-    CMU_ClockEnable(cmuClock_HFPER, true);
-    CMU_ClockEnable(i2c_config[dev].cmu, true);
+    /* configure pin functions */
+#ifdef _SILICON_LABS_32B_PLATFORM_1
+    i2c_config[dev].dev->ROUTE = (i2c_config[dev].loc |
+                                  I2C_ROUTE_SDAPEN | I2C_ROUTE_SCLPEN);
+#else
+    i2c_config[dev].dev->ROUTEPEN = I2C_ROUTEPEN_SDAPEN | I2C_ROUTEPEN_SCLPEN;
+    i2c_config[dev].dev->ROUTELOC0 = i2c_config[dev].loc;
+#endif
 
-    /* reset the device */
+    /* initialize the state */
+    i2c_state[dev].lock = MUTEX_INIT;
+
+    /* reset the peripheral */
     I2C_Reset(i2c_config[dev].dev);
 
     /* enable interrupts */
     NVIC_ClearPendingIRQ(i2c_config[dev].irq);
     NVIC_EnableIRQ(i2c_config[dev].irq);
 
-    /* initialize and enable the device */
+    /* initialize and enable peripheral */
     I2C_Init_TypeDef init = I2C_INIT_DEFAULT;
 
     init.freq = speed_to_freq(speed);
 
     I2C_Init(i2c_config[dev].dev, &init);
-
-    /* configure pins to output I2C */
-    #ifdef _SILICON_LABS_32B_PLATFORM_1
-        i2c_config[dev].dev->ROUTE = (i2c_config[dev].loc |
-                                      I2C_ROUTE_SDAPEN | I2C_ROUTE_SCLPEN);
-    #else
-        i2c_config[dev].dev->ROUTEPEN = I2C_ROUTEPEN_SDAPEN | I2C_ROUTEPEN_SCLPEN;
-        i2c_config[dev].dev->ROUTELOC0 = i2c_config[dev].loc;
-    #endif
 
     return 0;
 }

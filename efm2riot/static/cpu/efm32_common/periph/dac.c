@@ -73,11 +73,8 @@ int8_t dac_init(dac_t dev, dac_precision_t precision)
     CMU_ClockEnable(cmuClock_HFPER, true);
     CMU_ClockEnable(dac_config[dev].cmu, true);
 
-    /* initialize device */
-    DAC_Init_TypeDef init = DAC_INIT_DEFAULT;
-
+    /* reset the peripheral */
     DAC_Reset(dac_config[dev].dev);
-    DAC_Init(dac_config[dev].dev, &init);
 
     /* initialize channels */
     DAC_InitChannel_TypeDef channelInit = DAC_INITCHANNEL_DEFAULT;
@@ -90,6 +87,11 @@ int8_t dac_init(dac_t dev, dac_precision_t precision)
         DAC_InitChannel(dac_config[dev].dev, &channelInit,
                         dac_channel_config[index].index);
     }
+
+    /* initialize and enable peripheral */
+    DAC_Init_TypeDef init = DAC_INIT_DEFAULT;
+
+    DAC_Init(dac_config[dev].dev, &init);
 
     return 0;
 }

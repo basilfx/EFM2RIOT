@@ -72,7 +72,7 @@ int pwm_init(pwm_t dev, pwm_mode_t mode, unsigned int frequency, unsigned int re
 
     for (int i = 0; i < 11; i++) {
         if ((actual_freq / (1 << i)) < (frequency * resolution)) {
-            /* if first prescaler doesn't work, then no pwm frequency fits */
+            /* if first prescaler doesn't work, then no pwm frequency works */
             if (i == 0) {
                 return -2;
             }
@@ -84,45 +84,44 @@ int pwm_init(pwm_t dev, pwm_mode_t mode, unsigned int frequency, unsigned int re
         }
     }
 
-    /* initialize the timer */
-    TIMER_Init_TypeDef init = TIMER_INIT_DEFAULT;
-
-    init.enable = false;
-    init.prescale = prescaler;
-
+    /* reset the peripheral */
     TIMER_Reset(pwm_config[dev].dev);
-    TIMER_Init(pwm_config[dev].dev, &init);
-
-    /* configure the period */
-    TIMER_TopSet(pwm_config[dev].dev, resolution);
 
     /* initialize all channels */
-    TIMER_InitCC_TypeDef ccInit = TIMER_INITCC_DEFAULT;
+    TIMER_InitCC_TypeDef init_cc = TIMER_INITCC_DEFAULT;
 
-    ccInit.mode = timerCCModePWM;
+    init_cc.mode = timerCCModePWM;
 
     for (int i = 0; i < pwm_config[dev].channels; i++) {
         uint8_t index = pwm_config[dev].channel_offset + i;
 
+        /* configure the pin */
         gpio_init(pwm_channel_config[index].pin, GPIO_DIR_OUT, GPIO_NOPULL);
 
-        /* setup timer channel */
-        TIMER_InitCC(pwm_config[dev].dev,
-                     pwm_channel_config[index].index, &ccInit);
-        TIMER_CompareBufSet(pwm_config[dev].dev,
-                            pwm_channel_config[index].index, 0);
-
-        /* enable pin output */
+        /* configure pin function */
 #ifdef _SILICON_LABS_32B_PLATFORM_1
         pwm_config[dev].dev->ROUTE |= (channel_to_route[pwm_channel_config[index].index] | pwm_channel_config[index].loc);
 #else
         pwm_config[dev].dev->ROUTEPEN |= channel_to_route[pwm_channel_config[index].index];
         pwm_config[dev].dev->ROUTELOC0 |= pwm_channel_config[index].loc;
 #endif
+
+        /* setup channel */
+        TIMER_InitCC(pwm_config[dev].dev,
+                     pwm_channel_config[index].index, &init_cc);
+        TIMER_CompareBufSet(pwm_config[dev].dev,
+                            pwm_channel_config[index].index, 0);
     }
 
-    /* enable timer */
-    TIMER_Enable(pwm_config[dev].dev, true);
+    /* configure the period */
+    TIMER_TopSet(pwm_config[dev].dev, resolution);
+
+    /* initialize and enable peripheral */
+    TIMER_Init_TypeDef init = TIMER_INIT_DEFAULT;
+
+    init.prescale = prescaler;
+
+    TIMER_Init(pwm_config[dev].dev, &init);
 
     return actual_freq / resolution;
 }
