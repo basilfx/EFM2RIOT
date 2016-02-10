@@ -60,7 +60,6 @@ Currently, the following boards (development kits) are supported:
 ## TODO
 * General: find out which MCUs are limited to run RIOT-OS.
 * General: add support for DMA in peripheral drivers.
-* I2C: use interrupts for transfer.
 * Timer: add LEUART peripherals.
 
 ## FAQ

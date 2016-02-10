@@ -245,7 +245,7 @@ This is the pinout of the Expansion Header on the right side of the board. PIN 1
         | LCD driver                    | LS013B7DH03                    | planned   | Sharp Low Power Memory LCD                                     |
     {% endif %}
     {% if board in ["slstk3401a", "slwstk6220a"] %}
-        | Temperature + Humidity sensor | Si7021                         | planned   | Silicon Labs Temperature + Humidity sensor                     |
+        | Temperature + Humidity sensor | Si7021                         | yes       | Silicon Labs Temperature + Humidity sensor                     |
     {% endif %}
 {% endstrip %}
 
