@@ -198,7 +198,6 @@ typedef struct {
     uint32_t loc;           /**< location of I2C pins */
     CMU_Clock_TypeDef cmu;  /**< the device CMU channel */
     IRQn_Type irq;          /**< the devices base IRQ channel */
-    mutex_t lock;           /**< lock for exclusive access to bus */
 } i2c_conf_t;
 
 /**

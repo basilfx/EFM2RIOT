@@ -211,8 +211,7 @@ static const i2c_conf_t i2c_config[] = {
                 GPIO_PIN(PD, 7),                    /* SCL pin */
                 I2C_ROUTE_LOCATION_LOC1,            /* AF location */
                 cmuClock_I2C0,                      /* CMU register */
-                I2C0_IRQn,                          /* IRQ base channel */
-                MUTEX_INIT                          /* mutex initializer */
+                I2C0_IRQn                           /* IRQ base channel */
             },
             {
                 I2C1,                               /* device */
@@ -220,8 +219,7 @@ static const i2c_conf_t i2c_config[] = {
                 GPIO_PIN(PC, 5),                    /* SCL pin */
                 I2C_ROUTE_LOCATION_LOC0,            /* AF location */
                 cmuClock_I2C1,                      /* CMU register */
-                I2C1_IRQn,                          /* IRQ base channel */
-                MUTEX_INIT                          /* mutex initializer */
+                I2C1_IRQn                           /* IRQ base channel */
             }
         {% elif board in ["stk3200"] %}
             {
@@ -230,8 +228,7 @@ static const i2c_conf_t i2c_config[] = {
                 GPIO_PIN(PE, 13),                   /* SCL pin */
                 I2C_ROUTE_LOCATION_LOC6,            /* AF location */
                 cmuClock_I2C0,                      /* CMU register */
-                I2C0_IRQn,                          /* IRQ base channel */
-                MUTEX_INIT                          /* mutex initializer */
+                I2C0_IRQn                           /* IRQ base channel */
             }
         {% elif board in ["slstk3401a"] %}
             {
@@ -241,8 +238,7 @@ static const i2c_conf_t i2c_config[] = {
                 I2C_ROUTELOC0_SDALOC_LOC15 |
                     I2C_ROUTELOC0_SCLLOC_LOC15,     /* AF location */
                 cmuClock_I2C0,                      /* CMU register */
-                I2C0_IRQn,                          /* IRQ base channel */
-                MUTEX_INIT                          /* mutex initializer */
+                I2C0_IRQn                           /* IRQ base channel */
             }
         {% elif board in ["slwstk6220a"] %}
             {
@@ -251,8 +247,7 @@ static const i2c_conf_t i2c_config[] = {
                 GPIO_PIN(PE, 1),                    /* SCL pin */
                 I2C_ROUTE_LOCATION_LOC2,            /* AF location */
                 cmuClock_I2C1,                      /* CMU register */
-                I2C1_IRQn,                          /* IRQ base channel */
-                MUTEX_INIT                          /* mutex initializer */
+                I2C1_IRQn                           /* IRQ base channel */
             }
         {% endif %}
     {% endstrip %}
@@ -261,12 +256,17 @@ static const i2c_conf_t i2c_config[] = {
 {% strip 2 %}
     {% if board in ["stk3600", "stk3700", "stk3800"] %}
         #define I2C_NUMOF           2
+        #define I2C_0_ISR           isr_i2c0
+        #define I2C_1_ISR           isr_i2c1
     {% elif board in ["stk3200"] %}
         #define I2C_NUMOF           1
+        #define I2C_0_ISR           isr_i2c0
     {% elif board in ["slstk3401a"] %}
         #define I2C_NUMOF           1
+        #define I2C_0_ISR           isr_i2c0
     {% elif board in ["slwstk6220a"] %}
-        #define I2C_NUMOF           2
+        #define I2C_NUMOF           1
+        #define I2C_0_ISR           isr_i2c1
     {% endif %}
 {% endstrip %}
 /** @} */
