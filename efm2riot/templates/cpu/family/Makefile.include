@@ -1,4 +1,5 @@
 export CPU_ARCH = cortex-{{ architecture }}
+export CPU_FAM = {{ family }}
 
 {% strip 2, true %}
     {% if architecture in ["m0", "m0plus"] %}
@@ -9,3 +10,6 @@ export CPU_ARCH = cortex-{{ architecture }}
 
 # include efm32_common
 include $(RIOTCPU)/efm32_common/Makefile.include
+
+# include cortexm_common
+include $(RIOTCPU)/Makefile.include.cortexm_common
