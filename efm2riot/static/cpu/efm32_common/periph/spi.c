@@ -36,11 +36,14 @@
 /* guard file in case no SPI device is defined */
 #if SPI_NUMOF
 
-typedef struct {
-    mutex_t lock;                            /**< peripheral lock */
-} spi_state_t;
-
-static spi_state_t spi_state[SPI_NUMOF];
+static mutex_t spi_lock[I2C_NUMOF] = {
+#if SPI_0_EN
+    [SPI_0] = MUTEX_INIT,
+#endif
+#if SPI_1_EN
+    [SPI_1] = MUTEX_INIT,
+#endif
+};
 
 /**
  * @brief Convert speeds to integers
@@ -109,9 +112,6 @@ int spi_init_master(spi_t dev, spi_conf_t conf, spi_speed_t speed)
     /* configure the pins */
     spi_conf_pins(dev);
 
-    /* initialize the state */
-    spi_state[dev].lock = MUTEX_INIT;
-
     /* initialize and enable peripheral */
     USART_InitSync_TypeDef init = USART_INITSYNC_DEFAULT;
 
@@ -152,14 +152,14 @@ int spi_conf_pins(spi_t dev)
 
 int spi_acquire(spi_t dev)
 {
-    mutex_lock((mutex_t *) &spi_state[dev].lock);
+    mutex_lock((mutex_t *) &spi_lock[dev]);
 
     return 0;
 }
 
 int spi_release(spi_t dev)
 {
-    mutex_unlock((mutex_t *) &spi_state[dev].lock);
+    mutex_unlock((mutex_t *) &spi_lock[dev]);
 
     return 0;
 }

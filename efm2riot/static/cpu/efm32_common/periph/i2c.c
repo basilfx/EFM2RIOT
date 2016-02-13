@@ -35,12 +35,16 @@
 /* guard file in case no I2C device is defined */
 #if I2C_NUMOF
 
-typedef struct {
-    I2C_TransferReturn_TypeDef progress;     /**< transfer progress */
-    mutex_t lock;                            /**< peripheral lock */
-} i2c_state_t;
+volatile static I2C_TransferReturn_TypeDef i2c_progress[I2C_NUMOF];
 
-static i2c_state_t i2c_state[I2C_NUMOF];
+static mutex_t i2c_lock[I2C_NUMOF] = {
+#if I2C_0_EN
+    [I2C_0] = MUTEX_INIT,
+#endif
+#if I2C_1_EN
+    [I2C_1] = MUTEX_INIT,
+#endif
+};
 
 /**
  * @brief Convert speeds to integers
@@ -75,9 +79,9 @@ static uint32_t speed_to_freq(i2c_speed_t speed)
  */
 static void _transfer(i2c_t dev, I2C_TransferSeq_TypeDef *transfer)
 {
-    i2c_state[dev].progress = I2C_TransferInit(i2c_config[dev].dev, transfer);
+    i2c_progress[dev] = I2C_TransferInit(i2c_config[dev].dev, transfer);
 
-    while (i2c_state[dev].progress == i2cTransferInProgress) {
+    while (i2c_progress[dev] == i2cTransferInProgress) {
         /* the transfer progresses via the interrupt handler */
         __WFI();
     }
@@ -104,6 +108,15 @@ int i2c_init_master(i2c_t dev, i2c_speed_t speed)
         gpio_clear(i2c_config[dev].scl_pin);
     }
 
+    /* reset and initialize the peripheral */
+    I2C_Init_TypeDef init = I2C_INIT_DEFAULT;
+
+    init.enable = false;
+    init.freq = speed_to_freq(speed);
+
+    I2C_Reset(i2c_config[dev].dev);
+    I2C_Init(i2c_config[dev].dev, &init);
+
     /* configure pin functions */
 #ifdef _SILICON_LABS_32B_PLATFORM_1
     i2c_config[dev].dev->ROUTE = (i2c_config[dev].loc |
@@ -113,36 +126,26 @@ int i2c_init_master(i2c_t dev, i2c_speed_t speed)
     i2c_config[dev].dev->ROUTELOC0 = i2c_config[dev].loc;
 #endif
 
-    /* initialize the state */
-    i2c_state[dev].lock = MUTEX_INIT;
-
-    /* reset the peripheral */
-    I2C_Reset(i2c_config[dev].dev);
-
     /* enable interrupts */
     NVIC_ClearPendingIRQ(i2c_config[dev].irq);
     NVIC_EnableIRQ(i2c_config[dev].irq);
 
-    /* initialize and enable peripheral */
-    I2C_Init_TypeDef init = I2C_INIT_DEFAULT;
-
-    init.freq = speed_to_freq(speed);
-
-    I2C_Init(i2c_config[dev].dev, &init);
+    /* enable peripheral */
+    I2C_Enable(i2c_config[dev].dev, true);
 
     return 0;
 }
 
 int i2c_acquire(i2c_t dev)
 {
-    mutex_lock((mutex_t *) &i2c_state[dev].lock);
+    mutex_lock((mutex_t *) &i2c_lock[dev]);
 
     return 0;
 }
 
 int i2c_release(i2c_t dev)
 {
-    mutex_unlock((mutex_t *) &i2c_state[dev].lock);
+    mutex_unlock((mutex_t *) &i2c_lock[dev]);
 
     return 0;
 }
@@ -164,7 +167,7 @@ int i2c_read_bytes(i2c_t dev, uint8_t address, char *data, int length)
     /* start a transfer */
     _transfer(dev, &transfer);
 
-    if (i2c_state[dev].progress != i2cTransferDone) {
+    if (i2c_progress[dev] != i2cTransferDone) {
         return -2;
     }
 
@@ -191,7 +194,7 @@ int i2c_read_regs(i2c_t dev, uint8_t address, uint8_t reg,
     /* start a transfer */
     _transfer(dev, &transfer);
 
-    if (i2c_state[dev].progress != i2cTransferDone) {
+    if (i2c_progress[dev] != i2cTransferDone) {
         return -2;
     }
 
@@ -215,7 +218,7 @@ int i2c_write_bytes(i2c_t dev, uint8_t address, char *data, int length)
     /* start a transfer */
     _transfer(dev, &transfer);
 
-    if (i2c_state[dev].progress != i2cTransferDone) {
+    if (i2c_progress[dev] != i2cTransferDone) {
         return -2;
     }
 
@@ -242,7 +245,7 @@ int i2c_write_regs(i2c_t dev, uint8_t address, uint8_t reg,
     /* start a transfer */
     _transfer(dev, &transfer);
 
-    if (i2c_state[dev].progress != i2cTransferDone) {
+    if (i2c_progress[dev] != i2cTransferDone) {
         return -2;
     }
 
@@ -262,14 +265,14 @@ void i2c_poweroff(i2c_t dev)
 #ifdef I2C_0_ISR
 void I2C_0_ISR(void)
 {
-    i2c_state[0].progress = I2C_Transfer(i2c_config[0].dev);
+    i2c_progress[0] = I2C_Transfer(i2c_config[0].dev);
 }
 #endif
 
 #ifdef I2C_1_ISR
 void I2C_1_ISR(void)
 {
-    i2c_state[1].progress = I2C_Transfer(i2c_config[1].dev);
+    i2c_progress[1] = I2C_Transfer(i2c_config[1].dev);
 }
 #endif
 

@@ -84,8 +84,17 @@ int pwm_init(pwm_t dev, pwm_mode_t mode, unsigned int frequency, unsigned int re
         }
     }
 
-    /* reset the peripheral */
+    /* reset and initialize peripheral */
+    TIMER_Init_TypeDef init = TIMER_INIT_DEFAULT;
+
+    init.enable = false;
+    init.prescale = prescaler;
+
     TIMER_Reset(pwm_config[dev].dev);
+    TIMER_Init(pwm_config[dev].dev, &init);
+
+    /* configure the period */
+    TIMER_TopSet(pwm_config[dev].dev, resolution);
 
     /* initialize all channels */
     TIMER_InitCC_TypeDef init_cc = TIMER_INITCC_DEFAULT;
@@ -113,15 +122,8 @@ int pwm_init(pwm_t dev, pwm_mode_t mode, unsigned int frequency, unsigned int re
                             pwm_channel_config[index].index, 0);
     }
 
-    /* configure the period */
-    TIMER_TopSet(pwm_config[dev].dev, resolution);
-
-    /* initialize and enable peripheral */
-    TIMER_Init_TypeDef init = TIMER_INIT_DEFAULT;
-
-    init.prescale = prescaler;
-
-    TIMER_Init(pwm_config[dev].dev, &init);
+    /* enable peripheral */
+    TIMER_Enable(pwm_config[dev].dev, true);
 
     return actual_freq / resolution;
 }

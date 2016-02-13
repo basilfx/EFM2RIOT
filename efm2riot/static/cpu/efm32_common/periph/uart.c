@@ -72,6 +72,14 @@ int uart_init(uart_t dev, uint32_t baudrate, uart_rx_cb_t rx_cb, void *arg)
         CMU_ClockEnable(cmuClock_HFPER, true);
         CMU_ClockEnable(uart_config[dev].cmu, true);
 
+        /* reset and initialize peripheral */
+        USART_InitAsync_TypeDef init = USART_INITASYNC_DEFAULT;
+
+        init.enable = usartDisable;
+        init.baudrate = baudrate;
+
+        USART_InitAsync(uart_config[dev].dev, &init);
+
         /* configure pin functions */
 #ifdef _SILICON_LABS_32B_PLATFORM_1
         ((USART_TypeDef *) uart_config[dev].dev)->ROUTE = (
@@ -86,17 +94,21 @@ int uart_init(uart_t dev, uint32_t baudrate, uart_rx_cb_t rx_cb, void *arg)
         /* enable receive interrupt */
         USART_IntEnable(uart_config[dev].dev, USART_IEN_RXDATAV);
 
-        /* initialize device (reset is performed in USART_InitAsync) */
-        USART_InitAsync_TypeDef init = USART_INITASYNC_DEFAULT;
-
-        init.baudrate = baudrate;
-
-        USART_InitAsync(uart_config[dev].dev, &init);
+        /* enable peripheral */
+        USART_Enable(uart_config[dev].dev, usartEnable);
 #if LOW_POWER_ENABLED && defined(LEUART_COUNT) && LEUART_COUNT > 0
     } else {
         /* enable clocks */
         CMU_ClockEnable(cmuClock_CORELE, true);
         CMU_ClockEnable(uart_config[dev].cmu, true);
+
+        /* reset and initialize peripheral */
+        LEUART_Init_TypeDef init = LEUART_INIT_DEFAULT;
+
+        init.enable = leuartDisable;
+        init.baudrate = baudrate;
+
+        LEUART_Init(uart_config[dev].dev, &init);
 
         /* configure pin functions */
 #ifdef _SILICON_LABS_32B_PLATFORM_1
@@ -112,12 +124,8 @@ int uart_init(uart_t dev, uint32_t baudrate, uart_rx_cb_t rx_cb, void *arg)
         /* enable receive interrupt */
         LEUART_IntEnable(uart_config[dev].dev, LEUART_IEN_RXDATAV);
 
-        /* initialize and enable peripheral */
-        LEUART_Init_TypeDef init = LEUART_INIT_DEFAULT;
-
-        init.baudrate = baudrate;
-
-        LEUART_Init(uart_config[dev].dev, &init);
+        /* enable peripheral */
+        LEUART_Enable(uart_config[dev].dev, leuartEnable);
     }
 #endif
 

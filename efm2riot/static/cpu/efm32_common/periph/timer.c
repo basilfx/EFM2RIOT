@@ -64,9 +64,20 @@ int timer_init(tim_t dev, unsigned int ticks_per_us, void (*callback)(int))
     CMU_ClockEnable(timer_config[dev].prescaler.cmu, true);
     CMU_ClockEnable(timer_config[dev].timer.cmu, true);
 
-    /* reset both timers */
+    /* reset and initialize peripherals */
+    TIMER_Init_TypeDef init_pre = TIMER_INIT_DEFAULT;
+    TIMER_Init_TypeDef init_tim = TIMER_INIT_DEFAULT;
+
+    init_pre.enable = false;
+    init_pre.prescale = timerPrescale32;
+    init_pre.enable = false;
+    init_tim.clkSel = timerClkSelCascade;
+
     TIMER_Reset(tim);
     TIMER_Reset(pre);
+
+    TIMER_Init(tim, &init_tim);
+    TIMER_Init(pre, &init_pre);
 
     /* configure the prescaler top value */
     uint32_t freq = CMU_ClockFreqGet(timer_config[dev].prescaler.cmu);
@@ -82,15 +93,9 @@ int timer_init(tim_t dev, unsigned int ticks_per_us, void (*callback)(int))
     NVIC_ClearPendingIRQ(timer_config[dev].irq);
     NVIC_EnableIRQ(timer_config[dev].irq);
 
-    /* initialize and enable peripherals */
-    TIMER_Init_TypeDef init_pre = TIMER_INIT_DEFAULT;
-    TIMER_Init_TypeDef init_tim = TIMER_INIT_DEFAULT;
-
-    init_pre.prescale = timerPrescale32;
-    init_tim.clkSel = timerClkSelCascade;
-
-    TIMER_Init(tim, &init_tim);
-    TIMER_Init(pre, &init_pre);
+    /* start the timers */
+    TIMER_Enable(tim, true);
+    TIMER_Enable(pre, true);
 
     return 0;
 }

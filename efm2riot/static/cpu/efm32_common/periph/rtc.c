@@ -76,11 +76,17 @@ void rtc_init(void)
     CMU_ClockEnable(cmuClock_CORELE, true);
     CMU_ClockEnable(cmuClock_RTC, true);
 
-    /* reset the peripheral */
-    RTC_Reset();
-
     /* initialize the state */
     rtc_state.overflows = 0;
+
+    /* reset and initialze the peripheral */
+    RTC_Init_TypeDef init = RTC_INIT_DEFAULT;
+
+    init.enable = false;
+    init.comp0Top = false;
+
+    RTC_Reset();
+    RTC_Init(&init);
 
     /* enable interrupts */
     RTC_IntEnable(RTC_IEN_OF);
@@ -88,14 +94,8 @@ void rtc_init(void)
     NVIC_ClearPendingIRQ(RTC_IRQn);
     NVIC_EnableIRQ(RTC_IRQn);
 
-    /* initialize the RTC */
-    RTC_Init_TypeDef init = RTC_INIT_DEFAULT;
-
-    init.enable = false;
-    init.comp0Top = false;
-
-    /* initialize and enable peripheral */
-    RTC_Init(&init);
+    /* enable peripheral */
+    RTC_Enable(true);
 }
 
 int rtc_set_time(struct tm *time)
