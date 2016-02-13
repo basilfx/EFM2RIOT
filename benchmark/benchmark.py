@@ -146,7 +146,7 @@ def compile_job(id, riot_directory, board, application, setting):
     ]
     arguments_b = [
         "make",
-        "-j%d" % (multiprocessing.cpu_count() / 2),
+        "-j%d" % multiprocessing.cpu_count(),
         "BOARD=%s" % board,
         "QUIET=1"
     ] + setting
