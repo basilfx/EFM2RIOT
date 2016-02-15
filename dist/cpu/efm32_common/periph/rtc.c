@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2016 Freie Universität Berlin
+ * Copyright (C) 2016 Bas Stottelaar <basstottelaar@gmail.com>
  *
  * This file is subject to the terms and conditions of the GNU Lesser
  * General Public License v2.1. See the file LICENSE in the top level
@@ -76,11 +76,10 @@ void rtc_init(void)
     CMU_ClockEnable(cmuClock_CORELE, true);
     CMU_ClockEnable(cmuClock_RTC, true);
 
-    /* clear state */
+    /* initialize the state */
     rtc_state.overflows = 0;
-    rtc_state.alarm = 0;
 
-    /* initialize the RTC */
+    /* reset and initialze the peripheral */
     RTC_Init_TypeDef init = RTC_INIT_DEFAULT;
 
     init.enable = false;
@@ -95,7 +94,7 @@ void rtc_init(void)
     NVIC_ClearPendingIRQ(RTC_IRQn);
     NVIC_EnableIRQ(RTC_IRQn);
 
-    /* enable RTC */
+    /* enable peripheral */
     RTC_Enable(true);
 }
 

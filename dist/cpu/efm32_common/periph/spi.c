@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2016 Freie Universität Berlin
+ * Copyright (C) 2014-2016 Freie Universität Berlin
  *
  * This file is subject to the terms and conditions of the GNU Lesser
  * General Public License v2.1. See the file LICENSE in the top level
@@ -35,6 +35,15 @@
 
 /* guard file in case no SPI device is defined */
 #if SPI_NUMOF
+
+static mutex_t spi_lock[I2C_NUMOF] = {
+#if SPI_0_EN
+    [SPI_0] = MUTEX_INIT,
+#endif
+#if SPI_1_EN
+    [SPI_1] = MUTEX_INIT,
+#endif
+};
 
 /**
  * @brief Convert speeds to integers
@@ -92,34 +101,25 @@ static uint32_t conf_to_cpol(spi_conf_t conf)
 int spi_init_master(spi_t dev, spi_conf_t conf, spi_speed_t speed)
 {
     /* check if device is valid */
-    if (dev >= UART_NUMOF) {
+    if (dev >= SPI_NUMOF) {
         return -1;
     }
-
-    /* configure the miso/mosi/clk pins */
-    spi_conf_pins(dev);
 
     /* enable clocks */
     CMU_ClockEnable(cmuClock_HFPER, true);
     CMU_ClockEnable(spi_config[dev].cmu, true);
 
-    /* configure SPI */
+    /* configure the pins */
+    spi_conf_pins(dev);
+
+    /* initialize and enable peripheral */
     USART_InitSync_TypeDef init = USART_INITSYNC_DEFAULT;
-    
+
     init.baudrate = speed_to_baud(speed);
     init.clockMode = conf_to_cpol(conf);
     init.msbf = true;
 
     USART_InitSync(spi_config[dev].dev, &init);
-
-#ifdef _SILICON_LABS_32B_PLATFORM_1
-    spi_config[dev].dev->ROUTE = (spi_config[dev].loc |
-                                  USART_ROUTE_RXPEN | USART_ROUTE_TXPEN | USART_ROUTE_CLKPEN);
-#else
-    spi_config[dev].dev->ROUTEPEN =
-        USART_ROUTEPEN_RXPEN | USART_ROUTEPEN_TXPEN | USART_ROUTEPEN_CLKPEN;
-    spi_config[dev].dev->ROUTELOC0 = spi_config[dev].loc;
-#endif
 
     return 0;
 }
@@ -136,19 +136,30 @@ int spi_conf_pins(spi_t dev)
     gpio_init(spi_config[dev].mosi_pin, GPIO_DIR_OUT, GPIO_NOPULL);
     gpio_init(spi_config[dev].miso_pin, GPIO_DIR_IN, GPIO_PULLDOWN);
 
+    /* configure pin functions */
+#ifdef _SILICON_LABS_32B_PLATFORM_1
+    spi_config[dev].dev->ROUTE = (spi_config[dev].loc |
+                                  USART_ROUTE_RXPEN | USART_ROUTE_TXPEN |
+                                  USART_ROUTE_CLKPEN);
+#else
+    spi_config[dev].dev->ROUTEPEN =
+        USART_ROUTEPEN_RXPEN | USART_ROUTEPEN_TXPEN | USART_ROUTEPEN_CLKPEN;
+    spi_config[dev].dev->ROUTELOC0 = spi_config[dev].loc;
+#endif
+
     return 0;
 }
 
 int spi_acquire(spi_t dev)
 {
-    mutex_lock((mutex_t *) &spi_config[dev].lock);
+    mutex_lock((mutex_t *) &spi_lock[dev]);
 
     return 0;
 }
 
 int spi_release(spi_t dev)
 {
-    mutex_unlock((mutex_t *) &spi_config[dev].lock);
+    mutex_unlock((mutex_t *) &spi_lock[dev]);
 
     return 0;
 }
@@ -156,11 +167,9 @@ int spi_release(spi_t dev)
 int spi_transfer_byte(spi_t dev, char out, char *in)
 {
     if (in != NULL) {
-        // Send and receive
         (*in) = USART_SpiTransfer(spi_config[dev].dev, out);
     }
     else {
-        // Send only
         USART_SpiTransfer(spi_config[dev].dev, out);
     }
 

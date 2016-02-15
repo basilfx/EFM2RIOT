@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2015 Freie Universität Berlin
+ * Copyright (C) 2015-2016 Freie Universität Berlin
  *
  * This file is subject to the terms and conditions of the GNU Lesser
  * General Public License v2.1. See the file LICENSE in the top level
@@ -33,9 +33,14 @@ extern "C" {
 #endif
 
 /**
- * @brief   Assign the hardware timer
+ * @brief   Xtimer configuration
+ * @{
  */
-#define HW_TIMER            TIMER_DEV(0)
+#define XTIMER                      (0)
+#define XTIMER_CHAN                 (0)
+#define XTIMER_MASK                 (0xffff0000)
+#define XTIMER_SHIFT_ON_COMPARE     (2)
+/** @} */
 
 /**
  * @brief   Define for enabling Advanced Energy Monitor core output via SWO.

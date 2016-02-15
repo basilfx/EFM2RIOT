@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2016 Freie Universität Berlin
+ * Copyright (C) 2016 Bas Stottelaar <basstottelaar@gmail.com>
  *
  * This file is subject to the terms and conditions of the GNU Lesser
  * General Public License v2.1. See the file LICENSE in the top level
@@ -47,7 +47,7 @@ void rtt_init(void)
     CMU_ClockEnable(cmuClock_CORELE, true);
     CMU_ClockEnable(cmuClock_RTCC, true);
 
-    /* initialize the RTCC */
+    /* reset and initialize peripheral */
     RTCC_Init_TypeDef init = RTCC_INIT_DEFAULT;
 
     init.enable = false;
@@ -65,7 +65,7 @@ void rtt_init(void)
     NVIC_ClearPendingIRQ(RTCC_IRQn);
     NVIC_EnableIRQ(RTCC_IRQn);
 
-    /* enable RTCC */
+    /* enable peripheral */
     RTCC_Enable(true);
 }
 
@@ -74,6 +74,7 @@ void rtt_set_overflow_cb(rtt_cb_t cb, void *arg)
     rtt_state.overflow_cb = cb;
     rtt_state.overflow_arg = arg;
 
+    RTCC_IntClear(RTCC_IFC_OF);
     RTCC_IntEnable(RTCC_IEN_OF);
 }
 

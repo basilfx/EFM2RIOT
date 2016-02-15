@@ -84,7 +84,7 @@ This is the pinout of the Expansion Header on the right side of the board. PIN 1
 |                               | UART                           | yes       | USART is shared with SPI. LEUART baud rate limited (see below) |
 |                               | USB                            | no        |                                                                |
 | LCD driver                    | LS013B7DH03                    | planned   | Sharp Low Power Memory LCD                                     |
-| Temperature + Humidity sensor | Si7021                         | planned   | Silicon Labs Temperature + Humidity sensor                     |
+| Temperature + Humidity sensor | Si7021                         | yes       | Silicon Labs Temperature + Humidity sensor                     |
 
 ## Board configuration
 

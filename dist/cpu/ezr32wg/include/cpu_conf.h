@@ -1,5 +1,5 @@
 /*
-* Copyright (C) 2015 Freie Universität Berlin
+* Copyright (C) 2015-2016 Freie Universität Berlin
 *
 * This file is subject to the terms and conditions of the GNU Lesser
 * General Public License v2.1. See the file LICENSE in the top level
@@ -14,6 +14,9 @@
 *
 * @file
 * @brief       Implementation specific CPU configuration options
+*
+* @author      Hauke Petersen <hauke.petersen@fu-berlin.de>
+* @author      Bas Stottelaar <basstottelaar@gmail.com>
 */
 
 #ifndef CPU_CONF_H
@@ -33,11 +36,6 @@ extern "C" {
 #define CPU_IRQ_NUMOF                   (FPUEH_IRQn + 1)
 #define CPU_FLASH_BASE                  FLASH_BASE
 /** @} */
-
-/**
-* @brief   CPUID_ID_LEN length of cpuid in bytes
-*/
-#define CPUID_ID_LEN                    (8U)    /* 64-bit unique ID */
 
 #ifdef __cplusplus
 }

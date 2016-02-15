@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2016 Freie Universität Berlin
+ * Copyright (C) 2016 Bas Stottelaar <basstottelaar@gmail.com>
  *
  * This file is subject to the terms and conditions of the GNU Lesser
  * General Public License v2.1. See the file LICENSE in the top level
@@ -73,9 +73,9 @@ int8_t dac_init(dac_t dev, dac_precision_t precision)
     CMU_ClockEnable(cmuClock_HFPER, true);
     CMU_ClockEnable(dac_config[dev].cmu, true);
 
-    /* initialize device */
+    /* reset the peripheral */
     DAC_Init_TypeDef init = DAC_INIT_DEFAULT;
-
+    
     DAC_Reset(dac_config[dev].dev);
     DAC_Init(dac_config[dev].dev, &init);
 

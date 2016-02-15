@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2016 Freie Universität Berlin
+ * Copyright (C) 2016 Bas Stottelaar <basstottelaar@gmail.com>
  *
  * This file is subject to the terms and conditions of the GNU Lesser
  * General Public License v2.1. See the file LICENSE in the top level
@@ -74,7 +74,7 @@ int adc_init(adc_t dev, adc_precision_t precision)
     CMU_ClockEnable(cmuClock_HFPER, true);
     CMU_ClockEnable(adc_config[dev].cmu, true);
 
-    /* initialize device */
+    /* reset and initialize peripheral */
     ADC_Init_TypeDef init = ADC_INIT_DEFAULT;
 
     init.timebase = ADC_TimebaseCalc(0);

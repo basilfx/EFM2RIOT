@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2015 Freie Universität Berlin
+ * Copyright (C) 2015-2016 Freie Universität Berlin
  *
  * This file is subject to the terms and conditions of the GNU Lesser
  * General Public License v2.1. See the file LICENSE in the top level
@@ -21,7 +21,6 @@
 #define PERIPH_CONF_H
 
 #include "cpu.h"
-#include "mutex.h"
 
 #include "periph_cpu.h"
 
@@ -63,7 +62,7 @@ static const adc_conf_t adc_config[] = {
     }
 };
 
-#define ADC_NUMOF           1
+#define ADC_NUMOF           (1U)
 #define ADC_0_EN            1
 #define ADC_MAX_CHANNELS    1
 /** @} */
@@ -80,12 +79,12 @@ static const i2c_conf_t i2c_config[] = {
         I2C_ROUTELOC0_SDALOC_LOC15 |
             I2C_ROUTELOC0_SCLLOC_LOC15,     /* AF location */
         cmuClock_I2C0,                      /* CMU register */
-        I2C0_IRQn,                          /* IRQ base channel */
-        MUTEX_INIT                          /* mutex initializer */
+        I2C0_IRQn                           /* IRQ base channel */
     }
 };
 
-#define I2C_NUMOF           1
+#define I2C_NUMOF           (1U)
+#define I2C_0_ISR           isr_i2c0
 /** @} */
 
 /**
@@ -100,7 +99,7 @@ static const pwm_conf_t pwm_config[] = {
     /* no timers left */
 };
 
-#define PWM_NUMOF                    0
+#define PWM_NUMOF                    (0U)
 /** @} */
 
 /**
@@ -138,11 +137,10 @@ static const spi_dev_t spi_config[] = {
             USART_ROUTELOC0_CLKLOC_LOC11,   /* AF location */
         cmuClock_USART1,                    /* CMU register */
         USART1_RX_IRQn,                     /* IRQ base channel */
-        MUTEX_INIT                          /* mutex initializer */
     }
 };
 
-#define SPI_0_EN            1
+#define SPI_0_EN            (1U)
 #define SPI_NUMOF           1
 /** @} */
 
@@ -164,10 +162,9 @@ static const timer_conf_t timer_config[] = {
     }
 };
 
+#define TIMER_NUMOF         (1U)
 #define TIMER_0_ISR         isr_timer1
 #define TIMER_0_MAX_VALUE   (0xffff)
-#define TIMER_NUMOF         1
-
 /** @} */
 
 /**
@@ -204,10 +201,10 @@ static const uart_conf_t uart_config[] = {
     }
 };
 
+#define UART_NUMOF          (3U)
 #define UART_0_ISR_RX       isr_usart0_rx
 #define UART_1_ISR_RX       isr_usart1_rx
 #define UART_2_ISR_RX       isr_leuart0
-#define UART_NUMOF          3
 /** @} */
 
 #ifdef __cplusplus

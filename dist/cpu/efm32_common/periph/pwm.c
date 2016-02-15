@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2016 Freie Universität Berlin
+ * Copyright (C) 2016 Bas Stottelaar <basstottelaar@gmail.com>
  *
  * This file is subject to the terms and conditions of the GNU Lesser
  * General Public License v2.1. See the file LICENSE in the top level
@@ -55,7 +55,7 @@ static const TIMER_Prescale_TypeDef prescalers[] = {
     timerPrescale1024,
 };
 
-int pwm_init(pwm_t dev, pwm_mode_t mode, unsigned int frequency, unsigned int resolution)
+uint32_t pwm_init(pwm_t dev, pwm_mode_t mode, uint32_t freq, uint16_t res)
 {
     /* check if device is valid */
     if (dev >= PWM_NUMOF) {
@@ -71,8 +71,8 @@ int pwm_init(pwm_t dev, pwm_mode_t mode, unsigned int frequency, unsigned int re
     TIMER_Prescale_TypeDef prescaler = timerPrescale1;
 
     for (int i = 0; i < 11; i++) {
-        if ((actual_freq / (1 << i)) < (frequency * resolution)) {
-            /* if first prescaler doesn't work, then no pwm frequency fits */
+        if ((actual_freq / (1 << i)) < (freq * res)) {
+            /* if first prescaler doesn't work, then no pwm frequency works */
             if (i == 0) {
                 return -2;
             }
@@ -84,7 +84,7 @@ int pwm_init(pwm_t dev, pwm_mode_t mode, unsigned int frequency, unsigned int re
         }
     }
 
-    /* initialize the timer */
+    /* reset and initialize peripheral */
     TIMER_Init_TypeDef init = TIMER_INIT_DEFAULT;
 
     init.enable = false;
@@ -94,51 +94,51 @@ int pwm_init(pwm_t dev, pwm_mode_t mode, unsigned int frequency, unsigned int re
     TIMER_Init(pwm_config[dev].dev, &init);
 
     /* configure the period */
-    TIMER_TopSet(pwm_config[dev].dev, resolution);
+    TIMER_TopSet(pwm_config[dev].dev, res);
 
     /* initialize all channels */
-    TIMER_InitCC_TypeDef ccInit = TIMER_INITCC_DEFAULT;
+    TIMER_InitCC_TypeDef init_cc = TIMER_INITCC_DEFAULT;
 
-    ccInit.mode = timerCCModePWM;
+    init_cc.mode = timerCCModePWM;
 
     for (int i = 0; i < pwm_config[dev].channels; i++) {
         uint8_t index = pwm_config[dev].channel_offset + i;
 
+        /* configure the pin */
         gpio_init(pwm_channel_config[index].pin, GPIO_DIR_OUT, GPIO_NOPULL);
 
-        /* setup timer channel */
-        TIMER_InitCC(pwm_config[dev].dev,
-                     pwm_channel_config[index].index, &ccInit);
-        TIMER_CompareBufSet(pwm_config[dev].dev,
-                            pwm_channel_config[index].index, 0);
-
-        /* enable pin output */
+        /* configure pin function */
 #ifdef _SILICON_LABS_32B_PLATFORM_1
         pwm_config[dev].dev->ROUTE |= (channel_to_route[pwm_channel_config[index].index] | pwm_channel_config[index].loc);
 #else
         pwm_config[dev].dev->ROUTEPEN |= channel_to_route[pwm_channel_config[index].index];
         pwm_config[dev].dev->ROUTELOC0 |= pwm_channel_config[index].loc;
 #endif
+
+        /* setup channel */
+        TIMER_InitCC(pwm_config[dev].dev,
+                     pwm_channel_config[index].index, &init_cc);
+        TIMER_CompareBufSet(pwm_config[dev].dev,
+                            pwm_channel_config[index].index, 0);
     }
 
-    /* enable timer */
+    /* enable peripheral */
     TIMER_Enable(pwm_config[dev].dev, true);
 
-    return actual_freq / resolution;
+    return actual_freq / res;
 }
 
-int pwm_set(pwm_t dev, int channel, unsigned int value)
+uint8_t pwm_channels(pwm_t dev)
 {
-    if (channel >= pwm_config[dev].channels) {
-        return -1;
-    }
+    return pwm_config[dev].channels;
+}
 
+void pwm_set(pwm_t dev, uint8_t channel, uint16_t value)
+{
     uint8_t index = pwm_config[dev].channel_offset + channel;
 
     TIMER_CompareBufSet(
         pwm_config[dev].dev, pwm_channel_config[index].index, value);
-
-    return 0;
 }
 
 void pwm_start(pwm_t dev)

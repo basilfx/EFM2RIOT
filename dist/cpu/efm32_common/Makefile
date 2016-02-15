@@ -2,6 +2,6 @@
 MODULE = efm32_common
 
 # add a list of subdirectories, that should also be build
-DIRS = periph $(RIOTCPU)/cortexm_common emlib/src
+DIRS = emlib/src periph
 
 include $(RIOTBASE)/Makefile.base
