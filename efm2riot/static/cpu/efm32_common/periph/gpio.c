@@ -31,24 +31,16 @@
 /**
  * @brief   Number of external interrupt lines.
  */
-#define NUMOF_IRQS                  (GPIO_PIN_MAX)
-
-/**
- * @brief   Datatype to use for saving the interrupt contexts
- */
-typedef struct {
-    gpio_cb_t cb;       /**< callback to call on GPIO interrupt */
-    void *arg;          /**< argument passed to the callback */
-} gpio_exti_t;
+#define NUMOF_IRQS         (GPIO_PIN_MAX)
 
 /**
  * @brief   Hold one interrupt context per interrupt line
  */
-static gpio_exti_t isr_ctx[NUMOF_IRQS];
+static gpio_isr_ctx_t isr_ctx[NUMOF_IRQS];
 
 static inline GPIO_Port_TypeDef _port_num(gpio_t pin)
 {
-    return (pin & 0xf0) >> 4;
+    return ((pin & 0xf0) >> 4);
 }
 
 static inline uint32_t _pin_num(gpio_t pin)
@@ -74,6 +66,9 @@ int gpio_init(gpio_t pin, gpio_dir_t dir, gpio_pp_t pushpull)
 
     /* configure pin */
     if (dir == GPIO_DIR_OUT && pushpull == GPIO_NOPULL) {
+#ifdef _SILICON_LABS_32B_PLATFORM_1
+        GPIO_DriveModeSet(_port_num(pin), gpioDriveModeStandard);
+#endif
         GPIO_PinModeSet(_port_num(pin), _pin_num(pin), gpioModePushPull, 0);
     }
     else if (dir == GPIO_DIR_IN) {
@@ -182,7 +177,7 @@ void gpio_write(gpio_t pin, int value)
 /**
  * @brief   Actual interrupt handler for both even and odd pin index numbers.
  */
-static void isr_gpio(void)
+static void gpio_irq(void)
 {
     for (int i = 0; i < NUMOF_IRQS; i++) {
         if (GPIO_IntGet() & (1 << i)) {
@@ -200,7 +195,7 @@ static void isr_gpio(void)
  */
 void isr_gpio_even(void)
 {
-    isr_gpio();
+    gpio_irq();
 }
 
 /**
@@ -208,5 +203,5 @@ void isr_gpio_even(void)
  */
 void isr_gpio_odd(void)
 {
-    isr_gpio();
+    gpio_irq();
 }
