@@ -1,5 +1,5 @@
 # name of your application
-APPLICATION = hwaes_benchmark
+APPLICATION = crypto_benchmark
 
 # If no BOARD is found in the environment, use this default:
 BOARD ?= slstk3401a
