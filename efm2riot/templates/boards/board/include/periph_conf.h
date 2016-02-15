@@ -121,19 +121,19 @@ static const adc_conf_t adc_config[] = {
 
 {% strip 2 %}
     {% if board in ["stk3600", "stk3700", "stk3800"] %}
-        #define ADC_NUMOF           1
+        #define ADC_NUMOF           (1U)
         #define ADC_0_EN            1
         #define ADC_MAX_CHANNELS    1
     {% elif board in ["stk3200"] %}
-        #define ADC_NUMOF           1
+        #define ADC_NUMOF           (1U)
         #define ADC_0_EN            1
         #define ADC_MAX_CHANNELS    1
     {% elif board in ["slstk3401a"] %}
-        #define ADC_NUMOF           1
+        #define ADC_NUMOF           (1U)
         #define ADC_0_EN            1
         #define ADC_MAX_CHANNELS    1
     {% elif board in ["slwstk6220a"] %}
-        #define ADC_NUMOF           1
+        #define ADC_NUMOF           (1U)
         #define ADC_0_EN            1
         #define ADC_MAX_CHANNELS    1
     {% endif %}
@@ -184,11 +184,11 @@ static const adc_conf_t adc_config[] = {
 
         {% strip 2 %}
             {% if board in ["stk3600", "stk3700", "stk3800"] %}
-                #define DAC_NUMOF           1
+                #define DAC_NUMOF           (1U)
                 #define DAC_0_EN            1
                 #define DAC_MAX_CHANNELS    1
             {% elif board in ["slwstk6220a"] %}
-                #define DAC_NUMOF           1
+                #define DAC_NUMOF           (1U)
                 #define DAC_0_EN            1
                 #define DAC_MAX_CHANNELS    1
             {% endif %}
@@ -254,17 +254,17 @@ static const i2c_conf_t i2c_config[] = {
 
 {% strip 2 %}
     {% if board in ["stk3600", "stk3700", "stk3800"] %}
-        #define I2C_NUMOF           2
+        #define I2C_NUMOF           (2U)
         #define I2C_0_ISR           isr_i2c0
         #define I2C_1_ISR           isr_i2c1
     {% elif board in ["stk3200"] %}
-        #define I2C_NUMOF           1
+        #define I2C_NUMOF           (1U)
         #define I2C_0_ISR           isr_i2c0
     {% elif board in ["slstk3401a"] %}
-        #define I2C_NUMOF           1
+        #define I2C_NUMOF           (1U)
         #define I2C_0_ISR           isr_i2c0
     {% elif board in ["slwstk6220a"] %}
-        #define I2C_NUMOF           1
+        #define I2C_NUMOF           (1U)
         #define I2C_0_ISR           isr_i2c1
     {% endif %}
 {% endstrip %}
@@ -329,15 +329,15 @@ static const pwm_conf_t pwm_config[] = {
 
 {% strip 2 %}
     {% if board in ["stk3600", "stk3700", "stk3800"] %}
-        #define PWM_NUMOF                    1
+        #define PWM_NUMOF                    (1U)
         #define PWM_0_EN                     1
         #define PWM_0_CHANNELS               1
     {% elif board in ["stk3200"] %}
-        #define PWM_NUMOF                    0
+        #define PWM_NUMOF                    (0U)
     {% elif board in ["slstk3401a"] %}
-        #define PWM_NUMOF                    0
+        #define PWM_NUMOF                    (0U)
     {% elif board in ["slwstk6220a"] %}
-        #define PWM_NUMOF                    1
+        #define PWM_NUMOF                    (1U)
         #define PWM_0_EN                     1
         #define PWM_0_CHANNELS               2
     {% endif %}
@@ -434,17 +434,17 @@ static const spi_dev_t spi_config[] = {
 
 {% strip 2 %}
     {% if board in ["stk3600", "stk3700", "stk3800"] %}
-        #define SPI_0_EN            1
+        #define SPI_0_EN            (1U)
         #define SPI_1_EN            1
         #define SPI_NUMOF           2
     {% elif board in ["stk3200"] %}
-        #define SPI_0_EN            1
+        #define SPI_0_EN            (1U)
         #define SPI_NUMOF           1
     {% elif board in ["slstk3401a"] %}
-        #define SPI_0_EN            1
+        #define SPI_0_EN            (1U)
         #define SPI_NUMOF           1
     {% elif board in ["slwstk6220a"] %}
-        #define SPI_0_EN            1
+        #define SPI_0_EN            (1U)
         #define SPI_NUMOF           1
     {% endif %}
 {% endstrip %}
@@ -510,21 +510,21 @@ static const timer_conf_t timer_config[] = {
 
 {% strip 2 %}
     {% if board in ["stk3600", "stk3700", "stk3800"] %}
+        #define TIMER_NUMOF         (1U)
         #define TIMER_0_ISR         isr_timer1
         #define TIMER_0_MAX_VALUE   (0xffff)
-        #define TIMER_NUMOF         1
     {% elif board in ["stk3200"] %}
+        #define TIMER_NUMOF         (1U)
         #define TIMER_0_ISR         isr_timer1
         #define TIMER_0_MAX_VALUE   (0xffff)
-        #define TIMER_NUMOF         1
     {% elif board in ["slstk3401a"] %}
+        #define TIMER_NUMOF         (1U)
         #define TIMER_0_ISR         isr_timer1
         #define TIMER_0_MAX_VALUE   (0xffff)
-        #define TIMER_NUMOF         1
     {% elif board in ["slwstk6220a"] %}
+        #define TIMER_NUMOF         (1U)
         #define TIMER_0_ISR         isr_timer2
         #define TIMER_0_MAX_VALUE   (0xffff)
-        #define TIMER_NUMOF         1
     {% endif %}
 {% endstrip %}
 /** @} */
@@ -636,24 +636,24 @@ static const uart_conf_t uart_config[] = {
 
 {% strip 2 %}
     {% if board in ["stk3600", "stk3700", "stk3800"] %}
+        #define UART_NUMOF          (3U)
         #define UART_0_ISR_RX       isr_uart0_rx
         #define UART_1_ISR_RX       isr_usart1_rx
         #define UART_2_ISR_RX       isr_leuart0
-        #define UART_NUMOF          3
     {% elif board in ["stk3200"] %}
+        #define UART_NUMOF          (2U)
         #define UART_0_ISR_RX       isr_leuart0
         #define UART_1_ISR_RX       isr_usart1_rx
-        #define UART_NUMOF          2
     {% elif board in ["slstk3401a"] %}
+        #define UART_NUMOF          (3U)
         #define UART_0_ISR_RX       isr_usart0_rx
         #define UART_1_ISR_RX       isr_usart1_rx
         #define UART_2_ISR_RX       isr_leuart0
-        #define UART_NUMOF          3
     {% elif board in ["slwstk6220a"] %}
+        #define UART_NUMOF          (3U)
         #define UART_0_ISR_RX       isr_usart1_rx
         #define UART_1_ISR_RX       isr_usart2_rx
         #define UART_2_ISR_RX       isr_leuart0
-        #define UART_NUMOF          3
     {% endif %}
 {% endstrip %}
 /** @} */
