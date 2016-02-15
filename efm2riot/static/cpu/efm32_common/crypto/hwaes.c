@@ -22,7 +22,7 @@ static const cipher_interface_t hwaes_interface = {
 const cipher_id_t CIPHER_HWAES_128 = &hwaes_interface;
 
 /**
- *
+ * @brief   Global lock for mutual exclusive access to crypto hardware.
  */
 static mutex_t hwaes_lock = MUTEX_INIT;
 
@@ -77,7 +77,7 @@ int hwaes_decrypt(const cipher_context_t *context, const uint8_t *cipher_block,
                 uint8_t *plain_block)
 {
     /* lock peripheral */
-    //mutex_lock((mutex_t *) &hwaes_lock);
+    mutex_lock((mutex_t *) &hwaes_lock);
 
     /* decrypt data */
 #ifdef _SILICON_LABS_32B_PLATFORM_1
