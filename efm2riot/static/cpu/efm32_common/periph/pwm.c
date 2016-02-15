@@ -55,7 +55,7 @@ static const TIMER_Prescale_TypeDef prescalers[] = {
     timerPrescale1024,
 };
 
-int pwm_init(pwm_t dev, pwm_mode_t mode, unsigned int frequency, unsigned int resolution)
+uint32_t pwm_init(pwm_t dev, pwm_mode_t mode, uint32_t freq, uint16_t res)
 {
     /* check if device is valid */
     if (dev >= PWM_NUMOF) {
@@ -71,7 +71,7 @@ int pwm_init(pwm_t dev, pwm_mode_t mode, unsigned int frequency, unsigned int re
     TIMER_Prescale_TypeDef prescaler = timerPrescale1;
 
     for (int i = 0; i < 11; i++) {
-        if ((actual_freq / (1 << i)) < (frequency * resolution)) {
+        if ((actual_freq / (1 << i)) < (freq * res)) {
             /* if first prescaler doesn't work, then no pwm frequency works */
             if (i == 0) {
                 return -2;
@@ -94,7 +94,7 @@ int pwm_init(pwm_t dev, pwm_mode_t mode, unsigned int frequency, unsigned int re
     TIMER_Init(pwm_config[dev].dev, &init);
 
     /* configure the period */
-    TIMER_TopSet(pwm_config[dev].dev, resolution);
+    TIMER_TopSet(pwm_config[dev].dev, res);
 
     /* initialize all channels */
     TIMER_InitCC_TypeDef init_cc = TIMER_INITCC_DEFAULT;
@@ -125,21 +125,20 @@ int pwm_init(pwm_t dev, pwm_mode_t mode, unsigned int frequency, unsigned int re
     /* enable peripheral */
     TIMER_Enable(pwm_config[dev].dev, true);
 
-    return actual_freq / resolution;
+    return actual_freq / res;
 }
 
-int pwm_set(pwm_t dev, int channel, unsigned int value)
+uint8_t pwm_channels(pwm_t dev)
 {
-    if (channel >= pwm_config[dev].channels) {
-        return -1;
-    }
+    return pwm_config[dev].channels;
+}
 
+void pwm_set(pwm_t dev, uint8_t channel, uint16_t value)
+{
     uint8_t index = pwm_config[dev].channel_offset + channel;
 
     TIMER_CompareBufSet(
         pwm_config[dev].dev, pwm_channel_config[index].index, value);
-
-    return 0;
 }
 
 void pwm_start(pwm_t dev)
