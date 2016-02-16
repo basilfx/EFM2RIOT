@@ -60,45 +60,24 @@ int gpio_init(gpio_t pin, gpio_dir_t dir, gpio_pp_t pushpull)
         return -1;
     }
 
+    /* if configured as output, no pull resistors are supported */
+    if ((dir == GPIO_DIR_OUT) && (pushpull != GPIO_NOPULL)) {
+        return -1;
+    }
+
     /* enable clocks */
     CMU_ClockEnable(cmuClock_HFPER, true);
     CMU_ClockEnable(cmuClock_GPIO, true);
 
     /* configure pin */
-    if (dir == GPIO_DIR_OUT && pushpull == GPIO_NOPULL) {
+    GPIO_Mode_TypeDef mode = dir +
+        (((pushpull >> 1) & 0x1) << ((dir >> 3) & 0x1));
+    uint32_t out = ((pushpull >> 2) & 0x1);
+
+    GPIO_PinModeSet(_port_num(pin), _pin_num(pin), mode, out);
 #ifdef _SILICON_LABS_32B_PLATFORM_1
-        GPIO_DriveModeSet(_port_num(pin), gpioDriveModeStandard);
+    GPIO_DriveModeSet(_port_num(pin), gpioDriveModeStandard);
 #endif
-        GPIO_PinModeSet(_port_num(pin), _pin_num(pin), gpioModePushPull, 0);
-    }
-    else if (dir == GPIO_DIR_IN) {
-        if (pushpull == GPIO_NOPULL) {
-            GPIO_PinModeSet(_port_num(pin), _pin_num(pin), gpioModeInput, 0);
-        }
-        else if (pushpull == GPIO_PULLUP) {
-            GPIO_PinModeSet(_port_num(pin), _pin_num(pin), gpioModeInputPull, 1);
-        }
-        else if (pushpull == GPIO_PULLDOWN) {
-            GPIO_PinModeSet(_port_num(pin), _pin_num(pin), gpioModeInputPull, 0);
-        }
-        else {
-            return -1;
-        }
-    }
-    else if (dir == GPIO_DIR_BI) {
-        if (pushpull == GPIO_NOPULL) {
-            GPIO_PinModeSet(_port_num(pin), _pin_num(pin), gpioModeWiredAnd, 1);
-        }
-        else if (pushpull == GPIO_PULLUP) {
-            GPIO_PinModeSet(_port_num(pin), _pin_num(pin), gpioModeWiredAndPullUp, 1);
-        }
-        else {
-            return -1;
-        }
-    }
-    else {
-        return -1;
-    }
 
     return 0;
 }

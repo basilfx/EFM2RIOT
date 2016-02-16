@@ -123,9 +123,9 @@ enum {
  */
 #define HAVE_GPIO_DIR_T
 typedef enum {
-    GPIO_DIR_IN = 0,        /**< configure pin as input */
-    GPIO_DIR_OUT = 1,       /**< configure pin as output */
-    GPIO_DIR_BI = 2         /**< configure pin as bidirectional (open drain) */
+    GPIO_DIR_IN = 1,        /**< configure pin as input */
+    GPIO_DIR_OUT = 4,       /**< configure pin as output */
+    GPIO_DIR_BI = 8         /**< configure pin as bidirectional (open drain) */
 } gpio_dir_t;
 /** @} */
 
@@ -135,8 +135,8 @@ typedef enum {
  */
 #define HAVE_GPIO_PP_T
 typedef enum {
-    GPIO_NOPULL = 0,        /**< do not use internal pull resistors */
-    GPIO_PULLUP = 1,        /**< enable internal pull-up resistor */
+    GPIO_NOPULL = 1,        /**< do not use internal pull resistors */
+    GPIO_PULLUP = 6,        /**< enable internal pull-up resistor */
     GPIO_PULLDOWN = 2       /**< enable internal pull-down resistor */
 } gpio_pp_t;
 /** @} */
