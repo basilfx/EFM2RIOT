@@ -434,18 +434,18 @@ static const spi_dev_t spi_config[] = {
 
 {% strip 2 %}
     {% if board in ["stk3600", "stk3700", "stk3800"] %}
-        #define SPI_0_EN            (1U)
+        #define SPI_NUMOF           (2U)
+        #define SPI_0_EN            1
         #define SPI_1_EN            1
-        #define SPI_NUMOF           2
     {% elif board in ["stk3200"] %}
-        #define SPI_0_EN            (1U)
-        #define SPI_NUMOF           1
+        #define SPI_NUMOF           (1U)
+        #define SPI_0_EN            1
     {% elif board in ["slstk3401a"] %}
-        #define SPI_0_EN            (1U)
-        #define SPI_NUMOF           1
+        #define SPI_NUMOF           (1U)
+        #define SPI_0_EN            1
     {% elif board in ["slwstk6220a"] %}
-        #define SPI_0_EN            (1U)
-        #define SPI_NUMOF           1
+        #define SPI_NUMOF           (1U)
+        #define SPI_0_EN            1
     {% endif %}
 {% endstrip %}
 /** @} */
