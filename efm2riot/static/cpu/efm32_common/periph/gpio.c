@@ -53,15 +53,12 @@ static inline uint32_t _pin_mask(gpio_t pin)
     return (1 << _pin_num(pin));
 }
 
-int gpio_init(gpio_t pin, gpio_dir_t dir, gpio_pp_t pushpull)
+int gpio_init(gpio_t pin, gpio_dir_t mode, gpio_pp_t pushpull)
 {
+    (void) pushpull;
+
     /* check for valid pin */
     if (pin == GPIO_UNDEF) {
-        return -1;
-    }
-
-    /* if configured as output, no pull resistors are supported */
-    if ((dir == GPIO_DIR_OUT) && (pushpull != GPIO_NOPULL)) {
         return -1;
     }
 
@@ -70,11 +67,7 @@ int gpio_init(gpio_t pin, gpio_dir_t dir, gpio_pp_t pushpull)
     CMU_ClockEnable(cmuClock_GPIO, true);
 
     /* configure pin */
-    GPIO_Mode_TypeDef mode = dir +
-        (((pushpull >> 1) & 0x1) << ((dir >> 3) & 0x1));
-    uint32_t out = ((pushpull >> 2) & 0x1);
-
-    GPIO_PinModeSet(_port_num(pin), _pin_num(pin), mode, out);
+    GPIO_PinModeSet(_port_num(pin), _pin_num(pin), mode >> 1, mode & 0x1);
 #ifdef _SILICON_LABS_32B_PLATFORM_1
     GPIO_DriveModeSet(_port_num(pin), gpioDriveModeStandard);
 #endif
@@ -98,11 +91,9 @@ int gpio_init_int(gpio_t pin, gpio_pp_t pullup, gpio_flank_t flank,
     isr_ctx[_pin_num(pin)].cb = cb;
     isr_ctx[_pin_num(pin)].arg = arg;
 
-    /* configure interrupt */
-    GPIO_IntConfig(_port_num(pin), _pin_num(pin), flank & GPIO_RISING, flank & GPIO_FALLING, true);
-
     /* enable interrupts */
-    GPIO_IntEnable(_pin_num(pin));
+    GPIO_IntConfig(_port_num(pin), _pin_num(pin),
+                   flank & GPIO_RISING, flank & GPIO_FALLING, true);
 
     NVIC_ClearPendingIRQ(GPIO_EVEN_IRQn);
     NVIC_ClearPendingIRQ(GPIO_ODD_IRQn);

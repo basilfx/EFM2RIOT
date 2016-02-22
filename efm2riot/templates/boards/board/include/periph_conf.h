@@ -92,28 +92,28 @@ static const adc_conf_t adc_config[] = {
                 ADC0,                               /* device */
                 cmuClock_ADC0,                      /* CMU register */
                 1,                                  /* number of channels */
-                0,                                  /* channel offset */
+                adc_channel_config,                 /* first channel config */
             }
         {% elif board in ["stk3200"] %}
             {
                 ADC0,                               /* device */
                 cmuClock_ADC0,                      /* CMU register */
                 1,                                  /* number of channels */
-                0,                                  /* channel offset */
+                adc_channel_config,                 /* first channel config */
             }
         {% elif board in ["slstk3401a"] %}
             {
                 ADC0,                               /* device */
                 cmuClock_ADC0,                      /* CMU register */
                 1,                                  /* number of channels */
-                0,                                  /* channel offset */
+                adc_channel_config,                 /* first channel config */
             }
         {% elif board in ["slwstk6220a"] %}
             {
                 ADC0,                               /* device */
                 cmuClock_ADC0,                      /* CMU register */
                 1,                                  /* number of channels */
-                0,                                  /* channel offset */
+                adc_channel_config,                 /* first channel config */
             }
         {% endif %}
     {% endstrip %}
@@ -168,7 +168,7 @@ static const adc_conf_t adc_config[] = {
                         cmuClock_DAC0,                      /* CMU register */
                         dacRefVDD,                          /* voltage reference */
                         1,                                  /* number of channels */
-                        0,                                  /* channel offset */
+                        dac_channel_config,                 /* first channel config */
                     }
                 {% elif board in ["slwstk6220a"] %}
                     {
@@ -176,7 +176,7 @@ static const adc_conf_t adc_config[] = {
                         cmuClock_DAC0,                      /* CMU register */
                         dacRefVDD,                          /* voltage reference */
                         1,                                  /* number of channels */
-                        0,                                  /* channel offset */
+                        dac_channel_config,                 /* first channel config */
                     }
                 {% endif %}
             {% endstrip %}
@@ -309,7 +309,7 @@ static const pwm_conf_t pwm_config[] = {
                 cmuClock_TIMER3,            /* CMU register */
                 TIMER3_IRQn,                /* IRQ base channel */
                 1,                          /* number of channels */
-                0                           /* channel offset */
+                pwm_channel_config          /* first channel config */
             }
         {% elif board in ["stk3200"] %}
             /* no timers left */
@@ -321,7 +321,7 @@ static const pwm_conf_t pwm_config[] = {
                 cmuClock_TIMER0,            /* CMU register */
                 TIMER0_IRQn,                /* IRQ base channel */
                 2,                          /* number of channels */
-                0                           /* channel offset */
+                pwm_channel_config          /* first channel config */
             }
         {% endif %}
     {% endstrip %}
@@ -331,7 +331,6 @@ static const pwm_conf_t pwm_config[] = {
     {% if board in ["stk3600", "stk3700", "stk3800"] %}
         #define PWM_NUMOF                    (1U)
         #define PWM_0_EN                     1
-        #define PWM_0_CHANNELS               1
     {% elif board in ["stk3200"] %}
         #define PWM_NUMOF                    (0U)
     {% elif board in ["slstk3401a"] %}
@@ -339,7 +338,6 @@ static const pwm_conf_t pwm_config[] = {
     {% elif board in ["slwstk6220a"] %}
         #define PWM_NUMOF                    (1U)
         #define PWM_0_EN                     1
-        #define PWM_0_CHANNELS               2
     {% endif %}
 {% endstrip %}
 /** @} */

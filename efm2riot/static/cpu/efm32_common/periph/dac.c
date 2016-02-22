@@ -24,10 +24,10 @@
 #include "periph/dac.h"
 
 #include "em_cmu.h"
-
 #ifdef _SILICON_LABS_32B_PLATFORM_1
 #include "em_dac.h"
 #endif
+#include "em_common_utils.h"
 
 /* guard file in case no DAC device is defined */
 #if DAC_NUMOF
@@ -75,20 +75,19 @@ int8_t dac_init(dac_t dev, dac_precision_t precision)
 
     /* reset the peripheral */
     DAC_Init_TypeDef init = DAC_INIT_DEFAULT;
-    
+
     DAC_Reset(dac_config[dev].dev);
     DAC_Init(dac_config[dev].dev, &init);
 
     /* initialize channels */
-    DAC_InitChannel_TypeDef channelInit = DAC_INITCHANNEL_DEFAULT;
+    EFM32_CREATE_INIT(init_channel, DAC_InitChannel_TypeDef, DAC_INITCHANNEL_DEFAULT,
+        .conf.enable = true
+    );
 
-    channelInit.enable = true;
-
-    for (int i = 0; i < dac_config[dev].channels; i++) {
-        uint8_t index = dac_config[dev].channel_offset + i;
-
-        DAC_InitChannel(dac_config[dev].dev, &channelInit,
-                        dac_channel_config[index].index);
+    for (int channel = 0; channel < dac_config[dev].channels; channel++) {
+        DAC_InitChannel(dac_config[dev].dev,
+                        &init_channel.conf,
+                        dac_config[dev].channel[channel].index);
     }
 
     return 0;
@@ -107,9 +106,8 @@ int8_t dac_write(dac_t dev, uint8_t channel, uint16_t value)
     }
 
     /* setup channel */
-    uint8_t index = dac_config[dev].channel_offset + channel;
-
-    DAC_ChannelOutputSet(dac_config[dev].dev, dac_channel_config[index].index,
+    DAC_ChannelOutputSet(dac_config[dev].dev,
+                         dac_config[dev].channel[channel].index,
                          value << dac_state[dev].shift);
 
     return 0;
