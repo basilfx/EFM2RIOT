@@ -41,7 +41,12 @@
                     {
                         title: "#",
                         field: "id",
-                        sortable: true
+                        sortable: true,
+                        formatter: function(value, row, index) {
+                            if (value !== undefined) {
+                                return "<span style=\"cursor: pointer; border-bottom: 1px dashed #999;\">" + value + "</span>";
+                            }
+                        }
                     },
                     {
                         title: "Board",
@@ -96,7 +101,7 @@
                         cellStyle: createCellStyle("text"),
                         formatter: function(value, row, index) {
                             if (value !== undefined) {
-                                return "<span style=\"cursor: pointer;\">" + value + "</span>";
+                                return "<span style=\"cursor: pointer; border-bottom: 1px dashed #999;\">" + value + "</span>";
                             }
                         }
                     },
@@ -107,7 +112,7 @@
                         cellStyle: createCellStyle("data"),
                         formatter: function(value, row, index) {
                             if (value !== undefined) {
-                                return "<span style=\"cursor: pointer;\">" + value + "</span>";
+                                return "<span style=\"cursor: pointer; border-bottom: 1px dashed #999;\">" + value + "</span>";
                             }
                         }
                     },
@@ -118,7 +123,7 @@
                         cellStyle: createCellStyle("bss"),
                         formatter: function(value, row, index) {
                             if (value !== undefined) {
-                                return "<span style=\"cursor: pointer;\">" + value + "</span>";
+                                return "<span style=\"cursor: pointer; border-bottom: 1px dashed #999;\">" + value + "</span>";
                             }
                         }
                     },
@@ -173,7 +178,7 @@
                         return {};
                     }
 
-                    if (row[field] <= compareTo[field]) {
+                    if (parseFloat(row[field]) <= parseFloat(compareTo[field])) {
                         return { classes: 'bg-success' }
                     } else {
                         return { classes: 'bg-danger' }
