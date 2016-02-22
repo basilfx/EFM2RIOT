@@ -57,7 +57,7 @@ static const adc_conf_t adc_config[] = {
         ADC0,                               /* device */
         cmuClock_ADC0,                      /* CMU register */
         1,                                  /* number of channels */
-        0,                                  /* channel offset */
+        adc_channel_config,                 /* first channel config */
     }
 };
 
@@ -136,8 +136,8 @@ static const spi_dev_t spi_config[] = {
     }
 };
 
-#define SPI_0_EN            (1U)
-#define SPI_NUMOF           1
+#define SPI_NUMOF           (1U)
+#define SPI_0_EN            1
 /** @} */
 
 /**

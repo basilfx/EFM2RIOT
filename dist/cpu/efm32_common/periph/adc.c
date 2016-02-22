@@ -25,6 +25,7 @@
 
 #include "em_cmu.h"
 #include "em_adc.h"
+#include "em_common_utils.h"
 
 /* guard file in case no ADC device is defined */
 #if ADC_NUMOF
@@ -75,13 +76,13 @@ int adc_init(adc_t dev, adc_precision_t precision)
     CMU_ClockEnable(adc_config[dev].cmu, true);
 
     /* reset and initialize peripheral */
-    ADC_Init_TypeDef init = ADC_INIT_DEFAULT;
-
-    init.timebase = ADC_TimebaseCalc(0);
-    init.prescale = ADC_PrescaleCalc(400000, 0);
+    EFM32_CREATE_INIT(init, ADC_Init_TypeDef, ADC_INIT_DEFAULT,
+        .conf.timebase = ADC_TimebaseCalc(0),
+        .conf.prescale = ADC_PrescaleCalc(400000, 0)
+    );
 
     ADC_Reset(adc_config[dev].dev);
-    ADC_Init(adc_config[dev].dev, &init);
+    ADC_Init(adc_config[dev].dev, &init.conf);
 
     return 0;
 }
@@ -94,18 +95,16 @@ int adc_sample(adc_t dev, int channel)
     }
 
     /* setup channel */
-    uint8_t index = adc_config[dev].channel_offset + channel;
-
     ADC_InitSingle_TypeDef init = ADC_INITSINGLE_DEFAULT;
 
-    init.reference = adc_channel_config[index].reference;
-#ifdef _SILICON_LABS_32B_PLATFORM_1
-    init.input = adc_channel_config[index].input;
-#else
-    init.posSel = adc_channel_config[index].input;
-#endif
+    init.acqTime = adc_config[dev].channel[channel].acq_time;
+    init.reference = adc_config[dev].channel[channel].reference;
     init.resolution = adc_state[dev].res;
-    init.acqTime = adc_channel_config[index].acq_time;
+#ifdef _SILICON_LABS_32B_PLATFORM_1
+    init.input = adc_config[dev].channel[channel].input;
+#else
+    init.posSel = adc_config[dev].channel[channel].input;
+#endif
 
     ADC_InitSingle(adc_config[dev].dev, &init);
 

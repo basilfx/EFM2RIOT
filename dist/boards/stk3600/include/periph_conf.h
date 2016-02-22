@@ -57,7 +57,7 @@ static const adc_conf_t adc_config[] = {
         ADC0,                               /* device */
         cmuClock_ADC0,                      /* CMU register */
         1,                                  /* number of channels */
-        0,                                  /* channel offset */
+        adc_channel_config,                 /* first channel config */
     }
 };
 
@@ -82,7 +82,7 @@ static const dac_conf_t dac_config[] = {
         cmuClock_DAC0,                      /* CMU register */
         dacRefVDD,                          /* voltage reference */
         1,                                  /* number of channels */
-        0,                                  /* channel offset */
+        dac_channel_config,                 /* first channel config */
     }
 };
 
@@ -137,13 +137,12 @@ static const pwm_conf_t pwm_config[] = {
         cmuClock_TIMER3,            /* CMU register */
         TIMER3_IRQn,                /* IRQ base channel */
         1,                          /* number of channels */
-        0                           /* channel offset */
+        pwm_channel_config          /* first channel config */
     }
 };
 
 #define PWM_NUMOF                    (1U)
 #define PWM_0_EN                     1
-#define PWM_0_CHANNELS               1
 /** @} */
 
 /**
@@ -191,9 +190,9 @@ static const spi_dev_t spi_config[] = {
     }
 };
 
-#define SPI_0_EN            (1U)
+#define SPI_NUMOF           (2U)
+#define SPI_0_EN            1
 #define SPI_1_EN            1
-#define SPI_NUMOF           2
 /** @} */
 
 /**

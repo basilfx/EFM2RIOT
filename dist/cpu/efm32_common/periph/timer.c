@@ -29,6 +29,8 @@
 
 #include "em_cmu.h"
 #include "em_timer.h"
+#include "em_timer_utils.h"
+#include "em_common_utils.h"
 
 /* guard file in case no TIMER device is defined */
 #if TIMER_NUMOF
@@ -43,7 +45,7 @@
  */
 static timer_isr_ctx_t isr_ctx[TIMER_NUMOF];
 
-int timer_init(tim_t dev, unsigned int ticks_per_us, void (*callback)(int))
+int timer_init(tim_t dev, unsigned long freq, void (*callback)(int))
 {
     TIMER_TypeDef *pre, *tim;
 
@@ -65,23 +67,26 @@ int timer_init(tim_t dev, unsigned int ticks_per_us, void (*callback)(int))
     CMU_ClockEnable(timer_config[dev].timer.cmu, true);
 
     /* reset and initialize peripherals */
-    TIMER_Init_TypeDef init_pre = TIMER_INIT_DEFAULT;
-    TIMER_Init_TypeDef init_tim = TIMER_INIT_DEFAULT;
-
-    init_pre.enable = false;
-    init_pre.prescale = timerPrescale32;
-    init_pre.enable = false;
-    init_tim.clkSel = timerClkSelCascade;
+    EFM32_CREATE_INIT(init_pre, TIMER_Init_TypeDef, TIMER_INIT_DEFAULT,
+        .conf.enable = false,
+        .conf.prescale = timerPrescale32
+    );
+    EFM32_CREATE_INIT(init_tim, TIMER_Init_TypeDef, TIMER_INIT_DEFAULT,
+        .conf.enable = false,
+        .conf.clkSel = timerClkSelCascade
+    );
 
     TIMER_Reset(tim);
     TIMER_Reset(pre);
 
-    TIMER_Init(tim, &init_tim);
-    TIMER_Init(pre, &init_pre);
+    TIMER_Init(tim, &init_tim.conf);
+    TIMER_Init(pre, &init_pre.conf);
 
     /* configure the prescaler top value */
-    uint32_t freq = CMU_ClockFreqGet(timer_config[dev].prescaler.cmu);
-    uint32_t top = ((freq / 32 / 1000000) - 1) * ticks_per_us;
+    TIMER_Prescale_TypeDef prescaler = timerPrescale32;
+
+    uint32_t freq_timer = CMU_ClockFreqGet(timer_config[dev].prescaler.cmu);
+    uint32_t top = (freq_timer / TIMER_Prescaler2Div(prescaler) / freq) - 1;
 
     TIMER_TopSet(pre, top);
     TIMER_TopSet(tim, 0xffff);
