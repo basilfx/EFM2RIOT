@@ -37,7 +37,7 @@
 /* guard file in case no SPI device is defined */
 #if SPI_NUMOF
 
-static mutex_t spi_lock[I2C_NUMOF] = {
+static mutex_t spi_lock[SPI_NUMOF] = {
 #if SPI_0_EN
     [SPI_0] = MUTEX_INIT,
 #endif
@@ -57,9 +57,6 @@ int spi_init_master(spi_t dev, spi_conf_t conf, spi_speed_t speed)
     CMU_ClockEnable(cmuClock_HFPER, true);
     CMU_ClockEnable(spi_config[dev].cmu, true);
 
-    /* configure the pins */
-    spi_conf_pins(dev);
-
     /* initialize and enable peripheral */
     EFM32_CREATE_INIT(init, USART_InitSync_TypeDef, USART_INITSYNC_DEFAULT,
         .conf.baudrate = (uint32_t) speed,
@@ -68,6 +65,9 @@ int spi_init_master(spi_t dev, spi_conf_t conf, spi_speed_t speed)
     );
 
     USART_InitSync(spi_config[dev].dev, &init.conf);
+
+    /* configure the pins */
+    spi_conf_pins(dev);
 
     return 0;
 }
@@ -83,7 +83,10 @@ int spi_conf_pins(spi_t dev)
     /* configure the pins */
     gpio_init(spi_config[dev].clk_pin, GPIO_OUT, 0);
     gpio_init(spi_config[dev].mosi_pin, GPIO_OUT, 0);
-    gpio_init(spi_config[dev].miso_pin, GPIO_OUT, 0);
+    gpio_init(spi_config[dev].miso_pin, GPIO_IN_PD, 0);
+
+    gpio_set(spi_config[dev].clk_pin);
+    gpio_set(spi_config[dev].mosi_pin);
 
     /* configure pin functions */
 #ifdef _SILICON_LABS_32B_PLATFORM_1
