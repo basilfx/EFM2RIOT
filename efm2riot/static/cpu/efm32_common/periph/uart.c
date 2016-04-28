@@ -61,8 +61,8 @@ int uart_init(uart_t dev, uint32_t baudrate, uart_rx_cb_t rx_cb, void *arg)
     isr_ctx[dev].arg = arg;
 
     /* initialize the pins */
-    gpio_init(uart_config[dev].rx_pin, GPIO_OUT, 0);
-    gpio_init(uart_config[dev].tx_pin, GPIO_OUT, 0);
+    gpio_init(uart_config[dev].rx_pin, GPIO_OUT);
+    gpio_init(uart_config[dev].tx_pin, GPIO_OUT);
 
     /* initialize the UART/USART/LEUART device */
 #if LOW_POWER_ENABLED && defined(LEUART_COUNT) && LEUART_COUNT > 0

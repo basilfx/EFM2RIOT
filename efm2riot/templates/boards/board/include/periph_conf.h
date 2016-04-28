@@ -51,94 +51,60 @@ extern "C" {
 {% endstrip %}
 /** @} */
 
-/**
- * @brief ADC configuration
- * @{
- */
-static const adc_chan_conf_t adc_channel_config[] = {
-    {% strip 2 %}
-        {% if board in ["stk3600", "stk3700", "stk3800"] %}
-            {
-                adcSingleInputTemp,                 /* channel to use */
-                adcRef1V25,                         /* channel reference */
-                adcAcqTime8                         /* acquisition time */
-            }
-        {% elif board in ["stk3200"] %}
-            {
-                adcSingleInputTemp,                 /* channel to use */
-                adcRef1V25,                         /* channel reference */
-                adcAcqTime8                         /* acquisition time */
-            }
-        {% elif board in ["slstk3401a"] %}
-            {
-                adcPosSelTEMP,                      /* channel to use */
-                adcRef1V25,                         /* channel reference */
-                adcAcqTime8                         /* acquisition time */
-            }
-        {% elif board in ["slwstk6220a"] %}
-            {
-                adcSingleInputTemp,                 /* channel to use */
-                adcRef1V25,                         /* channel reference */
-                adcAcqTime8                         /* acquisition time */
-            }
-        {% endif %}
-    {% endstrip %}
-};
-
-static const adc_conf_t adc_config[] = {
-    {% strip 2 %}
-        {% if board in ["stk3600", "stk3700", "stk3800"] %}
-            {
-                ADC0,                               /* device */
-                cmuClock_ADC0,                      /* CMU register */
-                1,                                  /* number of channels */
-                adc_channel_config,                 /* first channel config */
-            }
-        {% elif board in ["stk3200"] %}
-            {
-                ADC0,                               /* device */
-                cmuClock_ADC0,                      /* CMU register */
-                1,                                  /* number of channels */
-                adc_channel_config,                 /* first channel config */
-            }
-        {% elif board in ["slstk3401a"] %}
-            {
-                ADC0,                               /* device */
-                cmuClock_ADC0,                      /* CMU register */
-                1,                                  /* number of channels */
-                adc_channel_config,                 /* first channel config */
-            }
-        {% elif board in ["slwstk6220a"] %}
-            {
-                ADC0,                               /* device */
-                cmuClock_ADC0,                      /* CMU register */
-                1,                                  /* number of channels */
-                adc_channel_config,                 /* first channel config */
-            }
-        {% endif %}
-    {% endstrip %}
-};
-
 {% strip 2 %}
-    {% if board in ["stk3600", "stk3700", "stk3800"] %}
-        #define ADC_NUMOF           (1U)
-        #define ADC_0_EN            1
-        #define ADC_MAX_CHANNELS    1
-    {% elif board in ["stk3200"] %}
-        #define ADC_NUMOF           (1U)
-        #define ADC_0_EN            1
-        #define ADC_MAX_CHANNELS    1
-    {% elif board in ["slstk3401a"] %}
-        #define ADC_NUMOF           (1U)
-        #define ADC_0_EN            1
-        #define ADC_MAX_CHANNELS    1
-    {% elif board in ["slwstk6220a"] %}
-        #define ADC_NUMOF           (1U)
-        #define ADC_0_EN            1
-        #define ADC_MAX_CHANNELS    1
+    {% if board in ["stk3200", "slstk3401a", "stk3600", "stk3700", "stk3800", "slwstk6220a"] %}
+        /**
+         * @brief ADC configuration
+         * @{
+         */
+        static const adc_conf_t adc_config[] = {
+            {
+                ADC0,                               /* device */
+                cmuClock_ADC0,                      /* CMU register */
+            }
+        };
+
+        static const adc_chan_conf_t adc_channel_config[] = {
+            {% strip 2 %}
+                {% if board in ["stk3200", "stk3600", "stk3700", "stk3800", "slwstk6220a"] %}
+                    {
+                        0,                                  /* device index */
+                        adcSingleInputTemp,                 /* channel to use */
+                        adcRef1V25,                         /* channel reference */
+                        adcAcqTime8                         /* acquisition time */
+                    },
+                    {
+                        0,                                  /* device index */
+                        adcSingleInputVDDDiv3,              /* channel to use */
+                        adcRef1V25,                         /* channel reference */
+                        adcAcqTime8                         /* acquisition time */
+                    }
+                {% elif board in ["slstk3401a"] %}
+                    {
+                        0,                                  /* device index */
+                        adcPosSelTEMP,                      /* channel to use */
+                        adcRef1V25,                         /* channel reference */
+                        adcAcqTime8                         /* acquisition time */
+                    },
+                    {
+                        0,                                  /* device index */
+                        adcPosSelDEFAULT,                   /* channel to use */
+                        adcRef1V25,                         /* channel reference */
+                        adcAcqTime8                         /* acquisition time */
+                    }
+                {% endif %}
+            {% endstrip %}
+        };
+
+        #define ADC_NUMOF           (2U)
+        /** @} */
+    {% else %}
+        /**
+         * @brief ADC configuration
+         */
+        #define ADC_NUMOF           (0U)
     {% endif %}
 {% endstrip %}
-/** @} */
 
 {% strip 2, true %}
     {% if board in ["stk3600", "stk3700", "stk3800", "slwstk6220a"] %}
@@ -146,54 +112,28 @@ static const adc_conf_t adc_config[] = {
          * @brief DAC configuration
          * @{
          */
-        static const dac_chan_conf_t dac_channel_config[] = {
-            {% strip 2 %}
-                {% if board in ["stk3600", "stk3700", "stk3800"] %}
-                    {
-                        0                                   /* channel index */
-                    }
-                {% elif board in ["slwstk6220a"] %}
-                    {
-                        0                                   /* channel index */
-                    }
-                {% endif %}
-            {% endstrip %}
-        };
-
         static const dac_conf_t dac_config[] = {
-            {% strip 2 %}
-                {% if board in ["stk3600", "stk3700", "stk3800"] %}
-                    {
-                        DAC0,                               /* device */
-                        cmuClock_DAC0,                      /* CMU register */
-                        dacRefVDD,                          /* voltage reference */
-                        1,                                  /* number of channels */
-                        dac_channel_config,                 /* first channel config */
-                    }
-                {% elif board in ["slwstk6220a"] %}
-                    {
-                        DAC0,                               /* device */
-                        cmuClock_DAC0,                      /* CMU register */
-                        dacRefVDD,                          /* voltage reference */
-                        1,                                  /* number of channels */
-                        dac_channel_config,                 /* first channel config */
-                    }
-                {% endif %}
-            {% endstrip %}
+            {
+                DAC0,                               /* device */
+                cmuClock_DAC0,                      /* CMU register */
+            }
         };
 
-        {% strip 2 %}
-            {% if board in ["stk3600", "stk3700", "stk3800"] %}
-                #define DAC_NUMOF           (1U)
-                #define DAC_0_EN            1
-                #define DAC_MAX_CHANNELS    1
-            {% elif board in ["slwstk6220a"] %}
-                #define DAC_NUMOF           (1U)
-                #define DAC_0_EN            1
-                #define DAC_MAX_CHANNELS    1
-            {% endif %}
-        {% endstrip %}
+        static const dac_chan_conf_t dac_channel_config[] = {
+            {
+                0,                                  /* DAC channel index */
+                1,                                  /* channel to use */
+                dacRefVDD,                          /* channel reference */
+            }
+        };
+
+        #define DAC_NUMOF           (1U)
         /** @} */
+    {% else %}
+        /**
+         * @brief DAC configuration
+         */
+        #define DAC_NUMOF           (0U)
     {% endif %}
 {% endstrip %}
 
@@ -283,9 +223,9 @@ static const pwm_chan_conf_t pwm_channel_config[] = {
                 TIMER_ROUTE_LOCATION_LOC1,  /* AF location */
             }
         {% elif board in ["stk3200"] %}
-            /* no channels */
+            /* no available channels */
         {% elif board in ["slstk3401a"] %}
-            /* no channels */
+            /* no available channels */
         {% elif board in ["slwstk6220a"] %}
             {
                 0,                          /* channel index */
@@ -312,9 +252,9 @@ static const pwm_conf_t pwm_config[] = {
                 pwm_channel_config          /* first channel config */
             }
         {% elif board in ["stk3200"] %}
-            /* no timers left */
+            /* no available timers */
         {% elif board in ["slstk3401a"] %}
-            /* no timers left */
+            /* no available timers */
         {% elif board in ["slwstk6220a"] %}
             {
                 TIMER0,                     /* device */
@@ -421,7 +361,7 @@ static const spi_dev_t spi_config[] = {
                 USART1,                             /* device */
                 GPIO_PIN(PD, 0),                    /* MOSI pin */
                 GPIO_PIN(PD, 1),                    /* MISO pin */
-                GPIO_PIN(PD, 2),                   /* CLK pin */
+                GPIO_PIN(PD, 2),                    /* CLK pin */
                 USART_ROUTE_LOCATION_LOC1,          /* AF location */
                 cmuClock_USART1,                    /* CMU register */
                 USART1_RX_IRQn,                     /* IRQ base channel */

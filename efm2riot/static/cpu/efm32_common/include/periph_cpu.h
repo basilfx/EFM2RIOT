@@ -47,40 +47,59 @@ extern "C" {
 /** @} */
 
 /**
-* @brief   Length of CPU ID in octets.
-*/
-#define CPUID_LEN           (8U)
-
-/**
- * @brief   Override the timer undefined value.
- */
-#define TIMER_UNDEF         (0xffffffff)
-
-/**
- * @brief   Override the timer type.
+ * @brief   Possible ADC resolution settings
  * @{
  */
-#define HAVE_TIMER_T
-typedef uint32_t tim_t;
+#define HAVE_ADC_RES_T
+typedef enum {
+    ADC_RES_6BIT = adcRes6Bit,        /**< ADC resolution: 6 bit */
+    ADC_RES_8BIT = adcRes8Bit,        /**< ADC resolution: 8 bit */
+    ADC_RES_12BIT = adcRes12Bit,      /**< ADC resolution: 12 bit */
+} adc_res_t;
 /** @} */
 
 /**
- * @brief   Define timer configuration values
- *
- * @note    The two timers must be adjacent to each other (e.g. TIMER0 and
- *          TIMER1, or TIMER2 and TIMER3, etc.).
+ * @brief   ADC device configuration
  * @{
  */
 typedef struct {
-    TIMER_TypeDef *dev;
-    CMU_Clock_TypeDef cmu;
-} timer_dev_t;
+    ADC_TypeDef *dev;               /**< ADC device used */
+    CMU_Clock_TypeDef cmu;          /**< the device CMU channel */
+} adc_conf_t;
 
 typedef struct {
-    timer_dev_t prescaler;     /**< the lower numbered neighboring timer */
-    timer_dev_t timer;         /**< the higher numbered timer */
-    IRQn_Type irq;             /**< number of the higher timer IRQ channel */
-} timer_conf_t;
+    uint8_t dev;                    /**< device index */
+#ifdef _SILICON_LABS_32B_PLATFORM_1
+    ADC_SingleInput_TypeDef input;  /**< input channel */
+#else
+    ADC_PosSel_TypeDef input;       /**< input channel */
+#endif
+    ADC_Ref_TypeDef reference;      /**< channel voltage reference */
+    ADC_AcqTime_TypeDef acq_time;   /**< channel acquisition time */
+} adc_chan_conf_t;
+/** @} */
+
+/**
+ * @brief   Length of CPU ID in octets.
+ */
+#define CPUID_LEN           (8U)
+
+/**
+ * @brief   DAC device configuration
+ * @{
+ */
+#if defined(DAC_COUNT) && DAC_COUNT > 0
+typedef struct {
+    DAC_TypeDef *dev;               /**< DAC device used */
+    CMU_Clock_TypeDef cmu;          /**< the device CMU channel */
+} dac_conf_t;
+
+typedef struct {
+    uint8_t dev;                    /**< device index */
+    uint8_t index;                  /**< channel index */
+    DAC_Ref_TypeDef ref;            /**< channel voltage reference */
+} dac_chan_conf_t;
+#endif
 /** @} */
 
 /**
@@ -97,12 +116,12 @@ typedef uint32_t gpio_t;
 #define GPIO_UNDEF          (0xffffffff)
 
 /**
- * @brief   Mandatory function for defining a GPIO pins
+ * @brief   Mandatory function for defining a GPIO pins.
  */
 #define GPIO_PIN(x, y)      ((gpio_t) ((x << 4) | y))
 
 /**
- * @brief   Internal macro for combining pin mode and pull-up/down.
+ * @brief   Internal macro for combining pin mode (x) and pull-up/down (y).
  */
 #define GPIO_MODE(x, y)     ((x << 1) | y)
 
@@ -124,32 +143,15 @@ enum {
  * @brief   Override direction values.
  * @{
  */
-#define HAVE_GPIO_DIR_T
+#define HAVE_GPIO_MODE_T
 typedef enum {
-    GPIO_IN    = GPIO_MODE(gpioModeInput, 0),          /**< configure pin as input */
-    GPIO_IN_PD = GPIO_MODE(gpioModeInputPull, 0),      /**< configure pin as input with pull-down */
-    GPIO_IN_PU = GPIO_MODE(gpioModeInputPull, 1),      /**< configure pin as input with pull-up */
-    GPIO_OUT   = GPIO_MODE(gpioModePushPull, 0),       /**< configure pin as output */
-    GPIO_OD    = GPIO_MODE(gpioModeWiredAnd, 1),       /**< configure pin as open-drain */
-    GPIO_OD_PU = GPIO_MODE(gpioModeWiredAndPullUp, 1), /**< configure pin as open-drain with pull-up */
-
-    /* remove below after gpio_mode_t is introduced */
-    GPIO_DIR_IN = 1,
-    GPIO_DIR_OUT = 4,
-    GPIO_DIR_BI = 8
-} gpio_dir_t;
-/** @} */
-
-/**
- * @brief   Override pull register configuration values.
- * @{
- */
-#define HAVE_GPIO_PP_T
-typedef enum {
-    GPIO_NOPULL = 1,        /**< do not use internal pull resistors */
-    GPIO_PULLUP = 6,        /**< enable internal pull-up resistor */
-    GPIO_PULLDOWN = 2       /**< enable internal pull-down resistor */
-} gpio_pp_t;
+    GPIO_IN    = GPIO_MODE(gpioModeInput, 0),          /**< pin as input */
+    GPIO_IN_PD = GPIO_MODE(gpioModeInputPull, 0),      /**< pin as input with pull-down */
+    GPIO_IN_PU = GPIO_MODE(gpioModeInputPull, 1),      /**< pin as input with pull-up */
+    GPIO_OUT   = GPIO_MODE(gpioModePushPull, 0),       /**< pin as output */
+    GPIO_OD    = GPIO_MODE(gpioModeWiredAnd, 1),       /**< pin as open-drain */
+    GPIO_OD_PU = GPIO_MODE(gpioModeWiredAndPullUp, 1), /**< pin as open-drain with pull-up */
+} gpio_mode_t;
 /** @} */
 
 /**
@@ -170,80 +172,12 @@ typedef enum {
  */
 #define HAVE_I2C_SPEED_T
 typedef enum {
-    I2C_SPEED_LOW = 10000,            /**< low speed mode:    ~10kbit/s */
-    I2C_SPEED_NORMAL = 100000,        /**< normal mode:       ~100kbit/s */
-    I2C_SPEED_FAST = 400000,          /**< fast mode:         ~400kbit/sj */
-    I2C_SPEED_FAST_PLUS = 1000000,    /**< fast plus mode:    ~1Mbit/s */
-    I2C_SPEED_HIGH = 3400000,         /**< high speed mode:   ~3.4Mbit/s */
+    I2C_SPEED_LOW = 10000,            /**< low speed mode: ~10kbit/s */
+    I2C_SPEED_NORMAL = 100000,        /**< normal mode: ~100kbit/s */
+    I2C_SPEED_FAST = 400000,          /**< fast mode: ~400kbit/sj */
+    I2C_SPEED_FAST_PLUS = 1000000,    /**< fast plus mode: ~1Mbit/s */
+    I2C_SPEED_HIGH = 3400000,         /**< high speed mode: ~3.4Mbit/s */
 } i2c_speed_t;
-/** @} */
-
-/**
- * @brief   Override SPI clocks.
- * @{
- */
-#define HAVE_SPI_CONF_T
-typedef enum {
-    SPI_CONF_FIRST_RISING = usartClockMode0,
-    SPI_CONF_SECOND_RISING = usartClockMode1,
-    SPI_CONF_FIRST_FALLING = usartClockMode2,
-    SPI_CONF_SECOND_FALLING = usartClockMode3
-} spi_conf_t;
-/** @} */
-
-/**
- * @brief   Define a set of pre-defined SPI clock speeds.
- * @{
- */
-#define HAVE_SPI_SPEED_T
-typedef enum {
-    SPI_SPEED_100KHZ = 100000,        /**< drive the SPI bus with 100KHz */
-    SPI_SPEED_400KHZ = 400000,        /**< drive the SPI bus with 400KHz */
-    SPI_SPEED_1MHZ = 1000000,         /**< drive the SPI bus with 1MHz */
-    SPI_SPEED_5MHZ = 5000000,         /**< drive the SPI bus with 5MHz */
-    SPI_SPEED_10MHZ = 10000000        /**< drive the SPI bus with 10MHz */
-} spi_speed_t;
-/** @} */
-
-/**
- * @brief   ADC device configuration
- * @{
- */
-typedef struct {
-#ifdef _SILICON_LABS_32B_PLATFORM_1
-    ADC_SingleInput_TypeDef input;  /**< input channel */
-#else
-    ADC_PosSel_TypeDef input;       /**< input channel */
-#endif
-    ADC_Ref_TypeDef reference;      /**< channel voltage reference */
-    ADC_AcqTime_TypeDef acq_time;   /**< channel acquisition time */
-} adc_chan_conf_t;
-
-typedef struct {
-    ADC_TypeDef *dev;               /**< ADC device used */
-    CMU_Clock_TypeDef cmu;          /**< the device CMU channel */
-    uint8_t channels;               /**< the number of ADC channels */
-    const adc_chan_conf_t* channel; /**< pointer to first channel config */
-} adc_conf_t;
-/** @} */
-
-/**
- * @brief   DAC device configuration
- * @{
- */
-#if defined(DAC_COUNT) && DAC_COUNT > 0
-typedef struct {
-    uint8_t index;                  /**< channel index */
-} dac_chan_conf_t;
-
-typedef struct {
-    DAC_TypeDef *dev;               /**< DAC device used */
-    CMU_Clock_TypeDef cmu;          /**< the device CMU channel */
-    DAC_Ref_TypeDef ref;            /**< the DAC internal reference */
-    uint8_t channels;               /**< the number of DAC channels */
-    const dac_chan_conf_t* channel; /**< pointer to first channel config */
-} dac_conf_t;
-#endif
 /** @} */
 
 /**
@@ -278,6 +212,33 @@ typedef struct {
 /** @} */
 
 /**
+ * @brief   Override SPI clocks.
+ * @{
+ */
+#define HAVE_SPI_CONF_T
+typedef enum {
+    SPI_CONF_FIRST_RISING = usartClockMode0,
+    SPI_CONF_SECOND_RISING = usartClockMode1,
+    SPI_CONF_FIRST_FALLING = usartClockMode2,
+    SPI_CONF_SECOND_FALLING = usartClockMode3
+} spi_conf_t;
+/** @} */
+
+/**
+ * @brief   Define a set of pre-defined SPI clock speeds.
+ * @{
+ */
+#define HAVE_SPI_SPEED_T
+typedef enum {
+    SPI_SPEED_100KHZ = 100000,        /**< drive the SPI bus with 100KHz */
+    SPI_SPEED_400KHZ = 400000,        /**< drive the SPI bus with 400KHz */
+    SPI_SPEED_1MHZ = 1000000,         /**< drive the SPI bus with 1MHz */
+    SPI_SPEED_5MHZ = 5000000,         /**< drive the SPI bus with 5MHz */
+    SPI_SPEED_10MHZ = 10000000        /**< drive the SPI bus with 10MHz */
+} spi_speed_t;
+/** @} */
+
+/**
  * @brief   SPI device configuration.
  */
 typedef struct {
@@ -291,6 +252,47 @@ typedef struct {
 } spi_dev_t;
 
 /**
+ * @brief   Declare needed generic SPI functions.
+ * @{
+ */
+#define PERIPH_SPI_NEEDS_TRANSFER_BYTES
+#define PERIPH_SPI_NEEDS_TRANSFER_REG
+#define PERIPH_SPI_NEEDS_TRANSFER_REGS
+/** @} */
+
+/**
+ * @brief   Override the timer type.
+ * @{
+ */
+#define HAVE_TIMER_T
+typedef uint32_t tim_t;
+/** @} */
+
+/**
+ * @brief   Override the timer undefined value.
+ */
+#define TIMER_UNDEF         (0xffffffff)
+
+/**
+ * @brief   Define timer configuration values
+ *
+ * @note    The two timers must be adjacent to each other (e.g. TIMER0 and
+ *          TIMER1, or TIMER2 and TIMER3, etc.).
+ * @{
+ */
+typedef struct {
+    TIMER_TypeDef *dev;
+    CMU_Clock_TypeDef cmu;
+} timer_dev_t;
+
+typedef struct {
+    timer_dev_t prescaler;     /**< the lower numbered neighboring timer */
+    timer_dev_t timer;         /**< the higher numbered timer */
+    IRQn_Type irq;             /**< number of the higher timer IRQ channel */
+} timer_conf_t;
+/** @} */
+
+/**
  * @brief   UART device configuration.
  */
 typedef struct {
@@ -301,15 +303,6 @@ typedef struct {
     CMU_Clock_TypeDef cmu;  /**< the device CMU channel */
     IRQn_Type irq;          /**< the devices base IRQ channel */
 } uart_conf_t;
-
-/**
- * @brief   Declare needed generic SPI functions.
- * @{
- */
-#define PERIPH_SPI_NEEDS_TRANSFER_BYTES
-#define PERIPH_SPI_NEEDS_TRANSFER_REG
-#define PERIPH_SPI_NEEDS_TRANSFER_REGS
-/** @} */
 
 #ifdef __cplusplus
 }
