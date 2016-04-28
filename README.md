@@ -42,10 +42,13 @@ All of the 32-bit families that are supported by emlib are converted:
 * EFM32 Tiny Gecko
 * EFM32 Wonder Gecko
 * EFM32 Zero Gecko
+* EFR32 Mighty Gecko
+* EFR32 Blue Gecko
+* EFR32 Flex Gecko
 * EZR32 Leopard Gecko
 * EZR32 Wonder Gecko
 
-**Note:** not all MCUs may be supported or sufficient for use with RIOT-OS, e.g. due to low ram or memory sizes.
+**Note:** not all MCUs may be supported or have sufficient resources for use with RIOT-OS, for instance, low-memory MCUs.
 
 ## Supported boards
 Currently, the following boards (development kits) are supported:
