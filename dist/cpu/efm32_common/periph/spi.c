@@ -81,9 +81,9 @@ int spi_init_slave(spi_t dev, spi_conf_t conf, char (*cb)(char data))
 int spi_conf_pins(spi_t dev)
 {
     /* configure the pins */
-    gpio_init(spi_config[dev].clk_pin, GPIO_OUT, 0);
-    gpio_init(spi_config[dev].mosi_pin, GPIO_OUT, 0);
-    gpio_init(spi_config[dev].miso_pin, GPIO_IN_PD, 0);
+    gpio_init(spi_config[dev].clk_pin, GPIO_OUT);
+    gpio_init(spi_config[dev].mosi_pin, GPIO_OUT);
+    gpio_init(spi_config[dev].miso_pin, GPIO_IN_PD);
 
     gpio_set(spi_config[dev].clk_pin);
     gpio_set(spi_config[dev].mosi_pin);

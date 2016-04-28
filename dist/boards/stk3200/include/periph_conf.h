@@ -44,27 +44,35 @@ extern "C" {
  * @brief ADC configuration
  * @{
  */
+static const adc_conf_t adc_config[] = {
+    {
+        ADC0,                               /* device */
+        cmuClock_ADC0,                      /* CMU register */
+    }
+};
+
 static const adc_chan_conf_t adc_channel_config[] = {
     {
+        0,                                  /* device index */
         adcSingleInputTemp,                 /* channel to use */
+        adcRef1V25,                         /* channel reference */
+        adcAcqTime8                         /* acquisition time */
+    },
+    {
+        0,                                  /* device index */
+        adcSingleInputVDDDiv3,              /* channel to use */
         adcRef1V25,                         /* channel reference */
         adcAcqTime8                         /* acquisition time */
     }
 };
 
-static const adc_conf_t adc_config[] = {
-    {
-        ADC0,                               /* device */
-        cmuClock_ADC0,                      /* CMU register */
-        1,                                  /* number of channels */
-        adc_channel_config,                 /* first channel config */
-    }
-};
-
-#define ADC_NUMOF           (1U)
-#define ADC_0_EN            1
-#define ADC_MAX_CHANNELS    1
+#define ADC_NUMOF           (2U)
 /** @} */
+
+/**
+ * @brief DAC configuration
+ */
+#define DAC_NUMOF           (0U)
 
 /**
  * @brief I2C configuration
@@ -90,11 +98,11 @@ static const i2c_conf_t i2c_config[] = {
  * @{
  */
 static const pwm_chan_conf_t pwm_channel_config[] = {
-    /* no channels */
+    /* no available channels */
 };
 
 static const pwm_conf_t pwm_config[] = {
-    /* no timers left */
+    /* no available timers */
 };
 
 #define PWM_NUMOF                    (0U)

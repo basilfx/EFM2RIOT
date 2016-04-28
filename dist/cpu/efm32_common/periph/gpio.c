@@ -53,10 +53,8 @@ static inline uint32_t _pin_mask(gpio_t pin)
     return (1 << _pin_num(pin));
 }
 
-int gpio_init(gpio_t pin, gpio_dir_t mode, gpio_pp_t pushpull)
+int gpio_init(gpio_t pin, gpio_mode_t mode)
 {
-    (void) pushpull;
-
     /* check for valid pin */
     if (pin == GPIO_UNDEF) {
         return -1;
@@ -75,10 +73,10 @@ int gpio_init(gpio_t pin, gpio_dir_t mode, gpio_pp_t pushpull)
     return 0;
 }
 
-int gpio_init_int(gpio_t pin, gpio_pp_t pullup, gpio_flank_t flank,
+int gpio_init_int(gpio_t pin, gpio_mode_t mode, gpio_flank_t flank,
                   gpio_cb_t cb, void *arg)
 {
-    int result = gpio_init(pin, GPIO_DIR_IN, GPIO_NOPULL);
+    int result = gpio_init(pin, mode);
 
     if (result != 0) {
         return result;

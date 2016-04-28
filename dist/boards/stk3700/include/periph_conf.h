@@ -44,51 +44,51 @@ extern "C" {
  * @brief ADC configuration
  * @{
  */
+static const adc_conf_t adc_config[] = {
+    {
+        ADC0,                               /* device */
+        cmuClock_ADC0,                      /* CMU register */
+    }
+};
+
 static const adc_chan_conf_t adc_channel_config[] = {
     {
+        0,                                  /* device index */
         adcSingleInputTemp,                 /* channel to use */
+        adcRef1V25,                         /* channel reference */
+        adcAcqTime8                         /* acquisition time */
+    },
+    {
+        0,                                  /* device index */
+        adcSingleInputVDDDiv3,              /* channel to use */
         adcRef1V25,                         /* channel reference */
         adcAcqTime8                         /* acquisition time */
     }
 };
 
-static const adc_conf_t adc_config[] = {
-    {
-        ADC0,                               /* device */
-        cmuClock_ADC0,                      /* CMU register */
-        1,                                  /* number of channels */
-        adc_channel_config,                 /* first channel config */
-    }
-};
-
-#define ADC_NUMOF           (1U)
-#define ADC_0_EN            1
-#define ADC_MAX_CHANNELS    1
+#define ADC_NUMOF           (2U)
 /** @} */
 
 /**
  * @brief DAC configuration
  * @{
  */
-static const dac_chan_conf_t dac_channel_config[] = {
-    {
-        0                                   /* channel index */
-    }
-};
-
 static const dac_conf_t dac_config[] = {
     {
         DAC0,                               /* device */
         cmuClock_DAC0,                      /* CMU register */
-        dacRefVDD,                          /* voltage reference */
-        1,                                  /* number of channels */
-        dac_channel_config,                 /* first channel config */
+    }
+};
+
+static const dac_chan_conf_t dac_channel_config[] = {
+    {
+        0,                                  /* DAC channel index */
+        1,                                  /* channel to use */
+        dacRefVDD,                          /* channel reference */
     }
 };
 
 #define DAC_NUMOF           (1U)
-#define DAC_0_EN            1
-#define DAC_MAX_CHANNELS    1
 /** @} */
 
 /**

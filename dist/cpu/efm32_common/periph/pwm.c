@@ -69,7 +69,7 @@ uint32_t pwm_init(pwm_t dev, pwm_mode_t mode, uint32_t freq, uint16_t res)
         pwm_chan_conf_t channel = pwm_config[dev].channel[i];
 
         /* configure the pin */
-        gpio_init(channel.pin, GPIO_OUT, 0);
+        gpio_init(channel.pin, GPIO_OUT);
 
         /* configure pin function */
 #ifdef _SILICON_LABS_32B_PLATFORM_1

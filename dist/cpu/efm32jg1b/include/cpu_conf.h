@@ -22,6 +22,8 @@
 #ifndef CPU_CONF_H
 #define CPU_CONF_H
 
+#include "cpu_conf_common.h"
+
 #include "em_device.h"
 
 #ifdef __cplusplus
