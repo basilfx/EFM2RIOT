@@ -54,7 +54,7 @@ extern "C" {
 {% strip 2 %}
     {% if board in ["stk3200", "slstk3401a", "stk3600", "stk3700", "stk3800", "slwstk6220a"] %}
         /**
-         * @brief ADC configuration
+         * @brief   ADC configuration
          * @{
          */
         static const adc_conf_t adc_config[] = {
@@ -100,16 +100,21 @@ extern "C" {
         /** @} */
     {% else %}
         /**
-         * @brief ADC configuration
+         * @brief   ADC configuration
          */
         #define ADC_NUMOF           (0U)
     {% endif %}
 {% endstrip %}
 
+/**
+ * @brief   Crypto configuration.
+ */
+#define HWCRYPTO_NUMOF      (1U)
+
 {% strip 2, true %}
     {% if board in ["stk3600", "stk3700", "stk3800", "slwstk6220a"] %}
         /**
-         * @brief DAC configuration
+         * @brief   DAC configuration
          * @{
          */
         static const dac_conf_t dac_config[] = {
@@ -131,14 +136,14 @@ extern "C" {
         /** @} */
     {% else %}
         /**
-         * @brief DAC configuration
+         * @brief   DAC configuration
          */
         #define DAC_NUMOF           (0U)
     {% endif %}
 {% endstrip %}
 
 /**
- * @brief I2C configuration
+ * @brief   I2C configuration
  * @{
  */
 static const i2c_conf_t i2c_config[] = {
@@ -310,7 +315,7 @@ static const pwm_conf_t pwm_config[] = {
 /** @} */
 
 /**
- * @brief SPI configuration
+ * @brief   SPI configuration
  * @{
  */
 static const spi_dev_t spi_config[] = {

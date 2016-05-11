@@ -31,9 +31,9 @@ extern "C" {
 #endif
 
 /**
-* @brief   ARM Cortex-{{ architecture|upper }} specific CPU configuration
-* @{
-*/
+ * @brief   ARM Cortex-{{ architecture|upper }} specific CPU configuration
+ * @{
+ */
 #define CPU_DEFAULT_IRQ_PRIO            (1U)
 #define CPU_IRQ_NUMOF                   ({{ max_irq_name }} + 1)
 #define CPU_FLASH_BASE                  FLASH_BASE

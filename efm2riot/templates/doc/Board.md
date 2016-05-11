@@ -2,7 +2,7 @@
 
 ## Overview
 
-Sillicon Labs {{ board_display_name }} starter kit is equipped with the EFM32 microcontroller. It is specifically designed for low-power applications, having energy-saving peripherals, different energy modes and short wake-up times.
+Silicon Labs {{ board_display_name }} starter kit is equipped with the EFM32 microcontroller. It is specifically designed for low-power applications, having energy-saving peripherals, different energy modes and short wake-up times.
 
 The starter kit is equipped with an advanced energy monitoring solution, to actively monitor the power consumption of your code, in real-time.
 
@@ -140,46 +140,50 @@ This is the pinout of the Expansion Header on the right side of the board. PIN 1
 **Note:** some pins are connected to the board controller, when enabled!
 
 ### Peripheral mapping
-| Peripheral | Number | Hardware        | Pins                            | Comments                                                  |
-|------------|--------|-----------------|---------------------------------|-----------------------------------------------------------|
+| Peripheral | Number  | Hardware        | Pins                            | Comments                                                  |
+|------------|---------|-----------------|---------------------------------|-----------------------------------------------------------|
 {% strip 2 %}
     {% if board in ["stk3600", "stk3700", "stk3800"] %}
-        | ADC        | 0      | ADC0            | CHAN0: internal temperature     | ports are fixed                                           |
-        | DAC        | 0      | DAC0            | CHAN0: PB11                     | ports are fixed, shared with I2C                          |
-        | I2C        | 0      | I2C0            | SDA: PD6, SCL: PD7              | `I2C_SPEED_LOW` and `I2C_SPEED_HIGH` clock speed deviate  |
-        |            | 1      | I2C1            | SDA: PC4, SCL: PC5              | `I2C_SPEED_LOW` and `I2C_SPEED_HIGH` clock speed deviate  |
-        | PWM        | 0      | TIMER3          | CHAN0: PE2                      | Mapped to LED0                                            |
-        | RTT        |        | RTC             |                                 | RTT or RTC (see below)                                    |
-        | RTC        |        | RTC             |                                 | RTC or RTT (see below)                                    |
-        | SPI        | 0      | USART1          | MOSI: PD0, MISO: PD1, CLK: PD2  |                                                           |
-        |            | 1      | USART2          | MOSI: NC, MISO: PC3, CLK: PC4   |                                                           |
-        | Timer      | 0      | TIMER0 + TIMER1 |                                 | TIMER0 is used as prescaler (must be adjecent)            |
-        | UART       | 0      | UART0           | RX: PE1, TX: PE0                | STDIO output                                              |
-        |            | 1      | USART1          | RX: PD1, TX: PD7                |                                                           |
-        |            | 2      | LEUART0         | RX: PD5, TX: PD4                | Baud rate limited (see below)                             |
+        | ADC        | 0       | ADC0            | CHAN0: internal temperature     | Ports are fixed                                           |
+        | Crypto     | &mdash; | &mdash;         |                                 | AES128/AES256 only                                        |
+        | DAC        | 0       | DAC0            | CHAN0: PB11                     | Ports are fixed, shared with I2C                          |
+        | I2C        | 0       | I2C0            | SDA: PD6, SCL: PD7              | `I2C_SPEED_LOW` and `I2C_SPEED_HIGH` clock speed deviate  |
+        |            | 1       | I2C1            | SDA: PC4, SCL: PC5              | `I2C_SPEED_LOW` and `I2C_SPEED_HIGH` clock speed deviate  |
+        | PWM        | 0       | TIMER3          | CHAN0: PE2                      | Mapped to LED0                                            |
+        | RTT        | 1/0     | RTC             |                                 | Either RTT or RTC (see below)                             |
+        | RTC        | 1/0     | RTC             |                                 | Either RTC or RTT (see below)                             |
+        | SPI        | 0       | USART1          | MOSI: PD0, MISO: PD1, CLK: PD2  |                                                           |
+        |            | 1       | USART2          | MOSI: NC, MISO: PC3, CLK: PC4   |                                                           |
+        | Timer      | 0       | TIMER0 + TIMER1 |                                 | TIMER0 is used as prescaler (must be adjecent)            |
+        | UART       | 0       | UART0           | RX: PE1, TX: PE0                | STDIO output                                              |
+        |            | 1       | USART1          | RX: PD1, TX: PD7                |                                                           |
+        |            | 2       | LEUART0         | RX: PD5, TX: PD4                | Baud rate limited (see below)                             |
     {% elif board in ["stk3200"] %}
-        | ADC        | 0      | ADC0            | CHAN0: internal temperature     | ports are fixed                                           |
-        | I2C        | 0      | I2C0            | SDA: PE12, SCL: PE13            | `I2C_SPEED_LOW` and `I2C_SPEED_HIGH` clock speed deviate  |
-        | RTT        | 1/0    | RTC             |                                 | RTT or RTC (see below)                                    |
-        | RTC        | 1/0    | RTC             |                                 | RTC or RTT (see below)                                    |
-        | SPI        | 0      | USART1          | MOSI: PD7, MISO: PD6, CLK: PC15 |                                                           |
-        | Timer      | 0      | TIMER0 + TIMER1 |                                 | TIMER0 is used as prescaler (must be adjecent)            |
-        | UART       | 0      | LEUART0         | RX: PD5, TX: PD4                | STDIO Output, Baud rate limited (see below)               |
-        |            | 1      | USART1          | RX: PD6, TX: PD7                |                                                           |
+        | ADC        | 0       | ADC0            | CHAN0: internal temperature     | Ports are fixed                                           |
+        | Crypto     | &mdash; | &mdash;         |                                 | AES128/AES256 only                                        |
+        | I2C        | 0       | I2C0            | SDA: PE12, SCL: PE13            | `I2C_SPEED_LOW` and `I2C_SPEED_HIGH` clock speed deviate  |
+        | RTT        | 1/0     | RTC             |                                 | Either RTT or RTC (see below)                             |
+        | RTC        | 1/0     | RTC             |                                 | Either RTC or RTT (see below)                             |
+        | SPI        | 0       | USART1          | MOSI: PD7, MISO: PD6, CLK: PC15 |                                                           |
+        | Timer      | 0       | TIMER0 + TIMER1 |                                 | TIMER0 is used as prescaler (must be adjecent)            |
+        | UART       | 0       | LEUART0         | RX: PD5, TX: PD4                | STDIO Output, Baud rate limited (see below)               |
+        |            | 1       | USART1          | RX: PD6, TX: PD7                |                                                           |
     {% elif board in ["slstk3401a"] %}
-        | ADC        | 0      | ADC0            | CHAN0: internal temperature     | ports are fixed                                           |
-        | I2C        | 0      | I2C0            | SDA: PC10, CLK: PC11            | `I2C_SPEED_LOW` and `I2C_SPEED_HIGH` clock speed deviate  |
-        | RTT        | 1/0    | RTCC            |                                 | 1 Hz interval. Either RTT or RTC (see below)              |
-        | RTC        | 1/0    | RTCC            |                                 | 1 Hz interval. Either RTC or RTT (see below)              |
-        | SPI        | 0      | USART1          | MOSI: PC6, MISO: PC7, CLK: PC8  |                                                           |
-        | Timer      | 0      | TIMER0 + TIMER1 |                                 | TIMER0 is used as prescaler (must be adjecent)            |
-        | UART       | 0      | USART0          | RX: PA1, TX: PA0                | Default STDIO output                                      |
-        |            | 1      | USART1          | RX: PC6, TX: PC7                |                                                           |
-        |            | 2      | LEUART0         | RX: PD11, TX: PD10              | Baud rate limited (see below)                             |
+        | ADC        | 0       | ADC0            | CHAN0: internal temperature     | Ports are fixed                                           |
+        | Crypto     | &mdash; | &mdash;         |                                 | AES128/AES256, SHA1, SHA256                               |
+        | I2C        | 0       | I2C0            | SDA: PC10, CLK: PC11            | `I2C_SPEED_LOW` and `I2C_SPEED_HIGH` clock speed deviate  |
+        | RTT        | 1/0     | RTCC            |                                 | 1 Hz interval. Either RTT or RTC (see below)              |
+        | RTC        | 1/0     | RTCC            |                                 | 1 Hz interval. Either RTC or RTT (see below)              |
+        | SPI        | 0       | USART1          | MOSI: PC6, MISO: PC7, CLK: PC8  |                                                           |
+        | Timer      | 0       | TIMER0 + TIMER1 |                                 | TIMER0 is used as prescaler (must be adjecent)            |
+        | UART       | 0       | USART0          | RX: PA1, TX: PA0                | Default STDIO output                                      |
+        |            | 1       | USART1          | RX: PC6, TX: PC7                |                                                           |
+        |            | 2       | LEUART0         | RX: PD11, TX: PD10              | Baud rate limited (see below)                             |
     {% elif board in ["slwstk6220a"] %}
-        | ADC        | 0      | ADC0            | CHAN0: internal temperature     | ports are fixed                                           |
-        | DAC        | 0      | DAC0            | CHAN0: PB11                     | ports are fixed, shared with I2C                          |
-        | PWM        | 0      | TIMER0          | CHAN0: PF6, CHAN1: PF7          | Mapped to LED0 and LED1                                   |
+        | ADC        | 0       | ADC0            | CHAN0: internal temperature     | Ports are fixed                                           |
+        | Crypto     | &mdash; | &mdash;         |                                 | AES128/AES256 only                                        |
+        | DAC        | 0       | DAC0            | CHAN0: PB11                     | Ports are fixed, shared with I2C                          |
+        | PWM        | 0       | TIMER0          | CHAN0: PF6, CHAN1: PF7          | Mapped to LED0 and LED1                                   |
     {% endif %}
 {% endstrip %}
 
@@ -334,6 +338,17 @@ RIOT-OS has support for *Real-Time Tickers* and *Real-Time Clocks*.
 {% endstrip %}
 
 Use the ticker mode if your application keeps track of seconds only (e.g. unix timestamp). By default the counter is enabled. You can switch by passing `RTT_AS_RTC=1` to your compiler.
+
+### Hardware crypto
+{% strip 2 %}
+    {% if cpu_platform == 1 %}
+        The MCU has support for hardware accelerated AES128 and AES256.
+    {% else %}
+        The Gemstone MCUs are equipped with a hardware accelerated crypto peripheral that can speed up AES128, AES256, SHA1, SHA256 and several other cryptographic computations.
+    {% endif %}
+{% endstrip %}
+
+A peripheral driver interface for RIOT-OS is proposed, but not yet implemented.
 
 ### Usage of emlib
 This port makes uses of emlib by Silicon Labs to abstract peripheral registers. While some overhead is to be expected, it ensures proper setup of devices, provides chip errata and simplifies development. The exact overhead depends on the application and peripheral usage, but the largest overhead is expected during peripheral setup. A lot of read/write/get/set methods are implemented as inline methods or macros (which have no overhead).
