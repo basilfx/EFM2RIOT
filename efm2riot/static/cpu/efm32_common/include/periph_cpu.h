@@ -54,6 +54,7 @@ extern "C" {
 typedef enum {
     ADC_RES_6BIT = adcRes6Bit,        /**< ADC resolution: 6 bit */
     ADC_RES_8BIT = adcRes8Bit,        /**< ADC resolution: 8 bit */
+    ADC_RES_10BIT = adcRes12Bit,      /**< ADC resolution: 10 bit (shifted from 12 bit) */
     ADC_RES_12BIT = adcRes12Bit,      /**< ADC resolution: 12 bit */
 } adc_res_t;
 /** @} */
@@ -164,6 +165,18 @@ typedef enum {
     GPIO_RISING = 1,        /**< emit interrupt on rising flank */
     GPIO_BOTH = 3           /**< emit interrupt on both flanks */
 } gpio_flank_t;
+/** @} */
+
+/**
+ * @brief   Override hardware crypto supported methods.
+ * @{
+ */
+#define HAVE_HWCRYPTO_AES128
+#define HAVE_HWCRYPTO_AES256
+#ifdef _SILICON_LABS_32B_PLATFORM_2
+#define HAVE_HWCRYPTO_SHA1
+#define HAVE_HWCRYPTO_SHA256
+#endif
 /** @} */
 
 /**
