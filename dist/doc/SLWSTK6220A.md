@@ -2,7 +2,7 @@
 
 ## Overview
 
-Sillicon Labs SLWSTK6220A starter kit is equipped with the EFM32 microcontroller. It is specifically designed for low-power applications, having energy-saving peripherals, different energy modes and short wake-up times.
+Silicon Labs SLWSTK6220A starter kit is equipped with the EFM32 microcontroller. It is specifically designed for low-power applications, having energy-saving peripherals, different energy modes and short wake-up times.
 
 The starter kit is equipped with an advanced energy monitoring solution, to actively monitor the power consumption of your code, in real-time.
 
@@ -54,11 +54,12 @@ This is the pinout of the Expansion Header on the right side of the board. PIN 1
 **Note:** some pins are connected to the board controller, when enabled!
 
 ### Peripheral mapping
-| Peripheral | Number | Hardware        | Pins                            | Comments                                                  |
-|------------|--------|-----------------|---------------------------------|-----------------------------------------------------------|
-| ADC        | 0      | ADC0            | CHAN0: internal temperature     | ports are fixed                                           |
-| DAC        | 0      | DAC0            | CHAN0: PB11                     | ports are fixed, shared with I2C                          |
-| PWM        | 0      | TIMER0          | CHAN0: PF6, CHAN1: PF7          | Mapped to LED0 and LED1                                   |
+| Peripheral | Number  | Hardware        | Pins                            | Comments                                                  |
+|------------|---------|-----------------|---------------------------------|-----------------------------------------------------------|
+| ADC        | 0       | ADC0            | CHAN0: internal temperature     | Ports are fixed                                           |
+| Crypto     | &mdash; | &mdash;         |                                 | AES128/AES256 only                                        |
+| DAC        | 0       | DAC0            | CHAN0: PB11                     | Ports are fixed, shared with I2C                          |
+| PWM        | 0       | TIMER0          | CHAN0: PF6, CHAN1: PF7          | Mapped to LED0 and LED1                                   |
 
 
 ### User interface
@@ -148,6 +149,11 @@ However, this board MCU family has support for a 24-bit *Real-Time Counter* only
 Configured at 1 Hz interval, the RTC will overflow each 194 days. When using the ticker-to-calendar mode, this interval is extended artificially.
 
 Use the ticker mode if your application keeps track of seconds only (e.g. unix timestamp). By default the counter is enabled. You can switch by passing `RTT_AS_RTC=1` to your compiler.
+
+### Hardware crypto
+The MCU has support for hardware accelerated AES128 and AES256.
+
+A peripheral driver interface for RIOT-OS is proposed, but not yet implemented.
 
 ### Usage of emlib
 This port makes uses of emlib by Silicon Labs to abstract peripheral registers. While some overhead is to be expected, it ensures proper setup of devices, provides chip errata and simplifies development. The exact overhead depends on the application and peripheral usage, but the largest overhead is expected during peripheral setup. A lot of read/write/get/set methods are implemented as inline methods or macros (which have no overhead).

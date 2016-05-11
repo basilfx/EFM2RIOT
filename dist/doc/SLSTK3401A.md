@@ -2,7 +2,7 @@
 
 ## Overview
 
-Sillicon Labs SLSTK3401A starter kit is equipped with the EFM32 microcontroller. It is specifically designed for low-power applications, having energy-saving peripherals, different energy modes and short wake-up times.
+Silicon Labs SLSTK3401A starter kit is equipped with the EFM32 microcontroller. It is specifically designed for low-power applications, having energy-saving peripherals, different energy modes and short wake-up times.
 
 The starter kit is equipped with an advanced energy monitoring solution, to actively monitor the power consumption of your code, in real-time.
 
@@ -54,17 +54,18 @@ This is the pinout of the Expansion Header on the right side of the board. PIN 1
 **Note:** some pins are connected to the board controller, when enabled!
 
 ### Peripheral mapping
-| Peripheral | Number | Hardware        | Pins                            | Comments                                                  |
-|------------|--------|-----------------|---------------------------------|-----------------------------------------------------------|
-| ADC        | 0      | ADC0            | CHAN0: internal temperature     | ports are fixed                                           |
-| I2C        | 0      | I2C0            | SDA: PC10, CLK: PC11            | `I2C_SPEED_LOW` and `I2C_SPEED_HIGH` clock speed deviate  |
-| RTT        | 1/0    | RTCC            |                                 | 1 Hz interval. Either RTT or RTC (see below)              |
-| RTC        | 1/0    | RTCC            |                                 | 1 Hz interval. Either RTC or RTT (see below)              |
-| SPI        | 0      | USART1          | MOSI: PC6, MISO: PC7, CLK: PC8  |                                                           |
-| Timer      | 0      | TIMER0 + TIMER1 |                                 | TIMER0 is used as prescaler (must be adjecent)            |
-| UART       | 0      | USART0          | RX: PA1, TX: PA0                | Default STDIO output                                      |
-|            | 1      | USART1          | RX: PC6, TX: PC7                |                                                           |
-|            | 2      | LEUART0         | RX: PD11, TX: PD10              | Baud rate limited (see below)                             |
+| Peripheral | Number  | Hardware        | Pins                            | Comments                                                  |
+|------------|---------|-----------------|---------------------------------|-----------------------------------------------------------|
+| ADC        | 0       | ADC0            | CHAN0: internal temperature     | Ports are fixed                                           |
+| Crypto     | &mdash; | &mdash;         |                                 | AES128/AES256, SHA1, SHA256                               |
+| I2C        | 0       | I2C0            | SDA: PC10, CLK: PC11            | `I2C_SPEED_LOW` and `I2C_SPEED_HIGH` clock speed deviate  |
+| RTT        | 1/0     | RTCC            |                                 | 1 Hz interval. Either RTT or RTC (see below)              |
+| RTC        | 1/0     | RTCC            |                                 | 1 Hz interval. Either RTC or RTT (see below)              |
+| SPI        | 0       | USART1          | MOSI: PC6, MISO: PC7, CLK: PC8  |                                                           |
+| Timer      | 0       | TIMER0 + TIMER1 |                                 | TIMER0 is used as prescaler (must be adjecent)            |
+| UART       | 0       | USART0          | RX: PA1, TX: PA0                | Default STDIO output                                      |
+|            | 1       | USART1          | RX: PC6, TX: PC7                |                                                           |
+|            | 2       | LEUART0         | RX: PD11, TX: PD10              | Baud rate limited (see below)                             |
 
 Board has support for PWM, but no timers are left to use.
 
@@ -155,6 +156,11 @@ However, this board MCU family has support for a 32-bit *Real-Time Clock and Cal
 Configured at 1 Hz interval, the RTCC will overflow each 136 years.
 
 Use the ticker mode if your application keeps track of seconds only (e.g. unix timestamp). By default the counter is enabled. You can switch by passing `RTT_AS_RTC=1` to your compiler.
+
+### Hardware crypto
+The Gemstone MCUs are equipped with a hardware accelerated crypto peripheral that can speed up AES128, AES256, SHA1, SHA256 and several other cryptographic computations.
+
+A peripheral driver interface for RIOT-OS is proposed, but not yet implemented.
 
 ### Usage of emlib
 This port makes uses of emlib by Silicon Labs to abstract peripheral registers. While some overhead is to be expected, it ensures proper setup of devices, provides chip errata and simplifies development. The exact overhead depends on the application and peripheral usage, but the largest overhead is expected during peripheral setup. A lot of read/write/get/set methods are implemented as inline methods or macros (which have no overhead).

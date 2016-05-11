@@ -86,13 +86,18 @@ int adc_sample(adc_t line, adc_res_t res)
 
     ADC_InitSingle(adc_config[dev].dev, &init.conf);
 
-    /* start conversion */
+    /* start conversion and block until it completes */
     ADC_Start(adc_config[dev].dev, adcStartSingle);
 
     while (adc_config[dev].dev->STATUS & ADC_STATUS_SINGLEACT);
 
-    /* read sample */
     int result = ADC_DataSingleGet(adc_config[dev].dev);
+
+    /* EFM32 has no 6, 8 or 12-bit resolution, therefore use 12-bit sample
+        and shift it by two to yield a 10-bit sample */
+    if (res == ADC_RES_10BIT) {
+        result = result >> 2;
+    }
 
     /* unlock device */
     mutex_unlock(&adc_lock[dev]);

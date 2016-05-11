@@ -41,7 +41,7 @@ extern "C" {
 /** @} */
 
 /**
- * @brief ADC configuration
+ * @brief   ADC configuration
  * @{
  */
 static const adc_conf_t adc_config[] = {
@@ -70,12 +70,17 @@ static const adc_chan_conf_t adc_channel_config[] = {
 /** @} */
 
 /**
- * @brief DAC configuration
+ * @brief   Crypto configuration.
+ */
+#define HWCRYPTO_NUMOF      (1U)
+
+/**
+ * @brief   DAC configuration
  */
 #define DAC_NUMOF           (0U)
 
 /**
- * @brief I2C configuration
+ * @brief   I2C configuration
  * @{
  */
 static const i2c_conf_t i2c_config[] = {
@@ -129,7 +134,7 @@ static const pwm_conf_t pwm_config[] = {
 /** @} */
 
 /**
- * @brief SPI configuration
+ * @brief   SPI configuration
  * @{
  */
 static const spi_dev_t spi_config[] = {

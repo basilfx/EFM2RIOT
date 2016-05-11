@@ -31,9 +31,9 @@ extern "C" {
 #endif
 
 /**
-* @brief   ARM Cortex-M3 specific CPU configuration
-* @{
-*/
+ * @brief   ARM Cortex-M3 specific CPU configuration
+ * @{
+ */
 #define CPU_DEFAULT_IRQ_PRIO            (1U)
 #define CPU_IRQ_NUMOF                   (CRYOTIMER_IRQn + 1)
 #define CPU_FLASH_BASE                  FLASH_BASE
