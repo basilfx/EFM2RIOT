@@ -41,12 +41,12 @@ extern "C" {
     {% if board in ["stk3200"] %}
         #define CLOCK_LFB           cmuSelect_CORELEDIV2
     {% else %}
-        #define CLOCK_LFB           cmuSelect_LFRCO
+        #define CLOCK_LFB           cmuSelect_LFXO
     {% endif %}
 {% endstrip %}
 {% strip 2 %}
     {% if board in ["slstk3401a"] %}
-        #define CLOCK_LFE           cmuSelect_LFRCO
+        #define CLOCK_LFE           cmuSelect_LFXO
     {% endif %}
 {% endstrip %}
 /** @} */
@@ -292,24 +292,24 @@ static const pwm_conf_t pwm_config[] = {
  * @{
  */
 #ifndef RTT_AS_RTC
-#define RTT_AS_RTC                   (0U)
+#define RTT_AS_RTC          (0U)
 #endif
 
 #if RTT_AS_RTC
-#define RTC_NUMOF                    (1U)
-#define RTT_NUMOF                    (0U)
+#define RTC_NUMOF           (1U)
+#define RTT_NUMOF           (0U)
 #else
-#define RTC_NUMOF                    (0U)
-#define RTT_NUMOF                    (1U)
+#define RTC_NUMOF           (0U)
+#define RTT_NUMOF           (1U)
 #endif
 
 {% strip 2 %}
     {% if cpu_platform == 1 %}
-        #define RTT_MAX_VALUE                (0xFFFFFF)
-        #define RTT_FREQUENCY                (1U)
+        #define RTT_MAX_VALUE       (0xFFFFFF)
+        #define RTT_FREQUENCY       (1U)
     {% else %}
-        #define RTT_MAX_VALUE                (0xFFFFFFFF)
-        #define RTT_FREQUENCY                (1U)
+        #define RTT_MAX_VALUE       (0xFFFFFFFF)
+        #define RTT_FREQUENCY       (1U)
     {% endif %}
 {% endstrip %}
 /** @} */

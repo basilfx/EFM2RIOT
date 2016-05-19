@@ -135,7 +135,7 @@ extern "C" {
          * @brief   Connection to the on-board Sharp Memory LCD (LS013B7DH03)
          * @{
          */
-        #define DISP_SPI            (SPI_0)
+        #define DISP_SPI            (0)
         #define DISP_COM_PIN        GPIO_PIN(PE, 10)
         #define DISP_CS_PIN         GPIO_PIN(PE, 11)
         #define DISP_SELECT_PIN     GPIO_PIN(PA, 8)
@@ -146,18 +146,17 @@ extern "C" {
          * @brief   Connection to the on-board Sharp Memory LCD (LS013B7DH03)
          * @{
          */
-        #define DISP_SPI            (SPI_0)
-        #define DISP_COM_PIN        GPIO_PIN(PE, 10)
-        #define DISP_CS_PIN         GPIO_PIN(PE, 11)
-        #define DISP_SELECT_PIN     GPIO_PIN(PA, 8)
-        #define DISP_POWER_PIN      GPIO_PIN(PA, 10)
+        #define DISP_SPI            (0)
+        #define DISP_COM_PIN        GPIO_PIN(PD, 13)
+        #define DISP_CS_PIN         GPIO_PIN(PD, 14)
+        #define DISP_EN_PIN         GPIO_PIN(PD, 15)
         /** @} */
     {% elif board in ["slwstk6220a"] %}
         /**
          * @brief   Connection to the on-board Sharp Memory LCD (LS013B7DH03)
          * @{
          */
-        #define DISP_SPI            (SPI_0)
+        #define DISP_SPI            (0)
         #define DISP_COM_PIN        GPIO_PIN(PE, 10)
         #define DISP_CS_PIN         GPIO_PIN(PE, 11)
         #define DISP_SELECT_PIN     GPIO_PIN(PA, 8)
@@ -172,7 +171,7 @@ extern "C" {
          * @brief   Connection to the on-board temperature/humidity sensor (Si7021)
          * @{
          */
-        #define SI7021_I2C          (I2C_0)
+        #define SI7021_I2C          (0)
         #define SI7021_EN_PIN       GPIO_PIN(PD, 9)
         /** @} */
     {% elif board in ["slwstk6220a"] %}
@@ -180,7 +179,7 @@ extern "C" {
          * @brief   Connection to the on-board temperature/humidity sensor (Si7021)
          * @{
          */
-        #define SI7021_I2C          (I2C_0)
+        #define SI7021_I2C          (0)
         #define SI7021_EN_PIN       GPIO_PIN(PF, 8)
         /** @} */
     {% endif %}
