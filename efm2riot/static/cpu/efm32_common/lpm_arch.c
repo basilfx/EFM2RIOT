@@ -25,11 +25,17 @@
 
 void lpm_arch_init(void)
 {
+    /* initialize EM2 and EM3 */
     EMU_EM23Init_TypeDef init_em23 = EMU_EM23INIT_DEFAULT;
-    EMU_EM4Init_TypeDef init_em4 = EMU_EM4INIT_DEFAULT;
 
     EMU_EM23Init(&init_em23);
+
+#ifdef _SILICON_LABS_32B_PLATFORM_2
+    /* initialize EM4 */
+    EMU_EM4Init_TypeDef init_em4 = EMU_EM4INIT_DEFAULT;
+
     EMU_EM4Init(&init_em4);
+#endif
 }
 
 enum lpm_mode lpm_arch_set(enum lpm_mode target)
