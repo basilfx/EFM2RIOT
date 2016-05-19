@@ -1,16 +1,19 @@
 # name of your application
-APPLICATION = internal_temp
+APPLICATION = sleep_wakeup_measure
 
 # If no BOARD is found in the environment, use this default:
-BOARD ?= stk3600
+BOARD ?= slstk3401a
 
 # This has to be the absolute path to the RIOT base directory:
 RIOTBASE ?= $(CURDIR)/../..
 
 # Required features:
-FEATURES_REQUIRED = periph_adc
+FEATURES_REQUIRED = periph_rtt
+FEATURES_REQUIRED = periph_i2c
+FEATURES_REQUIRED = periph_gpio
 
 # Required modules:
+USEMODULE += si70xx
 USEMODULE += xtimer
 
 # Comment this out to disable code in RIOT that does safety checking

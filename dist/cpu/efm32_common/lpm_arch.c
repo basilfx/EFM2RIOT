@@ -25,29 +25,44 @@
 
 void lpm_arch_init(void)
 {
-    /* initialize deep sleep/stop mode */
-    EMU_EM23Init_TypeDef init = EMU_EM23INIT_DEFAULT;
+    /* initialize EM2 and EM3 */
+    EMU_EM23Init_TypeDef init_em23 = EMU_EM23INIT_DEFAULT;
 
-    EMU_EM23Init(&init);
+    EMU_EM23Init(&init_em23);
+
+#ifdef _SILICON_LABS_32B_PLATFORM_2
+    /* initialize EM4 */
+    EMU_EM4Init_TypeDef init_em4 = EMU_EM4INIT_DEFAULT;
+
+    EMU_EM4Init(&init_em4);
+#endif
 }
 
 enum lpm_mode lpm_arch_set(enum lpm_mode target)
 {
     switch (target) {
-        /* wait for next event or interrupt */
+        case LPM_ON:
+            /* nothing to do */
+            break;
         case LPM_IDLE:
+            /* wait for next event or interrupt */
             EMU_EnterEM1();
             break;
         case LPM_SLEEP:
-        case LPM_POWERDOWN:
             /* after exiting EM2, clocks are restored */
             EMU_EnterEM2(true);
             break;
+        case LPM_POWERDOWN:
+            /* after exiting EM3, clocks are restored */
+            EMU_EnterEM3(true);
+            break;
+        case LPM_OFF:
+            /* only a reset can wake up from EM4 */
+            EMU_EnterEM4();
+            break;
 
         /* do nothing here */
-        case LPM_OFF:
         case LPM_UNKNOWN:
-        case LPM_ON:
         default:
             break;
     }

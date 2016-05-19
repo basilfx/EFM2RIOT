@@ -118,19 +118,19 @@ static const pwm_conf_t pwm_config[] = {
  * @{
  */
 #ifndef RTT_AS_RTC
-#define RTT_AS_RTC                   (0U)
+#define RTT_AS_RTC          (0U)
 #endif
 
 #if RTT_AS_RTC
-#define RTC_NUMOF                    (1U)
-#define RTT_NUMOF                    (0U)
+#define RTC_NUMOF           (1U)
+#define RTT_NUMOF           (0U)
 #else
-#define RTC_NUMOF                    (0U)
-#define RTT_NUMOF                    (1U)
+#define RTC_NUMOF           (0U)
+#define RTT_NUMOF           (1U)
 #endif
 
-#define RTT_MAX_VALUE                (0xFFFFFF)
-#define RTT_FREQUENCY                (1U)
+#define RTT_MAX_VALUE       (0xFFFFFF)
+#define RTT_FREQUENCY       (1U)
 /** @} */
 
 /**

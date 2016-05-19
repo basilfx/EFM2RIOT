@@ -37,8 +37,8 @@ extern "C" {
 #define CLOCK_HF            cmuSelect_HFXO
 #define CLOCK_CORE_DIV      cmuClkDiv_1
 #define CLOCK_LFA           cmuSelect_LFXO
-#define CLOCK_LFB           cmuSelect_LFRCO
-#define CLOCK_LFE           cmuSelect_LFRCO
+#define CLOCK_LFB           cmuSelect_LFXO
+#define CLOCK_LFE           cmuSelect_LFXO
 /** @} */
 
 /**
@@ -120,19 +120,19 @@ static const pwm_conf_t pwm_config[] = {
  * @{
  */
 #ifndef RTT_AS_RTC
-#define RTT_AS_RTC                   (0U)
+#define RTT_AS_RTC          (0U)
 #endif
 
 #if RTT_AS_RTC
-#define RTC_NUMOF                    (1U)
-#define RTT_NUMOF                    (0U)
+#define RTC_NUMOF           (1U)
+#define RTT_NUMOF           (0U)
 #else
-#define RTC_NUMOF                    (0U)
-#define RTT_NUMOF                    (1U)
+#define RTC_NUMOF           (0U)
+#define RTT_NUMOF           (1U)
 #endif
 
-#define RTT_MAX_VALUE                (0xFFFFFFFF)
-#define RTT_FREQUENCY                (1U)
+#define RTT_MAX_VALUE       (0xFFFFFFFF)
+#define RTT_FREQUENCY       (1U)
 /** @} */
 
 /**
