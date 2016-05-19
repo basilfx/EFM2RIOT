@@ -1,13 +1,11 @@
 # Silicon Labs {{ board_display_name }}
 
 ## Overview
-
 Silicon Labs {{ board_display_name }} starter kit is equipped with the EFM32 microcontroller. It is specifically designed for low-power applications, having energy-saving peripherals, different energy modes and short wake-up times.
 
-The starter kit is equipped with an advanced energy monitoring solution, to actively monitor the power consumption of your code, in real-time.
+The starter kit is equipped with an Advanced Energy Monitor. This allows you to actively measure the power consumption of your hardware and code, in real-time.
 
 ## Hardware
-
 ![{{ board_display_name }} Starter Kit](images/{{board}}.png)
 
 ### MCU
@@ -189,7 +187,7 @@ This is the pinout of the Expansion Header on the right side of the board. PIN 1
 
 {% strip 2 %}
     {% if board in ["stk3200", "slstk3401a"] %}
-        Board has support for PWM, but no timers are left to use.
+        Board has support for PWM, but there are no timers left to use.
     {% endif %}
 {% endstrip %}
 
@@ -353,7 +351,7 @@ A peripheral driver interface for RIOT-OS is proposed, but not yet implemented.
 ### Usage of emlib
 This port makes uses of emlib by Silicon Labs to abstract peripheral registers. While some overhead is to be expected, it ensures proper setup of devices, provides chip errata and simplifies development. The exact overhead depends on the application and peripheral usage, but the largest overhead is expected during peripheral setup. A lot of read/write/get/set methods are implemented as inline methods or macros (which have no overhead).
 
-Another advantage of emlib are the included assertions. These assertions ensure that peripherals are used properly. To enable this, pass `DEBUG_EFM=1` to your compiler.
+Another advantage of emlib are the included assertions. These assertions ensure that peripherals are used properly. To enable this, pass `DEBUG_EFM` to your compiler.
 
 ### Pin locations
 The EFM32 platform supports peripheral to be mapped to different pins (predefined locations). The definitions in `periph_conf.h` mostly consist of a location number and the actual pins. The actual pins are required to configure the pins via GPIO driver, while the location is used to map the peripheral to these pins.
@@ -362,7 +360,7 @@ In other words, these definitions must match. Refer to the data sheet for more i
 
 {% strip 2, true %}
     {% if cpu_platform == 2 %}
-        The EFM32 Gemstone MCUs have improved pin mapping. Each pin of a peripheral can be connected to one of the predefined pins for that peripheral.
+        The EFM32 Gemstone MCUs have extended support for pin mapping. Each pin of a peripheral can be connected separately to one of the predefined pins for that peripheral.
     {% endif %}
 {% endstrip %}
 
