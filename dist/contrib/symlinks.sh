@@ -9,11 +9,11 @@ TARGET=$1
 # Symlink all boards into 'RIOT_ROOT/boards/'.
 for board in $BOARDS
 do
-    ln -sF `realpath "$SOURCE/boards/$board"` "$TARGET/boards/$board"
+    ln -sf `realpath "$SOURCE/boards/$board"` "$TARGET/boards/"
 done
 
 # Symlink all families into 'RIOT_ROOT/cpu/'.
 for family in $FAMILIES
 do
-    ln -sF `realpath "$SOURCE/cpu/$family"` "$TARGET/cpu/$family"
+    ln -sf `realpath "$SOURCE/cpu/$family"` "$TARGET/cpu/"
 done
