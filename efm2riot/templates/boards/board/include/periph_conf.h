@@ -34,9 +34,16 @@ extern "C" {
  * @brief   Clock configuration
  * @{
  */
+#ifndef CLOCK_HF
 #define CLOCK_HF            cmuSelect_HFXO
+#endif
+#ifndef CLOCK_CORE_DIV
 #define CLOCK_CORE_DIV      cmuClkDiv_1
+#endif
+#ifndef CLOCK_LFA
 #define CLOCK_LFA           cmuSelect_LFXO
+#endif
+#ifndef CLOCK_LFB
 {% strip 2 %}
     {% if board in ["stk3200"] %}
         #define CLOCK_LFB           cmuSelect_CORELEDIV2
@@ -44,9 +51,12 @@ extern "C" {
         #define CLOCK_LFB           cmuSelect_LFXO
     {% endif %}
 {% endstrip %}
+#endif
 {% strip 2 %}
     {% if board in ["slstk3401a"] %}
+        #ifndef CLOCK_LFE
         #define CLOCK_LFE           cmuSelect_LFXO
+        #endif
     {% endif %}
 {% endstrip %}
 /** @} */
