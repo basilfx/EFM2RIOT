@@ -3,6 +3,7 @@
 
 # Compiled files
 dist/examples/**/bin
+efm2riot/static/examples/**/bin
 
 # Benchmark files
 benchmark/*.json
