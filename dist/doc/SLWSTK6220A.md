@@ -94,6 +94,8 @@ By default, this pin is enabled. It can be disable by passing `BC_ENABLED=0` to 
 
 **Note:** the board controller *always* configures the virtual serial port at 115200 baud with 8 bits, no parity and one stop bit. This also means that it expects data from the MCU with the same settings.
 
+**Note:** to use the virtual serial port, ensure you have the latest board controller firmware installed.
+
 The low power LCD is also used by the board controller when the `DISP_SELECTED` pin is low. This pin is not initialized by the board, so you have to ensure this pin is initialized by your application if you want to control the low power LCD.
 
 ### Advanced Energy Monitor

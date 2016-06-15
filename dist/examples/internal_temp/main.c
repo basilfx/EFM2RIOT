@@ -26,41 +26,38 @@
 
 #include "periph/adc.h"
 
-#define DELAY           (250 * 1000U)
+#define DELAY           (1000 * 1000U)
 
 int main(void)
 {
     /* initialize ADC */
-    if (adc_init(ADC_0, ADC_RES_12BIT) != 0) {
+    if (adc_init(0) != 0) {
         puts("Unable to initialize ADC, aborting.\n");
         return 1;
     }
 
     /* factory calibration values */
 #ifdef _SILICON_LABS_32B_PLATFORM_1
-    float cal_temp = ((DEVINFO->CAL & _DEVINFO_CAL_TEMP_MASK) >> _DEVINFO_CAL_TEMP_SHIFT);
-    uint32_t cal_value = ((DEVINFO->ADC0CAL2 & _DEVINFO_ADC0CAL2_TEMP1V25_MASK) >> _DEVINFO_ADC0CAL2_TEMP1V25_SHIFT);
+    float cal_temp = (float) ((DEVINFO->CAL & _DEVINFO_CAL_TEMP_MASK) >> _DEVINFO_CAL_TEMP_SHIFT);
+    float cal_value = (float) ((DEVINFO->ADC0CAL2 & _DEVINFO_ADC0CAL2_TEMP1V25_MASK) >> _DEVINFO_ADC0CAL2_TEMP1V25_SHIFT);
 #else
-    float cal_temp = ((DEVINFO->CAL & _DEVINFO_CAL_TEMP_MASK) >> _DEVINFO_CAL_TEMP_SHIFT);
-    uint32_t cal_value = ((DEVINFO->ADC0CAL3 & 0xFFF0) >> _DEVINFO_ADC0CAL3_TEMPREAD1V25_SHIFT);
+    float cal_temp = (float) ((DEVINFO->CAL & _DEVINFO_CAL_TEMP_MASK) >> _DEVINFO_CAL_TEMP_SHIFT);
+    float cal_value = (float) ((DEVINFO->ADC0CAL3 & _DEVINFO_ADC0CAL3_TEMPREAD1V25_MASK) >> _DEVINFO_ADC0CAL3_TEMPREAD1V25_SHIFT);
 #endif
 
     while (1) {
         /* convert temperature channel */
-        uint32_t value = adc_sample(ADC_0, 0);
+        int32_t value = adc_sample(0, ADC_RES_12BIT);
 
-        /* convert sample to temperature (taken from sample code) */
-        int32_t diff = cal_value - value;
-
+        /* convert sample to degrees Celsius, using the correction factors */
 #ifdef _SILICON_LABS_32B_PLATFORM_1
-        float temperature = cal_temp - ((float) diff / -6.27);
+        float temperature = cal_temp - ((cal_value - value) / -6.27);
 #else
-        float temperature = cal_temp - ((float) diff * 1250) / (4096 * -1.835);
+        float temperature = cal_temp - ((cal_value - value) / -6.01);
 #endif
 
         /* print the results */
-        printf("Temperature: %d.%d degrees celsius\n",
-            (int) temperature, (int) (temperature * 100) % 100);
+        printf("Temperature: %.2f degrees celsius\n", temperature);
 
         /* sleep a little while */
         xtimer_usleep(DELAY);

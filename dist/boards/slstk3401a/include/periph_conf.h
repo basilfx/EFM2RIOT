@@ -71,8 +71,8 @@ static const adc_chan_conf_t adc_channel_config[] = {
     },
     {
         0,                                  /* device index */
-        adcPosSelDEFAULT,                   /* channel to use */
-        adcRef1V25,                         /* channel reference */
+        adcPosSelAVDD,                      /* channel to use */
+        adcRef5V,                           /* channel reference */
         adcAcqTime8                         /* acquisition time */
     }
 };
