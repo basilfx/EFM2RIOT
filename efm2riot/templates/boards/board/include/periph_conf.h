@@ -98,8 +98,8 @@ extern "C" {
                     },
                     {
                         0,                                  /* device index */
-                        adcPosSelDEFAULT,                   /* channel to use */
-                        adcRef1V25,                         /* channel reference */
+                        adcPosSelAVDD,                      /* channel to use */
+                        adcRef5V,                           /* channel reference */
                         adcAcqTime8                         /* acquisition time */
                     }
                 {% endif %}
