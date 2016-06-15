@@ -11,6 +11,7 @@ RIOTBASE ?= $(CURDIR)/../..
 FEATURES_REQUIRED = periph_adc
 
 # Required modules:
+USEMODULE += printf_float
 USEMODULE += xtimer
 
 # Comment this out to disable code in RIOT that does safety checking
