@@ -7,19 +7,19 @@
 */
 
 /**
-* @addtogroup      cpu_efm32hg
-* @{
-*
-* @file
-* @brief           Memory definitions for the efm32hg321f32 CPU
-*
-* @}
-*/
+ * @addtogroup      cpu_efm32hg
+ * @{
+ *
+ * @file
+ * @brief           Memory definitions for the efm32hg321f32 CPU
+ *
+ * @}
+ */
 
 MEMORY
 {
-rom (rx)    : ORIGIN = 0x00000000, LENGTH = 32768
-ram (rwx)   : ORIGIN = 0x20000000, LENGTH = 8192
+    rom (rx)    : ORIGIN = 0x00000000, LENGTH = 32768
+    ram (rwx)   : ORIGIN = 0x20000000, LENGTH = 8192
 }
 
 INCLUDE cortexm_base.ld

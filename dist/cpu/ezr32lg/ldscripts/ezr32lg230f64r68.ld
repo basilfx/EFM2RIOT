@@ -7,19 +7,19 @@
 */
 
 /**
-* @addtogroup      cpu_ezr32lg
-* @{
-*
-* @file
-* @brief           Memory definitions for the ezr32lg230f64r68 CPU
-*
-* @}
-*/
+ * @addtogroup      cpu_ezr32lg
+ * @{
+ *
+ * @file
+ * @brief           Memory definitions for the ezr32lg230f64r68 CPU
+ *
+ * @}
+ */
 
 MEMORY
 {
-rom (rx)    : ORIGIN = 0x00000000, LENGTH = 65536
-ram (rwx)   : ORIGIN = 0x20000000, LENGTH = 32768
+    rom (rx)    : ORIGIN = 0x00000000, LENGTH = 65536
+    ram (rwx)   : ORIGIN = 0x20000000, LENGTH = 32768
 }
 
 INCLUDE cortexm_base.ld

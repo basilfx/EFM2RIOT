@@ -7,19 +7,19 @@
 */
 
 /**
-* @addtogroup      cpu_ezr32wg
-* @{
-*
-* @file
-* @brief           Memory definitions for the ezr32wg330f128r63 CPU
-*
-* @}
-*/
+ * @addtogroup      cpu_ezr32wg
+ * @{
+ *
+ * @file
+ * @brief           Memory definitions for the ezr32wg330f128r63 CPU
+ *
+ * @}
+ */
 
 MEMORY
 {
-rom (rx)    : ORIGIN = 0x00000000, LENGTH = 131072
-ram (rwx)   : ORIGIN = 0x20000000, LENGTH = 32768
+    rom (rx)    : ORIGIN = 0x00000000, LENGTH = 131072
+    ram (rwx)   : ORIGIN = 0x20000000, LENGTH = 32768
 }
 
 INCLUDE cortexm_base.ld

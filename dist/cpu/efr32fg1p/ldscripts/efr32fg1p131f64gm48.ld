@@ -7,19 +7,19 @@
 */
 
 /**
-* @addtogroup      cpu_efr32fg1p
-* @{
-*
-* @file
-* @brief           Memory definitions for the efr32fg1p131f64gm48 CPU
-*
-* @}
-*/
+ * @addtogroup      cpu_efr32fg1p
+ * @{
+ *
+ * @file
+ * @brief           Memory definitions for the efr32fg1p131f64gm48 CPU
+ *
+ * @}
+ */
 
 MEMORY
 {
-rom (rx)    : ORIGIN = 0x00000000, LENGTH = 65536
-ram (rwx)   : ORIGIN = 0x20000000, LENGTH = 16384
+    rom (rx)    : ORIGIN = 0x00000000, LENGTH = 65536
+    ram (rwx)   : ORIGIN = 0x20000000, LENGTH = 16384
 }
 
 INCLUDE cortexm_base.ld

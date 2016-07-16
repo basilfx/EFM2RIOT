@@ -7,19 +7,19 @@
 */
 
 /**
-* @addtogroup      cpu_efm32gg
-* @{
-*
-* @file
-* @brief           Memory definitions for the efm32gg980f1024 CPU
-*
-* @}
-*/
+ * @addtogroup      cpu_efm32gg
+ * @{
+ *
+ * @file
+ * @brief           Memory definitions for the efm32gg980f1024 CPU
+ *
+ * @}
+ */
 
 MEMORY
 {
-rom (rx)    : ORIGIN = 0x00000000, LENGTH = 1048576
-ram (rwx)   : ORIGIN = 0x20000000, LENGTH = 131072
+    rom (rx)    : ORIGIN = 0x00000000, LENGTH = 1048576
+    ram (rwx)   : ORIGIN = 0x20000000, LENGTH = 131072
 }
 
 INCLUDE cortexm_base.ld

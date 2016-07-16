@@ -88,7 +88,7 @@ Board has support for PWM, but there are no timers left to use.
 |                               | Timer                          | yes       |                                                                |
 |                               | UART                           | yes       | USART is shared with SPI. LEUART baud rate limited (see below) |
 |                               | USB                            | no        |                                                                |
-| LCD driver                    | LS013B7DH03                    | planned   | Sharp Low Power Memory LCD                                     |
+| LCD driver                    | LS013B7DH03                    | yes       | Sharp Low Power Memory LCD                                     |
 | Temperature + Humidity sensor | Si7021                         | yes       | Silicon Labs Temperature + Humidity sensor                     |
 
 ## Board configuration
@@ -103,7 +103,6 @@ By default, this pin is enabled. It can be disable by passing `BC_ENABLED=0` to 
 **Note:** to use the virtual serial port, ensure you have the latest board controller firmware installed.
 
 The low power LCD is also used by the board controller when the `DISP_SELECTED` pin is low. This pin is not initialized by the board, so you have to ensure this pin is initialized by your application if you want to control the low power LCD.
-
 ### Advanced Energy Monitor
 This development kit has an Advanced Energy Monitor. It can be connected to the Simplicity Studio development software.
 

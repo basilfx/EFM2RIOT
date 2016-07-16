@@ -1,7 +1,7 @@
 /**************************************************************************//**
  * @file efm32lg_wdog.h
  * @brief EFM32LG_WDOG register and bit field definitions
- * @version 4.3.0
+ * @version 4.4.0
  ******************************************************************************
  * @section License
  * <b>Copyright 2016 Silicon Laboratories, Inc. http://www.silabs.com</b>
@@ -43,11 +43,11 @@ extern "C" {
  *****************************************************************************/
 typedef struct
 {
-  __IO uint32_t CTRL;     /**< Control Register  */
-  __IO uint32_t CMD;      /**< Command Register  */
+  __IOM uint32_t CTRL;     /**< Control Register  */
+  __IOM uint32_t CMD;      /**< Command Register  */
 
-  __I uint32_t  SYNCBUSY; /**< Synchronization Busy Register  */
-} WDOG_TypeDef;           /** @} */
+  __IM uint32_t  SYNCBUSY; /**< Synchronization Busy Register  */
+} WDOG_TypeDef;            /** @} */
 
 /**************************************************************************//**
  * @defgroup EFM32LG_WDOG_BitFields

@@ -38,7 +38,7 @@ extern "C" {
  */
 #define XTIMER                      (0)
 #define XTIMER_CHAN                 (0)
-#define XTIMER_MASK                 (0xffff0000)
+#define XTIMER_WIDTH                (16)
 #define XTIMER_SHIFT_ON_COMPARE     (2)
 /** @} */
 
@@ -78,8 +78,6 @@ extern "C" {
 #define LED1_ON             gpio_set(LED1_PIN)
 #define LED1_OFF            gpio_clear(LED1_PIN)
 #define LED1_TOGGLE         gpio_toggle(LED1_PIN)
-/** @} */
-
 /**
  * @brief   Connection to the on-board Sharp Memory LCD (LS013B7DH03)
  * @{

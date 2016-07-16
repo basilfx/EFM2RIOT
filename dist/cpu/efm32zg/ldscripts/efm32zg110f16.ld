@@ -7,19 +7,19 @@
 */
 
 /**
-* @addtogroup      cpu_efm32zg
-* @{
-*
-* @file
-* @brief           Memory definitions for the efm32zg110f16 CPU
-*
-* @}
-*/
+ * @addtogroup      cpu_efm32zg
+ * @{
+ *
+ * @file
+ * @brief           Memory definitions for the efm32zg110f16 CPU
+ *
+ * @}
+ */
 
 MEMORY
 {
-rom (rx)    : ORIGIN = 0x00000000, LENGTH = 16384
-ram (rwx)   : ORIGIN = 0x20000000, LENGTH = 4096
+    rom (rx)    : ORIGIN = 0x00000000, LENGTH = 16384
+    ram (rwx)   : ORIGIN = 0x20000000, LENGTH = 4096
 }
 
 INCLUDE cortexm_base.ld

@@ -7,19 +7,19 @@
 */
 
 /**
-* @addtogroup      cpu_efm32tg
-* @{
-*
-* @file
-* @brief           Memory definitions for the efm32tg110f8 CPU
-*
-* @}
-*/
+ * @addtogroup      cpu_efm32tg
+ * @{
+ *
+ * @file
+ * @brief           Memory definitions for the efm32tg110f8 CPU
+ *
+ * @}
+ */
 
 MEMORY
 {
-rom (rx)    : ORIGIN = 0x00000000, LENGTH = 8192
-ram (rwx)   : ORIGIN = 0x20000000, LENGTH = 2048
+    rom (rx)    : ORIGIN = 0x00000000, LENGTH = 8192
+    ram (rwx)   : ORIGIN = 0x20000000, LENGTH = 2048
 }
 
 INCLUDE cortexm_base.ld
