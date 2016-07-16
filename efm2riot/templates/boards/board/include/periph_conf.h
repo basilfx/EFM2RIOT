@@ -53,7 +53,7 @@ extern "C" {
 {% endstrip %}
 #endif
 {% strip 2 %}
-    {% if board in ["slstk3401a"] %}
+    {% if board in ["slstk3401a", "thunderboard_sense"] %}
         #ifndef CLOCK_LFE
         #define CLOCK_LFE           cmuSelect_LFXO
         #endif
@@ -203,6 +203,16 @@ static const i2c_conf_t i2c_config[] = {
                 cmuClock_I2C1,                      /* CMU register */
                 I2C1_IRQn                           /* IRQ base channel */
             }
+        {% elif board in ["thunderboard_sense"] %}
+            {
+                I2C0,                               /* device */
+                GPIO_PIN(PC, 10),                   /* SDA pin */
+                GPIO_PIN(PC, 11),                   /* SCL pin */
+                I2C_ROUTELOC0_SDALOC_LOC15 |
+                    I2C_ROUTELOC0_SCLLOC_LOC15,     /* AF location */
+                cmuClock_I2C0,                      /* CMU register */
+                I2C0_IRQn                           /* IRQ base channel */
+            }
         {% endif %}
     {% endstrip %}
 };
@@ -219,6 +229,9 @@ static const i2c_conf_t i2c_config[] = {
         #define I2C_NUMOF           (1U)
         #define I2C_0_ISR           isr_i2c0
     {% elif board in ["slwstk6220a"] %}
+        #define I2C_NUMOF           (1U)
+        #define I2C_0_ISR           isr_i2c1
+    {% elif board in ["thunderboard_sense"] %}
         #define I2C_NUMOF           (1U)
         #define I2C_0_ISR           isr_i2c1
     {% endif %}
@@ -252,6 +265,8 @@ static const pwm_chan_conf_t pwm_channel_config[] = {
                 GPIO_PIN(PF, 7),            /* PWM pin */
                 TIMER_ROUTE_LOCATION_LOC2,  /* AF location */
             }
+        {% elif board in ["thunderboard_sense"] %}
+            /* no available channels */
         {% endif %}
     {% endstrip %}
 };
@@ -278,6 +293,10 @@ static const pwm_conf_t pwm_config[] = {
                 2,                          /* number of channels */
                 pwm_channel_config          /* first channel config */
             }
+        {% elif board in ["slstk3401a"] %}
+            /* no available timers */
+        {% elif board in ["thunderboard_sense"] %}
+            /* no available timers */
         {% endif %}
     {% endstrip %}
 };
@@ -293,6 +312,8 @@ static const pwm_conf_t pwm_config[] = {
     {% elif board in ["slwstk6220a"] %}
         #define PWM_NUMOF                    (1U)
         #define PWM_0_EN                     1
+    {% elif board in ["thunderboard_sense"] %}
+        #define PWM_NUMOF                    (0U)
     {% endif %}
 {% endstrip %}
 /** @} */
@@ -381,6 +402,18 @@ static const spi_dev_t spi_config[] = {
                 cmuClock_USART1,                    /* CMU register */
                 USART1_RX_IRQn,                     /* IRQ base channel */
             }
+        {% elif board in ["thunderboard_sense"] %}
+            {
+                USART1,                             /* device */
+                GPIO_PIN(PC, 6),                    /* MOSI pin */
+                GPIO_PIN(PC, 7),                    /* MISO pin */
+                GPIO_PIN(PC, 8),                    /* CLK pin */
+                USART_ROUTELOC0_RXLOC_LOC11 |
+                    USART_ROUTELOC0_TXLOC_LOC11 |
+                    USART_ROUTELOC0_CLKLOC_LOC11,   /* AF location */
+                cmuClock_USART1,                    /* CMU register */
+                USART1_RX_IRQn,                     /* IRQ base channel */
+            }
         {% endif %}
     {% endstrip %}
 };
@@ -397,6 +430,9 @@ static const spi_dev_t spi_config[] = {
         #define SPI_NUMOF           (1U)
         #define SPI_0_EN            1
     {% elif board in ["slwstk6220a"] %}
+        #define SPI_NUMOF           (1U)
+        #define SPI_0_EN            1
+    {% elif board in ["thunderboard_sense"] %}
         #define SPI_NUMOF           (1U)
         #define SPI_0_EN            1
     {% endif %}
@@ -457,6 +493,18 @@ static const timer_conf_t timer_config[] = {
                 },
                 TIMER2_IRQn,            /* IRQn of the higher numbered timer */
             }
+        {% elif board in ["thunderboard_sense"] %}
+            {
+                {
+                    TIMER0,             /* lower numbered timer */
+                    cmuClock_TIMER0,    /* pre-scaler bit in the CMU register */
+                },
+                {
+                    TIMER1,             /* higher numbered timer, this is the one */
+                    cmuClock_TIMER1,    /* pre-scaler bit in the CMU register */
+                },
+                TIMER1_IRQn,            /* IRQn of the higher numbered timer */
+            }
         {% endif %}
     {% endstrip %}
 };
@@ -477,6 +525,10 @@ static const timer_conf_t timer_config[] = {
     {% elif board in ["slwstk6220a"] %}
         #define TIMER_NUMOF         (1U)
         #define TIMER_0_ISR         isr_timer2
+        #define TIMER_0_MAX_VALUE   (0xffff)
+    {% elif board in ["thunderboard_sense"] %}
+        #define TIMER_NUMOF         (1U)
+        #define TIMER_0_ISR         isr_timer1
         #define TIMER_0_MAX_VALUE   (0xffff)
     {% endif %}
 {% endstrip %}
@@ -583,6 +635,34 @@ static const uart_conf_t uart_config[] = {
                 cmuClock_LEUART0,                   /* CMU register */
                 LEUART0_IRQn                        /* IRQ base channel */
             }
+        {% elif board in ["thunderboard_sense"] %}
+            {
+                USART0,                             /* device */
+                GPIO_PIN(PA, 1),                    /* RX pin */
+                GPIO_PIN(PA, 0),                    /* TX pin */
+                USART_ROUTELOC0_RXLOC_LOC0 |
+                    USART_ROUTELOC0_TXLOC_LOC0,     /* AF location */
+                cmuClock_USART0,                    /* CMU register */
+                USART0_RX_IRQn                      /* IRQ base channel */
+            },
+            {
+                USART1,                             /* device */
+                GPIO_PIN(PC, 6),                    /* RX pin */
+                GPIO_PIN(PC, 7),                    /* TX pin */
+                USART_ROUTELOC0_RXLOC_LOC11 |
+                    USART_ROUTELOC0_TXLOC_LOC11,    /* AF location */
+                cmuClock_USART1,                    /* CMU register */
+                USART1_RX_IRQn                      /* IRQ base channel */
+            },
+            {
+                LEUART0,                            /* device */
+                GPIO_PIN(PD, 11),                   /* RX pin */
+                GPIO_PIN(PD, 10),                   /* TX pin */
+                LEUART_ROUTELOC0_RXLOC_LOC18 |
+                    LEUART_ROUTELOC0_TXLOC_LOC18,   /* AF location */
+                cmuClock_LEUART0,                   /* CMU register */
+                LEUART0_IRQn                        /* IRQ base channel */
+            }
         {% endif %}
     {% endstrip %}
 };
@@ -606,6 +686,11 @@ static const uart_conf_t uart_config[] = {
         #define UART_NUMOF          (3U)
         #define UART_0_ISR_RX       isr_usart1_rx
         #define UART_1_ISR_RX       isr_usart2_rx
+        #define UART_2_ISR_RX       isr_leuart0
+    {% elif board in ["thunderboard_sense"] %}
+        #define UART_NUMOF          (3U)
+        #define UART_0_ISR_RX       isr_usart0_rx
+        #define UART_1_ISR_RX       isr_usart1_rx
         #define UART_2_ISR_RX       isr_leuart0
     {% endif %}
 {% endstrip %}

@@ -219,5 +219,24 @@ BOARDS = [
             "lfrco": 32768,
             "ulfrco": 1000
         }
+    },
+    {
+        "cpu": "efr32mg1p132f256gm48",
+        "cpu_datasheet": "https://www.silabs.com/Support%20Documents/TechnicalDocs/EFR32MG1-DataSheet.pdf",  # noqa
+        "board": "thunderboard_sense",
+        "board_display_name": "Thunderboard Sense",
+        "board_manual": "",  # noqa
+        "board_schematic": "",  # noqa
+        "family": "efm32mg",
+        "family_display_name": "EFR32MG",
+        "family_display_name_full": "EFM32 Mighty Gecko Gecko",
+        "family_manual": "http://www.silabs.com/Support%20Documents/TechnicalDocs/EFR32-ReferenceManual.pdf",  # noqa
+        "freq": {
+            "hfxo": 48000000,
+            "hfrco": 14000000,
+            "lfxo": 32768,
+            "lfrco": 32768,
+            "ulfrco": 1000
+        }
     }
 ]

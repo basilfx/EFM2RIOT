@@ -10,6 +10,8 @@ PORT_DARWIN ?= $(shell ls -1 /dev/tty.usbmodem* | head -n 1)
 {% strip 2 %}
     {% if board in ["slstk3401a"] %}
         export JLINK_DEVICE := EFM32PG1BxxxF256
+    {% elif board in ["thunderboard_sense"] %}
+        export JLINK_DEVICE := EFR32MG1PxxxF256
     {% else %}
         export JLINK_DEVICE := $(CPU_MODEL)
     {% endif %}

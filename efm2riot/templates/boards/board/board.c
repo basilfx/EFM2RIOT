@@ -43,44 +43,46 @@ void board_init(void)
     gpio_set(BC_PIN);
 #endif
 
-    {% strip 2, true %}
-        {% if architecture not in ["m0", "m0plus"] %}
-            /* enable core debug output AEM */
-        #if AEM_ENABLED
-            if (DBG_Connected()) {
-                /* enable GPIO clock for configuring SWO pins */
-                CMU_ClockEnable(cmuClock_GPIO, true);
+    {% strip 3, true %}
+        {% if board not in ["thunderboard_sense"] %}
+            {% if architecture not in ["m0", "m0plus"] %}
+                /* enable core debug output AEM */
+            #if AEM_ENABLED
+                if (DBG_Connected()) {
+                    /* enable GPIO clock for configuring SWO pins */
+                    CMU_ClockEnable(cmuClock_GPIO, true);
 
-                /* enable debug peripheral via SWO */
-                {% strip 2 %}
-                    {% if cpu_platform == 1 %}
-                        DBG_SWOEnable(GPIO_ROUTE_SWLOCATION_LOC0);
-                    {% else %}
-                        DBG_SWOEnable(GPIO_ROUTELOC0_SWVLOC_LOC0);
-                    {% endif %}
-                {% endstrip %}
+                    /* enable debug peripheral via SWO */
+                    {% strip 2 %}
+                        {% if cpu_platform == 1 %}
+                            DBG_SWOEnable(GPIO_ROUTE_SWLOCATION_LOC0);
+                        {% else %}
+                            DBG_SWOEnable(GPIO_ROUTELOC0_SWVLOC_LOC0);
+                        {% endif %}
+                    {% endstrip %}
 
-                /* enable trace in core debug */
-                CoreDebug->DHCSR |= CoreDebug_DHCSR_C_DEBUGEN_Msk;
-                CoreDebug->DEMCR |= CoreDebug_DEMCR_TRCENA_Msk;
+                    /* enable trace in core debug */
+                    CoreDebug->DHCSR |= CoreDebug_DHCSR_C_DEBUGEN_Msk;
+                    CoreDebug->DEMCR |= CoreDebug_DEMCR_TRCENA_Msk;
 
-                /* enable PC and IRQ sampling output */
-                DWT->CTRL = 0x400113FF;
+                    /* enable PC and IRQ sampling output */
+                    DWT->CTRL = 0x400113FF;
 
-                /* set TPIU prescaler to 16. */
-                TPI->ACPR = 15;
+                    /* set TPIU prescaler to 16. */
+                    TPI->ACPR = 15;
 
-                /* set protocol to NRZ */
-                TPI->SPPR = 2;
+                    /* set protocol to NRZ */
+                    TPI->SPPR = 2;
 
-                /* disable continuous formatting */
-                TPI->FFCR = 0x100;
+                    /* disable continuous formatting */
+                    TPI->FFCR = 0x100;
 
-                /* unlock ITM and output data */
-                ITM->LAR = 0xC5ACCE55;
-                ITM->TCR = 0x10009;
-            }
-        #endif
+                    /* unlock ITM and output data */
+                    ITM->LAR = 0xC5ACCE55;
+                    ITM->TCR = 0x10009;
+                }
+            #endif
+            {% endif %}
         {% endif %}
     {% endstrip %}
 

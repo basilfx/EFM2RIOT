@@ -8,3 +8,4 @@
 * [STK3700](doc/STK3700.md) &mdash; EFM32 Giant Gecko
 * [STK3800](doc/STK3800.md) &mdash; EFM32 Wonder Gecko
 * [SLWSTK6220A](doc/SLWSTK6220A.md) &mdash; EZR32 Wonder Gecko
+* [Thunderboard Sense](doc/Thundestick_Sense.md) &mdash; EFR Mighty Gecko

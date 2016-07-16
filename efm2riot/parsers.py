@@ -38,7 +38,7 @@ def parse_cpus(sdk_directory, family):
         )
     cpus = []
 
-    hex_re = re.compile(r".*(0x\d+).*")
+    hex_re = re.compile(r".*(0x[a-fA-F0-9]+).*")
     irq_re = re.compile(r"\s*([a-zA-Z0-9_]+)\s* = (-?\d+).*")
 
     for include in includes:

@@ -73,6 +73,15 @@ The starter kit is equipped with an Advanced Energy Monitor. This allows you to 
         | SPIs            | 3x USART                                 |
         | I2Cs            | 2x                                       |
         | Vcc             | 1.98V - 3.8V                             |
+    {% elif board in ["thunderboard_sense"] %}
+        | FPU             | yes                                      |
+        | DMA             | 12 channel                               |
+        | Timers          | 2 x 16-bit + 1x 16-bit (low power)       |
+        | ADCs            | 12-bit ADC                               |
+        | UARTs           | 3x UART, 2x USART, 1x LEUART             |
+        | SPIs            | 2x USART                                 |
+        | I2Cs            | 1x                                       |
+        | Vcc             | 1.85V - 3.8V                             |
     {% endif %}
 {% endstrip %}
 | Datasheet       | [Datasheet]({{ cpu_datasheet }})         |
@@ -81,55 +90,61 @@ The starter kit is equipped with an Advanced Energy Monitor. This allows you to 
 | Board Schematic | [Board Schematic]({{ board_schematic }}) |
 
 ### Pinout
-This is the pinout of the Expansion Header on the right side of the board. PIN 1 is the bottom-left contact when the header faces towards you.
-
-|      | PIN | PIN |      |
-|------|-----|-----|------|
 {% strip 2 %}
-    {% if board in ["stk3600", "stk3700", "stk3800"] %}
-        | 3V3  | 20  | 19  | RES  |
-        | 5V   | 18  | 17  | PC7  |
-        | PD6  | 16  | 15  | PC6  |
-        | PD5  | 14  | 13  | PB12 |
-        | PD4  | 12  | 11  | PB11 |
-        | PD3  | 10  | 9   | PC5  |
-        | PD2  | 8   | 7   | PC4  |
-        | PD1  | 6   | 5   | PC3  |
-        | PD0  | 4   | 3   | PC0  |
-        | VMCU | 2   | 1   | GND  |
-    {% elif board in ["stk3200"] %}
-        | 3V3  | 20  | 19  | RES  |
-        | 5V   | 18  | 17  | RES  |
-        | PE12 | 16  | 15  | PE13 |
-        | PD5  | 14  | 13  | PA1  |
-        | PD4  | 12  | 11  | PB11 |
-        | PC14 | 10  | 9   | PA0  |
-        | PC15 | 8   | 7   | PC2  |
-        | PD6  | 6   | 5   | PC1  |
-        | PD7  | 4   | 3   | PC0  |
-        | VMCU | 2   | 1   | GND  |
-    {% elif board in ["slstk3401a"] %}
-        | 3V3  | 20  | 19  | RES  |
-        | 5V   | 18  | 17  | RES  |
-        | PC10 | 16  | 15  | PC11 |
-        | PA1  | 14  | 13  | PB13 |
-        | PA0  | 12  | 11  | PD11 |
-        | PC9  | 10  | 9   | PD10 |
-        | PC8  | 8   | 7   | PA4  |
-        | PC7  | 6   | 5   | PA3  |
-        | PC6  | 4   | 3   | PA2  |
-        | VMCU | 2   | 1   | GND  |
-    {% elif board in ["slwstk6220a"] %}
-        | 3V3  | 20  | 19  | RES  |
-        | 5V   | 18  | 17  | RES  |
-        | PD6  | 16  | 15  | PD7  |
-        | PD5  | 14  | 13  | PF13 |
-        | PD4  | 12  | 11  | PB11 |
-        | PD3  | 10  | 9   | PE1  |
-        | PD2  | 8   | 7   | PE0  |
-        | PD1  | 6   | 5   | PC7  |
-        | PD0  | 4   | 3   | PC6  |
-        | VMCU | 2   | 1   | GND  |
+    {% if board in ["thunderboard_sense"] %}
+
+    {% else %}
+        This is the pinout of the Expansion Header on the right side of the board. PIN 1 is the bottom-left contact when the header faces towards you.
+
+        |      | PIN | PIN |      |
+        |------|-----|-----|------|
+        {% strip 2 %}
+            {% if board in ["stk3600", "stk3700", "stk3800"] %}
+                | 3V3  | 20  | 19  | RES  |
+                | 5V   | 18  | 17  | PC7  |
+                | PD6  | 16  | 15  | PC6  |
+                | PD5  | 14  | 13  | PB12 |
+                | PD4  | 12  | 11  | PB11 |
+                | PD3  | 10  | 9   | PC5  |
+                | PD2  | 8   | 7   | PC4  |
+                | PD1  | 6   | 5   | PC3  |
+                | PD0  | 4   | 3   | PC0  |
+                | VMCU | 2   | 1   | GND  |
+            {% elif board in ["stk3200"] %}
+                | 3V3  | 20  | 19  | RES  |
+                | 5V   | 18  | 17  | RES  |
+                | PE12 | 16  | 15  | PE13 |
+                | PD5  | 14  | 13  | PA1  |
+                | PD4  | 12  | 11  | PB11 |
+                | PC14 | 10  | 9   | PA0  |
+                | PC15 | 8   | 7   | PC2  |
+                | PD6  | 6   | 5   | PC1  |
+                | PD7  | 4   | 3   | PC0  |
+                | VMCU | 2   | 1   | GND  |
+            {% elif board in ["slstk3401a"] %}
+                | 3V3  | 20  | 19  | RES  |
+                | 5V   | 18  | 17  | RES  |
+                | PC10 | 16  | 15  | PC11 |
+                | PA1  | 14  | 13  | PB13 |
+                | PA0  | 12  | 11  | PD11 |
+                | PC9  | 10  | 9   | PD10 |
+                | PC8  | 8   | 7   | PA4  |
+                | PC7  | 6   | 5   | PA3  |
+                | PC6  | 4   | 3   | PA2  |
+                | VMCU | 2   | 1   | GND  |
+            {% elif board in ["slwstk6220a"] %}
+                | 3V3  | 20  | 19  | RES  |
+                | 5V   | 18  | 17  | RES  |
+                | PD6  | 16  | 15  | PD7  |
+                | PD5  | 14  | 13  | PF13 |
+                | PD4  | 12  | 11  | PB11 |
+                | PD3  | 10  | 9   | PE1  |
+                | PD2  | 8   | 7   | PE0  |
+                | PD1  | 6   | 5   | PC7  |
+                | PD0  | 4   | 3   | PC6  |
+                | VMCU | 2   | 1   | GND  |
+            {% endif %}
+        {% endstrip %}
     {% endif %}
 {% endstrip %}
 
@@ -182,6 +197,8 @@ This is the pinout of the Expansion Header on the right side of the board. PIN 1
         | Crypto     | &mdash; | &mdash;         |                                 | AES128/AES256 only                                        |
         | DAC        | 0       | DAC0            | CHAN0: PB11                     | Ports are fixed, shared with I2C                          |
         | PWM        | 0       | TIMER0          | CHAN0: PF6, CHAN1: PF7          | Mapped to LED0 and LED1                                   |
+    {% elif board in ["thunderboard_sense"] %}
+
     {% endif %}
 {% endstrip %}
 
@@ -215,6 +232,8 @@ This is the pinout of the Expansion Header on the right side of the board. PIN 1
         |            |           | PB1      | PE2  |            |
         | LED        | LED_RED   | LED0     | PF6  | Yellow LED |
         |            | LED_GREEN | LED1     | PF7  | Yellow LED |
+    {% elif board in ["thunderboard_sense"] %}
+
     {% endif %}
 {% endstrip %}
 
@@ -244,10 +263,16 @@ This is the pinout of the Expansion Header on the right side of the board. PIN 1
 |                               | USB                            | no        |                                                                |
 {% strip 2 %}
     {% if board in ["slstk3401a", "stk3200", "slwstk6220a"] %}
-        | LCD driver                    | LS013B7DH03                    | planned   | Sharp Low Power Memory LCD                                     |
+        | LCD driver                    | LS013B7DH03                    | yes       | Sharp Low Power Memory LCD                                     |
     {% endif %}
-    {% if board in ["slstk3401a", "slwstk6220a"] %}
+    {% if board in ["slstk3401a", "slwstk6220a", "thunderboard_sense"] %}
         | Temperature + Humidity sensor | Si7021                         | yes       | Silicon Labs Temperature + Humidity sensor                     |
+    {% endif %}
+    {% if board in ["thunderboard_sense"] %}
+        | Microphone                    |                                | no        |                                                                |
+        | Light sensor                  |                                | no        |                                                                |
+        | Magnetic sensor               |                                | no        |                                                                |
+        | Gyroscope                     |                                | no        |                                                                |
     {% endif %}
 {% endstrip %}
 
@@ -268,20 +293,24 @@ By default, this pin is enabled. It can be disable by passing `BC_ENABLED=0` to 
     {% endif %}
 {% endstrip %}
 
-### Advanced Energy Monitor
-This development kit has an Advanced Energy Monitor. It can be connected to the Simplicity Studio development software.
+{% strip 2, true %}
+    {% if board not in ["thunderboard_sense"] %}
+        ### Advanced Energy Monitor
+        This development kit has an Advanced Energy Monitor. It can be connected to the Simplicity Studio development software.
 
-{% strip 2 %}
-    {% if architecture not in ["m0", "m0plus"] %}
-        This development kit can measure energy consumption and correlate this with the code. It allows you to measure energy consumption on code-level.
+        {% strip 2 %}
+            {% if architecture not in ["m0", "m0plus"] %}
+                This development kit can measure energy consumption and correlate this with the code. It allows you to measure energy consumption on code-level.
 
-        The board controller is responsible for measuring energy consumption. For real-time code correlation, the CoreDebug peripheral will be configured to output MCU register data and interrupt data via the SWO port.
+                The board controller is responsible for measuring energy consumption. For real-time code correlation, the CoreDebug peripheral will be configured to output MCU register data and interrupt data via the SWO port.
 
-        By default, this feature is enabled. It can be disabled by passing `AEM_ENABLED=0` to the compiler. This feature costs approximately 300 bytes (default compilation settings).
+                By default, this feature is enabled. It can be disabled by passing `AEM_ENABLED=0` to the compiler. This feature costs approximately 300 bytes (default compilation settings).
 
-        Note that Simplicity Studio requires debug symbols to correlate code. RIOT-OS defaults to GDB debug symbols, but Simplicity Studio requires DWARF-2 debug symbols.
-    {% else %}
-        This development kit can measure energy consumption, but it does not support real-time code correlation.
+                Note that Simplicity Studio requires debug symbols to correlate code. RIOT-OS defaults to GDB debug symbols, but Simplicity Studio requires DWARF-2 debug symbols.
+            {% else %}
+                This development kit can measure energy consumption, but it does not support real-time code correlation.
+            {% endif %}
+        {% endstrip %}
     {% endif %}
 {% endstrip %}
 

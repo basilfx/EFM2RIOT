@@ -7,19 +7,19 @@
 */
 
 /**
-* @addtogroup      cpu_{{ family }}
-* @{
-*
-* @file
-* @brief           Memory definitions for the {{ cpu }} CPU
-*
-* @}
-*/
+ * @addtogroup      cpu_{{ family }}
+ * @{
+ *
+ * @file
+ * @brief           Memory definitions for the {{ cpu }} CPU
+ *
+ * @}
+ */
 
 MEMORY
 {
-rom (rx)    : ORIGIN = 0x00000000, LENGTH = {{ flash_size }}
-ram (rwx)   : ORIGIN = 0x20000000, LENGTH = {{ ram_size }}
+    rom (rx)    : ORIGIN = 0x00000000, LENGTH = {{ flash_size }}
+    ram (rwx)   : ORIGIN = 0x20000000, LENGTH = {{ ram_size }}
 }
 
 INCLUDE cortexm_base.ld
