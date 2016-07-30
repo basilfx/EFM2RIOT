@@ -63,26 +63,48 @@ def copy_templates(root_directory, dist_directory, sdk_directory,
                     target = templates.from_string(template["target"], context)
                     target = os.path.join(dist_directory, target)
 
+                    # Compute filters
+                    filters = {}
+
+                    if "filters" in template:
+                        for expression in template["filters"].iterkeys():
+                            new_expression = templates.from_string(
+                                expression, context)
+
+                            filters[new_expression] = \
+                                template["filters"][expression]
+
                     # Perform the action.
                     sys.stdout.write("Processing '%s'\n" % source)
 
                     if template["type"] == "file":
+                        if source in filters:
+                            if not filters[source](contexts):
+                                sys.stdout.write("Filtered")
+                                continue
+
                         templates.from_file(source, target, context)
                     elif template["type"] == "glob":
                         for source_file in glob.glob(source):
                             if os.path.isfile(source_file):
+                                if source_file in filters:
+                                    if not filters[source_file](context):
+                                        sys.stdout.write("Filtered")
+                                        continue
+
                                 target_file = os.path.join(
                                     target, os.path.basename(source_file))
 
                                 templates.from_file(
                                     source_file, target_file, context)
                     else:
-                        raise Exception("Not supported")
+                        raise Exception(
+                            "Unsupported template: %s", template["type"])
 
     _process("per_family", families)
     _process("per_cpu", cpus)
     _process("per_board", boards)
-    _process("per_once", [{
+    _process("once", [{
         "families": [family["family"] for family in families],
         "cpus": [cpu["cpu"] for cpu in cpus],
         "boards": [board["board"] for board in boards]
@@ -141,7 +163,7 @@ def copy_patches(root_directory, dist_directory, sdk_directory,
     _process("per_family", families)
     _process("per_cpu", cpus)
     _process("per_board", boards)
-    _process("per_once", [{
+    _process("once", [{
         "families": [family["family"] for family in families],
         "cpus": [cpu["cpu"] for cpu in cpus],
         "boards": [board["board"] for board in boards]

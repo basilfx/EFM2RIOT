@@ -1,4 +1,4 @@
-from efm2riot import patches
+from efm2riot import patches, filters
 
 # Static copy actions (source, destination).
 STATICS = [
@@ -66,6 +66,11 @@ TEMPLATES = [
         "when": "per_board",
         "source": "{{ root }}/templates/boards/board/include/*",
         "target": "boards/{{ board }}/include",
+        "filters": {
+            "{{ root }}/templates/boards/board/include/si70xx_params.h": filters.only_for_board([  # noqa
+                "slstk3401a", "slwstk6220a", "thunderboard_sense"
+            ])
+        }
     },
     {
         "type": "glob",
@@ -81,7 +86,7 @@ TEMPLATES = [
     },
     {
         "type": "glob",
-        "when": "per_once",
+        "when": "once",
         "source": "{{ root }}/templates/contrib/*",
         "target": "contrib/",
     }
@@ -98,7 +103,7 @@ PATCHES = [
     },
     {
         "type": "file",
-        "when": "per_once",
+        "when": "once",
         "source": "{{ sdk }}/emlib/src/em_idac.c",
         "target": "cpu/efm32_common/emlib/src/em_idac.c",
         "methods": [patches.fix_idac_c]
