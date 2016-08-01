@@ -80,7 +80,6 @@ def copy_templates(root_directory, dist_directory, sdk_directory,
                     if template["type"] == "file":
                         if source in filters:
                             if not filters[source](contexts):
-                                sys.stdout.write("Filtered")
                                 continue
 
                         templates.from_file(source, target, context)
@@ -89,7 +88,6 @@ def copy_templates(root_directory, dist_directory, sdk_directory,
                             if os.path.isfile(source_file):
                                 if source_file in filters:
                                     if not filters[source_file](context):
-                                        sys.stdout.write("Filtered")
                                         continue
 
                                 target_file = os.path.join(
