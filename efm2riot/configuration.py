@@ -68,7 +68,7 @@ TEMPLATES = [
         "target": "boards/{{ board }}/include",
         "filters": {
             "{{ root }}/templates/boards/board/include/si70xx_params.h": filters.only_for_board([  # noqa
-                "slstk3401a", "slwstk6220a", "thunderboard_sense"
+                "slstk3401a", "slwstk6220a", "sltb001a"
             ])
         }
     },
@@ -128,7 +128,8 @@ BOARDS = [
             "lfxo": 32768,
             "lfrco": 32768,
             "ulfrco": 1000
-        }
+        },
+        "marketing_display_name": "EFM32 Zero Gecko Starter Kit"
     },
     {
         "cpu": "efm32pg1b200f256gm48",
@@ -147,7 +148,8 @@ BOARDS = [
             "lfxo": 32768,
             "lfrco": 32768,
             "ulfrco": 1000
-        }
+        },
+        "marketing_display_name": "EFM32 Pearl Gecko Starter Kit"
     },
     {
         "cpu": "efm32lg990f256",
@@ -166,7 +168,8 @@ BOARDS = [
             "lfxo": 32768,
             "lfrco": 32768,
             "ulfrco": 1000
-        }
+        },
+        "marketing_display_name": "EFM32 Leopard Gecko Starter Kit"
     },
     {
         "cpu": "efm32gg990f1024",
@@ -185,7 +188,8 @@ BOARDS = [
             "lfxo": 32768,
             "lfrco": 32768,
             "ulfrco": 1000
-        }
+        },
+        "marketing_display_name": "EFM32 Giant Gecko Starter Kit"
     },
     {
         "cpu": "efm32wg990f256",
@@ -205,6 +209,7 @@ BOARDS = [
             "lfrco": 32768,
             "ulfrco": 1000
         },
+        "marketing_display_name": "EFM32 Wonder Gecko Starter Kit"
     },
     {
         "cpu": "ezr32wg330f256r60",
@@ -223,25 +228,27 @@ BOARDS = [
             "lfxo": 32768,
             "lfrco": 32768,
             "ulfrco": 1000
-        }
+        },
+        "marketing_display_name": "EZR32WG 868MHz Wireless Starter Kit"
     },
     {
         "cpu": "efr32mg1p132f256gm48",
         "cpu_datasheet": "https://www.silabs.com/Support%20Documents/TechnicalDocs/EFR32MG1-DataSheet.pdf",  # noqa
-        "board": "thunderboard_sense",
-        "board_display_name": "Thunderboard Sense",
-        "board_manual": "",  # noqa
-        "board_schematic": "",  # noqa
+        "board": "sltb001a",
+        "board_display_name": "SLTB001A",
+        "board_manual": "",
+        "board_schematic": "",
         "family": "efm32mg",
         "family_display_name": "EFR32MG",
         "family_display_name_full": "EFM32 Mighty Gecko Gecko",
         "family_manual": "http://www.silabs.com/Support%20Documents/TechnicalDocs/EFR32-ReferenceManual.pdf",  # noqa
         "freq": {
-            "hfxo": 48000000,
+            "hfxo": 38400000,
             "hfrco": 14000000,
             "lfxo": 32768,
             "lfrco": 32768,
             "ulfrco": 1000
-        }
+        },
+        "marketing_display_name": "Thunderboard Sense"
     }
 ]

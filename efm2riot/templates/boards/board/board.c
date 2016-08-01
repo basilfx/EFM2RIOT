@@ -44,7 +44,7 @@ void board_init(void)
 #endif
 
     {% strip 3, true %}
-        {% if board not in ["thunderboard_sense"] %}
+        {% if board not in ["sltb001a"] %}
             {% if architecture not in ["m0", "m0plus"] %}
                 /* enable core debug output AEM */
             #if AEM_ENABLED
@@ -68,7 +68,7 @@ void board_init(void)
                     /* enable PC and IRQ sampling output */
                     DWT->CTRL = 0x400113FF;
 
-                    /* set TPIU prescaler to 16. */
+                    /* set TPIU prescaler to 16 */
                     TPI->ACPR = 15;
 
                     /* set protocol to NRZ */
@@ -89,4 +89,15 @@ void board_init(void)
     /* initialize the boards LEDs */
     gpio_init(LED0_PIN, GPIO_OUT);
     gpio_init(LED1_PIN, GPIO_OUT);
+
+    {% strip 3, true %}
+        {% if board in ["slstk3401a", "slwstk6220a", "sltb001a"] %}
+                /* initialize the Si7021 sensor */
+            #if SI7021_ENABLED
+                gpio_init(SI7021_EN_PIN, GPIO_OUT);
+                gpio_set(SI7021_EN_PIN);
+            #endif
+        {% endif %}
+    {% endstrip %}
+
 }

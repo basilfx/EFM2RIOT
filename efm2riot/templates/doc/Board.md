@@ -1,7 +1,7 @@
 # Silicon Labs {{ board_display_name }}
 
 ## Overview
-Silicon Labs {{ board_display_name }} starter kit is equipped with the EFM32 microcontroller. It is specifically designed for low-power applications, having energy-saving peripherals, different energy modes and short wake-up times.
+Silicon Labs {{ marketing_display_name }} is equipped with the EFM32 microcontroller. It is specifically designed for low-power applications, having energy-saving peripherals, different energy modes and short wake-up times.
 
 The starter kit is equipped with an Advanced Energy Monitor. This allows you to actively measure the power consumption of your hardware and code, in real-time.
 
@@ -73,7 +73,7 @@ The starter kit is equipped with an Advanced Energy Monitor. This allows you to 
         | SPIs            | 3x USART                                 |
         | I2Cs            | 2x                                       |
         | Vcc             | 1.98V - 3.8V                             |
-    {% elif board in ["thunderboard_sense"] %}
+    {% elif board in ["sltb001a"] %}
         | FPU             | yes                                      |
         | DMA             | 12 channel                               |
         | Timers          | 2 x 16-bit + 1x 16-bit (low power)       |
@@ -91,66 +91,92 @@ The starter kit is equipped with an Advanced Energy Monitor. This allows you to 
 
 ### Pinout
 {% strip 2 %}
-    {% if board in ["thunderboard_sense"] %}
-
+    {% if board in ["sltb001a"] %}
+        This is the pinout of the Expansion Pins on the front side of the board. PIN 1 is the top-left contact, marked on the silkscreen.
     {% else %}
         This is the pinout of the Expansion Header on the right side of the board. PIN 1 is the bottom-left contact when the header faces towards you.
+    {% endif %}
+{% endstrip %}
 
-        |      | PIN | PIN |      |
-        |------|-----|-----|------|
-        {% strip 2 %}
-            {% if board in ["stk3600", "stk3700", "stk3800"] %}
-                | 3V3  | 20  | 19  | RES  |
-                | 5V   | 18  | 17  | PC7  |
-                | PD6  | 16  | 15  | PC6  |
-                | PD5  | 14  | 13  | PB12 |
-                | PD4  | 12  | 11  | PB11 |
-                | PD3  | 10  | 9   | PC5  |
-                | PD2  | 8   | 7   | PC4  |
-                | PD1  | 6   | 5   | PC3  |
-                | PD0  | 4   | 3   | PC0  |
-                | VMCU | 2   | 1   | GND  |
-            {% elif board in ["stk3200"] %}
-                | 3V3  | 20  | 19  | RES  |
-                | 5V   | 18  | 17  | RES  |
-                | PE12 | 16  | 15  | PE13 |
-                | PD5  | 14  | 13  | PA1  |
-                | PD4  | 12  | 11  | PB11 |
-                | PC14 | 10  | 9   | PA0  |
-                | PC15 | 8   | 7   | PC2  |
-                | PD6  | 6   | 5   | PC1  |
-                | PD7  | 4   | 3   | PC0  |
-                | VMCU | 2   | 1   | GND  |
-            {% elif board in ["slstk3401a"] %}
-                | 3V3  | 20  | 19  | RES  |
-                | 5V   | 18  | 17  | RES  |
-                | PC10 | 16  | 15  | PC11 |
-                | PA1  | 14  | 13  | PB13 |
-                | PA0  | 12  | 11  | PD11 |
-                | PC9  | 10  | 9   | PD10 |
-                | PC8  | 8   | 7   | PA4  |
-                | PC7  | 6   | 5   | PA3  |
-                | PC6  | 4   | 3   | PA2  |
-                | VMCU | 2   | 1   | GND  |
-            {% elif board in ["slwstk6220a"] %}
-                | 3V3  | 20  | 19  | RES  |
-                | 5V   | 18  | 17  | RES  |
-                | PD6  | 16  | 15  | PD7  |
-                | PD5  | 14  | 13  | PF13 |
-                | PD4  | 12  | 11  | PB11 |
-                | PD3  | 10  | 9   | PE1  |
-                | PD2  | 8   | 7   | PE0  |
-                | PD1  | 6   | 5   | PC7  |
-                | PD0  | 4   | 3   | PC6  |
-                | VMCU | 2   | 1   | GND  |
-            {% endif %}
-        {% endstrip %}
+|      | PIN | PIN |      |
+|------|-----|-----|------|
+{% strip 2 %}
+    {% if board in ["stk3600", "stk3700", "stk3800"] %}
+        | 3V3  | 20  | 19  | RES  |
+        | 5V   | 18  | 17  | PC7  |
+        | PD6  | 16  | 15  | PC6  |
+        | PD5  | 14  | 13  | PB12 |
+        | PD4  | 12  | 11  | PB11 |
+        | PD3  | 10  | 9   | PC5  |
+        | PD2  | 8   | 7   | PC4  |
+        | PD1  | 6   | 5   | PC3  |
+        | PD0  | 4   | 3   | PC0  |
+        | VMCU | 2   | 1   | GND  |
+    {% elif board in ["stk3200"] %}
+        | 3V3  | 20  | 19  | RES  |
+        | 5V   | 18  | 17  | RES  |
+        | PE12 | 16  | 15  | PE13 |
+        | PD5  | 14  | 13  | PA1  |
+        | PD4  | 12  | 11  | PB11 |
+        | PC14 | 10  | 9   | PA0  |
+        | PC15 | 8   | 7   | PC2  |
+        | PD6  | 6   | 5   | PC1  |
+        | PD7  | 4   | 3   | PC0  |
+        | VMCU | 2   | 1   | GND  |
+    {% elif board in ["slstk3401a"] %}
+        | 3V3  | 20  | 19  | RES  |
+        | 5V   | 18  | 17  | RES  |
+        | PC10 | 16  | 15  | PC11 |
+        | PA1  | 14  | 13  | PB13 |
+        | PA0  | 12  | 11  | PD11 |
+        | PC9  | 10  | 9   | PD10 |
+        | PC8  | 8   | 7   | PA4  |
+        | PC7  | 6   | 5   | PA3  |
+        | PC6  | 4   | 3   | PA2  |
+        | VMCU | 2   | 1   | GND  |
+    {% elif board in ["slwstk6220a"] %}
+        | 3V3  | 20  | 19  | RES  |
+        | 5V   | 18  | 17  | RES  |
+        | PD6  | 16  | 15  | PD7  |
+        | PD5  | 14  | 13  | PF13 |
+        | PD4  | 12  | 11  | PB11 |
+        | PD3  | 10  | 9   | PE1  |
+        | PD2  | 8   | 7   | PE0  |
+        | PD1  | 6   | 5   | PC7  |
+        | PD0  | 4   | 3   | PC6  |
+        | VMCU | 2   | 1   | GND  |
+    {% elif board in ["slwstk6220a"] %}
+        | 3V3  | 20  | 19  | RES  |
+        | 5V   | 18  | 17  | RES  |
+        | PD6  | 16  | 15  | PD7  |
+        | PD5  | 14  | 13  | PF13 |
+        | PD4  | 12  | 11  | PB11 |
+        | PD3  | 10  | 9   | PE1  |
+        | PD2  | 8   | 7   | PE0  |
+        | PD1  | 6   | 5   | PC7  |
+        | PD0  | 4   | 3   | PC6  |
+        | VMCU | 2   | 1   | GND  |
+    {% elif board in ["sltb001a"] %}
+        | GND  | 1   | 2   | VMCU |
+        | PA2  | 3   | 4   | PC6  |
+        | PA3  | 5   | 6   | PC7  |
+        | PF3  | 7   | 8   | PC8  |
+        | PF4  | 9   | 10  | PC9  |
+        | PF5  | 11  | 12  | PC0  |
+        | PF6  | 13  | 14  | PC1  |
+        | PC11 | 15  | 16  | PC10 |
+        | RES  | 17  | 18  | 5V   |
+        | RES  | 19  | 20  | 3V3  |
     {% endif %}
 {% endstrip %}
 
 **Note**: not all starter kits by Silicon Labs share the same pinout!
 
-**Note:** some pins are connected to the board controller, when enabled!
+{% strip 2 %}
+    {% if board not in ["sltb001a"] %}
+        **Note:** some pins are connected to the board controller, when enabled!
+    {% endif %}
+{% endstrip %}
 
 ### Peripheral mapping
 | Peripheral | Number  | Hardware        | Pins                            | Comments                                                  |
@@ -197,7 +223,7 @@ The starter kit is equipped with an Advanced Energy Monitor. This allows you to 
         | Crypto     | &mdash; | &mdash;         |                                 | AES128/AES256 only                                        |
         | DAC        | 0       | DAC0            | CHAN0: PB11                     | Ports are fixed, shared with I2C                          |
         | PWM        | 0       | TIMER0          | CHAN0: PF6, CHAN1: PF7          | Mapped to LED0 and LED1                                   |
-    {% elif board in ["thunderboard_sense"] %}
+    {% elif board in ["sltb001a"] %}
 
     {% endif %}
 {% endstrip %}
@@ -232,7 +258,7 @@ The starter kit is equipped with an Advanced Energy Monitor. This allows you to 
         |            |           | PB1      | PE2  |            |
         | LED        | LED_RED   | LED0     | PF6  | Yellow LED |
         |            | LED_GREEN | LED1     | PF7  | Yellow LED |
-    {% elif board in ["thunderboard_sense"] %}
+    {% elif board in ["sltb001a"] %}
 
     {% endif %}
 {% endstrip %}
@@ -265,14 +291,15 @@ The starter kit is equipped with an Advanced Energy Monitor. This allows you to 
     {% if board in ["slstk3401a", "stk3200", "slwstk6220a"] %}
         | LCD driver                    | LS013B7DH03                    | yes       | Sharp Low Power Memory LCD                                     |
     {% endif %}
-    {% if board in ["slstk3401a", "slwstk6220a", "thunderboard_sense"] %}
+    {% if board in ["slstk3401a", "slwstk6220a", "sltb001a"] %}
         | Temperature + Humidity sensor | Si7021                         | yes       | Silicon Labs Temperature + Humidity sensor                     |
     {% endif %}
-    {% if board in ["thunderboard_sense"] %}
+    {% if board in ["sltb001a"] %}
         | Microphone                    |                                | no        |                                                                |
-        | Light sensor                  |                                | no        |                                                                |
-        | Magnetic sensor               |                                | no        |                                                                |
-        | Gyroscope                     |                                | no        |                                                                |
+        | Light sensor                  | Si1133                         | no        | Silicon Labs UV/Ambient Light sensor                           |
+        | Hall-effect sensor            | Si7210A                        | no        | Silicon Labs Hall-effect sensor                                |
+        | IMU sensor                    | ICM-20648                      | no        | InvenSense 6-axis inertial sensor                              |
+        | Air sensor                    | CCS811                         | no        | Cambridge CMOS Sensors Air Quality/Gas sensor                  |
     {% endif %}
 {% endstrip %}
 
@@ -294,7 +321,7 @@ By default, this pin is enabled. It can be disable by passing `BC_ENABLED=0` to 
 {% endstrip %}
 
 {% strip 2, true %}
-    {% if board not in ["thunderboard_sense"] %}
+    {% if board not in ["sltb001a"] %}
         ### Advanced Energy Monitor
         This development kit has an Advanced Energy Monitor. It can be connected to the Simplicity Studio development software.
 

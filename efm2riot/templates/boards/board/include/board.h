@@ -43,7 +43,7 @@ extern "C" {
 /** @} */
 
 {% strip 3, true %}
-    {% if board not in ["thunderboard_sense"] %}
+    {% if board not in ["sltb001a"] %}
         {% if architecture not in ["m0", "m0plus"] %}
             /**
              * @brief   Define for enabling Advanced Energy Monitor core output via SWO.
@@ -73,7 +73,7 @@ extern "C" {
         #define BC_PIN              GPIO_PIN(PA, 5)
     {% elif board in ["slwstk6220a"] %}
         #define BC_PIN              GPIO_PIN(PA, 12)
-    {% elif board in ["thunderboard_sense"] %}
+    {% elif board in ["sltb001a"] %}
         #define BC_PIN              GPIO_PIN(PA, 12)
     {% endif %}
 {% endstrip %}
@@ -96,9 +96,9 @@ extern "C" {
     {% elif board in ["slwstk6220a"] %}
         #define PB0_PIN             GPIO_PIN(PE, 3)
         #define PB1_PIN             GPIO_PIN(PE, 2)
-    {% elif board in ["thunderboard_sense"] %}
-        #define PB0_PIN             GPIO_PIN(0, 0)
-        #define PB1_PIN             GPIO_PIN(0, 0)
+    {% elif board in ["sltb001a"] %}
+        #define PB0_PIN             GPIO_PIN(PD, 14)
+        #define PB1_PIN             GPIO_PIN(PD, 15)
     {% endif %}
 {% endstrip %}
 /** @} */
@@ -120,9 +120,9 @@ extern "C" {
     {% elif board in ["slwstk6220a"] %}
         #define LED0_PIN            GPIO_PIN(PF, 6)
         #define LED1_PIN            GPIO_PIN(PF, 7)
-    {% elif board in ["thunderboard_sense"] %}
-        #define LED0_PIN            GPIO_PIN(0, 0)
-        #define LED1_PIN            GPIO_PIN(0, 0)
+    {% elif board in ["sltb001a"] %}
+        #define LED0_PIN            GPIO_PIN(PD, 11)
+        #define LED1_PIN            GPIO_PIN(PD, 12)
     {% endif %}
 {% endstrip %}
 /** @} */
@@ -137,11 +137,6 @@ extern "C" {
 #define LED1_ON             gpio_set(LED1_PIN)
 #define LED1_OFF            gpio_clear(LED1_PIN)
 #define LED1_TOGGLE         gpio_toggle(LED1_PIN)
-{% strip 2, true %}
-    {% if board in ["thunderboard_sense"] %}
-
-    {% endif %}
-{% endstrip %}
 /** @} */
 
 {% strip 2, true %}
@@ -186,6 +181,9 @@ extern "C" {
          * @brief   Connection to the on-board temperature/humidity sensor (Si7021)
          * @{
          */
+        #ifndef SI7021_ENABLED
+        #define SI7021_ENABLED      (1)
+        #endif
         #define SI7021_I2C          (0)
         #define SI7021_EN_PIN       GPIO_PIN(PD, 9)
         /** @} */
@@ -194,14 +192,20 @@ extern "C" {
          * @brief   Connection to the on-board temperature/humidity sensor (Si7021)
          * @{
          */
+        #ifndef SI7021_ENABLED
+        #define SI7021_ENABLED      (1)
+        #endif
         #define SI7021_I2C          (0)
         #define SI7021_EN_PIN       GPIO_PIN(PF, 8)
         /** @} */
-    {% elif board in ["thunderboard_sense"] %}
+    {% elif board in ["sltb001a"] %}
         /**
          * @brief   Connection to the on-board temperature/humidity sensor (Si7021)
          * @{
          */
+        #ifndef SI7021_ENABLED
+        #define SI7021_ENABLED      (1)
+        #endif
         #define SI7021_I2C          (0)
         #define SI7021_EN_PIN       GPIO_PIN(0, 0)
         /** @} */

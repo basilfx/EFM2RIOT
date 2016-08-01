@@ -53,7 +53,7 @@ extern "C" {
 {% endstrip %}
 #endif
 {% strip 2 %}
-    {% if board in ["slstk3401a", "thunderboard_sense"] %}
+    {% if board in ["slstk3401a", "sltb001a"] %}
         #ifndef CLOCK_LFE
         #define CLOCK_LFE           cmuSelect_LFXO
         #endif
@@ -203,7 +203,7 @@ static const i2c_conf_t i2c_config[] = {
                 cmuClock_I2C1,                      /* CMU register */
                 I2C1_IRQn                           /* IRQ base channel */
             }
-        {% elif board in ["thunderboard_sense"] %}
+        {% elif board in ["sltb001a"] %}
             {
                 I2C0,                               /* device */
                 GPIO_PIN(PC, 10),                   /* SDA pin */
@@ -231,7 +231,7 @@ static const i2c_conf_t i2c_config[] = {
     {% elif board in ["slwstk6220a"] %}
         #define I2C_NUMOF           (1U)
         #define I2C_0_ISR           isr_i2c1
-    {% elif board in ["thunderboard_sense"] %}
+    {% elif board in ["sltb001a"] %}
         #define I2C_NUMOF           (1U)
         #define I2C_0_ISR           isr_i2c1
     {% endif %}
@@ -265,7 +265,7 @@ static const pwm_chan_conf_t pwm_channel_config[] = {
                 GPIO_PIN(PF, 7),            /* PWM pin */
                 TIMER_ROUTE_LOCATION_LOC2,  /* AF location */
             }
-        {% elif board in ["thunderboard_sense"] %}
+        {% elif board in ["sltb001a"] %}
             /* no available channels */
         {% endif %}
     {% endstrip %}
@@ -295,7 +295,7 @@ static const pwm_conf_t pwm_config[] = {
             }
         {% elif board in ["slstk3401a"] %}
             /* no available timers */
-        {% elif board in ["thunderboard_sense"] %}
+        {% elif board in ["sltb001a"] %}
             /* no available timers */
         {% endif %}
     {% endstrip %}
@@ -312,7 +312,7 @@ static const pwm_conf_t pwm_config[] = {
     {% elif board in ["slwstk6220a"] %}
         #define PWM_NUMOF                    (1U)
         #define PWM_0_EN                     1
-    {% elif board in ["thunderboard_sense"] %}
+    {% elif board in ["sltb001a"] %}
         #define PWM_NUMOF                    (0U)
     {% endif %}
 {% endstrip %}
@@ -402,7 +402,7 @@ static const spi_dev_t spi_config[] = {
                 cmuClock_USART1,                    /* CMU register */
                 USART1_RX_IRQn,                     /* IRQ base channel */
             }
-        {% elif board in ["thunderboard_sense"] %}
+        {% elif board in ["sltb001a"] %}
             {
                 USART1,                             /* device */
                 GPIO_PIN(PC, 6),                    /* MOSI pin */
@@ -432,7 +432,7 @@ static const spi_dev_t spi_config[] = {
     {% elif board in ["slwstk6220a"] %}
         #define SPI_NUMOF           (1U)
         #define SPI_0_EN            1
-    {% elif board in ["thunderboard_sense"] %}
+    {% elif board in ["sltb001a"] %}
         #define SPI_NUMOF           (1U)
         #define SPI_0_EN            1
     {% endif %}
@@ -493,7 +493,7 @@ static const timer_conf_t timer_config[] = {
                 },
                 TIMER2_IRQn,            /* IRQn of the higher numbered timer */
             }
-        {% elif board in ["thunderboard_sense"] %}
+        {% elif board in ["sltb001a"] %}
             {
                 {
                     TIMER0,             /* lower numbered timer */
@@ -526,7 +526,7 @@ static const timer_conf_t timer_config[] = {
         #define TIMER_NUMOF         (1U)
         #define TIMER_0_ISR         isr_timer2
         #define TIMER_0_MAX_VALUE   (0xffff)
-    {% elif board in ["thunderboard_sense"] %}
+    {% elif board in ["sltb001a"] %}
         #define TIMER_NUMOF         (1U)
         #define TIMER_0_ISR         isr_timer1
         #define TIMER_0_MAX_VALUE   (0xffff)
@@ -635,7 +635,7 @@ static const uart_conf_t uart_config[] = {
                 cmuClock_LEUART0,                   /* CMU register */
                 LEUART0_IRQn                        /* IRQ base channel */
             }
-        {% elif board in ["thunderboard_sense"] %}
+        {% elif board in ["sltb001a"] %}
             {
                 USART0,                             /* device */
                 GPIO_PIN(PA, 1),                    /* RX pin */
@@ -687,7 +687,7 @@ static const uart_conf_t uart_config[] = {
         #define UART_0_ISR_RX       isr_usart1_rx
         #define UART_1_ISR_RX       isr_usart2_rx
         #define UART_2_ISR_RX       isr_leuart0
-    {% elif board in ["thunderboard_sense"] %}
+    {% elif board in ["sltb001a"] %}
         #define UART_NUMOF          (3U)
         #define UART_0_ISR_RX       isr_usart0_rx
         #define UART_1_ISR_RX       isr_usart1_rx

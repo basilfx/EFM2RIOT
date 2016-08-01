@@ -59,9 +59,9 @@ Currently, the following boards (development kits) are supported:
 * [STK3700](dist/doc/STK3700.md) &mdash; EFM32 Giant Gecko
 * [STK3800](dist/doc/STK3800.md) &mdash; EFM32 Wonder Gecko
 * [SLWSTK6220A](dist/doc/SLWSTK6220A.md) &mdash; EZR32 Wonder Gecko (untested)
+* [SLTB001A](dist/doc/SLTB001A.md) &mdash; EFR32 Mighty Gecko
 
 ## TODO
-* General: find out which MCUs are limited to run RIOT-OS.
 * General: add support for DMA in peripheral drivers.
 * Timer: add LEUART peripherals.
 

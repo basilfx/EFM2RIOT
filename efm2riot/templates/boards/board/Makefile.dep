@@ -1,0 +1,8 @@
+ifneq (,$(filter saul_default,$(USEMODULE)))
+    USEMODULE += saul_gpio
+    {% strip 2 true %}
+        {% if board in ["slstk3401a", "slwstk6220a", "sltb001a"] %}
+            USEMODULE += si70xx
+        {% endif %}
+    {% endstrip %}
+endif
