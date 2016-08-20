@@ -22,7 +22,7 @@ You will need Python 2.7 and the EFM32 SDK (comes with Simplicity Studio).
 To generate all files, run:
 
 ```
-python EFM2Riot.py --sdk /path/to/sdk --dist dist/
+python EFM2RIOT.py --sdk /path/to/sdk --dist dist/
 ```
 
 See [CONTRIBUTING.md](CONTRIBUTING.md) for more information on developing.
@@ -91,7 +91,7 @@ There are doubts on the performance and memory overhead of emlib. I have conclud
 * A large part of the overhead is contained within the clock management unit. This is an integral part for proper clock setup and low-power support. It is used by all peripherals and has a constant code size.
 * Most get/set/read/write/enable/clear methods are implemented as macro's or inline methods. They are equally efficient as their direct register alternative.
 
-Some benchmarks are available at http://basilfx.github.io/EFM2Riot.
+Some benchmarks are available at http://basilfx.github.io/EFM2RIOT.
 
 ## License
 See the `LICENSE` file.

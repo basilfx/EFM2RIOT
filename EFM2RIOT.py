@@ -71,6 +71,6 @@ def main(argv):
     tasks.copy_patches(
         root_directory, dist_directory, sdk_directory, cpus, families, boards)
 
-# E.g. `python EFM2Riot.py --sdk /path/to/sdk --dist dist/'.
+# E.g. `python EFM2RIOT.py --sdk /path/to/sdk --dist dist/'.
 if __name__ == "__main__":
     sys.exit(main(sys.argv))
