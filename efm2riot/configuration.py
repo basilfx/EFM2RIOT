@@ -100,13 +100,6 @@ PATCHES = [
         "source": "{{ sdk }}/Device/SiliconLabs/{{ family|upper }}/Include/*.h",  # noqa
         "target": "cpu/{{ family }}/include",
         "methods": [patches.add_extern_c, patches.fix_arm_math]
-    },
-    {
-        "type": "file",
-        "when": "once",
-        "source": "{{ sdk }}/emlib/src/em_idac.c",
-        "target": "cpu/efm32_common/emlib/src/em_idac.c",
-        "methods": [patches.fix_idac_c]
     }
 ]
 
