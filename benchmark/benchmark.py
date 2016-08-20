@@ -26,7 +26,7 @@ grammar = SkipTo(address ^ StringEnd()) + (
 
 def parse_arguments():
     """
-    Parse commandline arguments.
+    Parse command line arguments.
     """
 
     parser = argparse.ArgumentParser()
@@ -46,6 +46,7 @@ def parse_arguments():
 
 def parse_map(map_file):
     """
+    Parse a given map file (compilation output).
     """
 
     sections = [
@@ -126,46 +127,35 @@ def parse_map(map_file):
     }
 
 
-def compile_job(id, riot_directory, board, application, setting):
+def compile_job(riot_directory, board, application, setting):
     """
     Compile one job given the setting.
     """
 
     failed = False
-    result = {
-        "id": id,
-        "board": board,
-        "application": application,
-        "setting": setting,
-    }
-    arguments_a = [
-        "make",
-        "BOARD=%s" % board,
-        "QUIET=1",
-        "clean"
-    ]
-    arguments_b = [
-        "make",
-        "-j%d" % multiprocessing.cpu_count(),
-        "BOARD=%s" % board,
-        "QUIET=1"
-    ] + setting
+    result = {}
+    env = {}
 
-    print arguments_b
+    env.update(os.environ)
+    env.update(setting)
+    env.update({
+        "BOARD": board,
+        "QUIET": "1",
+    })
+
+    arguments = [
+        "make",
+        "clean",
+        "all",
+        "-j%d" % multiprocessing.cpu_count(),
+    ]
 
     # Compile the job
     try:
-        subprocess.check_output(
-            arguments_a, cwd=os.path.join(riot_directory, application))
+        output = subprocess.check_output(
+            arguments, cwd=os.path.join(riot_directory, application), env=env)
     except subprocess.CalledProcessError:
         failed = True
-
-    if not failed:
-        try:
-            output = subprocess.check_output(
-                arguments_b, cwd=os.path.join(riot_directory, application))
-        except subprocess.CalledProcessError:
-            failed = True
 
     # Extract information
     if not failed:
@@ -207,26 +197,53 @@ def main():
         for application in profile["APPLICATIONS"]:
             for setting in profile["SETTINGS"]:
                 jobs.append((
-                    arguments.riot,
+                    len(jobs) + 1,
                     board,
                     application,
-                    setting
+                    setting,
                 ))
 
-    # Run all jobs. This is not done in parallel, because the compile script
-    # will occupy all cores.
+    # Run all jobs. This is not done in parallel, because the compiler will
+    # occupy all cores.
     results = []
+    cache = {}
 
-    for index, job in enumerate(jobs, start=1):
-        sys.stdout.write("Compiling job %d of %d\n" % (index, len(jobs)))
+    try:
+        for index, board, application, setting in jobs:
+            sys.stdout.write("Compiling job %d of %d\n" % (index, len(jobs)))
 
-        try:
-            results.append(compile_job(index, *job))
-        except KeyboardInterrupt:
-            sys.stdout.write("Compilation interrupted, saving results.\n")
-            break
+            # See if there is an optimizer available.
+            for optimizer in profile["OPTIMIZERS"]:
+                predicate, setting_from, setting_to = optimizer
 
-    # Write results to file
+                if predicate(board) and setting_from == setting:
+                    optimized_setting = setting_to
+                    break
+            else:
+                optimized_setting = setting
+
+            # Compile the job if not cached.
+            key = "%s-%s-%s" % (board, application, optimized_setting)
+
+            if key not in cache:
+                cache[key] = compile_job(
+                    arguments.riot, board, application, optimized_setting)
+
+            # Add to results.
+            result = {
+                "id": index,
+                "board": board,
+                "application": application,
+                "setting": " ".join(
+                    ["%s=%s" % (k, v) for k, v in setting.iteritems()]),
+            }
+
+            result.update(cache[key])
+            results.append(result)
+    except KeyboardInterrupt:
+        sys.stdout.write("Compilation interrupted, saving results.\n")
+
+    # Write results to file.
     with open(arguments.output, "w") as fp:
         fp.write("window.benchmarks = ")
         json.dump(results, fp)

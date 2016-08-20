@@ -6,6 +6,7 @@ BOARDS = [
     "stk3700",
     "stk3800",
     "slwstk6220a",
+    "sltb001a",
 ]
 
 # Applications to compile (relative to RIOT-OS root).
@@ -29,5 +30,8 @@ APPLICATIONS = [
 
 # Compile settings (e.g. debug settings).
 SETTINGS = [
-    [],
+    {},
 ]
+
+# Compile set optimizers (not all boards support all settings).
+OPTIMIZERS = []
