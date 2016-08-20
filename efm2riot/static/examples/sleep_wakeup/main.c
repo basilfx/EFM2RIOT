@@ -11,7 +11,7 @@
  * @{
  *
  * @file
- * @brief       Sleep with periodic wakeup via RTT.  The RTT is used to wakeup
+ * @brief       Sleep with periodic wakeup via RTT. The RTT is used to wakeup
  *              the MCU from EM2 (sleep mode).
  *
  * @author      Bas Stottelaar <basstottelaar@gmail.com>

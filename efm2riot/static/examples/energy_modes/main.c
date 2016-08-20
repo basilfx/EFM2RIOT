@@ -83,10 +83,10 @@ int main(void)
     /* print some information about the modes */
     puts("This example allows you to put RIOT-OS into several power modes. "
          "The power modes are ON, IDLE, SLEEP, POWERDOWN and OFF. These "
-         "modes map onto EM0 to EM4, where each mode saves more energy. Use "
-         "the commands em0 - em4 to enter that mode. Higher numbered modes "
-         "may require a reset to exit.");
-    puts("You can connect to the AEM to measure power consumption.");
+         "modes map onto EM0, EM1, EM2, EM3 and EM4. Each higher-numbered "
+         "mode saves more energy. Use the commands em0 - em4 to enter that "
+         "mode. Higher-numbered modes require a reset to exit.");
+    puts("You can connect the AEM to measure power consumption.");
 
     /* run the shell and wait for the user to enter a mode */
     shell_run(shell_commands, line_buf, SHELL_DEFAULT_BUFSIZE);
