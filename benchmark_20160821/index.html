@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Benchmark Viewer</title>
+
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.9.1/bootstrap-table.min.css">
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/js/bootstrap.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.9.1/bootstrap-table.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.9.1/extensions/multiple-sort/bootstrap-table-multiple-sort.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.9.1/extensions/filter-control/bootstrap-table-filter-control.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
+
+        <script src="data.js"></script>
+
+        <script type="text/javascript">
+            var currentFilter = null;
+            var currentGroupBy = null;
+            var compareTo = null;
+
+            var columns = [
+                [
+                    {
+                        title: "",
+                        colspan: 5
+                    },
+                    {
+                        title: "Absolute",
+                        field: "absolute",
+                        colspan: 4
+                    },
+                    {
+                        title: "Relative",
+                        field: "relative",
+                        colspan: 4
+                    }
+                ],
+                [
+                    {
+                        title: "#",
+                        field: "id",
+                        sortable: true,
+                        formatter: function(value, row, index) {
+                            if (value !== undefined) {
+                                return "<span style=\"cursor: pointer; border-bottom: 1px dashed #999;\">" + value + "</span>";
+                            }
+                        }
+                    },
+                    {
+                        title: "Board",
+                        field: "board",
+                        sortable: true,
+                        filterControl: "select"
+                    },
+                    {
+                        title: "Application",
+                        field: "application",
+                        sortable: true,
+                        filterControl: "select"
+                    },
+                    {
+                        title: "Setting",
+                        field: "setting",
+                        sortable: true,
+                        filterControl: "select",
+                        formatter: function(value, row, index) {
+                            if (!value || value == "") {
+                                return "";
+                            }
+
+                            return "<code>" + value + "</code>";
+                        }
+                    },
+                    {
+                        title: "Failed",
+                        field: "failed",
+                        sortable: true,
+                        filterControl: "select",
+                        formatter: function(value, row, index) {
+                            if (value === true) {
+                                return "yes";
+                            } else if (value === false) {
+                                return "no";
+                            } else {
+                                return undefined;
+                            }
+                        }
+                    },
+                    {
+                        title: "Total",
+                        field: "total",
+                        sortable: true,
+                        cellStyle: createCellStyle("total")
+                    },
+                    {
+                        title: "Text",
+                        field: "text",
+                        sortable: true,
+                        cellStyle: createCellStyle("text"),
+                        formatter: function(value, row, index) {
+                            if (value !== undefined) {
+                                return "<span style=\"cursor: pointer; border-bottom: 1px dashed #999;\">" + value + "</span>";
+                            }
+                        }
+                    },
+                    {
+                        title: "Data",
+                        field: "data",
+                        sortable: true,
+                        cellStyle: createCellStyle("data"),
+                        formatter: function(value, row, index) {
+                            if (value !== undefined) {
+                                return "<span style=\"cursor: pointer; border-bottom: 1px dashed #999;\">" + value + "</span>";
+                            }
+                        }
+                    },
+                    {
+                        title: "BSS",
+                        field: "bss",
+                        sortable: true,
+                        cellStyle: createCellStyle("bss"),
+                        formatter: function(value, row, index) {
+                            if (value !== undefined) {
+                                return "<span style=\"cursor: pointer; border-bottom: 1px dashed #999;\">" + value + "</span>";
+                            }
+                        }
+                    },
+                    {
+                        title: "Total",
+                        field: "total_relative",
+                        sortable: true,
+                        cellStyle: createCellStyle("total")
+                    },
+                    {
+                        title: "Text",
+                        field: "text_relative",
+                        sortable: true,
+                        cellStyle: createCellStyle("text")
+                    },
+                    {
+                        title: "Data",
+                        field: "data_relative",
+                        sortable: true,
+                        cellStyle: createCellStyle("data")
+                    },
+                    {
+                        title: "BSS",
+                        field: "bss_relative",
+                        sortable: true,
+                        cellStyle: createCellStyle("bss")
+                    }
+                ]
+            ];
+            var columnsSegments = [
+                [
+                    {
+                        title: "File",
+                        field: "file",
+                        sortable: true
+                    },
+                    {
+                        title: "Size",
+                        field: "size",
+                        sortable: true
+                    }
+                ]
+            ];
+
+            function createCellStyle (field) {
+                return function rowStyle(value, row, index) {
+                    if (!compareTo || row.failed) {
+                        return {};
+                    }
+
+                    if (row.id == compareTo.id) {
+                        return {};
+                    }
+
+                    if (parseFloat(row[field]) <= parseFloat(compareTo[field])) {
+                        return { classes: 'bg-success' }
+                    } else {
+                        return { classes: 'bg-danger' }
+                    }
+                }
+            };
+            function createAccumulator(field) {
+                return function(total, benchmark) {
+                    if (benchmark.failed) {
+                        return total;
+                    }
+
+                    return total + parseInt(benchmark[field]);
+                }
+            }
+            function createGroupBy(fields) {
+                return function(benchmarks) {
+                    var id = 0;
+
+                    benchmarks =  _.groupBy(benchmarks, function(benchmark) {
+                        return _.map(fields, function(field) {
+                            return benchmark[field];
+                        });
+                    });
+                    benchmarks = _.map(benchmarks, function(group, key) {
+                        id = id + 1;
+
+                        var result = {
+                            id: id,
+                            text: Math.round(_.reduce(group, createAccumulator("text"), 0) / group.length),
+                            data: Math.round(_.reduce(group, createAccumulator("data"), 0) / group.length),
+                            bss: Math.round(_.reduce(group, createAccumulator("bss"), 0) / group.length),
+                            total: Math.round(_.reduce(group, createAccumulator("total"), 0) / group.length),
+                        };
+                        _.each(fields, function(field) {
+                            result[field] = group[0][field]
+                        });
+
+                        return result;
+                    });
+
+                    return benchmarks;
+                };
+            }
+
+            function computeRelative(field, source, target) {
+                return Math.round(source[field] / target[field] * 100) / 100;
+            }
+
+            function showModal(benchmark, segment) {
+                $("#modal-title").html(benchmark.board + " - " + benchmark.application + " - " + benchmark.setting);
+                $("#segments").bootstrapTable("load", benchmark.segments[segment]);
+                $("#modal").modal("show");
+            }
+
+            function render() {
+                var benchmarks = window.benchmarks;
+
+                // Apply filters.
+                if (currentFilter) {
+                    benchmarks = _.filter(benchmarks, currentFilter);
+                }
+
+                // Apply group by.
+                if (currentGroupBy) {
+                    benchmarks = currentGroupBy(benchmarks);
+                }
+
+                // Add compare to.
+                benchmarks = _.map(benchmarks, function(benchmark) {
+                    if (compareTo && benchmark.total) {
+                        benchmark.text_relative = computeRelative("text", benchmark, compareTo);
+                        benchmark.data_relative = computeRelative("data", benchmark, compareTo);
+                        benchmark.bss_relative = computeRelative("bss", benchmark, compareTo);
+                        benchmark.total_relative = computeRelative("total", benchmark, compareTo);
+                    } else {
+                        benchmark.text_relative = undefined;
+                        benchmark.data_relative = undefined;
+                        benchmark.bss_relative = undefined;
+                        benchmark.total_relative = undefined;
+                    }
+
+                    return benchmark;
+                });
+
+                // Load new results in table.
+                $("#benchmarks").bootstrapTable("load", benchmarks);
+            }
+
+            $(document).ready(function() {
+                // Initialize the table.
+                $("#benchmarks").bootstrapTable({
+                    columns: columns,
+                    idField: "id",
+                    toolbar: "#toolbar",
+                    filterControl: true,
+                    showMultiSort: true,
+                    rowStyle: function rowStyle(value, row, index) {
+                        if (compareTo && compareTo.id == value.id) {
+                            return { classes: 'bg-info' };
+                        } else {
+                            if (value.failed) {
+                                return { classes: 'bg-danger' };
+                            } else {
+                                return {};
+                            }
+                        }
+                    },
+                    onClickCell: function(field, value, row) {
+                        if (field == "id") {
+                            if (compareTo == row) {
+                                compareTo = null;
+                            } else {
+                                compareTo = row;
+                            }
+                            render();
+                        } else if (field == "text") {
+                            showModal(row, "text");
+                        } else if (field == "data") {
+                            showModal(row, "data");
+                        } else if (field == "bss") {
+                            showModal(row, "bss");
+                        }
+                    }
+                });
+                $("#segments").bootstrapTable({
+                    columns: columnsSegments
+                });
+
+                // Click handlers for menu.
+                $("#groupby-menu li").each(function(index, element) {
+                    var options = {
+                        "board": createGroupBy(["board"]),
+                        "application": createGroupBy(["application"]),
+                        "setting": createGroupBy(["setting"]),
+                        "board-application": createGroupBy(["board", "application"]),
+                        "board-setting": createGroupBy(["board", "setting"]),
+                        "application-setting": createGroupBy(["application", "setting"])
+                    };
+
+                    $(element).find("a").on("click", function(e) {
+                        e.preventDefault();
+
+                        // Mark as active.
+                        $("#groupby-menu li").removeClass("active");
+                        $(element).addClass("active");
+
+                        // Set current group by.
+                        currentGroupBy = options[$(this).attr("data-groupby")];
+
+                        // Re-render table.
+                        render();
+                    });
+                });
+                $("#filter-menu li").each(function(index, element) {
+                    $(element).find("a").on("click", function(e) {
+                        var active = $(element).hasClass("active");
+
+                        if (active) {
+                            $(element).removeClass("active");
+                        } else {
+                            $(element).addClass("active");
+                        }
+
+                        // Find active filters
+                        var filters = [];
+
+                        $("#filter-menu li.active").each(function(index, element) {
+                            filters.push($(element).find("a").attr("data-filter"));
+                        });
+
+                        // Create new filter
+                        currentFilter = function(benchmark) {
+                            for (var i = 0; i < filters.length; i++) {
+                                if (filters[i] == "failed") {
+                                    if (benchmark.failed) {
+                                        return false;
+                                    }
+                                }
+                            }
+
+                            return true;
+                        }
+
+                        // Re-render table.
+                        render();
+                    });
+                });
+
+                // Load the data.
+                window.benchmarks = _.map(window.benchmarks, function(benchmark) {
+                    benchmark.total = benchmark.dec;
+
+                    _.each(["text", "data", "bss"], function(segment) {
+                        if (benchmark.segments && benchmark.segments[segment]) {
+                            benchmark.segments[segment] = _.map(benchmark.segments[segment], function(key, value) {
+                                return {
+                                    "file": key,
+                                    "size": value
+                                }
+                            });
+                        }
+                    });
+
+                    return benchmark;
+                });
+
+                render();
+            });
+        </script>
+    </head>
+    <body>
+        <div id="toolbar">
+            <div class="btn-group">
+                <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Filter <span class="caret"></span>
+                </button>
+                <ul id="filter-menu" class="dropdown-menu">
+                    <li><a href="#" data-filter="failed">Failed</a></li>
+                </ul>
+            </div>
+
+            <div class="btn-group">
+                <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Group By <span class="caret"></span>
+                </button>
+                <ul id="groupby-menu" class="dropdown-menu">
+                    <li class="active"><a href="#" data-groupby="">None</a></li>
+                    <li role="separator" class="divider"></li>
+                    <li><a href="#" data-groupby="board">Board</a></li>
+                    <li><a href="#" data-groupby="application">Application</a></li>
+                    <li><a href="#" data-groupby="setting">Setting</a></li>
+                    <li role="separator" class="divider"></li>
+                    <li><a href="#" data-groupby="board-application">Board and Application</a></li>
+                    <li><a href="#" data-groupby="board-setting">Board and Setting</a></li>
+                    <li><a href="#" data-groupby="application-setting">Application and Setting</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="container-fluid">
+            <table id="benchmarks"></table>
+        </body>
+
+        <div class="modal fade bs-example-modal-lg" id="modal" tabindex="-1">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title" id="modal-title"></h4>
+                    </div>
+                    <div class="modal-body">
+                        <table id="segments"></table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
