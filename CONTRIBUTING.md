@@ -9,7 +9,7 @@ In `efm2riot/templates/`, the template files exist. [Jinja2](http://jinja.pocoo.
 ### Whitespace control
 The output of the source files *has* to be 'beautiful'. This means that whitespaces and newlines should be controlled explicitly. This can be hard while preserving readability of the source files.
 
-The two problems are solved by the `{% strip n, s %}{% endstrip %}` tag. The parameter `n` strips `n` times four spaces from all resulting lines. The `s` parameter is optional, but when true, it removes the first newline after the blocks, to prevent double newlines.
+The two problems are solved by the `{% strip n, s %}{% endstrip %}` tag. The parameter `n` strips `n` times four spaces from all resulting lines. The `s` parameter is optional. When it is equal to `<` or `>`, it will remove one redundant whitespace before or after the block when the block renders empty.
 
 #### Without `strip` block
 
@@ -53,7 +53,7 @@ Or, if condition is false:
 ```c
 // Some other code
 
-{% strip 2, true %}
+{% strip 2, ">" %}
     {% if condition %}
         /**
          * @brief   Define for enabling Advanced Energy Monitor core output via SWO.

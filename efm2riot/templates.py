@@ -1,6 +1,5 @@
 from jinja2 import Environment, FileSystemLoader, StrictUndefined, nodes
 from jinja2.ext import Extension
-from jinja2.lexer import Token
 
 import os
 
@@ -16,44 +15,24 @@ class StripExtension(Extension):
         lineno = next(parser.stream).lineno
 
         # Parse arguments. First argument is number of indents, second is the
-        # indent string (optional, defaults to "    ").
+        # number of space indents.
         args = [parser.parse_expression()]
 
         if parser.stream.skip_if("comma"):
-            strip_next_newline = parser.parse_expression().value
+            args.append(nodes.Const(parser.parse_expression().value))
         else:
-            strip_next_newline = False
+            args.append(nodes.Const(False))
 
         # Parse until end of block.
         body = parser.parse_statements(
             ["name:end" + self.tags[0]], drop_needle=True)
-
-        # If strip_next_newline, remove the first newline of next token so it
-        # doesn't leave two empty lines.
-        if strip_next_newline:
-            while True:
-                token = parser.stream.next()
-
-                if token.type == "data":
-                    if token.value.startswith("\n") and token.value[1:]:
-                        args.append(nodes.Const(True))
-                        parser.stream.push(
-                            Token(token.lineno, token.type, token.value[1:]))
-                    else:
-                        args.append(nodes.Const(False))
-
-                    # Continue to first data block only.
-                    break
-                parser.stream.push(token)
-        else:
-            args.append(nodes.Const(False))
 
         # Return a `CallBlock` that will call the reindent method.
         return nodes.CallBlock(
             self.call_method("strip", args), [], [], body
         ).set_lineno(lineno)
 
-    def strip(self, count, add_newline_on_data, caller):
+    def strip(self, count, newlines, caller):
         """
         Helper method that reindent each line.
         """
@@ -70,10 +49,18 @@ class StripExtension(Extension):
         # Re-join all lines.
         data = "\n".join(lines)
 
-        # Add extra newline if there is data. The parser has removed the next
-        # whiteline in advance, so that we do not generat two empty lines.
-        if add_newline_on_data and data:
-            data = data + "\n"
+        # The strip block can add special markers to remove redundant newlines.
+        # They are removed in an additional pass. Not the best solution, but
+        # one that works.
+        if newlines is True:
+            newlines = ">"
+
+        if not data:
+            if newlines:
+                if "<" in newlines:
+                    data = data + "{{##<<##}}"
+                if ">" in newlines:
+                    data = data + "{{##>>##}}"
 
         return data
 
@@ -111,6 +98,12 @@ def from_file(input_file, output_file, context):
 
     output = create_environment().get_template(input_file).render(**context)
 
+    # Whitespace control (see strip extension).
+    output = output.replace("\n{{##<<##}}", "")
+    output = output.replace("{{##>>##}}\n", "")
+    output = output.replace("{{##<<##}}", "")
+    output = output.replace("{{##>>##}}", "")
+
     # Save output
     if not os.path.isdir(os.path.dirname(output_file)):
         os.makedirs(os.path.dirname(output_file))
@@ -124,4 +117,12 @@ def from_string(input_string, context):
     Render a input_string for a given context. Return the output.
     """
 
-    return create_environment().from_string(input_string).render(**context)
+    output = create_environment().from_string(input_string).render(**context)
+
+    # Whitespace control (see strip extension).
+    output = output.replace("\n{{##<<##}}", "")
+    output = output.replace("{{##>>##}}\n", "")
+    output = output.replace("{{##<<##}}", "")
+    output = output.replace("{{##>>##}}", "")
+
+    return output

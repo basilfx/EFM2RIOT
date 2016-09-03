@@ -44,7 +44,14 @@ def main(argv):
     cpus = []
 
     for family in families:
-        cpus.extend(parsers.parse_cpus(sdk_directory, family))
+        cpus.extend(
+            parsers.parse_cpus(
+                sdk_directory, family,
+                configuration.MIN_RAM, configuration.MIN_FLASH))
+
+    sys.stdout.write(
+        "Found %d CPUs in %d families (filtered).\n" % (
+            len(cpus), len(families)))
 
     # Extend boards with families and CPUs.
     boards = []
