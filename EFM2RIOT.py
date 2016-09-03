@@ -17,6 +17,9 @@ def parse_arguments():
         "--sdk", action="store", help="path to EFM32 SDK")
     parser.add_argument(
         "--dist", action="store", default="dist/", help="output folder")
+    parser.add_argument(
+        "--development",
+        action="store_true", help="copy features under development")
 
     # Parse command line
     return parser.parse_args(), parser
@@ -68,11 +71,13 @@ def main(argv):
                 "Unable to match CPU with board %s" % board["board"])
 
     # Copy static files.
-    tasks.copy_static(root_directory, dist_directory, sdk_directory)
+    tasks.copy_static(
+        root_directory, dist_directory, sdk_directory, arguments.development)
 
     # Process templates.
     tasks.copy_templates(
-        root_directory, dist_directory, sdk_directory, cpus, families, boards)
+        root_directory, dist_directory, sdk_directory, cpus, families, boards,
+        arguments.development)
 
     # Process patches.
     tasks.copy_patches(

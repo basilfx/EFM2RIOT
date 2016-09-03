@@ -25,6 +25,8 @@ To generate all files, run:
 python EFM2RIOT.py --sdk /path/to/sdk --dist dist/
 ```
 
+To enable some features that are not yet part of RIOT-OS, pass `--development`.
+
 See [CONTRIBUTING.md](CONTRIBUTING.md) for more information on developing.
 
 ### As a end-user

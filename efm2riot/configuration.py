@@ -10,7 +10,10 @@ STATICS = [
     {
         "type": "directory",
         "source": "{{ root }}/static/cpu/efm32_common",
-        "target": "cpu/efm32_common"
+        "target": "cpu/efm32_common",
+        "filters": {
+            "{{ root }}/static/cpu/efm32_common/periph/hwcrypto.c": filters.only_for_development(),  # noqa
+        }
     },
     {
         "type": "directory",
@@ -67,8 +70,23 @@ TEMPLATES = [
         "source": "{{ root }}/templates/boards/board/include/*",
         "target": "boards/{{ board }}/include",
         "filters": {
+            "{{ root }}/templates/boards/board/include/bmp280_params.h": filters.only_for_board_and_development([  # noqa
+                "sltb001a"
+            ]),
+            "{{ root }}/templates/boards/board/include/ccs811_params.h": filters.only_for_board_and_development([  # noqa
+                "sltb001a"
+            ]),
+            "{{ root }}/templates/boards/board/include/icm_20648_params.h": filters.only_for_board_and_development([  # noqa
+                "sltb001a"
+            ]),
+            "{{ root }}/templates/boards/board/include/si11x3_params.h": filters.only_for_board_and_development([  # noqa
+                "sltb001a"
+            ]),
             "{{ root }}/templates/boards/board/include/si70xx_params.h": filters.only_for_board([  # noqa
                 "slstk3401a", "slwstk6220a", "sltb001a"
+            ]),
+            "{{ root }}/templates/boards/board/include/si7210a_params.h": filters.only_for_board_and_development([  # noqa
+                "sltb001a"
             ])
         }
     },

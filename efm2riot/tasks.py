@@ -18,33 +18,46 @@ def clean_dist(dist_directory):
     os.mkdir(dist_directory)
 
 
-def copy_static(root_directory, dist_directory, sdk_directory):
+def copy_static(root_directory, dist_directory, sdk_directory, development):
     """
     Copy all static files from source to target.
     """
 
     for static in configuration.STATICS:
         context = {
+            "development": development,
+            "dist": dist_directory,
             "root": root_directory,
             "sdk": sdk_directory,
-            "dist": dist_directory
         }
 
         source = templates.from_string(static["source"], context)
         target = templates.from_string(static["target"], context)
         target = os.path.join(dist_directory, target)
 
+        # Compute filters.
+        ignored = []
+
+        if "filters" in static:
+            for expression in static["filters"].iterkeys():
+                new_expression = templates.from_string(
+                    expression, context)
+
+                if not static["filters"][expression](context):
+                    ignored.append(new_expression)
+
         # Perform the action.
         sys.stdout.write("Copying '%s'\n" % source)
 
         if static["type"] == "directory":
-            recursive_overwrite(source, target)
+            recursive_overwrite(source, target, ignored)
         else:
-            shutil.copy(source, target)
+            if source not in ignored:
+                shutil.copy(source, target)
 
 
 def copy_templates(root_directory, dist_directory, sdk_directory,
-                   cpus, families, boards):
+                   cpus, families, boards, development):
     """
     Copy all the templates.
     """
@@ -54,16 +67,17 @@ def copy_templates(root_directory, dist_directory, sdk_directory,
             for template in configuration.TEMPLATES:
                 if template["when"] == when:
                     context.update({
+                        "development": development,
+                        "dist": dist_directory,
                         "root": root_directory,
                         "sdk": sdk_directory,
-                        "dist": dist_directory
                     })
 
                     source = templates.from_string(template["source"], context)
                     target = templates.from_string(template["target"], context)
                     target = os.path.join(dist_directory, target)
 
-                    # Compute filters
+                    # Compute filters.
                     filters = {}
 
                     if "filters" in template:
@@ -168,7 +182,7 @@ def copy_patches(root_directory, dist_directory, sdk_directory,
     }])
 
 
-def recursive_overwrite(source, target, ignore=None):
+def recursive_overwrite(source, target, ignored=None):
     """
     Wrapper for shutil.copytree that can merge source and target.
     """
@@ -178,14 +192,12 @@ def recursive_overwrite(source, target, ignore=None):
             os.makedirs(target)
         files = os.listdir(source)
 
-        if ignore:
-            ignored = ignore(source, files)
-        else:
+        if ignored is None:
             ignored = set()
 
         for f in files:
-            if f not in ignored:
+            if os.path.join(source, f) not in ignored:
                 recursive_overwrite(
-                    os.path.join(source, f), os.path.join(target, f), ignore)
+                    os.path.join(source, f), os.path.join(target, f), ignored)
     else:
         shutil.copyfile(source, target)
