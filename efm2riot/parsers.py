@@ -23,7 +23,7 @@ def parse_families(sdk_directory):
     return families
 
 
-def parse_cpus(sdk_directory, family):
+def parse_cpus(sdk_directory, family, min_ram_size, min_flash_size):
     """
     Index all available CPUs of a family. Parse the source files and for the
     information needed.
@@ -112,20 +112,21 @@ def parse_cpus(sdk_directory, family):
                     "reserved": True
                 })
 
-        cpu = {
-            "cpu": os.path.basename(include).split(".")[0],
-            "cpu_platform": cpu_platform,
-            "flash_size": flash_size,
-            "ram_size": ram_size
-        }
+        if ram_size >= min_ram_size and flash_size >= min_flash_size:
+            cpu = {
+                "cpu": os.path.basename(include).split(".")[0],
+                "cpu_platform": cpu_platform,
+                "flash_size": flash_size,
+                "ram_size": ram_size
+            }
 
-        family.update({
-            "architecture": architecture,
-            "irqs": irq_table,
-            "max_irq": max_irq,
-            "max_irq_name": irqs[max_irq]
-        })
-        cpu.update(family)
-        cpus.append(cpu)
+            family.update({
+                "architecture": architecture,
+                "irqs": irq_table,
+                "max_irq": max_irq,
+                "max_irq_name": irqs[max_irq]
+            })
+            cpu.update(family)
+            cpus.append(cpu)
 
     return cpus

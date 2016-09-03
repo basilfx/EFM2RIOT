@@ -245,3 +245,9 @@ BOARDS = [
         "marketing_display_name": "Thunderboard Sense"
     }
 ]
+
+# Minimal RAM size.
+MIN_RAM = 4096
+
+# Minimal flash size.
+MIN_FLASH = 8192
