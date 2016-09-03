@@ -13,6 +13,7 @@ STATICS = [
         "target": "cpu/efm32_common",
         "filters": {
             "{{ root }}/static/cpu/efm32_common/periph/hwcrypto.c": filters.only_for_development(),  # noqa
+            "{{ root }}/static/cpu/efm32_common/periph/hwcrypto_gemstone.c": filters.only_for_development(),  # noqa
         }
     },
     {

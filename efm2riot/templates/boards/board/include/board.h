@@ -42,7 +42,7 @@ extern "C" {
 #define XTIMER_SHIFT_ON_COMPARE     (2)
 /** @} */
 
-{% strip 3, true %}
+{% strip 3, ">" %}
     {% if board not in ["sltb001a"] %}
         {% if architecture not in ["m0", "m0plus"] %}
             /**
@@ -57,30 +57,30 @@ extern "C" {
     {% endif %}
 {% endstrip %}
 
-/**
- * @brief   GPIO pin for enabling communication through the board controller
- * @{
- */
-#ifndef BC_ENABLED
-#define BC_ENABLED                  (1)
-#endif
-{% strip 2 %}
-    {% if board in ["stk3600", "stk3700", "stk3800"] %}
-        #define BC_PIN              GPIO_PIN(PF, 7)
-    {% elif board in ["stk3200"] %}
-        #define BC_PIN              GPIO_PIN(PA, 9)
-    {% elif board in ["slstk3401a"] %}
-        #define BC_PIN              GPIO_PIN(PA, 5)
-    {% elif board in ["slwstk6220a"] %}
-        #define BC_PIN              GPIO_PIN(PA, 12)
-    {% elif board in ["sltb001a"] %}
-        #define BC_PIN              GPIO_PIN(PA, 12)
+{% strip 3, ">" %}
+    {% if board not in ["sltb001a"] %}
+        /**
+         * @brief   GPIO pin for enabling communication through the board controller
+         * @{
+         */
+        #ifndef BC_ENABLED
+        #define BC_ENABLED                  (1)
+        #endif
+        {% if board in ["stk3600", "stk3700", "stk3800"] %}
+            #define BC_PIN              GPIO_PIN(PF, 7)
+        {% elif board in ["stk3200"] %}
+            #define BC_PIN              GPIO_PIN(PA, 9)
+        {% elif board in ["slstk3401a"] %}
+            #define BC_PIN              GPIO_PIN(PA, 5)
+        {% elif board in ["slwstk6220a"] %}
+            #define BC_PIN              GPIO_PIN(PA, 12)
+        {% endif %}
+        /** @} */
     {% endif %}
 {% endstrip %}
-/** @} */
 
 /**
- * @brief   User button pin definitions
+ * @brief   Push button pin definitions
  * @{
  */
 {% strip 2 %}
@@ -139,7 +139,7 @@ extern "C" {
 #define LED1_TOGGLE         gpio_toggle(LED1_PIN)
 /** @} */
 
-{% strip 2, true %}
+{% strip 2, ">" %}
     {% if board in ["stk3200"] %}
         /**
          * @brief   Connection to the on-board Sharp Memory LCD (LS013B7DH03)
@@ -175,7 +175,7 @@ extern "C" {
     {% endif %}
 {% endstrip %}
 
-{% strip 2, true %}
+{% strip 2, ">" %}
     {% if board in ["slstk3401a"] %}
         /**
          * @brief   Connection to the on-board temperature/humidity sensor (Si7021)
@@ -200,20 +200,80 @@ extern "C" {
         /** @} */
     {% elif board in ["sltb001a"] %}
         /**
+         * @brief   Pin for enabling environmental sensors (BMP280, Si1133, Si7021, Si7210A).
+         */
+        #define ENV_SENSE_EN_PIN    GPIO_PIN(0, 0)
+
+        /**
+         * @brief   Connection to the on-board pressure sensor (BMP280)
+         * @{
+         */
+        #ifndef BMP280_ENABLED
+        #define BMP280_ENABLED      (0)
+        #endif
+        #define BMP280_I2C          (0)
+        /** @} */
+
+        /**
+         * @brief   Connection to the on-board air quality/gas sensor (CCS811)
+         * @{
+         */
+        #ifndef CCS811_ENABLED
+        #define CCS811_ENABLED      (0)
+        #endif
+        #define CCS811_I2C          (0)
+        #define CCS811_EN_PIN       GPIO_PIN(0, 0)
+        #define CCS811_INT_PIN      GPIO_PIN(0, 0)
+        #define CCS811_WAKE_PIN     GPIO_PIN(0, 0)
+        /** @} */
+
+        /**
+         * @brief   Connection to the on-board IMU sensor (ICM-20648)
+         * @{
+         */
+        #ifndef ICM20648_ENABLED
+        #define ICM20648_ENABLED    (0)
+        #endif
+        #define ICM20648_SPI        (0)
+        #define ICM20648_EN_PIN     GPIO_PIN(0, 0)
+        #define ICM20648_INT_PIN    GPIO_PIN(0, 0)
+        /** @} */
+
+        /**
+         * @brief   Connection to the on-board UV/ambient light sensor (Si1133)
+         * @{
+         */
+        #ifndef SI1133_ENABLED
+        #define SI1133_ENABLED      (0)
+        #endif
+        #define SI1133_I2C          (0)
+        #define SI1133_INT_PIN      GPIO_PIN(0, 0)
+        /** @} */
+
+        /**
          * @brief   Connection to the on-board temperature/humidity sensor (Si7021)
          * @{
          */
         #ifndef SI7021_ENABLED
-        #define SI7021_ENABLED      (1)
+        #define SI7021_ENABLED      (0)
         #endif
         #define SI7021_I2C          (0)
-        #define SI7021_EN_PIN       GPIO_PIN(0, 0)
+        /** @} */
+
+        /**
+         * @brief   Connection to the on-board hall-effect sensor (Si7210A)
+         * @{
+         */
+        #ifndef SI7210A_ENABLED
+        #define SI7210A_ENABLED      (0)
+        #endif
+        #define SI7210A_I2C          (0)
         /** @} */
     {% endif %}
 {% endstrip %}
 
 /**
- * @brief Initialize board specific hardware, including clock, LEDs and stdio
+ * @brief   Initialize the board (GPIO, sensors, clocks)
  */
 void board_init(void);
 

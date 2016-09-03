@@ -314,13 +314,13 @@ By default, this pin is enabled. It can be disable by passing `BC_ENABLED=0` to 
 
 **Note:** to use the virtual serial port, ensure you have the latest board controller firmware installed.
 
-{% strip 2, true %}
+{% strip 2, ">" %}
     {% if board in ["slstk3401a", "stk3200", "slwstk6220a"] %}
         The low power LCD is also used by the board controller when the `DISP_SELECTED` pin is low. This pin is not initialized by the board, so you have to ensure this pin is initialized by your application if you want to control the low power LCD.
     {% endif %}
 {% endstrip %}
 
-{% strip 2, true %}
+{% strip 2, ">" %}
     {% if board not in ["sltb001a"] %}
         ### Advanced Energy Monitor
         This development kit has an Advanced Energy Monitor. It can be connected to the Simplicity Studio development software.
@@ -418,7 +418,7 @@ The EFM32 platform supports peripheral to be mapped to different pins (predefine
 
 In other words, these definitions must match. Refer to the data sheet for more information.
 
-{% strip 2, true %}
+{% strip 2, ">" %}
     {% if cpu_platform == 2 %}
         The EFM32 Gemstone MCUs have extended support for pin mapping. Each pin of a peripheral can be connected separately to one of the predefined pins for that peripheral.
     {% endif %}

@@ -1,7 +1,7 @@
 export CPU_ARCH = cortex-{{ architecture }}
 export CPU_FAM = {{ family }}
 
-{% strip 2, true %}
+{% strip 2, ">" %}
     {% if architecture in ["m0", "m0plus"] %}
         # CMSIS-DSP is needed for arm_math.h
         USEPKG += cmsis-dsp

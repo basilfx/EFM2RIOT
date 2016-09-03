@@ -116,12 +116,16 @@ extern "C" {
     {% endif %}
 {% endstrip %}
 
-/**
- * @brief   Crypto configuration.
- */
-#define HWCRYPTO_NUMOF      (1U)
+{% strip 2, ">" %}
+    {% if development %}
+        /**
+         * @brief   Crypto configuration.
+         */
+        #define HWCRYPTO_NUMOF      (1U)
+    {% endif %}
+{% endstrip %}
 
-{% strip 2, true %}
+{% strip 2, ">" %}
     {% if board in ["stk3600", "stk3700", "stk3800", "slwstk6220a"] %}
         /**
          * @brief   DAC configuration
