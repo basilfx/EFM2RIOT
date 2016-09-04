@@ -37,28 +37,17 @@ SETTINGS = [
     {},
     {"CFLAGS": "-DLOW_POWER_ENABLED=0"},
     {"CFLAGS": "-DLOW_POWER_ENABLED=0 -DAEM_ENABLED=0"},
-    {"LTO": "yes"},
-    {"LTO": "yes", "CFLAGS": "-DLOW_POWER_ENABLED=0"},
-    {"LTO": "yes", "CFLAGS": "-DLOW_POWER_ENABLED=0 -DAEM_ENABLED=0"},
 
     {"CFLAGS": "-DDEBUG_EFM"},
     {"CFLAGS": "-DDEBUG_EFM -DLOW_POWER_ENABLED=0"},
     {"CFLAGS": "-DDEBUG_EFM -DLOW_POWER_ENABLED=0 -DAEM_ENABLED=0"},
-    {"LTO": "yes", "CFLAGS": "-DDEBUG_EFM"},
-    {"LTO": "yes", "CFLAGS": "-DDEBUG_EFM -DLOW_POWER_ENABLED=0"},
-    {"LTO": "yes", "CFLAGS": "-DDEBUG_EFM -DLOW_POWER_ENABLED=0 -DAEM_ENABLED=0"},  # noqa
 ]
 
 # Compile set optimizers (not all boards support all settings).
 OPTIMIZERS = [
     (if_not_efm32, SETTINGS[1], SETTINGS[0]),
-    (if_not_efm32, SETTINGS[1], SETTINGS[0]),
-    (if_not_efm32, SETTINGS[4], SETTINGS[3]),
-    (if_not_efm32, SETTINGS[5], SETTINGS[3]),
-    (if_not_efm32, SETTINGS[6], SETTINGS[0]),
-    (if_not_efm32, SETTINGS[7], SETTINGS[0]),
-    (if_not_efm32, SETTINGS[8], SETTINGS[0]),
-    (if_not_efm32, SETTINGS[9], SETTINGS[3]),
-    (if_not_efm32, SETTINGS[10], SETTINGS[3]),
-    (if_not_efm32, SETTINGS[11], SETTINGS[3]),
+    (if_not_efm32, SETTINGS[2], SETTINGS[0]),
+    (if_not_efm32, SETTINGS[3], SETTINGS[0]),
+    (if_not_efm32, SETTINGS[4], SETTINGS[0]),
+    (if_not_efm32, SETTINGS[5], SETTINGS[0]),
 ]
