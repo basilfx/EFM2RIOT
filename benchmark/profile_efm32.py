@@ -19,16 +19,16 @@ SETTINGS = [
     {},
     {"CFLAGS": "-DLOW_POWER_ENABLED=0"},
     {"CFLAGS": "-DLOW_POWER_ENABLED=0 -DAEM_ENABLED=0"},
-    {"LTO": "yes"},
-    {"LTO": "yes", "CFLAGS": "-DLOW_POWER_ENABLED=0"},
-    {"LTO": "yes", "CFLAGS": "-DLOW_POWER_ENABLED=0 -DAEM_ENABLED=0"},
+    {"LTO": "1"},
+    {"LTO": "1", "CFLAGS": "-DLOW_POWER_ENABLED=0"},
+    {"LTO": "1", "CFLAGS": "-DLOW_POWER_ENABLED=0 -DAEM_ENABLED=0"},
 
     {"CFLAGS": "-DDEBUG_EFM"},
     {"CFLAGS": "-DDEBUG_EFM -DLOW_POWER_ENABLED=0"},
     {"CFLAGS": "-DDEBUG_EFM -DLOW_POWER_ENABLED=0 -DAEM_ENABLED=0"},
-    {"LTO": "yes", "CFLAGS": "-DDEBUG_EFM"},
-    {"LTO": "yes", "CFLAGS": "-DDEBUG_EFM -DLOW_POWER_ENABLED=0"},
-    {"LTO": "yes", "CFLAGS": "-DDEBUG_EFM -DLOW_POWER_ENABLED=0 -DAEM_ENABLED=0"},  # noqa
+    {"LTO": "1", "CFLAGS": "-DDEBUG_EFM"},
+    {"LTO": "1", "CFLAGS": "-DDEBUG_EFM -DLOW_POWER_ENABLED=0"},
+    {"LTO": "1", "CFLAGS": "-DDEBUG_EFM -DLOW_POWER_ENABLED=0 -DAEM_ENABLED=0"},  # noqa
 ]
 
 # Compile set optimizers (not all boards support all settings).
