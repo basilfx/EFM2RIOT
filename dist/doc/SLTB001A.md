@@ -84,13 +84,9 @@ This is the pinout of the Expansion Pins on the front side of the board. PIN 1 i
 ## Board configuration
 
 ### Board controller
-The starter kit is equipped with a Board Controller. This controller provides a virtual serial port. The board controller is enabled via a GPIO pin.
-
-By default, this pin is enabled. It can be disable by passing `BC_ENABLED=0` to the compiler.
+The starter kit is equipped with a Board Controller. This controller provides a virtual serial port.
 
 **Note:** the board controller *always* configures the virtual serial port at 115200 baud with 8 bits, no parity and one stop bit. This also means that it expects data from the MCU with the same settings.
-
-**Note:** to use the virtual serial port, ensure you have the latest board controller firmware installed.
 
 ### Clock selection
 There are several clock sources that are available for the different peripherals. You are advised to read [AN0004](https://www.silabs.com/Support Documents/TechnicalDocs/AN0004.pdf) to get familiar with the different clocks.
