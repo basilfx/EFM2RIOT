@@ -1,12 +1,12 @@
-# Silicon Labs Thunderboard Sense
+# Silicon Labs SLTB001A
 
 ## Overview
-Silicon Labs Thunderboard Sense starter kit is equipped with the EFM32 microcontroller. It is specifically designed for low-power applications, having energy-saving peripherals, different energy modes and short wake-up times.
+Silicon Labs Thunderboard Sense is equipped with the EFM32 microcontroller. It is specifically designed for low-power applications, having energy-saving peripherals, different energy modes and short wake-up times.
 
 The starter kit is equipped with an Advanced Energy Monitor. This allows you to actively measure the power consumption of your hardware and code, in real-time.
 
 ## Hardware
-![Thunderboard Sense Starter Kit](images/thunderboard_sense.png)
+![SLTB001A Starter Kit](images/sltb001a.png)
 
 ### MCU
 | MCU             | EFR32MG1P132F256GM48                          |
@@ -17,7 +17,7 @@ The starter kit is equipped with an Advanced Energy Monitor. This allows you to 
 | RAM             | 31KB                   |
 | Flash           | 256KB                 |
 | EEPROM          | no                                       |
-| Frequency       | up to 48 MHz            |
+| Frequency       | up to 38 MHz            |
 | FPU             | yes                                      |
 | DMA             | 12 channel                               |
 | Timers          | 2 x 16-bit + 1x 16-bit (low power)       |
@@ -32,11 +32,23 @@ The starter kit is equipped with an Advanced Energy Monitor. This allows you to 
 | Board Schematic | [Board Schematic]() |
 
 ### Pinout
+This is the pinout of the Expansion Pins on the front side of the board. PIN 1 is the top-left contact, marked on the silkscreen.
 
+|      | PIN | PIN |      |
+|------|-----|-----|------|
+| GND  | 1   | 2   | VMCU |
+| PA2  | 3   | 4   | PC6  |
+| PA3  | 5   | 6   | PC7  |
+| PF3  | 7   | 8   | PC8  |
+| PF4  | 9   | 10  | PC9  |
+| PF5  | 11  | 12  | PC0  |
+| PF6  | 13  | 14  | PC1  |
+| PC11 | 15  | 16  | PC10 |
+| RES  | 17  | 18  | 5V   |
+| RES  | 19  | 20  | 3V3  |
 
 **Note**: not all starter kits by Silicon Labs share the same pinout!
 
-**Note:** some pins are connected to the board controller, when enabled!
 
 ### Peripheral mapping
 | Peripheral | Number  | Hardware        | Pins                            | Comments                                                  |
@@ -64,9 +76,10 @@ The starter kit is equipped with an Advanced Energy Monitor. This allows you to 
 |                               | USB                            | no        |                                                                |
 | Temperature + Humidity sensor | Si7021                         | yes       | Silicon Labs Temperature + Humidity sensor                     |
 | Microphone                    |                                | no        |                                                                |
-| Light sensor                  |                                | no        |                                                                |
-| Magnetic sensor               |                                | no        |                                                                |
-| Gyroscope                     |                                | no        |                                                                |
+| Light sensor                  | Si1133                         | no        | Silicon Labs UV/Ambient Light sensor                           |
+| Hall-effect sensor            | Si7210A                        | no        | Silicon Labs Hall-effect sensor                                |
+| IMU sensor                    | ICM-20648                      | no        | InvenSense 6-axis inertial sensor                              |
+| Air sensor                    | CCS811                         | no        | Cambridge CMOS Sensors Air Quality/Gas sensor                  |
 
 ## Board configuration
 
@@ -85,7 +98,7 @@ There are several clock sources that are available for the different peripherals
 | Source  | Internal | Speed                     | Comments                           |
 |---------|----------|---------------------------|------------------------------------|
 | HFRCO   | Yes      | 14 MHz  | Enabled during startup, changeable |
-| HFXO    | No       | 48 MHz   |                                    |
+| HFXO    | No       | 38 MHz   |                                    |
 | LFRCO   | Yes      | 32.768 kHz  |                                    |
 | LFXO    | No       | 32.768 kHz   |                                    |
 | ULFRCO  | No       | 1.000 kHz | Not very reliable as a time source |
@@ -162,7 +175,7 @@ make debug-server
 ```
 
 ## Supported Toolchains
-For using the Silicon Labs Thunderboard Sense starter kit we strongly recommend the usage of the [GNU Tools for ARM Embedded Processors](https://launchpad.net/gcc-arm-embedded) toolchain.
+For using the Silicon Labs SLTB001A starter kit we strongly recommend the usage of the [GNU Tools for ARM Embedded Processors](https://launchpad.net/gcc-arm-embedded) toolchain.
 
 ## License information
 * Silicon Labs' emlib: zlib-style license (permits distribution of source).

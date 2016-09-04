@@ -196,8 +196,8 @@ void IDAC_RangeSet(IDAC_TypeDef *idac, const IDAC_Range_TypeDef range)
 {
   uint32_t tmp;
 #if defined( _IDAC_CURPROG_TUNING_MASK )
-  uint32_t diCal0 = 0;
-  uint32_t diCal1 = 0;
+  uint32_t diCal0;
+  uint32_t diCal1;
 #endif
 
   EFM_ASSERT(IDAC_REF_VALID(idac));

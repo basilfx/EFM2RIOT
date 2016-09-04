@@ -28,7 +28,9 @@
  * incidental, or special damages, or any other relief, or for any claim by
  * any third party, arising from your use of this Software.
  *
- *****************************************************************************/#ifdef __cplusplus
+ *****************************************************************************/
+
+#ifdef __cplusplus
 extern "C" {
 #endif
 
@@ -699,3 +701,4 @@ typedef struct
 #ifdef __cplusplus
 }
 #endif
+

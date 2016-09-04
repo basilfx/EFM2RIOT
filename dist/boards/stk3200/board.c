@@ -29,14 +29,17 @@ void board_init(void)
     /* initialize the CPU */
     cpu_init();
 
-    /* enable access to the evaluation board controller chip. Without this, the
-     * board controller does not forward the UART output to the USB port */
+    /* enable the board controller, to enable virtual com port */
 #if BC_ENABLED
     gpio_init(BC_PIN, GPIO_OUT);
     gpio_set(BC_PIN);
 #endif
 
-    /* initialize the boards LEDs */
+    /* initialize the LEDs */
     gpio_init(LED0_PIN, GPIO_OUT);
     gpio_init(LED1_PIN, GPIO_OUT);
+
+    /* initialize the push buttons */
+    gpio_init(PB0_PIN, GPIO_IN);
+    gpio_init(PB1_PIN, GPIO_IN);
 }

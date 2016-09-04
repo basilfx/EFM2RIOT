@@ -51,18 +51,18 @@ extern "C" {
 #endif
 /** @} */
 
-/**
- * @brief   GPIO pin for enabling communication through the board controller
- * @{
- */
-#ifndef BC_ENABLED
-#define BC_ENABLED                  (1)
-#endif
+        /**
+         * @brief   GPIO pin for enabling communication through the board controller
+         * @{
+         */
+        #ifndef BC_ENABLED
+        #define BC_ENABLED                  (1)
+        #endif
 #define BC_PIN              GPIO_PIN(PA, 12)
-/** @} */
+        /** @} */
 
 /**
- * @brief   User button pin definitions
+ * @brief   Push button pin definitions
  * @{
  */
 #define PB0_PIN             GPIO_PIN(PE, 3)
@@ -87,6 +87,8 @@ extern "C" {
 #define LED1_ON             gpio_set(LED1_PIN)
 #define LED1_OFF            gpio_clear(LED1_PIN)
 #define LED1_TOGGLE         gpio_toggle(LED1_PIN)
+/** @} */
+
 /**
  * @brief   Connection to the on-board Sharp Memory LCD (LS013B7DH03)
  * @{
@@ -97,16 +99,20 @@ extern "C" {
 #define DISP_SELECT_PIN     GPIO_PIN(PA, 8)
 #define DISP_POWER_PIN      GPIO_PIN(PA, 10)
 /** @} */
+
 /**
  * @brief   Connection to the on-board temperature/humidity sensor (Si7021)
  * @{
  */
+#ifndef SI7021_ENABLED
+#define SI7021_ENABLED      (1)
+#endif
 #define SI7021_I2C          (0)
 #define SI7021_EN_PIN       GPIO_PIN(PF, 8)
 /** @} */
 
 /**
- * @brief Initialize board specific hardware, including clock, LEDs and stdio
+ * @brief   Initialize the board (GPIO, sensors, clocks)
  */
 void board_init(void);
 

@@ -44,17 +44,13 @@
  */
 static gpio_t pins[] = {
     [U8X8_PIN_CS] = DISP_CS_PIN,
-    [U8X8_PIN_DC] = GPIO_PIN(0,0),
-    [U8X8_PIN_RESET] = GPIO_PIN(0,0)
 };
 
 /**
  * @brief   Bit mapping to indicate which pins are set.
  */
 static uint32_t pins_enabled = (
-    (1 << U8X8_PIN_CS) +
-    (1 << U8X8_PIN_DC) +
-    (1 << U8X8_PIN_RESET)
+    (1 << U8X8_PIN_CS)
 );
 
 static float get_battery_voltage(void)

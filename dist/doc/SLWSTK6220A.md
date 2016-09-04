@@ -1,7 +1,7 @@
 # Silicon Labs SLWSTK6220A
 
 ## Overview
-Silicon Labs SLWSTK6220A starter kit is equipped with the EFM32 microcontroller. It is specifically designed for low-power applications, having energy-saving peripherals, different energy modes and short wake-up times.
+Silicon Labs EZR32WG 868MHz Wireless Starter Kit is equipped with the EFM32 microcontroller. It is specifically designed for low-power applications, having energy-saving peripherals, different energy modes and short wake-up times.
 
 The starter kit is equipped with an Advanced Energy Monitor. This allows you to actively measure the power consumption of your hardware and code, in real-time.
 
@@ -97,6 +97,7 @@ By default, this pin is enabled. It can be disable by passing `BC_ENABLED=0` to 
 **Note:** to use the virtual serial port, ensure you have the latest board controller firmware installed.
 
 The low power LCD is also used by the board controller when the `DISP_SELECTED` pin is low. This pin is not initialized by the board, so you have to ensure this pin is initialized by your application if you want to control the low power LCD.
+
 ### Advanced Energy Monitor
 This development kit has an Advanced Energy Monitor. It can be connected to the Simplicity Studio development software.
 

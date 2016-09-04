@@ -10,9 +10,7 @@ RIOTBASE ?= $(CURDIR)/../..
 # Required features:
 FEATURES_REQUIRED = periph_adc
 FEATURES_REQUIRED = periph_gpio
-FEATURES_REQUIRED = periph_i2c
 FEATURES_REQUIRED = periph_rtt
-FEATURES_REQUIRED = periph_spi
 
 # required packages:
 USEPKG += u8g2

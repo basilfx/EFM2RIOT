@@ -7,11 +7,11 @@
  */
 
 /**
- * @ingroup     boards_thunderboard_sense
+ * @ingroup     boards_sltb001a
  * @{
  *
  * @file
- * @brief       Configuration of CPU peripherals for the Thunderboard Sense starter kit
+ * @brief       Configuration of CPU peripherals for the SLTB001A starter kit
  *
  * @author      Hauke Petersen <hauke.petersen@fu-berlin.de>
  * @author      Bas Stottelaar <basstottelaar@gmail.com>
@@ -55,11 +55,6 @@ extern "C" {
  * @brief   ADC configuration
  */
 #define ADC_NUMOF           (0U)
-
-/**
- * @brief   Crypto configuration.
- */
-#define HWCRYPTO_NUMOF      (1U)
 
 /**
  * @brief   DAC configuration

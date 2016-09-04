@@ -1,17 +1,17 @@
 /*
-* Copyright (C) 2016 Freie Universität Berlin
-*
-* This file is subject to the terms and conditions of the GNU Lesser
-* General Public License v2.1. See the file LICENSE in the top level
-* directory for more details.
-*/
+ * Copyright (C) 2016 Freie Universität Berlin
+ *
+ * This file is subject to the terms and conditions of the GNU Lesser
+ * General Public License v2.1. See the file LICENSE in the top level
+ * directory for more details.
+ */
 
 /**
  * @addtogroup      cpu_efm32zg
  * @{
  *
  * @file
- * @brief           Memory definitions for the efm32zg108f16 CPU
+ * @brief           Memory definitions for the EFM32ZG108F16 CPU
  *
  * @}
  */

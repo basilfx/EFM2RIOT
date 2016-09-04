@@ -78,11 +78,6 @@ static const adc_chan_conf_t adc_channel_config[] = {
 /** @} */
 
 /**
- * @brief   Crypto configuration.
- */
-#define HWCRYPTO_NUMOF      (1U)
-
-/**
  * @brief   DAC configuration
  * @{
  */
