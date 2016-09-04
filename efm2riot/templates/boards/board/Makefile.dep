@@ -7,16 +7,16 @@ ifneq (,$(filter saul_default,$(USEMODULE)))
         {% if board in ["sltb001a"] %}
             {% strip 2 %}
                 {% if development %}
-                    # USEMODULE += bmp280
-                    # USEMODULE += ccs811
-                    # USEMODULE += icm_20648
-                    # USEMODULE += si11x3
+                    USEMODULE += bmp280
+                    USEMODULE += ccs811
+                    USEMODULE += icm_20648
+                    USEMODULE += si11x3
                 {% endif %}
             {% endstrip %}
             USEMODULE += si70xx
             {% strip 2 %}
                 {% if development %}
-                    # USEMODULE += si7210a
+                    USEMODULE += si7210a
                 {% endif %}
             {% endstrip %}
         {% endif %}
