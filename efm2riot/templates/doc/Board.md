@@ -306,13 +306,19 @@ The starter kit is equipped with an Advanced Energy Monitor. This allows you to 
 ## Board configuration
 
 ### Board controller
-The starter kit is equipped with a Board Controller. This controller provides a virtual serial port. The board controller is enabled via a GPIO pin.
+{% strip 2 %}
+    {% if board not in ["sltb001a"] %}
+        The starter kit is equipped with a Board Controller. This controller provides a virtual serial port. The board controller is enabled via a GPIO pin.
 
-By default, this pin is enabled. It can be disable by passing `BC_ENABLED=0` to the compiler.
+        By default, this pin is enabled. It can be disable by passing `BC_ENABLED=0` to the compiler.
+
+        **Note:** to use the virtual serial port, ensure you have the latest board controller firmware installed.
+    {% else %}
+        The starter kit is equipped with a Board Controller. This controller provides a virtual serial port.
+    {% endif %}
+{% endstrip %}
 
 **Note:** the board controller *always* configures the virtual serial port at 115200 baud with 8 bits, no parity and one stop bit. This also means that it expects data from the MCU with the same settings.
-
-**Note:** to use the virtual serial port, ensure you have the latest board controller firmware installed.
 
 {% strip 2, ">" %}
     {% if board in ["slstk3401a", "stk3200", "slwstk6220a"] %}
