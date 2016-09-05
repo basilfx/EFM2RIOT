@@ -252,7 +252,7 @@ static const pwm_chan_conf_t pwm_channel_config[] = {
             {
                 2,                          /* channel index */
                 GPIO_PIN(PE, 2),            /* PWM pin */
-                TIMER_ROUTE_LOCATION_LOC1,  /* AF location */
+                TIMER_ROUTE_LOCATION_LOC1   /* AF location */
             }
         {% elif board in ["stk3200"] %}
             /* no available channels */
@@ -262,12 +262,12 @@ static const pwm_chan_conf_t pwm_channel_config[] = {
             {
                 0,                          /* channel index */
                 GPIO_PIN(PF, 6),            /* PWM pin */
-                TIMER_ROUTE_LOCATION_LOC2,  /* AF location */
+                TIMER_ROUTE_LOCATION_LOC2   /* AF location */
             },
             {
                 1,                          /* channel index */
                 GPIO_PIN(PF, 7),            /* PWM pin */
-                TIMER_ROUTE_LOCATION_LOC2,  /* AF location */
+                TIMER_ROUTE_LOCATION_LOC2   /* AF location */
             }
         {% elif board in ["sltb001a"] %}
             /* no available channels */
@@ -363,7 +363,7 @@ static const spi_dev_t spi_config[] = {
                 GPIO_PIN(PD, 2),                    /* CLK pin */
                 USART_ROUTE_LOCATION_LOC1,          /* AF location */
                 cmuClock_USART1,                    /* CMU register */
-                USART1_RX_IRQn,                     /* IRQ base channel */
+                USART1_RX_IRQn                      /* IRQ base channel */
             },
             {
                 USART2,                             /* device */
@@ -372,7 +372,7 @@ static const spi_dev_t spi_config[] = {
                 GPIO_PIN(PC, 4),                    /* CLK pin */
                 USART_ROUTE_LOCATION_LOC0,          /* AF location */
                 cmuClock_USART2,                    /* CMU register */
-                USART2_RX_IRQn,                     /* IRQ base channel */
+                USART2_RX_IRQn                      /* IRQ base channel */
             }
         {% elif board in ["stk3200"] %}
             {
@@ -382,7 +382,7 @@ static const spi_dev_t spi_config[] = {
                 GPIO_PIN(PC, 15),                   /* CLK pin */
                 USART_ROUTE_LOCATION_LOC1,          /* AF location */
                 cmuClock_USART1,                    /* CMU register */
-                USART1_RX_IRQn,                     /* IRQ base channel */
+                USART1_RX_IRQn                      /* IRQ base channel */
             }
         {% elif board in ["slstk3401a"] %}
             {
@@ -394,7 +394,7 @@ static const spi_dev_t spi_config[] = {
                     USART_ROUTELOC0_TXLOC_LOC11 |
                     USART_ROUTELOC0_CLKLOC_LOC11,   /* AF location */
                 cmuClock_USART1,                    /* CMU register */
-                USART1_RX_IRQn,                     /* IRQ base channel */
+                USART1_RX_IRQn                      /* IRQ base channel */
             }
         {% elif board in ["slwstk6220a"] %}
             {
@@ -404,7 +404,7 @@ static const spi_dev_t spi_config[] = {
                 GPIO_PIN(PD, 2),                    /* CLK pin */
                 USART_ROUTE_LOCATION_LOC1,          /* AF location */
                 cmuClock_USART1,                    /* CMU register */
-                USART1_RX_IRQn,                     /* IRQ base channel */
+                USART1_RX_IRQn                      /* IRQ base channel */
             }
         {% elif board in ["sltb001a"] %}
             {
@@ -416,7 +416,7 @@ static const spi_dev_t spi_config[] = {
                     USART_ROUTELOC0_TXLOC_LOC11 |
                     USART_ROUTELOC0_CLKLOC_LOC11,   /* AF location */
                 cmuClock_USART1,                    /* CMU register */
-                USART1_RX_IRQn,                     /* IRQ base channel */
+                USART1_RX_IRQn                      /* IRQ base channel */
             }
         {% endif %}
     {% endstrip %}
@@ -453,61 +453,61 @@ static const timer_conf_t timer_config[] = {
             {
                 {
                     TIMER0,             /* lower numbered timer */
-                    cmuClock_TIMER0,    /* pre-scaler bit in the CMU register */
+                    cmuClock_TIMER0     /* pre-scaler bit in the CMU register */
                 },
                 {
                     TIMER1,             /* higher numbered timer, this is the one */
-                    cmuClock_TIMER1,    /* pre-scaler bit in the CMU register */
+                    cmuClock_TIMER1     /* pre-scaler bit in the CMU register */
                 },
-                TIMER1_IRQn,            /* IRQn of the higher numbered timer */
+                TIMER1_IRQn             /* IRQn of the higher numbered timer */
             }
         {% elif board in ["stk3200"] %}
             {
                 {
                     TIMER0,             /* lower numbered timer */
-                    cmuClock_TIMER0,    /* pre-scaler bit in the CMU register */
+                    cmuClock_TIMER0     /* pre-scaler bit in the CMU register */
                 },
                 {
                     TIMER1,             /* higher numbered timer, this is the one */
-                    cmuClock_TIMER1,    /* pre-scaler bit in the CMU register */
+                    cmuClock_TIMER1     /* pre-scaler bit in the CMU register */
                 },
-                TIMER1_IRQn,            /* IRQn of the higher numbered timer */
+                TIMER1_IRQn             /* IRQn of the higher numbered timer */
             }
         {% elif board in ["slstk3401a"] %}
             {
                 {
                     TIMER0,             /* lower numbered timer */
-                    cmuClock_TIMER0,    /* pre-scaler bit in the CMU register */
+                    cmuClock_TIMER0     /* pre-scaler bit in the CMU register */
                 },
                 {
                     TIMER1,             /* higher numbered timer, this is the one */
-                    cmuClock_TIMER1,    /* pre-scaler bit in the CMU register */
+                    cmuClock_TIMER1     /* pre-scaler bit in the CMU register */
                 },
-                TIMER1_IRQn,            /* IRQn of the higher numbered timer */
+                TIMER1_IRQn             /* IRQn of the higher numbered timer */
             }
         {% elif board in ["slwstk6220a"] %}
             {
                 {
                     TIMER1,             /* lower numbered timer */
-                    cmuClock_TIMER1,    /* pre-scaler bit in the CMU register */
+                    cmuClock_TIMER1     /* pre-scaler bit in the CMU register */
                 },
                 {
                     TIMER2,             /* higher numbered timer, this is the one */
-                    cmuClock_TIMER2,    /* pre-scaler bit in the CMU register */
+                    cmuClock_TIMER2     /* pre-scaler bit in the CMU register */
                 },
-                TIMER2_IRQn,            /* IRQn of the higher numbered timer */
+                TIMER2_IRQn             /* IRQn of the higher numbered timer */
             }
         {% elif board in ["sltb001a"] %}
             {
                 {
                     TIMER0,             /* lower numbered timer */
-                    cmuClock_TIMER0,    /* pre-scaler bit in the CMU register */
+                    cmuClock_TIMER0     /* pre-scaler bit in the CMU register */
                 },
                 {
                     TIMER1,             /* higher numbered timer, this is the one */
-                    cmuClock_TIMER1,    /* pre-scaler bit in the CMU register */
+                    cmuClock_TIMER1     /* pre-scaler bit in the CMU register */
                 },
-                TIMER1_IRQn,            /* IRQn of the higher numbered timer */
+                TIMER1_IRQn             /* IRQn of the higher numbered timer */
             }
         {% endif %}
     {% endstrip %}
