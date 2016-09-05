@@ -126,12 +126,12 @@ static const pwm_chan_conf_t pwm_channel_config[] = {
     {
         0,                          /* channel index */
         GPIO_PIN(PF, 6),            /* PWM pin */
-        TIMER_ROUTE_LOCATION_LOC2,  /* AF location */
+        TIMER_ROUTE_LOCATION_LOC2   /* AF location */
     },
     {
         1,                          /* channel index */
         GPIO_PIN(PF, 7),            /* PWM pin */
-        TIMER_ROUTE_LOCATION_LOC2,  /* AF location */
+        TIMER_ROUTE_LOCATION_LOC2   /* AF location */
     }
 };
 
@@ -181,7 +181,7 @@ static const spi_dev_t spi_config[] = {
         GPIO_PIN(PD, 2),                    /* CLK pin */
         USART_ROUTE_LOCATION_LOC1,          /* AF location */
         cmuClock_USART1,                    /* CMU register */
-        USART1_RX_IRQn,                     /* IRQ base channel */
+        USART1_RX_IRQn                      /* IRQ base channel */
     }
 };
 
@@ -197,13 +197,13 @@ static const timer_conf_t timer_config[] = {
     {
         {
             TIMER1,             /* lower numbered timer */
-            cmuClock_TIMER1,    /* pre-scaler bit in the CMU register */
+            cmuClock_TIMER1     /* pre-scaler bit in the CMU register */
         },
         {
             TIMER2,             /* higher numbered timer, this is the one */
-            cmuClock_TIMER2,    /* pre-scaler bit in the CMU register */
+            cmuClock_TIMER2     /* pre-scaler bit in the CMU register */
         },
-        TIMER2_IRQn,            /* IRQn of the higher numbered timer */
+        TIMER2_IRQn             /* IRQn of the higher numbered timer */
     }
 };
 

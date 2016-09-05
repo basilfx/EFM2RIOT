@@ -130,7 +130,7 @@ static const spi_dev_t spi_config[] = {
             USART_ROUTELOC0_TXLOC_LOC11 |
             USART_ROUTELOC0_CLKLOC_LOC11,   /* AF location */
         cmuClock_USART1,                    /* CMU register */
-        USART1_RX_IRQn,                     /* IRQ base channel */
+        USART1_RX_IRQn                      /* IRQ base channel */
     }
 };
 
@@ -146,13 +146,13 @@ static const timer_conf_t timer_config[] = {
     {
         {
             TIMER0,             /* lower numbered timer */
-            cmuClock_TIMER0,    /* pre-scaler bit in the CMU register */
+            cmuClock_TIMER0     /* pre-scaler bit in the CMU register */
         },
         {
             TIMER1,             /* higher numbered timer, this is the one */
-            cmuClock_TIMER1,    /* pre-scaler bit in the CMU register */
+            cmuClock_TIMER1     /* pre-scaler bit in the CMU register */
         },
-        TIMER1_IRQn,            /* IRQn of the higher numbered timer */
+        TIMER1_IRQn             /* IRQn of the higher numbered timer */
     }
 };
 
