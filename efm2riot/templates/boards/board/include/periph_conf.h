@@ -237,7 +237,7 @@ static const i2c_conf_t i2c_config[] = {
         #define I2C_0_ISR           isr_i2c1
     {% elif board in ["sltb001a"] %}
         #define I2C_NUMOF           (1U)
-        #define I2C_0_ISR           isr_i2c1
+        #define I2C_0_ISR           isr_i2c0
     {% endif %}
 {% endstrip %}
 /** @} */
