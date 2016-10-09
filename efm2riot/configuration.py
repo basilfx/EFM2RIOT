@@ -248,8 +248,8 @@ BOARDS = [
         "cpu_datasheet": "https://www.silabs.com/Support%20Documents/TechnicalDocs/EFR32MG1-DataSheet.pdf",  # noqa
         "board": "sltb001a",
         "board_display_name": "SLTB001A",
-        "board_manual": "",
-        "board_schematic": "",
+        "board_manual": "http://www.silabs.com/Support%20Documents/TechnicalDocs/UG250.pdf",  # noqa
+        "board_schematic": "http://www.silabs.com/Support%20Documents/TechnicalDocs/UG250.pdf",  # noqa
         "family": "efm32mg",
         "family_display_name": "EFR32MG",
         "family_display_name_full": "EFM32 Mighty Gecko Gecko",
