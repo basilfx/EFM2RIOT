@@ -1,8 +1,8 @@
-EXTERN_START = "\r\n#ifdef __cplusplus\r\nextern \"C\" {\r\n#endif\r\n\r\n"
-EXTERN_STOP = "#ifdef __cplusplus\r\n}\r\n#endif\r\n\r\n"
+EXTERN_START = "\n#ifdef __cplusplus\nextern \"C\" {\n#endif\n\n"
+EXTERN_STOP = "#ifdef __cplusplus\n}\n#endif\n\n"
 
-EXTERN_FIND1 = "extern \"C\" {\r\n"
-EXTERN_FIND2 = " *****************************************************************************/\r\n"  # noqa
+EXTERN_FIND1 = "extern \"C\" {\n"
+EXTERN_FIND2 = " *****************************************************************************/\n"  # noqa
 
 
 def add_extern_c(source_file, source):
@@ -31,4 +31,4 @@ def fix_arm_math(source_file, source):
 
     return source.replace(
         "#define ARM_MATH_CM0PLUS",
-        "#ifndef ARM_MATH_CM0PLUS\r\n#define ARM_MATH_CM0PLUS\r\n#endif")
+        "#ifndef ARM_MATH_CM0PLUS\n#define ARM_MATH_CM0PLUS\n#endif")
