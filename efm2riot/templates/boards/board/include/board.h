@@ -33,13 +33,12 @@ extern "C" {
 #endif
 
 /**
- * @brief   Xtimer configuration
+ * @brief   Xtimer configuration.
+ * @note    The timer runs at 250 KHz to compensate for rounding errors.
  * @{
  */
-#define XTIMER                      (0)
-#define XTIMER_CHAN                 (0)
-#define XTIMER_WIDTH                (16)
-#define XTIMER_SHIFT_ON_COMPARE     (2)
+#define XTIMER_WIDTH        (16)
+#define XTIMER_SHIFT        (2)
 /** @} */
 
 {% strip 3, ">" %}
