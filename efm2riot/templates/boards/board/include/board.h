@@ -59,7 +59,7 @@ extern "C" {
 {% strip 3, ">" %}
     {% if board not in ["sltb001a"] %}
         /**
-         * @brief   GPIO pin for enabling communication through the board controller
+         * @brief   GPIO pin for enabling communication through the board controller.
          * @{
          */
         #ifndef BC_ENABLED
@@ -79,7 +79,7 @@ extern "C" {
 {% endstrip %}
 
 /**
- * @brief   Push button pin definitions
+ * @brief   Push button pin definitions.
  * @{
  */
 {% strip 2 %}
@@ -103,7 +103,7 @@ extern "C" {
 /** @} */
 
 /**
- * @brief    LED pin definitions
+ * @brief    LED pin definitions.
  * @{
  */
 {% strip 2 %}
@@ -141,7 +141,7 @@ extern "C" {
 {% strip 2, ">" %}
     {% if board in ["stk3200"] %}
         /**
-         * @brief   Connection to the on-board Sharp Memory LCD (LS013B7DH03)
+         * @brief   Connection to the on-board Sharp Memory LCD (LS013B7DH03).
          * @{
          */
         #define DISP_SPI            (0)
@@ -152,7 +152,7 @@ extern "C" {
         /** @} */
     {% elif board in ["slstk3401a"] %}
         /**
-         * @brief   Connection to the on-board Sharp Memory LCD (LS013B7DH03)
+         * @brief   Connection to the on-board Sharp Memory LCD (LS013B7DH03).
          * @{
          */
         #define DISP_SPI            (0)
@@ -162,7 +162,7 @@ extern "C" {
         /** @} */
     {% elif board in ["slwstk6220a"] %}
         /**
-         * @brief   Connection to the on-board Sharp Memory LCD (LS013B7DH03)
+         * @brief   Connection to the on-board Sharp Memory LCD (LS013B7DH03).
          * @{
          */
         #define DISP_SPI            (0)
@@ -177,7 +177,7 @@ extern "C" {
 {% strip 2, ">" %}
     {% if board in ["slstk3401a"] %}
         /**
-         * @brief   Connection to the on-board temperature/humidity sensor (Si7021)
+         * @brief   Connection to the on-board temperature/humidity sensor (Si7021).
          * @{
          */
         #ifndef SI7021_ENABLED
@@ -188,7 +188,7 @@ extern "C" {
         /** @} */
     {% elif board in ["slwstk6220a"] %}
         /**
-         * @brief   Connection to the on-board temperature/humidity sensor (Si7021)
+         * @brief   Connection to the on-board temperature/humidity sensor (Si7021).
          * @{
          */
         #ifndef SI7021_ENABLED
@@ -201,10 +201,11 @@ extern "C" {
         /**
          * @brief   Pin for enabling environmental sensors (BMP280, Si1133, Si7021, Si7210A).
          */
-        #define ENV_SENSE_EN_PIN    GPIO_PIN(0, 0)
+        #define ENV_SENSE_PIC_ADDR  (0x01)
+        #define ENV_SENSE_PIC_BIT   (0)
 
         /**
-         * @brief   Connection to the on-board pressure sensor (BMP280)
+         * @brief   Connection to the on-board pressure sensor (BMP280).
          * @{
          */
         #ifndef BMP280_ENABLED
@@ -214,53 +215,83 @@ extern "C" {
         /** @} */
 
         /**
-         * @brief   Connection to the on-board air quality/gas sensor (CCS811)
+         * @brief   Connection to the on-board air quality/gas sensor (CCS811).
          * @{
          */
         #ifndef CCS811_ENABLED
         #define CCS811_ENABLED      (0)
         #endif
         #define CCS811_I2C          (0)
-        #define CCS811_EN_PIN       GPIO_PIN(0, 0)
-        #define CCS811_INT_PIN      GPIO_PIN(0, 0)
-        #define CCS811_WAKE_PIN     GPIO_PIN(0, 0)
+        #define CCS811_PIC_ADDR     (0x03)
+        #define CCS811_PIC_EN_BIT   (0x00)
+        #define CCS811_PIC_WAKE_BIT (0x01)
         /** @} */
 
         /**
-         * @brief   Connection to the on-board IMU sensor (ICM-20648)
+         * @brief   Connection to the on-board IMU sensor (ICM-20648).
          * @{
          */
         #ifndef ICM20648_ENABLED
         #define ICM20648_ENABLED    (0)
         #endif
         #define ICM20648_SPI        (0)
-        #define ICM20648_EN_PIN     GPIO_PIN(0, 0)
-        #define ICM20648_INT_PIN    GPIO_PIN(0, 0)
+        #define ICM20648_PIC_ADDR   (0x00)
+        #define ICM20648_PIC_EN_BIT (0x00)
+        /** @} */
+        
+        /**
+         * @brief   Pin for communication with the Power & Interrupt Controller.
+         */
+        #define PIC_INT_WAKE_PIN    GPIO_PIN(PD, 10)
+        #define PIC_I2C             (0)
+        #define PIC_I2C_ADDR        (0x90)
+        
+        /**
+         * @brief   Pins for the RGB LEDs.
+         * @{
+         */
+        #ifndef RGB_LED1_ENABLED
+        #define RGB_LED1_ENABLED    (1)
+        #endif
+        #ifndef RGB_LED2_ENABLED
+        #define RGB_LED2_ENABLED    (1)
+        #endif
+        #ifndef RGB_LED3_ENABLED
+        #define RGB_LED3_ENABLED    (1)
+        #endif
+        #ifndef RGB_LED4_ENABLED
+        #define RGB_LED4_ENABLED    (1)
+        #endif
+        #define RGB_LED_ADDR        (0x04)
+        #define RGB_LED_EN_BIT      (0x00)
+        #define RGB_LED1_EN_BIT     (0x07)
+        #define RGB_LED2_EN_BIT     (0x06)
+        #define RGB_LED3_EN_BIT     (0x05)
+        #define RGB_LED4_EN_BIT     (0x04)
         /** @} */
 
         /**
-         * @brief   Connection to the on-board UV/ambient light sensor (Si1133)
+         * @brief   Connection to the on-board UV/ambient light sensor (Si1133).
          * @{
          */
         #ifndef SI1133_ENABLED
         #define SI1133_ENABLED      (0)
         #endif
         #define SI1133_I2C          (0)
-        #define SI1133_INT_PIN      GPIO_PIN(0, 0)
         /** @} */
 
         /**
-         * @brief   Connection to the on-board temperature/humidity sensor (Si7021)
+         * @brief   Connection to the on-board temperature/humidity sensor (Si7021).
          * @{
          */
         #ifndef SI7021_ENABLED
-        #define SI7021_ENABLED      (0)
+        #define SI7021_ENABLED      (1)
         #endif
         #define SI7021_I2C          (0)
         /** @} */
 
         /**
-         * @brief   Connection to the on-board hall-effect sensor (Si7210A)
+         * @brief   Connection to the on-board hall-effect sensor (Si7210A).
          * @{
          */
         #ifndef SI7210A_ENABLED
@@ -272,7 +303,7 @@ extern "C" {
 {% endstrip %}
 
 /**
- * @brief   Initialize the board (GPIO, sensors, clocks)
+ * @brief   Initialize the board (GPIO, sensors, clocks).
  */
 void board_init(void);
 
