@@ -69,7 +69,7 @@ int timer_init(tim_t dev, unsigned long freq, timer_cb_t callback, void *arg)
     /* reset and initialize peripherals */
     EFM32_CREATE_INIT(init_pre, TIMER_Init_TypeDef, TIMER_INIT_DEFAULT,
         .conf.enable = false,
-        .conf.prescale = timerPrescale16
+        .conf.prescale = timerPrescale1
     );
     EFM32_CREATE_INIT(init_tim, TIMER_Init_TypeDef, TIMER_INIT_DEFAULT,
         .conf.enable = false,

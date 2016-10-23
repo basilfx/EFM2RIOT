@@ -33,13 +33,12 @@ extern "C" {
 #endif
 
 /**
- * @brief   Xtimer configuration
+ * @brief   Xtimer configuration.
+ * @note    The timer runs at 250 KHz to compensate for rounding errors.
  * @{
  */
-#define XTIMER                      (0)
-#define XTIMER_CHAN                 (0)
-#define XTIMER_WIDTH                (16)
-#define XTIMER_SHIFT_ON_COMPARE     (2)
+#define XTIMER_WIDTH        (16)
+#define XTIMER_SHIFT        (2)
 /** @} */
 
 /**
@@ -52,7 +51,7 @@ extern "C" {
 /** @} */
 
         /**
-         * @brief   GPIO pin for enabling communication through the board controller
+         * @brief   GPIO pin for enabling communication through the board controller.
          * @{
          */
         #ifndef BC_ENABLED
@@ -62,7 +61,7 @@ extern "C" {
         /** @} */
 
 /**
- * @brief   Push button pin definitions
+ * @brief   Push button pin definitions.
  * @{
  */
 #define PB0_PIN             GPIO_PIN(PB, 9)
@@ -70,7 +69,7 @@ extern "C" {
 /** @} */
 
 /**
- * @brief    LED pin definitions
+ * @brief    LED pin definitions.
  * @{
  */
 #define LED0_PIN            GPIO_PIN(PE, 2)
@@ -90,7 +89,7 @@ extern "C" {
 /** @} */
 
 /**
- * @brief   Initialize the board (GPIO, sensors, clocks)
+ * @brief   Initialize the board (GPIO, sensors, clocks).
  */
 void board_init(void);
 

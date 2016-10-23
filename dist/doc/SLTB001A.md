@@ -28,8 +28,8 @@ The starter kit is equipped with an Advanced Energy Monitor. This allows you to 
 | Vcc             | 1.85V - 3.8V                             |
 | Datasheet       | [Datasheet](https://www.silabs.com/Support%20Documents/TechnicalDocs/EFR32MG1-DataSheet.pdf)         |
 | Manual          | [Manual](http://www.silabs.com/Support%20Documents/TechnicalDocs/EFR32-ReferenceManual.pdf)            |
-| Board Manual    | [Board Manual]()       |
-| Board Schematic | [Board Schematic]() |
+| Board Manual    | [Board Manual](http://www.silabs.com/Support%20Documents/TechnicalDocs/UG250.pdf)       |
+| Board Schematic | [Board Schematic](http://www.silabs.com/Support%20Documents/TechnicalDocs/UG250.pdf) |
 
 ### Pinout
 This is the pinout of the Expansion Pins on the front side of the board. PIN 1 is the top-left contact, marked on the silkscreen.

@@ -23,7 +23,6 @@
 #include "cpu.h"
 
 #include "periph/gpio.h"
-
 #include "em_dbg.h"
 #include "em_gpio.h"
 
