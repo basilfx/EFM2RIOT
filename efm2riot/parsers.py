@@ -8,6 +8,10 @@ def parse_families(sdk_directory):
     Index all available families from the SDK.
     """
 
+    if not os.path.isdir(os.path.join(sdk_directory, "Device/SiliconLabs")):
+        raise Exception(
+            "Specified SDK directory does not contain 'Device/' folder.")
+
     folders = glob.glob(os.path.join(sdk_directory, "Device/SiliconLabs/*"))
     families = []
 
