@@ -8,6 +8,13 @@ export CPU_FAM = {{ family }}
     {% endif %}
 {% endstrip %}
 
+{% strip 2, ">" %}
+    {% if mpu %}
+        # enable memory protection unit
+        USEMODULE += mpu_stack_guard
+    {% endif %}
+{% endstrip %}
+
 # include efm32_common
 include $(RIOTCPU)/efm32_common/Makefile.include
 

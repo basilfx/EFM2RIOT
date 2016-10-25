@@ -55,6 +55,8 @@ def parse_cpus(sdk_directory, family, min_ram_size, min_flash_size):
             flash_size = None
             ram_size = None
             architecture = None
+            mpu = False
+            fpu = False
             irqs = {}
             max_irq = None
 
@@ -71,6 +73,10 @@ def parse_cpus(sdk_directory, family, min_ram_size, min_flash_size):
                             cpu_platform = 1
                         elif "_SILICON_LABS_32B_PLATFORM_2" in line:
                             cpu_platform = 2
+                        elif "__MPU_PRESENT" in line and "1" in line:
+                            mpu = True
+                        elif "__FPU_PRESENT" in line and "1" in line:
+                            fpu = True
                     elif "Cortex-M4" in line:
                         architecture = "m4"
                     elif "Cortex-M3" in line:
@@ -121,10 +127,12 @@ def parse_cpus(sdk_directory, family, min_ram_size, min_flash_size):
                 "cpu": os.path.basename(include).split(".")[0],
                 "cpu_platform": cpu_platform,
                 "flash_size": flash_size,
-                "ram_size": ram_size
+                "ram_size": ram_size,
             }
 
             family.update({
+                "fpu": fpu,
+                "mpu": mpu,
                 "architecture": architecture,
                 "irqs": irq_table,
                 "max_irq": max_irq,
