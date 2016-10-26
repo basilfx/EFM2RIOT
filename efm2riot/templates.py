@@ -70,6 +70,14 @@ def create_environment():
     Create a new Jinja2 render environment.
     """
 
+    def _to_freq(freq):
+        if freq > 1000000 and freq % 1000000 == 0:
+            return "%d MHz" % (freq / 1000000)
+        elif freq > 1000000:
+            return "%.1f MHz" % (freq / 1000000.0)
+        else:
+            return "%.3f kHz" % (freq / 1000.0)
+
     root_dir = os.path.join(os.path.dirname(__file__), "..")
     file_dir = os.path.abspath(os.path.dirname(__file__))
     environment = Environment(
@@ -82,9 +90,7 @@ def create_environment():
 
     environment.filters["align"] = lambda x, y: ("%-" + str(y) + "s") % x
     environment.filters["to_kb"] = lambda x: str(int(x) / 1024)
-    environment.filters["to_freq"] = lambda x: \
-        ("%d MHz" % (x / 1000000)) if x > 1000000 else \
-        ("%.3f kHz" % (x / 1000.0))
+    environment.filters["to_freq"] = _to_freq
 
     return environment
 
