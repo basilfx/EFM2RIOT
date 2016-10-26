@@ -1,0 +1,10 @@
+/**
+ * @defgroup        cpu_{{ family }} Silicon Labs {{ family_display_name }}
+ * @ingroup         cpu
+ * @brief           Implementation of Silicon Labs's {{ family_display_name }} MCU
+ */
+
+/**
+ * @defgroup        cpu_{{ family }}_definitions Silicon Labs {{ family_display_name }} definitions
+ * @ingroup         cpu_{{ family }}
+ */
