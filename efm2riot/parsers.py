@@ -104,7 +104,7 @@ def parse_cpus(sdk_directory, family, min_ram_size, min_flash_size):
         # Fix the IRQ to be a full list
         irq_table = []
 
-        for number in range(max_irq):
+        for number in range(max_irq + 1):
             if number in irqs:
                 name = irqs[number]
 
