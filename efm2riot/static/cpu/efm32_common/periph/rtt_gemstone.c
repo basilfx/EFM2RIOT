@@ -29,7 +29,6 @@
 #include "em_rtcc.h"
 #include "em_common_utils.h"
 
-#if !defined(RTT_AS_RTC)
 #if defined(RTCC_COUNT) && RTCC_COUNT > 0
 
 typedef struct {
@@ -160,4 +159,3 @@ void isr_rtcc(void)
 }
 
 #endif /* defined(RTCC_COUNT) && RTCC_COUNT > 0 */
-#endif /* !defined(RTT_AS_RTC) */

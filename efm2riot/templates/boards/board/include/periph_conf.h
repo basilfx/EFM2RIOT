@@ -323,20 +323,15 @@ static const pwm_conf_t pwm_config[] = {
 /** @} */
 
 /**
- * @brief   RTT and RTC configuration
+ * @brief   RTC configuration
+ */
+#define RTC_NUMOF           (1U)
+
+/**
+ * @brief   RTT configuration
  * @{
  */
-#ifndef RTT_AS_RTC
-#define RTT_AS_RTC          (0U)
-#endif
-
-#if RTT_AS_RTC
-#define RTC_NUMOF           (1U)
-#define RTT_NUMOF           (0U)
-#else
-#define RTC_NUMOF           (0U)
 #define RTT_NUMOF           (1U)
-#endif
 
 {% strip 2 %}
     {% if cpu_platform == 1 %}

@@ -405,8 +405,6 @@ RIOT-OS has support for *Real-Time Tickers* and *Real-Time Clocks*.
     {% endif %}
 {% endstrip %}
 
-Use the ticker mode if your application keeps track of seconds only (e.g. unix timestamp). By default the counter is enabled. You can switch by passing `RTT_AS_RTC=1` to your compiler.
-
 ### Hardware crypto
 {% strip 2 %}
     {% if cpu_platform == 1 %}
