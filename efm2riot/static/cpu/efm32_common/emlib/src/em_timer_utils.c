@@ -1,3 +1,10 @@
+/*
+ * Copyright (C) 2016 Bas Stottelaar <basstottelaar@gmail.com>
+ *
+ * This file is subject to the terms and conditions of the GNU Lesser
+ * General Public License v2.1. See the file LICENSE in the top level
+ * directory for more details.
+ */
 
 #include "em_timer_utils.h"
 #if defined(TIMER_COUNT) && (TIMER_COUNT > 0)
