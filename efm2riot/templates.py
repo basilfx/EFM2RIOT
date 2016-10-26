@@ -77,7 +77,8 @@ def create_environment():
         undefined=StrictUndefined,
         extensions=[StripExtension],
         lstrip_blocks=True,
-        trim_blocks=True)
+        trim_blocks=True,
+        keep_trailing_newline=True)
 
     environment.filters["align"] = lambda x, y: ("%-" + str(y) + "s") % x
     environment.filters["to_kb"] = lambda x: str(int(x) / 1024)
