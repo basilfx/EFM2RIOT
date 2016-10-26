@@ -29,8 +29,7 @@
 #include "em_rtc.h"
 #include "em_common_utils.h"
 
-/* guard file in case no RTT device is defined */
-#if RTT_NUMOF
+#if !defined(RTT_AS_RTC)
 #if defined(RTC_COUNT) && RTC_COUNT > 0
 
 typedef struct {
@@ -161,4 +160,4 @@ void isr_rtc(void)
 }
 
 #endif /* defined(RTC_COUNT) && RTC_COUNT > 0 */
-#endif /* RTT_NUMOF */
+#endif /* !defined(RTT_AS_RTC) */

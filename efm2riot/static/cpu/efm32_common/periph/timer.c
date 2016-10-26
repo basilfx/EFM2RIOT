@@ -32,9 +32,6 @@
 #include "em_timer_utils.h"
 #include "em_common_utils.h"
 
-/* guard file in case no TIMER device is defined */
-#if TIMER_NUMOF
-
 /**
  * @brief   This timer implementation has three available channels
  */
@@ -181,5 +178,3 @@ void TIMER_0_ISR(void)
     }
 }
 #endif /* TIMER_0_ISR */
-
-#endif /* TIMER_NUMOF */

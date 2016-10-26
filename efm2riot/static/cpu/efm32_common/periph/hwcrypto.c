@@ -29,8 +29,6 @@
 #include "em_cmu.h"
 #include "em_aes.h"
 
-/* guard file in case no HWCRYPTO device is defined */
-#if HWCRYPTO_NUMOF
 #ifdef _SILICON_LABS_32B_PLATFORM_1
 
 /**
@@ -159,4 +157,3 @@ void hwcrypto_poweroff(void)
 }
 
 #endif /* _SILICON_LABS_32B_PLATFORM_1 */
-#endif /* HWCRYPTO_NUMOF */

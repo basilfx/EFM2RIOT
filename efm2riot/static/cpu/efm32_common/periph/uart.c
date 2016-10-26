@@ -33,9 +33,6 @@
 #endif
 #include "em_common_utils.h"
 
-/* guard file in case no UART device is defined */
-#if UART_NUMOF
-
 /**
  * @brief   Allocate memory to store the callback functions
  */
@@ -219,5 +216,3 @@ void UART_4_ISR_RX(void)
     rx_irq(4);
 }
 #endif
-
-#endif /* UART_NUMOF */

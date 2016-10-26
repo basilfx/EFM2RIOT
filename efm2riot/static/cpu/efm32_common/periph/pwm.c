@@ -27,9 +27,6 @@
 #include "em_timer_utils.h"
 #include "em_common_utils.h"
 
-/* guard file in case no PWM device is defined */
-#if PWM_NUMOF
-
 uint32_t pwm_init(pwm_t dev, pwm_mode_t mode, uint32_t freq, uint16_t res)
 {
     /* check if device is valid */
@@ -121,5 +118,3 @@ void pwm_poweroff(pwm_t dev)
 {
     CMU_ClockEnable(pwm_config[dev].cmu, false);
 }
-
-#endif /* PWM_NUMOF */
