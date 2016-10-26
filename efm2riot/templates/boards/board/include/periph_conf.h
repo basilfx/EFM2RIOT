@@ -61,60 +61,51 @@ extern "C" {
 {% endstrip %}
 /** @} */
 
-{% strip 2 %}
-    {% if board in ["stk3200", "slstk3401a", "stk3600", "stk3700", "stk3800", "slwstk6220a"] %}
-        /**
-         * @brief   ADC configuration
-         * @{
-         */
-        static const adc_conf_t adc_config[] = {
+/**
+ * @brief   ADC configuration
+ * @{
+ */
+static const adc_conf_t adc_config[] = {
+    {
+        ADC0,                               /* device */
+        cmuClock_ADC0,                      /* CMU register */
+    }
+};
+
+static const adc_chan_conf_t adc_channel_config[] = {
+    {% strip 2 %}
+        {% if board in ["stk3200", "stk3600", "stk3700", "stk3800", "slwstk6220a"] %}
             {
-                ADC0,                               /* device */
-                cmuClock_ADC0,                      /* CMU register */
+                0,                                  /* device index */
+                adcSingleInputTemp,                 /* channel to use */
+                adcRef1V25,                         /* channel reference */
+                adcAcqTime8                         /* acquisition time */
+            },
+            {
+                0,                                  /* device index */
+                adcSingleInputVDDDiv3,              /* channel to use */
+                adcRef1V25,                         /* channel reference */
+                adcAcqTime8                         /* acquisition time */
             }
-        };
+        {% elif board in ["slstk3401a", "sltb001a"] %}
+            {
+                0,                                  /* device index */
+                adcPosSelTEMP,                      /* channel to use */
+                adcRef1V25,                         /* channel reference */
+                adcAcqTime8                         /* acquisition time */
+            },
+            {
+                0,                                  /* device index */
+                adcPosSelAVDD,                      /* channel to use */
+                adcRef5V,                           /* channel reference */
+                adcAcqTime8                         /* acquisition time */
+            }
+        {% endif %}
+    {% endstrip %}
+};
 
-        static const adc_chan_conf_t adc_channel_config[] = {
-            {% strip 2 %}
-                {% if board in ["stk3200", "stk3600", "stk3700", "stk3800", "slwstk6220a"] %}
-                    {
-                        0,                                  /* device index */
-                        adcSingleInputTemp,                 /* channel to use */
-                        adcRef1V25,                         /* channel reference */
-                        adcAcqTime8                         /* acquisition time */
-                    },
-                    {
-                        0,                                  /* device index */
-                        adcSingleInputVDDDiv3,              /* channel to use */
-                        adcRef1V25,                         /* channel reference */
-                        adcAcqTime8                         /* acquisition time */
-                    }
-                {% elif board in ["slstk3401a"] %}
-                    {
-                        0,                                  /* device index */
-                        adcPosSelTEMP,                      /* channel to use */
-                        adcRef1V25,                         /* channel reference */
-                        adcAcqTime8                         /* acquisition time */
-                    },
-                    {
-                        0,                                  /* device index */
-                        adcPosSelAVDD,                      /* channel to use */
-                        adcRef5V,                           /* channel reference */
-                        adcAcqTime8                         /* acquisition time */
-                    }
-                {% endif %}
-            {% endstrip %}
-        };
-
-        #define ADC_NUMOF           (2U)
-        /** @} */
-    {% else %}
-        /**
-         * @brief   ADC configuration
-         */
-        #define ADC_NUMOF           (0U)
-    {% endif %}
-{% endstrip %}
+#define ADC_NUMOF           (2U)
+/** @} */
 
 {% strip 2, ">" %}
     {% if development %}

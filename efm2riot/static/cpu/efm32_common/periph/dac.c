@@ -24,10 +24,12 @@
 #include "periph/dac.h"
 
 #include "em_cmu.h"
-#ifdef _SILICON_LABS_32B_PLATFORM_1
+#if defined(DAC_COUNT) && DAC_COUNT > 0
 #include "em_dac.h"
 #endif
 #include "em_common_utils.h"
+
+#if defined(DAC_COUNT) && DAC_COUNT > 0
 
 int8_t dac_init(dac_t line)
 {
@@ -82,3 +84,5 @@ void dac_poweroff(dac_t line)
 
     CMU_ClockEnable(dac_config[dev].cmu, false);
 }
+
+#endif /* defined(DAC_COUNT) && DAC_COUNT > 0 */
