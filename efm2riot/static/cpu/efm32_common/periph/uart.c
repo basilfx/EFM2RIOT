@@ -165,7 +165,7 @@ void uart_poweroff(uart_t dev)
     CMU_ClockEnable(uart_config[dev].cmu, false);
 }
 
-static inline void rx_irq(uart_t dev)
+static void rx_irq(uart_t dev)
 {
 #if LOW_POWER_ENABLED && defined(LEUART_COUNT) && LEUART_COUNT > 0
     if (_is_usart(dev)) {
