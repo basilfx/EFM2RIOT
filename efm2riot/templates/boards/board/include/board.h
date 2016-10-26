@@ -200,9 +200,11 @@ extern "C" {
     {% elif board in ["sltb001a"] %}
         /**
          * @brief   Pin for enabling environmental sensors (BMP280, Si1133, Si7021, Si7210A).
+         * @{
          */
         #define ENV_SENSE_PIC_ADDR  (0x01)
         #define ENV_SENSE_PIC_BIT   (0)
+        /** @} */
 
         /**
          * @brief   Connection to the on-board pressure sensor (BMP280).
@@ -238,16 +240,18 @@ extern "C" {
         #define ICM20648_PIC_ADDR   (0x00)
         #define ICM20648_PIC_EN_BIT (0x00)
         /** @} */
-        
+
         /**
          * @brief   Pin for communication with the Power & Interrupt Controller.
+         * @{
          */
         #define PIC_INT_WAKE_PIN    GPIO_PIN(PD, 10)
         #define PIC_I2C             (0)
         #define PIC_I2C_ADDR        (0x90)
-        
+        /** @} */
+
         /**
-         * @brief   Pins for the RGB LEDs.
+         * @brief   Pins for the four RGB LEDs.
          * @{
          */
         #ifndef RGB_LED1_ENABLED
