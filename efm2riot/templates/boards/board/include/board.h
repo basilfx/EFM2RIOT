@@ -34,11 +34,12 @@ extern "C" {
 
 /**
  * @brief   Xtimer configuration.
- * @note    The timer runs at 250 KHz to compensate for rounding errors.
+ * @note    The timer runs at 250 KHz to increase accuracy.
  * @{
  */
-#define XTIMER_WIDTH        (16)
+#define XTIMER_HZ           (250000UL)
 #define XTIMER_SHIFT        (2)
+#define XTIMER_WIDTH        (16)
 /** @} */
 
 {% strip 3, ">" %}
