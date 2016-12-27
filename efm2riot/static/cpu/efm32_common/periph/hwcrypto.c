@@ -22,6 +22,7 @@
 #include <string.h>
 
 #include "mutex.h"
+#include "assert.h"
 
 #include "periph_conf.h"
 #include "periph/hwcrypto.h"
@@ -45,73 +46,156 @@ int hwcrypto_init(void)
     return 0;
 }
 
-int hwcrypto_cipher_init(hwcrypto_cipher_context_t* context, hwcrypto_cipher_t cipher, uint8_t* key, uint32_t key_size)
+int hwcrypto_cipher_init(hwcrypto_cipher_context_t* context, hwcrypto_cipher_t cipher, hwcrypto_mode_t mode)
 {
-    if (cipher == HWCRYPTO_AES128) {
-        if (key_size != 16) {
-            return -2;
-        }
-
-        memcpy(context->key, key, key_size);
-    } else if (cipher == HWCRYPTO_AES256) {
-        if (key_size != 32) {
-            return -2;
-        }
-
-        memcpy(context->key, key, key_size);
-    } else {
+#ifdef AES_CTRL_AES256
+    if (cipher != HWCRYPTO_AES128 && cipher != HWCRYPTO_AES256) {
         /* cipher not supported */
         return -1;
     }
+#else
+    if (cipher != HWCRYPTO_AES128) {
+        /* cipher not supported */
+        return -1;
+    }
+#endif
 
-    /* store cipher in context */
     context->cipher = cipher;
+    context->mode = mode;
 
     return 0;
 }
 
-int hwcrypto_cipher_encrypt(hwcrypto_cipher_context_t* context, uint8_t *plain_block, uint8_t *cipher_block, uint32_t block_size)
+int hwcrypto_cipher_set(hwcrypto_cipher_context_t* context, hwcrypto_opt_t option, const void* value, uint32_t size)
 {
     if (context->cipher == HWCRYPTO_AES128) {
-        if ((block_size % 16) != 0) {
-            return -2;
-        }
+        hwcrypto_cipher_aes128_context_t* aes128_context = (hwcrypto_cipher_aes128_context_t *) context;
 
-        AES_ECB128(cipher_block, plain_block, block_size, context->key, true);
+        if (option == HWCRYPTO_OPT_KEY) {
+            if (size != 16) {
+                /* incorrect key size */
+                return -2;
+            }
+
+            memcpy(aes128_context->key, value, 16);
+        } else if (option == HWCRYPTO_OPT_IV) {
+            if (size != 16) {
+                /* incorrect iv size */
+                return -2;
+            }
+
+            memcpy(aes128_context->iv, value, 16);
+        } else if (option == HWCRYPTO_OPT_COUNTER) {
+            if (size != 16) {
+                /* incorrect counter size */
+                return -2;
+            }
+
+            memcpy(aes128_context->counter, value, 16);
+        } else {
+            return -1;
+        }
+#ifdef AES_CTRL_AES256
     } else if (context->cipher == HWCRYPTO_AES256) {
+        hwcrypto_cipher_aes256_context_t* aes256_context = (hwcrypto_cipher_aes256_context_t *) context;
+
+        if (option == HWCRYPTO_OPT_KEY) {
+            if (size != 32) {
+                /* incorrect key size */
+                return -2;
+            }
+
+            memcpy(aes256_context->key, value, 32);
+        } else if (option == HWCRYPTO_OPT_IV) {
+            if (size != 16) {
+                /* incorrect iv size */
+                return -2;
+            }
+
+            memcpy(aes256_context->iv, value, 16);
+        } else if (option == HWCRYPTO_OPT_COUNTER) {
+            if (size != 16) {
+                /* incorrect counter size */
+                return -2;
+            }
+
+            memcpy(aes256_context->counter, value, 16);
+        } else {
+            return -1;
+        }
+#endif
+    } else {
+        return -1;
+    }
+
+    return 0;
+}
+
+static int hwcrypto_cipher_encrypt_decrypt(hwcrypto_cipher_context_t* context, const uint8_t *plain_block, uint8_t *cipher_block, uint32_t block_size, bool encrypt)
+{
+    /* blocks must be aligned */
+    assert(!((intptr_t) plain_block & 0x03));
+    assert(!((intptr_t) cipher_block & 0x03));
+
+    if (context->cipher == HWCRYPTO_AES128) {
+        hwcrypto_cipher_aes128_context_t* aes128_context = (hwcrypto_cipher_aes128_context_t*) context;
+
         if ((block_size % 16) != 0) {
+            /* invalid block size */
             return -2;
         }
 
-        AES_ECB256(cipher_block, plain_block, block_size, context->key, true);
+        if (aes128_context->mode == HWCRYPTO_MODE_ECB) {
+            AES_ECB128(cipher_block, plain_block, block_size, aes128_context->key, encrypt);
+        } else if (aes128_context->mode == HWCRYPTO_MODE_CBC) {
+            AES_CBC128(cipher_block, plain_block, block_size, aes128_context->key, aes128_context->iv, encrypt);
+        } else if (aes128_context->mode == HWCRYPTO_MODE_CFB) {
+            AES_CFB128(cipher_block, plain_block, block_size, aes128_context->key, aes128_context->iv, encrypt);
+        } else if (aes128_context->mode == HWCRYPTO_MODE_OFB) {
+            AES_OFB128(cipher_block, plain_block, block_size, aes128_context->key, aes128_context->iv);
+        } else if (aes128_context->mode == HWCRYPTO_MODE_CTR) {
+            AES_CTR128(cipher_block, plain_block, block_size, aes128_context->key, aes128_context->counter, NULL);
+        } else {
+            return -1;
+        }
+#ifdef AES_CTRL_AES256
+    } else if (context->cipher == HWCRYPTO_AES256) {
+        hwcrypto_cipher_aes256_context_t* aes256_context = (hwcrypto_cipher_aes256_context_t*) context;
+
+        if ((block_size % 16) != 0) {
+            /* invalid block size */
+            return -2;
+        }
+
+        if (aes256_context->mode == HWCRYPTO_MODE_ECB) {
+            AES_ECB256(cipher_block, plain_block, block_size, aes256_context->key, encrypt);
+        } else if (aes256_context->mode == HWCRYPTO_MODE_CBC) {
+            AES_CBC256(cipher_block, plain_block, block_size, aes256_context->key, aes256_context->iv, encrypt);
+        } else if (aes256_context->mode == HWCRYPTO_MODE_CFB) {
+            AES_CFB256(cipher_block, plain_block, block_size, aes256_context->key, aes256_context->iv, encrypt);
+        } else if (aes256_context->mode == HWCRYPTO_MODE_OFB) {
+            AES_OFB256(cipher_block, plain_block, block_size, aes256_context->key, aes256_context->iv);
+        } else if (aes256_context->mode == HWCRYPTO_MODE_CTR) {
+            AES_CTR256(cipher_block, plain_block, block_size, aes256_context->key, aes256_context->counter, NULL);
+        } else {
+            return -1;
+        }
+#endif
     } else {
-        /* cipher not supported */
         return -1;
     }
 
     return block_size;
 }
 
-int hwcrypto_cipher_decrypt(hwcrypto_cipher_context_t* context, uint8_t *cipher_block, uint8_t *plain_block, uint32_t block_size)
+int hwcrypto_cipher_encrypt(hwcrypto_cipher_context_t* context, const uint8_t *plain_block, uint8_t *cipher_block, uint32_t block_size)
 {
-    if (context->cipher == HWCRYPTO_AES128) {
-        if ((block_size % 16) != 0) {
-            return -2;
-        }
+    return hwcrypto_cipher_encrypt_decrypt(context, plain_block, cipher_block, block_size, true);
+}
 
-        AES_ECB128(plain_block, cipher_block, block_size, context->key, false);
-    } else if (context->cipher == HWCRYPTO_AES256) {
-        if ((block_size % 16) != 0) {
-            return -2;
-        }
-
-        AES_ECB256(plain_block, cipher_block, block_size, context->key, false);
-    } else {
-        /* cipher not supported */
-        return -1;
-    }
-
-    return block_size;
+int hwcrypto_cipher_decrypt(hwcrypto_cipher_context_t* context, const uint8_t *cipher_block, uint8_t *plain_block, uint32_t block_size)
+{
+    return hwcrypto_cipher_encrypt_decrypt(context, cipher_block, plain_block, block_size, false);
 }
 
 int hwcrypto_hash_init(hwcrypto_hash_context_t* context, hwcrypto_hash_t hash)
@@ -120,7 +204,7 @@ int hwcrypto_hash_init(hwcrypto_hash_context_t* context, hwcrypto_hash_t hash)
     return -1;
 }
 
-int hwcrypto_hash_update(hwcrypto_hash_context_t* context, uint8_t* block, uint32_t block_size)
+int hwcrypto_hash_update(hwcrypto_hash_context_t* context, const uint8_t* block, uint32_t block_size)
 {
     /* not supported */
     return -1;
