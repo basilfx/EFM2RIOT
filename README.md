@@ -16,7 +16,7 @@ This generator prepares the required files for using EFM32 with RIOT-OS, which i
 When you have cloned this repository, a ready-to-use version is available in the `dist/` folder. Copy the desired CPU and board folder from `cpu/` (including `cpu/efm32_common/`) and `boards/` to your RIOT-OS project.
 
 ### As a developer
-You will need Python 2.7 and the EFM32 SDK (comes with Simplicity Studio).
+You will need Python 2.7 and the Exx32 SDK v5.0.0.0 (can be installed via Simplicity Studio v4).
 
 * The `efm2riot/configuration.py` defines all the jobs and boards.
 * The `efm2riot/templates/` folder contains all the files that need to be pre-processed.
@@ -33,7 +33,7 @@ To enable some features that are not yet part of RIOT-OS, pass `--development`.
 See [CONTRIBUTING.md](CONTRIBUTING.md) for more information on developing.
 
 ## Supported families
-All of the 32-bit families that are supported by emlib are converted:
+Most of the 32-bit families that are supported by emlib are supported by EFM2RIOT:
 
 * EFM32 Gecko
 * EFM32 Giant Gecko

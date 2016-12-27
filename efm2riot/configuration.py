@@ -12,6 +12,7 @@ STATICS = [
         "source": "{{ root }}/static/cpu/efm32_common",
         "target": "cpu/efm32_common",
         "filters": {
+            "{{ root }}/static/cpu/efm32_common/include/periph_hwcrypto.h": filters.only_for_development(),  # noqa
             "{{ root }}/static/cpu/efm32_common/periph/hwcrypto.c": filters.only_for_development(),  # noqa
             "{{ root }}/static/cpu/efm32_common/periph/hwcrypto_gemstone.c": filters.only_for_development(),  # noqa
         }
@@ -29,7 +30,11 @@ STATICS = [
     {
         "type": "directory",
         "source": "{{ sdk }}/emlib",
-        "target": "cpu/efm32_common/emlib"
+        "target": "cpu/efm32_common/emlib",
+        "filters": {
+            "{{ sdk }}/emlib/inc/em_int.h": filters.never(),
+            "{{ sdk }}/emlib/src/em_int.c": filters.never(),
+        }
     }
 ]
 

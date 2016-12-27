@@ -27,3 +27,13 @@ def only_for_board_and_development(boards):
     def inner(context):
         return context["board"] in boards and context["development"]
     return inner
+
+
+def never():
+    """
+    Create a filter that returns False.
+    """
+
+    def inner(context):
+        return False
+    return inner
