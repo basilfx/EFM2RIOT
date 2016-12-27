@@ -121,8 +121,8 @@ extern "C" {
         #define LED0_PIN            GPIO_PIN(PF, 6)
         #define LED1_PIN            GPIO_PIN(PF, 7)
     {% elif board in ["sltb001a"] %}
-        #define LED0_PIN            GPIO_PIN(PD, 11)
-        #define LED1_PIN            GPIO_PIN(PD, 12)
+        #define LED0_PIN            GPIO_PIN(PD, 12)
+        #define LED1_PIN            GPIO_PIN(PD, 11)
     {% endif %}
 {% endstrip %}
 /** @} */

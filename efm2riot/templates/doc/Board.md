@@ -263,7 +263,10 @@ The starter kit is equipped with an Advanced Energy Monitor. This allows you to 
         | LED        | LED_RED   | LED0     | PF6  | Yellow LED |
         |            | LED_GREEN | LED1     | PF7  | Yellow LED |
     {% elif board in ["sltb001a"] %}
-
+        | Button     |           | PB0      | PD14 |            |
+        |            |           | PB1      | PD15 |            |
+        | LED        | LED_RED   | LED0     | PD11 | Red LED    |
+        |            | LED_GREEN | LED1     | PD12 | Green LED  |
     {% endif %}
 {% endstrip %}
 
