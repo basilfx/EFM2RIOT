@@ -91,7 +91,7 @@ int adc_sample(adc_t line, adc_res_t res)
     int result = ADC_DataSingleGet(adc_config[dev].dev);
 
     /* for resolutions that are not really supported, shift the result (for
-       instance, 10 bit resolution is created by shifting a 12 bit sample). */
+       instance, 10 bit resolution is achieved by shifting a 12 bit sample). */
     result = result >> (res >> 4);
 
     /* unlock device */
