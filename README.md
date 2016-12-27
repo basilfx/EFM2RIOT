@@ -6,7 +6,7 @@ EFM32 is a 32-bit micro controller (MCU) family manufactured by Silicon Labs. Th
 
 This generator prepares the required files for using EFM32 with RIOT-OS, which includes:
 
-* Copying and patching vendor peripheral library ([emlib](devtools.silabs.com/dl/documentation/doxygen/)).
+* Copying and patching vendor peripheral library ([emlib](http://devtools.silabs.com/dl/documentation/doxygen/)).
 * Initializing MCU targets.
 * Initializing board targets.
 
