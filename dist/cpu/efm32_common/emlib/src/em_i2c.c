@@ -1,7 +1,7 @@
 /***************************************************************************//**
  * @file em_i2c.c
  * @brief Inter-integrated Circuit (I2C) Peripheral API
- * @version 4.4.0
+ * @version 5.0.0
  *******************************************************************************
  * @section License
  * <b>Copyright 2016 Silicon Laboratories, Inc. http://www.silabs.com</b>
@@ -866,8 +866,8 @@ I2C_TransferReturn_TypeDef I2C_TransferInit(I2C_TypeDef *i2c,
   /* Enable those interrupts we are interested in throughout transfer. */
   /* Notice that the I2C interrupt must also be enabled in the NVIC, but */
   /* that is left for an additional driver wrapper. */
-  i2c->IEN = I2C_IF_NACK | I2C_IF_ACK | I2C_IF_MSTOP |
-             I2C_IF_RXDATAV | I2C_IF_ERRORS;
+  i2c->IEN |= I2C_IF_NACK | I2C_IF_ACK | I2C_IF_MSTOP |
+              I2C_IF_RXDATAV | I2C_IF_ERRORS;
 
   /* Start transfer */
   return I2C_Transfer(i2c);

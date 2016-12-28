@@ -1,7 +1,7 @@
 /***************************************************************************//**
  * @file em_lesense.h
  * @brief Low Energy Sensor (LESENSE) peripheral API
- * @version 4.4.0
+ * @version 5.0.0
  *******************************************************************************
  * @section License
  * <b>Copyright 2016 Silicon Laboratories, Inc. http://www.silabs.com</b>
@@ -35,7 +35,9 @@
 
 #include "em_device.h"
 
-#if defined(LESENSE_COUNT) && (LESENSE_COUNT > 0)
+/* LESENSE is currently only supported on Platform 1. Full support for Platform 2 LESENSE
+   will be included in the next release. */
+#if defined(LESENSE_COUNT) && (LESENSE_COUNT > 0) && defined(_SILICON_LABS_32B_PLATFORM_1)
 #include <stdint.h>
 #include <stdbool.h>
 

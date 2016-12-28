@@ -2,7 +2,7 @@
  * @file em_rmu.c
  * @brief Reset Management Unit (RMU) peripheral module peripheral API
  *
- * @version 4.4.0
+ * @version 5.0.0
  *******************************************************************************
  * @section License
  * <b>Copyright 2016 Silicon Laboratories, Inc. http://www.silabs.com</b>
@@ -68,12 +68,12 @@
 /* EFM32G */
 #if (_RMU_RSTCAUSE_MASK == 0x0000007FUL)
 #define RMU_RSTCAUSE_PORST_XMASK         0x00000000UL /** 0000000000000000  < Power On Reset */
-#define RMU_RSTCAUSE_BODUNREGRST_XMASK   0x00000081UL /** 0000000010000001  < Brown Out Detector Unregulated Domain Reset */
-#define RMU_RSTCAUSE_BODREGRST_XMASK     0x00000091UL /** 0000000010010001  < Brown Out Detector Regulated Domain Reset */
-#define RMU_RSTCAUSE_EXTRST_XMASK        0x00000001UL /** 0000000000000001  < External Pin Reset */
+#define RMU_RSTCAUSE_BODUNREGRST_XMASK   0x00000001UL /** 0000000000000001  < Brown Out Detector Unregulated Domain Reset */
+#define RMU_RSTCAUSE_BODREGRST_XMASK     0x0000001BUL /** 0000000000011011  < Brown Out Detector Regulated Domain Reset */
+#define RMU_RSTCAUSE_EXTRST_XMASK        0x00000003UL /** 0000000000000011  < External Pin Reset */
 #define RMU_RSTCAUSE_WDOGRST_XMASK       0x00000003UL /** 0000000000000011  < Watchdog Reset */
-#define RMU_RSTCAUSE_LOCKUPRST_XMASK     0x0000EFDFUL /** 1110111111011111  < LOCKUP Reset */
-#define RMU_RSTCAUSE_SYSREQRST_XMASK     0x0000EF9FUL /** 1110111110011111  < System Request Reset */
+#define RMU_RSTCAUSE_LOCKUPRST_XMASK     0x0000001FUL /** 0000000000011111  < LOCKUP Reset */
+#define RMU_RSTCAUSE_SYSREQRST_XMASK     0x0000001FUL /** 0000000000011111  < System Request Reset */
 #define NUM_RSTCAUSES                               7
 
 /* EFM32TG, EFM32HG, EZR32HG, EFM32ZG */
@@ -126,6 +126,11 @@
 
 #else
 #error "RMU_RSTCAUSE XMASKs are not defined for this family."
+#endif
+
+/* Fix for errata EMU_E208 - Occasional Full Reset After Exiting EM4H */
+#if defined( _SILICON_LABS_32B_PLATFORM_2_GEN_1 )
+#define ERRATA_FIX_EMU_E208_EN
 #endif
 
 /*******************************************************************************
@@ -199,7 +204,6 @@ static const RMU_ResetCauseMasks_Typedef  resetCauseMasks[NUM_RSTCAUSES] =
    the RMU_ResetCauseGet function. */
 extern uint32_t rstCause;
 #endif
-
 
 /** @endcond */
 
@@ -286,9 +290,8 @@ void RMU_ResetCauseClear(void)
  ******************************************************************************/
 uint32_t RMU_ResetCauseGet(void)
 {
-#define LB_CLW0                 (* (volatile uint32_t *)(LOCKBITS_BASE + 122))
+#define LB_CLW0 	        (* ((volatile uint32_t *)(LOCKBITS_BASE) + 122))
 #define LB_CLW0_PINRESETSOFT    (1 << 2)
-
 
 #if !defined(EMLIB_REGRESSION_TEST)
   uint32_t rstCause = RMU->RSTCAUSE;
@@ -320,6 +323,16 @@ uint32_t RMU_ResetCauseGet(void)
     }
 #endif
 
+#if defined( _EMU_EM4CTRL_MASK ) && defined( ERRATA_FIX_EMU_E208_EN )
+    /* Ignore BOD flags impacted by EMU_E208 */
+    if (*(volatile uint32_t *)(EMU_BASE + 0x88) & (0x1 << 8))
+    {
+      zeroXMask &= ~(RMU_RSTCAUSE_DECBOD
+                     | RMU_RSTCAUSE_DVDDBOD
+                     | RMU_RSTCAUSE_AVDDBOD);
+    }
+#endif
+
     /* Check reset cause requirements. Note that a bit is "don't care" if 0 in
        both resetCauseMask and resetCauseZeroXMask. */
     if ((rstCause & resetCauseMasks[i].resetCauseMask)
@@ -329,6 +342,15 @@ uint32_t RMU_ResetCauseGet(void)
       validRstCause |= resetCauseMasks[i].resetCauseMask;
     }
   }
+#if defined( _EMU_EM4CTRL_MASK ) && defined( ERRATA_FIX_EMU_E208_EN )
+  /* Clear BOD flags impacted by EMU_E208 */
+  if (validRstCause & RMU_RSTCAUSE_EM4RST)
+  {
+    validRstCause &= ~(RMU_RSTCAUSE_DECBOD
+                      | RMU_RSTCAUSE_DVDDBOD
+                      | RMU_RSTCAUSE_AVDDBOD);
+  }
+#endif
   return validRstCause;
 }
 

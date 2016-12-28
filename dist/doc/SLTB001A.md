@@ -17,9 +17,10 @@ The starter kit is equipped with an Advanced Energy Monitor. This allows you to 
 | RAM             | 31KB                   |
 | Flash           | 256KB                 |
 | EEPROM          | no                                       |
-| Frequency       | up to 38 MHz            |
-| FPU             | yes                                      |
-| DMA             | 12 channel                               |
+| Frequency       | up to 38.4 MHz            |
+| FPU             | yes             |
+| MPU             | yes             |
+| DMA             | 12 channels                              |
 | Timers          | 2 x 16-bit + 1x 16-bit (low power)       |
 | ADCs            | 12-bit ADC                               |
 | UARTs           | 3x UART, 2x USART, 1x LEUART             |
@@ -53,13 +54,25 @@ This is the pinout of the Expansion Pins on the front side of the board. PIN 1 i
 ### Peripheral mapping
 | Peripheral | Number  | Hardware        | Pins                            | Comments                                                  |
 |------------|---------|-----------------|---------------------------------|-----------------------------------------------------------|
-
+| ADC        | 0       | ADC0            | CHAN0: internal temperature     | Ports are fixed                                           |
+| Crypto     | &mdash; | &mdash;         |                                 | AES128/AES256, SHA1, SHA256                               |
+| I2C        | 0       | I2C0            | SDA: PC10, CLK: PC11            | `I2C_SPEED_LOW` and `I2C_SPEED_HIGH` clock speed deviate  |
+| RTT        | &mdash; | RTCC            |                                 | 1 Hz interval. Either RTT or RTC (see below)              |
+| RTC        | &mdash; | RTCC            |                                 | 1 Hz interval. Either RTC or RTT (see below)              |
+| SPI        | 0       | USART1          | MOSI: PC6, MISO: PC7, CLK: PC8  |                                                           |
+| Timer      | 0       | TIMER0 + TIMER1 |                                 | TIMER0 is used as prescaler (must be adjecent)            |
+| UART       | 0       | USART0          | RX: PA1, TX: PA0                | Default STDIO output                                      |
+|            | 1       | USART1          | RX: PC6, TX: PC7                |                                                           |
+|            | 2       | LEUART0         | RX: PD11, TX: PD10              | Baud rate limited (see below)                             |
 
 
 ### User interface
 | Peripheral | Mapped to | Hardware | Pin  | Comments   |
 |------------|-----------|----------|------|------------|
-
+| Button     |           | PB0      | PD14 |            |
+|            |           | PB1      | PD15 |            |
+| LED        | LED_RED   | LED0     | PD11 | Red LED    |
+|            | LED_GREEN | LED1     | PD12 | Green LED  |
 
 ## Implementation Status
 | Device                        | ID                             | Supported | Comments                                                       |
@@ -94,7 +107,7 @@ There are several clock sources that are available for the different peripherals
 | Source  | Internal | Speed                     | Comments                           |
 |---------|----------|---------------------------|------------------------------------|
 | HFRCO   | Yes      | 14 MHz  | Enabled during startup, changeable |
-| HFXO    | No       | 38 MHz   |                                    |
+| HFXO    | No       | 38.4 MHz   |                                    |
 | LFRCO   | Yes      | 32.768 kHz  |                                    |
 | LFXO    | No       | 32.768 kHz   |                                    |
 | ULFRCO  | No       | 1.000 kHz | Not very reliable as a time source |
@@ -129,8 +142,6 @@ RIOT-OS has support for *Real-Time Tickers* and *Real-Time Clocks*.
 However, this board MCU family has support for a 32-bit *Real-Time Clock and Calendar*, which can be configured in ticker mode **or** calendar mode. Therefore, only one of both peripherals can be supported.
 
 Configured at 1 Hz interval, the RTCC will overflow each 136 years.
-
-Use the ticker mode if your application keeps track of seconds only (e.g. unix timestamp). By default the counter is enabled. You can switch by passing `RTT_AS_RTC=1` to your compiler.
 
 ### Hardware crypto
 The Gemstone MCUs are equipped with a hardware accelerated crypto peripheral that can speed up AES128, AES256, SHA1, SHA256 and several other cryptographic computations.

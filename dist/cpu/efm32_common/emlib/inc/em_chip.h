@@ -1,7 +1,7 @@
 /***************************************************************************//**
  * @file em_chip.h
  * @brief Chip Initialization API
- * @version 4.4.0
+ * @version 5.0.0
  *******************************************************************************
  * @section License
  * <b>Copyright 2016 Silicon Laboratories, Inc. http://www.silabs.com</b>
@@ -190,12 +190,7 @@ __STATIC_INLINE void CHIP_Init(void)
   }
 #endif
 
-#if defined(_EFM32_PEARL_FAMILY)     \
-    || defined(_EFM32_JADE_FAMILY)   \
-    || defined(_EFR32_BLUE_FAMILY)   \
-    || defined(_EFR32_MIGHTY_FAMILY) \
-    || defined(_EFR32_FLEX_FAMILY)   \
-    || defined(_EFR32_ZAPPY_FAMILY)
+#if defined(_SILICON_LABS_32B_PLATFORM_2_GEN_1)
 
   /****************************
   * Fixes for errata GPIO_E201 (slewrate) and
@@ -211,6 +206,8 @@ __STATIC_INLINE void CHIP_Init(void)
                                 | _GPIO_P_CTRL_SLEWRATEALT_MASK);
 
   prodRev = SYSTEM_GetProdRev();
+  SYSTEM_ChipRevision_TypeDef chipRev;
+  SYSTEM_ChipRevisionGet(&chipRev);
 
   /* This errata is fixed in hardware from PRODREV 0x8F. */
   if (prodRev < 0x8F)
@@ -239,6 +236,18 @@ __STATIC_INLINE void CHIP_Init(void)
           (CMU->HFXOSTARTUPCTRL & ~_CMU_HFXOSTARTUPCTRL_IBTRIMXOCORE_MASK)
           | (0x20 << _CMU_HFXOSTARTUPCTRL_IBTRIMXOCORE_SHIFT);
   }
+
+  if (chipRev.major == 0x01)
+  {
+    /* Fix for errata EMU_E210 - Potential Power-Down When Entering EM2 */
+    *(volatile uint32_t *)(EMU_BASE + 0x164) |= 0x4;
+  }
+#endif
+
+#if defined(_SILICON_LABS_32B_PLATFORM_2_GEN_2)
+
+  /* No fixes required. */
+
 #endif
 }
 

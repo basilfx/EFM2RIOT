@@ -53,8 +53,32 @@ extern "C" {
 
 /**
  * @brief   ADC configuration
+ * @{
  */
-#define ADC_NUMOF           (0U)
+static const adc_conf_t adc_config[] = {
+    {
+        ADC0,                               /* device */
+        cmuClock_ADC0,                      /* CMU register */
+    }
+};
+
+static const adc_chan_conf_t adc_channel_config[] = {
+    {
+        0,                                  /* device index */
+        adcPosSelTEMP,                      /* channel to use */
+        adcRef1V25,                         /* channel reference */
+        adcAcqTime8                         /* acquisition time */
+    },
+    {
+        0,                                  /* device index */
+        adcPosSelAVDD,                      /* channel to use */
+        adcRef5V,                           /* channel reference */
+        adcAcqTime8                         /* acquisition time */
+    }
+};
+
+#define ADC_NUMOF           (2U)
+/** @} */
 
 /**
  * @brief   DAC configuration
@@ -97,20 +121,15 @@ static const pwm_conf_t pwm_config[] = {
 /** @} */
 
 /**
- * @brief   RTT and RTC configuration
+ * @brief   RTC configuration
+ */
+#define RTC_NUMOF           (1U)
+
+/**
+ * @brief   RTT configuration
  * @{
  */
-#ifndef RTT_AS_RTC
-#define RTT_AS_RTC          (0U)
-#endif
-
-#if RTT_AS_RTC
-#define RTC_NUMOF           (1U)
-#define RTT_NUMOF           (0U)
-#else
-#define RTC_NUMOF           (0U)
 #define RTT_NUMOF           (1U)
-#endif
 
 #define RTT_MAX_VALUE       (0xFFFFFFFF)
 #define RTT_FREQUENCY       (1U)

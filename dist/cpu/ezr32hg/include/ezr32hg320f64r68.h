@@ -2,7 +2,7 @@
  * @file ezr32hg320f64r68.h
  * @brief CMSIS Cortex-M Peripheral Access Layer Header File
  *        for EZR32HG320F64R68
- * @version 4.4.0
+ * @version 5.0.0
  ******************************************************************************
  * @section License
  * <b>Copyright 2016 Silicon Laboratories, Inc. http://www.silabs.com</b>
@@ -52,33 +52,33 @@ extern "C" {
 typedef enum IRQn
 {
 /******  Cortex-M0+ Processor Exceptions Numbers *****************************************/
-  NonMaskableInt_IRQn = -14,                /*!< 2 Cortex-M0+ Non Maskable Interrupt     */
-  HardFault_IRQn      = -13,                /*!< 3 Cortex-M0+ Hard Fault Interrupt       */
-  SVCall_IRQn         = -5,                 /*!< 11 Cortex-M0+ SV Call Interrupt         */
-  PendSV_IRQn         = -2,                 /*!< 14 Cortex-M0+ Pend SV Interrupt         */
-  SysTick_IRQn        = -1,                 /*!< 15 Cortex-M0+ System Tick Interrupt     */
+  NonMaskableInt_IRQn = -14,                /*!< -14 Cortex-M0+ Non Maskable Interrupt   */
+  HardFault_IRQn      = -13,                /*!< -13 Cortex-M0+ Hard Fault Interrupt     */
+  SVCall_IRQn         = -5,                 /*!< -5  Cortex-M0+ SV Call Interrupt        */
+  PendSV_IRQn         = -2,                 /*!< -2  Cortex-M0+ Pend SV Interrupt        */
+  SysTick_IRQn        = -1,                 /*!< -1  Cortex-M0+ System Tick Interrupt    */
 
-/******  EZR32HG Peripheral Interrupt Numbers *********************************************/
-  DMA_IRQn            = 0,  /*!< 16+0 EZR32 DMA Interrupt */
-  GPIO_EVEN_IRQn      = 1,  /*!< 16+1 EZR32 GPIO_EVEN Interrupt */
-  TIMER0_IRQn         = 2,  /*!< 16+2 EZR32 TIMER0 Interrupt */
-  ADC0_IRQn           = 4,  /*!< 16+4 EZR32 ADC0 Interrupt */
-  I2C0_IRQn           = 5,  /*!< 16+5 EZR32 I2C0 Interrupt */
-  GPIO_ODD_IRQn       = 6,  /*!< 16+6 EZR32 GPIO_ODD Interrupt */
-  TIMER1_IRQn         = 7,  /*!< 16+7 EZR32 TIMER1 Interrupt */
-  USARTRF1_RX_IRQn    = 8,  /*!< 16+8 EZR32 USARTRF1_RX Interrupt */
-  USARTRF1_TX_IRQn    = 9,  /*!< 16+9 EZR32 USARTRF1_TX Interrupt */
-  LEUART0_IRQn        = 10, /*!< 16+10 EZR32 LEUART0 Interrupt */
-  PCNT0_IRQn          = 11, /*!< 16+11 EZR32 PCNT0 Interrupt */
-  RTC_IRQn            = 12, /*!< 16+12 EZR32 RTC Interrupt */
-  CMU_IRQn            = 13, /*!< 16+13 EZR32 CMU Interrupt */
-  VCMP_IRQn           = 14, /*!< 16+14 EZR32 VCMP Interrupt */
-  MSC_IRQn            = 15, /*!< 16+15 EZR32 MSC Interrupt */
-  AES_IRQn            = 16, /*!< 16+16 EZR32 AES Interrupt */
-  USART0_RX_IRQn      = 17, /*!< 16+17 EZR32 USART0_RX Interrupt */
-  USART0_TX_IRQn      = 18, /*!< 16+18 EZR32 USART0_TX Interrupt */
-  USB_IRQn            = 19, /*!< 16+19 EZR32 USB Interrupt */
-  TIMER2_IRQn         = 20, /*!< 16+20 EZR32 TIMER2 Interrupt */
+/******  EZR32HG Peripheral Interrupt Numbers ********************************************/
+  DMA_IRQn            = 0,  /*!< 0 EZR32 DMA Interrupt */
+  GPIO_EVEN_IRQn      = 1,  /*!< 1 EZR32 GPIO_EVEN Interrupt */
+  TIMER0_IRQn         = 2,  /*!< 2 EZR32 TIMER0 Interrupt */
+  ADC0_IRQn           = 4,  /*!< 4 EZR32 ADC0 Interrupt */
+  I2C0_IRQn           = 5,  /*!< 5 EZR32 I2C0 Interrupt */
+  GPIO_ODD_IRQn       = 6,  /*!< 6 EZR32 GPIO_ODD Interrupt */
+  TIMER1_IRQn         = 7,  /*!< 7 EZR32 TIMER1 Interrupt */
+  USARTRF1_RX_IRQn    = 8,  /*!< 8 EZR32 USARTRF1_RX Interrupt */
+  USARTRF1_TX_IRQn    = 9,  /*!< 9 EZR32 USARTRF1_TX Interrupt */
+  LEUART0_IRQn        = 10, /*!< 10 EZR32 LEUART0 Interrupt */
+  PCNT0_IRQn          = 11, /*!< 11 EZR32 PCNT0 Interrupt */
+  RTC_IRQn            = 12, /*!< 12 EZR32 RTC Interrupt */
+  CMU_IRQn            = 13, /*!< 13 EZR32 CMU Interrupt */
+  VCMP_IRQn           = 14, /*!< 14 EZR32 VCMP Interrupt */
+  MSC_IRQn            = 15, /*!< 15 EZR32 MSC Interrupt */
+  AES_IRQn            = 16, /*!< 16 EZR32 AES Interrupt */
+  USART0_RX_IRQn      = 17, /*!< 17 EZR32 USART0_RX Interrupt */
+  USART0_TX_IRQn      = 18, /*!< 18 EZR32 USART0_TX Interrupt */
+  USB_IRQn            = 19, /*!< 19 EZR32 USB Interrupt */
+  TIMER2_IRQn         = 20, /*!< 20 EZR32 TIMER2 Interrupt */
 } IRQn_Type;
 
 /**************************************************************************//**
@@ -103,6 +103,8 @@ typedef enum IRQn
 #define _EFM_DEVICE                       /**< Silicon Labs EFM-type microcontroller */
 #define _EZR32_HAPPY_FAMILY             1 /**< Happy Gecko EZR32HG MCU Family */
 #define _EZR_DEVICE                       /**< Silicon Labs EZR-type microcontroller */
+#define _SILICON_LABS_32B_SERIES_0        /**< Silicon Labs series number */
+#define _SILICON_LABS_32B_SERIES        0 /**< Silicon Labs series number */
 #define _SILICON_LABS_32B_PLATFORM_1      /**< Silicon Labs platform name */
 #define _SILICON_LABS_32B_PLATFORM      1 /**< Silicon Labs platform name */
 
@@ -153,6 +155,7 @@ typedef enum IRQn
 #define __CM0PLUS_REV        0x001          /**< Cortex-M0+ Core revision r0p1 */
 #define PRS_CHAN_COUNT       6              /**< Number of PRS channels */
 #define DMA_CHAN_COUNT       6              /**< Number of DMA channels */
+#define EXT_IRQ_COUNT        20             /**< Number of External (NVIC) interrupts */
 
 /** AF channels connect the different on-chip peripherals with the af-mux */
 #define AFCHAN_MAX           42

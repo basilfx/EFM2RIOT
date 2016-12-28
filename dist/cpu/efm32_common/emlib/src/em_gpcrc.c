@@ -1,7 +1,7 @@
 /***************************************************************************//**
  * @file
  * @brief General Purpose Cyclic Redundancy Check (GPCRC) API.
- * @version 4.4.0
+ * @version 5.0.0
  *******************************************************************************
  * @section License
  * <b>Copyright 2016 Silicon Laboratories, Inc. http://www.silabs.com</b>
@@ -42,59 +42,6 @@
 
 /***************************************************************************//**
  * @addtogroup GPCRC
- * @brief General Purpose Cyclic Redundancy Check (GPCRC) API.
- * @details
- * The GPCRC API functions provide full support for the GPCRC peripheral.
- *
- * The GPCRC module is a peripheral that implements a Cyclic Redundancy Check
- * (CRC) function. It supports a fixed 32-bit polynomial and a user
- * configurable 16-bit polynomial. The fixed 32-bit polynomial is the commonly
- * used IEEE 802.3 polynomial 0x04C11DB7.
- *
- * When using a 16-bit polynomial it's up to the user to choose a polynomial
- * that fits the application. Commonly used 16-bit polynomial are 0x1021
- * (CCITT-16), 0x3D65 (IEC16-MBus), and 0x8005 (ZigBee, 802.15.4, and USB).
- * See this link for other polynomials:
- * https://en.wikipedia.org/wiki/Cyclic_redundancy_check
- *
- * Before a CRC calculation can begin it is important to call the
- * @ref GPCRC_Start function. This function will reset the CRC calculation
- * by copying the configured initialization value over to the CRC data register.
- *
- * There are two ways of sending input data to the GPCRC. You can either write
- * the input data into the input data register using the input functions
- * @ref GPCRC_InputWord, @ref GPCRC_InputHalf and @ref GPCRC_InputByte, or the
- * user can setup the DMA to transfer data to the GPCRC input data registers.
- *
- * <b> Examples of GPCRC usage: </b>
-
-  A CRC-32 Calculation:
-  @verbatim
-  uint32_t checksum;
-
-  // Initialize GPCRC, 32-bit fixed polynomial is default
-  GPCRC_Init_TypeDef init = GPCRC_INIT_DEFAULT;
-  init.initValue = 0xFFFFFFFF; // Standard CRC-32 init value
-  GPCRC_Init(GPCRC, &init);
-
-  GPCRC_Start(GPCRC);
-  GPCRC_InputU8(GPCRC, 0xC5);
-  // CRC-32 specify that end result should be inverted
-  checksum = ~GPCRC_DataRead(GPCRC);
-  @endverbatim
-
-  @n A CRC-16 Calculation
-  @verbatim
-  uint16_t checksum;
-
-  GPCRC_Init_TypeDef init = GPCRC_INIT_DEFAULT;
-  init.crcPoly = 0x8005;
-  GPCRC_Init(GPCRC, &init);
-
-  GPCRC_Start(GPCRC);
-  GPCRC_InputU8(GPCRC, 0xAB);
-  checksum = (uint16_t) GPCRC_DataRead(GPCRC);
-  @endverbatim
  * @{
  ******************************************************************************/
 

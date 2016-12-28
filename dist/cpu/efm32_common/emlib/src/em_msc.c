@@ -1,7 +1,7 @@
 /***************************************************************************//**
  * @file em_msc.c
  * @brief Flash controller (MSC) Peripheral API
- * @version 4.4.0
+ * @version 5.0.0
  *******************************************************************************
  * @section License
  * <b>Copyright 2016 Silicon Laboratories, Inc. http://www.silabs.com</b>
@@ -34,7 +34,6 @@
 #if defined( MSC_COUNT ) && ( MSC_COUNT > 0 )
 
 #include "em_system.h"
-#include "em_int.h"
 #if defined( _MSC_TIMEBASE_MASK )
 #include "em_cmu.h"
 #endif
@@ -59,12 +58,7 @@
 #endif
 
 /* Fix for errata FLASH_E201 - Potential program failure after Power On */
-#if defined( _EFM32_JADE_FAMILY )        \
-    || defined( _EFM32_PEARL_FAMILY )    \
-    || defined( _EFR32_BLUE_FAMILY )     \
-    || defined( _EFR32_FLEX_FAMILY )     \
-    || defined( _EFR32_MIGHTY_FAMILY )   \
-    || defined( _EFR32_ZAPPY_FAMILY )
+#if defined( _SILICON_LABS_32B_PLATFORM_2_GEN_1 )
 #define ERRATA_FIX_FLASH_E201_EN
 #endif
 
@@ -130,73 +124,6 @@ MSC_RAMFUNC_DEFINITION_END
 
 #endif /* !EM_MSC_RUN_FROM_FLASH */
 
-/***************************************************************************//**
- * @brief
- *   Local ramfunc disable interrupts.
- *
- * @return
- *   The resulting interrupt disable nesting level.
- *
- ******************************************************************************/
-MSC_RAMFUNC_DECLARATOR uint32_t mscRfIntDisable(void);
-
-MSC_RAMFUNC_DEFINITION_BEGIN
-uint32_t mscRfIntDisable(void)
-{
-#if defined(EM_MSC_RUN_FROM_FLASH)
-  return INT_Disable();
-#else
-  __disable_irq();
-  if (INT_LockCnt < UINT32_MAX)
-  {
-    INT_LockCnt++;
-  }
-
-  return INT_LockCnt;
-#endif
-}
-MSC_RAMFUNC_DEFINITION_END
-
-/***************************************************************************//**
- * @brief
- *   Local ramfunc enable interrupts.
- *
- * @return
- *   The resulting interrupt disable nesting level.
- *
- * @details
- *   Decrement interrupt lock level counter and enable interrupts if counter
- *   reached zero.
- *
- ******************************************************************************/
-MSC_RAMFUNC_DECLARATOR uint32_t mscRfIntEnable(void);
-
-MSC_RAMFUNC_DEFINITION_BEGIN
-uint32_t mscRfIntEnable(void)
-{
-#if defined(EM_MSC_RUN_FROM_FLASH)
-  return INT_Enable();
-#else
-  uint32_t retVal;
-
-  if (INT_LockCnt > 0)
-  {
-    INT_LockCnt--;
-    retVal = INT_LockCnt;
-    if (retVal == 0)
-    {
-      __enable_irq();
-    }
-    return retVal;
-  }
-  else
-  {
-    return 0;
-  }
-#endif
-}
-MSC_RAMFUNC_DEFINITION_END
-
 /** @endcond */
 
 /***************************************************************************//**
@@ -206,11 +133,6 @@ MSC_RAMFUNC_DEFINITION_END
 
 /***************************************************************************//**
  * @addtogroup MSC
- * @brief Flash controller (MSC) Peripheral API
- * @details
- *  This module contains functions to control the MSC peripheral of Silicon
- *  Labs 32-bit MCUs and SoCs. The user can perform Flash memory read and write
- *  operations through the Memory System Controller.
  * @{
  ******************************************************************************/
 
@@ -222,8 +144,8 @@ MSC_RAMFUNC_DEFINITION_END
  * @brief
  *   Enables the flash controller for writing.
  * @note
- *   IMPORTANT: This function must be called before flash operations when
- *   AUXHFRCO clock has been changed from default 14MHz band.
+ *   This function must be called before flash operations when
+ *   AUXHFRCO clock has been changed from default band.
  * @note
  *   This function calls SystemCoreClockGet in order to set the global variable
  *   SystemCoreClock which is used in subseqent calls of MSC_WriteWord to make
@@ -295,7 +217,6 @@ void MSC_Deinit(void)
 }
 
 
-#if !defined( _EFM32_GECKO_FAMILY )
 /***************************************************************************//**
  * @brief
  *   Set MSC code execution configuration
@@ -306,6 +227,30 @@ void MSC_Deinit(void)
 void MSC_ExecConfigSet(MSC_ExecConfig_TypeDef *execConfig)
 {
   uint32_t mscReadCtrl;
+
+#if defined( MSC_READCTRL_MODE_WS0SCBTP )
+  mscReadCtrl = MSC->READCTRL & _MSC_READCTRL_MODE_MASK;
+  if ((mscReadCtrl == MSC_READCTRL_MODE_WS0) && (execConfig->scbtEn))
+  {
+    mscReadCtrl |= MSC_READCTRL_MODE_WS0SCBTP;
+  }
+  else if ((mscReadCtrl == MSC_READCTRL_MODE_WS1) && (execConfig->scbtEn))
+  {
+    mscReadCtrl |= MSC_READCTRL_MODE_WS1SCBTP;
+  }
+  else if ((mscReadCtrl == MSC_READCTRL_MODE_WS0SCBTP) && (!execConfig->scbtEn))
+  {
+    mscReadCtrl |= MSC_READCTRL_MODE_WS0;
+  }
+  else if ((mscReadCtrl == MSC_READCTRL_MODE_WS1SCBTP) && (!execConfig->scbtEn))
+  {
+    mscReadCtrl |= MSC_READCTRL_MODE_WS1;
+  }
+  else
+  {
+    /* No change needed */
+  }
+#endif
 
   mscReadCtrl = MSC->READCTRL & ~(0
 #if defined( MSC_READCTRL_SCBTP )
@@ -346,10 +291,13 @@ void MSC_ExecConfigSet(MSC_ExecConfig_TypeDef *execConfig)
 #if defined( MSC_READCTRL_IFCDIS )
                  | (execConfig->ifcDis ? MSC_READCTRL_IFCDIS : 0)
 #endif
-                 );
+                   );
+
   MSC->READCTRL = mscReadCtrl;
 }
-#endif
+
+
+
 
 /** @cond DO_NOT_INCLUDE_WITH_DOXYGEN */
 
@@ -436,6 +384,9 @@ MSC_Status_TypeDef MSC_LoadWriteData(uint32_t* data,
   uint32_t wordIndex;
   uint32_t wordsPerDataPhase;
   MSC_Status_TypeDef retval = mscReturnOk;
+#if !defined( _EFM32_GECKO_FAMILY )
+  uint32_t irqState;
+#endif
 
 #if defined(_MSC_WRITECTRL_LPWRITE_MASK) && defined(_MSC_WRITECTRL_WDOUBLE_MASK)
   /* If LPWRITE (Low Power Write) is NOT enabled, set WDOUBLE (Write Double word) */
@@ -502,13 +453,32 @@ MSC_Status_TypeDef MSC_LoadWriteData(uint32_t* data,
       {
         MSC->WDATA = *data++;
         wordIndex++;
-        if (wordsPerDataPhase == 2)
+        if (wordsPerDataPhase == 1)
+        {
+          MSC->WRITECMD = MSC_WRITECMD_WRITEONCE;
+        }
+        else if (wordsPerDataPhase == 2)
         {
           while (!(MSC->STATUS & MSC_STATUS_WDATAREADY));
           MSC->WDATA = *data++;
           wordIndex++;
+
+          /* Trigger double write. Platform 1 and 2
+             have different trigger behavior for
+             double word write as described in the
+             reference manual for MSC_WRITECMD_WRITEONCE
+             and WRITETRIG. */
+#if defined(_SILICON_LABS_32B_PLATFORM_1)
+          MSC->WRITECMD = MSC_WRITECMD_WRITEONCE;
+#else
+          MSC->WRITECMD = MSC_WRITECMD_WRITETRIG;
+#endif
         }
-        MSC->WRITECMD = MSC_WRITECMD_WRITEONCE;
+        else
+        {
+          /* Not supported. */
+          EFM_ASSERT(false);
+        }
 
         /* Wait for the transaction to finish. */
         timeOut = MSC_PROGRAM_TIMEOUT;
@@ -539,8 +509,14 @@ MSC_Status_TypeDef MSC_LoadWriteData(uint32_t* data,
       /* Requires a system core clock at 14MHz or higher. */
       EFM_ASSERT(SystemCoreClock >= 14000000);
 
+      /*
+       * Protect from interrupts to be sure to satisfy the us timinig
+       * needs of the MSC flash programming state machine.
+       */
+      irqState = __get_PRIMASK();
+      __disable_irq();
+
       wordIndex = 0;
-      mscRfIntDisable();
       while(wordIndex < numWords)
       {
         /* Wait for the MSC to be ready for the next word. */
@@ -572,7 +548,12 @@ MSC_Status_TypeDef MSC_LoadWriteData(uint32_t* data,
         data++;
         wordIndex++;
       }
-      mscRfIntEnable();
+
+      if (irqState == 0)
+      {
+        /* Restore previous interrupt state. */
+        __enable_irq();
+      }
 
       /* Wait for the transaction to finish. */
       timeOut = MSC_PROGRAM_TIMEOUT;

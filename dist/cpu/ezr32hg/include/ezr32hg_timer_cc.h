@@ -1,7 +1,7 @@
 /**************************************************************************//**
  * @file ezr32hg_timer_cc.h
  * @brief EZR32HG_TIMER_CC register and bit field definitions
- * @version 4.4.0
+ * @version 5.0.0
  ******************************************************************************
  * @section License
  * <b>Copyright 2016 Silicon Laboratories, Inc. http://www.silabs.com</b>

@@ -2,7 +2,7 @@
  * @file efm32tg108f4.h
  * @brief CMSIS Cortex-M3 Peripheral Access Layer Header File
  *        for EFM EFM32TG108F4
- * @version 4.4.0
+ * @version 5.0.0
  ******************************************************************************
  * @section License
  * <b>Copyright 2016 Silicon Laboratories, Inc. http://www.silabs.com</b>
@@ -51,35 +51,35 @@ extern "C" {
 /** Interrupt Number Definition */
 typedef enum IRQn
 {
-/******  Cortex-M3 Processor Exceptions Numbers *******************************************/
-  NonMaskableInt_IRQn   = -14,              /*!< 2 Cortex-M3 Non Maskable Interrupt       */
-  HardFault_IRQn        = -13,              /*!< 3 Cortex-M3 Hard Fault Interrupt         */
-  MemoryManagement_IRQn = -12,              /*!< 4 Cortex-M3 Memory Management Interrupt  */
-  BusFault_IRQn         = -11,              /*!< 5 Cortex-M3 Bus Fault Interrupt          */
-  UsageFault_IRQn       = -10,              /*!< 6 Cortex-M3 Usage Fault Interrupt        */
-  SVCall_IRQn           = -5,               /*!< 11 Cortex-M3 SV Call Interrupt           */
-  DebugMonitor_IRQn     = -4,               /*!< 12 Cortex-M3 Debug Monitor Interrupt     */
-  PendSV_IRQn           = -2,               /*!< 14 Cortex-M3 Pend SV Interrupt           */
-  SysTick_IRQn          = -1,               /*!< 15 Cortex-M3 System Tick Interrupt       */
+/******  Cortex-M3 Processor Exceptions Numbers ********************************************/
+  NonMaskableInt_IRQn   = -14,              /*!< -14 Cortex-M3 Non Maskable Interrupt      */
+  HardFault_IRQn        = -13,              /*!< -13 Cortex-M3 Hard Fault Interrupt        */
+  MemoryManagement_IRQn = -12,              /*!< -12 Cortex-M3 Memory Management Interrupt */
+  BusFault_IRQn         = -11,              /*!< -11 Cortex-M3 Bus Fault Interrupt         */
+  UsageFault_IRQn       = -10,              /*!< -10 Cortex-M3 Usage Fault Interrupt       */
+  SVCall_IRQn           = -5,               /*!< -5  Cortex-M3 SV Call Interrupt           */
+  DebugMonitor_IRQn     = -4,               /*!< -4  Cortex-M3 Debug Monitor Interrupt     */
+  PendSV_IRQn           = -2,               /*!< -2  Cortex-M3 Pend SV Interrupt           */
+  SysTick_IRQn          = -1,               /*!< -1  Cortex-M3 System Tick Interrupt       */
 
-/******  EFM32G Peripheral Interrupt Numbers **********************************************/
-  DMA_IRQn              = 0,  /*!< 16+0 EFM32 DMA Interrupt */
-  GPIO_EVEN_IRQn        = 1,  /*!< 16+1 EFM32 GPIO_EVEN Interrupt */
-  TIMER0_IRQn           = 2,  /*!< 16+2 EFM32 TIMER0 Interrupt */
-  ACMP0_IRQn            = 5,  /*!< 16+5 EFM32 ACMP0 Interrupt */
-  I2C0_IRQn             = 8,  /*!< 16+8 EFM32 I2C0 Interrupt */
-  GPIO_ODD_IRQn         = 9,  /*!< 16+9 EFM32 GPIO_ODD Interrupt */
-  TIMER1_IRQn           = 10, /*!< 16+10 EFM32 TIMER1 Interrupt */
-  USART1_RX_IRQn        = 11, /*!< 16+11 EFM32 USART1_RX Interrupt */
-  USART1_TX_IRQn        = 12, /*!< 16+12 EFM32 USART1_TX Interrupt */
-  LESENSE_IRQn          = 13, /*!< 16+13 EFM32 LESENSE Interrupt */
-  LEUART0_IRQn          = 14, /*!< 16+14 EFM32 LEUART0 Interrupt */
-  LETIMER0_IRQn         = 15, /*!< 16+15 EFM32 LETIMER0 Interrupt */
-  PCNT0_IRQn            = 16, /*!< 16+16 EFM32 PCNT0 Interrupt */
-  RTC_IRQn              = 17, /*!< 16+17 EFM32 RTC Interrupt */
-  CMU_IRQn              = 18, /*!< 16+18 EFM32 CMU Interrupt */
-  VCMP_IRQn             = 19, /*!< 16+19 EFM32 VCMP Interrupt */
-  MSC_IRQn              = 21, /*!< 16+21 EFM32 MSC Interrupt */
+/******  EFM32G Peripheral Interrupt Numbers ***********************************************/
+  DMA_IRQn              = 0,  /*!< 0 EFM32 DMA Interrupt */
+  GPIO_EVEN_IRQn        = 1,  /*!< 1 EFM32 GPIO_EVEN Interrupt */
+  TIMER0_IRQn           = 2,  /*!< 2 EFM32 TIMER0 Interrupt */
+  ACMP0_IRQn            = 5,  /*!< 5 EFM32 ACMP0 Interrupt */
+  I2C0_IRQn             = 8,  /*!< 8 EFM32 I2C0 Interrupt */
+  GPIO_ODD_IRQn         = 9,  /*!< 9 EFM32 GPIO_ODD Interrupt */
+  TIMER1_IRQn           = 10, /*!< 10 EFM32 TIMER1 Interrupt */
+  USART1_RX_IRQn        = 11, /*!< 11 EFM32 USART1_RX Interrupt */
+  USART1_TX_IRQn        = 12, /*!< 12 EFM32 USART1_TX Interrupt */
+  LESENSE_IRQn          = 13, /*!< 13 EFM32 LESENSE Interrupt */
+  LEUART0_IRQn          = 14, /*!< 14 EFM32 LEUART0 Interrupt */
+  LETIMER0_IRQn         = 15, /*!< 15 EFM32 LETIMER0 Interrupt */
+  PCNT0_IRQn            = 16, /*!< 16 EFM32 PCNT0 Interrupt */
+  RTC_IRQn              = 17, /*!< 17 EFM32 RTC Interrupt */
+  CMU_IRQn              = 18, /*!< 18 EFM32 CMU Interrupt */
+  VCMP_IRQn             = 19, /*!< 19 EFM32 VCMP Interrupt */
+  MSC_IRQn              = 21, /*!< 21 EFM32 MSC Interrupt */
 } IRQn_Type;
 
 /**************************************************************************//**
@@ -102,6 +102,8 @@ typedef enum IRQn
 /** Part family */
 #define _EFM32_TINY_FAMILY              1 /**< Tiny Gecko EFM32TG MCU Family */
 #define _EFM_DEVICE                       /**< Silicon Labs EFM-type microcontroller */
+#define _SILICON_LABS_32B_SERIES_0        /**< Silicon Labs series number */
+#define _SILICON_LABS_32B_SERIES        0 /**< Silicon Labs series number */
 #define _SILICON_LABS_32B_PLATFORM_1      /**< Silicon Labs platform name */
 #define _SILICON_LABS_32B_PLATFORM      1 /**< Silicon Labs platform name */
 
@@ -148,6 +150,7 @@ typedef enum IRQn
 #define __CM3_REV            0x201          /**< Cortex-M3 Core revision r2p1 */
 #define PRS_CHAN_COUNT       8              /**< Number of PRS channels */
 #define DMA_CHAN_COUNT       8              /**< Number of DMA channels */
+#define EXT_IRQ_COUNT        23             /**< Number of External (NVIC) interrupts */
 
 /** AF channels connect the different on-chip peripherals with the af-mux */
 #define AFCHAN_MAX           63

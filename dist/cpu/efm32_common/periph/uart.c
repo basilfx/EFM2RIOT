@@ -33,9 +33,6 @@
 #endif
 #include "em_common_utils.h"
 
-/* guard file in case no UART device is defined */
-#if UART_NUMOF
-
 /**
  * @brief   Allocate memory to store the callback functions
  */
@@ -165,7 +162,7 @@ void uart_poweroff(uart_t dev)
     CMU_ClockEnable(uart_config[dev].cmu, false);
 }
 
-static inline void rx_irq(uart_t dev)
+static void rx_irq(uart_t dev)
 {
 #if LOW_POWER_ENABLED && defined(LEUART_COUNT) && LEUART_COUNT > 0
     if (_is_usart(dev)) {
@@ -219,5 +216,3 @@ void UART_4_ISR_RX(void)
     rx_irq(4);
 }
 #endif
-
-#endif /* UART_NUMOF */

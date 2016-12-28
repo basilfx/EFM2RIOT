@@ -34,11 +34,12 @@ extern "C" {
 
 /**
  * @brief   Xtimer configuration.
- * @note    The timer runs at 250 KHz to compensate for rounding errors.
+ * @note    The timer runs at 250 KHz to increase accuracy.
  * @{
  */
-#define XTIMER_WIDTH        (16)
+#define XTIMER_HZ           (250000UL)
 #define XTIMER_SHIFT        (2)
+#define XTIMER_WIDTH        (16)
 /** @} */
 
 /**
@@ -53,8 +54,8 @@ extern "C" {
  * @brief    LED pin definitions.
  * @{
  */
-#define LED0_PIN            GPIO_PIN(PD, 11)
-#define LED1_PIN            GPIO_PIN(PD, 12)
+#define LED0_PIN            GPIO_PIN(PD, 12)
+#define LED1_PIN            GPIO_PIN(PD, 11)
 /** @} */
 
 /**
@@ -71,9 +72,11 @@ extern "C" {
 
 /**
  * @brief   Pin for enabling environmental sensors (BMP280, Si1133, Si7021, Si7210A).
+ * @{
  */
 #define ENV_SENSE_PIC_ADDR  (0x01)
 #define ENV_SENSE_PIC_BIT   (0)
+/** @} */
 
 /**
  * @brief   Connection to the on-board pressure sensor (BMP280).
@@ -112,13 +115,15 @@ extern "C" {
 
 /**
  * @brief   Pin for communication with the Power & Interrupt Controller.
+ * @{
  */
 #define PIC_INT_WAKE_PIN    GPIO_PIN(PD, 10)
 #define PIC_I2C             (0)
 #define PIC_I2C_ADDR        (0x90)
+/** @} */
 
 /**
- * @brief   Pins for the RGB LEDs.
+ * @brief   Pins for the four RGB LEDs.
  * @{
  */
 #ifndef RGB_LED1_ENABLED

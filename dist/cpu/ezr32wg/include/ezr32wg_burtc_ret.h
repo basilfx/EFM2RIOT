@@ -1,7 +1,7 @@
 /**************************************************************************//**
  * @file ezr32wg_burtc_ret.h
  * @brief EZR32WG_BURTC_RET register and bit field definitions
- * @version 4.4.0
+ * @version 5.0.0
  ******************************************************************************
  * @section License
  * <b>Copyright 2016 Silicon Laboratories, Inc. http://www.silabs.com</b>

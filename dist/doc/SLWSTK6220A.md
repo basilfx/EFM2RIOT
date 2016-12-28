@@ -18,8 +18,9 @@ The starter kit is equipped with an Advanced Energy Monitor. This allows you to 
 | Flash           | 256KB                 |
 | EEPROM          | no                                       |
 | Frequency       | up to 48 MHz            |
-| FPU             | yes                                      |
-| DMA             | 12 channel                               |
+| FPU             | yes             |
+| MPU             | yes             |
+| DMA             | 12 channels                              |
 | Timers          | 3 x 16-bit + 1x 16-bit (low power)       |
 | ADCs, DACs      | 12-bit ADC, 12-bit DAC                   |
 | UARTs           | 2x UART, 3x USART, 2x LEUART             |
@@ -149,8 +150,6 @@ RIOT-OS has support for *Real-Time Tickers* and *Real-Time Clocks*.
 However, this board MCU family has support for a 24-bit *Real-Time Counter* only, which is a ticker only. A compatibility layer for ticker-to-calendar is available, but this includes extra code size to convert from timestamps to time structures and visa versa.
 
 Configured at 1 Hz interval, the RTC will overflow each 194 days. When using the ticker-to-calendar mode, this interval is extended artificially.
-
-Use the ticker mode if your application keeps track of seconds only (e.g. unix timestamp). By default the counter is enabled. You can switch by passing `RTT_AS_RTC=1` to your compiler.
 
 ### Hardware crypto
 The MCU has support for hardware accelerated AES128 and AES256.

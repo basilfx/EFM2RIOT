@@ -76,6 +76,7 @@ WEAK_DEFAULT void isr_msc(void);
 WEAK_DEFAULT void isr_aes(void);
 WEAK_DEFAULT void isr_ebi(void);
 WEAK_DEFAULT void isr_emu(void);
+WEAK_DEFAULT void isr_fpueh(void);
 
 /* interrupt vector table */
 ISR_VECTORS const void *interrupt_vector[] = {
@@ -142,4 +143,5 @@ ISR_VECTORS const void *interrupt_vector[] = {
     (void*) isr_aes,                /* 36 - AES */
     (void*) isr_ebi,                /* 37 - EBI */
     (void*) isr_emu,                /* 38 - EMU */
+    (void*) isr_fpueh,              /* 39 - FPUEH */
 };

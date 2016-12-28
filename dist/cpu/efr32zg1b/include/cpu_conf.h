@@ -43,5 +43,5 @@ extern "C" {
 }
 #endif
 
-#endif /* __CPU_CONF_H */
+#endif /* CPU_CONF_H */
 /** @} */

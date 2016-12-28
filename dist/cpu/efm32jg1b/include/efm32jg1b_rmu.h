@@ -1,7 +1,7 @@
 /**************************************************************************//**
  * @file efm32jg1b_rmu.h
  * @brief EFM32JG1B_RMU register and bit field definitions
- * @version 4.4.0
+ * @version 5.0.0
  ******************************************************************************
  * @section License
  * <b>Copyright 2016 Silicon Laboratories, Inc. http://www.silabs.com</b>

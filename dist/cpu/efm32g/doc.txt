@@ -1,0 +1,10 @@
+/**
+ * @defgroup        cpu_efm32g Silicon Labs EFM32G
+ * @ingroup         cpu
+ * @brief           Implementation of Silicon Labs's EFM32G MCU
+ */
+
+/**
+ * @defgroup        cpu_efm32g_definitions Silicon Labs EFM32G definitions
+ * @ingroup         cpu_efm32g
+ */

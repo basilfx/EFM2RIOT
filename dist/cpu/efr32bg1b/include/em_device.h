@@ -12,7 +12,7 @@
  *
  *
  * @endverbatim
- * @version 4.4.0
+ * @version 5.0.0
  ******************************************************************************
  * @section License
  * <b>Copyright 2016 Silicon Laboratories, Inc. http://www.silabs.com</b>
@@ -66,6 +66,9 @@ extern "C" {
 
 #elif defined(EFR32BG1B132F256GM48)
 #include "efr32bg1b132f256gm48.h"
+
+#elif defined(EFR32BG1B132F256GM56)
+#include "efr32bg1b132f256gm56.h"
 
 #elif defined(EFR32BG1B132F256IM32)
 #include "efr32bg1b132f256im32.h"

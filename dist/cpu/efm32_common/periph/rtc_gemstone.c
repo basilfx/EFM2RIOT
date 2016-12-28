@@ -32,8 +32,6 @@
 #include "em_rtcc_utils.h"
 #include "em_common_utils.h"
 
-/* guard file in case no RTC device is defined */
-#if RTC_NUMOF
 #if defined(RTCC_COUNT) && RTCC_COUNT > 0
 
 #define RTC_YEAR_OFFSET (100)       /**< RTCC has only two-digit notation */
@@ -183,4 +181,3 @@ void isr_rtcc(void)
 }
 
 #endif /* defined(RTCC_COUNT) && RTCC_COUNT > 0 */
-#endif /* RTC_NUMOF */

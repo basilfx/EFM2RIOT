@@ -2,7 +2,7 @@
  * @file em_wdog.c
  * @brief Watchdog (WDOG) peripheral API
  *   devices.
- * @version 4.4.0
+ * @version 5.0.0
  *******************************************************************************
  * @section License
  * <b>Copyright 2016 Silicon Laboratories, Inc. http://www.silabs.com</b>
@@ -82,12 +82,21 @@ void WDOGn_Enable(WDOG_TypeDef *wdog, bool enable)
 
   if (!enable)
   {
-    /* Wait for any pending previous write operation to have been completed in */
-    /* low frequency domain */
-    while (wdog->SYNCBUSY & WDOG_SYNCBUSY_CTRL)
-      ;
+    /* If the user intends to disable and the WDOG is enabled */
+    if (BUS_RegBitRead(&wdog->CTRL, _WDOG_CTRL_EN_SHIFT))
+    {
+      /* Wait for any pending previous write operation to have been completed in */
+      /* low frequency domain */
+      while (wdog->SYNCBUSY & WDOG_SYNCBUSY_CTRL)
+        ;
+
+      BUS_RegBitWrite(&wdog->CTRL, _WDOG_CTRL_EN_SHIFT, 0);
+    }
   }
-  BUS_RegBitWrite(&wdog->CTRL, _WDOG_CTRL_EN_SHIFT, enable);
+  else
+  {
+    BUS_RegBitWrite(&wdog->CTRL, _WDOG_CTRL_EN_SHIFT, 1);
+  }
 }
 
 

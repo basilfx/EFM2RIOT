@@ -1,7 +1,7 @@
 /**************************************************************************//**
  * @file efr32zg1b_prs_ch.h
  * @brief EFR32ZG1B_PRS_CH register and bit field definitions
- * @version 4.4.0
+ * @version 5.0.0
  ******************************************************************************
  * @section License
  * <b>Copyright 2016 Silicon Laboratories, Inc. http://www.silabs.com</b>

@@ -1,7 +1,7 @@
 /***************************************************************************//**
  * @file em_idac.c
  * @brief Current Digital to Analog Converter (IDAC) peripheral API
- * @version 4.4.0
+ * @version 5.0.0
  *******************************************************************************
  * @section License
  * <b>Copyright 2016 Silicon Laboratories, Inc. http://www.silabs.com</b>
@@ -43,12 +43,6 @@
 
 /***************************************************************************//**
  * @addtogroup IDAC
- * @brief Current Digital to Analog Conversion (IDAC) Peripheral API
- * @details
- *  This module contains functions to control the IDAC peripheral of Silicon
- *  Labs 32-bit MCUs and SoCs. The IDAC can sink or source a configurable
- *  constant current, to bias internal circuits, or together with the @ref ADC
- *  measure capacitance by injecting a controlled current into a component.
  * @{
  ******************************************************************************/
 
@@ -62,12 +56,18 @@
 /*******************************************************************************
  **************************   GLOBAL FUNCTIONS   *******************************
  ******************************************************************************/
+
+
 /***************************************************************************//**
  * @brief
  *   Initialize IDAC.
  *
  * @details
- *   Configure the IDAC according to initialization structure parameters.
+ *   Initializes IDAC according to the initialization structure parameter, and
+ *   sets the default calibration value stored in the DEVINFO structure.
+ *
+ * @note
+ *   This function will disable the IDAC prior to configuration.
  *
  * @param[in] idac
  *   Pointer to IDAC peripheral register block.

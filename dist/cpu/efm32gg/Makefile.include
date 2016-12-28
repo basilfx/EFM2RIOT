@@ -1,6 +1,9 @@
 export CPU_ARCH = cortex-m3
 export CPU_FAM = efm32gg
 
+# enable memory protection unit
+USEMODULE += mpu_stack_guard
+
 # include efm32_common
 include $(RIOTCPU)/efm32_common/Makefile.include
 

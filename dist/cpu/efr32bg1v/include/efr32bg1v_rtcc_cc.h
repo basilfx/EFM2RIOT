@@ -1,7 +1,7 @@
 /**************************************************************************//**
  * @file efr32bg1v_rtcc_cc.h
  * @brief EFR32BG1V_RTCC_CC register and bit field definitions
- * @version 4.4.0
+ * @version 5.0.0
  ******************************************************************************
  * @section License
  * <b>Copyright 2016 Silicon Laboratories, Inc. http://www.silabs.com</b>

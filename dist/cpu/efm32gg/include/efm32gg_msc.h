@@ -1,7 +1,7 @@
 /**************************************************************************//**
  * @file efm32gg_msc.h
  * @brief EFM32GG_MSC register and bit field definitions
- * @version 4.4.0
+ * @version 5.0.0
  ******************************************************************************
  * @section License
  * <b>Copyright 2016 Silicon Laboratories, Inc. http://www.silabs.com</b>

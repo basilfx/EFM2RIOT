@@ -2,7 +2,7 @@
  * @file em_usart.h
  * @brief Universal synchronous/asynchronous receiver/transmitter (USART/UART)
  *   peripheral API
- * @version 4.4.0
+ * @version 5.0.0
  *******************************************************************************
  * @section License
  * <b>Copyright 2016 Silicon Laboratories, Inc. http://www.silabs.com</b>
@@ -51,6 +51,49 @@ extern "C" {
 
 /***************************************************************************//**
  * @addtogroup USART
+ * @brief Universal Synchronous/Asynchronous Receiver/Transmitter
+ *   Peripheral API
+ * @details
+ * The Universal Synchronous/Asynchronous Receiver/Transmitter (USART)
+ * is a very flexible serial I/O module. It supports full duplex asynchronous UART
+ * communication as well as RS-485, SPI, MicroWire and 3-wire. It can also interface
+ * with ISO7816 Smart-Cards, and IrDA devices.
+ *
+ * The USART has a wide selection of operating modes, frame formats and baud rates.
+ * All features are supported through the API of this module.
+ *
+ * Triple buffering and DMA support makes high data-rates possible with minimal
+ * CPU intervention and it is possible to transmit and receive large frames while
+ * the MCU remains in EM1 Sleep.
+ *
+ * This module does not support DMA configuration. The @ref UARTDRV and @ref SPIDRV drivers
+ * provide full support for DMA and more.
+ *
+ *  The following steps are necessary for basic operation:
+ *
+ *  Clock enable:
+ *  @include em_usart_clock_enable.c
+ *
+ *  To initialize the USART for asynchronous operation (eg. UART):
+ *  @include em_usart_init_async.c
+ *
+ *  To initialize the USART for synchronous operation (eg. SPI):
+ *  @include em_usart_init_sync.c
+ *
+ *  After pins are assigned for the application/board, enable pins at the
+ *  desired location. Available locations can be obtained from the Pin Definitions
+ *  section in the datasheet.
+ *  @if DOXYDOC_P1_DEVICE
+ *  @include em_usart_route_p1.c
+ *  @note UART hardware flow control is not directly supported in hardware on
+ *        @ref _SILICON_LABS_32B_PLATFORM_1 parts.
+ *  @endif
+ *  @if DOXYDOC_P2_DEVICE
+ *  @include em_usart_route_p2.c
+ *  @endif
+ *  @note @ref UARTDRV supports all types of UART flow control. Software assisted
+ *        hardware flow control is available for parts without true UART hardware
+ *        flow control.
  * @{
  ******************************************************************************/
 
@@ -285,11 +328,11 @@ typedef struct
 #endif
 #if defined(_USART_TIMING_CSHOLD_MASK)
   /** Auto CS enabling */
-  bool autoCsEnable;
+  bool                  autoCsEnable;
   /** Auto CS hold time in baud cycles */
-  uint8_t autoCsHold;
+  uint8_t               autoCsHold;
   /** Auto CS setup time in baud cycles */
-  uint8_t autoCsSetup;
+  uint8_t               autoCsSetup;
 #endif
 } USART_InitAsync_TypeDef;
 

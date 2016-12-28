@@ -1,0 +1,10 @@
+/**
+ * @defgroup        cpu_efr32zg1p Silicon Labs EFR32ZG1P
+ * @ingroup         cpu
+ * @brief           Implementation of Silicon Labs's EFR32ZG1P MCU
+ */
+
+/**
+ * @defgroup        cpu_efr32zg1p_definitions Silicon Labs EFR32ZG1P definitions
+ * @ingroup         cpu_efr32zg1p
+ */

@@ -1,7 +1,7 @@
 /***************************************************************************//**
  * @file em_common.h
  * @brief General purpose utilities.
- * @version 4.4.0
+ * @version 5.0.0
  *******************************************************************************
  * @section License
  * <b>Copyright 2016 Silicon Laboratories, Inc. http://www.silabs.com</b>
@@ -51,9 +51,12 @@ extern "C" {
  *  interdependencies are kept at a minimum.
  *
  * @note
- *  EMLIB functions assert on error if DEBUG_EFM is defined. See @ref em_assert.h
- *  for more information on error handling and assertions.
- * @n @n
+ *  EMLIB functions assert on error if DEBUG_EFM is defined. See @ref ASSERT
+ *  for more information on error handling and default assertion and how to
+ *  implement a custom handler.
+ *
+ * @n
+ * @note
  *  EMLIB does not implement support for radio features. Please refer to stack
  *  documentation for more information on RF support.
  * @{
@@ -61,35 +64,62 @@ extern "C" {
 
 /***************************************************************************//**
  * @addtogroup COMMON
- * @brief General purpose utilities.
+ * @brief General purpose utilities and cross-compiler support.
  * @details
- *  General purpose utilities for polyfilling compiler support etc.
+ *  This SDK supports the following compilers/IDEs:
+ *  @li Simplicity Studio
+ *  @li IAR Embedded Workbench
+ *  @li Atollic TrueSTUDIO IDE
+ *  @li Rowley Associates CrossWorks for ARM
+ *  @li Keil µVision IDE
+ *  @li Plain armgcc
+ *
+ * Certain compiler features such as alignment is implemented differently in the tools.
+ * Therefore, macros such as @ref SL_ALIGN are provided to enable compiler independent
+ * code.
+ *
+ * @note RAM code macros are implemented in a separate module @ref RAMFUNC.
+ * Cross-compiler RAM code support needs extended documentation and it is therefore
+ * implemented as a separate module.
+ *
  * @{
  ******************************************************************************/
 
 #if !defined(__GNUC__)
 /* Not GCC compilers */
 
-/** Macro for getting minimum value. */
+/** @brief Macro for getting minimum value. */
 #define SL_MIN(a, b) ((a) < (b) ? (a) : (b))
 
-/** Macro for getting maximum value. */
+/** @brief Macro for getting maximum value. */
 #define SL_MAX(a, b) ((a) > (b) ? (a) : (b))
 
-/** Macros for handling packed structs. */
+/** @brief Macros for handling packed structs. */
 #define STRINGIZE(X) #X
 #define SL_PACK_START(X) _Pragma(STRINGIZE(pack(X)))
 #define SL_PACK_END()    _Pragma("pack()")
 #define SL_ATTRIBUTE_PACKED
 
 #if defined(__CC_ARM)
-/** MDK-ARM compiler: Macros for handling aligned structs. */
+/** @brief MDK-ARM compiler: Macros for handling aligned structs. */
 #define SL_ALIGN(X) __align(X)
+
+/** MDK-ARM compiler: Macro for handling weak symbols. */
+#define SL_WEAK __attribute__ ((weak))
+
+/** MDK-ARM compiler: Macro for handling section placement */
+#define SL_ATTRIBUTE_SECTION(X) __attribute__ ((section(X)))
 #endif
 
 #if defined(__ICCARM__)
-/** IAR Embedded Workbench: Macros for handling aligned structs. */
+/** @brief IAR Embedded Workbench: Macros for handling aligned structs. */
 #define SL_ALIGN(X) _Pragma(STRINGIZE(data_alignment=X))
+
+/** @brief IAR Embedded Workbench: Macros for handling weak symbols. */
+#define SL_WEAK __weak
+
+/** IAR Embedded Workbench: Macro for handling section placement */
+#define SL_ATTRIBUTE_SECTION(X) @ X
 #endif
 
 #define SL_ATTRIBUTE_ALIGN(X)
@@ -97,39 +127,48 @@ extern "C" {
 #else // !defined(__GNUC__)
 /* GCC compilers */
 
-/** Macro for getting minimum value. No sideeffects, a and b are evaluated once only. */
-#define SL_MIN(a, b) ({__typeof__(a) _a = (a); __typeof__(b) _b = (b); _a < _b ? _a : _b;})
+/** @brief Macro for getting minimum value. No sideeffects, a and b are evaluated once only. */
+#define SL_MIN(a, b) __extension__({__typeof__(a) _a = (a); __typeof__(b) _b = (b); _a < _b ? _a : _b;})
 
-/** Macro for getting maximum value. No sideeffects, a and b are evaluated once only. */
-#define SL_MAX(a, b) ({__typeof__(a) _a = (a); __typeof__(b) _b = (b); _a > _b ? _a : _b;})
+/** @brief Macro for getting maximum value. No sideeffects, a and b are evaluated once only. */
+#define SL_MAX(a, b) __extension__({__typeof__(a) _a = (a); __typeof__(b) _b = (b); _a > _b ? _a : _b;})
 
-/** GCC style macro for handling packed structs. */
+/** @brief GCC style macro for handling packed structs. */
 #define SL_ATTRIBUTE_PACKED __attribute__ ((packed))
 
-/** Macro for handling packed structs.
+/** @brief Macro for handling packed structs.
  *  @n Use this macro before the struct definition.
  *  @n X denotes the maximum alignment of struct members. X is not supported with
  *  GCC. GCC always use 1 byte maximum alignment.
  */
 #define SL_PACK_START(x)
 
-/** Macro for handling packed structs.
+/** @brief Macro for handling packed structs.
  *  @n Use this macro after the struct definition.
  *  @n With GCC, add SL_ATTRIBUTE_PACKED after the closing } of the struct
  *  definition.
  */
 #define SL_PACK_END()
 
-/** GCC style macro for aligning a variable. */
+/** @brief GCC style macro for aligning a variable. */
 #define SL_ATTRIBUTE_ALIGN(X) __attribute__ ((aligned(X)))
 
-/** Macro for aligning a variable.
+/** @brief Macro for aligning a variable.
  *  @n Use this macro before the variable definition.
  *  @n X denotes the storage alignment value in bytes.
  *  @n To be gcc compatible use SL_ATTRIBUTE_ALIGN(X) before the ; on normal
  *  variables. Use SL_ATTRIBUTE_ALIGN(X) before the opening { on struct variables.
  */
 #define SL_ALIGN(X)
+
+/** @brief Macro for defining a weak symbol. */
+#define SL_WEAK __attribute__ ((weak))
+
+/** Macro for placing a variable in a section.
+ *  @n Use this macro after the variable definition, before the = or ;.
+ *  @n X denotes the section to place the variable in.
+ */
+#define SL_ATTRIBUTE_SECTION(X) __attribute__ ((section(X)))
 
 #endif // !defined(__GNUC__)
 
@@ -154,17 +193,6 @@ __STATIC_INLINE uint32_t SL_CTZ(uint32_t value)
   return zeros;
 #endif
 }
-
-/** @deprecated New code should use @ref SL_MIN(). */
-#define EFM32_MIN(a, b)     SL_MIN(a, b)
-/** @deprecated New code should use @ref SL_MAX(). */
-#define EFM32_MAX(a, b)     SL_MAX(a, b)
-/** @deprecated New code should use @ref SL_PACK_START(). */
-#define EFM32_PACK_START(X) SL_PACK_START(X)
-/** @deprecated New code should use @ref SL_PACK_END(). */
-#define EFM32_PACK_END()    SL_PACK_END()
-/** @deprecated New code should use @ref SL_ALIGN(). */
-#define EFM32_ALIGN(X)      SL_ALIGN(X)
 
 /***************************************************************************//**
  * @brief

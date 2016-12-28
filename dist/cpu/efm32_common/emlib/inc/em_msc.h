@@ -1,7 +1,7 @@
 /***************************************************************************//**
  * @file em_msc.h
  * @brief Flash controller (MSC) peripheral API
- * @version 4.4.0
+ * @version 5.0.0
  *******************************************************************************
  * @section License
  * <b>Copyright 2016 Silicon Laboratories, Inc. http://www.silabs.com</b>
@@ -52,6 +52,44 @@ extern "C" {
 
 /***************************************************************************//**
  * @addtogroup MSC
+ * @brief Memory System Controller API
+ * @details
+ *  This module contain functions to control the MSC, primarily the Flash.
+ *  The user can perform Flash memory write and erase operations as well as
+ *  optimization of the CPU instruction fetch interface for the application.
+ *  Available instruction fetch features depends on the MCU or SoC family, but
+ *  features such as instruction pre-fetch, cache and configurable branch prediction
+ *  are typically available.
+ *
+ * @note Flash wait-state configuration is handled by the @ref CMU module.
+ *       When the core clock configuration is changed by a calls to functions such as
+ *       @ref CMU_ClockSelectSet() or @ref CMU_HFRCOBandSet(), then Flash wait-state
+ *       configuration is also updated.
+ *
+ *  The MSC resets into a safe state. To initialize the instruction interface
+ *  to recommended settings:
+ *  @include em_msc_init_exec.c
+ *
+ * @note The optimal configuration is highly application dependent. Performance
+ *       benchmarking is supported by most families. See @ref MSC_StartCacheMeasurement()
+ *       and @ref MSC_GetCacheMeasurement() for more details.
+ *
+ * Support for Flash write and erase runs from RAM by default. This code may be
+ * allocated to Flash by defining @ref EM_MSC_RUN_FROM_FLASH.
+ *
+ * @note
+ *   Flash erase may add ms of delay to interrupt latency if executing from Flash.
+ *
+ * Flash write and erase operations are supported by @ref MSC_WriteWord(),
+ * @ref MSC_WriteWordFast(), @ref MSC_ErasePage() and @ref MSC_MassErase().
+ * Fast write is not supported for EFM32G and mass erase is supported for MCU and
+ * SoC families with larger Flash sizes.
+ *
+ * @note
+ *  @ref MSC_Init() must be called prior to any Flash write or erase operation.
+ *
+ *  The following steps are necessary to perform a page erase and write:
+ *  @include em_msc_erase_write.c
  * @{
  ******************************************************************************/
 
@@ -141,15 +179,6 @@ typedef struct
 #define msc_Return_TypeDef MSC_Status_TypeDef
 /** @endcond */
 
-/*******************************************************************************
- *************************   PROTOTYPES   **************************************
- ******************************************************************************/
-
-void MSC_Init(void);
-void MSC_Deinit(void);
-#if !defined( _EFM32_GECKO_FAMILY )
-void MSC_ExecConfigSet(MSC_ExecConfig_TypeDef *execConfig);
-#endif
 
 /***************************************************************************//**
  * @brief
@@ -416,14 +445,26 @@ __STATIC_INLINE void MSC_BusStrategy(mscBusStrategy_Typedef mode)
 }
 #endif
 
+
+/*******************************************************************************
+ *************************   PROTOTYPES   **************************************
+ ******************************************************************************/
+
+void MSC_Init(void);
+void MSC_Deinit(void);
+void MSC_ExecConfigSet(MSC_ExecConfig_TypeDef *execConfig);
+
 #if defined(EM_MSC_RUN_FROM_FLASH)
+/** @brief Expands to @ref SL_RAMFUNC_DECLARATOR if @ref EM_MSC_RUN_FROM_FLASH is undefined and to nothing if @ref EM_MSC_RUN_FROM_FLASH is defined. */
 #define MSC_RAMFUNC_DECLARATOR
+/** @brief Expands to @ref SL_RAMFUNC_DEFINITION_BEGIN if @ref EM_MSC_RUN_FROM_FLASH is undefined and to nothing if @ref EM_MSC_RUN_FROM_FLASH is defined. */
 #define MSC_RAMFUNC_DEFINITION_BEGIN
+/** @brief Expands to @ref SL_RAMFUNC_DEFINITION_END if @ref EM_MSC_RUN_FROM_FLASH is undefined and to nothing if @ref EM_MSC_RUN_FROM_FLASH is defined. */
 #define MSC_RAMFUNC_DEFINITION_END
 #else
-#define MSC_RAMFUNC_DECLARATOR          RAMFUNC_DECLARATOR
-#define MSC_RAMFUNC_DEFINITION_BEGIN    RAMFUNC_DEFINITION_BEGIN
-#define MSC_RAMFUNC_DEFINITION_END      RAMFUNC_DEFINITION_END
+#define MSC_RAMFUNC_DECLARATOR          SL_RAMFUNC_DECLARATOR
+#define MSC_RAMFUNC_DEFINITION_BEGIN    SL_RAMFUNC_DEFINITION_BEGIN
+#define MSC_RAMFUNC_DEFINITION_END      SL_RAMFUNC_DEFINITION_END
 #endif
 
 MSC_RAMFUNC_DECLARATOR MSC_Status_TypeDef

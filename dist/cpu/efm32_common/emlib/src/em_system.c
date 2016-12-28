@@ -1,7 +1,7 @@
 /***************************************************************************//**
  * @file em_system.c
  * @brief System Peripheral API
- * @version 4.4.0
+ * @version 5.0.0
  *******************************************************************************
  * @section License
  * <b>Copyright 2016 Silicon Laboratories, Inc. http://www.silabs.com</b>
@@ -32,6 +32,7 @@
 
 #include "em_system.h"
 #include "em_assert.h"
+#include <stddef.h>
 
 /***************************************************************************//**
  * @addtogroup emlib
@@ -40,10 +41,6 @@
 
 /***************************************************************************//**
  * @addtogroup SYSTEM
- * @brief System Peripheral API
- * @details
- *  This module contains functions to read device information from Silicon
- *  Labs 32-bit MCUs and SoCs, as well as control the FPU on compatible devices.
  * @{
  ******************************************************************************/
 
@@ -81,44 +78,41 @@ void SYSTEM_ChipRevisionGet(SYSTEM_ChipRevision_TypeDef *rev)
 }
 
 
-#if defined(CALIBRATE)
 /***************************************************************************//**
  * @brief
  *    Get factory calibration value for a given peripheral register.
  *
  * @param[in] regAddress
- *    Address of register to get a calibration value for.
+ *    Peripheral calibration register address to get calibration value for. If
+ *    a calibration value is found then this register is updated with the
+ *    calibration value.
  *
  * @return
- *    Calibration value for the requested register.
+ *    True if a calibration value exists, false otherwise.
  ******************************************************************************/
-uint32_t SYSTEM_GetCalibrationValue(volatile uint32_t *regAddress)
+bool SYSTEM_GetCalibrationValue(volatile uint32_t *regAddress)
 {
-  int               regCount;
-  CALIBRATE_TypeDef *p;
+  SYSTEM_CalAddrVal_TypeDef * p, * end;
 
-  regCount = 1;
-  p        = CALIBRATE;
+  p   = (SYSTEM_CalAddrVal_TypeDef *)(DEVINFO_BASE & 0xFFFFF000);
+  end = (SYSTEM_CalAddrVal_TypeDef *)DEVINFO_BASE;
 
-  for (;; )
+  for ( ; p < end; p++)
   {
-    if ((regCount > CALIBRATE_MAX_REGISTERS) ||
-        (p->VALUE == 0xFFFFFFFF))
+    if (p->address == 0xFFFFFFFF)
     {
-      EFM_ASSERT(false);
-      return 0;                 /* End of device calibration table reached. */
+      /* Found table terminator */
+      return false;
     }
-
-    if (p->ADDRESS == (uint32_t)regAddress)
+    if (p->address == (uint32_t)regAddress)
     {
-      return p->VALUE;          /* Calibration value found ! */
+      *regAddress = p->calValue;
+      return true;
     }
-
-    p++;
-    regCount++;
   }
+  /* Nothing found for regAddress */
+  return false;
 }
-#endif /* defined (CALIBRATE) */
 
 /** @} (end addtogroup SYSTEM) */
 /** @} (end addtogroup emlib) */

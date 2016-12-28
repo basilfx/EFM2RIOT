@@ -1,7 +1,7 @@
 /***************************************************************************//**
  * @file em_assert.c
  * @brief Assert API
- * @version 4.4.0
+ * @version 5.0.0
  *******************************************************************************
  * @section License
  * <b>Copyright 2016 Silicon Laboratories, Inc. http://www.silabs.com</b>
@@ -30,12 +30,20 @@
  *
  ******************************************************************************/
 
-
 #include "em_assert.h"
 #include <stdbool.h>
 
-#if defined(DEBUG_EFM)
+/***************************************************************************//**
+ * @addtogroup emlib
+ * @{
+ ******************************************************************************/
 
+/***************************************************************************//**
+ * @addtogroup ASSERT
+ * @{
+ ******************************************************************************/
+
+#if defined(DEBUG_EFM)
 /***************************************************************************//**
  * @brief
  *   EFM internal assert handling.
@@ -43,13 +51,14 @@
  *   This function is invoked through EFM_ASSERT() macro usage only, it should
  *   not be used explicitly.
  *
- *   Currently this implementation only enters an indefinite loop, allowing
+ *   This implementation simply enters an indefinite loop, allowing
  *   the use of a debugger to determine cause of failure. By defining
  *   DEBUG_EFM_USER to the preprocessor for all files, a user defined version
  *   of this function must be defined and will be invoked instead, possibly
  *   providing output of assertion location.
  *
- *   Please notice that this function is not used unless DEBUG_EFM is defined
+ * @note
+ *   This function is not used unless @ref DEBUG_EFM is defined
  *   during preprocessing of EFM_ASSERT() usage.
  *
  * @param[in] file
@@ -67,5 +76,7 @@ void assertEFM(const char *file, int line)
   {
   }
 }
-
 #endif /* DEBUG_EFM */
+
+/** @} (end addtogroup ASSERT) */
+/** @} (end addtogroup emlib) */

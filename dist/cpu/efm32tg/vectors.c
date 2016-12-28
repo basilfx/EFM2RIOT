@@ -59,6 +59,7 @@ WEAK_DEFAULT void isr_cmu(void);
 WEAK_DEFAULT void isr_vcmp(void);
 WEAK_DEFAULT void isr_lcd(void);
 WEAK_DEFAULT void isr_msc(void);
+WEAK_DEFAULT void isr_aes(void);
 
 /* interrupt vector table */
 ISR_VECTORS const void *interrupt_vector[] = {
@@ -108,4 +109,5 @@ ISR_VECTORS const void *interrupt_vector[] = {
     (void*) isr_vcmp,               /* 19 - VCMP */
     (void*) isr_lcd,                /* 20 - LCD */
     (void*) isr_msc,                /* 21 - MSC */
+    (void*) isr_aes,                /* 22 - AES */
 };

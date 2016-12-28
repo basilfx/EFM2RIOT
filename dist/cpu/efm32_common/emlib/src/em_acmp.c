@@ -1,7 +1,7 @@
 /***************************************************************************//**
  * @file em_acmp.c
  * @brief Analog Comparator (ACMP) Peripheral API
- * @version 4.4.0
+ * @version 5.0.0
  *******************************************************************************
  * @section License
  * <b>Copyright 2016 Silicon Laboratories, Inc. http://www.silabs.com</b>
@@ -45,11 +45,6 @@
 
 /***************************************************************************//**
  * @addtogroup ACMP
- * @brief Analog comparator (ACMP) Peripheral API
- * @details
- *  This module contains functions to control the ACMP peripheral of Silicon
- *  Labs 32-bit MCUs and SoCs. The ACMP compares two analog signals and returns
- *  a digital value telling which is greater.
  * @{
  ******************************************************************************/
 

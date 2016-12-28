@@ -31,8 +31,6 @@
 #include "em_rtc.h"
 #include "em_common_utils.h"
 
-/* guard file in case no RTC device is defined */
-#if RTC_NUMOF
 #if defined(RTC_COUNT) && RTC_COUNT > 0
 
 #define RTC_MAX_VALUE       (0xFFFFFF)
@@ -186,4 +184,3 @@ void isr_rtc(void)
 }
 
 #endif /* defined(RTC_COUNT) && RTC_COUNT > 0 */
-#endif /* RTC_NUMOF */

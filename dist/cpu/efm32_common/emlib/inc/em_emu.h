@@ -1,7 +1,7 @@
 /***************************************************************************//**
  * @file em_emu.h
  * @brief Energy management unit (EMU) peripheral API
- * @version 4.4.0
+ * @version 5.0.0
  *******************************************************************************
  * @section License
  * <b>Copyright 2016 Silicon Laboratories, Inc. http://www.silabs.com</b>
@@ -169,6 +169,10 @@ typedef enum
   emuDcdcMode_Bypass = EMU_DCDCCTRL_DCDCMODE_BYPASS,
   /** DCDC low-noise mode */
   emuDcdcMode_LowNoise = EMU_DCDCCTRL_DCDCMODE_LOWNOISE,
+#if defined(_EMU_DCDCLPEM01CFG_MASK)
+  /** DCDC low-power mode */
+  emuDcdcMode_LowPower = EMU_DCDCCTRL_DCDCMODE_LOWPOWER,
+#endif
 } EMU_DcdcMode_TypeDef;
 #endif
 
@@ -200,24 +204,48 @@ typedef int16_t EMU_DcdcLnReverseCurrentControl_TypeDef;
 typedef enum
 {
   /** Set RCO to 3MHz */
-  EMU_DcdcLnRcoBand_3MHz = 0,
+  emuDcdcLnRcoBand_3MHz = 0,
   /** Set RCO to 4MHz */
-  EMU_DcdcLnRcoBand_4MHz = 1,
+  emuDcdcLnRcoBand_4MHz = 1,
   /** Set RCO to 5MHz */
-  EMU_DcdcLnRcoBand_5MHz = 2,
+  emuDcdcLnRcoBand_5MHz = 2,
   /** Set RCO to 6MHz */
-  EMU_DcdcLnRcoBand_6MHz = 3,
+  emuDcdcLnRcoBand_6MHz = 3,
   /** Set RCO to 7MHz */
-  EMU_DcdcLnRcoBand_7MHz = 4,
+  emuDcdcLnRcoBand_7MHz = 4,
   /** Set RCO to 8MHz */
-  EMU_DcdcLnRcoBand_8MHz = 5,
+  emuDcdcLnRcoBand_8MHz = 5,
   /** Set RCO to 9MHz */
-  EMU_DcdcLnRcoBand_9MHz = 6,
+  emuDcdcLnRcoBand_9MHz = 6,
   /** Set RCO to 10MHz */
-  EMU_DcdcLnRcoBand_10MHz = 7,
+  emuDcdcLnRcoBand_10MHz = 7,
 } EMU_DcdcLnRcoBand_TypeDef;
 
+/** @cond DO_NOT_INCLUDE_WITH_DOXYGEN */
+/* Deprecated. */
+#define EMU_DcdcLnRcoBand_3MHz          emuDcdcLnRcoBand_3MHz
+#define EMU_DcdcLnRcoBand_4MHz          emuDcdcLnRcoBand_4MHz
+#define EMU_DcdcLnRcoBand_5MHz          emuDcdcLnRcoBand_5MHz
+#define EMU_DcdcLnRcoBand_6MHz          emuDcdcLnRcoBand_6MHz
+#define EMU_DcdcLnRcoBand_7MHz          emuDcdcLnRcoBand_7MHz
+#define EMU_DcdcLnRcoBand_8MHz          emuDcdcLnRcoBand_8MHz
+#define EMU_DcdcLnRcoBand_9MHz          emuDcdcLnRcoBand_9MHz
+#define EMU_DcdcLnRcoBand_10MHz         emuDcdcLnRcoBand_10MHz
+/** @endcond */
 #endif
+
+
+#if defined( _EMU_DCDCCTRL_MASK )
+/** DCDC Low Noise Compensator Control register. */
+typedef enum
+{
+  /** DCDC capacitor is 1uF. */
+  emuDcdcLnCompCtrl_1u0F,
+  /** DCDC capacitor is 4.7uF. */
+  emuDcdcLnCompCtrl_4u7F,
+} EMU_DcdcLnCompCtrl_TypeDef;
+#endif
+
 
 #if defined( EMU_STATUS_VMONRDY )
 /** VMON channels */
@@ -229,6 +257,16 @@ typedef enum
   emuVmonChannel_IOVDD0
 } EMU_VmonChannel_TypeDef;
 #endif /* EMU_STATUS_VMONRDY */
+
+#if defined( _SILICON_LABS_32B_PLATFORM_2_GEN_1 )
+/** Bias mode configurations */
+typedef enum
+{
+  emuBiasMode_1KHz,
+  emuBiasMode_4KHz,
+  emuBiasMode_Continuous
+} EMU_BiasMode_TypeDef;
+#endif
 
 /*******************************************************************************
  *******************************   STRUCTS   ***********************************
@@ -343,9 +381,9 @@ typedef struct
 typedef struct
 {
   EMU_PowerConfig_TypeDef powerConfig;                  /**< Device external power configuration */
-  EMU_DcdcMode_TypeDef dcdcMode;                        /**< DCDC regulator operating mode in EM0 */
+  EMU_DcdcMode_TypeDef dcdcMode;                        /**< DCDC regulator operating mode in EM0/1 */
   uint16_t mVout;                                       /**< Target output voltage (mV) */
-  uint16_t em01LoadCurrent_mA;                          /**< Estimated average load current in EM0 (mA).
+  uint16_t em01LoadCurrent_mA;                          /**< Estimated average load current in EM0/1 (mA).
                                                              This estimate is also used for EM1 optimization,
                                                              so if EM1 current is expected to be higher than EM0,
                                                              then this parameter should hold the higher EM1 current. */
@@ -364,11 +402,12 @@ typedef struct
                                                              >= 0 is forced CCM mode where the parameter is used as the
                                                                   reverse current threshold in mA.
                                                              -1   is encoded as emuDcdcLnHighEfficiencyMode (EFM32 only) */
-
+  EMU_DcdcLnCompCtrl_TypeDef dcdcLnCompCtrl;            /**< DCDC Low-noise mode compensator control. */
 } EMU_DCDCInit_TypeDef;
 
 /** Default DCDC initialization */
 #if defined( _EFM_DEVICE )
+#if defined(_SILICON_LABS_32B_SERIES_1_CONFIG) && (_SILICON_LABS_32B_SERIES_1_CONFIG >= 2)
 #define EMU_DCDCINIT_DEFAULT                                                                                    \
 {                                                                                                               \
   emuPowerConfig_DcdcToDvdd,     /* DCDC to DVDD */                                                             \
@@ -380,8 +419,27 @@ typedef struct
                                     (assume strong battery or other power source) */                            \
   emuDcdcAnaPeripheralPower_DCDC,/* Select DCDC as analog power supply (lower power) */                         \
   emuDcdcLnHighEfficiency,       /* Use high-efficiency mode */                                                 \
+  emuDcdcLnCompCtrl_4u7F,        /* 4.7uF DCDC capacitor */                                                     \
 }
+
+#else
+#define EMU_DCDCINIT_DEFAULT                                                                                    \
+{                                                                                                               \
+  emuPowerConfig_DcdcToDvdd,     /* DCDC to DVDD */                                                             \
+  emuDcdcMode_LowNoise,          /* Low-niose mode in EM0 (can be set to LowPower on EFM32PG revB0) */          \
+  1800,                          /* Nominal output voltage for DVDD mode, 1.8V  */                              \
+  5,                             /* Nominal EM0/1 load current of less than 5mA */                              \
+  10,                            /* Nominal EM2/3/4 load current less than 10uA  */                             \
+  200,                           /* Maximum average current of 200mA
+                                    (assume strong battery or other power source) */                            \
+  emuDcdcAnaPeripheralPower_DCDC,/* Select DCDC as analog power supply (lower power) */                         \
+  emuDcdcLnHighEfficiency,       /* Use high-efficiency mode */                                                 \
+  emuDcdcLnCompCtrl_1u0F,        /* 1uF DCDC capacitor */                                                       \
+}
+#endif
+
 #else /* EFR32 device */
+#if defined(_SILICON_LABS_32B_SERIES_1_CONFIG) && (_SILICON_LABS_32B_SERIES_1_CONFIG >= 2)
 #define EMU_DCDCINIT_DEFAULT                                                                                    \
 {                                                                                                               \
   emuPowerConfig_DcdcToDvdd,     /* DCDC to DVDD */                                                             \
@@ -393,9 +451,25 @@ typedef struct
                                     (assume strong battery or other power source) */                            \
   emuDcdcAnaPeripheralPower_DCDC,/* Select DCDC as analog power supply (lower power) */                         \
   160,                           /* Maximum reverse current of 160mA */                                         \
+  emuDcdcLnCompCtrl_4u7F,        /* 4.7uF DCDC capacitor */                                                     \
+}
+
+#else
+#define EMU_DCDCINIT_DEFAULT                                                                                    \
+{                                                                                                               \
+  emuPowerConfig_DcdcToDvdd,     /* DCDC to DVDD */                                                             \
+  emuDcdcMode_LowNoise,          /* Low-niose mode in EM0 */                                                    \
+  1800,                          /* Nominal output voltage for DVDD mode, 1.8V  */                              \
+  15,                            /* Nominal EM0/1 load current of less than 15mA */                             \
+  10,                            /* Nominal EM2/3/4 load current less than 10uA  */                             \
+  200,                           /* Maximum average current of 200mA
+                                    (assume strong battery or other power source) */                            \
+  emuDcdcAnaPeripheralPower_DCDC,/* Select DCDC as analog power supply (lower power) */                         \
+  160,                           /* Maximum reverse current of 160mA */                                         \
+  emuDcdcLnCompCtrl_1u0F,        /* 1uF DCDC capacitor */                                                       \
 }
 #endif
-
+#endif
 #endif
 
 #if defined( EMU_STATUS_VMONRDY )
@@ -729,6 +803,10 @@ __STATIC_INLINE void EMU_UnlatchPinRetention(void)
 {
   EMU->CMD = EMU_CMD_EM4UNLATCH;
 }
+#endif
+
+#if defined( _SILICON_LABS_32B_PLATFORM_2_GEN_1 )
+void EMU_SetBiasMode(EMU_BiasMode_TypeDef mode);
 #endif
 
 /** @} (end addtogroup EMU) */

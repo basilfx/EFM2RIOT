@@ -1,7 +1,7 @@
 /***************************************************************************//**
  * @file em_crypto.h
  * @brief Cryptography accelerator peripheral API
- * @version 4.4.0
+ * @version 5.0.0
  *******************************************************************************
  * @section License
  * <b>Copyright 2016 Silicon Laboratories, Inc. http://www.silabs.com</b>
@@ -50,6 +50,140 @@ extern "C" {
 
 /***************************************************************************//**
  * @addtogroup CRYPTO
+ *
+ * @brief Cryptography accelerator peripheral API
+ *
+ * @details
+ *   In order for cryptographic support, users are recommended to consider the
+ *   crypto APIs of the mbedTLS library provided by Silicon Labs instead of the
+ *   interface provided in em_crypto.h. The mbedTLS library provides a much
+ *   richer crypto API, including hardware acceleration of several functions.
+ *
+ *   The main purpose of em_crypto.h is to implement a thin software interface
+ *   for the CRYPTO hardware functions especially for the accelerated APIs of
+ *   the mbedTLS library. Additionally em_crypto.h implement the AES API of the
+ *   em_aes.h (supported by classic EFM32) for backwards compatibility. The
+ *   following list summarizes the em_crypto.h inteface:
+ *   @li AES (Advanced Encryption Standard) @ref crypto_aes
+ *   @li SHA (Secure Hash Algorithm) @ref crypto_sha
+ *   @li Big Integer multiplier @ref crypto_mul
+ *   @li Functions for loading data and executing instruction sequences @ref crypto_exec
+ *
+ *   @n @section crypto_aes AES
+ *   The AES APIs include support for AES-128 and AES-256 with block cipher
+ *   modes:
+ *   @li CBC - Cipher Block Chaining mode
+ *   @li CFB - Cipher Feedback mode
+ *   @li CTR - Counter mode
+ *   @li ECB - Electronic Code Book mode
+ *   @li OFB - Output Feedback mode
+ *
+ *   For the AES APIs Input/output data (plaintext, ciphertext, key etc) are
+ *   treated as byte arrays, starting with most significant byte. Ie, 32 bytes
+ *   of plaintext (B0...B31) is located in memory in the same order, with B0 at
+ *   the lower address and B31 at the higher address.
+ *
+ *   Byte arrays must always be a multiple of AES block size, ie. a multiple
+ *   of 16. Padding, if required, is done at the end of the byte array.
+ *
+ *   Byte arrays should be word (32 bit) aligned for performance
+ *   considerations, since the array is accessed with 32 bit access type.
+ *   The core MCUs supports unaligned accesses, but with a performance penalty.
+ *
+ *   It is possible to specify the same output buffer as input buffer as long
+ *   as they point to the same address. In that case the provided input buffer
+ *   is replaced with the encrypted/decrypted output. Notice that the buffers
+ *   must be exactly overlapping. If partly overlapping, the behavior is
+ *   undefined.
+ *
+ *   It is up to the user to use a cipher mode according to its requirements
+ *   in order to not break security. Please refer to specific cipher mode
+ *   theory for details.
+ *
+ *   References:
+ *   @li Wikipedia - Cipher modes, http://en.wikipedia.org/wiki/Cipher_modes
+ *
+ *   @li Recommendation for Block Cipher Modes of Operation,
+ *      NIST Special Publication 800-38A, 2001 Edition,
+ *      http://csrc.nist.gov/publications/nistpubs/800-38a/sp800-38a.pdf
+ *
+ *   @li Recommendation for Block Cipher Modes of Operation,
+ *      http://csrc.nist.gov/publications/fips/fips180-4/fips-180-4.pdf
+ *
+ *   @n @section crypto_sha SHA
+ *   The SHA APIs include support for
+ *   @li SHA-1 @ref CRYPTO_SHA_1
+ *   @li SHA-256 @ref CRYPTO_SHA_256
+ *
+ *   The SHA-1 implementation is FIPS-180-1 compliant, ref:
+ *   @li Wikipedia -  SHA-1, https://en.wikipedia.org/wiki/SHA-1
+ *   @li SHA-1 spec - http://www.itl.nist.gov/fipspubs/fip180-1.htm
+ *
+ *   The SHA-256 implementation is FIPS-180-2 compliant, ref:
+ *   @li Wikipedia -  SHA-2, https://en.wikipedia.org/wiki/SHA-2
+ *   @li SHA-2 spec - http://csrc.nist.gov/publications/fips/fips180-2/fips180-2.pdf
+ *
+ *   @n @section crypto_mul CRYPTO_Mul
+ *   @ref CRYPTO_Mul is a function for multiplying big integers that are
+ *   bigger than the operand size of the MUL instruction which is 128 bits.
+ *   CRYPTO_Mul multiplies all partial operands of the input operands using
+ *   MUL to form a resulting number which may be twice the size of
+ *   the operands.
+ *
+ *   CRPYTO_Mul is typically used by RSA implementations which perform a
+ *   huge amount of multiplication and square operations in order to
+ *   implement modular exponentiation.
+ *   Some RSA implementations use a number representation including arrays
+ *   of 32bit words of variable size. The user should compile with
+ *   -D USE_VARIABLE_SIZED_DATA_LOADS in order to load these numbers
+ *   directly into CRYPTO without converting the number representation.
+ *
+ *   @n @section crypto_exec Load and Execute Instruction Sequences
+ *   The functions for loading data and executing instruction sequences can
+ *   be used to implement complex algorithms like elliptic curve cryptography
+ *   (ECC)) and authenticated encryption algorithms. There are two typical
+ *   modes of operation:
+ *   @li Multi sequence operation
+ *   @li Single static instruction sequence operation
+ *
+ *   In multi sequence mode the software starts by loading input data, then
+ *   an instruction sequence, execute, and finally read the result. This
+ *   process is repeated until the full crypto operation is complete.
+ *
+ *   When using a single static instruction sequence, there is just one
+ *   instruction sequence which is loaded initially. The sequence can be setup
+ *   to run multiple times. The data can be loaded during the execution of the
+ *   sequence by using DMA, BUFC and/or programmed I/O directly from the MCU
+ *   core. For details on how to program the instruction sequences please refer
+ *   to the reference manual of the particular Silicon Labs device.
+ *
+ *   In order to load input data to the CRYPTO module use any of the following
+ *   functions:
+ *   @li @ref CRYPTO_DataWrite  - Write 128 bits to a DATA register.
+ *   @li @ref CRYPTO_DDataWrite - Write 256 bits to a DDATA register.
+ *   @li @ref CRYPTO_QDataWrite - Write 512 bits to a QDATA register.
+ *
+ *   In order to read output data from the CRYPTO module use any of the
+ *   following functions:
+ *   @li @ref CRYPTO_DataRead  - Read 128 bits from a DATA register.
+ *   @li @ref CRYPTO_DDataRead - Read 256 bits from a DDATA register.
+ *   @li @ref CRYPTO_QDataRead - Read 512 bits from a QDATA register.
+ *
+ *   In order to load an instruction sequence to the CRYPTO module use
+ *   @ref CRYPTO_InstructionSequenceLoad.
+ *
+ *   In order to execute the current instruction sequence in the CRYPTO module
+ *   use @ref CRYPTO_InstructionSequenceExecute.
+ *
+ *   In order to check whether an instruction sequence has completed
+ *   use @ref CRYPTO_InstructionSequenceDone.
+ *
+ *   In order to wait for an instruction sequence to complete
+ *   use @ref CRYPTO_InstructionSequenceWait.
+ *
+ *   In order to optimally load (with regards to speed) and execute an
+ *   instruction sequence use any of the CRYPTO_EXECUTE_X macros (where X is
+ *   in the range 1-20) defined in @ref em_crypto.h. E.g. CRYPTO_EXECUTE_19.
  * @{
  ******************************************************************************/
 

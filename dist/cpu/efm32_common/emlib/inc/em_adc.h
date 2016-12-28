@@ -1,7 +1,7 @@
 /***************************************************************************//**
  * @file em_adc.h
  * @brief Analog to Digital Converter (ADC) peripheral API
- * @version 4.4.0
+ * @version 5.0.0
  *******************************************************************************
  * @section License
  * <b>Copyright 2016 Silicon Laboratories, Inc. http://www.silabs.com</b>
@@ -1064,8 +1064,8 @@ typedef struct
   adcAcqTime1,               /* 1 ADC_CLK cycle acquisition time. */              \
   adcRef1V25,                /* 1.25V internal reference. */                      \
   adcRes12Bit,               /* 12 bit resolution. */                             \
-  adcPosSelAPORT0XCH0,         /* Select node BUS0XCH0 as posSel */                 \
-  adcNegSelAPORT0XCH1,         /* Select node BUS0XCH1 as negSel */                 \
+  adcPosSelAPORT0XCH0,       /* Select node BUS0XCH0 as posSel */                 \
+  adcNegSelVSS,              /* Select VSS as negSel */                           \
   false,                     /* Single ended input. */                            \
   false,                     /* PRS disabled. */                                  \
   false,                     /* Right adjust. */                                  \

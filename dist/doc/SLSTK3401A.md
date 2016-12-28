@@ -18,8 +18,9 @@ The starter kit is equipped with an Advanced Energy Monitor. This allows you to 
 | Flash           | 256KB                 |
 | EEPROM          | no                                       |
 | Frequency       | up to 40 MHz            |
-| FPU             | yes                                      |
-| DMA             | 12 channel                               |
+| FPU             | yes             |
+| MPU             | yes             |
+| DMA             | 12 channels                              |
 | Timers          | 2 x 16-bit + 1x 16-bit (low power)       |
 | ADCs            | 12-bit ADC                               |
 | UARTs           | 2x USART, 1x LEUART                      |
@@ -57,8 +58,8 @@ This is the pinout of the Expansion Header on the right side of the board. PIN 1
 | ADC        | 0       | ADC0            | CHAN0: internal temperature     | Ports are fixed                                           |
 | Crypto     | &mdash; | &mdash;         |                                 | AES128/AES256, SHA1, SHA256                               |
 | I2C        | 0       | I2C0            | SDA: PC10, CLK: PC11            | `I2C_SPEED_LOW` and `I2C_SPEED_HIGH` clock speed deviate  |
-| RTT        | 1/0     | RTCC            |                                 | 1 Hz interval. Either RTT or RTC (see below)              |
-| RTC        | 1/0     | RTCC            |                                 | 1 Hz interval. Either RTC or RTT (see below)              |
+| RTT        | &mdash; | RTCC            |                                 | 1 Hz interval. Either RTT or RTC (see below)              |
+| RTC        | &mdash; | RTCC            |                                 | 1 Hz interval. Either RTC or RTT (see below)              |
 | SPI        | 0       | USART1          | MOSI: PC6, MISO: PC7, CLK: PC8  |                                                           |
 | Timer      | 0       | TIMER0 + TIMER1 |                                 | TIMER0 is used as prescaler (must be adjecent)            |
 | UART       | 0       | USART0          | RX: PA1, TX: PA0                | Default STDIO output                                      |
@@ -156,8 +157,6 @@ RIOT-OS has support for *Real-Time Tickers* and *Real-Time Clocks*.
 However, this board MCU family has support for a 32-bit *Real-Time Clock and Calendar*, which can be configured in ticker mode **or** calendar mode. Therefore, only one of both peripherals can be supported.
 
 Configured at 1 Hz interval, the RTCC will overflow each 136 years.
-
-Use the ticker mode if your application keeps track of seconds only (e.g. unix timestamp). By default the counter is enabled. You can switch by passing `RTT_AS_RTC=1` to your compiler.
 
 ### Hardware crypto
 The Gemstone MCUs are equipped with a hardware accelerated crypto peripheral that can speed up AES128, AES256, SHA1, SHA256 and several other cryptographic computations.

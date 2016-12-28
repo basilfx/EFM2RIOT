@@ -104,10 +104,6 @@ int main(void)
 
     si70xx_init(&dev, SI7021_I2C, SI70XX_ADDRESS_SI7021);
 
-    /* prepare adc */
-    adc_init(0);
-    adc_init(1);
-
     while (1) {
         /* prepare sleep between measurements */
         timeout = rtt_get_counter() + (INTERVAL * RTT_FREQUENCY);
@@ -115,6 +111,10 @@ int main(void)
 
         /* measure temperature via Si7021 */
         si70xx_get_both(&dev, &humidity, &temperature);
+
+        /* wakeup/init adc */
+        adc_init(0);
+        adc_init(1);
 
         /* display results */
         snprintf(buffer[0], 16, "%d.%02d %%", humidity / 100, humidity % 100);
@@ -151,10 +151,7 @@ int main(void)
         } while (u8g2_NextPage(&u8g2));
 
         /* go to sleep */
-        lpm_arch_set(LPM_SLEEP);
-
-        /* it needs some time to stabilize after sleep */
-        xtimer_usleep(100);
+        lpm_set(LPM_SLEEP);
     }
 
     return 0;

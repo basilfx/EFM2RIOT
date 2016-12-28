@@ -28,9 +28,6 @@
 #include "em_adc.h"
 #include "em_common_utils.h"
 
-/* guard file in case no ADC device is defined */
-#if ADC_NUMOF
-
 static mutex_t adc_lock[ADC_NUMOF] = {
 #if ADC_0_EN
     [ADC_0] = MUTEX_INIT,
@@ -94,7 +91,7 @@ int adc_sample(adc_t line, adc_res_t res)
     int result = ADC_DataSingleGet(adc_config[dev].dev);
 
     /* for resolutions that are not really supported, shift the result (for
-       instance, 10 bit resolution is created by shifting a 12 bit sample). */
+       instance, 10 bit resolution is achieved by shifting a 12 bit sample). */
     result = result >> (res >> 4);
 
     /* unlock device */
@@ -102,5 +99,3 @@ int adc_sample(adc_t line, adc_res_t res)
 
     return result;
 }
-
-#endif /* ADC_NUMOF */

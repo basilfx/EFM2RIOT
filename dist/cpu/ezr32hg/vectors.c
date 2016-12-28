@@ -56,6 +56,7 @@ WEAK_DEFAULT void isr_aes(void);
 WEAK_DEFAULT void isr_usart0_rx(void);
 WEAK_DEFAULT void isr_usart0_tx(void);
 WEAK_DEFAULT void isr_usb(void);
+WEAK_DEFAULT void isr_timer2(void);
 
 /* interrupt vector table */
 ISR_VECTORS const void *interrupt_vector[] = {
@@ -103,4 +104,5 @@ ISR_VECTORS const void *interrupt_vector[] = {
     (void*) isr_usart0_rx,          /* 17 - USART0_RX */
     (void*) isr_usart0_tx,          /* 18 - USART0_TX */
     (void*) isr_usb,                /* 19 - USB */
+    (void*) isr_timer2,             /* 20 - TIMER2 */
 };

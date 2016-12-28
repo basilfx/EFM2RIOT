@@ -1,7 +1,7 @@
 /***************************************************************************//**
  * @file em_cmu.c
  * @brief Clock management unit (CMU) Peripheral API
- * @version 4.4.0
+ * @version 5.0.0
  *******************************************************************************
  * @section License
  * <b>Copyright 2016 Silicon Laboratories, Inc. http://www.silabs.com</b>
@@ -1772,6 +1772,15 @@ uint32_t CMU_ClockPrescGet(CMU_Clock_TypeDef clock)
           break;
 #endif
 
+#if defined( _CMU_LFAPRESC0_LESENSE_MASK )
+        case cmuClock_LESENSE:
+          ret = (((CMU->LFAPRESC0 & _CMU_LFAPRESC0_LESENSE_MASK)
+                 >> _CMU_LFAPRESC0_LESENSE_SHIFT));
+          /* Convert the exponent to prescaler value. */
+          ret = CMU_Log2ToDiv(ret) - 1U;
+          break;
+#endif
+
         default:
           EFM_ASSERT(0);
           ret = 0U;
@@ -1978,6 +1987,21 @@ void CMU_ClockPrescSet(CMU_Clock_TypeDef clock, CMU_ClkPresc_TypeDef presc)
 
           CMU->LFAPRESC0 = (CMU->LFAPRESC0 & ~_CMU_LFAPRESC0_LETIMER0_MASK)
                            | (presc << _CMU_LFAPRESC0_LETIMER0_SHIFT);
+          break;
+#endif
+
+#if defined( _CMU_LFAPRESC0_LESENSE_MASK )
+        case cmuClock_LESENSE:
+          EFM_ASSERT(presc <= 8);
+
+          /* Convert prescaler value to DIV exponent scale. */
+          presc = CMU_PrescToLog2(presc);
+
+          /* LF register about to be modified require sync. Busy check. */
+          syncReg(CMU_SYNCBUSY_LFAPRESC0);
+
+          CMU->LFAPRESC0 = (CMU->LFAPRESC0 & ~_CMU_LFAPRESC0_LESENSE_MASK)
+                           | (presc << _CMU_LFAPRESC0_LESENSE_SHIFT);
           break;
 #endif
 
@@ -3270,10 +3294,12 @@ void CMU_HFXOInit(const CMU_HFXOInit_TypeDef *hfxoInit)
 
   /* Set XTAL tuning parameters */
 
+#if defined(_CMU_HFXOCTRL1_PEAKDETTHR_MASK)
   /* Set peak detection threshold */
   BUS_RegMaskedWrite(&CMU->HFXOCTRL1,
                      _CMU_HFXOCTRL1_PEAKDETTHR_MASK,
                      hfxoInit->thresholdPeakDetect);
+#endif
 
   /* Set tuning for startup and steady state */
   BUS_RegMaskedWrite(&CMU->HFXOSTARTUPCTRL,
@@ -3531,15 +3557,15 @@ void CMU_OscillatorEnable(CMU_Osc_TypeDef osc, bool enable, bool wait)
  #if defined( _CMU_HFXOCTRL_MASK )
     bool firstHfxoEnable = false;
 
-    /* Enabling the HFXO for the first time requires special handling. We use the 
-     * PEAKDETSHUTOPTMODE field of the HFXOCTRL register to see if this is the 
+    /* Enabling the HFXO for the first time requires special handling. We use the
+     * PEAKDETSHUTOPTMODE field of the HFXOCTRL register to see if this is the
      * first time the HFXO is enabled. */
-    if ((osc == cmuOsc_HFXO) && 
-        ((CMU->HFXOCTRL & (_CMU_HFXOCTRL_PEAKDETSHUNTOPTMODE_MASK)) 
+    if ((osc == cmuOsc_HFXO) &&
+        ((CMU->HFXOCTRL & (_CMU_HFXOCTRL_PEAKDETSHUNTOPTMODE_MASK))
          == CMU_HFXOCTRL_PEAKDETSHUNTOPTMODE_AUTOCMD))
     {
       firstHfxoEnable = true;
-      /* First time we enable an external clock we should switch to CMD mode to make sure that 
+      /* First time we enable an external clock we should switch to CMD mode to make sure that
        * we only do SCO and not PDA tuning. */
       if ((CMU->HFXOCTRL & (_CMU_HFXOCTRL_MODE_MASK)) == CMU_HFXOCTRL_MODE_EXTCLK)
       {

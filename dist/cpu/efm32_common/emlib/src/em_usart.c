@@ -2,7 +2,7 @@
  * @file em_usart.c
  * @brief Universal synchronous/asynchronous receiver/transmitter (USART/UART)
  *   Peripheral API
- * @version 4.4.0
+ * @version 5.0.0
  *******************************************************************************
  * @section License
  * <b>Copyright 2016 Silicon Laboratories, Inc. http://www.silabs.com</b>
@@ -45,12 +45,6 @@
 
 /***************************************************************************//**
  * @addtogroup USART
- * @brief Universal Synchronous/Asynchronous Receiver/Transmitter
- *   Peripheral API
- * @details
- *  This module contains functions to control the USART peripheral of Silicon
- *  Labs 32-bit MCUs and SoCs. The USART handles high-speed UART, SPI bus,
- *  SmartCards and IrDA communication.
  * @{
  ******************************************************************************/
 
@@ -211,22 +205,22 @@ void USART_BaudrateAsyncSet(USART_TypeDef *usart,
   /* Map oversampling */
   switch (ovs)
   {
-    case USART_CTRL_OVS_X16:
+    case usartOVS16:
       EFM_ASSERT(baudrate <= (refFreq / 16));
       oversample = 16;
       break;
 
-    case USART_CTRL_OVS_X8:
+    case usartOVS8:
       EFM_ASSERT(baudrate <= (refFreq / 8));
       oversample = 8;
       break;
 
-    case USART_CTRL_OVS_X6:
+    case usartOVS6:
       EFM_ASSERT(baudrate <= (refFreq / 6));
       oversample = 6;
       break;
 
-    case USART_CTRL_OVS_X4:
+    case usartOVS4:
       EFM_ASSERT(baudrate <= (refFreq / 4));
       oversample = 4;
       break;
@@ -347,17 +341,17 @@ uint32_t USART_BaudrateCalc(uint32_t refFreq,
 
     switch (ovs)
     {
-      case USART_CTRL_OVS_X16:
+      case usartOVS16:
         oversample = 1;
         factor     = 256 / 16;
         break;
 
-      case USART_CTRL_OVS_X8:
+      case usartOVS8:
         oversample = 1;
         factor     = 256 / 8;
         break;
 
-      case USART_CTRL_OVS_X6:
+      case usartOVS6:
         oversample = 3;
         factor     = 256 / 2;
         break;

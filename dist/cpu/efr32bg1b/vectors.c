@@ -60,6 +60,7 @@ WEAK_DEFAULT void isr_crypto(void);
 WEAK_DEFAULT void isr_letimer0(void);
 WEAK_DEFAULT void isr_rtcc(void);
 WEAK_DEFAULT void isr_cryotimer(void);
+WEAK_DEFAULT void isr_fpueh(void);
 
 /* interrupt vector table */
 ISR_VECTORS const void *interrupt_vector[] = {
@@ -120,4 +121,5 @@ ISR_VECTORS const void *interrupt_vector[] = {
     (void*) (0UL),                  /* Reserved */
     (void*) isr_cryotimer,          /* 31 - CRYOTIMER */
     (void*) (0UL),                  /* Reserved */
+    (void*) isr_fpueh,              /* 33 - FPUEH */
 };

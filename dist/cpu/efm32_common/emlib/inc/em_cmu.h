@@ -1,7 +1,7 @@
 /***************************************************************************//**
  * @file em_cmu.h
  * @brief Clock management unit (CMU) API
- * @version 4.4.0
+ * @version 5.0.0
  *******************************************************************************
  * @section License
  * <b>Copyright 2016 Silicon Laboratories, Inc. http://www.silabs.com</b>
@@ -117,20 +117,19 @@ extern "C" {
 #define CMU_DBG_CLK_BRANCH         6
 #define CMU_AUX_CLK_BRANCH         7
 #define CMU_RTC_CLK_BRANCH         8
-#define CMU_RTCC_CLK_BRANCH        8
-#define CMU_LETIMER_CLK_BRANCH     9
-#define CMU_LETIMER0_CLK_BRANCH    9
-#define CMU_LEUART0_CLK_BRANCH     10
-#define CMU_LEUART1_CLK_BRANCH     11
-#define CMU_LFA_CLK_BRANCH         12
-#define CMU_LFB_CLK_BRANCH         13
-#define CMU_LFC_CLK_BRANCH         14
-#define CMU_LFE_CLK_BRANCH         15
-#define CMU_USBC_CLK_BRANCH        16
-#define CMU_USBLE_CLK_BRANCH       17
-#define CMU_LCDPRE_CLK_BRANCH      18
-#define CMU_LCD_CLK_BRANCH         19
-#define CMU_LESENSE_CLK_BRANCH     20
+#define CMU_RTCC_CLK_BRANCH        9
+#define CMU_LETIMER0_CLK_BRANCH    10
+#define CMU_LEUART0_CLK_BRANCH     11
+#define CMU_LEUART1_CLK_BRANCH     12
+#define CMU_LFA_CLK_BRANCH         13
+#define CMU_LFB_CLK_BRANCH         14
+#define CMU_LFC_CLK_BRANCH         15
+#define CMU_LFE_CLK_BRANCH         16
+#define CMU_USBC_CLK_BRANCH        17
+#define CMU_USBLE_CLK_BRANCH       18
+#define CMU_LCDPRE_CLK_BRANCH      19
+#define CMU_LCD_CLK_BRANCH         20
+#define CMU_LESENSE_CLK_BRANCH     21
 
 #define CMU_CLK_BRANCH_POS         17
 #define CMU_CLK_BRANCH_MASK        0x1f
@@ -318,6 +317,24 @@ typedef enum
                     | (CMU_HFBUSCLKEN0_EN_REG << CMU_EN_REG_POS)
                     | (_CMU_HFBUSCLKEN0_CRYPTO_SHIFT << CMU_EN_BIT_POS)
                     | (CMU_HFBUS_CLK_BRANCH << CMU_CLK_BRANCH_POS),
+#endif
+
+#if defined( CMU_HFBUSCLKEN0_CRYPTO0 )
+  /** Cryptography accelerator 0 clock. */
+  cmuClock_CRYPTO0 = (CMU_NOPRESC_REG << CMU_PRESC_REG_POS)
+                     | (CMU_NOSEL_REG << CMU_SEL_REG_POS)
+                     | (CMU_HFBUSCLKEN0_EN_REG << CMU_EN_REG_POS)
+                     | (_CMU_HFBUSCLKEN0_CRYPTO0_SHIFT << CMU_EN_BIT_POS)
+                     | (CMU_HFBUS_CLK_BRANCH << CMU_CLK_BRANCH_POS),
+#endif
+
+#if defined( CMU_HFBUSCLKEN0_CRYPTO1 )
+  /** Cryptography accelerator 1 clock. */
+  cmuClock_CRYPTO1 = (CMU_NOPRESC_REG << CMU_PRESC_REG_POS)
+                     | (CMU_NOSEL_REG << CMU_SEL_REG_POS)
+                     | (CMU_HFBUSCLKEN0_EN_REG << CMU_EN_REG_POS)
+                     | (_CMU_HFBUSCLKEN0_CRYPTO1_SHIFT << CMU_EN_BIT_POS)
+                     | (CMU_HFBUS_CLK_BRANCH << CMU_CLK_BRANCH_POS),
 #endif
 
 #if defined( CMU_HFBUSCLKEN0_LDMA )
@@ -510,6 +527,24 @@ typedef enum
                     | (CMU_HFPER_CLK_BRANCH << CMU_CLK_BRANCH_POS),
 #endif
 
+#if defined( CMU_HFPERCLKEN0_WTIMER0 )
+  /** Wide Timer 0 clock. */
+  cmuClock_WTIMER0 = (CMU_NODIV_REG << CMU_DIV_REG_POS)
+                    | (CMU_NOSEL_REG << CMU_SEL_REG_POS)
+                    | (CMU_HFPERCLKEN0_EN_REG << CMU_EN_REG_POS)
+                    | (_CMU_HFPERCLKEN0_WTIMER0_SHIFT << CMU_EN_BIT_POS)
+                    | (CMU_HFPER_CLK_BRANCH << CMU_CLK_BRANCH_POS),
+#endif
+
+#if defined( CMU_HFPERCLKEN0_WTIMER1 )
+  /** Wide Timer 1 clock. */
+  cmuClock_WTIMER1 = (CMU_NODIV_REG << CMU_DIV_REG_POS)
+                    | (CMU_NOSEL_REG << CMU_SEL_REG_POS)
+                    | (CMU_HFPERCLKEN0_EN_REG << CMU_EN_REG_POS)
+                    | (_CMU_HFPERCLKEN0_WTIMER1_SHIFT << CMU_EN_BIT_POS)
+                    | (CMU_HFPER_CLK_BRANCH << CMU_CLK_BRANCH_POS),
+#endif
+
 #if defined( CMU_HFPERCLKEN0_CRYOTIMER )
   /** CRYOtimer clock. */
   cmuClock_CRYOTIMER = (CMU_NOPRESC_REG << CMU_PRESC_REG_POS)
@@ -555,8 +590,17 @@ typedef enum
                   | (CMU_HFPER_CLK_BRANCH << CMU_CLK_BRANCH_POS),
 #endif
 
+#if defined( CMU_HFPERCLKEN0_VDAC0 )
+  /** Voltage digital to analog converter 0 clock. */
+  cmuClock_VDAC0 = (CMU_NODIV_REG << CMU_DIV_REG_POS)
+                  | (CMU_NOSEL_REG << CMU_SEL_REG_POS)
+                  | (CMU_HFPERCLKEN0_EN_REG << CMU_EN_REG_POS)
+                  | (_CMU_HFPERCLKEN0_VDAC0_SHIFT << CMU_EN_BIT_POS)
+                  | (CMU_HFPER_CLK_BRANCH << CMU_CLK_BRANCH_POS),
+#endif
+
 #if defined( CMU_HFPERCLKEN0_IDAC0 )
-  /** Digital to analog converter 0 clock. */
+  /** Current digital to analog converter 0 clock. */
   cmuClock_IDAC0 = (CMU_NODIV_REG << CMU_DIV_REG_POS)
                    | (CMU_NOSEL_REG << CMU_SEL_REG_POS)
                    | (CMU_HFPERCLKEN0_EN_REG << CMU_EN_REG_POS)
@@ -615,6 +659,24 @@ typedef enum
                   | (CMU_NOSEL_REG << CMU_SEL_REG_POS)
                   | (CMU_HFPERCLKEN0_EN_REG << CMU_EN_REG_POS)
                   | (_CMU_HFPERCLKEN0_I2C2_SHIFT << CMU_EN_BIT_POS)
+                  | (CMU_HFPER_CLK_BRANCH << CMU_CLK_BRANCH_POS),
+#endif
+
+#if defined( CMU_HFPERCLKEN0_CSEN )
+  /** Capacitive Sense HF clock */
+  cmuClock_CSEN_HF = (CMU_NODIV_REG << CMU_DIV_REG_POS)
+                   | (CMU_NOSEL_REG << CMU_SEL_REG_POS)
+                   | (CMU_HFPERCLKEN0_EN_REG << CMU_EN_REG_POS)
+                   | (_CMU_HFPERCLKEN0_CSEN_SHIFT << CMU_EN_BIT_POS)
+                   | (CMU_HFPER_CLK_BRANCH << CMU_CLK_BRANCH_POS),
+#endif
+
+#if defined( CMU_HFPERCLKEN0_TRNG0 )
+  /** True random number generator clock */
+  cmuClock_TRNG0 = (CMU_NODIV_REG << CMU_DIV_REG_POS)
+                  | (CMU_NOSEL_REG << CMU_SEL_REG_POS)
+                  | (CMU_HFPERCLKEN0_EN_REG << CMU_EN_REG_POS)
+                  | (_CMU_HFPERCLKEN0_TRNG0_SHIFT << CMU_EN_BIT_POS)
                   | (CMU_HFPER_CLK_BRANCH << CMU_CLK_BRANCH_POS),
 #endif
 
@@ -710,7 +772,7 @@ typedef enum
                       | (CMU_NOSEL_REG << CMU_SEL_REG_POS)
                       | (CMU_LFACLKEN0_EN_REG << CMU_EN_REG_POS)
                       | (_CMU_LFACLKEN0_LETIMER0_SHIFT << CMU_EN_BIT_POS)
-                      | (CMU_LETIMER_CLK_BRANCH << CMU_CLK_BRANCH_POS),
+                      | (CMU_LETIMER0_CLK_BRANCH << CMU_CLK_BRANCH_POS),
 #endif
 
 #if defined( CMU_LFACLKEN0_LCD )
@@ -785,6 +847,15 @@ typedef enum
                      | (CMU_LEUART0_CLK_BRANCH << CMU_CLK_BRANCH_POS),
 #endif
 
+#if defined( CMU_LFBCLKEN0_CSEN )
+  /** Capacitive Sense LF clock. */
+  cmuClock_CSEN_LF = (CMU_LFBPRESC0_REG << CMU_DIV_REG_POS)
+                     | (CMU_NOSEL_REG << CMU_SEL_REG_POS)
+                     | (CMU_LFBCLKEN0_EN_REG << CMU_EN_REG_POS)
+                     | (_CMU_LFBCLKEN0_CSEN_SHIFT << CMU_EN_BIT_POS)
+                     | (CMU_LEUART0_CLK_BRANCH << CMU_CLK_BRANCH_POS),
+#endif
+
 #if defined( CMU_LFBCLKEN0_LEUART1 )
   /** Low energy universal asynchronous receiver/transmitter 1 clock. */
   cmuClock_LEUART1 = (CMU_LFBPRESC0_REG << CMU_DIV_REG_POS)
@@ -792,6 +863,15 @@ typedef enum
                      | (CMU_LFBCLKEN0_EN_REG << CMU_EN_REG_POS)
                      | (_CMU_LFBCLKEN0_LEUART1_SHIFT << CMU_EN_BIT_POS)
                      | (CMU_LEUART1_CLK_BRANCH << CMU_CLK_BRANCH_POS),
+#endif
+
+#if defined( CMU_LFBCLKEN0_SYSTICK )
+  /** Cortex SYSTICK LF clock. */
+  cmuClock_SYSTICK = (CMU_LFBPRESC0_REG << CMU_DIV_REG_POS)
+                     | (CMU_NOSEL_REG << CMU_SEL_REG_POS)
+                     | (CMU_LFBCLKEN0_EN_REG << CMU_EN_REG_POS)
+                     | (_CMU_LFBCLKEN0_SYSTICK_SHIFT << CMU_EN_BIT_POS)
+                     | (CMU_LEUART0_CLK_BRANCH << CMU_CLK_BRANCH_POS),
 #endif
 
 #if defined( _CMU_LFCCLKEN0_MASK )

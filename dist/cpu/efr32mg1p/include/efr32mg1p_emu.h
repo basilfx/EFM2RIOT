@@ -1,7 +1,7 @@
 /**************************************************************************//**
  * @file efr32mg1p_emu.h
  * @brief EFR32MG1P_EMU register and bit field definitions
- * @version 4.4.0
+ * @version 5.0.0
  ******************************************************************************
  * @section License
  * <b>Copyright 2016 Silicon Laboratories, Inc. http://www.silabs.com</b>
@@ -60,7 +60,7 @@ typedef struct
   __IOM uint32_t IFC;             /**< Interrupt Flag Clear Register  */
   __IOM uint32_t IEN;             /**< Interrupt Enable Register  */
   __IOM uint32_t PWRLOCK;         /**< Regulator and Supply Lock Register  */
-  __IOM uint32_t PWRCFG;          /**< Power Configuration Register. This is no longer used  */
+  __IOM uint32_t PWRCFG;          /**< Power Configuration Register  */
   __IOM uint32_t PWRCTRL;         /**< Power Control Register.  */
   __IOM uint32_t DCDCCTRL;        /**< DCDC Control  */
 
@@ -704,11 +704,9 @@ typedef struct
 #define _EMU_PWRCFG_PWRCFG_MASK                      0xFUL                                /**< Bit mask for EMU_PWRCFG */
 #define _EMU_PWRCFG_PWRCFG_DEFAULT                   0x00000000UL                         /**< Mode DEFAULT for EMU_PWRCFG */
 #define _EMU_PWRCFG_PWRCFG_STARTUP                   0x00000000UL                         /**< Mode STARTUP for EMU_PWRCFG */
-#define _EMU_PWRCFG_PWRCFG_NODCDC                    0x00000001UL                         /**< Mode NODCDC for EMU_PWRCFG */
 #define _EMU_PWRCFG_PWRCFG_DCDCTODVDD                0x00000002UL                         /**< Mode DCDCTODVDD for EMU_PWRCFG */
 #define EMU_PWRCFG_PWRCFG_DEFAULT                    (_EMU_PWRCFG_PWRCFG_DEFAULT << 0)    /**< Shifted mode DEFAULT for EMU_PWRCFG */
 #define EMU_PWRCFG_PWRCFG_STARTUP                    (_EMU_PWRCFG_PWRCFG_STARTUP << 0)    /**< Shifted mode STARTUP for EMU_PWRCFG */
-#define EMU_PWRCFG_PWRCFG_NODCDC                     (_EMU_PWRCFG_PWRCFG_NODCDC << 0)     /**< Shifted mode NODCDC for EMU_PWRCFG */
 #define EMU_PWRCFG_PWRCFG_DCDCTODVDD                 (_EMU_PWRCFG_PWRCFG_DCDCTODVDD << 0) /**< Shifted mode DCDCTODVDD for EMU_PWRCFG */
 
 /* Bit fields for EMU PWRCTRL */
@@ -843,7 +841,7 @@ typedef struct
 
 /* Bit fields for EMU DCDCTIMING */
 #define _EMU_DCDCTIMING_RESETVALUE                   0x0FF1F8FFUL                                  /**< Default value for EMU_DCDCTIMING */
-#define _EMU_DCDCTIMING_MASK                         0x7FF1F8FFUL                                  /**< Mask for EMU_DCDCTIMING */
+#define _EMU_DCDCTIMING_MASK                         0x6FF1F8FFUL                                  /**< Mask for EMU_DCDCTIMING */
 #define _EMU_DCDCTIMING_LPINITWAIT_SHIFT             0                                             /**< Shift value for EMU_LPINITWAIT */
 #define _EMU_DCDCTIMING_LPINITWAIT_MASK              0xFFUL                                        /**< Bit mask for EMU_LPINITWAIT */
 #define _EMU_DCDCTIMING_LPINITWAIT_DEFAULT           0x000000FFUL                                  /**< Mode DEFAULT for EMU_DCDCTIMING */
@@ -861,11 +859,6 @@ typedef struct
 #define _EMU_DCDCTIMING_BYPWAIT_MASK                 0xFF00000UL                                   /**< Bit mask for EMU_BYPWAIT */
 #define _EMU_DCDCTIMING_BYPWAIT_DEFAULT              0x000000FFUL                                  /**< Mode DEFAULT for EMU_DCDCTIMING */
 #define EMU_DCDCTIMING_BYPWAIT_DEFAULT               (_EMU_DCDCTIMING_BYPWAIT_DEFAULT << 20)       /**< Shifted mode DEFAULT for EMU_DCDCTIMING */
-#define EMU_DCDCTIMING_PWMRETIME                     (0x1UL << 28)                                 /**< Low Noise Controller retiming mode */
-#define _EMU_DCDCTIMING_PWMRETIME_SHIFT              28                                            /**< Shift value for EMU_PWMRETIME */
-#define _EMU_DCDCTIMING_PWMRETIME_MASK               0x10000000UL                                  /**< Bit mask for EMU_PWMRETIME */
-#define _EMU_DCDCTIMING_PWMRETIME_DEFAULT            0x00000000UL                                  /**< Mode DEFAULT for EMU_DCDCTIMING */
-#define EMU_DCDCTIMING_PWMRETIME_DEFAULT             (_EMU_DCDCTIMING_PWMRETIME_DEFAULT << 28)     /**< Shifted mode DEFAULT for EMU_DCDCTIMING */
 #define _EMU_DCDCTIMING_DUTYSCALE_SHIFT              29                                            /**< Shift value for EMU_DUTYSCALE */
 #define _EMU_DCDCTIMING_DUTYSCALE_MASK               0x60000000UL                                  /**< Bit mask for EMU_DUTYSCALE */
 #define _EMU_DCDCTIMING_DUTYSCALE_DEFAULT            0x00000000UL                                  /**< Mode DEFAULT for EMU_DCDCTIMING */

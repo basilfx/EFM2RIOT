@@ -1,7 +1,7 @@
 /***************************************************************************//**
  * @file em_ramfunc.h
  * @brief RAM code support.
- * @version 4.4.0
+ * @version 5.0.0
  *******************************************************************************
  * @section License
  * <b>Copyright 2016 Silicon Laboratories, Inc. http://www.silabs.com</b>
@@ -46,25 +46,28 @@ extern "C" {
  *  This module provides support for executing code from RAM. A unified method
  *  to manage RAM code across all supported tools is provided.
  * @{
- *
- * @note
- *   Functions executing from RAM should not be declared as static.
- *
- * @warning
- *   With GCC in hosted mode (default), standard library facilities are available
- *   to the tool regardless of the section attribute. Calls to standard libraries
- *   placed in the default section may therefore occur. To disable hosted mode,
- *   add '-ffreestanding' to the build command line. This is the only way to 
- *   guarantee no calls to standard libraries with GCC. 
- *   Read more at https://gcc.gnu.org/onlinedocs/gcc-5.3.0/gcc/Standards.html
 
-@n @section ramfunc_usage Usage
+  @note
+   Other cross-compiler support macros are implemented in @ref COMMON.
+
+  @note
+    Functions executing from RAM should not be declared as static.
+
+  @warning
+    With GCC in hosted mode (default), standard library facilities are available
+    to the tool regardless of the section attribute. Calls to standard libraries
+    placed in the default section may therefore occur. To disable hosted mode,
+    add '-ffreestanding' to the build command line. This is the only way to
+    guarantee no calls to standard libraries with GCC.
+    Read more at https://gcc.gnu.org/onlinedocs/gcc-5.3.0/gcc/Standards.html
+
+  @n @section ramfunc_usage Usage
 
   In your .h file:
   @verbatim
   #include "em_ramfunc.h"
 
-  RAMFUNC_DECLARATOR
+  SL_RAMFUNC_DECLARATOR
   void MyPrint(const char* string);
   @endverbatim
 
@@ -76,12 +79,12 @@ extern "C" {
   @verbatim
   #include "em_ramfunc.h"
 
-  RAMFUNC_DEFINITION_BEGIN
+  SL_RAMFUNC_DEFINITION_BEGIN
   void MyPrint(const char* string)
   {
   ...
   }
-  RAMFUNC_DEFINITION_END
+  SL_RAMFUNC_DEFINITION_END
   @endverbatim
 
 
@@ -93,51 +96,63 @@ extern "C" {
 
 /**
  * @brief
- *    By compiling with the define RAMFUNC_DISABLE, code placed in RAM by the
- *    RAMFUNC macros will be placed in Flash instead.
+ *    This define is not present by default. By compiling with the define
+ *    @ref SL_RAMFUNC_DISABLE, code placed in RAM by the SL_RAMFUNC macros
+ *    will be placed in default code space (Flash) instead.
  *
  * @note
  *    This define is not present by default.
  */
 #if defined(DOXY_DOC_ONLY)
-#define RAMFUNC_DISABLE
+#define SL_RAMFUNC_DISABLE
 #endif
 
-#if defined(RAMFUNC_DISABLE)
-/** Compiler ported function declarator for RAM code. */
-#define RAMFUNC_DECLARATOR
+#if defined(SL_RAMFUNC_DISABLE)
+/** @brief Compiler ported function declarator for RAM code. */
+#define SL_RAMFUNC_DECLARATOR
 
-/** Compiler ported function definition begin marker for RAM code. */
-#define RAMFUNC_DEFINITION_BEGIN
+/** @brief Compiler ported function definition begin marker for RAM code. */
+#define SL_RAMFUNC_DEFINITION_BEGIN
 
-/** Compiler ported function definition end marker for RAM code. */
-#define RAMFUNC_DEFINITION_END
+/** @brief Compiler ported function definition end marker for RAM code. */
+#define SL_RAMFUNC_DEFINITION_END
 
 #elif defined(__CC_ARM)
 /* MDK-ARM compiler */
-#define RAMFUNC_DECLARATOR
-#define RAMFUNC_DEFINITION_BEGIN    _Pragma("arm section code=\"ram_code\"")
-#define RAMFUNC_DEFINITION_END      _Pragma("arm section code")
+#define SL_RAMFUNC_DECLARATOR
+#define SL_RAMFUNC_DEFINITION_BEGIN    _Pragma("arm section code=\"ram_code\"")
+#define SL_RAMFUNC_DEFINITION_END      _Pragma("arm section code")
 
 #elif defined(__ICCARM__)
 /* IAR Embedded Workbench */
-#define RAMFUNC_DECLARATOR          __ramfunc
-#define RAMFUNC_DEFINITION_BEGIN    RAMFUNC_DECLARATOR
-#define RAMFUNC_DEFINITION_END
+#define SL_RAMFUNC_DECLARATOR          __ramfunc
+#define SL_RAMFUNC_DEFINITION_BEGIN    SL_RAMFUNC_DECLARATOR
+#define SL_RAMFUNC_DEFINITION_END
 
 #elif defined(__GNUC__) && defined(__CROSSWORKS_ARM)
 /* Rowley Crossworks */
-#define RAMFUNC_DECLARATOR          __attribute__ ((section(".fast")))
-#define RAMFUNC_DEFINITION_BEGIN    RAMFUNC_DECLARATOR
-#define RAMFUNC_DEFINITION_END
+#define SL_RAMFUNC_DECLARATOR          __attribute__ ((section(".fast")))
+#define SL_RAMFUNC_DEFINITION_BEGIN    SL_RAMFUNC_DECLARATOR
+#define SL_RAMFUNC_DEFINITION_END
 
 #elif defined(__GNUC__)
 /* Simplicity Studio, Atollic and vanilla armgcc */
-#define RAMFUNC_DECLARATOR          __attribute__ ((section(".ram")))
-#define RAMFUNC_DEFINITION_BEGIN    RAMFUNC_DECLARATOR
-#define RAMFUNC_DEFINITION_END
+#define SL_RAMFUNC_DECLARATOR          __attribute__ ((section(".ram")))
+#define SL_RAMFUNC_DEFINITION_BEGIN    SL_RAMFUNC_DECLARATOR
+#define SL_RAMFUNC_DEFINITION_END
 
 #endif
+
+/** @cond DO_NOT_INCLUDE_WITH_DOXYGEN */
+/* Deprecated macro names and user config */
+#if defined(RAMFUNC_DISABLE)
+#define SL_RAMFUNC_DISABLE
+#endif
+
+#define RAMFUNC_DECLARATOR          SL_RAMFUNC_DECLARATOR
+#define RAMFUNC_DEFINITION_BEGIN    SL_RAMFUNC_DEFINITION_BEGIN
+#define RAMFUNC_DEFINITION_END      SL_RAMFUNC_DEFINITION_END
+/** @endcond */
 
 /** @} (end addtogroup RAMFUNC) */
 /** @} (end addtogroup emlib) */
