@@ -16,13 +16,16 @@
  * @author      Bas Stottelaar <basstottelaar@gmail.com>
  */
 
-#ifndef PERIPH_HWCRYPTO_H
-#define PERIPH_HWCRYPTO_H
+#ifndef PERIPH_HWCRYPTO_H_
+#define PERIPH_HWCRYPTO_H_
 
 #ifdef __cplusplus
 extern "C" {
 #endif
 
+/**
+ * @brief   AES-128 context type definition.
+ */
 typedef struct {
     hwcrypto_cipher_t cipher;
     hwcrypto_mode_t mode;
@@ -31,6 +34,9 @@ typedef struct {
     uint8_t counter[16] __attribute__((aligned));
 } hwcrypto_cipher_aes128_context_t;
 
+/**
+ * @brief   AES-256 context type definition.
+ */
 typedef struct {
     hwcrypto_cipher_t cipher;
     hwcrypto_mode_t mode;
@@ -39,11 +45,17 @@ typedef struct {
     uint8_t counter[16] __attribute__((aligned));
 } hwcrypto_cipher_aes256_context_t;
 
+/**
+ * @brief   SHA-1 context type definition.
+ */
 typedef struct {
     hwcrypto_hash_t hash;
     uint8_t digest[32] __attribute__((aligned));
 } hwcrypto_hash_sha1_context_t;
 
+/**
+ * @brief   SHA-256 context type definition.
+ */
 typedef struct {
     hwcrypto_hash_t hash;
     uint8_t digest[32] __attribute__((aligned));
@@ -53,5 +65,5 @@ typedef struct {
 }
 #endif
 
-#endif /* PERIPH_HWCRYPTO_H */
+#endif /* PERIPH_HWCRYPTO_H_ */
 /** @} */

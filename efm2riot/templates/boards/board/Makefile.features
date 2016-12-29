@@ -7,6 +7,11 @@ FEATURES_PROVIDED += periph_adc
 {% endstrip %}
 FEATURES_PROVIDED += periph_cpuid
 FEATURES_PROVIDED += periph_gpio
+{% strip 2 %}
+    {% if development %}
+        FEATURES_PROVIDED += periph_hwcrypto
+    {% endif %}
+{% endstrip %}
 FEATURES_PROVIDED += periph_i2c
 FEATURES_PROVIDED += periph_pwm
 FEATURES_PROVIDED += periph_rtc
