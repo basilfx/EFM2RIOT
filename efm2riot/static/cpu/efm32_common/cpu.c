@@ -24,6 +24,7 @@
 
 #include "em_chip.h"
 #include "em_cmu.h"
+#include "em_emu.h"
 
 /**
  * @brief   Configure clock sources and the CPU frequency
@@ -57,12 +58,29 @@ static void clk_init(void)
 #endif
 }
 
+static void pm_init(void)
+{
+    /* initialize EM2 and EM3 */
+    EMU_EM23Init_TypeDef init_em23 = EMU_EM23INIT_DEFAULT;
+
+    EMU_EM23Init(&init_em23);
+
+#ifdef _SILICON_LABS_32B_PLATFORM_2
+    /* initialize EM4 */
+    EMU_EM4Init_TypeDef init_em4 = EMU_EM4INIT_DEFAULT;
+
+    EMU_EM4Init(&init_em4);
+#endif
+}
+
 void cpu_init(void)
 {
     /* apply errata that may be applicable (see em_chip.h) */
     CHIP_Init();
     /* initialize the Cortex-M core */
     cortexm_init();
-    /* Initialise clock sources and generic clocks */
+    /* initialize clock sources and generic clocks */
     clk_init();
+    /* initialize power management interface */
+    pm_init();
 }

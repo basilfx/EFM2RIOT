@@ -325,6 +325,11 @@ typedef struct {
     IRQn_Type irq;          /**< the devices base IRQ channel */
 } uart_conf_t;
 
+/**
+ * @brief   Number of usable power modes.
+ */
+#define PM_NUM_MODES    (1U)
+
 #ifdef __cplusplus
 }
 #endif

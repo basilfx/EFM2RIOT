@@ -21,8 +21,6 @@
 
 #include <stdio.h>
 
-#include "lpm.h"
-
 #include "periph/rtt.h"
 
 /**
@@ -45,9 +43,6 @@ int main(void)
         /* say bye-bye */
         printf("I will sleep until %lu.\n", timeout);
         fflush(stdout);
-
-        /* go to sleep */
-        lpm_arch_set(LPM_SLEEP);
 
         /* say hello */
         printf("I woke up at %lu.\n", rtt_get_counter());
