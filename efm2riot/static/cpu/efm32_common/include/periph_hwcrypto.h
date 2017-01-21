@@ -16,8 +16,8 @@
  * @author      Bas Stottelaar <basstottelaar@gmail.com>
  */
 
-#ifndef PERIPH_HWCRYPTO_H_
-#define PERIPH_HWCRYPTO_H_
+#ifndef PERIPH_HWCRYPTO_H
+#define PERIPH_HWCRYPTO_H
 
 #ifdef __cplusplus
 extern "C" {
@@ -65,5 +65,5 @@ typedef struct {
 }
 #endif
 
-#endif /* PERIPH_HWCRYPTO_H_ */
+#endif /* PERIPH_HWCRYPTO_H */
 /** @} */
