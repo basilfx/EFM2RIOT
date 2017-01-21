@@ -208,9 +208,15 @@ int hwcrypto_hash_update(hwcrypto_hash_context_t* context, const uint8_t* block,
     if (context->hash == HWCRYPTO_SHA1) {
         hwcrypto_hash_sha1_context_t* sha1_context = (hwcrypto_hash_sha1_context_t*) context;
 
+        /* digest must be aligned */
+        assert(!((intptr_t) sha1_context->digest & 0x03));
+
         CRYPTO_SHA_1(CRYPTO, block, block_size, sha1_context->digest);
     } else if (context->hash == HWCRYPTO_SHA256) {
         hwcrypto_hash_sha256_context_t* sha256_context = (hwcrypto_hash_sha256_context_t*) context;
+
+        /* digest must be aligned */
+        assert(!((intptr_t) sha256_context->digest & 0x03));
 
         CRYPTO_SHA_256(CRYPTO, block, block_size, sha256_context->digest);
     } else {

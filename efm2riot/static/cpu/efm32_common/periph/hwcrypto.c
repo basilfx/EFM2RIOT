@@ -37,6 +37,25 @@
  */
 static mutex_t hwcrypto_lock = MUTEX_INIT;
 
+/**
+ * @brief   Increment 128-bit counter.
+ */
+static void hwcrypto_cipher_increment(uint8_t* ctr)
+{
+    uint64_t* hi = (uint64_t*) ctr[0];
+    uint64_t* lo = (uint64_t*) ctr[8];
+
+    if (*lo == UINT64_MAX && *hi == UINT64_MAX) {
+        *lo = 0;
+        *hi = 0;
+    } else if (*lo == UINT64_MAX) {
+        *lo = 0;
+        *hi = *hi + 1;
+    } else {
+        *lo = *lo + 1;
+    }
+}
+
 int hwcrypto_init(void)
 {
     /* enable clocks */
@@ -154,7 +173,7 @@ static int hwcrypto_cipher_encrypt_decrypt(hwcrypto_cipher_context_t* context, c
         } else if (aes128_context->mode == HWCRYPTO_MODE_OFB) {
             AES_OFB128(cipher_block, plain_block, block_size, aes128_context->key, aes128_context->iv);
         } else if (aes128_context->mode == HWCRYPTO_MODE_CTR) {
-            AES_CTR128(cipher_block, plain_block, block_size, aes128_context->key, aes128_context->counter, NULL);
+            AES_CTR128(cipher_block, plain_block, block_size, aes128_context->key, aes128_context->counter, hwcrypto_cipher_increment);
         } else {
             return -1;
         }
@@ -176,7 +195,7 @@ static int hwcrypto_cipher_encrypt_decrypt(hwcrypto_cipher_context_t* context, c
         } else if (aes256_context->mode == HWCRYPTO_MODE_OFB) {
             AES_OFB256(cipher_block, plain_block, block_size, aes256_context->key, aes256_context->iv);
         } else if (aes256_context->mode == HWCRYPTO_MODE_CTR) {
-            AES_CTR256(cipher_block, plain_block, block_size, aes256_context->key, aes256_context->counter, NULL);
+            AES_CTR256(cipher_block, plain_block, block_size, aes256_context->key, aes256_context->counter, hwcrypto_cipher_increment);
         } else {
             return -1;
         }
