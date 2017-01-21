@@ -21,8 +21,6 @@
  */
 
 #include "cpu.h"
-#include "sched.h"
-#include "thread.h"
 
 #include "periph/gpio.h"
 
@@ -153,9 +151,7 @@ static void gpio_irq(void)
             GPIO_IntClear(1 << i);
         }
     }
-    if (sched_context_switch_request) {
-        thread_yield();
-    }
+    cortexm_isr_end();
 }
 
 /**
