@@ -1,6 +1,8 @@
 export CPU_ARCH = cortex-m3
 export CPU_FAM = efm32tg
 
+USEMODULE += pm_layered
+
 # include efm32_common
 include $(RIOTCPU)/efm32_common/Makefile.include
 

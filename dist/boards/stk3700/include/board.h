@@ -51,15 +51,15 @@ extern "C" {
 #endif
 /** @} */
 
-        /**
-         * @brief   GPIO pin for enabling communication through the board controller.
-         * @{
-         */
-        #ifndef BC_ENABLED
-        #define BC_ENABLED                  (1)
-        #endif
-#define BC_PIN              GPIO_PIN(PF, 7)
-        /** @} */
+/**
+ * @brief   GPIO pin for enabling communication through the board controller.
+ * @{
+ */
+#ifndef BC_ENABLED
+#define BC_ENABLED                  (1)
+#endif
+    #define BC_PIN              GPIO_PIN(PF, 7)
+/** @} */
 
 /**
  * @brief   Push button pin definitions.

@@ -17,8 +17,8 @@
  * @author      Bas Stottelaar <basstottelaar@gmail.com>
  */
 
-#ifndef CPU_PERIPH_H_
-#define CPU_PERIPH_H_
+#ifndef PERIPH_CPU_H
+#define PERIPH_CPU_H
 
 #include "mutex.h"
 
@@ -178,7 +178,9 @@ typedef enum {
  * @{
  */
 #define HAVE_HWCRYPTO_AES128
+#ifdef AES_CTRL_AES256
 #define HAVE_HWCRYPTO_AES256
+#endif
 #ifdef _SILICON_LABS_32B_PLATFORM_2
 #define HAVE_HWCRYPTO_SHA1
 #define HAVE_HWCRYPTO_SHA256
@@ -323,9 +325,14 @@ typedef struct {
     IRQn_Type irq;          /**< the devices base IRQ channel */
 } uart_conf_t;
 
+/**
+ * @brief   Number of usable power modes.
+ */
+#define PM_NUM_MODES    (3U)
+
 #ifdef __cplusplus
 }
 #endif
 
-#endif /* CPU_PERIPH_H_ */
+#endif /* PERIPH_CPU_H */
 /** @} */

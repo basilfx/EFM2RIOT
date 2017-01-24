@@ -51,15 +51,15 @@ extern "C" {
 #endif
 /** @} */
 
-        /**
-         * @brief   GPIO pin for enabling communication through the board controller.
-         * @{
-         */
-        #ifndef BC_ENABLED
-        #define BC_ENABLED                  (1)
-        #endif
-#define BC_PIN              GPIO_PIN(PA, 5)
-        /** @} */
+/**
+ * @brief   GPIO pin for enabling communication through the board controller.
+ * @{
+ */
+#ifndef BC_ENABLED
+#define BC_ENABLED                  (1)
+#endif
+    #define BC_PIN              GPIO_PIN(PA, 5)
+/** @} */
 
 /**
  * @brief   Push button pin definitions.
@@ -104,10 +104,12 @@ extern "C" {
  * @{
  */
 #ifndef SI7021_ENABLED
-#define SI7021_ENABLED      (1)
+#define SI7021_ENABLED          (1)
 #endif
-#define SI7021_I2C          (0)
-#define SI7021_EN_PIN       GPIO_PIN(PD, 9)
+#define SI7021_I2C              (0)
+#define SI7021_EN_PIN           GPIO_PIN(PD, 9)
+
+#define SI70XX_PARAM_I2C_DEV    SI7021_I2C
 /** @} */
 
 /**

@@ -4,6 +4,8 @@ export CPU_FAM = ezr32hg
 # CMSIS-DSP is needed for arm_math.h
 USEPKG += cmsis-dsp
 
+USEMODULE += pm_layered
+
 # include efm32_common
 include $(RIOTCPU)/efm32_common/Makefile.include
 

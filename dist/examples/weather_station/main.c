@@ -22,13 +22,11 @@
 #include <stdio.h>
 
 #include "board.h"
-#include "lpm.h"
 #include "xtimer.h"
 
 #include "u8g2.h"
 #include "si70xx.h"
 
-#include "periph/rtt.h"
 #include "periph/gpio.h"
 #include "periph/adc.h"
 
@@ -81,9 +79,6 @@ int main(void)
     int16_t temperature;
     uint16_t humidity;
 
-    /* prepare timer */
-    rtt_init();
-
     /* prepare display */
     gpio_init(DISP_COM_PIN, GPIO_OUT);
     gpio_init(DISP_EN_PIN, GPIO_OUT);
@@ -105,10 +100,6 @@ int main(void)
     si70xx_init(&dev, SI7021_I2C, SI70XX_ADDRESS_SI7021);
 
     while (1) {
-        /* prepare sleep between measurements */
-        timeout = rtt_get_counter() + (INTERVAL * RTT_FREQUENCY);
-        rtt_set_alarm(timeout, NULL, 0);
-
         /* measure temperature via Si7021 */
         si70xx_get_both(&dev, &humidity, &temperature);
 
@@ -121,7 +112,7 @@ int main(void)
         snprintf(buffer[1], 16, "%d.%02d C", temperature / 100, temperature % 100);
         snprintf(buffer[2], 16, "%.2f C", get_internal_temp());
         snprintf(buffer[3], 16, "%.2f V", get_battery_voltage());
-        snprintf(buffer[4], 16, "%lu s", rtt_get_counter());
+        snprintf(buffer[4], 16, "%lu s", xtimer_now() / 1000);
 
         u8g2_FirstPage(&u8g2);
 
@@ -151,7 +142,7 @@ int main(void)
         } while (u8g2_NextPage(&u8g2));
 
         /* go to sleep */
-        lpm_set(LPM_SLEEP);
+        xtimer_sleep(INTERVAL);
     }
 
     return 0;

@@ -3,6 +3,7 @@ export CPU_FAM = efr32bg12p
 
 # enable memory protection unit
 USEMODULE += mpu_stack_guard
+USEMODULE += pm_layered
 
 # include efm32_common
 include $(RIOTCPU)/efm32_common/Makefile.include

@@ -19,7 +19,6 @@
  */
 
 #include "cpu.h"
-#include "lpm.h"
 #include "mutex.h"
 
 #include "periph_conf.h"
@@ -64,7 +63,7 @@ static void _transfer(i2c_t dev, I2C_TransferSeq_TypeDef *transfer)
         cpsr = irq_disable();
 
         if (i2c_progress[dev] == i2cTransferInProgress) {
-            lpm_set(LPM_IDLE);
+            cpu_sleep_until_event();
         } else {
             busy = false;
         }
@@ -252,6 +251,7 @@ void i2c_poweroff(i2c_t dev)
 void I2C_0_ISR(void)
 {
     i2c_progress[0] = I2C_Transfer(i2c_config[0].dev);
+    cortexm_isr_end();
 }
 #endif
 
@@ -259,6 +259,7 @@ void I2C_0_ISR(void)
 void I2C_1_ISR(void)
 {
     i2c_progress[1] = I2C_Transfer(i2c_config[1].dev);
+    cortexm_isr_end();
 }
 #endif
 

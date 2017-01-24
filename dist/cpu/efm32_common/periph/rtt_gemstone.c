@@ -19,8 +19,6 @@
  */
 
 #include "cpu.h"
-#include "sched.h"
-#include "thread.h"
 
 #include "periph_conf.h"
 #include "periph/rtt.h"
@@ -153,9 +151,7 @@ void isr_rtcc(void)
         /* clear interrupt */
         RTCC_IntClear(RTCC_IFC_OF);
     }
-    if (sched_context_switch_request) {
-        thread_yield();
-    }
+    cortexm_isr_end();
 }
 
 #endif /* defined(RTCC_COUNT) && RTCC_COUNT > 0 */

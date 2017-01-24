@@ -21,8 +21,6 @@
 #include <time.h>
 
 #include "cpu.h"
-#include "sched.h"
-#include "thread.h"
 
 #include "periph_conf.h"
 #include "periph/rtc.h"
@@ -175,9 +173,7 @@ void isr_rtcc(void)
 
         RTCC_IntClear(RTCC_IFC_CC0);
     }
-    if (sched_context_switch_request) {
-        thread_yield();
-    }
+    cortexm_isr_end();
 }
 
 #endif /* defined(RTCC_COUNT) && RTCC_COUNT > 0 */
