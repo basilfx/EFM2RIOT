@@ -14,6 +14,7 @@ export CPU_FAM = {{ family }}
         USEMODULE += mpu_stack_guard
     {% endif %}
 {% endstrip %}
+USEMODULE += pm_layered
 
 # include efm32_common
 include $(RIOTCPU)/efm32_common/Makefile.include

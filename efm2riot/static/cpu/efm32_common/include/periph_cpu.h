@@ -328,7 +328,7 @@ typedef struct {
 /**
  * @brief   Number of usable power modes.
  */
-#define PM_NUM_MODES    (1U)
+#define PM_NUM_MODES    (3U)
 
 #ifdef __cplusplus
 }
