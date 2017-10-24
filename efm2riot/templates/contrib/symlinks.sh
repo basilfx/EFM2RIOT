@@ -17,3 +17,6 @@ for family in $FAMILIES
 do
     ln -sf `realpath "$SOURCE/cpu/$family"` "$TARGET/cpu/"
 done
+
+# Symlink the package into 'RIOT_ROOT/pkg'
+ln -sf `realpath "$SOURCE/pkg/emlib"` "$TARGET/pkg/"
