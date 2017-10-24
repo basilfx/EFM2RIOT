@@ -19,6 +19,11 @@ def parse_families(sdk_directory):
         if not os.path.isdir(folder):
             continue
 
+        # In SDK v5.1.2 additional devices are included which are incomplete.
+        # All interesting devices start with EFM32, EFR32 or EZR32.
+        if not os.path.basename(folder)[0] == "E":
+            continue
+
         families.append({
             "family": os.path.basename(folder).lower(),
             "family_display_name": os.path.basename(folder).upper(),
