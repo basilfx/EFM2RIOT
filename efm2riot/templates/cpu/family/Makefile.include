@@ -23,4 +23,4 @@ export INCLUDES += -I$(RIOTCPU)/{{ family }}/include/vendor
 include $(RIOTCPU)/efm32_common/Makefile.include
 
 # include cortexm_common
-include $(RIOTCPU)/Makefile.include.cortexm_common
+include $(RIOTMAKE)/arch/cortexm.inc.mk
