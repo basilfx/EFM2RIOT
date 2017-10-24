@@ -115,7 +115,7 @@ def from_file(input_file, output_file, context):
     if not os.path.isdir(os.path.dirname(output_file)):
         os.makedirs(os.path.dirname(output_file))
 
-    with open(output_file, "w") as fp:
+    with open(output_file, "wb") as fp:
         fp.write(output.encode("utf-8"))
 
 

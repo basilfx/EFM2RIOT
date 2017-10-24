@@ -18,8 +18,8 @@ def parse_arguments():
     parser.add_argument(
         "--dist", action="store", default="dist/", help="output folder")
     parser.add_argument(
-        "--development",
-        action="store_true", help="copy features under development")
+        "--development", action="store_true", default=False,
+        help="copy features under development")
 
     # Parse command line
     return parser.parse_args(), parser
@@ -84,6 +84,6 @@ def main(argv):
         root_directory, dist_directory, sdk_directory, cpus, families, boards)
 
 
-# E.g. `python EFM2RIOT.py --sdk /path/to/sdk --dist dist/'.
+# E.g. `python3 EFM2RIOT.py --sdk /path/to/sdk --dist dist/'.
 if __name__ == "__main__":
     sys.exit(main(sys.argv))

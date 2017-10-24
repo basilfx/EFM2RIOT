@@ -1,5 +1,7 @@
 # Python files
+__pycache__
 *.pyc
+env
 
 # Compiled files
 dist/examples/**/bin

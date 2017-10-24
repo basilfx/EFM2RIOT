@@ -16,7 +16,7 @@ This generator prepares the required files for using EFM32 with RIOT-OS, which i
 When you have cloned this repository, a ready-to-use version is available in the `dist/` folder. Copy the desired CPU and board folder from `cpu/` (including `cpu/efm32_common/`) and `boards/` to your RIOT-OS project.
 
 ### As a developer
-You will need Python 2.7 and the Exx32 SDK v5.0.0.0 (can be installed via Simplicity Studio v4).
+You will need Python 3.6 and the Exx32 SDK v5.1.2 (can be installed via Simplicity Studio v4).
 
 * The `efm2riot/configuration.py` defines all the jobs and boards.
 * The `efm2riot/templates/` folder contains all the files that need to be pre-processed.
@@ -25,7 +25,7 @@ You will need Python 2.7 and the Exx32 SDK v5.0.0.0 (can be installed via Simpli
 To generate all files, run:
 
 ```
-python EFM2RIOT.py --sdk /path/to/sdk --dist dist/
+python3 EFM2RIOT.py --sdk /path/to/sdk --dist dist/
 ```
 
 To enable some features that are not yet part of RIOT-OS, pass `--development`.
@@ -94,6 +94,8 @@ There are doubts on the performance and memory overhead of emlib. I have conclud
 * Most get/set/read/write/enable/clear methods are implemented as macro's or inline methods. They are equally efficient as their direct register alternative.
 
 Some benchmarks are available at http://basilfx.github.io/EFM2RIOT.
+
+As of October 2017, emlib is not included directly, but via an external package (hosted on Github). This reduces the number of source files included.
 
 ## License
 See the `LICENSE` file.

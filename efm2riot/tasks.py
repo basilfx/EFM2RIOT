@@ -39,7 +39,7 @@ def copy_static(root_directory, dist_directory, sdk_directory, development):
         ignored = []
 
         if "filters" in static:
-            for expression in static["filters"].iterkeys():
+            for expression in static["filters"].keys():
                 new_expression = templates.from_string(
                     expression, context)
 
@@ -81,7 +81,7 @@ def copy_templates(root_directory, dist_directory, sdk_directory,
                     filters = {}
 
                     if "filters" in template:
-                        for expression in template["filters"].iterkeys():
+                        for expression in template["filters"].keys():
                             new_expression = templates.from_string(
                                 expression, context)
 
