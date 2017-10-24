@@ -129,7 +129,7 @@ BOARDS = [
         "cpu_datasheet": "https://www.silabs.com/Support%20Documents/TechnicalDocs/EFM32PG1-DataSheet.pdf",  # noqa
         "board": "slstk3401a",
         "board_display_name": "SLSTK3401A",
-        "board_manual": "",
+        "board_manual": "https://www.silabs.com/documents/public/user-guides/ug154-stk3401-user-guide.pdf",  # noqa
         "board_schematic": "",
         "family": "efm32pg",
         "family_display_name": "EFM32PG",
@@ -142,7 +142,27 @@ BOARDS = [
             "lfrco": 32768,
             "ulfrco": 1000
         },
-        "marketing_display_name": "EFM32 Pearl Gecko Starter Kit"
+        "marketing_display_name": "EFM32 Pearl Gecko PG1 Starter Kit"
+    },
+    {
+        "cpu": "efm32pg12b500f1024gl125",
+        "cpu_datasheet": "https://www.silabs.com/documents/public/data-sheets/efm32pg12-datasheet.pdf",  # noqa
+        "board": "slstk3402a",
+        "board_display_name": "SLSTK3402A",
+        "board_manual": "https://www.silabs.com/documents/public/user-guides/ug257-stk3402-usersguide.pdf",  # noqa
+        "board_schematic": "",
+        "family": "efm32pg",
+        "family_display_name": "EFM32PG",
+        "family_display_name_full": "EFM32 Pearl Gecko",
+        "family_manual": "https://www.silabs.com/documents/public/reference-manuals/efm32pg12-rm.pdf",  # noqa
+        "freq": {
+            "hfxo": 40000000,
+            "hfrco": 19000000,
+            "lfxo": 32768,
+            "lfrco": 32768,
+            "ulfrco": 1000
+        },
+        "marketing_display_name": "EFM32 Pearl Gecko PG12 Starter Kit"
     },
     {
         "cpu": "efm32lg990f256",

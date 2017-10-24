@@ -53,7 +53,7 @@ The starter kit is equipped with an Advanced Energy Monitor. This allows you to 
         | SPIs            | 2x USART                                 |
         | I2Cs            | 1x                                       |
         | Vcc             | 1.98V - 3.8V                             |
-    {% elif board in ["slstk3401a"] %}
+    {% elif board in ["slstk3401a", "slstk3402a"] %}
         | DMA             | 12 channels                              |
         | Timers          | 2 x 16-bit + 1x 16-bit (low power)       |
         | ADCs            | 12-bit ADC                               |
@@ -118,7 +118,7 @@ The starter kit is equipped with an Advanced Energy Monitor. This allows you to 
         | PD6  | 6   | 5   | PC1  |
         | PD7  | 4   | 3   | PC0  |
         | VMCU | 2   | 1   | GND  |
-    {% elif board in ["slstk3401a"] %}
+    {% elif board in ["slstk3401a", "slstk3402a"] %}
         | 3V3  | 20  | 19  | RES  |
         | 5V   | 18  | 17  | RES  |
         | PC10 | 16  | 15  | PC11 |
@@ -202,7 +202,7 @@ The starter kit is equipped with an Advanced Energy Monitor. This allows you to 
         | Timer      | 0       | TIMER0 + TIMER1 |                                 | TIMER0 is used as prescaler (must be adjecent)            |
         | UART       | 0       | LEUART0         | RX: PD5, TX: PD4                | STDIO Output, Baud rate limited (see below)               |
         |            | 1       | USART1          | RX: PD6, TX: PD7                |                                                           |
-    {% elif board in ["slstk3401a"] %}
+    {% elif board in ["slstk3401a", "slstk3402a"] %}
         | ADC        | 0       | ADC0            | CHAN0: internal temperature     | Ports are fixed                                           |
         | Crypto     | &mdash; | &mdash;         |                                 | AES128/AES256, SHA1, SHA256                               |
         | I2C        | 0       | I2C0            | SDA: PC10, CLK: PC11            | `I2C_SPEED_LOW` and `I2C_SPEED_HIGH` clock speed deviate  |
@@ -252,7 +252,7 @@ The starter kit is equipped with an Advanced Energy Monitor. This allows you to 
         |            |           | PB1      | PC9  |            |
         | LED        | LED_RED   | LED0     | PC10 | Yellow LED |
         |            | LED_GREEN | LED1     | PC11 | Yellow LED |
-    {% elif board in ["slstk3401a"] %}
+    {% elif board in ["slstk3401a", "slstk3402a"] %}
         | Button     |           | PB0      | PF6  |            |
         |            |           | PB1      | PF7  |            |
         | LED        | LED_RED   | LED0     | PF4  | Yellow LED |
@@ -295,10 +295,10 @@ The starter kit is equipped with an Advanced Energy Monitor. This allows you to 
 |                               | UART                           | yes       | USART is shared with SPI. LEUART baud rate limited (see below) |
 |                               | USB                            | no        |                                                                |
 {% strip 2 %}
-    {% if board in ["slstk3401a", "stk3200", "slwstk6220a"] %}
+    {% if board in ["slstk3401a", "slstk3402a", "stk3200", "slwstk6220a"] %}
         | LCD driver                    | LS013B7DH03                    | yes       | Sharp Low Power Memory LCD                                     |
     {% endif %}
-    {% if board in ["slstk3401a", "slwstk6220a", "sltb001a"] %}
+    {% if board in ["slstk3401a", "slstk3402a", "slwstk6220a", "sltb001a"] %}
         | Temperature + Humidity sensor | Si7021                         | yes       | Silicon Labs Temperature + Humidity sensor                     |
     {% endif %}
     {% if board in ["sltb001a"] %}
@@ -328,7 +328,7 @@ The starter kit is equipped with an Advanced Energy Monitor. This allows you to 
 **Note:** the board controller *always* configures the virtual serial port at 115200 baud with 8 bits, no parity and one stop bit. This also means that it expects data from the MCU with the same settings.
 
 {% strip 2, ">" %}
-    {% if board in ["slstk3401a", "stk3200", "slwstk6220a"] %}
+    {% if board in ["slstk3401a", "slstk3402a", "stk3200", "slwstk6220a"] %}
         The low power LCD is also used by the board controller when the `DISP_SELECTED` pin is low. This pin is not initialized by the board, so you have to ensure this pin is initialized by your application if you want to control the low power LCD.
     {% endif %}
 {% endstrip %}

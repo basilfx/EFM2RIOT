@@ -56,7 +56,8 @@ Most of the 32-bit families that are supported by emlib are supported by EFM2RIO
 Currently, the following boards (development kits) are supported:
 
 * [STK3200](dist/doc/STK3200.md) &mdash; EFM32 Zero Gecko
-* [SLSTK3401A](dist/doc/SLSTK3401A.md) &mdash; EFM32 Pearl Gecko
+* [SLSTK3401A](dist/doc/SLSTK3401A.md) &mdash; EFM32 Pearl Gecko PG1
+* [SLSTK3402A](dist/doc/SLSTK3402A.md) &mdash; EFM32 Pearl Gecko PG12 (untested)
 * [STK3600](dist/doc/STK3600.md) &mdash; EFM32 Leopard Gecko
 * [STK3700](dist/doc/STK3700.md) &mdash; EFM32 Giant Gecko
 * [STK3800](dist/doc/STK3800.md) &mdash; EFM32 Wonder Gecko
@@ -72,8 +73,8 @@ Currently, the following boards (development kits) are supported:
 ### Why a generator?
 It started as an experiment on generating code from configuration, but turned out to be pretty neat. Apart from that, there are two other reasons:
 
-* This port uses a slightly modified version of emlib. When this library is updated, these changes have to be applied again. This generator automates that process.
-* All supported MCUs are extracted from emlib. Using templates, new MCUs that are supported by emlib will also be supported by this port.
+* This port patches the vendor header files for warning-free usage with RIOT-OS. After each update, this process must be repeated. This generator automates that process.
+* All supported MCUs are extracted from the SDK. Using templates, new MCUs that are supported by the SDK will also be supported by this port.
 
 ### Why is this not (yet) part of RIOT-OS?
 The generator is something completely different and has no intention to be part of the RIOT-OS project.
