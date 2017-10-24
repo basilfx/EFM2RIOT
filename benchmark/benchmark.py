@@ -73,7 +73,7 @@ def parse_map(map_file):
         try:
             tokens = grammar.parseString(" ".join(segment))
         except ParseException as e:
-            print e.markInputline("|")
+            print(e.markInputline("|"))
             raise e
 
         if len(tokens) > 1:
@@ -159,7 +159,8 @@ def compile_job(riot_directory, board, application, setting):
 
     # Extract information
     if not failed:
-        sizes = map(str.strip, output.split("\n")[-2].split("\t"))
+        output = output.decode("ascii")
+        sizes = list(map(str.strip, output.split("\n")[-2].split("\t")))
         segments = parse_map(sizes[5].replace(".elf", ".map"))
 
         result.update({
@@ -188,7 +189,7 @@ def main():
 
     # Import profile file.
     profile = {}
-    execfile(arguments.profile, profile)
+    exec(open(arguments.profile).read(), profile)
 
     # Prepare all jobs.
     jobs = []
@@ -235,7 +236,7 @@ def main():
                 "board": board,
                 "application": application,
                 "setting": " ".join(
-                    ["%s=%s" % (k, v) for k, v in setting.iteritems()]),
+                    ["%s=%s" % (k, v) for k, v in setting.items()]),
             }
 
             result.update(cache[key])
@@ -252,5 +253,7 @@ def main():
     # Done
     sys.stdout.write("Done!\n")
 
+
+# E.g. `python3 Benchmark.py --riot /path/to/RIOT --profile profile.py -o output.js`  # noqa
 if __name__ == "__main__":
     sys.exit(main())

@@ -2,6 +2,7 @@ def if_not_efm32(board):
     return board not in [
         "stk3200",
         "slstk3401a",
+        "slstk3402a",
         "stk3600",
         "stk3700",
         "stk3800",
@@ -20,6 +21,7 @@ BOARDS = [
     "stm32f4discovery",
     "stk3200",
     "slstk3401a",
+    "slstk3402a",
     "stk3600",
     "stk3700",
     "stk3800",

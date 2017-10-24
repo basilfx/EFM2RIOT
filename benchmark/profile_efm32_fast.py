@@ -2,6 +2,7 @@
 BOARDS = [
     "stk3200",
     "slstk3401a",
+    "slstk3402a",
     "stk3600",
     "stk3700",
     "stk3800",
