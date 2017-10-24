@@ -16,6 +16,9 @@ export CPU_FAM = {{ family }}
 {% endstrip %}
 USEMODULE += pm_layered
 
+# include vendor device headers
+export INCLUDES += -I$(RIOTCPU)/{{ family }}/include/vendor
+
 # include efm32_common
 include $(RIOTCPU)/efm32_common/Makefile.include
 

@@ -153,6 +153,9 @@ def copy_patches(root_directory, dist_directory, sdk_directory,
                         for method in patch["methods"]:
                             content = method(source, content)
 
+                        if not os.path.isdir(target):
+                            os.mkdir(target)
+
                         with open(target, "w") as fp:
                             fp.write(content)
                     elif patch["type"] == "glob":
@@ -166,6 +169,9 @@ def copy_patches(root_directory, dist_directory, sdk_directory,
 
                                 for method in patch["methods"]:
                                     content = method(source, content)
+
+                                if not os.path.isdir(target):
+                                    os.mkdir(target)
 
                                 with open(target_file, "w") as fp:
                                     fp.write(content)

@@ -98,7 +98,7 @@ PATCHES = [
         "type": "glob",
         "when": "per_family",
         "source": "{{ sdk }}/Device/SiliconLabs/{{ family|upper }}/Include/*.h",  # noqa
-        "target": "cpu/{{ family }}/include",
+        "target": "cpu/{{ family }}/include/vendor",
         "methods": [patches.add_extern_c, patches.fix_arm_math]
     }
 ]
