@@ -29,12 +29,8 @@ STATICS = [
     },
     {
         "type": "directory",
-        "source": "{{ sdk }}/emlib",
-        "target": "cpu/efm32_common/emlib",
-        "filters": {
-            "{{ sdk }}/emlib/inc/em_int.h": filters.never(),
-            "{{ sdk }}/emlib/src/em_int.c": filters.never(),
-        }
+        "source": "{{ root }}/static/pkg",
+        "target": "pkg"
     }
 ]
 
