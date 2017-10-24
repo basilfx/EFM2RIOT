@@ -173,23 +173,19 @@ typedef enum {
 } gpio_flank_t;
 /** @} */
 
-{% strip 2, ">" %}
-    {% if development %}
-        /**
-         * @brief   Override hardware crypto supported methods.
-         * @{
-         */
-        #define HAVE_HWCRYPTO_AES128
-        #ifdef AES_CTRL_AES256
-        #define HAVE_HWCRYPTO_AES256
-        #endif
-        #ifdef _SILICON_LABS_32B_PLATFORM_2
-        #define HAVE_HWCRYPTO_SHA1
-        #define HAVE_HWCRYPTO_SHA256
-        #endif
-        /** @} */
-    {% endif %}
-{% endstrip %}
+/**
+ * @brief   Override hardware crypto supported methods.
+ * @{
+ */
+#define HAVE_HWCRYPTO_AES128
+#ifdef AES_CTRL_AES256
+#define HAVE_HWCRYPTO_AES256
+#endif
+#ifdef _SILICON_LABS_32B_PLATFORM_2
+#define HAVE_HWCRYPTO_SHA1
+#define HAVE_HWCRYPTO_SHA256
+#endif
+/** @} */
 
 /**
  * @brief   Override I2C speed values.
