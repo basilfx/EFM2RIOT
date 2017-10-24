@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2016 Bas Stottelaar <basstottelaar@gmail.com>
+ * Copyright (C) 2016-2017 Bas Stottelaar <basstottelaar@gmail.com>
  *
  * This file is subject to the terms and conditions of the GNU Lesser
  * General Public License v2.1. See the file LICENSE in the top level
@@ -63,7 +63,7 @@ static void _transfer(i2c_t dev, I2C_TransferSeq_TypeDef *transfer)
         cpsr = irq_disable();
 
         if (i2c_progress[dev] == i2cTransferInProgress) {
-            cpu_sleep_until_event();
+            cortexm_sleep_until_event();
         } else {
             busy = false;
         }

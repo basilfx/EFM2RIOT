@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2015-2016 Freie Universität Berlin
+ * Copyright (C) 2015-2017 Freie Universität Berlin
  *
  * This file is subject to the terms and conditions of the GNU Lesser
  * General Public License v2.1. See the file LICENSE in the top level
@@ -41,7 +41,6 @@ WEAK_DEFAULT void isr_dma(void);
 WEAK_DEFAULT void isr_gpio_even(void);
 WEAK_DEFAULT void isr_timer0(void);
 WEAK_DEFAULT void isr_acmp0(void);
-WEAK_DEFAULT void isr_adc0(void);
 WEAK_DEFAULT void isr_i2c0(void);
 WEAK_DEFAULT void isr_gpio_odd(void);
 WEAK_DEFAULT void isr_timer1(void);
@@ -53,57 +52,32 @@ WEAK_DEFAULT void isr_rtc(void);
 WEAK_DEFAULT void isr_cmu(void);
 WEAK_DEFAULT void isr_vcmp(void);
 WEAK_DEFAULT void isr_msc(void);
-WEAK_DEFAULT void isr_aes(void);
 WEAK_DEFAULT void isr_usart0_rx(void);
 WEAK_DEFAULT void isr_usart0_tx(void);
 WEAK_DEFAULT void isr_usb(void);
 WEAK_DEFAULT void isr_timer2(void);
 
 /* interrupt vector table */
-ISR_VECTORS const void *interrupt_vector[] = {
-    /* Exception stack pointer */
-    (void*) (&_estack),             /* pointer to the top of the stack */
-
-    /* Cortex M0PLUS handlers */
-    (void*) reset_handler_default,  /* entry point of the program */
-    (void*) nmi_default,            /* non maskable interrupt handler */
-    (void*) hard_fault_default,     /* hard fault exception */
-    (void*) (0UL),                  /* Reserved */
-    (void*) (0UL),                  /* Reserved */
-    (void*) (0UL),                  /* Reserved */
-
-    (void*) (0UL),                  /* Reserved */
-    (void*) (0UL),                  /* Reserved */
-    (void*) (0UL),                  /* Reserved */
-    (void*) (0UL),                  /* Reserved */
-    (void*) isr_svc,                /* system call interrupt, in RIOT used for
-                                     * switching into thread context on boot */
-    (void*) (0UL),                  /* Reserved */
-    (void*) (0UL),                  /* Reserved */
-    (void*) isr_pendsv,             /* pendSV interrupt, in RIOT the actual
-                                     * context switching is happening here */
-    (void*) isr_systick,            /* SysTick interrupt, not used in RIOT */
-
-    /* EFM32 specific peripheral handlers */
-    (void*) isr_dma,                /* 0 - DMA */
-    (void*) isr_gpio_even,          /* 1 - GPIO_EVEN */
-    (void*) isr_timer0,             /* 2 - TIMER0 */
-    (void*) isr_acmp0,              /* 3 - ACMP0 */
-    (void*) isr_adc0,               /* 4 - ADC0 */
-    (void*) isr_i2c0,               /* 5 - I2C0 */
-    (void*) isr_gpio_odd,           /* 6 - GPIO_ODD */
-    (void*) isr_timer1,             /* 7 - TIMER1 */
-    (void*) isr_usart1_rx,          /* 8 - USART1_RX */
-    (void*) isr_usart1_tx,          /* 9 - USART1_TX */
-    (void*) isr_leuart0,            /* 10 - LEUART0 */
-    (void*) isr_pcnt0,              /* 11 - PCNT0 */
-    (void*) isr_rtc,                /* 12 - RTC */
-    (void*) isr_cmu,                /* 13 - CMU */
-    (void*) isr_vcmp,               /* 14 - VCMP */
-    (void*) isr_msc,                /* 15 - MSC */
-    (void*) isr_aes,                /* 16 - AES */
-    (void*) isr_usart0_rx,          /* 17 - USART0_RX */
-    (void*) isr_usart0_tx,          /* 18 - USART0_TX */
-    (void*) isr_usb,                /* 19 - USB */
-    (void*) isr_timer2,             /* 20 - TIMER2 */
+ISR_VECTOR(1) const isr_t vector_cpu[CPU_IRQ_NUMOF] = {
+    isr_dma,                /* 0 - DMA */
+    isr_gpio_even,          /* 1 - GPIO_EVEN */
+    isr_timer0,             /* 2 - TIMER0 */
+    isr_acmp0,              /* 3 - ACMP0 */
+    (0UL),                  /* Reserved */
+    isr_i2c0,               /* 5 - I2C0 */
+    isr_gpio_odd,           /* 6 - GPIO_ODD */
+    isr_timer1,             /* 7 - TIMER1 */
+    isr_usart1_rx,          /* 8 - USART1_RX */
+    isr_usart1_tx,          /* 9 - USART1_TX */
+    isr_leuart0,            /* 10 - LEUART0 */
+    isr_pcnt0,              /* 11 - PCNT0 */
+    isr_rtc,                /* 12 - RTC */
+    isr_cmu,                /* 13 - CMU */
+    isr_vcmp,               /* 14 - VCMP */
+    isr_msc,                /* 15 - MSC */
+    (0UL),                  /* Reserved */
+    isr_usart0_rx,          /* 17 - USART0_RX */
+    isr_usart0_tx,          /* 18 - USART0_TX */
+    isr_usb,                /* 19 - USB */
+    isr_timer2,             /* 20 - TIMER2 */
 };

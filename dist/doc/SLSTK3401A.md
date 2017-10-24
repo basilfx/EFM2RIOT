@@ -1,7 +1,7 @@
 # Silicon Labs SLSTK3401A
 
 ## Overview
-Silicon Labs EFM32 Pearl Gecko Starter Kit is equipped with the EFM32 microcontroller. It is specifically designed for low-power applications, having energy-saving peripherals, different energy modes and short wake-up times.
+Silicon Labs EFM32 Pearl Gecko PG1 Starter Kit is equipped with the EFM32 microcontroller. It is specifically designed for low-power applications, having energy-saving peripherals, different energy modes and short wake-up times.
 
 The starter kit is equipped with an Advanced Energy Monitor. This allows you to actively measure the power consumption of your hardware and code, in real-time.
 
@@ -14,8 +14,8 @@ The starter kit is equipped with an Advanced Energy Monitor. This allows you to 
 | Family          | ARM Cortex-M4      |
 | Vendor          | Silicon Labs                             |
 | Vendor Family   | EFM32 Pearl Gecko           |
-| RAM             | 32KB                   |
-| Flash           | 256KB                 |
+| RAM             | 32.0KB                   |
+| Flash           | 256.0KB                 |
 | EEPROM          | no                                       |
 | Frequency       | up to 40 MHz            |
 | FPU             | yes             |
@@ -29,7 +29,7 @@ The starter kit is equipped with an Advanced Energy Monitor. This allows you to 
 | Vcc             | 1.85V - 3.8V                             |
 | Datasheet       | [Datasheet](https://www.silabs.com/Support%20Documents/TechnicalDocs/EFM32PG1-DataSheet.pdf)         |
 | Manual          | [Manual](https://www.silabs.com/Support%20Documents/TechnicalDocs/EFM32PG1-ReferenceManual.pdf)            |
-| Board Manual    | [Board Manual]()       |
+| Board Manual    | [Board Manual](https://www.silabs.com/documents/public/user-guides/ug154-stk3401-user-guide.pdf)       |
 | Board Schematic | [Board Schematic]() |
 
 ### Pinout

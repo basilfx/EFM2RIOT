@@ -3,8 +3,11 @@ export CPU_FAM = efm32tg
 
 USEMODULE += pm_layered
 
+# include vendor device headers
+export INCLUDES += -I$(RIOTCPU)/efm32tg/include/vendor
+
 # include efm32_common
 include $(RIOTCPU)/efm32_common/Makefile.include
 
 # include cortexm_common
-include $(RIOTCPU)/Makefile.include.cortexm_common
+include $(RIOTMAKE)/arch/cortexm.inc.mk

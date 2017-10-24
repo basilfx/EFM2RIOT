@@ -14,8 +14,8 @@ The starter kit is equipped with an Advanced Energy Monitor. This allows you to 
 | Family          | ARM Cortex-M4      |
 | Vendor          | Silicon Labs                             |
 | Vendor Family   | EFM32 Mighty Gecko Gecko           |
-| RAM             | 31KB                   |
-| Flash           | 256KB                 |
+| RAM             | 31.0KB                   |
+| Flash           | 256.0KB                 |
 | EEPROM          | no                                       |
 | Frequency       | up to 38.4 MHz            |
 | FPU             | yes             |

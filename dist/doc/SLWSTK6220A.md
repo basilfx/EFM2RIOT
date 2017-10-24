@@ -14,8 +14,8 @@ The starter kit is equipped with an Advanced Energy Monitor. This allows you to 
 | Family          | ARM Cortex-M4      |
 | Vendor          | Silicon Labs                             |
 | Vendor Family   | EZR32 Wonder Gecko           |
-| RAM             | 32KB                   |
-| Flash           | 256KB                 |
+| RAM             | 32.0KB                   |
+| Flash           | 256.0KB                 |
 | EEPROM          | no                                       |
 | Frequency       | up to 48 MHz            |
 | FPU             | yes             |

@@ -16,6 +16,7 @@
  *
  * @author      Ryan Kurte <ryankurte@gmail.com>
  * @author      Bas Stottelaar <basstottelaar@gmail.com>
+ * @author      Christian Amsüss <c@amsuess.com>
  *
  * @}
  */
@@ -37,14 +38,26 @@
 /* guard file in case no SPI device is defined */
 #if SPI_NUMOF
 
-static mutex_t spi_lock[SPI_NUMOF] = {
-#if SPI_0_EN
-    [SPI_0] = MUTEX_INIT,
-#endif
-#if SPI_1_EN
-    [SPI_1] = MUTEX_INIT,
-#endif
-};
+static mutex_t locks[SPI_NUMOF];
+
+/*static void spi_poweron(spi_t dev)
+{
+    CMU_ClockEnable(spi_config[dev].cmu, true);
+}
+
+static void spi_poweroff(spi_t dev)
+{
+    CMU_ClockEnable(spi_config[dev].cmu, false);
+}*/
+
+void spi_init(spi_t bus)
+{
+    /* make sure given bus device is valid */
+    assert(bus < SPI_NUMOF);
+
+    /* initialize the lock */
+    mutex_init(&locks[bus]);
+}
 
 int spi_init_master(spi_t dev, spi_conf_t conf, spi_speed_t speed)
 {
@@ -66,8 +79,8 @@ int spi_init_master(spi_t dev, spi_conf_t conf, spi_speed_t speed)
 
     USART_InitSync(spi_config[dev].dev, &init.conf);
 
-    /* configure the pins */
-    spi_conf_pins(dev);
+    /* initialize the pins */
+    spi_init_pins(dev);
 
     return 0;
 }
@@ -78,7 +91,7 @@ int spi_init_slave(spi_t dev, spi_conf_t conf, char (*cb)(char data))
     return -1;
 }
 
-int spi_conf_pins(spi_t dev)
+void spi_init_pins(spi_t dev)
 {
     /* configure the pins */
     gpio_init(spi_config[dev].clk_pin, GPIO_OUT);
@@ -100,49 +113,61 @@ int spi_conf_pins(spi_t dev)
                                      USART_ROUTEPEN_TXPEN |
                                      USART_ROUTEPEN_CLKPEN);
 #endif
-
-    return 0;
 }
 
-int spi_acquire(spi_t dev)
+int spi_acquire(spi_t bus, spi_cs_t cs, spi_mode_t mode, spi_clk_t clk)
 {
-    mutex_lock((mutex_t *) &spi_lock[dev]);
+    mutex_lock((mutex_t *) &locks[bus]);
 
-    return 0;
+    CMU_ClockEnable(cmuClock_HFPER, true);
+    CMU_ClockEnable(spi_config[bus].cmu, true);
+
+    EFM32_CREATE_INIT(init, USART_InitSync_TypeDef, USART_INITSYNC_DEFAULT,
+        .conf.baudrate = (uint32_t) clk,
+        .conf.clockMode = (USART_ClockMode_TypeDef) mode,
+        .conf.msbf = true
+    );
+
+    USART_InitSync(spi_config[bus].dev, &init.conf);
+
+    /* configure the pins */
+    spi_init_pins(bus);
+
+    return SPI_OK;
 }
 
-int spi_release(spi_t dev)
+void spi_release(spi_t dev)
 {
-    mutex_unlock((mutex_t *) &spi_lock[dev]);
-
-    return 0;
+    mutex_unlock((mutex_t *) &locks[dev]);
 }
 
-int spi_transfer_byte(spi_t dev, char out, char *in)
+void spi_transfer_bytes(spi_t bus, spi_cs_t cs, bool cont,
+                        const void *out, void *in, size_t len)
 {
-    if (in != NULL) {
-        (*in) = USART_SpiTransfer(spi_config[dev].dev, out);
+    uint8_t *out_buf = (uint8_t *)out;
+    uint8_t *in_buf = (uint8_t *)in;
+
+    if (cs != SPI_CS_UNDEF) {
+        gpio_clear((gpio_t)cs);
     }
-    else {
-        USART_SpiTransfer(spi_config[dev].dev, out);
+
+    for (size_t i = 0; i < len; i++) {
+        uint8_t ret = USART_SpiTransfer(spi_config[bus].dev, out != NULL ? out_buf[i] : 0);
+
+        if (in != NULL) {
+            in_buf[i] = ret;
+        }
     }
 
-    return 0;
+    if ((!cont) && (cs != SPI_CS_UNDEF)) {
+        gpio_set((gpio_t)cs);
+    }
 }
+
 
 void spi_transmission_begin(spi_t dev, char reset_val)
 {
     return;
-}
-
-void spi_poweron(spi_t dev)
-{
-    CMU_ClockEnable(spi_config[dev].cmu, true);
-}
-
-void spi_poweroff(spi_t dev)
-{
-    CMU_ClockEnable(spi_config[dev].cmu, false);
 }
 
 #endif /* SPI_NUMOF */

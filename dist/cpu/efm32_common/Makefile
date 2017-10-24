@@ -2,6 +2,6 @@
 MODULE = efm32_common
 
 # add a list of subdirectories, that should also be build
-DIRS = emlib/src periph
+DIRS = periph
 
 include $(RIOTBASE)/Makefile.base
