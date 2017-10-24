@@ -46,51 +46,13 @@ WEAK_DEFAULT void isr_systick(void);
 {% endstrip %}
 
 /* interrupt vector table */
-ISR_VECTORS const void *interrupt_vector[] = {
-    /* Exception stack pointer */
-    (void*) (&_estack),             /* pointer to the top of the stack */
-
-    /* Cortex {{ architecture|upper }} handlers */
-    (void*) reset_handler_default,  /* entry point of the program */
-    (void*) nmi_default,            /* non maskable interrupt handler */
-    (void*) hard_fault_default,     /* hard fault exception */
-    {% strip 2 %}
-        {% if architecture in ["m0", "m0plus"] %}
-            (void*) (0UL),                  /* Reserved */
-            (void*) (0UL),                  /* Reserved */
-            (void*) (0UL),                  /* Reserved */
-        {% else %}
-            (void*) mem_manage_default,     /* memory manage exception */
-            (void*) bus_fault_default,      /* bus fault exception */
-            (void*) usage_fault_default,    /* usage fault exception */
-        {% endif %}
-    {% endstrip %}
-
-    (void*) (0UL),                  /* Reserved */
-    (void*) (0UL),                  /* Reserved */
-    (void*) (0UL),                  /* Reserved */
-    (void*) (0UL),                  /* Reserved */
-    (void*) isr_svc,                /* system call interrupt, in RIOT used for
-                                     * switching into thread context on boot */
-    {% strip 2 %}
-        {% if architecture in ["m0", "m0plus"] %}
-            (void*) (0UL),                  /* Reserved */
-        {% else %}
-            (void*) debug_mon_default,      /* debug monitor exception */
-        {% endif %}
-    {% endstrip %}
-    (void*) (0UL),                  /* Reserved */
-    (void*) isr_pendsv,             /* pendSV interrupt, in RIOT the actual
-                                     * context switching is happening here */
-    (void*) isr_systick,            /* SysTick interrupt, not used in RIOT */
-
-    /* EFM32 specific peripheral handlers */
+ISR_VECTOR(1) const isr_t vector_cpu[CPU_IRQ_NUMOF] = {
     {% strip 3 %}
         {% for irq in irqs %}
             {% if irq.reserved %}
-                (void*) (0UL),                  /* Reserved */
+                (0UL),                  /* Reserved */
             {% else %}
-                (void*) {{ (irq.method_name ~ ",")|align(23) }} /* {{ irq.number }} - {{ irq.name }} */
+                {{ (irq.method_name ~ ",")|align(23) }} /* {{ irq.number }} - {{ irq.name }} */
             {% endif %}
         {% endfor %}
     {% endstrip %}

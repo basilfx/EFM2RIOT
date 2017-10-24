@@ -63,7 +63,7 @@ static void _transfer(i2c_t dev, I2C_TransferSeq_TypeDef *transfer)
         cpsr = irq_disable();
 
         if (i2c_progress[dev] == i2cTransferInProgress) {
-            cpu_sleep_until_event();
+            cortexm_sleep_until_event();
         } else {
             busy = false;
         }
