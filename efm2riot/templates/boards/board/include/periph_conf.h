@@ -299,14 +299,12 @@ static const pwm_conf_t pwm_config[] = {
 {% strip 2 %}
     {% if board in ["stk3600", "stk3700", "stk3800"] %}
         #define PWM_NUMOF                    (1U)
-        #define PWM_0_EN                     1
     {% elif board in ["stk3200"] %}
         #define PWM_NUMOF                    (0U)
     {% elif board in ["slstk3401a"] %}
         #define PWM_NUMOF                    (0U)
     {% elif board in ["slwstk6220a"] %}
         #define PWM_NUMOF                    (1U)
-        #define PWM_0_EN                     1
     {% elif board in ["sltb001a"] %}
         #define PWM_NUMOF                    (0U)
     {% endif %}
@@ -411,20 +409,14 @@ static const spi_dev_t spi_config[] = {
 {% strip 2 %}
     {% if board in ["stk3600", "stk3700", "stk3800"] %}
         #define SPI_NUMOF           (2U)
-        #define SPI_0_EN            1
-        #define SPI_1_EN            1
     {% elif board in ["stk3200"] %}
         #define SPI_NUMOF           (1U)
-        #define SPI_0_EN            1
     {% elif board in ["slstk3401a"] %}
         #define SPI_NUMOF           (1U)
-        #define SPI_0_EN            1
     {% elif board in ["slwstk6220a"] %}
         #define SPI_NUMOF           (1U)
-        #define SPI_0_EN            1
     {% elif board in ["sltb001a"] %}
         #define SPI_NUMOF           (1U)
-        #define SPI_0_EN            1
     {% endif %}
 {% endstrip %}
 /** @} */
