@@ -69,7 +69,7 @@ extern "C" {
             #define BC_PIN              GPIO_PIN(PF, 7)
         {% elif board in ["stk3200"] %}
             #define BC_PIN              GPIO_PIN(PA, 9)
-        {% elif board in ["slstk3401a"] %}
+        {% elif board in ["slstk3401a", "slstk3402a"] %}
             #define BC_PIN              GPIO_PIN(PA, 5)
         {% elif board in ["slwstk6220a"] %}
             #define BC_PIN              GPIO_PIN(PA, 12)
@@ -89,7 +89,7 @@ extern "C" {
     {% elif board in ["stk3200"] %}
         #define PB0_PIN             GPIO_PIN(PC, 8)
         #define PB1_PIN             GPIO_PIN(PC, 9)
-    {% elif board in ["slstk3401a"] %}
+    {% elif board in ["slstk3401a", "slstk3402a"] %}
         #define PB0_PIN             GPIO_PIN(PF, 6)
         #define PB1_PIN             GPIO_PIN(PF, 7)
     {% elif board in ["slwstk6220a"] %}
@@ -113,7 +113,7 @@ extern "C" {
     {% elif board in ["stk3200"] %}
         #define LED0_PIN            GPIO_PIN(PC, 10)
         #define LED1_PIN            GPIO_PIN(PC, 11)
-    {% elif board in ["slstk3401a"] %}
+    {% elif board in ["slstk3401a", "slstk3402a"] %}
         #define LED0_PIN            GPIO_PIN(PF, 4)
         #define LED1_PIN            GPIO_PIN(PF, 5)
     {% elif board in ["slwstk6220a"] %}
@@ -150,7 +150,7 @@ extern "C" {
         #define DISP_SELECT_PIN     GPIO_PIN(PA, 8)
         #define DISP_POWER_PIN      GPIO_PIN(PA, 10)
         /** @} */
-    {% elif board in ["slstk3401a"] %}
+    {% elif board in ["slstk3401a", "slstk3402a"] %}
         /**
          * @brief   Connection to the on-board Sharp Memory LCD (LS013B7DH03).
          * @{
@@ -185,6 +185,19 @@ extern "C" {
         #endif
         #define SI7021_I2C              (0)
         #define SI7021_EN_PIN           GPIO_PIN(PD, 9)
+
+        #define SI70XX_PARAM_I2C_DEV    SI7021_I2C
+        /** @} */
+    {% elif board in ["slstk3402a"] %}
+        /**
+         * @brief   Connection to the on-board temperature/humidity sensor (Si7021).
+         * @{
+         */
+        #ifndef SI7021_ENABLED
+        #define SI7021_ENABLED          (1)
+        #endif
+        #define SI7021_I2C              (0)
+        #define SI7021_EN_PIN           GPIO_PIN(PB, 10)
 
         #define SI70XX_PARAM_I2C_DEV    SI7021_I2C
         /** @} */

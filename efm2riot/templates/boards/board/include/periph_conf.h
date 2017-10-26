@@ -179,7 +179,7 @@ static const i2c_conf_t i2c_config[] = {
                 cmuClock_I2C0,                      /* CMU register */
                 I2C0_IRQn                           /* IRQ base channel */
             }
-        {% elif board in ["slstk3401a"] %}
+        {% elif board in ["slstk3401a", "slstk3402a"] %}
             {
                 I2C0,                               /* device */
                 GPIO_PIN(PC, 10),                   /* SDA pin */
@@ -220,7 +220,7 @@ static const i2c_conf_t i2c_config[] = {
     {% elif board in ["stk3200"] %}
         #define I2C_NUMOF           (1U)
         #define I2C_0_ISR           isr_i2c0
-    {% elif board in ["slstk3401a"] %}
+    {% elif board in ["slstk3401a", "slstk3402a"] %}
         #define I2C_NUMOF           (1U)
         #define I2C_0_ISR           isr_i2c0
     {% elif board in ["slwstk6220a"] %}
@@ -247,7 +247,7 @@ static const pwm_chan_conf_t pwm_channel_config[] = {
             }
         {% elif board in ["stk3200"] %}
             /* no available channels */
-        {% elif board in ["slstk3401a"] %}
+        {% elif board in ["slstk3401a", "slstk3402a"] %}
             /* no available channels */
         {% elif board in ["slwstk6220a"] %}
             {
@@ -278,7 +278,7 @@ static const pwm_conf_t pwm_config[] = {
             }
         {% elif board in ["stk3200"] %}
             /* no available timers */
-        {% elif board in ["slstk3401a"] %}
+        {% elif board in ["slstk3401a", "slstk3402a"] %}
             /* no available timers */
         {% elif board in ["slwstk6220a"] %}
             {
@@ -288,7 +288,7 @@ static const pwm_conf_t pwm_config[] = {
                 2,                          /* number of channels */
                 pwm_channel_config          /* first channel config */
             }
-        {% elif board in ["slstk3401a"] %}
+        {% elif board in ["slstk3401a", "slstk3402a"] %}
             /* no available timers */
         {% elif board in ["sltb001a"] %}
             /* no available timers */
@@ -301,7 +301,7 @@ static const pwm_conf_t pwm_config[] = {
         #define PWM_NUMOF                    (1U)
     {% elif board in ["stk3200"] %}
         #define PWM_NUMOF                    (0U)
-    {% elif board in ["slstk3401a"] %}
+    {% elif board in ["slstk3401a", "slstk3402a"] %}
         #define PWM_NUMOF                    (0U)
     {% elif board in ["slwstk6220a"] %}
         #define PWM_NUMOF                    (1U)
@@ -368,7 +368,7 @@ static const spi_dev_t spi_config[] = {
                 cmuClock_USART1,                    /* CMU register */
                 USART1_RX_IRQn                      /* IRQ base channel */
             }
-        {% elif board in ["slstk3401a"] %}
+        {% elif board in ["slstk3401a", "slstk3402a"] %}
             {
                 USART1,                             /* device */
                 GPIO_PIN(PC, 6),                    /* MOSI pin */
@@ -411,7 +411,7 @@ static const spi_dev_t spi_config[] = {
         #define SPI_NUMOF           (2U)
     {% elif board in ["stk3200"] %}
         #define SPI_NUMOF           (1U)
-    {% elif board in ["slstk3401a"] %}
+    {% elif board in ["slstk3401a", "slstk3402a"] %}
         #define SPI_NUMOF           (1U)
     {% elif board in ["slwstk6220a"] %}
         #define SPI_NUMOF           (1U)
@@ -451,7 +451,7 @@ static const timer_conf_t timer_config[] = {
                 },
                 TIMER1_IRQn             /* IRQn of the higher numbered timer */
             }
-        {% elif board in ["slstk3401a"] %}
+        {% elif board in ["slstk3401a", "slstk3402a"] %}
             {
                 {
                     TIMER0,             /* lower numbered timer */
@@ -500,7 +500,7 @@ static const timer_conf_t timer_config[] = {
         #define TIMER_NUMOF         (1U)
         #define TIMER_0_ISR         isr_timer1
         #define TIMER_0_MAX_VALUE   (0xffff)
-    {% elif board in ["slstk3401a"] %}
+    {% elif board in ["slstk3401a", "slstk3402a"] %}
         #define TIMER_NUMOF         (1U)
         #define TIMER_0_ISR         isr_timer1
         #define TIMER_0_MAX_VALUE   (0xffff)
@@ -564,7 +564,7 @@ static const uart_conf_t uart_config[] = {
                 cmuClock_USART1,                    /* CMU register */
                 USART1_RX_IRQn                      /* IRQ base channel */
             }
-        {% elif board in ["slstk3401a"] %}
+        {% elif board in ["slstk3401a", "slstk3402a"] %}
             {
                 USART0,                             /* device */
                 GPIO_PIN(PA, 1),                    /* RX pin */
@@ -659,7 +659,7 @@ static const uart_conf_t uart_config[] = {
         #define UART_NUMOF          (2U)
         #define UART_0_ISR_RX       isr_leuart0
         #define UART_1_ISR_RX       isr_usart1_rx
-    {% elif board in ["slstk3401a"] %}
+    {% elif board in ["slstk3401a", "slstk3402a"] %}
         #define UART_NUMOF          (3U)
         #define UART_0_ISR_RX       isr_usart0_rx
         #define UART_1_ISR_RX       isr_usart1_rx
