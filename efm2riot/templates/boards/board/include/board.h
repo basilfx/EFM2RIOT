@@ -49,7 +49,7 @@ extern "C" {
              * @{
              */
             #ifndef AEM_ENABLED
-            #define AEM_ENABLED                 (1)
+            #define AEM_ENABLED         (1)
             #endif
             /** @} */
         {% endif %}
@@ -63,7 +63,7 @@ extern "C" {
          * @{
          */
         #ifndef BC_ENABLED
-        #define BC_ENABLED                  (1)
+        #define BC_ENABLED          (1)
         #endif
         {% if board in ["stk3600", "stk3700", "stk3800"] %}
             #define BC_PIN              GPIO_PIN(PF, 7)
