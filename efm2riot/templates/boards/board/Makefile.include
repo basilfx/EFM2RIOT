@@ -7,15 +7,7 @@ PORT_LINUX ?= /dev/ttyACM0
 PORT_DARWIN ?= $(shell ls -1 /dev/tty.usbmodem* | head -n 1)
 
 # setup JLink for flashing
-{% strip 2 %}
-    {% if board in ["slstk3401a"] %}
-        export JLINK_DEVICE := EFM32PG1BxxxF256
-    {% elif board in ["sltb001a"] %}
-        export JLINK_DEVICE := EFR32MG1PxxxF256
-    {% else %}
-        export JLINK_DEVICE := $(CPU_MODEL)
-    {% endif %}
-{% endstrip %}
+export JLINK_DEVICE := $(CPU_MODEL)
 include $(RIOTMAKE)/tools/jlink.inc.mk
 
 # setup serial terminal
