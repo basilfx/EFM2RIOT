@@ -33,8 +33,9 @@ extern "C" {
 #endif
 
 /**
- * @brief   Xtimer configuration.
- * @note    The timer runs at 250 KHz to increase accuracy.
+ * @name    Xtimer configuration
+ *
+ * The timer runs at 250 KHz to increase accuracy.
  * @{
  */
 #define XTIMER_HZ           (250000UL)
@@ -45,7 +46,9 @@ extern "C" {
     {% if board not in ["sltb001a"] %}
         {% if architecture not in ["m0", "m0plus"] %}
             /**
-             * @brief   Define for enabling Advanced Energy Monitor core output via SWO.
+             * @name    Enable Advanced Energy Monitor
+             *
+             * When enabled, additional CPU statistics are available via SWO.
              * @{
              */
             #ifndef AEM_ENABLED
@@ -59,7 +62,10 @@ extern "C" {
 {% strip 2, ">" %}
     {% if board not in ["sltb001a"] %}
         /**
-         * @brief   GPIO pin for enabling communication through the board controller.
+         * @name    Board controller configuration
+         *
+         * Define the GPIO pin to enable the BC, to allow serial communication
+         * via the USB port.
          * @{
          */
         #ifndef BC_ENABLED
@@ -79,7 +85,7 @@ extern "C" {
 {% endstrip %}
 
 /**
- * @brief   Push button pin definitions.
+ * @name    Push button pin definitions
  * @{
  */
 {% strip 2 %}
@@ -103,7 +109,7 @@ extern "C" {
 /** @} */
 
 /**
- * @brief    LED pin definitions.
+ * @name    LED pin definitions
  * @{
  */
 {% strip 2 %}
@@ -127,7 +133,7 @@ extern "C" {
 /** @} */
 
 /**
- * @brief   Macros for controlling the on-board LEDs.
+ * @name    Macros for controlling the on-board LEDs
  * @{
  */
 #define LED0_ON             gpio_set(LED0_PIN)
@@ -141,7 +147,9 @@ extern "C" {
 {% strip 2, ">" %}
     {% if board in ["stk3200"] %}
         /**
-         * @brief   Connection to the on-board Sharp Memory LCD (LS013B7DH03).
+         * @name    Display configuration
+         *
+         * Connection to the on-board Sharp Memory LCD (LS013B7DH03).
          * @{
          */
         #define DISP_SPI            (0)
@@ -152,7 +160,9 @@ extern "C" {
         /** @} */
     {% elif board in ["slstk3401a", "slstk3402a"] %}
         /**
-         * @brief   Connection to the on-board Sharp Memory LCD (LS013B7DH03).
+         * @name    Display configuration
+         *
+         * Connection to the on-board Sharp Memory LCD (LS013B7DH03).
          * @{
          */
         #define DISP_SPI            (0)
@@ -162,7 +172,9 @@ extern "C" {
         /** @} */
     {% elif board in ["slwstk6220a"] %}
         /**
-         * @brief   Connection to the on-board Sharp Memory LCD (LS013B7DH03).
+         * @name    Display configuration
+         *
+         * Connection to the on-board Sharp Memory LCD (LS013B7DH03).
          * @{
          */
         #define DISP_SPI            (0)
@@ -177,7 +189,9 @@ extern "C" {
 {% strip 2, ">" %}
     {% if board in ["slstk3401a"] %}
         /**
-         * @brief   Connection to the on-board temperature/humidity sensor (Si7021).
+         * @name    Temperature sensor configuration
+         *
+         * Connection to the on-board temperature/humidity sensor (Si7021).
          * @{
          */
         #ifndef SI7021_ENABLED
@@ -190,7 +204,9 @@ extern "C" {
         /** @} */
     {% elif board in ["slstk3402a"] %}
         /**
-         * @brief   Connection to the on-board temperature/humidity sensor (Si7021).
+         * @name    Temperature sensor configuration
+         *
+         * Connection to the on-board temperature/humidity sensor (Si7021).
          * @{
          */
         #ifndef SI7021_ENABLED
@@ -203,7 +219,9 @@ extern "C" {
         /** @} */
     {% elif board in ["slwstk6220a"] %}
         /**
-         * @brief   Connection to the on-board temperature/humidity sensor (Si7021).
+         * @name    Temperature sensor configuration
+         *
+         * Connection to the on-board temperature/humidity sensor (Si7021).
          * @{
          */
         #ifndef SI7021_ENABLED
@@ -214,7 +232,9 @@ extern "C" {
         /** @} */
     {% elif board in ["sltb001a"] %}
         /**
-         * @brief   Pin for enabling environmental sensors (BMP280, Si1133, Si7021, Si7210A).
+         * @name    Environmental sensors configuration
+         *
+         * Pin for enabling environmental sensors (BMP280, Si1133, Si7021, Si7210A).
          * @{
          */
         #define ENV_SENSE_PIC_ADDR  (0x01)
@@ -222,7 +242,9 @@ extern "C" {
         /** @} */
 
         /**
-         * @brief   Connection to the on-board pressure sensor (BMP280).
+         * @name    Pressure sensor configuration
+         *
+         * Connection to the on-board pressure sensor (BMP280).
          * @{
          */
         #ifndef BMP280_ENABLED
@@ -232,7 +254,9 @@ extern "C" {
         /** @} */
 
         /**
-         * @brief   Connection to the on-board air quality/gas sensor (CCS811).
+         * @name    Air quality/gas sensor configuration
+         *
+         * Connection to the on-board air quality/gas sensor (CCS811).
          * @{
          */
         #ifndef CCS811_ENABLED
@@ -245,7 +269,9 @@ extern "C" {
         /** @} */
 
         /**
-         * @brief   Connection to the on-board IMU sensor (ICM-20648).
+         * @name    IMU sensor configuration
+         *
+         * Connection to the on-board IMU sensor (ICM-20648).
          * @{
          */
         #ifndef ICM20648_ENABLED
@@ -257,7 +283,9 @@ extern "C" {
         /** @} */
 
         /**
-         * @brief   Pin for communication with the Power & Interrupt Controller.
+         * @name    Power and Interrupt controller
+         *
+         * Pin for communication with the Power and Interrupt Controller.
          * @{
          */
         #define PIC_INT_WAKE_PIN    GPIO_PIN(PD, 10)
@@ -266,7 +294,9 @@ extern "C" {
         /** @} */
 
         /**
-         * @brief   Pins for the four RGB LEDs.
+         * @name    RGB leds configuration
+         *
+         * There are four RGB leds on the board.
          * @{
          */
         #ifndef RGB_LED1_ENABLED
@@ -290,7 +320,9 @@ extern "C" {
         /** @} */
 
         /**
-         * @brief   Connection to the on-board UV/ambient light sensor (Si1133).
+         * @name    UV/Ambient sensor configuration
+         *
+         * Connection to the on-board UV/ambient light sensor (Si1133).
          * @{
          */
         #ifndef SI1133_ENABLED
@@ -300,7 +332,9 @@ extern "C" {
         /** @} */
 
         /**
-         * @brief   Connection to the on-board temperature/humidity sensor (Si7021).
+         * @name    Temperature sensor configuration
+         *
+         * Connection to the on-board temperature/humidity sensor (Si7021).
          * @{
          */
         #ifndef SI7021_ENABLED
@@ -310,7 +344,10 @@ extern "C" {
         /** @} */
 
         /**
-         * @brief   Connection to the on-board hall-effect sensor (Si7210A).
+         * @name    Hall-effect sensor configuration
+         *
+         * Connection to the on-board hall-effect sensor (Si7210A). Available on Rev. A02
+         * boards only.
          * @{
          */
         #ifndef SI7210A_ENABLED
