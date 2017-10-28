@@ -53,7 +53,7 @@ extern "C" {
 {% endstrip %}
 #endif
 {% strip 2 %}
-    {% if board in ["slstk3401a", "sltb001a"] %}
+    {% if board in ["slstk3401a", "slstk3402a", "sltb001a"] %}
         #ifndef CLOCK_LFE
         #define CLOCK_LFE           cmuSelect_LFXO
         #endif
@@ -87,7 +87,7 @@ static const adc_chan_conf_t adc_channel_config[] = {
                 adcRef1V25,                         /* channel reference */
                 adcAcqTime8                         /* acquisition time */
             }
-        {% elif board in ["slstk3401a", "sltb001a"] %}
+        {% elif board in ["slstk3401a", "slstk3402a", "sltb001a"] %}
             {
                 0,                                  /* device index */
                 adcPosSelTEMP,                      /* channel to use */
