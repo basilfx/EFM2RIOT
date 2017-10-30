@@ -21,6 +21,7 @@
 
 #include "cpu.h"
 #include "periph_conf.h"
+#include "periph/init.h"
 
 #include "em_chip.h"
 #include "em_cmu.h"
@@ -83,4 +84,6 @@ void cpu_init(void)
     clk_init();
     /* initialize power management interface */
     pm_init();
+    /* trigger static peripheral initialization */
+    periph_init();
 }

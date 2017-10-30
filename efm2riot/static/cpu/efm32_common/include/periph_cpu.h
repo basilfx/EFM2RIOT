@@ -236,27 +236,27 @@ typedef struct {
  * @brief   Override SPI clocks.
  * @{
  */
-#define HAVE_SPI_CONF_T
+#define HAVE_SPI_MODE_T
 typedef enum {
-    SPI_CONF_FIRST_RISING = usartClockMode0,
-    SPI_CONF_SECOND_RISING = usartClockMode1,
-    SPI_CONF_FIRST_FALLING = usartClockMode2,
-    SPI_CONF_SECOND_FALLING = usartClockMode3
-} spi_conf_t;
+    SPI_MODE_0 = usartClockMode0,
+    SPI_MODE_1 = usartClockMode1,
+    SPI_MODE_2 = usartClockMode2,
+    SPI_MODE_3 = usartClockMode3
+} spi_mode_t;
 /** @} */
 
 /**
  * @brief   Define a set of pre-defined SPI clock speeds.
  * @{
  */
-#define HAVE_SPI_SPEED_T
+#define HAVE_SPI_CLK_T
 typedef enum {
-    SPI_SPEED_100KHZ = 100000,        /**< drive the SPI bus with 100KHz */
-    SPI_SPEED_400KHZ = 400000,        /**< drive the SPI bus with 400KHz */
-    SPI_SPEED_1MHZ = 1000000,         /**< drive the SPI bus with 1MHz */
-    SPI_SPEED_5MHZ = 5000000,         /**< drive the SPI bus with 5MHz */
-    SPI_SPEED_10MHZ = 10000000        /**< drive the SPI bus with 10MHz */
-} spi_speed_t;
+    SPI_CLK_100KHZ = 100000,          /**< drive the SPI bus with 100KHz */
+    SPI_CLK_400KHZ = 400000,          /**< drive the SPI bus with 400KHz */
+    SPI_CLK_1MHZ = 1000000,           /**< drive the SPI bus with 1MHz */
+    SPI_CLK_5MHZ = 5000000,           /**< drive the SPI bus with 5MHz */
+    SPI_CLK_10MHZ = 10000000          /**< drive the SPI bus with 10MHz */
+} spi_clk_t;
 /** @} */
 
 /**
@@ -276,7 +276,8 @@ typedef struct {
  * @brief   Declare needed generic SPI functions.
  * @{
  */
-#define PERIPH_SPI_NEEDS_TRANSFER_BYTES
+#define PERIPH_SPI_NEEDS_INIT_CS
+#define PERIPH_SPI_NEEDS_TRANSFER_BYTE
 #define PERIPH_SPI_NEEDS_TRANSFER_REG
 #define PERIPH_SPI_NEEDS_TRANSFER_REGS
 /** @} */
