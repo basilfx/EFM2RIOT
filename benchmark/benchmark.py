@@ -143,6 +143,7 @@ def compile_job(riot_directory, board, application, setting):
         "QUIET": "1",
     })
 
+    # Compile the job
     arguments = [
         "make",
         "clean",
@@ -150,7 +151,6 @@ def compile_job(riot_directory, board, application, setting):
         "-j%d" % multiprocessing.cpu_count(),
     ]
 
-    # Compile the job
     try:
         output = subprocess.check_output(
             arguments, cwd=os.path.join(riot_directory, application), env=env)
@@ -175,6 +175,18 @@ def compile_job(riot_directory, board, application, setting):
         result.update({
             "failed": True
         })
+
+    # Cleanup.
+    arguments = [
+        "make",
+        "clean",
+    ]
+
+    try:
+        subprocess.check_output(
+            arguments, cwd=os.path.join(riot_directory, application), env=env)
+    except subprocess.CalledProcessError:
+        pass
 
     return result
 
