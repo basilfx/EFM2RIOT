@@ -71,15 +71,17 @@ extern "C" {
         #ifndef BC_ENABLED
         #define BC_ENABLED          (1)
         #endif
-        {% if board in ["stk3600", "stk3700", "stk3800"] %}
-            #define BC_PIN              GPIO_PIN(PF, 7)
-        {% elif board in ["stk3200"] %}
-            #define BC_PIN              GPIO_PIN(PA, 9)
-        {% elif board in ["slstk3401a", "slstk3402a"] %}
-            #define BC_PIN              GPIO_PIN(PA, 5)
-        {% elif board in ["slwstk6220a"] %}
-            #define BC_PIN              GPIO_PIN(PA, 12)
-        {% endif %}
+        {% strip 2 %}
+            {% if board in ["stk3600", "stk3700", "stk3800"] %}
+                #define BC_PIN              GPIO_PIN(PF, 7)
+            {% elif board in ["stk3200"] %}
+                #define BC_PIN              GPIO_PIN(PA, 9)
+            {% elif board in ["slstk3401a", "slstk3402a"] %}
+                #define BC_PIN              GPIO_PIN(PA, 5)
+            {% elif board in ["slwstk6220a"] %}
+                #define BC_PIN              GPIO_PIN(PA, 12)
+            {% endif %}
+        {% endstrip %}
         /** @} */
     {% endif %}
 {% endstrip %}
