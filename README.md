@@ -13,19 +13,19 @@ This generator prepares the required files for using EFM32 with RIOT-OS, which i
 ## Usage
 
 ### As a end-user
-When you have cloned this repository, a ready-to-use version is available in the `dist/` folder. Copy the desired CPU and board folder from `cpu/` (including `cpu/efm32_common/`) and `boards/` to your RIOT-OS project.
+When you have cloned this repository, a ready-to-use version is available in the `dist/` folder. Copy the desired CPU and board folder from `cpu/` and `boards/` to your RIOT-OS project. For any CPU, you also need to copy `cpu/efm32_common/` and `pkg/emlib/` too.
 
 ### As a developer
-You will need Python 3.6 and the Exx32 SDK v5.1.2 (can be installed via Simplicity Studio v4).
+You will need Python 3.6 and the Exx32 SDK v5.3.3 (can be installed via [Simplicity Studio v4](https://www.silabs.com/products/development-tools/software/simplicity-studio)).
 
 * The `efm2riot/configuration.py` defines all the jobs and boards.
 * The `efm2riot/templates/` folder contains all the files that need to be pre-processed.
 * The `efm2riot/static/` folder contains files that will be copied.
 
-To generate all files, run:
+To (re)generate all files, run:
 
 ```
-python3 EFM2RIOT.py --sdk /path/to/sdk --dist dist/
+python3 EFM2RIOT.py --sdk /path/to/sdk/platform --dist dist/
 ```
 
 To enable some features that are not yet part of RIOT-OS, pass `--development`.
@@ -44,9 +44,9 @@ Most of the 32-bit families that are supported by emlib are supported by EFM2RIO
 * EFM32 Tiny Gecko
 * EFM32 Wonder Gecko
 * EFM32 Zero Gecko
-* EFR32 Mighty Gecko
 * EFR32 Blue Gecko
 * EFR32 Flex Gecko
+* EFR32 Mighty Gecko
 * EZR32 Leopard Gecko
 * EZR32 Wonder Gecko
 
@@ -57,7 +57,7 @@ Currently, the following boards (development kits) are supported:
 
 * [STK3200](dist/doc/STK3200.md) &mdash; EFM32 Zero Gecko
 * [SLSTK3401A](dist/doc/SLSTK3401A.md) &mdash; EFM32 Pearl Gecko PG1
-* [SLSTK3402A](dist/doc/SLSTK3402A.md) &mdash; EFM32 Pearl Gecko PG12 (untested)
+* [SLSTK3402A](dist/doc/SLSTK3402A.md) &mdash; EFM32 Pearl Gecko PG12
 * [STK3600](dist/doc/STK3600.md) &mdash; EFM32 Leopard Gecko
 * [STK3700](dist/doc/STK3700.md) &mdash; EFM32 Giant Gecko
 * [STK3800](dist/doc/STK3800.md) &mdash; EFM32 Wonder Gecko
