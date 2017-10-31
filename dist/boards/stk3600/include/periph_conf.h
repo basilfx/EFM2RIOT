@@ -75,6 +75,8 @@ static const adc_chan_conf_t adc_channel_config[] = {
 };
 
 #define ADC_NUMOF           (2U)
+#define ADC_0_EN            (1)
+#define ADC_1_EN            (1)
 /** @} */
 
 /**
@@ -97,6 +99,7 @@ static const dac_chan_conf_t dac_channel_config[] = {
 };
 
 #define DAC_NUMOF           (1U)
+#define DAC_0_EN            (1)
 /** @} */
 
 /**
@@ -123,6 +126,8 @@ static const i2c_conf_t i2c_config[] = {
 };
 
 #define I2C_NUMOF           (2U)
+#define I2C_0_EN            (1)
+#define I2C_1_EN            (1)
 #define I2C_0_ISR           isr_i2c0
 #define I2C_1_ISR           isr_i2c1
 /** @} */
@@ -149,7 +154,8 @@ static const pwm_conf_t pwm_config[] = {
     }
 };
 
-#define PWM_NUMOF                    (1U)
+#define PWM_NUMOF           (1U)
+#define PWM_0_EN            (1)
 /** @} */
 
 /**
@@ -193,6 +199,8 @@ static const spi_dev_t spi_config[] = {
 };
 
 #define SPI_NUMOF           (2U)
+#define SPI_0_EN            (1)
+#define SPI_1_EN            (1)
 /** @} */
 
 /**
@@ -214,6 +222,7 @@ static const timer_conf_t timer_config[] = {
 };
 
 #define TIMER_NUMOF         (1U)
+#define TIMER_0_EN          (1)
 #define TIMER_0_ISR         isr_timer1
 #define TIMER_0_MAX_VALUE   (0xffff)
 /** @} */
@@ -250,6 +259,9 @@ static const uart_conf_t uart_config[] = {
 };
 
 #define UART_NUMOF          (3U)
+#define UART_0_EN           (1)
+#define UART_1_EN           (1)
+#define UART_2_EN           (1)
 #define UART_0_ISR_RX       isr_uart0_rx
 #define UART_1_ISR_RX       isr_usart1_rx
 #define UART_2_ISR_RX       isr_leuart0

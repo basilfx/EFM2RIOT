@@ -38,14 +38,18 @@
 /* guard file in case no SPI device is defined */
 #if SPI_NUMOF
 
-static mutex_t locks[SPI_NUMOF];
+static mutex_t spi_lock[SPI_NUMOF] = {
+#if SPI_0_EN
+    MUTEX_INIT,
+#endif
+#if SPI_1_EN
+    MUTEX_INIT,
+#endif
+};
 
 void spi_init(spi_t bus)
 {
     assert(bus < SPI_NUMOF);
-
-    /* initialize mutex */
-    mutex_init(&locks[bus]);
 
     /* initialize pins */
     spi_init_pins(bus);
@@ -61,7 +65,7 @@ void spi_init_pins(spi_t bus)
 
 int spi_acquire(spi_t bus, spi_cs_t cs, spi_mode_t mode, spi_clk_t clk)
 {
-    mutex_lock(&locks[bus]);
+    mutex_lock(&spi_lock[bus]);
 
     /* power on spi bus */
     CMU_ClockEnable(cmuClock_HFPER, true);
@@ -96,7 +100,7 @@ void spi_release(spi_t bus)
     /* power off spi bus */
     CMU_ClockEnable(spi_config[bus].cmu, false);
 
-    mutex_unlock(&locks[bus]);
+    mutex_unlock(&spi_lock[bus]);
 }
 
 void spi_transfer_bytes(spi_t bus, spi_cs_t cs, bool cont,

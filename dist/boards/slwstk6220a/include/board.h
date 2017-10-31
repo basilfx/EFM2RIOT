@@ -63,7 +63,7 @@ extern "C" {
 #ifndef BC_ENABLED
 #define BC_ENABLED          (1)
 #endif
-    #define BC_PIN              GPIO_PIN(PA, 12)
+#define BC_PIN              GPIO_PIN(PA, 12)
 /** @} */
 
 /**
@@ -114,10 +114,12 @@ extern "C" {
  * @{
  */
 #ifndef SI7021_ENABLED
-#define SI7021_ENABLED      (1)
+#define SI7021_ENABLED          (1)
 #endif
-#define SI7021_I2C          (0)
-#define SI7021_EN_PIN       GPIO_PIN(PF, 8)
+#define SI7021_I2C              (0)
+#define SI7021_EN_PIN           GPIO_PIN(PF, 8)
+
+#define SI70XX_PARAM_I2C_DEV    SI7021_I2C
 /** @} */
 
 /**

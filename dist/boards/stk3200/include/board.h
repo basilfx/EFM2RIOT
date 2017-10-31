@@ -52,7 +52,7 @@ extern "C" {
 #ifndef BC_ENABLED
 #define BC_ENABLED          (1)
 #endif
-    #define BC_PIN              GPIO_PIN(PA, 9)
+#define BC_PIN              GPIO_PIN(PA, 9)
 /** @} */
 
 /**

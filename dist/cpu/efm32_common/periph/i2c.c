@@ -40,10 +40,10 @@ volatile static I2C_TransferReturn_TypeDef i2c_progress[I2C_NUMOF];
 
 static mutex_t i2c_lock[I2C_NUMOF] = {
 #if I2C_0_EN
-    [I2C_0] = MUTEX_INIT,
+    MUTEX_INIT,
 #endif
 #if I2C_1_EN
-    [I2C_1] = MUTEX_INIT,
+    MUTEX_INIT,
 #endif
 };
 
@@ -144,7 +144,7 @@ int i2c_read_bytes(i2c_t dev, uint8_t address, void *data, int length)
 {
     I2C_TransferSeq_TypeDef transfer;
 
-    transfer.addr = address;
+    transfer.addr = (address << 1);
     transfer.flags = I2C_FLAG_READ;
     transfer.buf[0].data = (uint8_t *) data;
     transfer.buf[0].len = length;
@@ -169,7 +169,7 @@ int i2c_read_regs(i2c_t dev, uint8_t address, uint8_t reg,
 {
     I2C_TransferSeq_TypeDef transfer;
 
-    transfer.addr = address;
+    transfer.addr = (address << 1);
     transfer.flags = I2C_FLAG_WRITE_READ;
     transfer.buf[0].data = &reg;
     transfer.buf[0].len = 1;
@@ -195,7 +195,7 @@ int i2c_write_bytes(i2c_t dev, uint8_t address, const void *data, int length)
 {
     I2C_TransferSeq_TypeDef transfer;
 
-    transfer.addr = address;
+    transfer.addr = (address << 1);
     transfer.flags = I2C_FLAG_WRITE;
     transfer.buf[0].data = (uint8_t *) data;
     transfer.buf[0].len = length;
@@ -220,7 +220,7 @@ int i2c_write_regs(i2c_t dev, uint8_t address, uint8_t reg,
 {
     I2C_TransferSeq_TypeDef transfer;
 
-    transfer.addr = address;
+    transfer.addr = (address << 1);
     transfer.flags = I2C_FLAG_WRITE_WRITE;
     transfer.buf[0].data = &reg;
     transfer.buf[0].len = 1;
