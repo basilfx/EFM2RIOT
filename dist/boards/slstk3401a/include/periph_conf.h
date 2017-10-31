@@ -31,7 +31,7 @@ extern "C" {
 #endif
 
 /**
- * @brief   Clock configuration
+ * @name    Clock configuration
  * @{
  */
 #ifndef CLOCK_HF
@@ -52,7 +52,7 @@ extern "C" {
 /** @} */
 
 /**
- * @brief   ADC configuration
+ * @name    ADC configuration
  * @{
  */
 static const adc_conf_t adc_config[] = {
@@ -86,7 +86,7 @@ static const adc_chan_conf_t adc_channel_config[] = {
 #define DAC_NUMOF           (0U)
 
 /**
- * @brief   I2C configuration
+ * @name    I2C configuration
  * @{
  */
 static const i2c_conf_t i2c_config[] = {
@@ -106,7 +106,7 @@ static const i2c_conf_t i2c_config[] = {
 /** @} */
 
 /**
- * @brief   PWM configuration
+ * @name    PWM configuration
  * @{
  */
 static const pwm_chan_conf_t pwm_channel_config[] = {
@@ -126,7 +126,7 @@ static const pwm_conf_t pwm_config[] = {
 #define RTC_NUMOF           (1U)
 
 /**
- * @brief   RTT configuration
+ * @name    RTT configuration
  * @{
  */
 #define RTT_NUMOF           (1U)
@@ -136,7 +136,7 @@ static const pwm_conf_t pwm_config[] = {
 /** @} */
 
 /**
- * @brief   SPI configuration
+ * @name    SPI configuration
  * @{
  */
 static const spi_dev_t spi_config[] = {
@@ -154,11 +154,10 @@ static const spi_dev_t spi_config[] = {
 };
 
 #define SPI_NUMOF           (1U)
-#define SPI_0_EN            1
 /** @} */
 
 /**
- * @brief   Timer configuration
+ * @name    Timer configuration
  * @{
  */
 static const timer_conf_t timer_config[] = {
@@ -181,7 +180,7 @@ static const timer_conf_t timer_config[] = {
 /** @} */
 
 /**
- * @brief   UART configuration
+ * @name    UART configuration
  * @{
  */
 static const uart_conf_t uart_config[] = {

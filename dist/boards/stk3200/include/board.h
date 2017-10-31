@@ -33,8 +33,9 @@ extern "C" {
 #endif
 
 /**
- * @brief   Xtimer configuration.
- * @note    The timer runs at 250 KHz to increase accuracy.
+ * @name    Xtimer configuration
+ *
+ * The timer runs at 250 KHz to increase accuracy.
  * @{
  */
 #define XTIMER_HZ           (250000UL)
@@ -42,17 +43,20 @@ extern "C" {
 /** @} */
 
 /**
- * @brief   GPIO pin for enabling communication through the board controller.
+ * @name    Board controller configuration
+ *
+ * Define the GPIO pin to enable the BC, to allow serial communication
+ * via the USB port.
  * @{
  */
 #ifndef BC_ENABLED
-#define BC_ENABLED                  (1)
+#define BC_ENABLED          (1)
 #endif
     #define BC_PIN              GPIO_PIN(PA, 9)
 /** @} */
 
 /**
- * @brief   Push button pin definitions.
+ * @name    Push button pin definitions
  * @{
  */
 #define PB0_PIN             GPIO_PIN(PC, 8)
@@ -60,7 +64,7 @@ extern "C" {
 /** @} */
 
 /**
- * @brief    LED pin definitions.
+ * @name    LED pin definitions
  * @{
  */
 #define LED0_PIN            GPIO_PIN(PC, 10)
@@ -68,7 +72,7 @@ extern "C" {
 /** @} */
 
 /**
- * @brief   Macros for controlling the on-board LEDs.
+ * @name    Macros for controlling the on-board LEDs
  * @{
  */
 #define LED0_ON             gpio_set(LED0_PIN)
@@ -80,7 +84,9 @@ extern "C" {
 /** @} */
 
 /**
- * @brief   Connection to the on-board Sharp Memory LCD (LS013B7DH03).
+ * @name    Display configuration
+ *
+ * Connection to the on-board Sharp Memory LCD (LS013B7DH03).
  * @{
  */
 #define DISP_SPI            (0)

@@ -90,7 +90,7 @@ This is the pinout of the Expansion Pins on the front side of the board. PIN 1 i
 | Temperature + Humidity sensor | Si7021                         | yes       | Silicon Labs Temperature + Humidity sensor                     |
 | Microphone                    |                                | no        |                                                                |
 | Light sensor                  | Si1133                         | no        | Silicon Labs UV/Ambient Light sensor                           |
-| Hall-effect sensor            | Si7210A                        | no        | Silicon Labs Hall-effect sensor                                |
+| Hall-effect sensor            | Si7210A                        | no        | Silicon Labs Hall-effect sensor (Rev. A02 boards only)                 |
 | IMU sensor                    | ICM-20648                      | no        | InvenSense 6-axis inertial sensor                              |
 | Air sensor                    | CCS811                         | no        | Cambridge CMOS Sensors Air Quality/Gas sensor                  |
 

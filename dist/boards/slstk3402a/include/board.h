@@ -33,8 +33,9 @@ extern "C" {
 #endif
 
 /**
- * @brief   Xtimer configuration.
- * @note    The timer runs at 250 KHz to increase accuracy.
+ * @name    Xtimer configuration
+ *
+ * The timer runs at 250 KHz to increase accuracy.
  * @{
  */
 #define XTIMER_HZ           (250000UL)
@@ -42,37 +43,47 @@ extern "C" {
 /** @} */
 
 /**
- * @brief   Define for enabling Advanced Energy Monitor core output via SWO.
+ * @name    Enable Advanced Energy Monitor
+ *
+ * When enabled, additional CPU statistics are available via SWO.
  * @{
  */
 #ifndef AEM_ENABLED
-#define AEM_ENABLED                 (1)
+#define AEM_ENABLED         (1)
 #endif
 /** @} */
 
 /**
- * @brief   GPIO pin for enabling communication through the board controller.
+ * @name    Board controller configuration
+ *
+ * Define the GPIO pin to enable the BC, to allow serial communication
+ * via the USB port.
  * @{
  */
 #ifndef BC_ENABLED
-#define BC_ENABLED                  (1)
+#define BC_ENABLED          (1)
 #endif
+    #define BC_PIN              GPIO_PIN(PA, 5)
 /** @} */
 
 /**
- * @brief   Push button pin definitions.
+ * @name    Push button pin definitions
  * @{
  */
+#define PB0_PIN             GPIO_PIN(PF, 6)
+#define PB1_PIN             GPIO_PIN(PF, 7)
 /** @} */
 
 /**
- * @brief    LED pin definitions.
+ * @name    LED pin definitions
  * @{
  */
+#define LED0_PIN            GPIO_PIN(PF, 4)
+#define LED1_PIN            GPIO_PIN(PF, 5)
 /** @} */
 
 /**
- * @brief   Macros for controlling the on-board LEDs.
+ * @name    Macros for controlling the on-board LEDs
  * @{
  */
 #define LED0_ON             gpio_set(LED0_PIN)
@@ -81,6 +92,33 @@ extern "C" {
 #define LED1_ON             gpio_set(LED1_PIN)
 #define LED1_OFF            gpio_clear(LED1_PIN)
 #define LED1_TOGGLE         gpio_toggle(LED1_PIN)
+/** @} */
+
+/**
+ * @name    Display configuration
+ *
+ * Connection to the on-board Sharp Memory LCD (LS013B7DH03).
+ * @{
+ */
+#define DISP_SPI            (0)
+#define DISP_COM_PIN        GPIO_PIN(PD, 13)
+#define DISP_CS_PIN         GPIO_PIN(PD, 14)
+#define DISP_EN_PIN         GPIO_PIN(PD, 15)
+/** @} */
+
+/**
+ * @name    Temperature sensor configuration
+ *
+ * Connection to the on-board temperature/humidity sensor (Si7021).
+ * @{
+ */
+#ifndef SI7021_ENABLED
+#define SI7021_ENABLED          (1)
+#endif
+#define SI7021_I2C              (0)
+#define SI7021_EN_PIN           GPIO_PIN(PB, 10)
+
+#define SI70XX_PARAM_I2C_DEV    SI7021_I2C
 /** @} */
 
 /**
