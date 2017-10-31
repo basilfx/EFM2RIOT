@@ -250,7 +250,7 @@ extern "C" {
          * @{
          */
         #ifndef BMP280_ENABLED
-        #define BMP280_ENABLED      (0)
+        #define BMP280_ENABLED      (1)
         #endif
         #define BMP280_I2C          (0)
         /** @} */
