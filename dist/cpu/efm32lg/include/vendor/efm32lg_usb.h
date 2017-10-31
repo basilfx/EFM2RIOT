@@ -1,9 +1,9 @@
 /**************************************************************************//**
  * @file efm32lg_usb.h
  * @brief EFM32LG_USB register and bit field definitions
- * @version 5.1.2
+ * @version 5.3.3
  ******************************************************************************
- * @section License
+ * # License
  * <b>Copyright 2017 Silicon Laboratories, Inc. http://www.silabs.com</b>
  ******************************************************************************
  *
@@ -34,6 +34,13 @@
 extern "C" {
 #endif
 
+
+#if defined(__ICCARM__)
+#pragma system_include       /* Treat file as system include file. */
+#elif defined(__ARMCC_VERSION) && (__ARMCC_VERSION >= 6010050)
+#pragma clang system_header  /* Treat file as system include file. */
+#endif
+
 /**************************************************************************//**
 * @addtogroup Parts
 * @{
@@ -43,8 +50,7 @@ extern "C" {
  * @{
  * @brief EFM32LG_USB Register Declaration
  *****************************************************************************/
-typedef struct
-{
+typedef struct {
   __IOM uint32_t   CTRL;              /**< System Control Register  */
   __IM uint32_t    STATUS;            /**< System Status Register  */
   __IM uint32_t    IF;                /**< Interrupt Flag Register  */
@@ -178,7 +184,7 @@ typedef struct
 
   uint32_t         RESERVED34[17920]; /**< Reserved registers */
   __IOM uint32_t   FIFORAM[512];      /**< Direct Access to Data FIFO RAM for Debugging (2 KB)  */
-} USB_TypeDef;                        /** @} */
+} USB_TypeDef;                        /**< USB Register Declaration *//** @} */
 
 /**************************************************************************//**
  * @defgroup EFM32LG_USB_BitFields
@@ -2659,7 +2665,6 @@ typedef struct
 
 /** @} End of group EFM32LG_USB */
 /** @} End of group Parts */
-
 #ifdef __cplusplus
 }
 #endif

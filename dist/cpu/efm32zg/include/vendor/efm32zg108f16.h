@@ -2,9 +2,9 @@
  * @file efm32zg108f16.h
  * @brief CMSIS Cortex-M Peripheral Access Layer Header File
  *        for EFM32ZG108F16
- * @version 5.1.2
+ * @version 5.3.3
  ******************************************************************************
- * @section License
+ * # License
  * <b>Copyright 2017 Silicon Laboratories, Inc. http://www.silabs.com</b>
  ******************************************************************************
  *
@@ -31,6 +31,12 @@
  *
  *****************************************************************************/
 
+#if defined(__ICCARM__)
+#pragma system_include       /* Treat file as system include file. */
+#elif defined(__ARMCC_VERSION) && (__ARMCC_VERSION >= 6010050)
+#pragma clang system_header  /* Treat file as system include file. */
+#endif
+
 #ifndef EFM32ZG108F16_H
 #define EFM32ZG108F16_H
 
@@ -49,8 +55,7 @@ extern "C" {
  *****************************************************************************/
 
 /** Interrupt Number Definition */
-typedef enum IRQn
-{
+typedef enum IRQn{
 /******  Cortex-M0+ Processor Exceptions Numbers *****************************************/
   NonMaskableInt_IRQn = -14,                /*!< -14 Cortex-M0+ Non Maskable Interrupt   */
   HardFault_IRQn      = -13,                /*!< -13 Cortex-M0+ Hard Fault Interrupt     */
@@ -98,8 +103,8 @@ typedef enum IRQn
 #define _EFM_DEVICE                                /**< Silicon Labs EFM-type microcontroller */
 #define _SILICON_LABS_32B_SERIES_0                 /**< Silicon Labs series number */
 #define _SILICON_LABS_32B_SERIES                0  /**< Silicon Labs series number */
-#define _SILICON_LABS_GECKO_INTERNAL_SDID       76 /** Silicon Labs internal use only, may change any time */
-#define _SILICON_LABS_GECKO_INTERNAL_SDID_76       /** Silicon Labs internal use only, may change any time */
+#define _SILICON_LABS_GECKO_INTERNAL_SDID       76 /**< Silicon Labs internal use only, may change any time */
+#define _SILICON_LABS_GECKO_INTERNAL_SDID_76       /**< Silicon Labs internal use only, may change any time */
 #define _SILICON_LABS_32B_PLATFORM_1               /**< @deprecated Silicon Labs platform name */
 #define _SILICON_LABS_32B_PLATFORM              1  /**< @deprecated Silicon Labs platform name */
 
@@ -136,7 +141,7 @@ typedef enum IRQn
 /** Flash and SRAM limits for EFM32ZG108F16 */
 #define FLASH_BASE           (0x00000000UL) /**< Flash Base Address */
 #define FLASH_SIZE           (0x00004000UL) /**< Available Flash Memory */
-#define FLASH_PAGE_SIZE      1024           /**< Flash Memory page size */
+#define FLASH_PAGE_SIZE      1024U          /**< Flash Memory page size */
 #define SRAM_BASE            (0x20000000UL) /**< SRAM Base Address */
 #define SRAM_SIZE            (0x00001000UL) /**< Available SRAM Memory */
 #define __CM0PLUS_REV        0x001          /**< Cortex-M0+ Core revision r0p1 */
@@ -152,58 +157,58 @@ typedef enum IRQn
 
 /* Part number capabilities */
 
-#define TIMER_PRESENT         /**< TIMER is available in this part */
-#define TIMER_COUNT         2 /**< 2 TIMERs available  */
-#define ACMP_PRESENT          /**< ACMP is available in this part */
-#define ACMP_COUNT          1 /**< 1 ACMPs available  */
-#define USART_PRESENT         /**< USART is available in this part */
-#define USART_COUNT         1 /**< 1 USARTs available  */
-#define LEUART_PRESENT        /**< LEUART is available in this part */
-#define LEUART_COUNT        1 /**< 1 LEUARTs available  */
-#define PCNT_PRESENT          /**< PCNT is available in this part */
-#define PCNT_COUNT          1 /**< 1 PCNTs available  */
-#define I2C_PRESENT           /**< I2C is available in this part */
-#define I2C_COUNT           1 /**< 1 I2Cs available  */
-#define DMA_PRESENT
-#define DMA_COUNT           1
-#define LE_PRESENT
-#define LE_COUNT            1
-#define MSC_PRESENT
-#define MSC_COUNT           1
-#define EMU_PRESENT
-#define EMU_COUNT           1
-#define RMU_PRESENT
-#define RMU_COUNT           1
-#define CMU_PRESENT
-#define CMU_COUNT           1
-#define PRS_PRESENT
-#define PRS_COUNT           1
-#define GPIO_PRESENT
-#define GPIO_COUNT          1
-#define VCMP_PRESENT
-#define VCMP_COUNT          1
-#define RTC_PRESENT
-#define RTC_COUNT           1
-#define HFXTAL_PRESENT
-#define HFXTAL_COUNT        1
-#define LFXTAL_PRESENT
-#define LFXTAL_COUNT        1
-#define WDOG_PRESENT
-#define WDOG_COUNT          1
-#define DBG_PRESENT
-#define DBG_COUNT           1
-#define BOOTLOADER_PRESENT
-#define BOOTLOADER_COUNT    1
-#define ANALOG_PRESENT
-#define ANALOG_COUNT        1
+#define TIMER_PRESENT           /**< TIMER is available in this part */
+#define TIMER_COUNT           2 /**< 2 TIMERs available  */
+#define ACMP_PRESENT            /**< ACMP is available in this part */
+#define ACMP_COUNT            1 /**< 1 ACMPs available  */
+#define USART_PRESENT           /**< USART is available in this part */
+#define USART_COUNT           1 /**< 1 USARTs available  */
+#define LEUART_PRESENT          /**< LEUART is available in this part */
+#define LEUART_COUNT          1 /**< 1 LEUARTs available  */
+#define PCNT_PRESENT            /**< PCNT is available in this part */
+#define PCNT_COUNT            1 /**< 1 PCNTs available  */
+#define I2C_PRESENT             /**< I2C is available in this part */
+#define I2C_COUNT             1 /**< 1 I2Cs available  */
+#define DMA_PRESENT             /**< DMA is available in this part */
+#define DMA_COUNT             1 /**< 1 DMA available */
+#define LE_PRESENT              /**< LE is available in this part */
+#define LE_COUNT              1 /**< 1 LE available */
+#define MSC_PRESENT             /**< MSC is available in this part */
+#define MSC_COUNT             1 /**< 1 MSC available */
+#define EMU_PRESENT             /**< EMU is available in this part */
+#define EMU_COUNT             1 /**< 1 EMU available */
+#define RMU_PRESENT             /**< RMU is available in this part */
+#define RMU_COUNT             1 /**< 1 RMU available */
+#define CMU_PRESENT             /**< CMU is available in this part */
+#define CMU_COUNT             1 /**< 1 CMU available */
+#define PRS_PRESENT             /**< PRS is available in this part */
+#define PRS_COUNT             1 /**< 1 PRS available */
+#define GPIO_PRESENT            /**< GPIO is available in this part */
+#define GPIO_COUNT            1 /**< 1 GPIO available */
+#define VCMP_PRESENT            /**< VCMP is available in this part */
+#define VCMP_COUNT            1 /**< 1 VCMP available */
+#define RTC_PRESENT             /**< RTC is available in this part */
+#define RTC_COUNT             1 /**< 1 RTC available */
+#define HFXTAL_PRESENT          /**< HFXTAL is available in this part */
+#define HFXTAL_COUNT          1 /**< 1 HFXTAL available */
+#define LFXTAL_PRESENT          /**< LFXTAL is available in this part */
+#define LFXTAL_COUNT          1 /**< 1 LFXTAL available */
+#define WDOG_PRESENT            /**< WDOG is available in this part */
+#define WDOG_COUNT            1 /**< 1 WDOG available */
+#define DBG_PRESENT             /**< DBG is available in this part */
+#define DBG_COUNT             1 /**< 1 DBG available */
+#define BOOTLOADER_PRESENT      /**< BOOTLOADER is available in this part */
+#define BOOTLOADER_COUNT      1 /**< 1 BOOTLOADER available */
+#define ANALOG_PRESENT          /**< ANALOG is available in this part */
+#define ANALOG_COUNT          1 /**< 1 ANALOG available */
 
 /** @} End of group EFM32ZG108F16_Part */
 
 #ifndef ARM_MATH_CM0PLUS
 #define ARM_MATH_CM0PLUS
 #endif
-#include "arm_math.h"       /* To get __CLZ definitions etc. */
-#include "core_cm0plus.h"   /* Cortex-M0+ processor and core peripherals */
+#include "arm_math.h"     /* To get __CLZ definitions etc. */
+#include "core_cm0plus.h" /* Cortex-M0+ processor and core peripherals */
 #include "system_efm32zg.h" /* System Header */
 
 /**************************************************************************//**
@@ -219,8 +224,7 @@ typedef enum IRQn
  * @{
  * @brief EFM32ZG108F16_DMA Register Declaration
  *****************************************************************************/
-typedef struct
-{
+typedef struct {
   __IM uint32_t  STATUS;         /**< DMA Status Registers  */
   __OM uint32_t  CONFIG;         /**< DMA Configuration Register  */
   __IOM uint32_t CTRLBASE;       /**< Channel Control Data Base Pointer Register  */
@@ -253,7 +257,7 @@ typedef struct
 
   uint32_t       RESERVED4[60];  /**< Reserved registers */
   DMA_CH_TypeDef CH[4];          /**< Channel registers */
-} DMA_TypeDef;                   /** @} */
+} DMA_TypeDef;                   /** DMA Register Declaration *//** @} */
 
 #include "efm32zg_msc.h"
 #include "efm32zg_emu.h"
@@ -264,8 +268,7 @@ typedef struct
  * @{
  * @brief EFM32ZG108F16_CMU Register Declaration
  *****************************************************************************/
-typedef struct
-{
+typedef struct {
   __IOM uint32_t CTRL;         /**< CMU Control Register  */
   __IOM uint32_t HFCORECLKDIV; /**< High Frequency Core Clock Division Register  */
   __IOM uint32_t HFPERCLKDIV;  /**< High Frequency Peripheral Clock Division Register  */
@@ -301,7 +304,7 @@ typedef struct
   uint32_t       RESERVED5[1]; /**< Reserved for future use **/
   __IOM uint32_t ROUTE;        /**< I/O Routing Register  */
   __IOM uint32_t LOCK;         /**< Configuration Lock Register  */
-} CMU_TypeDef;                 /** @} */
+} CMU_TypeDef;                 /** CMU Register Declaration *//** @} */
 
 #include "efm32zg_timer_cc.h"
 #include "efm32zg_timer.h"
@@ -314,15 +317,14 @@ typedef struct
  * @{
  * @brief EFM32ZG108F16_PRS Register Declaration
  *****************************************************************************/
-typedef struct
-{
+typedef struct {
   __IOM uint32_t SWPULSE;      /**< Software Pulse Register  */
   __IOM uint32_t SWLEVEL;      /**< Software Level Register  */
   __IOM uint32_t ROUTE;        /**< I/O Routing Register  */
 
   uint32_t       RESERVED0[1]; /**< Reserved registers */
   PRS_CH_TypeDef CH[4];        /**< Channel registers */
-} PRS_TypeDef;                 /** @} */
+} PRS_TypeDef;                 /** PRS Register Declaration *//** @} */
 
 #include "efm32zg_gpio_p.h"
 #include "efm32zg_gpio.h"
@@ -1048,8 +1050,6 @@ typedef struct
 #define DMA_CH_CTRL_SOURCESEL_MSC                       (_DMA_CH_CTRL_SOURCESEL_MSC << 16)            /**< Shifted mode MSC for DMA_CH_CTRL */
 
 /** @} End of group EFM32ZG108F16_DMA */
-
-
 
 /**************************************************************************//**
  * @defgroup EFM32ZG108F16_CMU_BitFields  EFM32ZG108F16_CMU Bit Fields
@@ -2141,8 +2141,6 @@ typedef struct
 #define PRS_CH_CTRL_ASYNC_DEFAULT            (_PRS_CH_CTRL_ASYNC_DEFAULT << 28)       /**< Shifted mode DEFAULT for PRS_CH_CTRL */
 
 /** @} End of group EFM32ZG108F16_PRS */
-
-
 
 /**************************************************************************//**
  * @defgroup EFM32ZG108F16_UNLOCK EFM32ZG108F16 Unlock Codes

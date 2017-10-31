@@ -1,9 +1,9 @@
 /**************************************************************************//**
  * @file efm32lg_burtc.h
  * @brief EFM32LG_BURTC register and bit field definitions
- * @version 5.1.2
+ * @version 5.3.3
  ******************************************************************************
- * @section License
+ * # License
  * <b>Copyright 2017 Silicon Laboratories, Inc. http://www.silabs.com</b>
  ******************************************************************************
  *
@@ -34,6 +34,13 @@
 extern "C" {
 #endif
 
+
+#if defined(__ICCARM__)
+#pragma system_include       /* Treat file as system include file. */
+#elif defined(__ARMCC_VERSION) && (__ARMCC_VERSION >= 6010050)
+#pragma clang system_header  /* Treat file as system include file. */
+#endif
+
 /**************************************************************************//**
 * @addtogroup Parts
 * @{
@@ -43,8 +50,7 @@ extern "C" {
  * @{
  * @brief EFM32LG_BURTC Register Declaration
  *****************************************************************************/
-typedef struct
-{
+typedef struct {
   __IOM uint32_t    CTRL;          /**< Control Register  */
   __IOM uint32_t    LPMODE;        /**< Low power mode configuration  */
   __IM uint32_t     CNT;           /**< Counter Value Register  */
@@ -65,7 +71,7 @@ typedef struct
 
   uint32_t          RESERVED0[48]; /**< Reserved registers */
   BURTC_RET_TypeDef RET[128];      /**< RetentionReg */
-} BURTC_TypeDef;                   /** @} */
+} BURTC_TypeDef;                   /**< BURTC Register Declaration *//** @} */
 
 /**************************************************************************//**
  * @defgroup EFM32LG_BURTC_BitFields
@@ -382,7 +388,6 @@ typedef struct
 
 /** @} End of group EFM32LG_BURTC */
 /** @} End of group Parts */
-
 #ifdef __cplusplus
 }
 #endif

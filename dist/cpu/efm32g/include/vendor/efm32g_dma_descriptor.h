@@ -1,9 +1,9 @@
 /**************************************************************************//**
  * @file efm32g_dma_descriptor.h
  * @brief EFM32G_DMA_DESCRIPTOR register and bit field definitions
- * @version 5.1.2
+ * @version 5.3.3
  ******************************************************************************
- * @section License
+ * # License
  * <b>Copyright 2017 Silicon Laboratories, Inc. http://www.silabs.com</b>
  ******************************************************************************
  *
@@ -34,6 +34,13 @@
 extern "C" {
 #endif
 
+
+#if defined(__ICCARM__)
+#pragma system_include       /* Treat file as system include file. */
+#elif defined(__ARMCC_VERSION) && (__ARMCC_VERSION >= 6010050)
+#pragma clang system_header  /* Treat file as system include file. */
+#endif
+
 /**************************************************************************//**
 * @addtogroup Parts
 * @{
@@ -42,8 +49,7 @@ extern "C" {
  * @defgroup EFM32G_DMA_DESCRIPTOR
  * @{
  *****************************************************************************/
-typedef struct
-{
+typedef struct {
   /* Note! Use of double __IOM (volatile) qualifier to ensure that both */
   /* pointer and referenced memory are declared volatile. */
   __IOM void * __IOM SRCEND;   /**< DMA source address end */
@@ -53,8 +59,6 @@ typedef struct
 } DMA_DESCRIPTOR_TypeDef;      /** @} */
 
 /** @} End of group Parts */
-
-
 #ifdef __cplusplus
 }
 #endif

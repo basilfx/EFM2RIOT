@@ -1,9 +1,9 @@
 /**************************************************************************//**
  * @file ezr32hg_cmu.h
  * @brief EZR32HG_CMU register and bit field definitions
- * @version 5.1.2
+ * @version 5.3.3
  ******************************************************************************
- * @section License
+ * # License
  * <b>Copyright 2017 Silicon Laboratories, Inc. http://www.silabs.com</b>
  ******************************************************************************
  *
@@ -34,6 +34,13 @@
 extern "C" {
 #endif
 
+
+#if defined(__ICCARM__)
+#pragma system_include       /* Treat file as system include file. */
+#elif defined(__ARMCC_VERSION) && (__ARMCC_VERSION >= 6010050)
+#pragma clang system_header  /* Treat file as system include file. */
+#endif
+
 /**************************************************************************//**
 * @addtogroup Parts
 * @{
@@ -43,8 +50,7 @@ extern "C" {
  * @{
  * @brief EZR32HG_CMU Register Declaration
  *****************************************************************************/
-typedef struct
-{
+typedef struct {
   __IOM uint32_t CTRL;          /**< CMU Control Register  */
   __IOM uint32_t HFCORECLKDIV;  /**< High Frequency Core Clock Division Register  */
   __IOM uint32_t HFPERCLKDIV;   /**< High Frequency Peripheral Clock Division Register  */
@@ -85,7 +91,7 @@ typedef struct
   __IOM uint32_t USHFRCOCTRL;   /**< USHFRCO Control  */
   __IOM uint32_t USHFRCOTUNE;   /**< USHFRCO Frequency Tune  */
   __IOM uint32_t USHFRCOCONF;   /**< USHFRCO Configuration  */
-} CMU_TypeDef;                  /** @} */
+} CMU_TypeDef;                  /**< CMU Register Declaration *//** @} */
 
 /**************************************************************************//**
  * @defgroup EZR32HG_CMU_BitFields
@@ -1203,7 +1209,6 @@ typedef struct
 
 /** @} End of group EZR32HG_CMU */
 /** @} End of group Parts */
-
 #ifdef __cplusplus
 }
 #endif

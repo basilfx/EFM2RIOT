@@ -2,9 +2,9 @@
  * @file efm32g890f64.h
  * @brief CMSIS Cortex-M3 Peripheral Access Layer Header File
  *        for EFM EFM32G890F64
- * @version 5.1.2
+ * @version 5.3.3
  ******************************************************************************
- * @section License
+ * # License
  * <b>Copyright 2017 Silicon Laboratories, Inc. http://www.silabs.com</b>
  ******************************************************************************
  *
@@ -31,6 +31,12 @@
  *
  *****************************************************************************/
 
+#if defined(__ICCARM__)
+#pragma system_include       /* Treat file as system include file. */
+#elif defined(__ARMCC_VERSION) && (__ARMCC_VERSION >= 6010050)
+#pragma clang system_header  /* Treat file as system include file. */
+#endif
+
 #ifndef EFM32G890F64_H
 #define EFM32G890F64_H
 
@@ -49,8 +55,7 @@ extern "C" {
  *****************************************************************************/
 
 /** Interrupt Number Definition */
-typedef enum IRQn
-{
+typedef enum IRQn{
 /******  Cortex-M3 Processor Exceptions Numbers ********************************************/
   NonMaskableInt_IRQn   = -14,              /*!< -14 Cortex-M3 Non Maskable Interrupt      */
   HardFault_IRQn        = -13,              /*!< -13 Cortex-M3 Hard Fault Interrupt        */
@@ -117,8 +122,8 @@ typedef enum IRQn
 #define _EFM_DEVICE                                /**< Silicon Labs EFM-type microcontroller */
 #define _SILICON_LABS_32B_SERIES_0                 /**< Silicon Labs series number */
 #define _SILICON_LABS_32B_SERIES                0  /**< Silicon Labs series number */
-#define _SILICON_LABS_GECKO_INTERNAL_SDID       71 /** Silicon Labs internal use only, may change any time */
-#define _SILICON_LABS_GECKO_INTERNAL_SDID_71       /** Silicon Labs internal use only, may change any time */
+#define _SILICON_LABS_GECKO_INTERNAL_SDID       71 /**< Silicon Labs internal use only, may change any time */
+#define _SILICON_LABS_GECKO_INTERNAL_SDID_71       /**< Silicon Labs internal use only, may change any time */
 #define _SILICON_LABS_32B_PLATFORM_1               /**< @deprecated Silicon Labs platform name */
 #define _SILICON_LABS_32B_PLATFORM              1  /**< @deprecated Silicon Labs platform name */
 
@@ -163,7 +168,7 @@ typedef enum IRQn
 /** Flash and SRAM limits for EFM32G890F64 */
 #define FLASH_BASE           (0x00000000UL) /**< Flash Base Address */
 #define FLASH_SIZE           (0x00010000UL) /**< Available Flash Memory */
-#define FLASH_PAGE_SIZE      512            /**< Flash Memory page size */
+#define FLASH_PAGE_SIZE      512U           /**< Flash Memory page size */
 #define SRAM_BASE            (0x20000000UL) /**< SRAM Base Address */
 #define SRAM_SIZE            (0x00004000UL) /**< Available SRAM Memory */
 #define __CM3_REV            0x200          /**< Cortex-M3 Core revision r2p0 */
@@ -179,67 +184,67 @@ typedef enum IRQn
 
 /* Part number capabilities */
 
-#define TIMER_PRESENT         /**< TIMER is available in this part */
-#define TIMER_COUNT         3 /**< 3 TIMERs available  */
-#define USART_PRESENT         /**< USART is available in this part */
-#define USART_COUNT         3 /**< 3 USARTs available  */
-#define UART_PRESENT          /**< UART is available in this part */
-#define UART_COUNT          1 /**< 1 UARTs available  */
-#define LEUART_PRESENT        /**< LEUART is available in this part */
-#define LEUART_COUNT        2 /**< 2 LEUARTs available  */
-#define LETIMER_PRESENT       /**< LETIMER is available in this part */
-#define LETIMER_COUNT       1 /**< 1 LETIMERs available  */
-#define PCNT_PRESENT          /**< PCNT is available in this part */
-#define PCNT_COUNT          3 /**< 3 PCNTs available  */
-#define ACMP_PRESENT          /**< ACMP is available in this part */
-#define ACMP_COUNT          2 /**< 2 ACMPs available  */
-#define DAC_PRESENT           /**< DAC is available in this part */
-#define DAC_COUNT           1 /**< 1 DACs available  */
-#define ADC_PRESENT           /**< ADC is available in this part */
-#define ADC_COUNT           1 /**< 1 ADCs available  */
-#define I2C_PRESENT           /**< I2C is available in this part */
-#define I2C_COUNT           1 /**< 1 I2Cs available  */
-#define AES_PRESENT
-#define AES_COUNT           1
-#define DMA_PRESENT
-#define DMA_COUNT           1
-#define LE_PRESENT
-#define LE_COUNT            1
-#define MSC_PRESENT
-#define MSC_COUNT           1
-#define EMU_PRESENT
-#define EMU_COUNT           1
-#define RMU_PRESENT
-#define RMU_COUNT           1
-#define CMU_PRESENT
-#define CMU_COUNT           1
-#define EBI_PRESENT
-#define EBI_COUNT           1
-#define RTC_PRESENT
-#define RTC_COUNT           1
-#define PRS_PRESENT
-#define PRS_COUNT           1
-#define GPIO_PRESENT
-#define GPIO_COUNT          1
-#define VCMP_PRESENT
-#define VCMP_COUNT          1
-#define LCD_PRESENT
-#define LCD_COUNT           1
-#define HFXTAL_PRESENT
-#define HFXTAL_COUNT        1
-#define LFXTAL_PRESENT
-#define LFXTAL_COUNT        1
-#define WDOG_PRESENT
-#define WDOG_COUNT          1
-#define DBG_PRESENT
-#define DBG_COUNT           1
-#define BOOTLOADER_PRESENT
-#define BOOTLOADER_COUNT    1
-#define ANALOG_PRESENT
-#define ANALOG_COUNT        1
+#define TIMER_PRESENT           /**< TIMER is available in this part */
+#define TIMER_COUNT           3 /**< 3 TIMERs available  */
+#define USART_PRESENT           /**< USART is available in this part */
+#define USART_COUNT           3 /**< 3 USARTs available  */
+#define UART_PRESENT            /**< UART is available in this part */
+#define UART_COUNT            1 /**< 1 UARTs available  */
+#define LEUART_PRESENT          /**< LEUART is available in this part */
+#define LEUART_COUNT          2 /**< 2 LEUARTs available  */
+#define LETIMER_PRESENT         /**< LETIMER is available in this part */
+#define LETIMER_COUNT         1 /**< 1 LETIMERs available  */
+#define PCNT_PRESENT            /**< PCNT is available in this part */
+#define PCNT_COUNT            3 /**< 3 PCNTs available  */
+#define ACMP_PRESENT            /**< ACMP is available in this part */
+#define ACMP_COUNT            2 /**< 2 ACMPs available  */
+#define DAC_PRESENT             /**< DAC is available in this part */
+#define DAC_COUNT             1 /**< 1 DACs available  */
+#define ADC_PRESENT             /**< ADC is available in this part */
+#define ADC_COUNT             1 /**< 1 ADCs available  */
+#define I2C_PRESENT             /**< I2C is available in this part */
+#define I2C_COUNT             1 /**< 1 I2Cs available  */
+#define AES_PRESENT             /**< AES is available in this part */
+#define AES_COUNT             1 /**< 1 AES available */
+#define DMA_PRESENT             /**< DMA is available in this part */
+#define DMA_COUNT             1 /**< 1 DMA available */
+#define LE_PRESENT              /**< LE is available in this part */
+#define LE_COUNT              1 /**< 1 LE available */
+#define MSC_PRESENT             /**< MSC is available in this part */
+#define MSC_COUNT             1 /**< 1 MSC available */
+#define EMU_PRESENT             /**< EMU is available in this part */
+#define EMU_COUNT             1 /**< 1 EMU available */
+#define RMU_PRESENT             /**< RMU is available in this part */
+#define RMU_COUNT             1 /**< 1 RMU available */
+#define CMU_PRESENT             /**< CMU is available in this part */
+#define CMU_COUNT             1 /**< 1 CMU available */
+#define EBI_PRESENT             /**< EBI is available in this part */
+#define EBI_COUNT             1 /**< 1 EBI available */
+#define RTC_PRESENT             /**< RTC is available in this part */
+#define RTC_COUNT             1 /**< 1 RTC available */
+#define PRS_PRESENT             /**< PRS is available in this part */
+#define PRS_COUNT             1 /**< 1 PRS available */
+#define GPIO_PRESENT            /**< GPIO is available in this part */
+#define GPIO_COUNT            1 /**< 1 GPIO available */
+#define VCMP_PRESENT            /**< VCMP is available in this part */
+#define VCMP_COUNT            1 /**< 1 VCMP available */
+#define LCD_PRESENT             /**< LCD is available in this part */
+#define LCD_COUNT             1 /**< 1 LCD available */
+#define HFXTAL_PRESENT          /**< HFXTAL is available in this part */
+#define HFXTAL_COUNT          1 /**< 1 HFXTAL available */
+#define LFXTAL_PRESENT          /**< LFXTAL is available in this part */
+#define LFXTAL_COUNT          1 /**< 1 LFXTAL available */
+#define WDOG_PRESENT            /**< WDOG is available in this part */
+#define WDOG_COUNT            1 /**< 1 WDOG available */
+#define DBG_PRESENT             /**< DBG is available in this part */
+#define DBG_COUNT             1 /**< 1 DBG available */
+#define BOOTLOADER_PRESENT      /**< BOOTLOADER is available in this part */
+#define BOOTLOADER_COUNT      1 /**< 1 BOOTLOADER available */
+#define ANALOG_PRESENT          /**< ANALOG is available in this part */
+#define ANALOG_COUNT          1 /**< 1 ANALOG available */
 
-#include "core_cm3.h"      /* Cortex-M3 processor and core peripherals */
-#include "system_efm32g.h" /* System Header */
+#include "core_cm3.h"           /* Cortex-M3 processor and core peripherals */
+#include "system_efm32g.h"       /* System Header */
 
 /** @} End of group EFM32G890F64_Part */
 

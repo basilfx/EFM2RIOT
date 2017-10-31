@@ -1,9 +1,9 @@
 /**************************************************************************//**
  * @file efm32gg_lesense_ch.h
  * @brief EFM32GG_LESENSE_CH register and bit field definitions
- * @version 5.1.2
+ * @version 5.3.3
  ******************************************************************************
- * @section License
+ * # License
  * <b>Copyright 2017 Silicon Laboratories, Inc. http://www.silabs.com</b>
  ******************************************************************************
  *
@@ -34,6 +34,13 @@
 extern "C" {
 #endif
 
+
+#if defined(__ICCARM__)
+#pragma system_include       /* Treat file as system include file. */
+#elif defined(__ARMCC_VERSION) && (__ARMCC_VERSION >= 6010050)
+#pragma clang system_header  /* Treat file as system include file. */
+#endif
+
 /**************************************************************************//**
 * @addtogroup Parts
 * @{
@@ -41,8 +48,7 @@ extern "C" {
 /**************************************************************************//**
  * @brief LESENSE_CH EFM32GG LESENSE CH
  *****************************************************************************/
-typedef struct
-{
+typedef struct {
   __IOM uint32_t TIMING;       /**< Scan configuration  */
   __IOM uint32_t INTERACT;     /**< Scan configuration  */
   __IOM uint32_t EVAL;         /**< Scan configuration  */
@@ -50,8 +56,6 @@ typedef struct
 } LESENSE_CH_TypeDef;
 
 /** @} End of group Parts */
-
-
 #ifdef __cplusplus
 }
 #endif

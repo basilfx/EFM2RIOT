@@ -1,9 +1,9 @@
 /**************************************************************************//**
  * @file efr32fg12p_leuart.h
  * @brief EFR32FG12P_LEUART register and bit field definitions
- * @version 5.1.2
+ * @version 5.3.3
  ******************************************************************************
- * @section License
+ * # License
  * <b>Copyright 2017 Silicon Laboratories, Inc. http://www.silabs.com</b>
  ******************************************************************************
  *
@@ -34,17 +34,24 @@
 extern "C" {
 #endif
 
+
+#if defined(__ICCARM__)
+#pragma system_include       /* Treat file as system include file. */
+#elif defined(__ARMCC_VERSION) && (__ARMCC_VERSION >= 6010050)
+#pragma clang system_header  /* Treat file as system include file. */
+#endif
+
 /**************************************************************************//**
 * @addtogroup Parts
 * @{
 ******************************************************************************/
 /**************************************************************************//**
- * @defgroup EFR32FG12P_LEUART
+ * @defgroup EFR32FG12P_LEUART LEUART
  * @{
  * @brief EFR32FG12P_LEUART Register Declaration
  *****************************************************************************/
-typedef struct
-{
+/** LEUART Register Declaration */
+typedef struct {
   __IOM uint32_t CTRL;         /**< Control Register  */
   __IOM uint32_t CMD;          /**< Command Register  */
   __IM uint32_t  STATUS;       /**< Status Register  */
@@ -73,7 +80,9 @@ typedef struct
 } LEUART_TypeDef;              /** @} */
 
 /**************************************************************************//**
- * @defgroup EFR32FG12P_LEUART_BitFields
+ * @addtogroup EFR32FG12P_LEUART
+ * @{
+ * @defgroup EFR32FG12P_LEUART_BitFields  LEUART Bit Fields
  * @{
  *****************************************************************************/
 
@@ -835,9 +844,9 @@ typedef struct
 #define _LEUART_INPUT_RXPRS_DEFAULT              0x00000000UL                          /**< Mode DEFAULT for LEUART_INPUT */
 #define LEUART_INPUT_RXPRS_DEFAULT               (_LEUART_INPUT_RXPRS_DEFAULT << 5)    /**< Shifted mode DEFAULT for LEUART_INPUT */
 
+/** @} */
 /** @} End of group EFR32FG12P_LEUART */
 /** @} End of group Parts */
-
 #ifdef __cplusplus
 }
 #endif

@@ -1,9 +1,9 @@
 /**************************************************************************//**
  * @file efm32jg1b_letimer.h
  * @brief EFM32JG1B_LETIMER register and bit field definitions
- * @version 5.1.2
+ * @version 5.3.3
  ******************************************************************************
- * @section License
+ * # License
  * <b>Copyright 2017 Silicon Laboratories, Inc. http://www.silabs.com</b>
  ******************************************************************************
  *
@@ -34,17 +34,24 @@
 extern "C" {
 #endif
 
+
+#if defined(__ICCARM__)
+#pragma system_include       /* Treat file as system include file. */
+#elif defined(__ARMCC_VERSION) && (__ARMCC_VERSION >= 6010050)
+#pragma clang system_header  /* Treat file as system include file. */
+#endif
+
 /**************************************************************************//**
 * @addtogroup Parts
 * @{
 ******************************************************************************/
 /**************************************************************************//**
- * @defgroup EFM32JG1B_LETIMER
+ * @defgroup EFM32JG1B_LETIMER LETIMER
  * @{
  * @brief EFM32JG1B_LETIMER Register Declaration
  *****************************************************************************/
-typedef struct
-{
+/** LETIMER Register Declaration */
+typedef struct {
   __IOM uint32_t CTRL;         /**< Control Register  */
   __IOM uint32_t CMD;          /**< Command Register  */
   __IM uint32_t  STATUS;       /**< Status Register  */
@@ -70,7 +77,9 @@ typedef struct
 } LETIMER_TypeDef;             /** @} */
 
 /**************************************************************************//**
- * @defgroup EFM32JG1B_LETIMER_BitFields
+ * @addtogroup EFM32JG1B_LETIMER
+ * @{
+ * @defgroup EFM32JG1B_LETIMER_BitFields  LETIMER Bit Fields
  * @{
  *****************************************************************************/
 
@@ -620,9 +629,9 @@ typedef struct
 #define LETIMER_PRSSEL_PRSCLEARMODE_FALLING     (_LETIMER_PRSSEL_PRSCLEARMODE_FALLING << 26) /**< Shifted mode FALLING for LETIMER_PRSSEL */
 #define LETIMER_PRSSEL_PRSCLEARMODE_BOTH        (_LETIMER_PRSSEL_PRSCLEARMODE_BOTH << 26)    /**< Shifted mode BOTH for LETIMER_PRSSEL */
 
+/** @} */
 /** @} End of group EFM32JG1B_LETIMER */
 /** @} End of group Parts */
-
 #ifdef __cplusplus
 }
 #endif

@@ -1,9 +1,9 @@
 /**************************************************************************//**
  * @file ezr32lg_usb_doep.h
  * @brief EZR32LG_USB_DOEP register and bit field definitions
- * @version 5.1.2
+ * @version 5.3.3
  ******************************************************************************
- * @section License
+ * # License
  * <b>Copyright 2017 Silicon Laboratories, Inc. http://www.silabs.com</b>
  ******************************************************************************
  *
@@ -34,6 +34,13 @@
 extern "C" {
 #endif
 
+
+#if defined(__ICCARM__)
+#pragma system_include       /* Treat file as system include file. */
+#elif defined(__ARMCC_VERSION) && (__ARMCC_VERSION >= 6010050)
+#pragma clang system_header  /* Treat file as system include file. */
+#endif
+
 /**************************************************************************//**
 * @addtogroup Parts
 * @{
@@ -41,8 +48,7 @@ extern "C" {
 /**************************************************************************//**
  * @brief USB_DOEP EZR32LG USB DOEP
  *****************************************************************************/
-typedef struct
-{
+typedef struct {
   __IOM uint32_t CTL;          /**< Device OUT Endpoint x+1 Control Register  */
   uint32_t       RESERVED0[1]; /**< Reserved for future use **/
   __IOM uint32_t INT;          /**< Device OUT Endpoint x+1 Interrupt Register  */
@@ -53,8 +59,6 @@ typedef struct
 } USB_DOEP_TypeDef;
 
 /** @} End of group Parts */
-
-
 #ifdef __cplusplus
 }
 #endif

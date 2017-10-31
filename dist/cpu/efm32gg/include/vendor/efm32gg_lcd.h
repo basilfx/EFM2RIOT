@@ -1,9 +1,9 @@
 /**************************************************************************//**
  * @file efm32gg_lcd.h
  * @brief EFM32GG_LCD register and bit field definitions
- * @version 5.1.2
+ * @version 5.3.3
  ******************************************************************************
- * @section License
+ * # License
  * <b>Copyright 2017 Silicon Laboratories, Inc. http://www.silabs.com</b>
  ******************************************************************************
  *
@@ -34,6 +34,13 @@
 extern "C" {
 #endif
 
+
+#if defined(__ICCARM__)
+#pragma system_include       /* Treat file as system include file. */
+#elif defined(__ARMCC_VERSION) && (__ARMCC_VERSION >= 6010050)
+#pragma clang system_header  /* Treat file as system include file. */
+#endif
+
 /**************************************************************************//**
 * @addtogroup Parts
 * @{
@@ -43,8 +50,7 @@ extern "C" {
  * @{
  * @brief EFM32GG_LCD Register Declaration
  *****************************************************************************/
-typedef struct
-{
+typedef struct {
   __IOM uint32_t CTRL;          /**< Control Register  */
   __IOM uint32_t DISPCTRL;      /**< Display Control Register  */
   __IOM uint32_t SEGEN;         /**< Segment Enable Register  */
@@ -80,7 +86,7 @@ typedef struct
   __IOM uint32_t SEGD5L;        /**< Segment Data Low Register 5  */
   __IOM uint32_t SEGD6L;        /**< Segment Data Low Register 6  */
   __IOM uint32_t SEGD7L;        /**< Segment Data Low Register 7  */
-} LCD_TypeDef;                  /** @} */
+} LCD_TypeDef;                  /**< LCD Register Declaration *//** @} */
 
 /**************************************************************************//**
  * @defgroup EFM32GG_LCD_BitFields
@@ -601,7 +607,6 @@ typedef struct
 
 /** @} End of group EFM32GG_LCD */
 /** @} End of group Parts */
-
 #ifdef __cplusplus
 }
 #endif

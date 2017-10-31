@@ -1,9 +1,9 @@
 /**************************************************************************//**
  * @file efm32lg_lesense.h
  * @brief EFM32LG_LESENSE register and bit field definitions
- * @version 5.1.2
+ * @version 5.3.3
  ******************************************************************************
- * @section License
+ * # License
  * <b>Copyright 2017 Silicon Laboratories, Inc. http://www.silabs.com</b>
  ******************************************************************************
  *
@@ -34,6 +34,13 @@
 extern "C" {
 #endif
 
+
+#if defined(__ICCARM__)
+#pragma system_include       /* Treat file as system include file. */
+#elif defined(__ARMCC_VERSION) && (__ARMCC_VERSION >= 6010050)
+#pragma clang system_header  /* Treat file as system include file. */
+#endif
+
 /**************************************************************************//**
 * @addtogroup Parts
 * @{
@@ -43,8 +50,7 @@ extern "C" {
  * @{
  * @brief EFM32LG_LESENSE Register Declaration
  *****************************************************************************/
-typedef struct
-{
+typedef struct {
   __IOM uint32_t      CTRL;           /**< Control Register  */
   __IOM uint32_t      TIMCTRL;        /**< Timing Control Register  */
   __IOM uint32_t      PERCTRL;        /**< Peripheral Control Register  */
@@ -75,7 +81,7 @@ typedef struct
   LESENSE_BUF_TypeDef BUF[16];        /**< Scanresult */
 
   LESENSE_CH_TypeDef  CH[16];         /**< Scanconfig */
-} LESENSE_TypeDef;                    /** @} */
+} LESENSE_TypeDef;                    /**< LESENSE Register Declaration *//** @} */
 
 /**************************************************************************//**
  * @defgroup EFM32LG_LESENSE_BitFields
@@ -1932,7 +1938,6 @@ typedef struct
 
 /** @} End of group EFM32LG_LESENSE */
 /** @} End of group Parts */
-
 #ifdef __cplusplus
 }
 #endif

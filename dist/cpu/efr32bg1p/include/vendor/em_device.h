@@ -9,12 +9,12 @@
  * @verbatim
  * Example: Add "-DEFM32G890F128" to your build options, to define part
  *          Add "#include "em_device.h" to your source files
- *
+
  *
  * @endverbatim
- * @version 5.1.2
+ * @version 5.3.3
  ******************************************************************************
- * @section License
+ * # License
  * <b>Copyright 2017 Silicon Laboratories, Inc. http://www.silabs.com</b>
  ******************************************************************************
  *
@@ -58,6 +58,12 @@ extern "C" {
 #elif defined(EFR32BG1P232F256GM48)
 #include "efr32bg1p232f256gm48.h"
 
+#elif defined(EFR32BG1P232F256IM32)
+#include "efr32bg1p232f256im32.h"
+
+#elif defined(EFR32BG1P232F256IM48)
+#include "efr32bg1p232f256im48.h"
+
 #elif defined(EFR32BG1P233F256GM48)
 #include "efr32bg1p233f256gm48.h"
 
@@ -72,6 +78,9 @@ extern "C" {
 
 #elif defined(EFR32BG1P333F256GM48)
 #include "efr32bg1p333f256gm48.h"
+
+#elif defined(EFR32BG1P333F256IM48)
+#include "efr32bg1p333f256im48.h"
 
 #else
 #error "em_device.h: PART NUMBER undefined"

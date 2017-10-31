@@ -1,9 +1,9 @@
 /**************************************************************************//**
  * @file ezr32hg_prs.h
  * @brief EZR32HG_PRS register and bit field definitions
- * @version 5.1.2
+ * @version 5.3.3
  ******************************************************************************
- * @section License
+ * # License
  * <b>Copyright 2017 Silicon Laboratories, Inc. http://www.silabs.com</b>
  ******************************************************************************
  *
@@ -34,6 +34,13 @@
 extern "C" {
 #endif
 
+
+#if defined(__ICCARM__)
+#pragma system_include       /* Treat file as system include file. */
+#elif defined(__ARMCC_VERSION) && (__ARMCC_VERSION >= 6010050)
+#pragma clang system_header  /* Treat file as system include file. */
+#endif
+
 /**************************************************************************//**
 * @addtogroup Parts
 * @{
@@ -43,8 +50,7 @@ extern "C" {
  * @{
  * @brief EZR32HG_PRS Register Declaration
  *****************************************************************************/
-typedef struct
-{
+typedef struct {
   __IOM uint32_t SWPULSE;      /**< Software Pulse Register  */
   __IOM uint32_t SWLEVEL;      /**< Software Level Register  */
   __IOM uint32_t ROUTE;        /**< I/O Routing Register  */
@@ -54,7 +60,7 @@ typedef struct
 
   uint32_t       RESERVED1[6]; /**< Reserved for future use **/
   __IOM uint32_t TRACECTRL;    /**< MTB Trace Control Register  */
-} PRS_TypeDef;                 /** @} */
+} PRS_TypeDef;                 /**< PRS Register Declaration *//** @} */
 
 /**************************************************************************//**
  * @defgroup EZR32HG_PRS_BitFields
@@ -356,7 +362,6 @@ typedef struct
 
 /** @} End of group EZR32HG_PRS */
 /** @} End of group Parts */
-
 #ifdef __cplusplus
 }
 #endif

@@ -1,9 +1,9 @@
 /**************************************************************************//**
  * @file efr32mg13p_lesense.h
  * @brief EFR32MG13P_LESENSE register and bit field definitions
- * @version 5.1.2
+ * @version 5.3.3
  ******************************************************************************
- * @section License
+ * # License
  * <b>Copyright 2017 Silicon Laboratories, Inc. http://www.silabs.com</b>
  ******************************************************************************
  *
@@ -34,17 +34,24 @@
 extern "C" {
 #endif
 
+
+#if defined(__ICCARM__)
+#pragma system_include       /* Treat file as system include file. */
+#elif defined(__ARMCC_VERSION) && (__ARMCC_VERSION >= 6010050)
+#pragma clang system_header  /* Treat file as system include file. */
+#endif
+
 /**************************************************************************//**
 * @addtogroup Parts
 * @{
 ******************************************************************************/
 /**************************************************************************//**
- * @defgroup EFR32MG13P_LESENSE
+ * @defgroup EFR32MG13P_LESENSE LESENSE
  * @{
  * @brief EFR32MG13P_LESENSE Register Declaration
  *****************************************************************************/
-typedef struct
-{
+/** LESENSE Register Declaration */
+typedef struct {
   __IOM uint32_t      CTRL;          /**< Control Register  */
   __IOM uint32_t      TIMCTRL;       /**< Timing Control Register  */
   __IOM uint32_t      PERCTRL;       /**< Peripheral Control Register  */
@@ -80,7 +87,9 @@ typedef struct
 } LESENSE_TypeDef;                   /** @} */
 
 /**************************************************************************//**
- * @defgroup EFR32MG13P_LESENSE_BitFields
+ * @addtogroup EFR32MG13P_LESENSE
+ * @{
+ * @defgroup EFR32MG13P_LESENSE_BitFields  LESENSE Bit Fields
  * @{
  *****************************************************************************/
 
@@ -1504,7 +1513,7 @@ typedef struct
 #define _LESENSE_ROUTEPEN_CH0PEN_MASK                  0x1UL                                       /**< Bit mask for LESENSE_CH0PEN */
 #define _LESENSE_ROUTEPEN_CH0PEN_DEFAULT               0x00000000UL                                /**< Mode DEFAULT for LESENSE_ROUTEPEN */
 #define LESENSE_ROUTEPEN_CH0PEN_DEFAULT                (_LESENSE_ROUTEPEN_CH0PEN_DEFAULT << 0)     /**< Shifted mode DEFAULT for LESENSE_ROUTEPEN */
-#define LESENSE_ROUTEPEN_CH1PEN                        (0x1UL << 1)                                /**< CH0 Pin Enable */
+#define LESENSE_ROUTEPEN_CH1PEN                        (0x1UL << 1)                                /**< CH1 Pin Enable */
 #define _LESENSE_ROUTEPEN_CH1PEN_SHIFT                 1                                           /**< Shift value for LESENSE_CH1PEN */
 #define _LESENSE_ROUTEPEN_CH1PEN_MASK                  0x2UL                                       /**< Bit mask for LESENSE_CH1PEN */
 #define _LESENSE_ROUTEPEN_CH1PEN_DEFAULT               0x00000000UL                                /**< Mode DEFAULT for LESENSE_ROUTEPEN */
@@ -1867,9 +1876,9 @@ typedef struct
 #define LESENSE_CH_EVAL_MODE_SLIDINGWIN                (_LESENSE_CH_EVAL_MODE_SLIDINGWIN << 21)    /**< Shifted mode SLIDINGWIN for LESENSE_CH_EVAL */
 #define LESENSE_CH_EVAL_MODE_STEPDET                   (_LESENSE_CH_EVAL_MODE_STEPDET << 21)       /**< Shifted mode STEPDET for LESENSE_CH_EVAL */
 
+/** @} */
 /** @} End of group EFR32MG13P_LESENSE */
 /** @} End of group Parts */
-
 #ifdef __cplusplus
 }
 #endif

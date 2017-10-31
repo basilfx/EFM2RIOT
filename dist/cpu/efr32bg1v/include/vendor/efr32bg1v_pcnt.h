@@ -1,9 +1,9 @@
 /**************************************************************************//**
  * @file efr32bg1v_pcnt.h
  * @brief EFR32BG1V_PCNT register and bit field definitions
- * @version 5.1.2
+ * @version 5.3.3
  ******************************************************************************
- * @section License
+ * # License
  * <b>Copyright 2017 Silicon Laboratories, Inc. http://www.silabs.com</b>
  ******************************************************************************
  *
@@ -34,17 +34,24 @@
 extern "C" {
 #endif
 
+
+#if defined(__ICCARM__)
+#pragma system_include       /* Treat file as system include file. */
+#elif defined(__ARMCC_VERSION) && (__ARMCC_VERSION >= 6010050)
+#pragma clang system_header  /* Treat file as system include file. */
+#endif
+
 /**************************************************************************//**
 * @addtogroup Parts
 * @{
 ******************************************************************************/
 /**************************************************************************//**
- * @defgroup EFR32BG1V_PCNT
+ * @defgroup EFR32BG1V_PCNT PCNT
  * @{
  * @brief EFR32BG1V_PCNT Register Declaration
  *****************************************************************************/
-typedef struct
-{
+/** PCNT Register Declaration */
+typedef struct {
   __IOM uint32_t CTRL;         /**< Control Register  */
   __IOM uint32_t CMD;          /**< Command Register  */
   __IM uint32_t  STATUS;       /**< Status Register  */
@@ -69,7 +76,9 @@ typedef struct
 } PCNT_TypeDef;                /** @} */
 
 /**************************************************************************//**
- * @defgroup EFR32BG1V_PCNT_BitFields
+ * @addtogroup EFR32BG1V_PCNT
+ * @{
+ * @defgroup EFR32BG1V_PCNT_BitFields  PCNT Bit Fields
  * @{
  *****************************************************************************/
 
@@ -706,9 +715,9 @@ typedef struct
 #define _PCNT_OVSCFG_FLUTTERRM_DEFAULT     0x00000000UL                           /**< Mode DEFAULT for PCNT_OVSCFG */
 #define PCNT_OVSCFG_FLUTTERRM_DEFAULT      (_PCNT_OVSCFG_FLUTTERRM_DEFAULT << 12) /**< Shifted mode DEFAULT for PCNT_OVSCFG */
 
+/** @} */
 /** @} End of group EFR32BG1V_PCNT */
 /** @} End of group Parts */
-
 #ifdef __cplusplus
 }
 #endif

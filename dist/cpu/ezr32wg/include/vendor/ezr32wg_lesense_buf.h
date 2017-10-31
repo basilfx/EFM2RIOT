@@ -1,9 +1,9 @@
 /**************************************************************************//**
  * @file ezr32wg_lesense_buf.h
  * @brief EZR32WG_LESENSE_BUF register and bit field definitions
- * @version 5.1.2
+ * @version 5.3.3
  ******************************************************************************
- * @section License
+ * # License
  * <b>Copyright 2017 Silicon Laboratories, Inc. http://www.silabs.com</b>
  ******************************************************************************
  *
@@ -34,6 +34,13 @@
 extern "C" {
 #endif
 
+
+#if defined(__ICCARM__)
+#pragma system_include       /* Treat file as system include file. */
+#elif defined(__ARMCC_VERSION) && (__ARMCC_VERSION >= 6010050)
+#pragma clang system_header  /* Treat file as system include file. */
+#endif
+
 /**************************************************************************//**
 * @addtogroup Parts
 * @{
@@ -41,14 +48,11 @@ extern "C" {
 /**************************************************************************//**
  * @brief LESENSE_BUF EZR32WG LESENSE BUF
  *****************************************************************************/
-typedef struct
-{
+typedef struct {
   __IOM uint32_t DATA; /**< Scan results  */
 } LESENSE_BUF_TypeDef;
 
 /** @} End of group Parts */
-
-
 #ifdef __cplusplus
 }
 #endif

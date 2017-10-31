@@ -1,9 +1,9 @@
 /***************************************************************************//**
  * @file system_efr32bg1b.c
  * @brief CMSIS Cortex-M3/M4 System Layer for EFR32 devices.
- * @version 5.1.2
+ * @version 5.3.3
  ******************************************************************************
- * @section License
+ * # License
  * <b>Copyright 2017 Silicon Laboratories, Inc. http://www.silabs.com</b>
  ******************************************************************************
  *
@@ -39,6 +39,7 @@
 
 /** LFRCO frequency, tuned to below frequency during manufacturing. */
 #define EFR32_LFRCO_FREQ  (32768UL)
+/** ULFRCO frequency */
 #define EFR32_ULFRCO_FREQ (1000UL)
 
 /*******************************************************************************
@@ -48,23 +49,25 @@
 /* System oscillator frequencies. These frequencies are normally constant */
 /* for a target, but they are made configurable in order to allow run-time */
 /* handling of different boards. The crystal oscillator clocks can be set */
-/* compile time to a non-default value by defining respective EFR_nFXO_FREQ */
-/* values according to board design. By defining the EFR_nFXO_FREQ to 0, */
+/* compile time to a non-default value by defining respective EFR32_nFXO_FREQ */
+/* values according to board design. By defining the EFR32_nFXO_FREQ to 0, */
 /* one indicates that the oscillator is not present, in order to save some */
 /* SW footprint. */
 
 #ifndef EFR32_HFRCO_MAX_FREQ
+/** Maximum HFRCO frequency */
 #define EFR32_HFRCO_MAX_FREQ            (38000000UL)
 #endif
 
 #ifndef EFR32_HFXO_FREQ
+/** HFXO frequency */
 #define EFR32_HFXO_FREQ                 (38400000UL)
 #endif
 
 #ifndef EFR32_HFRCO_STARTUP_FREQ
+/** HFRCO startup frequency */
 #define EFR32_HFRCO_STARTUP_FREQ        (19000000UL)
 #endif
-
 
 /* Do not define variable if HF crystal oscillator not present */
 #if (EFR32_HFXO_FREQ > 0UL)
@@ -75,16 +78,16 @@ static uint32_t SystemHFXOClock = EFR32_HFXO_FREQ;
 #endif
 
 #ifndef EFR32_LFXO_FREQ
+/** LFXO frequency */
 #define EFR32_LFXO_FREQ (EFR32_LFRCO_FREQ)
 #endif
 /* Do not define variable if LF crystal oscillator not present */
 #if (EFR32_LFXO_FREQ > 0UL)
 /** @cond DO_NOT_INCLUDE_WITH_DOXYGEN */
 /** System LFXO clock. */
-static uint32_t SystemLFXOClock = 32768UL;
+static uint32_t SystemLFXOClock = EFR32_LFXO_FREQ;
 /** @endcond (DO_NOT_INCLUDE_WITH_DOXYGEN) */
 #endif
-
 
 /*******************************************************************************
  **************************   GLOBAL VARIABLES   *******************************
@@ -97,8 +100,7 @@ static uint32_t SystemLFXOClock = 32768UL;
  * @details
  *   Required CMSIS global variable that must be kept up-to-date.
  */
-uint32_t SystemCoreClock;
-
+uint32_t SystemCoreClock = EFR32_HFRCO_STARTUP_FREQ;
 
 /**
  * @brief
@@ -111,7 +113,6 @@ uint32_t SystemCoreClock;
  *   Frequency of the system HFRCO oscillator
  */
 uint32_t SystemHfrcoFreq = EFR32_HFRCO_STARTUP_FREQ;
-
 
 /*******************************************************************************
  **************************   GLOBAL FUNCTIONS   *******************************
@@ -140,8 +141,8 @@ uint32_t SystemCoreClockGet(void)
   uint32_t presc;
 
   ret   = SystemHFClockGet();
-  presc = (CMU->HFCOREPRESC & _CMU_HFCOREPRESC_PRESC_MASK) >>
-          _CMU_HFCOREPRESC_PRESC_SHIFT;
+  presc = (CMU->HFCOREPRESC & _CMU_HFCOREPRESC_PRESC_MASK)
+          >> _CMU_HFCOREPRESC_PRESC_SHIFT;
   ret  /= (presc + 1);
 
   /* Keep CMSIS system clock variable up-to-date */
@@ -149,7 +150,6 @@ uint32_t SystemCoreClockGet(void)
 
   return ret;
 }
-
 
 /***************************************************************************//**
  * @brief
@@ -163,10 +163,9 @@ uint32_t SystemCoreClockGet(void)
  ******************************************************************************/
 uint32_t SystemMaxCoreClockGet(void)
 {
-  return (EFR32_HFRCO_MAX_FREQ > EFR32_HFXO_FREQ ? \
-          EFR32_HFRCO_MAX_FREQ : EFR32_HFXO_FREQ);
+  return (EFR32_HFRCO_MAX_FREQ > EFR32_HFXO_FREQ \
+          ? EFR32_HFRCO_MAX_FREQ : EFR32_HFXO_FREQ);
 }
-
 
 /***************************************************************************//**
  * @brief
@@ -182,8 +181,7 @@ uint32_t SystemHFClockGet(void)
 {
   uint32_t ret;
 
-  switch (CMU->HFCLKSTATUS & _CMU_HFCLKSTATUS_SELECTED_MASK)
-  {
+  switch (CMU->HFCLKSTATUS & _CMU_HFCLKSTATUS_SELECTED_MASK) {
     case CMU_HFCLKSTATUS_SELECTED_LFXO:
 #if (EFR32_LFXO_FREQ > 0)
       ret = SystemLFXOClock;
@@ -217,7 +215,6 @@ uint32_t SystemHFClockGet(void)
                       >> _CMU_HFPRESC_PRESC_SHIFT));
 }
 
-
 /**************************************************************************//**
  * @brief
  *   Get high frequency crystal oscillator clock frequency for target system.
@@ -237,7 +234,6 @@ uint32_t SystemHFXOClockGet(void)
   return 0;
 #endif
 }
-
 
 /**************************************************************************//**
  * @brief
@@ -261,8 +257,7 @@ void SystemHFXOClockSet(uint32_t freq)
   SystemHFXOClock = freq;
 
   /* Update core clock frequency if HFXO is used to clock core */
-  if ((CMU->HFCLKSTATUS & _CMU_HFCLKSTATUS_SELECTED_MASK) == CMU_HFCLKSTATUS_SELECTED_HFXO)
-  {
+  if ((CMU->HFCLKSTATUS & _CMU_HFCLKSTATUS_SELECTED_MASK) == CMU_HFCLKSTATUS_SELECTED_HFXO) {
     /* The function will update the global variable */
     SystemCoreClockGet();
   }
@@ -270,7 +265,6 @@ void SystemHFXOClockSet(uint32_t freq)
   (void)freq; /* Unused parameter */
 #endif
 }
-
 
 /**************************************************************************//**
  * @brief
@@ -288,11 +282,21 @@ void SystemInit(void)
 {
 #if (__FPU_PRESENT == 1) && (__FPU_USED == 1)
   /* Set floating point coprosessor access mode. */
-  SCB->CPACR |= ((3UL << 10*2) |                    /* set CP10 Full Access */
-                 (3UL << 11*2)  );                  /* set CP11 Full Access */
+  SCB->CPACR |= ((3UL << 10 * 2)                      /* set CP10 Full Access */
+                 | (3UL << 11 * 2)  );              /* set CP11 Full Access */
 #endif
-}
 
+  /****************************
+   * Fix for errata DCDC_E206
+   * Enable bypass switch as errata workaround. The bypass current limit will be
+   * disabled again in CHIP_Init() to avoid added current consumption. */
+
+  EMU->DCDCCLIMCTRL |= 1 << _EMU_DCDCCLIMCTRL_BYPLIMEN_SHIFT;
+  EMU->DCDCCTRL = (EMU->DCDCCTRL & ~_EMU_DCDCCTRL_DCDCMODE_MASK)
+                  | EMU_DCDCCTRL_DCDCMODE_BYPASS;
+  *(volatile uint32_t *)(0x400E3074) &= ~(0x1UL << 0);
+  *(volatile uint32_t *)(0x400E3060) &= ~(0x1UL << 28);
+}
 
 /**************************************************************************//**
  * @brief
@@ -312,7 +316,6 @@ uint32_t SystemLFRCOClockGet(void)
   return EFR32_LFRCO_FREQ;
 }
 
-
 /**************************************************************************//**
  * @brief
  *   Get ultra low frequency RC oscillator clock frequency for target system.
@@ -328,7 +331,6 @@ uint32_t SystemULFRCOClockGet(void)
   /* The ULFRCO frequency is not tuned, and can be very inaccurate */
   return EFR32_ULFRCO_FREQ;
 }
-
 
 /**************************************************************************//**
  * @brief
@@ -349,7 +351,6 @@ uint32_t SystemLFXOClockGet(void)
   return 0;
 #endif
 }
-
 
 /**************************************************************************//**
  * @brief
@@ -373,8 +374,7 @@ void SystemLFXOClockSet(uint32_t freq)
   SystemLFXOClock = freq;
 
   /* Update core clock frequency if LFXO is used to clock core */
-  if ((CMU->HFCLKSTATUS & _CMU_HFCLKSTATUS_SELECTED_MASK) == CMU_HFCLKSTATUS_SELECTED_LFXO)
-  {
+  if ((CMU->HFCLKSTATUS & _CMU_HFCLKSTATUS_SELECTED_MASK) == CMU_HFCLKSTATUS_SELECTED_LFXO) {
     /* The function will update the global variable */
     SystemCoreClockGet();
   }

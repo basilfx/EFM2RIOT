@@ -1,9 +1,9 @@
 /**************************************************************************//**
  * @file efr32bg13p_msc.h
  * @brief EFR32BG13P_MSC register and bit field definitions
- * @version 5.1.2
+ * @version 5.3.3
  ******************************************************************************
- * @section License
+ * # License
  * <b>Copyright 2017 Silicon Laboratories, Inc. http://www.silabs.com</b>
  ******************************************************************************
  *
@@ -34,17 +34,24 @@
 extern "C" {
 #endif
 
+
+#if defined(__ICCARM__)
+#pragma system_include       /* Treat file as system include file. */
+#elif defined(__ARMCC_VERSION) && (__ARMCC_VERSION >= 6010050)
+#pragma clang system_header  /* Treat file as system include file. */
+#endif
+
 /**************************************************************************//**
 * @addtogroup Parts
 * @{
 ******************************************************************************/
 /**************************************************************************//**
- * @defgroup EFR32BG13P_MSC
+ * @defgroup EFR32BG13P_MSC MSC
  * @{
  * @brief EFR32BG13P_MSC Register Declaration
  *****************************************************************************/
-typedef struct
-{
+/** MSC Register Declaration */
+typedef struct {
   __IOM uint32_t CTRL;           /**< Memory System Control Register  */
   __IOM uint32_t READCTRL;       /**< Read Control Register  */
   __IOM uint32_t WRITECTRL;      /**< Write Control Register  */
@@ -80,7 +87,9 @@ typedef struct
 } MSC_TypeDef;                   /** @} */
 
 /**************************************************************************//**
- * @defgroup EFR32BG13P_MSC_BitFields
+ * @addtogroup EFR32BG13P_MSC
+ * @{
+ * @defgroup EFR32BG13P_MSC_BitFields  MSC Bit Fields
  * @{
  *****************************************************************************/
 
@@ -566,12 +575,12 @@ typedef struct
 /* Bit fields for MSC BOOTLOADERCTRL */
 #define _MSC_BOOTLOADERCTRL_RESETVALUE                0x00000000UL                              /**< Default value for MSC_BOOTLOADERCTRL */
 #define _MSC_BOOTLOADERCTRL_MASK                      0x00000003UL                              /**< Mask for MSC_BOOTLOADERCTRL */
-#define MSC_BOOTLOADERCTRL_BLRDIS                     (0x1UL << 0)                              /**< Flash Bootloader Read Enable */
+#define MSC_BOOTLOADERCTRL_BLRDIS                     (0x1UL << 0)                              /**< Flash Bootloader Read Disable */
 #define _MSC_BOOTLOADERCTRL_BLRDIS_SHIFT              0                                         /**< Shift value for MSC_BLRDIS */
 #define _MSC_BOOTLOADERCTRL_BLRDIS_MASK               0x1UL                                     /**< Bit mask for MSC_BLRDIS */
 #define _MSC_BOOTLOADERCTRL_BLRDIS_DEFAULT            0x00000000UL                              /**< Mode DEFAULT for MSC_BOOTLOADERCTRL */
 #define MSC_BOOTLOADERCTRL_BLRDIS_DEFAULT             (_MSC_BOOTLOADERCTRL_BLRDIS_DEFAULT << 0) /**< Shifted mode DEFAULT for MSC_BOOTLOADERCTRL */
-#define MSC_BOOTLOADERCTRL_BLWDIS                     (0x1UL << 1)                              /**< Flash Bootloader Write/Erase Eanble */
+#define MSC_BOOTLOADERCTRL_BLWDIS                     (0x1UL << 1)                              /**< Flash Bootloader Write/Erase Disable */
 #define _MSC_BOOTLOADERCTRL_BLWDIS_SHIFT              1                                         /**< Shift value for MSC_BLWDIS */
 #define _MSC_BOOTLOADERCTRL_BLWDIS_MASK               0x2UL                                     /**< Bit mask for MSC_BLWDIS */
 #define _MSC_BOOTLOADERCTRL_BLWDIS_DEFAULT            0x00000000UL                              /**< Mode DEFAULT for MSC_BOOTLOADERCTRL */
@@ -600,9 +609,9 @@ typedef struct
 #define MSC_CACHECONFIG0_CACHELPLEVEL_DEFAULT         (_MSC_CACHECONFIG0_CACHELPLEVEL_DEFAULT << 0)     /**< Shifted mode DEFAULT for MSC_CACHECONFIG0 */
 #define MSC_CACHECONFIG0_CACHELPLEVEL_MINACTIVITY     (_MSC_CACHECONFIG0_CACHELPLEVEL_MINACTIVITY << 0) /**< Shifted mode MINACTIVITY for MSC_CACHECONFIG0 */
 
+/** @} */
 /** @} End of group EFR32BG13P_MSC */
 /** @} End of group Parts */
-
 #ifdef __cplusplus
 }
 #endif

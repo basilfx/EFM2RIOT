@@ -1,9 +1,9 @@
 /**************************************************************************//**
  * @file efr32mg13p_rtcc_cc.h
  * @brief EFR32MG13P_RTCC_CC register and bit field definitions
- * @version 5.1.2
+ * @version 5.3.3
  ******************************************************************************
- * @section License
+ * # License
  * <b>Copyright 2017 Silicon Laboratories, Inc. http://www.silabs.com</b>
  ******************************************************************************
  *
@@ -34,15 +34,22 @@
 extern "C" {
 #endif
 
+
+#if defined(__ICCARM__)
+#pragma system_include       /* Treat file as system include file. */
+#elif defined(__ARMCC_VERSION) && (__ARMCC_VERSION >= 6010050)
+#pragma clang system_header  /* Treat file as system include file. */
+#endif
+
 /**************************************************************************//**
 * @addtogroup Parts
 * @{
 ******************************************************************************/
 /**************************************************************************//**
- * @brief RTCC_CC EFR32MG13P RTCC CC
+ * @brief RTCC_CC RTCC CC Register
+ * @ingroup EFR32MG13P_RTCC
  *****************************************************************************/
-typedef struct
-{
+typedef struct {
   __IOM uint32_t CTRL; /**< CC Channel Control Register  */
   __IOM uint32_t CCV;  /**< Capture/Compare Value Register  */
   __IOM uint32_t TIME; /**< Capture/Compare Time Register  */
@@ -50,8 +57,6 @@ typedef struct
 } RTCC_CC_TypeDef;
 
 /** @} End of group Parts */
-
-
 #ifdef __cplusplus
 }
 #endif

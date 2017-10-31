@@ -27,6 +27,18 @@
 #include "em_cmu.h"
 #include "em_emu.h"
 
+#ifdef _SILICON_LABS_32B_PLATFORM_2
+/**
+ * @brief   Initialize integrated DC-DC regulator
+ */
+static void dcdc_init(void)
+{
+    EMU_DCDCInit_TypeDef init_dcdc = EMU_DCDCINIT_DEFAULT;
+    
+    EMU_DCDCInit(&init_dcdc);
+}
+#endif
+
 /**
  * @brief   Configure clock sources and the CPU frequency
  *
@@ -38,6 +50,13 @@
  */
 static void clk_init(void)
 {
+    CMU_HFXOInit_TypeDef init_hfxo = CMU_HFXOINIT_DEFAULT;
+  
+    /* initialize HFXO with board-specific parameters before switching */
+    if (CLOCK_HF == cmuSelect_HFXO) {
+        CMU_HFXOInit(&init_hfxo);
+    }
+    
     /* set the HF clock source */
     CMU_ClockSelectSet(cmuClock_HF, CLOCK_HF);
     CMU_ClockDivSet(cmuClock_CORE, CLOCK_CORE_DIV);
@@ -59,6 +78,12 @@ static void clk_init(void)
 #endif
 }
 
+/**
+ * @brief   Initialize sleep modes
+ *
+ * The EFM32 has several energy saving modes (EM0 - EM4), of which deeper
+ * modes save more energy.s
+ */
 static void pm_init(void)
 {
     /* initialize EM2 and EM3 */
@@ -78,12 +103,21 @@ void cpu_init(void)
 {
     /* apply errata that may be applicable (see em_chip.h) */
     CHIP_Init();
+    
     /* initialize the Cortex-M core */
     cortexm_init();
+    
+#ifdef _SILICON_LABS_32B_PLATFORM_2
+    /* initialize dc-dc */
+    dcdc_init();
+#endif
+
     /* initialize clock sources and generic clocks */
     clk_init();
+    
     /* initialize power management interface */
     pm_init();
+    
     /* trigger static peripheral initialization */
     periph_init();
 }

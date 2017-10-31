@@ -1,9 +1,9 @@
 /**************************************************************************//**
  * @file efr32mg12p_crypto.h
  * @brief EFR32MG12P_CRYPTO register and bit field definitions
- * @version 5.1.2
+ * @version 5.3.3
  ******************************************************************************
- * @section License
+ * # License
  * <b>Copyright 2017 Silicon Laboratories, Inc. http://www.silabs.com</b>
  ******************************************************************************
  *
@@ -34,17 +34,24 @@
 extern "C" {
 #endif
 
+
+#if defined(__ICCARM__)
+#pragma system_include       /* Treat file as system include file. */
+#elif defined(__ARMCC_VERSION) && (__ARMCC_VERSION >= 6010050)
+#pragma clang system_header  /* Treat file as system include file. */
+#endif
+
 /**************************************************************************//**
 * @addtogroup Parts
 * @{
 ******************************************************************************/
 /**************************************************************************//**
- * @defgroup EFR32MG12P_CRYPTO
+ * @defgroup EFR32MG12P_CRYPTO CRYPTO
  * @{
  * @brief EFR32MG12P_CRYPTO Register Declaration
  *****************************************************************************/
-typedef struct
-{
+/** CRYPTO Register Declaration */
+typedef struct {
   __IOM uint32_t CTRL;           /**< Control Register  */
   __IOM uint32_t WAC;            /**< Wide Arithmetic Configuration  */
   __IOM uint32_t CMD;            /**< Command Register  */
@@ -107,7 +114,9 @@ typedef struct
 } CRYPTO_TypeDef;                /** @} */
 
 /**************************************************************************//**
- * @defgroup EFR32MG12P_CRYPTO_BitFields
+ * @addtogroup EFR32MG12P_CRYPTO
+ * @{
+ * @defgroup EFR32MG12P_CRYPTO_BitFields  CRYPTO Bit Fields
  * @{
  *****************************************************************************/
 
@@ -1216,9 +1225,9 @@ typedef struct
 #define _CRYPTO_QDATA1BYTE_QDATA1BYTE_DEFAULT        0x00000000UL                                 /**< Mode DEFAULT for CRYPTO_QDATA1BYTE */
 #define CRYPTO_QDATA1BYTE_QDATA1BYTE_DEFAULT         (_CRYPTO_QDATA1BYTE_QDATA1BYTE_DEFAULT << 0) /**< Shifted mode DEFAULT for CRYPTO_QDATA1BYTE */
 
+/** @} */
 /** @} End of group EFR32MG12P_CRYPTO */
 /** @} End of group Parts */
-
 #ifdef __cplusplus
 }
 #endif

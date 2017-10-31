@@ -2,9 +2,9 @@
  * @file efr32mg13p832f512im48.h
  * @brief CMSIS Cortex-M Peripheral Access Layer Header File
  *        for EFR32MG13P832F512IM48
- * @version 5.1.2
+ * @version 5.3.3
  ******************************************************************************
- * @section License
+ * # License
  * <b>Copyright 2017 Silicon Laboratories, Inc. http://www.silabs.com</b>
  ******************************************************************************
  *
@@ -31,6 +31,12 @@
  *
  *****************************************************************************/
 
+#if defined(__ICCARM__)
+#pragma system_include       /* Treat file as system include file. */
+#elif defined(__ARMCC_VERSION) && (__ARMCC_VERSION >= 6010050)
+#pragma clang system_header  /* Treat file as system include file. */
+#endif
+
 #ifndef EFR32MG13P832F512IM48_H
 #define EFR32MG13P832F512IM48_H
 
@@ -49,62 +55,59 @@ extern "C" {
  *****************************************************************************/
 
 /** Interrupt Number Definition */
-typedef enum IRQn
-{
+typedef enum IRQn{
 /******  Cortex-M4 Processor Exceptions Numbers ********************************************/
-  NonMaskableInt_IRQn   = -14,              /*!< -14 Cortex-M4 Non Maskable Interrupt      */
-  HardFault_IRQn        = -13,              /*!< -13 Cortex-M4 Hard Fault Interrupt        */
-  MemoryManagement_IRQn = -12,              /*!< -12 Cortex-M4 Memory Management Interrupt */
-  BusFault_IRQn         = -11,              /*!< -11 Cortex-M4 Bus Fault Interrupt         */
-  UsageFault_IRQn       = -10,              /*!< -10 Cortex-M4 Usage Fault Interrupt       */
-  SVCall_IRQn           = -5,               /*!< -5  Cortex-M4 SV Call Interrupt           */
-  DebugMonitor_IRQn     = -4,               /*!< -4  Cortex-M4 Debug Monitor Interrupt     */
-  PendSV_IRQn           = -2,               /*!< -2  Cortex-M4 Pend SV Interrupt           */
-  SysTick_IRQn          = -1,               /*!< -1  Cortex-M4 System Tick Interrupt       */
+  NonMaskableInt_IRQn   = -14,              /*!< 2  Cortex-M4 Non Maskable Interrupt      */
+  HardFault_IRQn        = -13,              /*!< 3  Cortex-M4 Hard Fault Interrupt        */
+  MemoryManagement_IRQn = -12,              /*!< 4  Cortex-M4 Memory Management Interrupt */
+  BusFault_IRQn         = -11,              /*!< 5  Cortex-M4 Bus Fault Interrupt         */
+  UsageFault_IRQn       = -10,              /*!< 6  Cortex-M4 Usage Fault Interrupt       */
+  SVCall_IRQn           = -5,               /*!< 11 Cortex-M4 SV Call Interrupt           */
+  DebugMonitor_IRQn     = -4,               /*!< 12 Cortex-M4 Debug Monitor Interrupt     */
+  PendSV_IRQn           = -2,               /*!< 14 Cortex-M4 Pend SV Interrupt           */
+  SysTick_IRQn          = -1,               /*!< 15 Cortex-M4 System Tick Interrupt       */
 
 /******  EFR32MG13P Peripheral Interrupt Numbers ********************************************/
 
-  EMU_IRQn              = 0,  /*!< 0 EFR32 EMU Interrupt */
-  WDOG0_IRQn            = 2,  /*!< 2 EFR32 WDOG0 Interrupt */
-  WDOG1_IRQn            = 3,  /*!< 3 EFR32 WDOG1 Interrupt */
-  LDMA_IRQn             = 9,  /*!< 9 EFR32 LDMA Interrupt */
-  GPIO_EVEN_IRQn        = 10, /*!< 10 EFR32 GPIO_EVEN Interrupt */
-  TIMER0_IRQn           = 11, /*!< 11 EFR32 TIMER0 Interrupt */
-  USART0_RX_IRQn        = 12, /*!< 12 EFR32 USART0_RX Interrupt */
-  USART0_TX_IRQn        = 13, /*!< 13 EFR32 USART0_TX Interrupt */
-  ACMP0_IRQn            = 14, /*!< 14 EFR32 ACMP0 Interrupt */
-  ADC0_IRQn             = 15, /*!< 15 EFR32 ADC0 Interrupt */
-  IDAC0_IRQn            = 16, /*!< 16 EFR32 IDAC0 Interrupt */
-  I2C0_IRQn             = 17, /*!< 17 EFR32 I2C0 Interrupt */
-  GPIO_ODD_IRQn         = 18, /*!< 18 EFR32 GPIO_ODD Interrupt */
-  TIMER1_IRQn           = 19, /*!< 19 EFR32 TIMER1 Interrupt */
-  USART1_RX_IRQn        = 20, /*!< 20 EFR32 USART1_RX Interrupt */
-  USART1_TX_IRQn        = 21, /*!< 21 EFR32 USART1_TX Interrupt */
-  LEUART0_IRQn          = 22, /*!< 22 EFR32 LEUART0 Interrupt */
-  PCNT0_IRQn            = 23, /*!< 23 EFR32 PCNT0 Interrupt */
-  CMU_IRQn              = 24, /*!< 24 EFR32 CMU Interrupt */
-  MSC_IRQn              = 25, /*!< 25 EFR32 MSC Interrupt */
-  CRYPTO0_IRQn          = 26, /*!< 26 EFR32 CRYPTO0 Interrupt */
-  LETIMER0_IRQn         = 27, /*!< 27 EFR32 LETIMER0 Interrupt */
-  RTCC_IRQn             = 31, /*!< 31 EFR32 RTCC Interrupt */
-  CRYOTIMER_IRQn        = 33, /*!< 33 EFR32 CRYOTIMER Interrupt */
-  FPUEH_IRQn            = 35, /*!< 35 EFR32 FPUEH Interrupt */
-  SMU_IRQn              = 36, /*!< 36 EFR32 SMU Interrupt */
-  WTIMER0_IRQn          = 37, /*!< 37 EFR32 WTIMER0 Interrupt */
-  USART2_RX_IRQn        = 38, /*!< 38 EFR32 USART2_RX Interrupt */
-  USART2_TX_IRQn        = 39, /*!< 39 EFR32 USART2_TX Interrupt */
-  I2C1_IRQn             = 40, /*!< 40 EFR32 I2C1 Interrupt */
-  VDAC0_IRQn            = 41, /*!< 41 EFR32 VDAC0 Interrupt */
-  CSEN_IRQn             = 42, /*!< 42 EFR32 CSEN Interrupt */
-  LESENSE_IRQn          = 43, /*!< 43 EFR32 LESENSE Interrupt */
-  CRYPTO1_IRQn          = 44, /*!< 44 EFR32 CRYPTO1 Interrupt */
-  TRNG0_IRQn            = 45, /*!< 45 EFR32 TRNG0 Interrupt */
+  EMU_IRQn              = 0,  /*!< 16+0 EFR32 EMU Interrupt */
+  WDOG0_IRQn            = 2,  /*!< 16+2 EFR32 WDOG0 Interrupt */
+  WDOG1_IRQn            = 3,  /*!< 16+3 EFR32 WDOG1 Interrupt */
+  LDMA_IRQn             = 9,  /*!< 16+9 EFR32 LDMA Interrupt */
+  GPIO_EVEN_IRQn        = 10, /*!< 16+10 EFR32 GPIO_EVEN Interrupt */
+  TIMER0_IRQn           = 11, /*!< 16+11 EFR32 TIMER0 Interrupt */
+  USART0_RX_IRQn        = 12, /*!< 16+12 EFR32 USART0_RX Interrupt */
+  USART0_TX_IRQn        = 13, /*!< 16+13 EFR32 USART0_TX Interrupt */
+  ACMP0_IRQn            = 14, /*!< 16+14 EFR32 ACMP0 Interrupt */
+  ADC0_IRQn             = 15, /*!< 16+15 EFR32 ADC0 Interrupt */
+  I2C0_IRQn             = 17, /*!< 16+17 EFR32 I2C0 Interrupt */
+  GPIO_ODD_IRQn         = 18, /*!< 16+18 EFR32 GPIO_ODD Interrupt */
+  TIMER1_IRQn           = 19, /*!< 16+19 EFR32 TIMER1 Interrupt */
+  USART1_RX_IRQn        = 20, /*!< 16+20 EFR32 USART1_RX Interrupt */
+  USART1_TX_IRQn        = 21, /*!< 16+21 EFR32 USART1_TX Interrupt */
+  LEUART0_IRQn          = 22, /*!< 16+22 EFR32 LEUART0 Interrupt */
+  PCNT0_IRQn            = 23, /*!< 16+23 EFR32 PCNT0 Interrupt */
+  CMU_IRQn              = 24, /*!< 16+24 EFR32 CMU Interrupt */
+  MSC_IRQn              = 25, /*!< 16+25 EFR32 MSC Interrupt */
+  CRYPTO0_IRQn          = 26, /*!< 16+26 EFR32 CRYPTO0 Interrupt */
+  LETIMER0_IRQn         = 27, /*!< 16+27 EFR32 LETIMER0 Interrupt */
+  RTCC_IRQn             = 31, /*!< 16+31 EFR32 RTCC Interrupt */
+  CRYOTIMER_IRQn        = 33, /*!< 16+33 EFR32 CRYOTIMER Interrupt */
+  FPUEH_IRQn            = 35, /*!< 16+35 EFR32 FPUEH Interrupt */
+  SMU_IRQn              = 36, /*!< 16+36 EFR32 SMU Interrupt */
+  WTIMER0_IRQn          = 37, /*!< 16+37 EFR32 WTIMER0 Interrupt */
+  USART2_RX_IRQn        = 38, /*!< 16+38 EFR32 USART2_RX Interrupt */
+  USART2_TX_IRQn        = 39, /*!< 16+39 EFR32 USART2_TX Interrupt */
+  I2C1_IRQn             = 40, /*!< 16+40 EFR32 I2C1 Interrupt */
+  VDAC0_IRQn            = 41, /*!< 16+41 EFR32 VDAC0 Interrupt */
+  LESENSE_IRQn          = 43, /*!< 16+43 EFR32 LESENSE Interrupt */
+  CRYPTO1_IRQn          = 44, /*!< 16+44 EFR32 CRYPTO1 Interrupt */
+  TRNG0_IRQn            = 45, /*!< 16+45 EFR32 TRNG0 Interrupt */
 } IRQn_Type;
 
 #define CRYPTO_IRQn               CRYPTO0_IRQn /*!< Alias for CRYPTO0_IRQn */
 
 /**************************************************************************//**
- * @defgroup EFR32MG13P832F512IM48_Core EFR32MG13P832F512IM48 Core
+ * @defgroup EFR32MG13P832F512IM48_Core Core
  * @{
  * @brief Processor and Core Peripheral Section
  *****************************************************************************/
@@ -117,27 +120,27 @@ typedef enum IRQn
 /** @} End of group EFR32MG13P832F512IM48_Core */
 
 /**************************************************************************//**
-* @defgroup EFR32MG13P832F512IM48_Part EFR32MG13P832F512IM48 Part
+* @defgroup EFR32MG13P832F512IM48_Part Part
 * @{
 ******************************************************************************/
 
 /** Part family */
-#define _EFR32_MIGHTY_FAMILY                    1  /**< MIGHTY Gecko RF SoC Family  */
-#define _EFR_DEVICE                                /**< Silicon Labs EFR-type RF SoC */
-#define _SILICON_LABS_32B_SERIES_1                 /**< Silicon Labs series number */
-#define _SILICON_LABS_32B_SERIES                1  /**< Silicon Labs series number */
-#define _SILICON_LABS_32B_SERIES_1_CONFIG_3        /**< Series 1, Configuration 3 */
-#define _SILICON_LABS_32B_SERIES_1_CONFIG       3  /**< Series 1, Configuration 3 */
-#define _SILICON_LABS_GECKO_INTERNAL_SDID       89 /** Silicon Labs internal use only, may change any time */
-#define _SILICON_LABS_GECKO_INTERNAL_SDID_89       /** Silicon Labs internal use only, may change any time */
-#define _SILICON_LABS_EFR32_RADIO_SUBGHZ        1
-#define _SILICON_LABS_EFR32_RADIO_2G4HZ         2
-#define _SILICON_LABS_EFR32_RADIO_DUALBAND      3
-#define _SILICON_LABS_EFR32_RADIO_TYPE          _SILICON_LABS_EFR32_RADIO_2G4HZ
-#define _SILICON_LABS_32B_PLATFORM_2              /**< @deprecated Silicon Labs platform name */
-#define _SILICON_LABS_32B_PLATFORM              2 /**< @deprecated Silicon Labs platform name */
-#define _SILICON_LABS_32B_PLATFORM_2_GEN_3        /**< @deprecated Platform 2, generation 3 */
-#define _SILICON_LABS_32B_PLATFORM_2_GEN        3 /**< @deprecated Platform 2, generation 3 */
+#define _EFR32_MIGHTY_FAMILY                    1                               /**< MIGHTY Gecko RF SoC Family  */
+#define _EFR_DEVICE                                                             /**< Silicon Labs EFR-type RF SoC */
+#define _SILICON_LABS_32B_SERIES_1                                              /**< Silicon Labs series number */
+#define _SILICON_LABS_32B_SERIES                1                               /**< Silicon Labs series number */
+#define _SILICON_LABS_32B_SERIES_1_CONFIG_3                                     /**< Series 1, Configuration 3 */
+#define _SILICON_LABS_32B_SERIES_1_CONFIG       3                               /**< Series 1, Configuration 3 */
+#define _SILICON_LABS_GECKO_INTERNAL_SDID       89                              /**< Silicon Labs internal use only, may change any time */
+#define _SILICON_LABS_GECKO_INTERNAL_SDID_89                                    /**< Silicon Labs internal use only, may change any time */
+#define _SILICON_LABS_EFR32_RADIO_SUBGHZ        1                               /**< Radio supports Sub-GHz */
+#define _SILICON_LABS_EFR32_RADIO_2G4HZ         2                               /**< Radio supports 2.4 GHz */
+#define _SILICON_LABS_EFR32_RADIO_DUALBAND      3                               /**< Radio supports dual band */
+#define _SILICON_LABS_EFR32_RADIO_TYPE          _SILICON_LABS_EFR32_RADIO_2G4HZ /**< Radio type */
+#define _SILICON_LABS_32B_PLATFORM_2                                            /**< @deprecated Silicon Labs platform name */
+#define _SILICON_LABS_32B_PLATFORM              2                               /**< @deprecated Silicon Labs platform name */
+#define _SILICON_LABS_32B_PLATFORM_2_GEN_3                                      /**< @deprecated Platform 2, generation 3 */
+#define _SILICON_LABS_32B_PLATFORM_2_GEN        3                               /**< @deprecated Platform 2, generation 3 */
 
 /* If part number is not defined as compiler option, define it */
 #if !defined(EFR32MG13P832F512IM48)
@@ -232,7 +235,7 @@ typedef enum IRQn
 /** Flash and SRAM limits for EFR32MG13P832F512IM48 */
 #define FLASH_BASE                 (0x00000000UL) /**< Flash Base Address */
 #define FLASH_SIZE                 (0x00080000UL) /**< Available Flash Memory */
-#define FLASH_PAGE_SIZE            2048           /**< Flash Memory page size */
+#define FLASH_PAGE_SIZE            2048U          /**< Flash Memory page size */
 #define SRAM_BASE                  (0x20000000UL) /**< SRAM Base Address */
 #define SRAM_SIZE                  (0x00010000UL) /**< Available SRAM Memory */
 #define __CM4_REV                  0x001          /**< Cortex-M4 Core revision r0p1 */
@@ -242,82 +245,79 @@ typedef enum IRQn
 
 /** AF channels connect the different on-chip peripherals with the af-mux */
 #define AFCHAN_MAX                 118
+/** AF channel maximum location number */
 #define AFCHANLOC_MAX              32
 /** Analog AF channels */
 #define AFACHAN_MAX                118
 
 /* Part number capabilities */
 
-#define CRYPTO_PRESENT        /**< CRYPTO is available in this part */
-#define CRYPTO_COUNT        2 /**< 2 CRYPTOs available  */
-#define TIMER_PRESENT         /**< TIMER is available in this part */
-#define TIMER_COUNT         2 /**< 2 TIMERs available  */
-#define WTIMER_PRESENT        /**< WTIMER is available in this part */
-#define WTIMER_COUNT        1 /**< 1 WTIMERs available  */
-#define USART_PRESENT         /**< USART is available in this part */
-#define USART_COUNT         3 /**< 3 USARTs available  */
-#define LEUART_PRESENT        /**< LEUART is available in this part */
-#define LEUART_COUNT        1 /**< 1 LEUARTs available  */
-#define LETIMER_PRESENT       /**< LETIMER is available in this part */
-#define LETIMER_COUNT       1 /**< 1 LETIMERs available  */
-#define PCNT_PRESENT          /**< PCNT is available in this part */
-#define PCNT_COUNT          1 /**< 1 PCNTs available  */
-#define I2C_PRESENT           /**< I2C is available in this part */
-#define I2C_COUNT           2 /**< 2 I2Cs available  */
-#define ADC_PRESENT           /**< ADC is available in this part */
-#define ADC_COUNT           1 /**< 1 ADCs available  */
-#define ACMP_PRESENT          /**< ACMP is available in this part */
-#define ACMP_COUNT          2 /**< 2 ACMPs available  */
-#define VDAC_PRESENT          /**< VDAC is available in this part */
-#define VDAC_COUNT          1 /**< 1 VDACs available  */
-#define WDOG_PRESENT          /**< WDOG is available in this part */
-#define WDOG_COUNT          2 /**< 2 WDOGs available  */
-#define IDAC_PRESENT          /**< IDAC is available in this part */
-#define IDAC_COUNT          1 /**< 1 IDACs available  */
-#define TRNG_PRESENT          /**< TRNG is available in this part */
-#define TRNG_COUNT          1 /**< 1 TRNGs available  */
-#define SYSTICK_PRESENT
-#define SYSTICK_COUNT       1
-#define MSC_PRESENT
-#define MSC_COUNT           1
-#define EMU_PRESENT
-#define EMU_COUNT           1
-#define RMU_PRESENT
-#define RMU_COUNT           1
-#define CMU_PRESENT
-#define CMU_COUNT           1
-#define GPIO_PRESENT
-#define GPIO_COUNT          1
-#define PRS_PRESENT
-#define PRS_COUNT           1
-#define LDMA_PRESENT
-#define LDMA_COUNT          1
-#define FPUEH_PRESENT
-#define FPUEH_COUNT         1
-#define GPCRC_PRESENT
-#define GPCRC_COUNT         1
-#define CRYOTIMER_PRESENT
-#define CRYOTIMER_COUNT     1
-#define CSEN_PRESENT
-#define CSEN_COUNT          1
-#define LESENSE_PRESENT
-#define LESENSE_COUNT       1
-#define RTCC_PRESENT
-#define RTCC_COUNT          1
-#define ETM_PRESENT
-#define ETM_COUNT           1
-#define BOOTLOADER_PRESENT
-#define BOOTLOADER_COUNT    1
-#define SMU_PRESENT
-#define SMU_COUNT           1
+#define CRYPTO_PRESENT          /**< CRYPTO is available in this part */
+#define CRYPTO_COUNT          2 /**< 2 CRYPTOs available  */
+#define TIMER_PRESENT           /**< TIMER is available in this part */
+#define TIMER_COUNT           2 /**< 2 TIMERs available  */
+#define WTIMER_PRESENT          /**< WTIMER is available in this part */
+#define WTIMER_COUNT          1 /**< 1 WTIMERs available  */
+#define USART_PRESENT           /**< USART is available in this part */
+#define USART_COUNT           3 /**< 3 USARTs available  */
+#define LEUART_PRESENT          /**< LEUART is available in this part */
+#define LEUART_COUNT          1 /**< 1 LEUARTs available  */
+#define LETIMER_PRESENT         /**< LETIMER is available in this part */
+#define LETIMER_COUNT         1 /**< 1 LETIMERs available  */
+#define PCNT_PRESENT            /**< PCNT is available in this part */
+#define PCNT_COUNT            1 /**< 1 PCNTs available  */
+#define I2C_PRESENT             /**< I2C is available in this part */
+#define I2C_COUNT             2 /**< 2 I2Cs available  */
+#define ADC_PRESENT             /**< ADC is available in this part */
+#define ADC_COUNT             1 /**< 1 ADCs available  */
+#define ACMP_PRESENT            /**< ACMP is available in this part */
+#define ACMP_COUNT            2 /**< 2 ACMPs available  */
+#define VDAC_PRESENT            /**< VDAC is available in this part */
+#define VDAC_COUNT            1 /**< 1 VDACs available  */
+#define WDOG_PRESENT            /**< WDOG is available in this part */
+#define WDOG_COUNT            2 /**< 2 WDOGs available  */
+#define TRNG_PRESENT            /**< TRNG is available in this part */
+#define TRNG_COUNT            1 /**< 1 TRNGs available  */
+#define MSC_PRESENT             /**< MSC is available in this part */
+#define MSC_COUNT             1 /**< 1 MSC available */
+#define EMU_PRESENT             /**< EMU is available in this part */
+#define EMU_COUNT             1 /**< 1 EMU available */
+#define RMU_PRESENT             /**< RMU is available in this part */
+#define RMU_COUNT             1 /**< 1 RMU available */
+#define CMU_PRESENT             /**< CMU is available in this part */
+#define CMU_COUNT             1 /**< 1 CMU available */
+#define GPIO_PRESENT            /**< GPIO is available in this part */
+#define GPIO_COUNT            1 /**< 1 GPIO available */
+#define PRS_PRESENT             /**< PRS is available in this part */
+#define PRS_COUNT             1 /**< 1 PRS available */
+#define LDMA_PRESENT            /**< LDMA is available in this part */
+#define LDMA_COUNT            1 /**< 1 LDMA available */
+#define FPUEH_PRESENT           /**< FPUEH is available in this part */
+#define FPUEH_COUNT           1 /**< 1 FPUEH available */
+#define GPCRC_PRESENT           /**< GPCRC is available in this part */
+#define GPCRC_COUNT           1 /**< 1 GPCRC available */
+#define CRYOTIMER_PRESENT       /**< CRYOTIMER is available in this part */
+#define CRYOTIMER_COUNT       1 /**< 1 CRYOTIMER available */
+#define LESENSE_PRESENT         /**< LESENSE is available in this part */
+#define LESENSE_COUNT         1 /**< 1 LESENSE available */
+#define RTCC_PRESENT            /**< RTCC is available in this part */
+#define RTCC_COUNT            1 /**< 1 RTCC available */
+#define ETM_PRESENT             /**< ETM is available in this part */
+#define ETM_COUNT             1 /**< 1 ETM available */
+#define BOOTLOADER_PRESENT      /**< BOOTLOADER is available in this part */
+#define BOOTLOADER_COUNT      1 /**< 1 BOOTLOADER available */
+#define SMU_PRESENT             /**< SMU is available in this part */
+#define SMU_COUNT             1 /**< 1 SMU available */
+#define DCDC_PRESENT            /**< DCDC is available in this part */
+#define DCDC_COUNT            1 /**< 1 DCDC available */
 
-#include "core_cm4.h"          /* Cortex-M4 processor and core peripherals */
-#include "system_efr32mg13p.h" /* System Header File */
+#include "core_cm4.h"           /* Cortex-M4 processor and core peripherals */
+#include "system_efr32mg13p.h"  /* System Header File */
 
 /** @} End of group EFR32MG13P832F512IM48_Part */
 
 /**************************************************************************//**
- * @defgroup EFR32MG13P832F512IM48_Peripheral_TypeDefs EFR32MG13P832F512IM48 Peripheral TypeDefs
+ * @defgroup EFR32MG13P832F512IM48_Peripheral_TypeDefs Peripheral TypeDefs
  * @{
  * @brief Device Specific Peripheral Register Structures
  *****************************************************************************/
@@ -325,14 +325,142 @@ typedef enum IRQn
 #include "efr32mg13p_msc.h"
 #include "efr32mg13p_emu.h"
 #include "efr32mg13p_rmu.h"
-#include "efr32mg13p_cmu.h"
+
+/**************************************************************************//**
+ * @defgroup EFR32MG13P832F512IM48_CMU CMU
+ * @{
+ * @brief EFR32MG13P832F512IM48_CMU Register Declaration
+ *****************************************************************************/
+/** CMU Register Declaration */
+typedef struct {
+  __IOM uint32_t CTRL;                /**< CMU Control Register  */
+
+  uint32_t       RESERVED0[3];        /**< Reserved for future use **/
+  __IOM uint32_t HFRCOCTRL;           /**< HFRCO Control Register  */
+
+  uint32_t       RESERVED1[1];        /**< Reserved for future use **/
+  __IOM uint32_t AUXHFRCOCTRL;        /**< AUXHFRCO Control Register  */
+
+  uint32_t       RESERVED2[1];        /**< Reserved for future use **/
+  __IOM uint32_t LFRCOCTRL;           /**< LFRCO Control Register  */
+  __IOM uint32_t HFXOCTRL;            /**< HFXO Control Register  */
+
+  uint32_t       RESERVED3[1];        /**< Reserved for future use **/
+  __IOM uint32_t HFXOSTARTUPCTRL;     /**< HFXO Startup Control  */
+  __IOM uint32_t HFXOSTEADYSTATECTRL; /**< HFXO Steady State control  */
+  __IOM uint32_t HFXOTIMEOUTCTRL;     /**< HFXO Timeout Control  */
+  __IOM uint32_t LFXOCTRL;            /**< LFXO Control Register  */
+
+  uint32_t       RESERVED4[1];        /**< Reserved for future use **/
+  __IOM uint32_t DPLLCTRL;            /**< DPLL Control Register  */
+  __IOM uint32_t DPLLCTRL1;           /**< DPLL Control Register  */
+  uint32_t       RESERVED5[2];        /**< Reserved for future use **/
+  __IOM uint32_t CALCTRL;             /**< Calibration Control Register  */
+  __IOM uint32_t CALCNT;              /**< Calibration Counter Register  */
+  uint32_t       RESERVED6[2];        /**< Reserved for future use **/
+  __IOM uint32_t OSCENCMD;            /**< Oscillator Enable/Disable Command Register  */
+  __IOM uint32_t CMD;                 /**< Command Register  */
+  uint32_t       RESERVED7[2];        /**< Reserved for future use **/
+  __IOM uint32_t DBGCLKSEL;           /**< Debug Trace Clock Select  */
+  __IOM uint32_t HFCLKSEL;            /**< High Frequency Clock Select Command Register  */
+  uint32_t       RESERVED8[2];        /**< Reserved for future use **/
+  __IOM uint32_t LFACLKSEL;           /**< Low Frequency A Clock Select Register  */
+  __IOM uint32_t LFBCLKSEL;           /**< Low Frequency B Clock Select Register  */
+  __IOM uint32_t LFECLKSEL;           /**< Low Frequency E Clock Select Register  */
+
+  uint32_t       RESERVED9[1];        /**< Reserved for future use **/
+  __IM uint32_t  STATUS;              /**< Status Register  */
+  __IM uint32_t  HFCLKSTATUS;         /**< HFCLK Status Register  */
+  uint32_t       RESERVED10[1];       /**< Reserved for future use **/
+  __IM uint32_t  HFXOTRIMSTATUS;      /**< HFXO Trim Status  */
+  __IM uint32_t  IF;                  /**< Interrupt Flag Register  */
+  __IOM uint32_t IFS;                 /**< Interrupt Flag Set Register  */
+  __IOM uint32_t IFC;                 /**< Interrupt Flag Clear Register  */
+  __IOM uint32_t IEN;                 /**< Interrupt Enable Register  */
+  __IOM uint32_t HFBUSCLKEN0;         /**< High Frequency Bus Clock Enable Register 0  */
+
+  uint32_t       RESERVED11[3];       /**< Reserved for future use **/
+  __IOM uint32_t HFPERCLKEN0;         /**< High Frequency Peripheral Clock Enable Register 0  */
+
+  uint32_t       RESERVED12[7];       /**< Reserved for future use **/
+  __IOM uint32_t LFACLKEN0;           /**< Low Frequency A Clock Enable Register 0  (Async Reg)  */
+  uint32_t       RESERVED13[1];       /**< Reserved for future use **/
+  __IOM uint32_t LFBCLKEN0;           /**< Low Frequency B Clock Enable Register 0 (Async Reg)  */
+
+  uint32_t       RESERVED14[1];       /**< Reserved for future use **/
+  __IOM uint32_t LFECLKEN0;           /**< Low Frequency E Clock Enable Register 0 (Async Reg)  */
+  uint32_t       RESERVED15[3];       /**< Reserved for future use **/
+  __IOM uint32_t HFPRESC;             /**< High Frequency Clock Prescaler Register  */
+
+  uint32_t       RESERVED16[1];       /**< Reserved for future use **/
+  __IOM uint32_t HFCOREPRESC;         /**< High Frequency Core Clock Prescaler Register  */
+  __IOM uint32_t HFPERPRESC;          /**< High Frequency Peripheral Clock Prescaler Register  */
+
+  uint32_t       RESERVED17[1];       /**< Reserved for future use **/
+  __IOM uint32_t HFEXPPRESC;          /**< High Frequency Export Clock Prescaler Register  */
+
+  uint32_t       RESERVED18[2];       /**< Reserved for future use **/
+  __IOM uint32_t LFAPRESC0;           /**< Low Frequency A Prescaler Register 0 (Async Reg)  */
+  uint32_t       RESERVED19[1];       /**< Reserved for future use **/
+  __IOM uint32_t LFBPRESC0;           /**< Low Frequency B Prescaler Register 0  (Async Reg)  */
+  uint32_t       RESERVED20[1];       /**< Reserved for future use **/
+  __IOM uint32_t LFEPRESC0;           /**< Low Frequency E Prescaler Register 0  (Async Reg)  */
+
+  uint32_t       RESERVED21[3];       /**< Reserved for future use **/
+  __IM uint32_t  SYNCBUSY;            /**< Synchronization Busy Register  */
+  __IOM uint32_t FREEZE;              /**< Freeze Register  */
+  uint32_t       RESERVED22[2];       /**< Reserved for future use **/
+  __IOM uint32_t PCNTCTRL;            /**< PCNT Control Register  */
+
+  uint32_t       RESERVED23[2];       /**< Reserved for future use **/
+  __IOM uint32_t ADCCTRL;             /**< ADC Control Register  */
+
+  uint32_t       RESERVED24[4];       /**< Reserved for future use **/
+  __IOM uint32_t ROUTEPEN;            /**< I/O Routing Pin Enable Register  */
+  __IOM uint32_t ROUTELOC0;           /**< I/O Routing Location Register  */
+  __IOM uint32_t ROUTELOC1;           /**< I/O Routing Location Register  */
+  uint32_t       RESERVED25[1];       /**< Reserved for future use **/
+  __IOM uint32_t LOCK;                /**< Configuration Lock Register  */
+  __IOM uint32_t HFRCOSS;             /**< HFRCO Spread Spectrum Register  */
+} CMU_TypeDef;                        /** @} */
+
 #include "efr32mg13p_crypto.h"
 #include "efr32mg13p_gpio_p.h"
 #include "efr32mg13p_gpio.h"
 #include "efr32mg13p_prs_ch.h"
 #include "efr32mg13p_prs.h"
 #include "efr32mg13p_ldma_ch.h"
-#include "efr32mg13p_ldma.h"
+
+/**************************************************************************//**
+ * @defgroup EFR32MG13P832F512IM48_LDMA LDMA
+ * @{
+ * @brief EFR32MG13P832F512IM48_LDMA Register Declaration
+ *****************************************************************************/
+/** LDMA Register Declaration */
+typedef struct {
+  __IOM uint32_t  CTRL;         /**< DMA Control Register  */
+  __IM uint32_t   STATUS;       /**< DMA Status Register  */
+  __IOM uint32_t  SYNC;         /**< DMA Synchronization Trigger Register (Single-Cycle RMW)  */
+  uint32_t        RESERVED0[5]; /**< Reserved for future use **/
+  __IOM uint32_t  CHEN;         /**< DMA Channel Enable Register (Single-Cycle RMW)  */
+  __IM uint32_t   CHBUSY;       /**< DMA Channel Busy Register  */
+  __IOM uint32_t  CHDONE;       /**< DMA Channel Linking Done Register (Single-Cycle RMW)  */
+  __IOM uint32_t  DBGHALT;      /**< DMA Channel Debug Halt Register  */
+  __IOM uint32_t  SWREQ;        /**< DMA Channel Software Transfer Request Register  */
+  __IOM uint32_t  REQDIS;       /**< DMA Channel Request Disable Register  */
+  __IM uint32_t   REQPEND;      /**< DMA Channel Requests Pending Register  */
+  __IOM uint32_t  LINKLOAD;     /**< DMA Channel Link Load Register  */
+  __IOM uint32_t  REQCLEAR;     /**< DMA Channel Request Clear Register  */
+  uint32_t        RESERVED1[7]; /**< Reserved for future use **/
+  __IM uint32_t   IF;           /**< Interrupt Flag Register  */
+  __IOM uint32_t  IFS;          /**< Interrupt Flag Set Register  */
+  __IOM uint32_t  IFC;          /**< Interrupt Flag Clear Register  */
+  __IOM uint32_t  IEN;          /**< Interrupt Enable register  */
+
+  uint32_t        RESERVED2[4]; /**< Reserved registers */
+  LDMA_CH_TypeDef CH[8];        /**< DMA Channel Registers */
+} LDMA_TypeDef;                 /** @} */
+
 #include "efr32mg13p_fpueh.h"
 #include "efr32mg13p_gpcrc.h"
 #include "efr32mg13p_timer_cc.h"
@@ -347,7 +475,6 @@ typedef enum IRQn
 #include "efr32mg13p_acmp.h"
 #include "efr32mg13p_vdac_opa.h"
 #include "efr32mg13p_vdac.h"
-#include "efr32mg13p_csen.h"
 #include "efr32mg13p_lesense_st.h"
 #include "efr32mg13p_lesense_buf.h"
 #include "efr32mg13p_lesense_ch.h"
@@ -358,8 +485,30 @@ typedef enum IRQn
 #include "efr32mg13p_wdog_pch.h"
 #include "efr32mg13p_wdog.h"
 #include "efr32mg13p_etm.h"
-#include "efr32mg13p_idac.h"
-#include "efr32mg13p_smu.h"
+
+/**************************************************************************//**
+ * @defgroup EFR32MG13P832F512IM48_SMU SMU
+ * @{
+ * @brief EFR32MG13P832F512IM48_SMU Register Declaration
+ *****************************************************************************/
+/** SMU Register Declaration */
+typedef struct {
+  uint32_t       RESERVED0[3];  /**< Reserved for future use **/
+  __IM uint32_t  IF;            /**< Interrupt Flag Register  */
+  __IOM uint32_t IFS;           /**< Interrupt Flag Set Register  */
+  __IOM uint32_t IFC;           /**< Interrupt Flag Clear Register  */
+  __IOM uint32_t IEN;           /**< Interrupt Enable Register  */
+
+  uint32_t       RESERVED1[9];  /**< Reserved for future use **/
+  __IOM uint32_t PPUCTRL;       /**< PPU Control Register  */
+  uint32_t       RESERVED2[3];  /**< Reserved for future use **/
+  __IOM uint32_t PPUPATD0;      /**< PPU Privilege Access Type Descriptor 0  */
+  __IOM uint32_t PPUPATD1;      /**< PPU Privilege Access Type Descriptor 1  */
+
+  uint32_t       RESERVED3[14]; /**< Reserved for future use **/
+  __IM uint32_t  PPUFS;         /**< PPU Fault Status  */
+} SMU_TypeDef;                  /** @} */
+
 #include "efr32mg13p_trng.h"
 #include "efr32mg13p_dma_descriptor.h"
 #include "efr32mg13p_devinfo.h"
@@ -368,7 +517,7 @@ typedef enum IRQn
 /** @} End of group EFR32MG13P832F512IM48_Peripheral_TypeDefs  */
 
 /**************************************************************************//**
- * @defgroup EFR32MG13P832F512IM48_Peripheral_Base EFR32MG13P832F512IM48 Peripheral Memory Map
+ * @defgroup EFR32MG13P832F512IM48_Peripheral_Base Peripheral Memory Map
  * @{
  *****************************************************************************/
 
@@ -400,13 +549,11 @@ typedef enum IRQn
 #define ACMP0_BASE        (0x40000000UL) /**< ACMP0 base address  */
 #define ACMP1_BASE        (0x40000400UL) /**< ACMP1 base address  */
 #define VDAC0_BASE        (0x40008000UL) /**< VDAC0 base address  */
-#define CSEN_BASE         (0x4001F000UL) /**< CSEN base address  */
 #define LESENSE_BASE      (0x40055000UL) /**< LESENSE base address  */
 #define RTCC_BASE         (0x40042000UL) /**< RTCC base address  */
 #define WDOG0_BASE        (0x40052000UL) /**< WDOG0 base address  */
 #define WDOG1_BASE        (0x40052400UL) /**< WDOG1 base address  */
 #define ETM_BASE          (0xE0041000UL) /**< ETM base address  */
-#define IDAC0_BASE        (0x40006000UL) /**< IDAC0 base address  */
 #define SMU_BASE          (0x40022000UL) /**< SMU base address  */
 #define TRNG0_BASE        (0x4001D000UL) /**< TRNG0 base address  */
 #define DEVINFO_BASE      (0x0FE081B0UL) /**< DEVINFO base address */
@@ -417,7 +564,7 @@ typedef enum IRQn
 /** @} End of group EFR32MG13P832F512IM48_Peripheral_Base */
 
 /**************************************************************************//**
- * @defgroup EFR32MG13P832F512IM48_Peripheral_Declaration  EFR32MG13P832F512IM48 Peripheral Declarations
+ * @defgroup EFR32MG13P832F512IM48_Peripheral_Declaration Peripheral Declarations
  * @{
  *****************************************************************************/
 
@@ -449,13 +596,11 @@ typedef enum IRQn
 #define ACMP0        ((ACMP_TypeDef *) ACMP0_BASE)          /**< ACMP0 base pointer */
 #define ACMP1        ((ACMP_TypeDef *) ACMP1_BASE)          /**< ACMP1 base pointer */
 #define VDAC0        ((VDAC_TypeDef *) VDAC0_BASE)          /**< VDAC0 base pointer */
-#define CSEN         ((CSEN_TypeDef *) CSEN_BASE)           /**< CSEN base pointer */
 #define LESENSE      ((LESENSE_TypeDef *) LESENSE_BASE)     /**< LESENSE base pointer */
 #define RTCC         ((RTCC_TypeDef *) RTCC_BASE)           /**< RTCC base pointer */
 #define WDOG0        ((WDOG_TypeDef *) WDOG0_BASE)          /**< WDOG0 base pointer */
 #define WDOG1        ((WDOG_TypeDef *) WDOG1_BASE)          /**< WDOG1 base pointer */
 #define ETM          ((ETM_TypeDef *) ETM_BASE)             /**< ETM base pointer */
-#define IDAC0        ((IDAC_TypeDef *) IDAC0_BASE)          /**< IDAC0 base pointer */
 #define SMU          ((SMU_TypeDef *) SMU_BASE)             /**< SMU base pointer */
 #define TRNG0        ((TRNG_TypeDef *) TRNG0_BASE)          /**< TRNG0 base pointer */
 #define DEVINFO      ((DEVINFO_TypeDef *) DEVINFO_BASE)     /**< DEVINFO base pointer */
@@ -464,7 +609,7 @@ typedef enum IRQn
 /** @} End of group EFR32MG13P832F512IM48_Peripheral_Declaration */
 
 /**************************************************************************//**
- * @defgroup EFR32MG13P832F512IM48_Peripheral_Offsets  EFR32MG13P832F512IM48 Peripheral Offsets
+ * @defgroup EFR32MG13P832F512IM48_Peripheral_Offsets Peripheral Offsets
  * @{
  *****************************************************************************/
 
@@ -480,22 +625,85 @@ typedef enum IRQn
 #define ACMP_OFFSET       0x400 /**< Offset in bytes between ACMP instances */
 #define VDAC_OFFSET       0x400 /**< Offset in bytes between VDAC instances */
 #define WDOG_OFFSET       0x400 /**< Offset in bytes between WDOG instances */
-#define IDAC_OFFSET       0x400 /**< Offset in bytes between IDAC instances */
 #define TRNG_OFFSET       0x400 /**< Offset in bytes between TRNG instances */
 
 /** @} End of group EFR32MG13P832F512IM48_Peripheral_Offsets */
 
-
 /**************************************************************************//**
- * @defgroup EFR32MG13P832F512IM48_BitFields EFR32MG13P832F512IM48 Bit Fields
+ * @defgroup EFR32MG13P832F512IM48_BitFields Bit Fields
  * @{
  *****************************************************************************/
 
 #include "efr32mg13p_prs_signals.h"
-#include "efr32mg13p_dmareq.h"
 
 /**************************************************************************//**
- * @defgroup EFR32MG13P832F512IM48_WTIMER_BitFields  EFR32MG13P832F512IM48_WTIMER Bit Fields
+ * @addtogroup EFR32MG13P832F512IM48_DMAREQ DMAREQ
+ * @{
+ * @defgroup EFR32MG13P832F512IM48_DMAREQ_BitFields DMAREQ Bit Fields
+ * @{
+ *****************************************************************************/
+#define DMAREQ_PRS_REQ0               ((1 << 16) + 0)         /**< DMA channel select for PRS_REQ0 */
+#define DMAREQ_PRS_REQ1               ((1 << 16) + 1)         /**< DMA channel select for PRS_REQ1 */
+#define DMAREQ_ADC0_SINGLE            ((8 << 16) + 0)         /**< DMA channel select for ADC0_SINGLE */
+#define DMAREQ_ADC0_SCAN              ((8 << 16) + 1)         /**< DMA channel select for ADC0_SCAN */
+#define DMAREQ_VDAC0_CH0              ((10 << 16) + 0)        /**< DMA channel select for VDAC0_CH0 */
+#define DMAREQ_VDAC0_CH1              ((10 << 16) + 1)        /**< DMA channel select for VDAC0_CH1 */
+#define DMAREQ_USART0_RXDATAV         ((12 << 16) + 0)        /**< DMA channel select for USART0_RXDATAV */
+#define DMAREQ_USART0_TXBL            ((12 << 16) + 1)        /**< DMA channel select for USART0_TXBL */
+#define DMAREQ_USART0_TXEMPTY         ((12 << 16) + 2)        /**< DMA channel select for USART0_TXEMPTY */
+#define DMAREQ_USART1_RXDATAV         ((13 << 16) + 0)        /**< DMA channel select for USART1_RXDATAV */
+#define DMAREQ_USART1_TXBL            ((13 << 16) + 1)        /**< DMA channel select for USART1_TXBL */
+#define DMAREQ_USART1_TXEMPTY         ((13 << 16) + 2)        /**< DMA channel select for USART1_TXEMPTY */
+#define DMAREQ_USART1_RXDATAVRIGHT    ((13 << 16) + 3)        /**< DMA channel select for USART1_RXDATAVRIGHT */
+#define DMAREQ_USART1_TXBLRIGHT       ((13 << 16) + 4)        /**< DMA channel select for USART1_TXBLRIGHT */
+#define DMAREQ_USART2_RXDATAV         ((14 << 16) + 0)        /**< DMA channel select for USART2_RXDATAV */
+#define DMAREQ_USART2_TXBL            ((14 << 16) + 1)        /**< DMA channel select for USART2_TXBL */
+#define DMAREQ_USART2_TXEMPTY         ((14 << 16) + 2)        /**< DMA channel select for USART2_TXEMPTY */
+#define DMAREQ_LEUART0_RXDATAV        ((16 << 16) + 0)        /**< DMA channel select for LEUART0_RXDATAV */
+#define DMAREQ_LEUART0_TXBL           ((16 << 16) + 1)        /**< DMA channel select for LEUART0_TXBL */
+#define DMAREQ_LEUART0_TXEMPTY        ((16 << 16) + 2)        /**< DMA channel select for LEUART0_TXEMPTY */
+#define DMAREQ_I2C0_RXDATAV           ((20 << 16) + 0)        /**< DMA channel select for I2C0_RXDATAV */
+#define DMAREQ_I2C0_TXBL              ((20 << 16) + 1)        /**< DMA channel select for I2C0_TXBL */
+#define DMAREQ_I2C1_RXDATAV           ((21 << 16) + 0)        /**< DMA channel select for I2C1_RXDATAV */
+#define DMAREQ_I2C1_TXBL              ((21 << 16) + 1)        /**< DMA channel select for I2C1_TXBL */
+#define DMAREQ_TIMER0_UFOF            ((24 << 16) + 0)        /**< DMA channel select for TIMER0_UFOF */
+#define DMAREQ_TIMER0_CC0             ((24 << 16) + 1)        /**< DMA channel select for TIMER0_CC0 */
+#define DMAREQ_TIMER0_CC1             ((24 << 16) + 2)        /**< DMA channel select for TIMER0_CC1 */
+#define DMAREQ_TIMER0_CC2             ((24 << 16) + 3)        /**< DMA channel select for TIMER0_CC2 */
+#define DMAREQ_TIMER1_UFOF            ((25 << 16) + 0)        /**< DMA channel select for TIMER1_UFOF */
+#define DMAREQ_TIMER1_CC0             ((25 << 16) + 1)        /**< DMA channel select for TIMER1_CC0 */
+#define DMAREQ_TIMER1_CC1             ((25 << 16) + 2)        /**< DMA channel select for TIMER1_CC1 */
+#define DMAREQ_TIMER1_CC2             ((25 << 16) + 3)        /**< DMA channel select for TIMER1_CC2 */
+#define DMAREQ_TIMER1_CC3             ((25 << 16) + 4)        /**< DMA channel select for TIMER1_CC3 */
+#define DMAREQ_WTIMER0_UFOF           ((26 << 16) + 0)        /**< DMA channel select for WTIMER0_UFOF */
+#define DMAREQ_WTIMER0_CC0            ((26 << 16) + 1)        /**< DMA channel select for WTIMER0_CC0 */
+#define DMAREQ_WTIMER0_CC1            ((26 << 16) + 2)        /**< DMA channel select for WTIMER0_CC1 */
+#define DMAREQ_WTIMER0_CC2            ((26 << 16) + 3)        /**< DMA channel select for WTIMER0_CC2 */
+#define DMAREQ_MSC_WDATA              ((48 << 16) + 0)        /**< DMA channel select for MSC_WDATA */
+#define DMAREQ_CRYPTO0_DATA0WR        ((49 << 16) + 0)        /**< DMA channel select for CRYPTO0_DATA0WR */
+#define DMAREQ_CRYPTO_DATA0WR         DMAREQ_CRYPTO0_DATA0WR  /**< Alias for DMAREQ_CRYPTO0_DATA0WR */
+#define DMAREQ_CRYPTO0_DATA0XWR       ((49 << 16) + 1)        /**< DMA channel select for CRYPTO0_DATA0XWR */
+#define DMAREQ_CRYPTO_DATA0XWR        DMAREQ_CRYPTO0_DATA0XWR /**< Alias for DMAREQ_CRYPTO0_DATA0XWR */
+#define DMAREQ_CRYPTO0_DATA0RD        ((49 << 16) + 2)        /**< DMA channel select for CRYPTO0_DATA0RD */
+#define DMAREQ_CRYPTO_DATA0RD         DMAREQ_CRYPTO0_DATA0RD  /**< Alias for DMAREQ_CRYPTO0_DATA0RD */
+#define DMAREQ_CRYPTO0_DATA1WR        ((49 << 16) + 3)        /**< DMA channel select for CRYPTO0_DATA1WR */
+#define DMAREQ_CRYPTO_DATA1WR         DMAREQ_CRYPTO0_DATA1WR  /**< Alias for DMAREQ_CRYPTO0_DATA1WR */
+#define DMAREQ_CRYPTO0_DATA1RD        ((49 << 16) + 4)        /**< DMA channel select for CRYPTO0_DATA1RD */
+#define DMAREQ_CRYPTO_DATA1RD         DMAREQ_CRYPTO0_DATA1RD  /**< Alias for DMAREQ_CRYPTO0_DATA1RD */
+#define DMAREQ_LESENSE_BUFDATAV       ((51 << 16) + 0)        /**< DMA channel select for LESENSE_BUFDATAV */
+#define DMAREQ_CRYPTO1_DATA0WR        ((52 << 16) + 0)        /**< DMA channel select for CRYPTO1_DATA0WR */
+#define DMAREQ_CRYPTO1_DATA0XWR       ((52 << 16) + 1)        /**< DMA channel select for CRYPTO1_DATA0XWR */
+#define DMAREQ_CRYPTO1_DATA0RD        ((52 << 16) + 2)        /**< DMA channel select for CRYPTO1_DATA0RD */
+#define DMAREQ_CRYPTO1_DATA1WR        ((52 << 16) + 3)        /**< DMA channel select for CRYPTO1_DATA1WR */
+#define DMAREQ_CRYPTO1_DATA1RD        ((52 << 16) + 4)        /**< DMA channel select for CRYPTO1_DATA1RD */
+
+/** @} */
+/** @} End of group EFR32MG13P832F512IM48_DMAREQ */
+
+/**************************************************************************//**
+ * @addtogroup EFR32MG13P832F512IM48_WTIMER
+ * @{
+ * @defgroup EFR32MG13P832F512IM48_WTIMER_BitFields  WTIMER Bit Fields
  * @{
  *****************************************************************************/
 
@@ -2000,21 +2208,2776 @@ typedef enum IRQn
 #define WTIMER_DTLOCK_LOCKKEY_LOCKED                (_WTIMER_DTLOCK_LOCKKEY_LOCKED << 0)   /**< Shifted mode LOCKED for WTIMER_DTLOCK */
 #define WTIMER_DTLOCK_LOCKKEY_UNLOCK                (_WTIMER_DTLOCK_LOCKKEY_UNLOCK << 0)   /**< Shifted mode UNLOCK for WTIMER_DTLOCK */
 
+/** @} */
 /** @} End of group EFR32MG13P832F512IM48_WTIMER */
 
-
-
 /**************************************************************************//**
- * @defgroup EFR32MG13P832F512IM48_SYSTICK_BitFields  EFR32MG13P832F512IM48_SYSTICK Bit Fields
+ * @addtogroup EFR32MG13P832F512IM48_CMU
+ * @{
+ * @defgroup EFR32MG13P832F512IM48_CMU_BitFields  CMU Bit Fields
  * @{
  *****************************************************************************/
 
-/** @} End of group EFR32MG13P832F512IM48_SYSTICK */
+/* Bit fields for CMU CTRL */
+#define _CMU_CTRL_RESETVALUE                              0x00300000UL                          /**< Default value for CMU_CTRL */
+#define _CMU_CTRL_MASK                                    0x001103FFUL                          /**< Mask for CMU_CTRL */
+#define _CMU_CTRL_CLKOUTSEL0_SHIFT                        0                                     /**< Shift value for CMU_CLKOUTSEL0 */
+#define _CMU_CTRL_CLKOUTSEL0_MASK                         0x1FUL                                /**< Bit mask for CMU_CLKOUTSEL0 */
+#define _CMU_CTRL_CLKOUTSEL0_DEFAULT                      0x00000000UL                          /**< Mode DEFAULT for CMU_CTRL */
+#define _CMU_CTRL_CLKOUTSEL0_DISABLED                     0x00000000UL                          /**< Mode DISABLED for CMU_CTRL */
+#define _CMU_CTRL_CLKOUTSEL0_ULFRCO                       0x00000001UL                          /**< Mode ULFRCO for CMU_CTRL */
+#define _CMU_CTRL_CLKOUTSEL0_LFRCO                        0x00000002UL                          /**< Mode LFRCO for CMU_CTRL */
+#define _CMU_CTRL_CLKOUTSEL0_LFXO                         0x00000003UL                          /**< Mode LFXO for CMU_CTRL */
+#define _CMU_CTRL_CLKOUTSEL0_HFXO                         0x00000006UL                          /**< Mode HFXO for CMU_CTRL */
+#define _CMU_CTRL_CLKOUTSEL0_HFEXPCLK                     0x00000007UL                          /**< Mode HFEXPCLK for CMU_CTRL */
+#define _CMU_CTRL_CLKOUTSEL0_ULFRCOQ                      0x00000009UL                          /**< Mode ULFRCOQ for CMU_CTRL */
+#define _CMU_CTRL_CLKOUTSEL0_LFRCOQ                       0x0000000AUL                          /**< Mode LFRCOQ for CMU_CTRL */
+#define _CMU_CTRL_CLKOUTSEL0_LFXOQ                        0x0000000BUL                          /**< Mode LFXOQ for CMU_CTRL */
+#define _CMU_CTRL_CLKOUTSEL0_HFRCOQ                       0x0000000CUL                          /**< Mode HFRCOQ for CMU_CTRL */
+#define _CMU_CTRL_CLKOUTSEL0_AUXHFRCOQ                    0x0000000DUL                          /**< Mode AUXHFRCOQ for CMU_CTRL */
+#define _CMU_CTRL_CLKOUTSEL0_HFXOQ                        0x0000000EUL                          /**< Mode HFXOQ for CMU_CTRL */
+#define _CMU_CTRL_CLKOUTSEL0_HFSRCCLK                     0x0000000FUL                          /**< Mode HFSRCCLK for CMU_CTRL */
+#define CMU_CTRL_CLKOUTSEL0_DEFAULT                       (_CMU_CTRL_CLKOUTSEL0_DEFAULT << 0)   /**< Shifted mode DEFAULT for CMU_CTRL */
+#define CMU_CTRL_CLKOUTSEL0_DISABLED                      (_CMU_CTRL_CLKOUTSEL0_DISABLED << 0)  /**< Shifted mode DISABLED for CMU_CTRL */
+#define CMU_CTRL_CLKOUTSEL0_ULFRCO                        (_CMU_CTRL_CLKOUTSEL0_ULFRCO << 0)    /**< Shifted mode ULFRCO for CMU_CTRL */
+#define CMU_CTRL_CLKOUTSEL0_LFRCO                         (_CMU_CTRL_CLKOUTSEL0_LFRCO << 0)     /**< Shifted mode LFRCO for CMU_CTRL */
+#define CMU_CTRL_CLKOUTSEL0_LFXO                          (_CMU_CTRL_CLKOUTSEL0_LFXO << 0)      /**< Shifted mode LFXO for CMU_CTRL */
+#define CMU_CTRL_CLKOUTSEL0_HFXO                          (_CMU_CTRL_CLKOUTSEL0_HFXO << 0)      /**< Shifted mode HFXO for CMU_CTRL */
+#define CMU_CTRL_CLKOUTSEL0_HFEXPCLK                      (_CMU_CTRL_CLKOUTSEL0_HFEXPCLK << 0)  /**< Shifted mode HFEXPCLK for CMU_CTRL */
+#define CMU_CTRL_CLKOUTSEL0_ULFRCOQ                       (_CMU_CTRL_CLKOUTSEL0_ULFRCOQ << 0)   /**< Shifted mode ULFRCOQ for CMU_CTRL */
+#define CMU_CTRL_CLKOUTSEL0_LFRCOQ                        (_CMU_CTRL_CLKOUTSEL0_LFRCOQ << 0)    /**< Shifted mode LFRCOQ for CMU_CTRL */
+#define CMU_CTRL_CLKOUTSEL0_LFXOQ                         (_CMU_CTRL_CLKOUTSEL0_LFXOQ << 0)     /**< Shifted mode LFXOQ for CMU_CTRL */
+#define CMU_CTRL_CLKOUTSEL0_HFRCOQ                        (_CMU_CTRL_CLKOUTSEL0_HFRCOQ << 0)    /**< Shifted mode HFRCOQ for CMU_CTRL */
+#define CMU_CTRL_CLKOUTSEL0_AUXHFRCOQ                     (_CMU_CTRL_CLKOUTSEL0_AUXHFRCOQ << 0) /**< Shifted mode AUXHFRCOQ for CMU_CTRL */
+#define CMU_CTRL_CLKOUTSEL0_HFXOQ                         (_CMU_CTRL_CLKOUTSEL0_HFXOQ << 0)     /**< Shifted mode HFXOQ for CMU_CTRL */
+#define CMU_CTRL_CLKOUTSEL0_HFSRCCLK                      (_CMU_CTRL_CLKOUTSEL0_HFSRCCLK << 0)  /**< Shifted mode HFSRCCLK for CMU_CTRL */
+#define _CMU_CTRL_CLKOUTSEL1_SHIFT                        5                                     /**< Shift value for CMU_CLKOUTSEL1 */
+#define _CMU_CTRL_CLKOUTSEL1_MASK                         0x3E0UL                               /**< Bit mask for CMU_CLKOUTSEL1 */
+#define _CMU_CTRL_CLKOUTSEL1_DEFAULT                      0x00000000UL                          /**< Mode DEFAULT for CMU_CTRL */
+#define _CMU_CTRL_CLKOUTSEL1_DISABLED                     0x00000000UL                          /**< Mode DISABLED for CMU_CTRL */
+#define _CMU_CTRL_CLKOUTSEL1_ULFRCO                       0x00000001UL                          /**< Mode ULFRCO for CMU_CTRL */
+#define _CMU_CTRL_CLKOUTSEL1_LFRCO                        0x00000002UL                          /**< Mode LFRCO for CMU_CTRL */
+#define _CMU_CTRL_CLKOUTSEL1_LFXO                         0x00000003UL                          /**< Mode LFXO for CMU_CTRL */
+#define _CMU_CTRL_CLKOUTSEL1_HFXO                         0x00000006UL                          /**< Mode HFXO for CMU_CTRL */
+#define _CMU_CTRL_CLKOUTSEL1_HFEXPCLK                     0x00000007UL                          /**< Mode HFEXPCLK for CMU_CTRL */
+#define _CMU_CTRL_CLKOUTSEL1_ULFRCOQ                      0x00000009UL                          /**< Mode ULFRCOQ for CMU_CTRL */
+#define _CMU_CTRL_CLKOUTSEL1_LFRCOQ                       0x0000000AUL                          /**< Mode LFRCOQ for CMU_CTRL */
+#define _CMU_CTRL_CLKOUTSEL1_LFXOQ                        0x0000000BUL                          /**< Mode LFXOQ for CMU_CTRL */
+#define _CMU_CTRL_CLKOUTSEL1_HFRCOQ                       0x0000000CUL                          /**< Mode HFRCOQ for CMU_CTRL */
+#define _CMU_CTRL_CLKOUTSEL1_AUXHFRCOQ                    0x0000000DUL                          /**< Mode AUXHFRCOQ for CMU_CTRL */
+#define _CMU_CTRL_CLKOUTSEL1_HFXOQ                        0x0000000EUL                          /**< Mode HFXOQ for CMU_CTRL */
+#define _CMU_CTRL_CLKOUTSEL1_HFSRCCLK                     0x0000000FUL                          /**< Mode HFSRCCLK for CMU_CTRL */
+#define CMU_CTRL_CLKOUTSEL1_DEFAULT                       (_CMU_CTRL_CLKOUTSEL1_DEFAULT << 5)   /**< Shifted mode DEFAULT for CMU_CTRL */
+#define CMU_CTRL_CLKOUTSEL1_DISABLED                      (_CMU_CTRL_CLKOUTSEL1_DISABLED << 5)  /**< Shifted mode DISABLED for CMU_CTRL */
+#define CMU_CTRL_CLKOUTSEL1_ULFRCO                        (_CMU_CTRL_CLKOUTSEL1_ULFRCO << 5)    /**< Shifted mode ULFRCO for CMU_CTRL */
+#define CMU_CTRL_CLKOUTSEL1_LFRCO                         (_CMU_CTRL_CLKOUTSEL1_LFRCO << 5)     /**< Shifted mode LFRCO for CMU_CTRL */
+#define CMU_CTRL_CLKOUTSEL1_LFXO                          (_CMU_CTRL_CLKOUTSEL1_LFXO << 5)      /**< Shifted mode LFXO for CMU_CTRL */
+#define CMU_CTRL_CLKOUTSEL1_HFXO                          (_CMU_CTRL_CLKOUTSEL1_HFXO << 5)      /**< Shifted mode HFXO for CMU_CTRL */
+#define CMU_CTRL_CLKOUTSEL1_HFEXPCLK                      (_CMU_CTRL_CLKOUTSEL1_HFEXPCLK << 5)  /**< Shifted mode HFEXPCLK for CMU_CTRL */
+#define CMU_CTRL_CLKOUTSEL1_ULFRCOQ                       (_CMU_CTRL_CLKOUTSEL1_ULFRCOQ << 5)   /**< Shifted mode ULFRCOQ for CMU_CTRL */
+#define CMU_CTRL_CLKOUTSEL1_LFRCOQ                        (_CMU_CTRL_CLKOUTSEL1_LFRCOQ << 5)    /**< Shifted mode LFRCOQ for CMU_CTRL */
+#define CMU_CTRL_CLKOUTSEL1_LFXOQ                         (_CMU_CTRL_CLKOUTSEL1_LFXOQ << 5)     /**< Shifted mode LFXOQ for CMU_CTRL */
+#define CMU_CTRL_CLKOUTSEL1_HFRCOQ                        (_CMU_CTRL_CLKOUTSEL1_HFRCOQ << 5)    /**< Shifted mode HFRCOQ for CMU_CTRL */
+#define CMU_CTRL_CLKOUTSEL1_AUXHFRCOQ                     (_CMU_CTRL_CLKOUTSEL1_AUXHFRCOQ << 5) /**< Shifted mode AUXHFRCOQ for CMU_CTRL */
+#define CMU_CTRL_CLKOUTSEL1_HFXOQ                         (_CMU_CTRL_CLKOUTSEL1_HFXOQ << 5)     /**< Shifted mode HFXOQ for CMU_CTRL */
+#define CMU_CTRL_CLKOUTSEL1_HFSRCCLK                      (_CMU_CTRL_CLKOUTSEL1_HFSRCCLK << 5)  /**< Shifted mode HFSRCCLK for CMU_CTRL */
+#define CMU_CTRL_WSHFLE                                   (0x1UL << 16)                         /**< Wait State for High-Frequency LE Interface */
+#define _CMU_CTRL_WSHFLE_SHIFT                            16                                    /**< Shift value for CMU_WSHFLE */
+#define _CMU_CTRL_WSHFLE_MASK                             0x10000UL                             /**< Bit mask for CMU_WSHFLE */
+#define _CMU_CTRL_WSHFLE_DEFAULT                          0x00000000UL                          /**< Mode DEFAULT for CMU_CTRL */
+#define CMU_CTRL_WSHFLE_DEFAULT                           (_CMU_CTRL_WSHFLE_DEFAULT << 16)      /**< Shifted mode DEFAULT for CMU_CTRL */
+#define CMU_CTRL_HFPERCLKEN                               (0x1UL << 20)                         /**< HFPERCLK Enable */
+#define _CMU_CTRL_HFPERCLKEN_SHIFT                        20                                    /**< Shift value for CMU_HFPERCLKEN */
+#define _CMU_CTRL_HFPERCLKEN_MASK                         0x100000UL                            /**< Bit mask for CMU_HFPERCLKEN */
+#define _CMU_CTRL_HFPERCLKEN_DEFAULT                      0x00000001UL                          /**< Mode DEFAULT for CMU_CTRL */
+#define CMU_CTRL_HFPERCLKEN_DEFAULT                       (_CMU_CTRL_HFPERCLKEN_DEFAULT << 20)  /**< Shifted mode DEFAULT for CMU_CTRL */
 
+/* Bit fields for CMU HFRCOCTRL */
+#define _CMU_HFRCOCTRL_RESETVALUE                         0xB1481F7FUL                                /**< Default value for CMU_HFRCOCTRL */
+#define _CMU_HFRCOCTRL_MASK                               0xFFFF3F7FUL                                /**< Mask for CMU_HFRCOCTRL */
+#define _CMU_HFRCOCTRL_TUNING_SHIFT                       0                                           /**< Shift value for CMU_TUNING */
+#define _CMU_HFRCOCTRL_TUNING_MASK                        0x7FUL                                      /**< Bit mask for CMU_TUNING */
+#define _CMU_HFRCOCTRL_TUNING_DEFAULT                     0x0000007FUL                                /**< Mode DEFAULT for CMU_HFRCOCTRL */
+#define CMU_HFRCOCTRL_TUNING_DEFAULT                      (_CMU_HFRCOCTRL_TUNING_DEFAULT << 0)        /**< Shifted mode DEFAULT for CMU_HFRCOCTRL */
+#define _CMU_HFRCOCTRL_FINETUNING_SHIFT                   8                                           /**< Shift value for CMU_FINETUNING */
+#define _CMU_HFRCOCTRL_FINETUNING_MASK                    0x3F00UL                                    /**< Bit mask for CMU_FINETUNING */
+#define _CMU_HFRCOCTRL_FINETUNING_DEFAULT                 0x0000001FUL                                /**< Mode DEFAULT for CMU_HFRCOCTRL */
+#define CMU_HFRCOCTRL_FINETUNING_DEFAULT                  (_CMU_HFRCOCTRL_FINETUNING_DEFAULT << 8)    /**< Shifted mode DEFAULT for CMU_HFRCOCTRL */
+#define _CMU_HFRCOCTRL_FREQRANGE_SHIFT                    16                                          /**< Shift value for CMU_FREQRANGE */
+#define _CMU_HFRCOCTRL_FREQRANGE_MASK                     0x1F0000UL                                  /**< Bit mask for CMU_FREQRANGE */
+#define _CMU_HFRCOCTRL_FREQRANGE_DEFAULT                  0x00000008UL                                /**< Mode DEFAULT for CMU_HFRCOCTRL */
+#define CMU_HFRCOCTRL_FREQRANGE_DEFAULT                   (_CMU_HFRCOCTRL_FREQRANGE_DEFAULT << 16)    /**< Shifted mode DEFAULT for CMU_HFRCOCTRL */
+#define _CMU_HFRCOCTRL_CMPBIAS_SHIFT                      21                                          /**< Shift value for CMU_CMPBIAS */
+#define _CMU_HFRCOCTRL_CMPBIAS_MASK                       0xE00000UL                                  /**< Bit mask for CMU_CMPBIAS */
+#define _CMU_HFRCOCTRL_CMPBIAS_DEFAULT                    0x00000002UL                                /**< Mode DEFAULT for CMU_HFRCOCTRL */
+#define CMU_HFRCOCTRL_CMPBIAS_DEFAULT                     (_CMU_HFRCOCTRL_CMPBIAS_DEFAULT << 21)      /**< Shifted mode DEFAULT for CMU_HFRCOCTRL */
+#define CMU_HFRCOCTRL_LDOHP                               (0x1UL << 24)                               /**< HFRCO LDO High Power Mode */
+#define _CMU_HFRCOCTRL_LDOHP_SHIFT                        24                                          /**< Shift value for CMU_LDOHP */
+#define _CMU_HFRCOCTRL_LDOHP_MASK                         0x1000000UL                                 /**< Bit mask for CMU_LDOHP */
+#define _CMU_HFRCOCTRL_LDOHP_DEFAULT                      0x00000001UL                                /**< Mode DEFAULT for CMU_HFRCOCTRL */
+#define CMU_HFRCOCTRL_LDOHP_DEFAULT                       (_CMU_HFRCOCTRL_LDOHP_DEFAULT << 24)        /**< Shifted mode DEFAULT for CMU_HFRCOCTRL */
+#define _CMU_HFRCOCTRL_CLKDIV_SHIFT                       25                                          /**< Shift value for CMU_CLKDIV */
+#define _CMU_HFRCOCTRL_CLKDIV_MASK                        0x6000000UL                                 /**< Bit mask for CMU_CLKDIV */
+#define _CMU_HFRCOCTRL_CLKDIV_DEFAULT                     0x00000000UL                                /**< Mode DEFAULT for CMU_HFRCOCTRL */
+#define _CMU_HFRCOCTRL_CLKDIV_DIV1                        0x00000000UL                                /**< Mode DIV1 for CMU_HFRCOCTRL */
+#define _CMU_HFRCOCTRL_CLKDIV_DIV2                        0x00000001UL                                /**< Mode DIV2 for CMU_HFRCOCTRL */
+#define _CMU_HFRCOCTRL_CLKDIV_DIV4                        0x00000002UL                                /**< Mode DIV4 for CMU_HFRCOCTRL */
+#define CMU_HFRCOCTRL_CLKDIV_DEFAULT                      (_CMU_HFRCOCTRL_CLKDIV_DEFAULT << 25)       /**< Shifted mode DEFAULT for CMU_HFRCOCTRL */
+#define CMU_HFRCOCTRL_CLKDIV_DIV1                         (_CMU_HFRCOCTRL_CLKDIV_DIV1 << 25)          /**< Shifted mode DIV1 for CMU_HFRCOCTRL */
+#define CMU_HFRCOCTRL_CLKDIV_DIV2                         (_CMU_HFRCOCTRL_CLKDIV_DIV2 << 25)          /**< Shifted mode DIV2 for CMU_HFRCOCTRL */
+#define CMU_HFRCOCTRL_CLKDIV_DIV4                         (_CMU_HFRCOCTRL_CLKDIV_DIV4 << 25)          /**< Shifted mode DIV4 for CMU_HFRCOCTRL */
+#define CMU_HFRCOCTRL_FINETUNINGEN                        (0x1UL << 27)                               /**< Enable reference for fine tuning */
+#define _CMU_HFRCOCTRL_FINETUNINGEN_SHIFT                 27                                          /**< Shift value for CMU_FINETUNINGEN */
+#define _CMU_HFRCOCTRL_FINETUNINGEN_MASK                  0x8000000UL                                 /**< Bit mask for CMU_FINETUNINGEN */
+#define _CMU_HFRCOCTRL_FINETUNINGEN_DEFAULT               0x00000000UL                                /**< Mode DEFAULT for CMU_HFRCOCTRL */
+#define CMU_HFRCOCTRL_FINETUNINGEN_DEFAULT                (_CMU_HFRCOCTRL_FINETUNINGEN_DEFAULT << 27) /**< Shifted mode DEFAULT for CMU_HFRCOCTRL */
+#define _CMU_HFRCOCTRL_VREFTC_SHIFT                       28                                          /**< Shift value for CMU_VREFTC */
+#define _CMU_HFRCOCTRL_VREFTC_MASK                        0xF0000000UL                                /**< Bit mask for CMU_VREFTC */
+#define _CMU_HFRCOCTRL_VREFTC_DEFAULT                     0x0000000BUL                                /**< Mode DEFAULT for CMU_HFRCOCTRL */
+#define CMU_HFRCOCTRL_VREFTC_DEFAULT                      (_CMU_HFRCOCTRL_VREFTC_DEFAULT << 28)       /**< Shifted mode DEFAULT for CMU_HFRCOCTRL */
 
+/* Bit fields for CMU AUXHFRCOCTRL */
+#define _CMU_AUXHFRCOCTRL_RESETVALUE                      0xB1481F7FUL                                   /**< Default value for CMU_AUXHFRCOCTRL */
+#define _CMU_AUXHFRCOCTRL_MASK                            0xFFFF3F7FUL                                   /**< Mask for CMU_AUXHFRCOCTRL */
+#define _CMU_AUXHFRCOCTRL_TUNING_SHIFT                    0                                              /**< Shift value for CMU_TUNING */
+#define _CMU_AUXHFRCOCTRL_TUNING_MASK                     0x7FUL                                         /**< Bit mask for CMU_TUNING */
+#define _CMU_AUXHFRCOCTRL_TUNING_DEFAULT                  0x0000007FUL                                   /**< Mode DEFAULT for CMU_AUXHFRCOCTRL */
+#define CMU_AUXHFRCOCTRL_TUNING_DEFAULT                   (_CMU_AUXHFRCOCTRL_TUNING_DEFAULT << 0)        /**< Shifted mode DEFAULT for CMU_AUXHFRCOCTRL */
+#define _CMU_AUXHFRCOCTRL_FINETUNING_SHIFT                8                                              /**< Shift value for CMU_FINETUNING */
+#define _CMU_AUXHFRCOCTRL_FINETUNING_MASK                 0x3F00UL                                       /**< Bit mask for CMU_FINETUNING */
+#define _CMU_AUXHFRCOCTRL_FINETUNING_DEFAULT              0x0000001FUL                                   /**< Mode DEFAULT for CMU_AUXHFRCOCTRL */
+#define CMU_AUXHFRCOCTRL_FINETUNING_DEFAULT               (_CMU_AUXHFRCOCTRL_FINETUNING_DEFAULT << 8)    /**< Shifted mode DEFAULT for CMU_AUXHFRCOCTRL */
+#define _CMU_AUXHFRCOCTRL_FREQRANGE_SHIFT                 16                                             /**< Shift value for CMU_FREQRANGE */
+#define _CMU_AUXHFRCOCTRL_FREQRANGE_MASK                  0x1F0000UL                                     /**< Bit mask for CMU_FREQRANGE */
+#define _CMU_AUXHFRCOCTRL_FREQRANGE_DEFAULT               0x00000008UL                                   /**< Mode DEFAULT for CMU_AUXHFRCOCTRL */
+#define CMU_AUXHFRCOCTRL_FREQRANGE_DEFAULT                (_CMU_AUXHFRCOCTRL_FREQRANGE_DEFAULT << 16)    /**< Shifted mode DEFAULT for CMU_AUXHFRCOCTRL */
+#define _CMU_AUXHFRCOCTRL_CMPBIAS_SHIFT                   21                                             /**< Shift value for CMU_CMPBIAS */
+#define _CMU_AUXHFRCOCTRL_CMPBIAS_MASK                    0xE00000UL                                     /**< Bit mask for CMU_CMPBIAS */
+#define _CMU_AUXHFRCOCTRL_CMPBIAS_DEFAULT                 0x00000002UL                                   /**< Mode DEFAULT for CMU_AUXHFRCOCTRL */
+#define CMU_AUXHFRCOCTRL_CMPBIAS_DEFAULT                  (_CMU_AUXHFRCOCTRL_CMPBIAS_DEFAULT << 21)      /**< Shifted mode DEFAULT for CMU_AUXHFRCOCTRL */
+#define CMU_AUXHFRCOCTRL_LDOHP                            (0x1UL << 24)                                  /**< AUXHFRCO LDO High Power Mode */
+#define _CMU_AUXHFRCOCTRL_LDOHP_SHIFT                     24                                             /**< Shift value for CMU_LDOHP */
+#define _CMU_AUXHFRCOCTRL_LDOHP_MASK                      0x1000000UL                                    /**< Bit mask for CMU_LDOHP */
+#define _CMU_AUXHFRCOCTRL_LDOHP_DEFAULT                   0x00000001UL                                   /**< Mode DEFAULT for CMU_AUXHFRCOCTRL */
+#define CMU_AUXHFRCOCTRL_LDOHP_DEFAULT                    (_CMU_AUXHFRCOCTRL_LDOHP_DEFAULT << 24)        /**< Shifted mode DEFAULT for CMU_AUXHFRCOCTRL */
+#define _CMU_AUXHFRCOCTRL_CLKDIV_SHIFT                    25                                             /**< Shift value for CMU_CLKDIV */
+#define _CMU_AUXHFRCOCTRL_CLKDIV_MASK                     0x6000000UL                                    /**< Bit mask for CMU_CLKDIV */
+#define _CMU_AUXHFRCOCTRL_CLKDIV_DEFAULT                  0x00000000UL                                   /**< Mode DEFAULT for CMU_AUXHFRCOCTRL */
+#define _CMU_AUXHFRCOCTRL_CLKDIV_DIV1                     0x00000000UL                                   /**< Mode DIV1 for CMU_AUXHFRCOCTRL */
+#define _CMU_AUXHFRCOCTRL_CLKDIV_DIV2                     0x00000001UL                                   /**< Mode DIV2 for CMU_AUXHFRCOCTRL */
+#define _CMU_AUXHFRCOCTRL_CLKDIV_DIV4                     0x00000002UL                                   /**< Mode DIV4 for CMU_AUXHFRCOCTRL */
+#define CMU_AUXHFRCOCTRL_CLKDIV_DEFAULT                   (_CMU_AUXHFRCOCTRL_CLKDIV_DEFAULT << 25)       /**< Shifted mode DEFAULT for CMU_AUXHFRCOCTRL */
+#define CMU_AUXHFRCOCTRL_CLKDIV_DIV1                      (_CMU_AUXHFRCOCTRL_CLKDIV_DIV1 << 25)          /**< Shifted mode DIV1 for CMU_AUXHFRCOCTRL */
+#define CMU_AUXHFRCOCTRL_CLKDIV_DIV2                      (_CMU_AUXHFRCOCTRL_CLKDIV_DIV2 << 25)          /**< Shifted mode DIV2 for CMU_AUXHFRCOCTRL */
+#define CMU_AUXHFRCOCTRL_CLKDIV_DIV4                      (_CMU_AUXHFRCOCTRL_CLKDIV_DIV4 << 25)          /**< Shifted mode DIV4 for CMU_AUXHFRCOCTRL */
+#define CMU_AUXHFRCOCTRL_FINETUNINGEN                     (0x1UL << 27)                                  /**< Enable reference for fine tuning */
+#define _CMU_AUXHFRCOCTRL_FINETUNINGEN_SHIFT              27                                             /**< Shift value for CMU_FINETUNINGEN */
+#define _CMU_AUXHFRCOCTRL_FINETUNINGEN_MASK               0x8000000UL                                    /**< Bit mask for CMU_FINETUNINGEN */
+#define _CMU_AUXHFRCOCTRL_FINETUNINGEN_DEFAULT            0x00000000UL                                   /**< Mode DEFAULT for CMU_AUXHFRCOCTRL */
+#define CMU_AUXHFRCOCTRL_FINETUNINGEN_DEFAULT             (_CMU_AUXHFRCOCTRL_FINETUNINGEN_DEFAULT << 27) /**< Shifted mode DEFAULT for CMU_AUXHFRCOCTRL */
+#define _CMU_AUXHFRCOCTRL_VREFTC_SHIFT                    28                                             /**< Shift value for CMU_VREFTC */
+#define _CMU_AUXHFRCOCTRL_VREFTC_MASK                     0xF0000000UL                                   /**< Bit mask for CMU_VREFTC */
+#define _CMU_AUXHFRCOCTRL_VREFTC_DEFAULT                  0x0000000BUL                                   /**< Mode DEFAULT for CMU_AUXHFRCOCTRL */
+#define CMU_AUXHFRCOCTRL_VREFTC_DEFAULT                   (_CMU_AUXHFRCOCTRL_VREFTC_DEFAULT << 28)       /**< Shifted mode DEFAULT for CMU_AUXHFRCOCTRL */
+
+/* Bit fields for CMU LFRCOCTRL */
+#define _CMU_LFRCOCTRL_RESETVALUE                         0x81060100UL                                /**< Default value for CMU_LFRCOCTRL */
+#define _CMU_LFRCOCTRL_MASK                               0xF33701FFUL                                /**< Mask for CMU_LFRCOCTRL */
+#define _CMU_LFRCOCTRL_TUNING_SHIFT                       0                                           /**< Shift value for CMU_TUNING */
+#define _CMU_LFRCOCTRL_TUNING_MASK                        0x1FFUL                                     /**< Bit mask for CMU_TUNING */
+#define _CMU_LFRCOCTRL_TUNING_DEFAULT                     0x00000100UL                                /**< Mode DEFAULT for CMU_LFRCOCTRL */
+#define CMU_LFRCOCTRL_TUNING_DEFAULT                      (_CMU_LFRCOCTRL_TUNING_DEFAULT << 0)        /**< Shifted mode DEFAULT for CMU_LFRCOCTRL */
+#define CMU_LFRCOCTRL_ENVREF                              (0x1UL << 16)                               /**< Enable duty cycling of vref */
+#define _CMU_LFRCOCTRL_ENVREF_SHIFT                       16                                          /**< Shift value for CMU_ENVREF */
+#define _CMU_LFRCOCTRL_ENVREF_MASK                        0x10000UL                                   /**< Bit mask for CMU_ENVREF */
+#define _CMU_LFRCOCTRL_ENVREF_DEFAULT                     0x00000000UL                                /**< Mode DEFAULT for CMU_LFRCOCTRL */
+#define CMU_LFRCOCTRL_ENVREF_DEFAULT                      (_CMU_LFRCOCTRL_ENVREF_DEFAULT << 16)       /**< Shifted mode DEFAULT for CMU_LFRCOCTRL */
+#define CMU_LFRCOCTRL_ENCHOP                              (0x1UL << 17)                               /**< Enable comparator chopping */
+#define _CMU_LFRCOCTRL_ENCHOP_SHIFT                       17                                          /**< Shift value for CMU_ENCHOP */
+#define _CMU_LFRCOCTRL_ENCHOP_MASK                        0x20000UL                                   /**< Bit mask for CMU_ENCHOP */
+#define _CMU_LFRCOCTRL_ENCHOP_DEFAULT                     0x00000001UL                                /**< Mode DEFAULT for CMU_LFRCOCTRL */
+#define CMU_LFRCOCTRL_ENCHOP_DEFAULT                      (_CMU_LFRCOCTRL_ENCHOP_DEFAULT << 17)       /**< Shifted mode DEFAULT for CMU_LFRCOCTRL */
+#define CMU_LFRCOCTRL_ENDEM                               (0x1UL << 18)                               /**< Enable dynamic element matching */
+#define _CMU_LFRCOCTRL_ENDEM_SHIFT                        18                                          /**< Shift value for CMU_ENDEM */
+#define _CMU_LFRCOCTRL_ENDEM_MASK                         0x40000UL                                   /**< Bit mask for CMU_ENDEM */
+#define _CMU_LFRCOCTRL_ENDEM_DEFAULT                      0x00000001UL                                /**< Mode DEFAULT for CMU_LFRCOCTRL */
+#define CMU_LFRCOCTRL_ENDEM_DEFAULT                       (_CMU_LFRCOCTRL_ENDEM_DEFAULT << 18)        /**< Shifted mode DEFAULT for CMU_LFRCOCTRL */
+#define _CMU_LFRCOCTRL_VREFUPDATE_SHIFT                   20                                          /**< Shift value for CMU_VREFUPDATE */
+#define _CMU_LFRCOCTRL_VREFUPDATE_MASK                    0x300000UL                                  /**< Bit mask for CMU_VREFUPDATE */
+#define _CMU_LFRCOCTRL_VREFUPDATE_DEFAULT                 0x00000000UL                                /**< Mode DEFAULT for CMU_LFRCOCTRL */
+#define _CMU_LFRCOCTRL_VREFUPDATE_32CYCLES                0x00000000UL                                /**< Mode 32CYCLES for CMU_LFRCOCTRL */
+#define _CMU_LFRCOCTRL_VREFUPDATE_64CYCLES                0x00000001UL                                /**< Mode 64CYCLES for CMU_LFRCOCTRL */
+#define _CMU_LFRCOCTRL_VREFUPDATE_128CYCLES               0x00000002UL                                /**< Mode 128CYCLES for CMU_LFRCOCTRL */
+#define _CMU_LFRCOCTRL_VREFUPDATE_256CYCLES               0x00000003UL                                /**< Mode 256CYCLES for CMU_LFRCOCTRL */
+#define CMU_LFRCOCTRL_VREFUPDATE_DEFAULT                  (_CMU_LFRCOCTRL_VREFUPDATE_DEFAULT << 20)   /**< Shifted mode DEFAULT for CMU_LFRCOCTRL */
+#define CMU_LFRCOCTRL_VREFUPDATE_32CYCLES                 (_CMU_LFRCOCTRL_VREFUPDATE_32CYCLES << 20)  /**< Shifted mode 32CYCLES for CMU_LFRCOCTRL */
+#define CMU_LFRCOCTRL_VREFUPDATE_64CYCLES                 (_CMU_LFRCOCTRL_VREFUPDATE_64CYCLES << 20)  /**< Shifted mode 64CYCLES for CMU_LFRCOCTRL */
+#define CMU_LFRCOCTRL_VREFUPDATE_128CYCLES                (_CMU_LFRCOCTRL_VREFUPDATE_128CYCLES << 20) /**< Shifted mode 128CYCLES for CMU_LFRCOCTRL */
+#define CMU_LFRCOCTRL_VREFUPDATE_256CYCLES                (_CMU_LFRCOCTRL_VREFUPDATE_256CYCLES << 20) /**< Shifted mode 256CYCLES for CMU_LFRCOCTRL */
+#define _CMU_LFRCOCTRL_TIMEOUT_SHIFT                      24                                          /**< Shift value for CMU_TIMEOUT */
+#define _CMU_LFRCOCTRL_TIMEOUT_MASK                       0x3000000UL                                 /**< Bit mask for CMU_TIMEOUT */
+#define _CMU_LFRCOCTRL_TIMEOUT_2CYCLES                    0x00000000UL                                /**< Mode 2CYCLES for CMU_LFRCOCTRL */
+#define _CMU_LFRCOCTRL_TIMEOUT_DEFAULT                    0x00000001UL                                /**< Mode DEFAULT for CMU_LFRCOCTRL */
+#define _CMU_LFRCOCTRL_TIMEOUT_16CYCLES                   0x00000001UL                                /**< Mode 16CYCLES for CMU_LFRCOCTRL */
+#define _CMU_LFRCOCTRL_TIMEOUT_32CYCLES                   0x00000002UL                                /**< Mode 32CYCLES for CMU_LFRCOCTRL */
+#define CMU_LFRCOCTRL_TIMEOUT_2CYCLES                     (_CMU_LFRCOCTRL_TIMEOUT_2CYCLES << 24)      /**< Shifted mode 2CYCLES for CMU_LFRCOCTRL */
+#define CMU_LFRCOCTRL_TIMEOUT_DEFAULT                     (_CMU_LFRCOCTRL_TIMEOUT_DEFAULT << 24)      /**< Shifted mode DEFAULT for CMU_LFRCOCTRL */
+#define CMU_LFRCOCTRL_TIMEOUT_16CYCLES                    (_CMU_LFRCOCTRL_TIMEOUT_16CYCLES << 24)     /**< Shifted mode 16CYCLES for CMU_LFRCOCTRL */
+#define CMU_LFRCOCTRL_TIMEOUT_32CYCLES                    (_CMU_LFRCOCTRL_TIMEOUT_32CYCLES << 24)     /**< Shifted mode 32CYCLES for CMU_LFRCOCTRL */
+#define _CMU_LFRCOCTRL_GMCCURTUNE_SHIFT                   28                                          /**< Shift value for CMU_GMCCURTUNE */
+#define _CMU_LFRCOCTRL_GMCCURTUNE_MASK                    0xF0000000UL                                /**< Bit mask for CMU_GMCCURTUNE */
+#define _CMU_LFRCOCTRL_GMCCURTUNE_DEFAULT                 0x00000008UL                                /**< Mode DEFAULT for CMU_LFRCOCTRL */
+#define CMU_LFRCOCTRL_GMCCURTUNE_DEFAULT                  (_CMU_LFRCOCTRL_GMCCURTUNE_DEFAULT << 28)   /**< Shifted mode DEFAULT for CMU_LFRCOCTRL */
+
+/* Bit fields for CMU HFXOCTRL */
+#define _CMU_HFXOCTRL_RESETVALUE                          0x00000000UL                                     /**< Default value for CMU_HFXOCTRL */
+#define _CMU_HFXOCTRL_MASK                                0x37000731UL                                     /**< Mask for CMU_HFXOCTRL */
+#define CMU_HFXOCTRL_MODE                                 (0x1UL << 0)                                     /**< HFXO Mode */
+#define _CMU_HFXOCTRL_MODE_SHIFT                          0                                                /**< Shift value for CMU_MODE */
+#define _CMU_HFXOCTRL_MODE_MASK                           0x1UL                                            /**< Bit mask for CMU_MODE */
+#define _CMU_HFXOCTRL_MODE_DEFAULT                        0x00000000UL                                     /**< Mode DEFAULT for CMU_HFXOCTRL */
+#define _CMU_HFXOCTRL_MODE_XTAL                           0x00000000UL                                     /**< Mode XTAL for CMU_HFXOCTRL */
+#define _CMU_HFXOCTRL_MODE_EXTCLK                         0x00000001UL                                     /**< Mode EXTCLK for CMU_HFXOCTRL */
+#define CMU_HFXOCTRL_MODE_DEFAULT                         (_CMU_HFXOCTRL_MODE_DEFAULT << 0)                /**< Shifted mode DEFAULT for CMU_HFXOCTRL */
+#define CMU_HFXOCTRL_MODE_XTAL                            (_CMU_HFXOCTRL_MODE_XTAL << 0)                   /**< Shifted mode XTAL for CMU_HFXOCTRL */
+#define CMU_HFXOCTRL_MODE_EXTCLK                          (_CMU_HFXOCTRL_MODE_EXTCLK << 0)                 /**< Shifted mode EXTCLK for CMU_HFXOCTRL */
+#define _CMU_HFXOCTRL_PEAKDETSHUNTOPTMODE_SHIFT           4                                                /**< Shift value for CMU_PEAKDETSHUNTOPTMODE */
+#define _CMU_HFXOCTRL_PEAKDETSHUNTOPTMODE_MASK            0x30UL                                           /**< Bit mask for CMU_PEAKDETSHUNTOPTMODE */
+#define _CMU_HFXOCTRL_PEAKDETSHUNTOPTMODE_DEFAULT         0x00000000UL                                     /**< Mode DEFAULT for CMU_HFXOCTRL */
+#define _CMU_HFXOCTRL_PEAKDETSHUNTOPTMODE_AUTOCMD         0x00000000UL                                     /**< Mode AUTOCMD for CMU_HFXOCTRL */
+#define _CMU_HFXOCTRL_PEAKDETSHUNTOPTMODE_CMD             0x00000001UL                                     /**< Mode CMD for CMU_HFXOCTRL */
+#define _CMU_HFXOCTRL_PEAKDETSHUNTOPTMODE_MANUAL          0x00000002UL                                     /**< Mode MANUAL for CMU_HFXOCTRL */
+#define CMU_HFXOCTRL_PEAKDETSHUNTOPTMODE_DEFAULT          (_CMU_HFXOCTRL_PEAKDETSHUNTOPTMODE_DEFAULT << 4) /**< Shifted mode DEFAULT for CMU_HFXOCTRL */
+#define CMU_HFXOCTRL_PEAKDETSHUNTOPTMODE_AUTOCMD          (_CMU_HFXOCTRL_PEAKDETSHUNTOPTMODE_AUTOCMD << 4) /**< Shifted mode AUTOCMD for CMU_HFXOCTRL */
+#define CMU_HFXOCTRL_PEAKDETSHUNTOPTMODE_CMD              (_CMU_HFXOCTRL_PEAKDETSHUNTOPTMODE_CMD << 4)     /**< Shifted mode CMD for CMU_HFXOCTRL */
+#define CMU_HFXOCTRL_PEAKDETSHUNTOPTMODE_MANUAL           (_CMU_HFXOCTRL_PEAKDETSHUNTOPTMODE_MANUAL << 4)  /**< Shifted mode MANUAL for CMU_HFXOCTRL */
+#define CMU_HFXOCTRL_LOWPOWER                             (0x1UL << 8)                                     /**< Low power mode control. PSR performance is reduced to enable low current consumption. */
+#define _CMU_HFXOCTRL_LOWPOWER_SHIFT                      8                                                /**< Shift value for CMU_LOWPOWER */
+#define _CMU_HFXOCTRL_LOWPOWER_MASK                       0x100UL                                          /**< Bit mask for CMU_LOWPOWER */
+#define _CMU_HFXOCTRL_LOWPOWER_DEFAULT                    0x00000000UL                                     /**< Mode DEFAULT for CMU_HFXOCTRL */
+#define CMU_HFXOCTRL_LOWPOWER_DEFAULT                     (_CMU_HFXOCTRL_LOWPOWER_DEFAULT << 8)            /**< Shifted mode DEFAULT for CMU_HFXOCTRL */
+#define CMU_HFXOCTRL_XTI2GND                              (0x1UL << 9)                                     /**< Clamp HFXTAL_N pin to ground when HFXO oscillator is off. */
+#define _CMU_HFXOCTRL_XTI2GND_SHIFT                       9                                                /**< Shift value for CMU_XTI2GND */
+#define _CMU_HFXOCTRL_XTI2GND_MASK                        0x200UL                                          /**< Bit mask for CMU_XTI2GND */
+#define _CMU_HFXOCTRL_XTI2GND_DEFAULT                     0x00000000UL                                     /**< Mode DEFAULT for CMU_HFXOCTRL */
+#define CMU_HFXOCTRL_XTI2GND_DEFAULT                      (_CMU_HFXOCTRL_XTI2GND_DEFAULT << 9)             /**< Shifted mode DEFAULT for CMU_HFXOCTRL */
+#define CMU_HFXOCTRL_XTO2GND                              (0x1UL << 10)                                    /**< Clamp HFXTAL_P pin to ground when HFXO oscillator is off. */
+#define _CMU_HFXOCTRL_XTO2GND_SHIFT                       10                                               /**< Shift value for CMU_XTO2GND */
+#define _CMU_HFXOCTRL_XTO2GND_MASK                        0x400UL                                          /**< Bit mask for CMU_XTO2GND */
+#define _CMU_HFXOCTRL_XTO2GND_DEFAULT                     0x00000000UL                                     /**< Mode DEFAULT for CMU_HFXOCTRL */
+#define CMU_HFXOCTRL_XTO2GND_DEFAULT                      (_CMU_HFXOCTRL_XTO2GND_DEFAULT << 10)            /**< Shifted mode DEFAULT for CMU_HFXOCTRL */
+#define _CMU_HFXOCTRL_LFTIMEOUT_SHIFT                     24                                               /**< Shift value for CMU_LFTIMEOUT */
+#define _CMU_HFXOCTRL_LFTIMEOUT_MASK                      0x7000000UL                                      /**< Bit mask for CMU_LFTIMEOUT */
+#define _CMU_HFXOCTRL_LFTIMEOUT_DEFAULT                   0x00000000UL                                     /**< Mode DEFAULT for CMU_HFXOCTRL */
+#define _CMU_HFXOCTRL_LFTIMEOUT_0CYCLES                   0x00000000UL                                     /**< Mode 0CYCLES for CMU_HFXOCTRL */
+#define _CMU_HFXOCTRL_LFTIMEOUT_2CYCLES                   0x00000001UL                                     /**< Mode 2CYCLES for CMU_HFXOCTRL */
+#define _CMU_HFXOCTRL_LFTIMEOUT_4CYCLES                   0x00000002UL                                     /**< Mode 4CYCLES for CMU_HFXOCTRL */
+#define _CMU_HFXOCTRL_LFTIMEOUT_16CYCLES                  0x00000003UL                                     /**< Mode 16CYCLES for CMU_HFXOCTRL */
+#define _CMU_HFXOCTRL_LFTIMEOUT_32CYCLES                  0x00000004UL                                     /**< Mode 32CYCLES for CMU_HFXOCTRL */
+#define _CMU_HFXOCTRL_LFTIMEOUT_64CYCLES                  0x00000005UL                                     /**< Mode 64CYCLES for CMU_HFXOCTRL */
+#define _CMU_HFXOCTRL_LFTIMEOUT_1KCYCLES                  0x00000006UL                                     /**< Mode 1KCYCLES for CMU_HFXOCTRL */
+#define _CMU_HFXOCTRL_LFTIMEOUT_4KCYCLES                  0x00000007UL                                     /**< Mode 4KCYCLES for CMU_HFXOCTRL */
+#define CMU_HFXOCTRL_LFTIMEOUT_DEFAULT                    (_CMU_HFXOCTRL_LFTIMEOUT_DEFAULT << 24)          /**< Shifted mode DEFAULT for CMU_HFXOCTRL */
+#define CMU_HFXOCTRL_LFTIMEOUT_0CYCLES                    (_CMU_HFXOCTRL_LFTIMEOUT_0CYCLES << 24)          /**< Shifted mode 0CYCLES for CMU_HFXOCTRL */
+#define CMU_HFXOCTRL_LFTIMEOUT_2CYCLES                    (_CMU_HFXOCTRL_LFTIMEOUT_2CYCLES << 24)          /**< Shifted mode 2CYCLES for CMU_HFXOCTRL */
+#define CMU_HFXOCTRL_LFTIMEOUT_4CYCLES                    (_CMU_HFXOCTRL_LFTIMEOUT_4CYCLES << 24)          /**< Shifted mode 4CYCLES for CMU_HFXOCTRL */
+#define CMU_HFXOCTRL_LFTIMEOUT_16CYCLES                   (_CMU_HFXOCTRL_LFTIMEOUT_16CYCLES << 24)         /**< Shifted mode 16CYCLES for CMU_HFXOCTRL */
+#define CMU_HFXOCTRL_LFTIMEOUT_32CYCLES                   (_CMU_HFXOCTRL_LFTIMEOUT_32CYCLES << 24)         /**< Shifted mode 32CYCLES for CMU_HFXOCTRL */
+#define CMU_HFXOCTRL_LFTIMEOUT_64CYCLES                   (_CMU_HFXOCTRL_LFTIMEOUT_64CYCLES << 24)         /**< Shifted mode 64CYCLES for CMU_HFXOCTRL */
+#define CMU_HFXOCTRL_LFTIMEOUT_1KCYCLES                   (_CMU_HFXOCTRL_LFTIMEOUT_1KCYCLES << 24)         /**< Shifted mode 1KCYCLES for CMU_HFXOCTRL */
+#define CMU_HFXOCTRL_LFTIMEOUT_4KCYCLES                   (_CMU_HFXOCTRL_LFTIMEOUT_4KCYCLES << 24)         /**< Shifted mode 4KCYCLES for CMU_HFXOCTRL */
+#define CMU_HFXOCTRL_AUTOSTARTEM0EM1                      (0x1UL << 28)                                    /**< Automatically start of HFXO upon EM0/EM1 entry from EM2/EM3 */
+#define _CMU_HFXOCTRL_AUTOSTARTEM0EM1_SHIFT               28                                               /**< Shift value for CMU_AUTOSTARTEM0EM1 */
+#define _CMU_HFXOCTRL_AUTOSTARTEM0EM1_MASK                0x10000000UL                                     /**< Bit mask for CMU_AUTOSTARTEM0EM1 */
+#define _CMU_HFXOCTRL_AUTOSTARTEM0EM1_DEFAULT             0x00000000UL                                     /**< Mode DEFAULT for CMU_HFXOCTRL */
+#define CMU_HFXOCTRL_AUTOSTARTEM0EM1_DEFAULT              (_CMU_HFXOCTRL_AUTOSTARTEM0EM1_DEFAULT << 28)    /**< Shifted mode DEFAULT for CMU_HFXOCTRL */
+#define CMU_HFXOCTRL_AUTOSTARTSELEM0EM1                   (0x1UL << 29)                                    /**< Automatically start and select of HFXO upon EM0/EM1 entry from EM2/EM3 */
+#define _CMU_HFXOCTRL_AUTOSTARTSELEM0EM1_SHIFT            29                                               /**< Shift value for CMU_AUTOSTARTSELEM0EM1 */
+#define _CMU_HFXOCTRL_AUTOSTARTSELEM0EM1_MASK             0x20000000UL                                     /**< Bit mask for CMU_AUTOSTARTSELEM0EM1 */
+#define _CMU_HFXOCTRL_AUTOSTARTSELEM0EM1_DEFAULT          0x00000000UL                                     /**< Mode DEFAULT for CMU_HFXOCTRL */
+#define CMU_HFXOCTRL_AUTOSTARTSELEM0EM1_DEFAULT           (_CMU_HFXOCTRL_AUTOSTARTSELEM0EM1_DEFAULT << 29) /**< Shifted mode DEFAULT for CMU_HFXOCTRL */
+
+/* Bit fields for CMU HFXOSTARTUPCTRL */
+#define _CMU_HFXOSTARTUPCTRL_RESETVALUE                   0x00050020UL                                     /**< Default value for CMU_HFXOSTARTUPCTRL */
+#define _CMU_HFXOSTARTUPCTRL_MASK                         0x000FF87FUL                                     /**< Mask for CMU_HFXOSTARTUPCTRL */
+#define _CMU_HFXOSTARTUPCTRL_IBTRIMXOCORE_SHIFT           0                                                /**< Shift value for CMU_IBTRIMXOCORE */
+#define _CMU_HFXOSTARTUPCTRL_IBTRIMXOCORE_MASK            0x7FUL                                           /**< Bit mask for CMU_IBTRIMXOCORE */
+#define _CMU_HFXOSTARTUPCTRL_IBTRIMXOCORE_DEFAULT         0x00000020UL                                     /**< Mode DEFAULT for CMU_HFXOSTARTUPCTRL */
+#define CMU_HFXOSTARTUPCTRL_IBTRIMXOCORE_DEFAULT          (_CMU_HFXOSTARTUPCTRL_IBTRIMXOCORE_DEFAULT << 0) /**< Shifted mode DEFAULT for CMU_HFXOSTARTUPCTRL */
+#define _CMU_HFXOSTARTUPCTRL_CTUNE_SHIFT                  11                                               /**< Shift value for CMU_CTUNE */
+#define _CMU_HFXOSTARTUPCTRL_CTUNE_MASK                   0xFF800UL                                        /**< Bit mask for CMU_CTUNE */
+#define _CMU_HFXOSTARTUPCTRL_CTUNE_DEFAULT                0x000000A0UL                                     /**< Mode DEFAULT for CMU_HFXOSTARTUPCTRL */
+#define CMU_HFXOSTARTUPCTRL_CTUNE_DEFAULT                 (_CMU_HFXOSTARTUPCTRL_CTUNE_DEFAULT << 11)       /**< Shifted mode DEFAULT for CMU_HFXOSTARTUPCTRL */
+
+/* Bit fields for CMU HFXOSTEADYSTATECTRL */
+#define _CMU_HFXOSTEADYSTATECTRL_RESETVALUE               0xA30B4507UL                                         /**< Default value for CMU_HFXOSTEADYSTATECTRL */
+#define _CMU_HFXOSTEADYSTATECTRL_MASK                     0xF70FFFFFUL                                         /**< Mask for CMU_HFXOSTEADYSTATECTRL */
+#define _CMU_HFXOSTEADYSTATECTRL_IBTRIMXOCORE_SHIFT       0                                                    /**< Shift value for CMU_IBTRIMXOCORE */
+#define _CMU_HFXOSTEADYSTATECTRL_IBTRIMXOCORE_MASK        0x7FUL                                               /**< Bit mask for CMU_IBTRIMXOCORE */
+#define _CMU_HFXOSTEADYSTATECTRL_IBTRIMXOCORE_DEFAULT     0x00000007UL                                         /**< Mode DEFAULT for CMU_HFXOSTEADYSTATECTRL */
+#define CMU_HFXOSTEADYSTATECTRL_IBTRIMXOCORE_DEFAULT      (_CMU_HFXOSTEADYSTATECTRL_IBTRIMXOCORE_DEFAULT << 0) /**< Shifted mode DEFAULT for CMU_HFXOSTEADYSTATECTRL */
+#define _CMU_HFXOSTEADYSTATECTRL_REGISH_SHIFT             7                                                    /**< Shift value for CMU_REGISH */
+#define _CMU_HFXOSTEADYSTATECTRL_REGISH_MASK              0x780UL                                              /**< Bit mask for CMU_REGISH */
+#define _CMU_HFXOSTEADYSTATECTRL_REGISH_DEFAULT           0x0000000AUL                                         /**< Mode DEFAULT for CMU_HFXOSTEADYSTATECTRL */
+#define CMU_HFXOSTEADYSTATECTRL_REGISH_DEFAULT            (_CMU_HFXOSTEADYSTATECTRL_REGISH_DEFAULT << 7)       /**< Shifted mode DEFAULT for CMU_HFXOSTEADYSTATECTRL */
+#define _CMU_HFXOSTEADYSTATECTRL_CTUNE_SHIFT              11                                                   /**< Shift value for CMU_CTUNE */
+#define _CMU_HFXOSTEADYSTATECTRL_CTUNE_MASK               0xFF800UL                                            /**< Bit mask for CMU_CTUNE */
+#define _CMU_HFXOSTEADYSTATECTRL_CTUNE_DEFAULT            0x00000168UL                                         /**< Mode DEFAULT for CMU_HFXOSTEADYSTATECTRL */
+#define CMU_HFXOSTEADYSTATECTRL_CTUNE_DEFAULT             (_CMU_HFXOSTEADYSTATECTRL_CTUNE_DEFAULT << 11)       /**< Shifted mode DEFAULT for CMU_HFXOSTEADYSTATECTRL */
+#define _CMU_HFXOSTEADYSTATECTRL_REGSELILOW_SHIFT         24                                                   /**< Shift value for CMU_REGSELILOW */
+#define _CMU_HFXOSTEADYSTATECTRL_REGSELILOW_MASK          0x3000000UL                                          /**< Bit mask for CMU_REGSELILOW */
+#define _CMU_HFXOSTEADYSTATECTRL_REGSELILOW_DEFAULT       0x00000003UL                                         /**< Mode DEFAULT for CMU_HFXOSTEADYSTATECTRL */
+#define CMU_HFXOSTEADYSTATECTRL_REGSELILOW_DEFAULT        (_CMU_HFXOSTEADYSTATECTRL_REGSELILOW_DEFAULT << 24)  /**< Shifted mode DEFAULT for CMU_HFXOSTEADYSTATECTRL */
+#define CMU_HFXOSTEADYSTATECTRL_PEAKDETEN                 (0x1UL << 26)                                        /**< Enables oscillator peak detectors */
+#define _CMU_HFXOSTEADYSTATECTRL_PEAKDETEN_SHIFT          26                                                   /**< Shift value for CMU_PEAKDETEN */
+#define _CMU_HFXOSTEADYSTATECTRL_PEAKDETEN_MASK           0x4000000UL                                          /**< Bit mask for CMU_PEAKDETEN */
+#define _CMU_HFXOSTEADYSTATECTRL_PEAKDETEN_DEFAULT        0x00000000UL                                         /**< Mode DEFAULT for CMU_HFXOSTEADYSTATECTRL */
+#define CMU_HFXOSTEADYSTATECTRL_PEAKDETEN_DEFAULT         (_CMU_HFXOSTEADYSTATECTRL_PEAKDETEN_DEFAULT << 26)   /**< Shifted mode DEFAULT for CMU_HFXOSTEADYSTATECTRL */
+#define _CMU_HFXOSTEADYSTATECTRL_REGISHUPPER_SHIFT        28                                                   /**< Shift value for CMU_REGISHUPPER */
+#define _CMU_HFXOSTEADYSTATECTRL_REGISHUPPER_MASK         0xF0000000UL                                         /**< Bit mask for CMU_REGISHUPPER */
+#define _CMU_HFXOSTEADYSTATECTRL_REGISHUPPER_DEFAULT      0x0000000AUL                                         /**< Mode DEFAULT for CMU_HFXOSTEADYSTATECTRL */
+#define CMU_HFXOSTEADYSTATECTRL_REGISHUPPER_DEFAULT       (_CMU_HFXOSTEADYSTATECTRL_REGISHUPPER_DEFAULT << 28) /**< Shifted mode DEFAULT for CMU_HFXOSTEADYSTATECTRL */
+
+/* Bit fields for CMU HFXOTIMEOUTCTRL */
+#define _CMU_HFXOTIMEOUTCTRL_RESETVALUE                   0x0002A067UL                                           /**< Default value for CMU_HFXOTIMEOUTCTRL */
+#define _CMU_HFXOTIMEOUTCTRL_MASK                         0x000FF0FFUL                                           /**< Mask for CMU_HFXOTIMEOUTCTRL */
+#define _CMU_HFXOTIMEOUTCTRL_STARTUPTIMEOUT_SHIFT         0                                                      /**< Shift value for CMU_STARTUPTIMEOUT */
+#define _CMU_HFXOTIMEOUTCTRL_STARTUPTIMEOUT_MASK          0xFUL                                                  /**< Bit mask for CMU_STARTUPTIMEOUT */
+#define _CMU_HFXOTIMEOUTCTRL_STARTUPTIMEOUT_2CYCLES       0x00000000UL                                           /**< Mode 2CYCLES for CMU_HFXOTIMEOUTCTRL */
+#define _CMU_HFXOTIMEOUTCTRL_STARTUPTIMEOUT_4CYCLES       0x00000001UL                                           /**< Mode 4CYCLES for CMU_HFXOTIMEOUTCTRL */
+#define _CMU_HFXOTIMEOUTCTRL_STARTUPTIMEOUT_16CYCLES      0x00000002UL                                           /**< Mode 16CYCLES for CMU_HFXOTIMEOUTCTRL */
+#define _CMU_HFXOTIMEOUTCTRL_STARTUPTIMEOUT_32CYCLES      0x00000003UL                                           /**< Mode 32CYCLES for CMU_HFXOTIMEOUTCTRL */
+#define _CMU_HFXOTIMEOUTCTRL_STARTUPTIMEOUT_256CYCLES     0x00000004UL                                           /**< Mode 256CYCLES for CMU_HFXOTIMEOUTCTRL */
+#define _CMU_HFXOTIMEOUTCTRL_STARTUPTIMEOUT_1KCYCLES      0x00000005UL                                           /**< Mode 1KCYCLES for CMU_HFXOTIMEOUTCTRL */
+#define _CMU_HFXOTIMEOUTCTRL_STARTUPTIMEOUT_2KCYCLES      0x00000006UL                                           /**< Mode 2KCYCLES for CMU_HFXOTIMEOUTCTRL */
+#define _CMU_HFXOTIMEOUTCTRL_STARTUPTIMEOUT_DEFAULT       0x00000007UL                                           /**< Mode DEFAULT for CMU_HFXOTIMEOUTCTRL */
+#define _CMU_HFXOTIMEOUTCTRL_STARTUPTIMEOUT_4KCYCLES      0x00000007UL                                           /**< Mode 4KCYCLES for CMU_HFXOTIMEOUTCTRL */
+#define _CMU_HFXOTIMEOUTCTRL_STARTUPTIMEOUT_8KCYCLES      0x00000008UL                                           /**< Mode 8KCYCLES for CMU_HFXOTIMEOUTCTRL */
+#define _CMU_HFXOTIMEOUTCTRL_STARTUPTIMEOUT_16KCYCLES     0x00000009UL                                           /**< Mode 16KCYCLES for CMU_HFXOTIMEOUTCTRL */
+#define _CMU_HFXOTIMEOUTCTRL_STARTUPTIMEOUT_32KCYCLES     0x0000000AUL                                           /**< Mode 32KCYCLES for CMU_HFXOTIMEOUTCTRL */
+#define CMU_HFXOTIMEOUTCTRL_STARTUPTIMEOUT_2CYCLES        (_CMU_HFXOTIMEOUTCTRL_STARTUPTIMEOUT_2CYCLES << 0)     /**< Shifted mode 2CYCLES for CMU_HFXOTIMEOUTCTRL */
+#define CMU_HFXOTIMEOUTCTRL_STARTUPTIMEOUT_4CYCLES        (_CMU_HFXOTIMEOUTCTRL_STARTUPTIMEOUT_4CYCLES << 0)     /**< Shifted mode 4CYCLES for CMU_HFXOTIMEOUTCTRL */
+#define CMU_HFXOTIMEOUTCTRL_STARTUPTIMEOUT_16CYCLES       (_CMU_HFXOTIMEOUTCTRL_STARTUPTIMEOUT_16CYCLES << 0)    /**< Shifted mode 16CYCLES for CMU_HFXOTIMEOUTCTRL */
+#define CMU_HFXOTIMEOUTCTRL_STARTUPTIMEOUT_32CYCLES       (_CMU_HFXOTIMEOUTCTRL_STARTUPTIMEOUT_32CYCLES << 0)    /**< Shifted mode 32CYCLES for CMU_HFXOTIMEOUTCTRL */
+#define CMU_HFXOTIMEOUTCTRL_STARTUPTIMEOUT_256CYCLES      (_CMU_HFXOTIMEOUTCTRL_STARTUPTIMEOUT_256CYCLES << 0)   /**< Shifted mode 256CYCLES for CMU_HFXOTIMEOUTCTRL */
+#define CMU_HFXOTIMEOUTCTRL_STARTUPTIMEOUT_1KCYCLES       (_CMU_HFXOTIMEOUTCTRL_STARTUPTIMEOUT_1KCYCLES << 0)    /**< Shifted mode 1KCYCLES for CMU_HFXOTIMEOUTCTRL */
+#define CMU_HFXOTIMEOUTCTRL_STARTUPTIMEOUT_2KCYCLES       (_CMU_HFXOTIMEOUTCTRL_STARTUPTIMEOUT_2KCYCLES << 0)    /**< Shifted mode 2KCYCLES for CMU_HFXOTIMEOUTCTRL */
+#define CMU_HFXOTIMEOUTCTRL_STARTUPTIMEOUT_DEFAULT        (_CMU_HFXOTIMEOUTCTRL_STARTUPTIMEOUT_DEFAULT << 0)     /**< Shifted mode DEFAULT for CMU_HFXOTIMEOUTCTRL */
+#define CMU_HFXOTIMEOUTCTRL_STARTUPTIMEOUT_4KCYCLES       (_CMU_HFXOTIMEOUTCTRL_STARTUPTIMEOUT_4KCYCLES << 0)    /**< Shifted mode 4KCYCLES for CMU_HFXOTIMEOUTCTRL */
+#define CMU_HFXOTIMEOUTCTRL_STARTUPTIMEOUT_8KCYCLES       (_CMU_HFXOTIMEOUTCTRL_STARTUPTIMEOUT_8KCYCLES << 0)    /**< Shifted mode 8KCYCLES for CMU_HFXOTIMEOUTCTRL */
+#define CMU_HFXOTIMEOUTCTRL_STARTUPTIMEOUT_16KCYCLES      (_CMU_HFXOTIMEOUTCTRL_STARTUPTIMEOUT_16KCYCLES << 0)   /**< Shifted mode 16KCYCLES for CMU_HFXOTIMEOUTCTRL */
+#define CMU_HFXOTIMEOUTCTRL_STARTUPTIMEOUT_32KCYCLES      (_CMU_HFXOTIMEOUTCTRL_STARTUPTIMEOUT_32KCYCLES << 0)   /**< Shifted mode 32KCYCLES for CMU_HFXOTIMEOUTCTRL */
+#define _CMU_HFXOTIMEOUTCTRL_STEADYTIMEOUT_SHIFT          4                                                      /**< Shift value for CMU_STEADYTIMEOUT */
+#define _CMU_HFXOTIMEOUTCTRL_STEADYTIMEOUT_MASK           0xF0UL                                                 /**< Bit mask for CMU_STEADYTIMEOUT */
+#define _CMU_HFXOTIMEOUTCTRL_STEADYTIMEOUT_2CYCLES        0x00000000UL                                           /**< Mode 2CYCLES for CMU_HFXOTIMEOUTCTRL */
+#define _CMU_HFXOTIMEOUTCTRL_STEADYTIMEOUT_4CYCLES        0x00000001UL                                           /**< Mode 4CYCLES for CMU_HFXOTIMEOUTCTRL */
+#define _CMU_HFXOTIMEOUTCTRL_STEADYTIMEOUT_16CYCLES       0x00000002UL                                           /**< Mode 16CYCLES for CMU_HFXOTIMEOUTCTRL */
+#define _CMU_HFXOTIMEOUTCTRL_STEADYTIMEOUT_32CYCLES       0x00000003UL                                           /**< Mode 32CYCLES for CMU_HFXOTIMEOUTCTRL */
+#define _CMU_HFXOTIMEOUTCTRL_STEADYTIMEOUT_256CYCLES      0x00000004UL                                           /**< Mode 256CYCLES for CMU_HFXOTIMEOUTCTRL */
+#define _CMU_HFXOTIMEOUTCTRL_STEADYTIMEOUT_1KCYCLES       0x00000005UL                                           /**< Mode 1KCYCLES for CMU_HFXOTIMEOUTCTRL */
+#define _CMU_HFXOTIMEOUTCTRL_STEADYTIMEOUT_DEFAULT        0x00000006UL                                           /**< Mode DEFAULT for CMU_HFXOTIMEOUTCTRL */
+#define _CMU_HFXOTIMEOUTCTRL_STEADYTIMEOUT_2KCYCLES       0x00000006UL                                           /**< Mode 2KCYCLES for CMU_HFXOTIMEOUTCTRL */
+#define _CMU_HFXOTIMEOUTCTRL_STEADYTIMEOUT_4KCYCLES       0x00000007UL                                           /**< Mode 4KCYCLES for CMU_HFXOTIMEOUTCTRL */
+#define _CMU_HFXOTIMEOUTCTRL_STEADYTIMEOUT_8KCYCLES       0x00000008UL                                           /**< Mode 8KCYCLES for CMU_HFXOTIMEOUTCTRL */
+#define _CMU_HFXOTIMEOUTCTRL_STEADYTIMEOUT_16KCYCLES      0x00000009UL                                           /**< Mode 16KCYCLES for CMU_HFXOTIMEOUTCTRL */
+#define _CMU_HFXOTIMEOUTCTRL_STEADYTIMEOUT_32KCYCLES      0x0000000AUL                                           /**< Mode 32KCYCLES for CMU_HFXOTIMEOUTCTRL */
+#define CMU_HFXOTIMEOUTCTRL_STEADYTIMEOUT_2CYCLES         (_CMU_HFXOTIMEOUTCTRL_STEADYTIMEOUT_2CYCLES << 4)      /**< Shifted mode 2CYCLES for CMU_HFXOTIMEOUTCTRL */
+#define CMU_HFXOTIMEOUTCTRL_STEADYTIMEOUT_4CYCLES         (_CMU_HFXOTIMEOUTCTRL_STEADYTIMEOUT_4CYCLES << 4)      /**< Shifted mode 4CYCLES for CMU_HFXOTIMEOUTCTRL */
+#define CMU_HFXOTIMEOUTCTRL_STEADYTIMEOUT_16CYCLES        (_CMU_HFXOTIMEOUTCTRL_STEADYTIMEOUT_16CYCLES << 4)     /**< Shifted mode 16CYCLES for CMU_HFXOTIMEOUTCTRL */
+#define CMU_HFXOTIMEOUTCTRL_STEADYTIMEOUT_32CYCLES        (_CMU_HFXOTIMEOUTCTRL_STEADYTIMEOUT_32CYCLES << 4)     /**< Shifted mode 32CYCLES for CMU_HFXOTIMEOUTCTRL */
+#define CMU_HFXOTIMEOUTCTRL_STEADYTIMEOUT_256CYCLES       (_CMU_HFXOTIMEOUTCTRL_STEADYTIMEOUT_256CYCLES << 4)    /**< Shifted mode 256CYCLES for CMU_HFXOTIMEOUTCTRL */
+#define CMU_HFXOTIMEOUTCTRL_STEADYTIMEOUT_1KCYCLES        (_CMU_HFXOTIMEOUTCTRL_STEADYTIMEOUT_1KCYCLES << 4)     /**< Shifted mode 1KCYCLES for CMU_HFXOTIMEOUTCTRL */
+#define CMU_HFXOTIMEOUTCTRL_STEADYTIMEOUT_DEFAULT         (_CMU_HFXOTIMEOUTCTRL_STEADYTIMEOUT_DEFAULT << 4)      /**< Shifted mode DEFAULT for CMU_HFXOTIMEOUTCTRL */
+#define CMU_HFXOTIMEOUTCTRL_STEADYTIMEOUT_2KCYCLES        (_CMU_HFXOTIMEOUTCTRL_STEADYTIMEOUT_2KCYCLES << 4)     /**< Shifted mode 2KCYCLES for CMU_HFXOTIMEOUTCTRL */
+#define CMU_HFXOTIMEOUTCTRL_STEADYTIMEOUT_4KCYCLES        (_CMU_HFXOTIMEOUTCTRL_STEADYTIMEOUT_4KCYCLES << 4)     /**< Shifted mode 4KCYCLES for CMU_HFXOTIMEOUTCTRL */
+#define CMU_HFXOTIMEOUTCTRL_STEADYTIMEOUT_8KCYCLES        (_CMU_HFXOTIMEOUTCTRL_STEADYTIMEOUT_8KCYCLES << 4)     /**< Shifted mode 8KCYCLES for CMU_HFXOTIMEOUTCTRL */
+#define CMU_HFXOTIMEOUTCTRL_STEADYTIMEOUT_16KCYCLES       (_CMU_HFXOTIMEOUTCTRL_STEADYTIMEOUT_16KCYCLES << 4)    /**< Shifted mode 16KCYCLES for CMU_HFXOTIMEOUTCTRL */
+#define CMU_HFXOTIMEOUTCTRL_STEADYTIMEOUT_32KCYCLES       (_CMU_HFXOTIMEOUTCTRL_STEADYTIMEOUT_32KCYCLES << 4)    /**< Shifted mode 32KCYCLES for CMU_HFXOTIMEOUTCTRL */
+#define _CMU_HFXOTIMEOUTCTRL_PEAKDETTIMEOUT_SHIFT         12                                                     /**< Shift value for CMU_PEAKDETTIMEOUT */
+#define _CMU_HFXOTIMEOUTCTRL_PEAKDETTIMEOUT_MASK          0xF000UL                                               /**< Bit mask for CMU_PEAKDETTIMEOUT */
+#define _CMU_HFXOTIMEOUTCTRL_PEAKDETTIMEOUT_2CYCLES       0x00000000UL                                           /**< Mode 2CYCLES for CMU_HFXOTIMEOUTCTRL */
+#define _CMU_HFXOTIMEOUTCTRL_PEAKDETTIMEOUT_4CYCLES       0x00000001UL                                           /**< Mode 4CYCLES for CMU_HFXOTIMEOUTCTRL */
+#define _CMU_HFXOTIMEOUTCTRL_PEAKDETTIMEOUT_16CYCLES      0x00000002UL                                           /**< Mode 16CYCLES for CMU_HFXOTIMEOUTCTRL */
+#define _CMU_HFXOTIMEOUTCTRL_PEAKDETTIMEOUT_32CYCLES      0x00000003UL                                           /**< Mode 32CYCLES for CMU_HFXOTIMEOUTCTRL */
+#define _CMU_HFXOTIMEOUTCTRL_PEAKDETTIMEOUT_256CYCLES     0x00000004UL                                           /**< Mode 256CYCLES for CMU_HFXOTIMEOUTCTRL */
+#define _CMU_HFXOTIMEOUTCTRL_PEAKDETTIMEOUT_1KCYCLES      0x00000005UL                                           /**< Mode 1KCYCLES for CMU_HFXOTIMEOUTCTRL */
+#define _CMU_HFXOTIMEOUTCTRL_PEAKDETTIMEOUT_2KCYCLES      0x00000006UL                                           /**< Mode 2KCYCLES for CMU_HFXOTIMEOUTCTRL */
+#define _CMU_HFXOTIMEOUTCTRL_PEAKDETTIMEOUT_4KCYCLES      0x00000007UL                                           /**< Mode 4KCYCLES for CMU_HFXOTIMEOUTCTRL */
+#define _CMU_HFXOTIMEOUTCTRL_PEAKDETTIMEOUT_8KCYCLES      0x00000008UL                                           /**< Mode 8KCYCLES for CMU_HFXOTIMEOUTCTRL */
+#define _CMU_HFXOTIMEOUTCTRL_PEAKDETTIMEOUT_16KCYCLES     0x00000009UL                                           /**< Mode 16KCYCLES for CMU_HFXOTIMEOUTCTRL */
+#define _CMU_HFXOTIMEOUTCTRL_PEAKDETTIMEOUT_DEFAULT       0x0000000AUL                                           /**< Mode DEFAULT for CMU_HFXOTIMEOUTCTRL */
+#define _CMU_HFXOTIMEOUTCTRL_PEAKDETTIMEOUT_32KCYCLES     0x0000000AUL                                           /**< Mode 32KCYCLES for CMU_HFXOTIMEOUTCTRL */
+#define CMU_HFXOTIMEOUTCTRL_PEAKDETTIMEOUT_2CYCLES        (_CMU_HFXOTIMEOUTCTRL_PEAKDETTIMEOUT_2CYCLES << 12)    /**< Shifted mode 2CYCLES for CMU_HFXOTIMEOUTCTRL */
+#define CMU_HFXOTIMEOUTCTRL_PEAKDETTIMEOUT_4CYCLES        (_CMU_HFXOTIMEOUTCTRL_PEAKDETTIMEOUT_4CYCLES << 12)    /**< Shifted mode 4CYCLES for CMU_HFXOTIMEOUTCTRL */
+#define CMU_HFXOTIMEOUTCTRL_PEAKDETTIMEOUT_16CYCLES       (_CMU_HFXOTIMEOUTCTRL_PEAKDETTIMEOUT_16CYCLES << 12)   /**< Shifted mode 16CYCLES for CMU_HFXOTIMEOUTCTRL */
+#define CMU_HFXOTIMEOUTCTRL_PEAKDETTIMEOUT_32CYCLES       (_CMU_HFXOTIMEOUTCTRL_PEAKDETTIMEOUT_32CYCLES << 12)   /**< Shifted mode 32CYCLES for CMU_HFXOTIMEOUTCTRL */
+#define CMU_HFXOTIMEOUTCTRL_PEAKDETTIMEOUT_256CYCLES      (_CMU_HFXOTIMEOUTCTRL_PEAKDETTIMEOUT_256CYCLES << 12)  /**< Shifted mode 256CYCLES for CMU_HFXOTIMEOUTCTRL */
+#define CMU_HFXOTIMEOUTCTRL_PEAKDETTIMEOUT_1KCYCLES       (_CMU_HFXOTIMEOUTCTRL_PEAKDETTIMEOUT_1KCYCLES << 12)   /**< Shifted mode 1KCYCLES for CMU_HFXOTIMEOUTCTRL */
+#define CMU_HFXOTIMEOUTCTRL_PEAKDETTIMEOUT_2KCYCLES       (_CMU_HFXOTIMEOUTCTRL_PEAKDETTIMEOUT_2KCYCLES << 12)   /**< Shifted mode 2KCYCLES for CMU_HFXOTIMEOUTCTRL */
+#define CMU_HFXOTIMEOUTCTRL_PEAKDETTIMEOUT_4KCYCLES       (_CMU_HFXOTIMEOUTCTRL_PEAKDETTIMEOUT_4KCYCLES << 12)   /**< Shifted mode 4KCYCLES for CMU_HFXOTIMEOUTCTRL */
+#define CMU_HFXOTIMEOUTCTRL_PEAKDETTIMEOUT_8KCYCLES       (_CMU_HFXOTIMEOUTCTRL_PEAKDETTIMEOUT_8KCYCLES << 12)   /**< Shifted mode 8KCYCLES for CMU_HFXOTIMEOUTCTRL */
+#define CMU_HFXOTIMEOUTCTRL_PEAKDETTIMEOUT_16KCYCLES      (_CMU_HFXOTIMEOUTCTRL_PEAKDETTIMEOUT_16KCYCLES << 12)  /**< Shifted mode 16KCYCLES for CMU_HFXOTIMEOUTCTRL */
+#define CMU_HFXOTIMEOUTCTRL_PEAKDETTIMEOUT_DEFAULT        (_CMU_HFXOTIMEOUTCTRL_PEAKDETTIMEOUT_DEFAULT << 12)    /**< Shifted mode DEFAULT for CMU_HFXOTIMEOUTCTRL */
+#define CMU_HFXOTIMEOUTCTRL_PEAKDETTIMEOUT_32KCYCLES      (_CMU_HFXOTIMEOUTCTRL_PEAKDETTIMEOUT_32KCYCLES << 12)  /**< Shifted mode 32KCYCLES for CMU_HFXOTIMEOUTCTRL */
+#define _CMU_HFXOTIMEOUTCTRL_SHUNTOPTTIMEOUT_SHIFT        16                                                     /**< Shift value for CMU_SHUNTOPTTIMEOUT */
+#define _CMU_HFXOTIMEOUTCTRL_SHUNTOPTTIMEOUT_MASK         0xF0000UL                                              /**< Bit mask for CMU_SHUNTOPTTIMEOUT */
+#define _CMU_HFXOTIMEOUTCTRL_SHUNTOPTTIMEOUT_2CYCLES      0x00000000UL                                           /**< Mode 2CYCLES for CMU_HFXOTIMEOUTCTRL */
+#define _CMU_HFXOTIMEOUTCTRL_SHUNTOPTTIMEOUT_4CYCLES      0x00000001UL                                           /**< Mode 4CYCLES for CMU_HFXOTIMEOUTCTRL */
+#define _CMU_HFXOTIMEOUTCTRL_SHUNTOPTTIMEOUT_DEFAULT      0x00000002UL                                           /**< Mode DEFAULT for CMU_HFXOTIMEOUTCTRL */
+#define _CMU_HFXOTIMEOUTCTRL_SHUNTOPTTIMEOUT_16CYCLES     0x00000002UL                                           /**< Mode 16CYCLES for CMU_HFXOTIMEOUTCTRL */
+#define _CMU_HFXOTIMEOUTCTRL_SHUNTOPTTIMEOUT_32CYCLES     0x00000003UL                                           /**< Mode 32CYCLES for CMU_HFXOTIMEOUTCTRL */
+#define _CMU_HFXOTIMEOUTCTRL_SHUNTOPTTIMEOUT_256CYCLES    0x00000004UL                                           /**< Mode 256CYCLES for CMU_HFXOTIMEOUTCTRL */
+#define _CMU_HFXOTIMEOUTCTRL_SHUNTOPTTIMEOUT_1KCYCLES     0x00000005UL                                           /**< Mode 1KCYCLES for CMU_HFXOTIMEOUTCTRL */
+#define _CMU_HFXOTIMEOUTCTRL_SHUNTOPTTIMEOUT_2KCYCLES     0x00000006UL                                           /**< Mode 2KCYCLES for CMU_HFXOTIMEOUTCTRL */
+#define _CMU_HFXOTIMEOUTCTRL_SHUNTOPTTIMEOUT_4KCYCLES     0x00000007UL                                           /**< Mode 4KCYCLES for CMU_HFXOTIMEOUTCTRL */
+#define _CMU_HFXOTIMEOUTCTRL_SHUNTOPTTIMEOUT_8KCYCLES     0x00000008UL                                           /**< Mode 8KCYCLES for CMU_HFXOTIMEOUTCTRL */
+#define _CMU_HFXOTIMEOUTCTRL_SHUNTOPTTIMEOUT_16KCYCLES    0x00000009UL                                           /**< Mode 16KCYCLES for CMU_HFXOTIMEOUTCTRL */
+#define _CMU_HFXOTIMEOUTCTRL_SHUNTOPTTIMEOUT_32KCYCLES    0x0000000AUL                                           /**< Mode 32KCYCLES for CMU_HFXOTIMEOUTCTRL */
+#define CMU_HFXOTIMEOUTCTRL_SHUNTOPTTIMEOUT_2CYCLES       (_CMU_HFXOTIMEOUTCTRL_SHUNTOPTTIMEOUT_2CYCLES << 16)   /**< Shifted mode 2CYCLES for CMU_HFXOTIMEOUTCTRL */
+#define CMU_HFXOTIMEOUTCTRL_SHUNTOPTTIMEOUT_4CYCLES       (_CMU_HFXOTIMEOUTCTRL_SHUNTOPTTIMEOUT_4CYCLES << 16)   /**< Shifted mode 4CYCLES for CMU_HFXOTIMEOUTCTRL */
+#define CMU_HFXOTIMEOUTCTRL_SHUNTOPTTIMEOUT_DEFAULT       (_CMU_HFXOTIMEOUTCTRL_SHUNTOPTTIMEOUT_DEFAULT << 16)   /**< Shifted mode DEFAULT for CMU_HFXOTIMEOUTCTRL */
+#define CMU_HFXOTIMEOUTCTRL_SHUNTOPTTIMEOUT_16CYCLES      (_CMU_HFXOTIMEOUTCTRL_SHUNTOPTTIMEOUT_16CYCLES << 16)  /**< Shifted mode 16CYCLES for CMU_HFXOTIMEOUTCTRL */
+#define CMU_HFXOTIMEOUTCTRL_SHUNTOPTTIMEOUT_32CYCLES      (_CMU_HFXOTIMEOUTCTRL_SHUNTOPTTIMEOUT_32CYCLES << 16)  /**< Shifted mode 32CYCLES for CMU_HFXOTIMEOUTCTRL */
+#define CMU_HFXOTIMEOUTCTRL_SHUNTOPTTIMEOUT_256CYCLES     (_CMU_HFXOTIMEOUTCTRL_SHUNTOPTTIMEOUT_256CYCLES << 16) /**< Shifted mode 256CYCLES for CMU_HFXOTIMEOUTCTRL */
+#define CMU_HFXOTIMEOUTCTRL_SHUNTOPTTIMEOUT_1KCYCLES      (_CMU_HFXOTIMEOUTCTRL_SHUNTOPTTIMEOUT_1KCYCLES << 16)  /**< Shifted mode 1KCYCLES for CMU_HFXOTIMEOUTCTRL */
+#define CMU_HFXOTIMEOUTCTRL_SHUNTOPTTIMEOUT_2KCYCLES      (_CMU_HFXOTIMEOUTCTRL_SHUNTOPTTIMEOUT_2KCYCLES << 16)  /**< Shifted mode 2KCYCLES for CMU_HFXOTIMEOUTCTRL */
+#define CMU_HFXOTIMEOUTCTRL_SHUNTOPTTIMEOUT_4KCYCLES      (_CMU_HFXOTIMEOUTCTRL_SHUNTOPTTIMEOUT_4KCYCLES << 16)  /**< Shifted mode 4KCYCLES for CMU_HFXOTIMEOUTCTRL */
+#define CMU_HFXOTIMEOUTCTRL_SHUNTOPTTIMEOUT_8KCYCLES      (_CMU_HFXOTIMEOUTCTRL_SHUNTOPTTIMEOUT_8KCYCLES << 16)  /**< Shifted mode 8KCYCLES for CMU_HFXOTIMEOUTCTRL */
+#define CMU_HFXOTIMEOUTCTRL_SHUNTOPTTIMEOUT_16KCYCLES     (_CMU_HFXOTIMEOUTCTRL_SHUNTOPTTIMEOUT_16KCYCLES << 16) /**< Shifted mode 16KCYCLES for CMU_HFXOTIMEOUTCTRL */
+#define CMU_HFXOTIMEOUTCTRL_SHUNTOPTTIMEOUT_32KCYCLES     (_CMU_HFXOTIMEOUTCTRL_SHUNTOPTTIMEOUT_32KCYCLES << 16) /**< Shifted mode 32KCYCLES for CMU_HFXOTIMEOUTCTRL */
+
+/* Bit fields for CMU LFXOCTRL */
+#define _CMU_LFXOCTRL_RESETVALUE                          0x07009000UL                            /**< Default value for CMU_LFXOCTRL */
+#define _CMU_LFXOCTRL_MASK                                0x0713DB7FUL                            /**< Mask for CMU_LFXOCTRL */
+#define _CMU_LFXOCTRL_TUNING_SHIFT                        0                                       /**< Shift value for CMU_TUNING */
+#define _CMU_LFXOCTRL_TUNING_MASK                         0x7FUL                                  /**< Bit mask for CMU_TUNING */
+#define _CMU_LFXOCTRL_TUNING_DEFAULT                      0x00000000UL                            /**< Mode DEFAULT for CMU_LFXOCTRL */
+#define CMU_LFXOCTRL_TUNING_DEFAULT                       (_CMU_LFXOCTRL_TUNING_DEFAULT << 0)     /**< Shifted mode DEFAULT for CMU_LFXOCTRL */
+#define _CMU_LFXOCTRL_MODE_SHIFT                          8                                       /**< Shift value for CMU_MODE */
+#define _CMU_LFXOCTRL_MODE_MASK                           0x300UL                                 /**< Bit mask for CMU_MODE */
+#define _CMU_LFXOCTRL_MODE_DEFAULT                        0x00000000UL                            /**< Mode DEFAULT for CMU_LFXOCTRL */
+#define _CMU_LFXOCTRL_MODE_XTAL                           0x00000000UL                            /**< Mode XTAL for CMU_LFXOCTRL */
+#define _CMU_LFXOCTRL_MODE_BUFEXTCLK                      0x00000001UL                            /**< Mode BUFEXTCLK for CMU_LFXOCTRL */
+#define _CMU_LFXOCTRL_MODE_DIGEXTCLK                      0x00000002UL                            /**< Mode DIGEXTCLK for CMU_LFXOCTRL */
+#define CMU_LFXOCTRL_MODE_DEFAULT                         (_CMU_LFXOCTRL_MODE_DEFAULT << 8)       /**< Shifted mode DEFAULT for CMU_LFXOCTRL */
+#define CMU_LFXOCTRL_MODE_XTAL                            (_CMU_LFXOCTRL_MODE_XTAL << 8)          /**< Shifted mode XTAL for CMU_LFXOCTRL */
+#define CMU_LFXOCTRL_MODE_BUFEXTCLK                       (_CMU_LFXOCTRL_MODE_BUFEXTCLK << 8)     /**< Shifted mode BUFEXTCLK for CMU_LFXOCTRL */
+#define CMU_LFXOCTRL_MODE_DIGEXTCLK                       (_CMU_LFXOCTRL_MODE_DIGEXTCLK << 8)     /**< Shifted mode DIGEXTCLK for CMU_LFXOCTRL */
+#define _CMU_LFXOCTRL_GAIN_SHIFT                          11                                      /**< Shift value for CMU_GAIN */
+#define _CMU_LFXOCTRL_GAIN_MASK                           0x1800UL                                /**< Bit mask for CMU_GAIN */
+#define _CMU_LFXOCTRL_GAIN_DEFAULT                        0x00000002UL                            /**< Mode DEFAULT for CMU_LFXOCTRL */
+#define CMU_LFXOCTRL_GAIN_DEFAULT                         (_CMU_LFXOCTRL_GAIN_DEFAULT << 11)      /**< Shifted mode DEFAULT for CMU_LFXOCTRL */
+#define CMU_LFXOCTRL_HIGHAMPL                             (0x1UL << 14)                           /**< LFXO High XTAL Oscillation Amplitude Enable */
+#define _CMU_LFXOCTRL_HIGHAMPL_SHIFT                      14                                      /**< Shift value for CMU_HIGHAMPL */
+#define _CMU_LFXOCTRL_HIGHAMPL_MASK                       0x4000UL                                /**< Bit mask for CMU_HIGHAMPL */
+#define _CMU_LFXOCTRL_HIGHAMPL_DEFAULT                    0x00000000UL                            /**< Mode DEFAULT for CMU_LFXOCTRL */
+#define CMU_LFXOCTRL_HIGHAMPL_DEFAULT                     (_CMU_LFXOCTRL_HIGHAMPL_DEFAULT << 14)  /**< Shifted mode DEFAULT for CMU_LFXOCTRL */
+#define CMU_LFXOCTRL_AGC                                  (0x1UL << 15)                           /**< LFXO AGC Enable */
+#define _CMU_LFXOCTRL_AGC_SHIFT                           15                                      /**< Shift value for CMU_AGC */
+#define _CMU_LFXOCTRL_AGC_MASK                            0x8000UL                                /**< Bit mask for CMU_AGC */
+#define _CMU_LFXOCTRL_AGC_DEFAULT                         0x00000001UL                            /**< Mode DEFAULT for CMU_LFXOCTRL */
+#define CMU_LFXOCTRL_AGC_DEFAULT                          (_CMU_LFXOCTRL_AGC_DEFAULT << 15)       /**< Shifted mode DEFAULT for CMU_LFXOCTRL */
+#define _CMU_LFXOCTRL_CUR_SHIFT                           16                                      /**< Shift value for CMU_CUR */
+#define _CMU_LFXOCTRL_CUR_MASK                            0x30000UL                               /**< Bit mask for CMU_CUR */
+#define _CMU_LFXOCTRL_CUR_DEFAULT                         0x00000000UL                            /**< Mode DEFAULT for CMU_LFXOCTRL */
+#define CMU_LFXOCTRL_CUR_DEFAULT                          (_CMU_LFXOCTRL_CUR_DEFAULT << 16)       /**< Shifted mode DEFAULT for CMU_LFXOCTRL */
+#define CMU_LFXOCTRL_BUFCUR                               (0x1UL << 20)                           /**< LFXO Buffer Bias Current */
+#define _CMU_LFXOCTRL_BUFCUR_SHIFT                        20                                      /**< Shift value for CMU_BUFCUR */
+#define _CMU_LFXOCTRL_BUFCUR_MASK                         0x100000UL                              /**< Bit mask for CMU_BUFCUR */
+#define _CMU_LFXOCTRL_BUFCUR_DEFAULT                      0x00000000UL                            /**< Mode DEFAULT for CMU_LFXOCTRL */
+#define CMU_LFXOCTRL_BUFCUR_DEFAULT                       (_CMU_LFXOCTRL_BUFCUR_DEFAULT << 20)    /**< Shifted mode DEFAULT for CMU_LFXOCTRL */
+#define _CMU_LFXOCTRL_TIMEOUT_SHIFT                       24                                      /**< Shift value for CMU_TIMEOUT */
+#define _CMU_LFXOCTRL_TIMEOUT_MASK                        0x7000000UL                             /**< Bit mask for CMU_TIMEOUT */
+#define _CMU_LFXOCTRL_TIMEOUT_2CYCLES                     0x00000000UL                            /**< Mode 2CYCLES for CMU_LFXOCTRL */
+#define _CMU_LFXOCTRL_TIMEOUT_256CYCLES                   0x00000001UL                            /**< Mode 256CYCLES for CMU_LFXOCTRL */
+#define _CMU_LFXOCTRL_TIMEOUT_1KCYCLES                    0x00000002UL                            /**< Mode 1KCYCLES for CMU_LFXOCTRL */
+#define _CMU_LFXOCTRL_TIMEOUT_2KCYCLES                    0x00000003UL                            /**< Mode 2KCYCLES for CMU_LFXOCTRL */
+#define _CMU_LFXOCTRL_TIMEOUT_4KCYCLES                    0x00000004UL                            /**< Mode 4KCYCLES for CMU_LFXOCTRL */
+#define _CMU_LFXOCTRL_TIMEOUT_8KCYCLES                    0x00000005UL                            /**< Mode 8KCYCLES for CMU_LFXOCTRL */
+#define _CMU_LFXOCTRL_TIMEOUT_16KCYCLES                   0x00000006UL                            /**< Mode 16KCYCLES for CMU_LFXOCTRL */
+#define _CMU_LFXOCTRL_TIMEOUT_DEFAULT                     0x00000007UL                            /**< Mode DEFAULT for CMU_LFXOCTRL */
+#define _CMU_LFXOCTRL_TIMEOUT_32KCYCLES                   0x00000007UL                            /**< Mode 32KCYCLES for CMU_LFXOCTRL */
+#define CMU_LFXOCTRL_TIMEOUT_2CYCLES                      (_CMU_LFXOCTRL_TIMEOUT_2CYCLES << 24)   /**< Shifted mode 2CYCLES for CMU_LFXOCTRL */
+#define CMU_LFXOCTRL_TIMEOUT_256CYCLES                    (_CMU_LFXOCTRL_TIMEOUT_256CYCLES << 24) /**< Shifted mode 256CYCLES for CMU_LFXOCTRL */
+#define CMU_LFXOCTRL_TIMEOUT_1KCYCLES                     (_CMU_LFXOCTRL_TIMEOUT_1KCYCLES << 24)  /**< Shifted mode 1KCYCLES for CMU_LFXOCTRL */
+#define CMU_LFXOCTRL_TIMEOUT_2KCYCLES                     (_CMU_LFXOCTRL_TIMEOUT_2KCYCLES << 24)  /**< Shifted mode 2KCYCLES for CMU_LFXOCTRL */
+#define CMU_LFXOCTRL_TIMEOUT_4KCYCLES                     (_CMU_LFXOCTRL_TIMEOUT_4KCYCLES << 24)  /**< Shifted mode 4KCYCLES for CMU_LFXOCTRL */
+#define CMU_LFXOCTRL_TIMEOUT_8KCYCLES                     (_CMU_LFXOCTRL_TIMEOUT_8KCYCLES << 24)  /**< Shifted mode 8KCYCLES for CMU_LFXOCTRL */
+#define CMU_LFXOCTRL_TIMEOUT_16KCYCLES                    (_CMU_LFXOCTRL_TIMEOUT_16KCYCLES << 24) /**< Shifted mode 16KCYCLES for CMU_LFXOCTRL */
+#define CMU_LFXOCTRL_TIMEOUT_DEFAULT                      (_CMU_LFXOCTRL_TIMEOUT_DEFAULT << 24)   /**< Shifted mode DEFAULT for CMU_LFXOCTRL */
+#define CMU_LFXOCTRL_TIMEOUT_32KCYCLES                    (_CMU_LFXOCTRL_TIMEOUT_32KCYCLES << 24) /**< Shifted mode 32KCYCLES for CMU_LFXOCTRL */
+
+/* Bit fields for CMU DPLLCTRL */
+#define _CMU_DPLLCTRL_RESETVALUE                          0x00000000UL                             /**< Default value for CMU_DPLLCTRL */
+#define _CMU_DPLLCTRL_MASK                                0x0000001FUL                             /**< Mask for CMU_DPLLCTRL */
+#define CMU_DPLLCTRL_MODE                                 (0x1UL << 0)                             /**< Operating Mode Control */
+#define _CMU_DPLLCTRL_MODE_SHIFT                          0                                        /**< Shift value for CMU_MODE */
+#define _CMU_DPLLCTRL_MODE_MASK                           0x1UL                                    /**< Bit mask for CMU_MODE */
+#define _CMU_DPLLCTRL_MODE_DEFAULT                        0x00000000UL                             /**< Mode DEFAULT for CMU_DPLLCTRL */
+#define _CMU_DPLLCTRL_MODE_FREQLL                         0x00000000UL                             /**< Mode FREQLL for CMU_DPLLCTRL */
+#define _CMU_DPLLCTRL_MODE_PHASELL                        0x00000001UL                             /**< Mode PHASELL for CMU_DPLLCTRL */
+#define CMU_DPLLCTRL_MODE_DEFAULT                         (_CMU_DPLLCTRL_MODE_DEFAULT << 0)        /**< Shifted mode DEFAULT for CMU_DPLLCTRL */
+#define CMU_DPLLCTRL_MODE_FREQLL                          (_CMU_DPLLCTRL_MODE_FREQLL << 0)         /**< Shifted mode FREQLL for CMU_DPLLCTRL */
+#define CMU_DPLLCTRL_MODE_PHASELL                         (_CMU_DPLLCTRL_MODE_PHASELL << 0)        /**< Shifted mode PHASELL for CMU_DPLLCTRL */
+#define CMU_DPLLCTRL_EDGESEL                              (0x1UL << 1)                             /**< Reference Edge Select */
+#define _CMU_DPLLCTRL_EDGESEL_SHIFT                       1                                        /**< Shift value for CMU_EDGESEL */
+#define _CMU_DPLLCTRL_EDGESEL_MASK                        0x2UL                                    /**< Bit mask for CMU_EDGESEL */
+#define _CMU_DPLLCTRL_EDGESEL_DEFAULT                     0x00000000UL                             /**< Mode DEFAULT for CMU_DPLLCTRL */
+#define _CMU_DPLLCTRL_EDGESEL_FALL                        0x00000000UL                             /**< Mode FALL for CMU_DPLLCTRL */
+#define _CMU_DPLLCTRL_EDGESEL_RISE                        0x00000001UL                             /**< Mode RISE for CMU_DPLLCTRL */
+#define CMU_DPLLCTRL_EDGESEL_DEFAULT                      (_CMU_DPLLCTRL_EDGESEL_DEFAULT << 1)     /**< Shifted mode DEFAULT for CMU_DPLLCTRL */
+#define CMU_DPLLCTRL_EDGESEL_FALL                         (_CMU_DPLLCTRL_EDGESEL_FALL << 1)        /**< Shifted mode FALL for CMU_DPLLCTRL */
+#define CMU_DPLLCTRL_EDGESEL_RISE                         (_CMU_DPLLCTRL_EDGESEL_RISE << 1)        /**< Shifted mode RISE for CMU_DPLLCTRL */
+#define CMU_DPLLCTRL_AUTORECOVER                          (0x1UL << 2)                             /**< automatic recovery ctrl */
+#define _CMU_DPLLCTRL_AUTORECOVER_SHIFT                   2                                        /**< Shift value for CMU_AUTORECOVER */
+#define _CMU_DPLLCTRL_AUTORECOVER_MASK                    0x4UL                                    /**< Bit mask for CMU_AUTORECOVER */
+#define _CMU_DPLLCTRL_AUTORECOVER_DEFAULT                 0x00000000UL                             /**< Mode DEFAULT for CMU_DPLLCTRL */
+#define CMU_DPLLCTRL_AUTORECOVER_DEFAULT                  (_CMU_DPLLCTRL_AUTORECOVER_DEFAULT << 2) /**< Shifted mode DEFAULT for CMU_DPLLCTRL */
+#define _CMU_DPLLCTRL_REFSEL_SHIFT                        3                                        /**< Shift value for CMU_REFSEL */
+#define _CMU_DPLLCTRL_REFSEL_MASK                         0x18UL                                   /**< Bit mask for CMU_REFSEL */
+#define _CMU_DPLLCTRL_REFSEL_DEFAULT                      0x00000000UL                             /**< Mode DEFAULT for CMU_DPLLCTRL */
+#define _CMU_DPLLCTRL_REFSEL_HFXO                         0x00000000UL                             /**< Mode HFXO for CMU_DPLLCTRL */
+#define _CMU_DPLLCTRL_REFSEL_LFXO                         0x00000001UL                             /**< Mode LFXO for CMU_DPLLCTRL */
+#define _CMU_DPLLCTRL_REFSEL_CLKIN0                       0x00000003UL                             /**< Mode CLKIN0 for CMU_DPLLCTRL */
+#define CMU_DPLLCTRL_REFSEL_DEFAULT                       (_CMU_DPLLCTRL_REFSEL_DEFAULT << 3)      /**< Shifted mode DEFAULT for CMU_DPLLCTRL */
+#define CMU_DPLLCTRL_REFSEL_HFXO                          (_CMU_DPLLCTRL_REFSEL_HFXO << 3)         /**< Shifted mode HFXO for CMU_DPLLCTRL */
+#define CMU_DPLLCTRL_REFSEL_LFXO                          (_CMU_DPLLCTRL_REFSEL_LFXO << 3)         /**< Shifted mode LFXO for CMU_DPLLCTRL */
+#define CMU_DPLLCTRL_REFSEL_CLKIN0                        (_CMU_DPLLCTRL_REFSEL_CLKIN0 << 3)       /**< Shifted mode CLKIN0 for CMU_DPLLCTRL */
+
+/* Bit fields for CMU DPLLCTRL1 */
+#define _CMU_DPLLCTRL1_RESETVALUE                         0x00000000UL                     /**< Default value for CMU_DPLLCTRL1 */
+#define _CMU_DPLLCTRL1_MASK                               0x0FFF0FFFUL                     /**< Mask for CMU_DPLLCTRL1 */
+#define _CMU_DPLLCTRL1_M_SHIFT                            0                                /**< Shift value for CMU_M */
+#define _CMU_DPLLCTRL1_M_MASK                             0xFFFUL                          /**< Bit mask for CMU_M */
+#define _CMU_DPLLCTRL1_M_DEFAULT                          0x00000000UL                     /**< Mode DEFAULT for CMU_DPLLCTRL1 */
+#define CMU_DPLLCTRL1_M_DEFAULT                           (_CMU_DPLLCTRL1_M_DEFAULT << 0)  /**< Shifted mode DEFAULT for CMU_DPLLCTRL1 */
+#define _CMU_DPLLCTRL1_N_SHIFT                            16                               /**< Shift value for CMU_N */
+#define _CMU_DPLLCTRL1_N_MASK                             0xFFF0000UL                      /**< Bit mask for CMU_N */
+#define _CMU_DPLLCTRL1_N_DEFAULT                          0x00000000UL                     /**< Mode DEFAULT for CMU_DPLLCTRL1 */
+#define CMU_DPLLCTRL1_N_DEFAULT                           (_CMU_DPLLCTRL1_N_DEFAULT << 16) /**< Shifted mode DEFAULT for CMU_DPLLCTRL1 */
+
+/* Bit fields for CMU CALCTRL */
+#define _CMU_CALCTRL_RESETVALUE                           0x00000000UL                            /**< Default value for CMU_CALCTRL */
+#define _CMU_CALCTRL_MASK                                 0x0F0F01FFUL                            /**< Mask for CMU_CALCTRL */
+#define _CMU_CALCTRL_UPSEL_SHIFT                          0                                       /**< Shift value for CMU_UPSEL */
+#define _CMU_CALCTRL_UPSEL_MASK                           0xFUL                                   /**< Bit mask for CMU_UPSEL */
+#define _CMU_CALCTRL_UPSEL_DEFAULT                        0x00000000UL                            /**< Mode DEFAULT for CMU_CALCTRL */
+#define _CMU_CALCTRL_UPSEL_HFXO                           0x00000000UL                            /**< Mode HFXO for CMU_CALCTRL */
+#define _CMU_CALCTRL_UPSEL_LFXO                           0x00000001UL                            /**< Mode LFXO for CMU_CALCTRL */
+#define _CMU_CALCTRL_UPSEL_HFRCO                          0x00000002UL                            /**< Mode HFRCO for CMU_CALCTRL */
+#define _CMU_CALCTRL_UPSEL_LFRCO                          0x00000003UL                            /**< Mode LFRCO for CMU_CALCTRL */
+#define _CMU_CALCTRL_UPSEL_AUXHFRCO                       0x00000004UL                            /**< Mode AUXHFRCO for CMU_CALCTRL */
+#define _CMU_CALCTRL_UPSEL_PRS                            0x00000005UL                            /**< Mode PRS for CMU_CALCTRL */
+#define CMU_CALCTRL_UPSEL_DEFAULT                         (_CMU_CALCTRL_UPSEL_DEFAULT << 0)       /**< Shifted mode DEFAULT for CMU_CALCTRL */
+#define CMU_CALCTRL_UPSEL_HFXO                            (_CMU_CALCTRL_UPSEL_HFXO << 0)          /**< Shifted mode HFXO for CMU_CALCTRL */
+#define CMU_CALCTRL_UPSEL_LFXO                            (_CMU_CALCTRL_UPSEL_LFXO << 0)          /**< Shifted mode LFXO for CMU_CALCTRL */
+#define CMU_CALCTRL_UPSEL_HFRCO                           (_CMU_CALCTRL_UPSEL_HFRCO << 0)         /**< Shifted mode HFRCO for CMU_CALCTRL */
+#define CMU_CALCTRL_UPSEL_LFRCO                           (_CMU_CALCTRL_UPSEL_LFRCO << 0)         /**< Shifted mode LFRCO for CMU_CALCTRL */
+#define CMU_CALCTRL_UPSEL_AUXHFRCO                        (_CMU_CALCTRL_UPSEL_AUXHFRCO << 0)      /**< Shifted mode AUXHFRCO for CMU_CALCTRL */
+#define CMU_CALCTRL_UPSEL_PRS                             (_CMU_CALCTRL_UPSEL_PRS << 0)           /**< Shifted mode PRS for CMU_CALCTRL */
+#define _CMU_CALCTRL_DOWNSEL_SHIFT                        4                                       /**< Shift value for CMU_DOWNSEL */
+#define _CMU_CALCTRL_DOWNSEL_MASK                         0xF0UL                                  /**< Bit mask for CMU_DOWNSEL */
+#define _CMU_CALCTRL_DOWNSEL_DEFAULT                      0x00000000UL                            /**< Mode DEFAULT for CMU_CALCTRL */
+#define _CMU_CALCTRL_DOWNSEL_HFCLK                        0x00000000UL                            /**< Mode HFCLK for CMU_CALCTRL */
+#define _CMU_CALCTRL_DOWNSEL_HFXO                         0x00000001UL                            /**< Mode HFXO for CMU_CALCTRL */
+#define _CMU_CALCTRL_DOWNSEL_LFXO                         0x00000002UL                            /**< Mode LFXO for CMU_CALCTRL */
+#define _CMU_CALCTRL_DOWNSEL_HFRCO                        0x00000003UL                            /**< Mode HFRCO for CMU_CALCTRL */
+#define _CMU_CALCTRL_DOWNSEL_LFRCO                        0x00000004UL                            /**< Mode LFRCO for CMU_CALCTRL */
+#define _CMU_CALCTRL_DOWNSEL_AUXHFRCO                     0x00000005UL                            /**< Mode AUXHFRCO for CMU_CALCTRL */
+#define _CMU_CALCTRL_DOWNSEL_PRS                          0x00000006UL                            /**< Mode PRS for CMU_CALCTRL */
+#define CMU_CALCTRL_DOWNSEL_DEFAULT                       (_CMU_CALCTRL_DOWNSEL_DEFAULT << 4)     /**< Shifted mode DEFAULT for CMU_CALCTRL */
+#define CMU_CALCTRL_DOWNSEL_HFCLK                         (_CMU_CALCTRL_DOWNSEL_HFCLK << 4)       /**< Shifted mode HFCLK for CMU_CALCTRL */
+#define CMU_CALCTRL_DOWNSEL_HFXO                          (_CMU_CALCTRL_DOWNSEL_HFXO << 4)        /**< Shifted mode HFXO for CMU_CALCTRL */
+#define CMU_CALCTRL_DOWNSEL_LFXO                          (_CMU_CALCTRL_DOWNSEL_LFXO << 4)        /**< Shifted mode LFXO for CMU_CALCTRL */
+#define CMU_CALCTRL_DOWNSEL_HFRCO                         (_CMU_CALCTRL_DOWNSEL_HFRCO << 4)       /**< Shifted mode HFRCO for CMU_CALCTRL */
+#define CMU_CALCTRL_DOWNSEL_LFRCO                         (_CMU_CALCTRL_DOWNSEL_LFRCO << 4)       /**< Shifted mode LFRCO for CMU_CALCTRL */
+#define CMU_CALCTRL_DOWNSEL_AUXHFRCO                      (_CMU_CALCTRL_DOWNSEL_AUXHFRCO << 4)    /**< Shifted mode AUXHFRCO for CMU_CALCTRL */
+#define CMU_CALCTRL_DOWNSEL_PRS                           (_CMU_CALCTRL_DOWNSEL_PRS << 4)         /**< Shifted mode PRS for CMU_CALCTRL */
+#define CMU_CALCTRL_CONT                                  (0x1UL << 8)                            /**< Continuous Calibration */
+#define _CMU_CALCTRL_CONT_SHIFT                           8                                       /**< Shift value for CMU_CONT */
+#define _CMU_CALCTRL_CONT_MASK                            0x100UL                                 /**< Bit mask for CMU_CONT */
+#define _CMU_CALCTRL_CONT_DEFAULT                         0x00000000UL                            /**< Mode DEFAULT for CMU_CALCTRL */
+#define CMU_CALCTRL_CONT_DEFAULT                          (_CMU_CALCTRL_CONT_DEFAULT << 8)        /**< Shifted mode DEFAULT for CMU_CALCTRL */
+#define _CMU_CALCTRL_PRSUPSEL_SHIFT                       16                                      /**< Shift value for CMU_PRSUPSEL */
+#define _CMU_CALCTRL_PRSUPSEL_MASK                        0xF0000UL                               /**< Bit mask for CMU_PRSUPSEL */
+#define _CMU_CALCTRL_PRSUPSEL_DEFAULT                     0x00000000UL                            /**< Mode DEFAULT for CMU_CALCTRL */
+#define _CMU_CALCTRL_PRSUPSEL_PRSCH0                      0x00000000UL                            /**< Mode PRSCH0 for CMU_CALCTRL */
+#define _CMU_CALCTRL_PRSUPSEL_PRSCH1                      0x00000001UL                            /**< Mode PRSCH1 for CMU_CALCTRL */
+#define _CMU_CALCTRL_PRSUPSEL_PRSCH2                      0x00000002UL                            /**< Mode PRSCH2 for CMU_CALCTRL */
+#define _CMU_CALCTRL_PRSUPSEL_PRSCH3                      0x00000003UL                            /**< Mode PRSCH3 for CMU_CALCTRL */
+#define _CMU_CALCTRL_PRSUPSEL_PRSCH4                      0x00000004UL                            /**< Mode PRSCH4 for CMU_CALCTRL */
+#define _CMU_CALCTRL_PRSUPSEL_PRSCH5                      0x00000005UL                            /**< Mode PRSCH5 for CMU_CALCTRL */
+#define _CMU_CALCTRL_PRSUPSEL_PRSCH6                      0x00000006UL                            /**< Mode PRSCH6 for CMU_CALCTRL */
+#define _CMU_CALCTRL_PRSUPSEL_PRSCH7                      0x00000007UL                            /**< Mode PRSCH7 for CMU_CALCTRL */
+#define _CMU_CALCTRL_PRSUPSEL_PRSCH8                      0x00000008UL                            /**< Mode PRSCH8 for CMU_CALCTRL */
+#define _CMU_CALCTRL_PRSUPSEL_PRSCH9                      0x00000009UL                            /**< Mode PRSCH9 for CMU_CALCTRL */
+#define _CMU_CALCTRL_PRSUPSEL_PRSCH10                     0x0000000AUL                            /**< Mode PRSCH10 for CMU_CALCTRL */
+#define _CMU_CALCTRL_PRSUPSEL_PRSCH11                     0x0000000BUL                            /**< Mode PRSCH11 for CMU_CALCTRL */
+#define CMU_CALCTRL_PRSUPSEL_DEFAULT                      (_CMU_CALCTRL_PRSUPSEL_DEFAULT << 16)   /**< Shifted mode DEFAULT for CMU_CALCTRL */
+#define CMU_CALCTRL_PRSUPSEL_PRSCH0                       (_CMU_CALCTRL_PRSUPSEL_PRSCH0 << 16)    /**< Shifted mode PRSCH0 for CMU_CALCTRL */
+#define CMU_CALCTRL_PRSUPSEL_PRSCH1                       (_CMU_CALCTRL_PRSUPSEL_PRSCH1 << 16)    /**< Shifted mode PRSCH1 for CMU_CALCTRL */
+#define CMU_CALCTRL_PRSUPSEL_PRSCH2                       (_CMU_CALCTRL_PRSUPSEL_PRSCH2 << 16)    /**< Shifted mode PRSCH2 for CMU_CALCTRL */
+#define CMU_CALCTRL_PRSUPSEL_PRSCH3                       (_CMU_CALCTRL_PRSUPSEL_PRSCH3 << 16)    /**< Shifted mode PRSCH3 for CMU_CALCTRL */
+#define CMU_CALCTRL_PRSUPSEL_PRSCH4                       (_CMU_CALCTRL_PRSUPSEL_PRSCH4 << 16)    /**< Shifted mode PRSCH4 for CMU_CALCTRL */
+#define CMU_CALCTRL_PRSUPSEL_PRSCH5                       (_CMU_CALCTRL_PRSUPSEL_PRSCH5 << 16)    /**< Shifted mode PRSCH5 for CMU_CALCTRL */
+#define CMU_CALCTRL_PRSUPSEL_PRSCH6                       (_CMU_CALCTRL_PRSUPSEL_PRSCH6 << 16)    /**< Shifted mode PRSCH6 for CMU_CALCTRL */
+#define CMU_CALCTRL_PRSUPSEL_PRSCH7                       (_CMU_CALCTRL_PRSUPSEL_PRSCH7 << 16)    /**< Shifted mode PRSCH7 for CMU_CALCTRL */
+#define CMU_CALCTRL_PRSUPSEL_PRSCH8                       (_CMU_CALCTRL_PRSUPSEL_PRSCH8 << 16)    /**< Shifted mode PRSCH8 for CMU_CALCTRL */
+#define CMU_CALCTRL_PRSUPSEL_PRSCH9                       (_CMU_CALCTRL_PRSUPSEL_PRSCH9 << 16)    /**< Shifted mode PRSCH9 for CMU_CALCTRL */
+#define CMU_CALCTRL_PRSUPSEL_PRSCH10                      (_CMU_CALCTRL_PRSUPSEL_PRSCH10 << 16)   /**< Shifted mode PRSCH10 for CMU_CALCTRL */
+#define CMU_CALCTRL_PRSUPSEL_PRSCH11                      (_CMU_CALCTRL_PRSUPSEL_PRSCH11 << 16)   /**< Shifted mode PRSCH11 for CMU_CALCTRL */
+#define _CMU_CALCTRL_PRSDOWNSEL_SHIFT                     24                                      /**< Shift value for CMU_PRSDOWNSEL */
+#define _CMU_CALCTRL_PRSDOWNSEL_MASK                      0xF000000UL                             /**< Bit mask for CMU_PRSDOWNSEL */
+#define _CMU_CALCTRL_PRSDOWNSEL_DEFAULT                   0x00000000UL                            /**< Mode DEFAULT for CMU_CALCTRL */
+#define _CMU_CALCTRL_PRSDOWNSEL_PRSCH0                    0x00000000UL                            /**< Mode PRSCH0 for CMU_CALCTRL */
+#define _CMU_CALCTRL_PRSDOWNSEL_PRSCH1                    0x00000001UL                            /**< Mode PRSCH1 for CMU_CALCTRL */
+#define _CMU_CALCTRL_PRSDOWNSEL_PRSCH2                    0x00000002UL                            /**< Mode PRSCH2 for CMU_CALCTRL */
+#define _CMU_CALCTRL_PRSDOWNSEL_PRSCH3                    0x00000003UL                            /**< Mode PRSCH3 for CMU_CALCTRL */
+#define _CMU_CALCTRL_PRSDOWNSEL_PRSCH4                    0x00000004UL                            /**< Mode PRSCH4 for CMU_CALCTRL */
+#define _CMU_CALCTRL_PRSDOWNSEL_PRSCH5                    0x00000005UL                            /**< Mode PRSCH5 for CMU_CALCTRL */
+#define _CMU_CALCTRL_PRSDOWNSEL_PRSCH6                    0x00000006UL                            /**< Mode PRSCH6 for CMU_CALCTRL */
+#define _CMU_CALCTRL_PRSDOWNSEL_PRSCH7                    0x00000007UL                            /**< Mode PRSCH7 for CMU_CALCTRL */
+#define _CMU_CALCTRL_PRSDOWNSEL_PRSCH8                    0x00000008UL                            /**< Mode PRSCH8 for CMU_CALCTRL */
+#define _CMU_CALCTRL_PRSDOWNSEL_PRSCH9                    0x00000009UL                            /**< Mode PRSCH9 for CMU_CALCTRL */
+#define _CMU_CALCTRL_PRSDOWNSEL_PRSCH10                   0x0000000AUL                            /**< Mode PRSCH10 for CMU_CALCTRL */
+#define _CMU_CALCTRL_PRSDOWNSEL_PRSCH11                   0x0000000BUL                            /**< Mode PRSCH11 for CMU_CALCTRL */
+#define CMU_CALCTRL_PRSDOWNSEL_DEFAULT                    (_CMU_CALCTRL_PRSDOWNSEL_DEFAULT << 24) /**< Shifted mode DEFAULT for CMU_CALCTRL */
+#define CMU_CALCTRL_PRSDOWNSEL_PRSCH0                     (_CMU_CALCTRL_PRSDOWNSEL_PRSCH0 << 24)  /**< Shifted mode PRSCH0 for CMU_CALCTRL */
+#define CMU_CALCTRL_PRSDOWNSEL_PRSCH1                     (_CMU_CALCTRL_PRSDOWNSEL_PRSCH1 << 24)  /**< Shifted mode PRSCH1 for CMU_CALCTRL */
+#define CMU_CALCTRL_PRSDOWNSEL_PRSCH2                     (_CMU_CALCTRL_PRSDOWNSEL_PRSCH2 << 24)  /**< Shifted mode PRSCH2 for CMU_CALCTRL */
+#define CMU_CALCTRL_PRSDOWNSEL_PRSCH3                     (_CMU_CALCTRL_PRSDOWNSEL_PRSCH3 << 24)  /**< Shifted mode PRSCH3 for CMU_CALCTRL */
+#define CMU_CALCTRL_PRSDOWNSEL_PRSCH4                     (_CMU_CALCTRL_PRSDOWNSEL_PRSCH4 << 24)  /**< Shifted mode PRSCH4 for CMU_CALCTRL */
+#define CMU_CALCTRL_PRSDOWNSEL_PRSCH5                     (_CMU_CALCTRL_PRSDOWNSEL_PRSCH5 << 24)  /**< Shifted mode PRSCH5 for CMU_CALCTRL */
+#define CMU_CALCTRL_PRSDOWNSEL_PRSCH6                     (_CMU_CALCTRL_PRSDOWNSEL_PRSCH6 << 24)  /**< Shifted mode PRSCH6 for CMU_CALCTRL */
+#define CMU_CALCTRL_PRSDOWNSEL_PRSCH7                     (_CMU_CALCTRL_PRSDOWNSEL_PRSCH7 << 24)  /**< Shifted mode PRSCH7 for CMU_CALCTRL */
+#define CMU_CALCTRL_PRSDOWNSEL_PRSCH8                     (_CMU_CALCTRL_PRSDOWNSEL_PRSCH8 << 24)  /**< Shifted mode PRSCH8 for CMU_CALCTRL */
+#define CMU_CALCTRL_PRSDOWNSEL_PRSCH9                     (_CMU_CALCTRL_PRSDOWNSEL_PRSCH9 << 24)  /**< Shifted mode PRSCH9 for CMU_CALCTRL */
+#define CMU_CALCTRL_PRSDOWNSEL_PRSCH10                    (_CMU_CALCTRL_PRSDOWNSEL_PRSCH10 << 24) /**< Shifted mode PRSCH10 for CMU_CALCTRL */
+#define CMU_CALCTRL_PRSDOWNSEL_PRSCH11                    (_CMU_CALCTRL_PRSDOWNSEL_PRSCH11 << 24) /**< Shifted mode PRSCH11 for CMU_CALCTRL */
+
+/* Bit fields for CMU CALCNT */
+#define _CMU_CALCNT_RESETVALUE                            0x00000000UL                      /**< Default value for CMU_CALCNT */
+#define _CMU_CALCNT_MASK                                  0x000FFFFFUL                      /**< Mask for CMU_CALCNT */
+#define _CMU_CALCNT_CALCNT_SHIFT                          0                                 /**< Shift value for CMU_CALCNT */
+#define _CMU_CALCNT_CALCNT_MASK                           0xFFFFFUL                         /**< Bit mask for CMU_CALCNT */
+#define _CMU_CALCNT_CALCNT_DEFAULT                        0x00000000UL                      /**< Mode DEFAULT for CMU_CALCNT */
+#define CMU_CALCNT_CALCNT_DEFAULT                         (_CMU_CALCNT_CALCNT_DEFAULT << 0) /**< Shifted mode DEFAULT for CMU_CALCNT */
+
+/* Bit fields for CMU OSCENCMD */
+#define _CMU_OSCENCMD_RESETVALUE                          0x00000000UL                             /**< Default value for CMU_OSCENCMD */
+#define _CMU_OSCENCMD_MASK                                0x000033FFUL                             /**< Mask for CMU_OSCENCMD */
+#define CMU_OSCENCMD_HFRCOEN                              (0x1UL << 0)                             /**< HFRCO Enable */
+#define _CMU_OSCENCMD_HFRCOEN_SHIFT                       0                                        /**< Shift value for CMU_HFRCOEN */
+#define _CMU_OSCENCMD_HFRCOEN_MASK                        0x1UL                                    /**< Bit mask for CMU_HFRCOEN */
+#define _CMU_OSCENCMD_HFRCOEN_DEFAULT                     0x00000000UL                             /**< Mode DEFAULT for CMU_OSCENCMD */
+#define CMU_OSCENCMD_HFRCOEN_DEFAULT                      (_CMU_OSCENCMD_HFRCOEN_DEFAULT << 0)     /**< Shifted mode DEFAULT for CMU_OSCENCMD */
+#define CMU_OSCENCMD_HFRCODIS                             (0x1UL << 1)                             /**< HFRCO Disable */
+#define _CMU_OSCENCMD_HFRCODIS_SHIFT                      1                                        /**< Shift value for CMU_HFRCODIS */
+#define _CMU_OSCENCMD_HFRCODIS_MASK                       0x2UL                                    /**< Bit mask for CMU_HFRCODIS */
+#define _CMU_OSCENCMD_HFRCODIS_DEFAULT                    0x00000000UL                             /**< Mode DEFAULT for CMU_OSCENCMD */
+#define CMU_OSCENCMD_HFRCODIS_DEFAULT                     (_CMU_OSCENCMD_HFRCODIS_DEFAULT << 1)    /**< Shifted mode DEFAULT for CMU_OSCENCMD */
+#define CMU_OSCENCMD_HFXOEN                               (0x1UL << 2)                             /**< HFXO Enable */
+#define _CMU_OSCENCMD_HFXOEN_SHIFT                        2                                        /**< Shift value for CMU_HFXOEN */
+#define _CMU_OSCENCMD_HFXOEN_MASK                         0x4UL                                    /**< Bit mask for CMU_HFXOEN */
+#define _CMU_OSCENCMD_HFXOEN_DEFAULT                      0x00000000UL                             /**< Mode DEFAULT for CMU_OSCENCMD */
+#define CMU_OSCENCMD_HFXOEN_DEFAULT                       (_CMU_OSCENCMD_HFXOEN_DEFAULT << 2)      /**< Shifted mode DEFAULT for CMU_OSCENCMD */
+#define CMU_OSCENCMD_HFXODIS                              (0x1UL << 3)                             /**< HFXO Disable */
+#define _CMU_OSCENCMD_HFXODIS_SHIFT                       3                                        /**< Shift value for CMU_HFXODIS */
+#define _CMU_OSCENCMD_HFXODIS_MASK                        0x8UL                                    /**< Bit mask for CMU_HFXODIS */
+#define _CMU_OSCENCMD_HFXODIS_DEFAULT                     0x00000000UL                             /**< Mode DEFAULT for CMU_OSCENCMD */
+#define CMU_OSCENCMD_HFXODIS_DEFAULT                      (_CMU_OSCENCMD_HFXODIS_DEFAULT << 3)     /**< Shifted mode DEFAULT for CMU_OSCENCMD */
+#define CMU_OSCENCMD_AUXHFRCOEN                           (0x1UL << 4)                             /**< AUXHFRCO Enable */
+#define _CMU_OSCENCMD_AUXHFRCOEN_SHIFT                    4                                        /**< Shift value for CMU_AUXHFRCOEN */
+#define _CMU_OSCENCMD_AUXHFRCOEN_MASK                     0x10UL                                   /**< Bit mask for CMU_AUXHFRCOEN */
+#define _CMU_OSCENCMD_AUXHFRCOEN_DEFAULT                  0x00000000UL                             /**< Mode DEFAULT for CMU_OSCENCMD */
+#define CMU_OSCENCMD_AUXHFRCOEN_DEFAULT                   (_CMU_OSCENCMD_AUXHFRCOEN_DEFAULT << 4)  /**< Shifted mode DEFAULT for CMU_OSCENCMD */
+#define CMU_OSCENCMD_AUXHFRCODIS                          (0x1UL << 5)                             /**< AUXHFRCO Disable */
+#define _CMU_OSCENCMD_AUXHFRCODIS_SHIFT                   5                                        /**< Shift value for CMU_AUXHFRCODIS */
+#define _CMU_OSCENCMD_AUXHFRCODIS_MASK                    0x20UL                                   /**< Bit mask for CMU_AUXHFRCODIS */
+#define _CMU_OSCENCMD_AUXHFRCODIS_DEFAULT                 0x00000000UL                             /**< Mode DEFAULT for CMU_OSCENCMD */
+#define CMU_OSCENCMD_AUXHFRCODIS_DEFAULT                  (_CMU_OSCENCMD_AUXHFRCODIS_DEFAULT << 5) /**< Shifted mode DEFAULT for CMU_OSCENCMD */
+#define CMU_OSCENCMD_LFRCOEN                              (0x1UL << 6)                             /**< LFRCO Enable */
+#define _CMU_OSCENCMD_LFRCOEN_SHIFT                       6                                        /**< Shift value for CMU_LFRCOEN */
+#define _CMU_OSCENCMD_LFRCOEN_MASK                        0x40UL                                   /**< Bit mask for CMU_LFRCOEN */
+#define _CMU_OSCENCMD_LFRCOEN_DEFAULT                     0x00000000UL                             /**< Mode DEFAULT for CMU_OSCENCMD */
+#define CMU_OSCENCMD_LFRCOEN_DEFAULT                      (_CMU_OSCENCMD_LFRCOEN_DEFAULT << 6)     /**< Shifted mode DEFAULT for CMU_OSCENCMD */
+#define CMU_OSCENCMD_LFRCODIS                             (0x1UL << 7)                             /**< LFRCO Disable */
+#define _CMU_OSCENCMD_LFRCODIS_SHIFT                      7                                        /**< Shift value for CMU_LFRCODIS */
+#define _CMU_OSCENCMD_LFRCODIS_MASK                       0x80UL                                   /**< Bit mask for CMU_LFRCODIS */
+#define _CMU_OSCENCMD_LFRCODIS_DEFAULT                    0x00000000UL                             /**< Mode DEFAULT for CMU_OSCENCMD */
+#define CMU_OSCENCMD_LFRCODIS_DEFAULT                     (_CMU_OSCENCMD_LFRCODIS_DEFAULT << 7)    /**< Shifted mode DEFAULT for CMU_OSCENCMD */
+#define CMU_OSCENCMD_LFXOEN                               (0x1UL << 8)                             /**< LFXO Enable */
+#define _CMU_OSCENCMD_LFXOEN_SHIFT                        8                                        /**< Shift value for CMU_LFXOEN */
+#define _CMU_OSCENCMD_LFXOEN_MASK                         0x100UL                                  /**< Bit mask for CMU_LFXOEN */
+#define _CMU_OSCENCMD_LFXOEN_DEFAULT                      0x00000000UL                             /**< Mode DEFAULT for CMU_OSCENCMD */
+#define CMU_OSCENCMD_LFXOEN_DEFAULT                       (_CMU_OSCENCMD_LFXOEN_DEFAULT << 8)      /**< Shifted mode DEFAULT for CMU_OSCENCMD */
+#define CMU_OSCENCMD_LFXODIS                              (0x1UL << 9)                             /**< LFXO Disable */
+#define _CMU_OSCENCMD_LFXODIS_SHIFT                       9                                        /**< Shift value for CMU_LFXODIS */
+#define _CMU_OSCENCMD_LFXODIS_MASK                        0x200UL                                  /**< Bit mask for CMU_LFXODIS */
+#define _CMU_OSCENCMD_LFXODIS_DEFAULT                     0x00000000UL                             /**< Mode DEFAULT for CMU_OSCENCMD */
+#define CMU_OSCENCMD_LFXODIS_DEFAULT                      (_CMU_OSCENCMD_LFXODIS_DEFAULT << 9)     /**< Shifted mode DEFAULT for CMU_OSCENCMD */
+#define CMU_OSCENCMD_DPLLEN                               (0x1UL << 12)                            /**< DPLL Enable */
+#define _CMU_OSCENCMD_DPLLEN_SHIFT                        12                                       /**< Shift value for CMU_DPLLEN */
+#define _CMU_OSCENCMD_DPLLEN_MASK                         0x1000UL                                 /**< Bit mask for CMU_DPLLEN */
+#define _CMU_OSCENCMD_DPLLEN_DEFAULT                      0x00000000UL                             /**< Mode DEFAULT for CMU_OSCENCMD */
+#define CMU_OSCENCMD_DPLLEN_DEFAULT                       (_CMU_OSCENCMD_DPLLEN_DEFAULT << 12)     /**< Shifted mode DEFAULT for CMU_OSCENCMD */
+#define CMU_OSCENCMD_DPLLDIS                              (0x1UL << 13)                            /**< DPLL Disable */
+#define _CMU_OSCENCMD_DPLLDIS_SHIFT                       13                                       /**< Shift value for CMU_DPLLDIS */
+#define _CMU_OSCENCMD_DPLLDIS_MASK                        0x2000UL                                 /**< Bit mask for CMU_DPLLDIS */
+#define _CMU_OSCENCMD_DPLLDIS_DEFAULT                     0x00000000UL                             /**< Mode DEFAULT for CMU_OSCENCMD */
+#define CMU_OSCENCMD_DPLLDIS_DEFAULT                      (_CMU_OSCENCMD_DPLLDIS_DEFAULT << 13)    /**< Shifted mode DEFAULT for CMU_OSCENCMD */
+
+/* Bit fields for CMU CMD */
+#define _CMU_CMD_RESETVALUE                               0x00000000UL                              /**< Default value for CMU_CMD */
+#define _CMU_CMD_MASK                                     0x00000033UL                              /**< Mask for CMU_CMD */
+#define CMU_CMD_CALSTART                                  (0x1UL << 0)                              /**< Calibration Start */
+#define _CMU_CMD_CALSTART_SHIFT                           0                                         /**< Shift value for CMU_CALSTART */
+#define _CMU_CMD_CALSTART_MASK                            0x1UL                                     /**< Bit mask for CMU_CALSTART */
+#define _CMU_CMD_CALSTART_DEFAULT                         0x00000000UL                              /**< Mode DEFAULT for CMU_CMD */
+#define CMU_CMD_CALSTART_DEFAULT                          (_CMU_CMD_CALSTART_DEFAULT << 0)          /**< Shifted mode DEFAULT for CMU_CMD */
+#define CMU_CMD_CALSTOP                                   (0x1UL << 1)                              /**< Calibration Stop */
+#define _CMU_CMD_CALSTOP_SHIFT                            1                                         /**< Shift value for CMU_CALSTOP */
+#define _CMU_CMD_CALSTOP_MASK                             0x2UL                                     /**< Bit mask for CMU_CALSTOP */
+#define _CMU_CMD_CALSTOP_DEFAULT                          0x00000000UL                              /**< Mode DEFAULT for CMU_CMD */
+#define CMU_CMD_CALSTOP_DEFAULT                           (_CMU_CMD_CALSTOP_DEFAULT << 1)           /**< Shifted mode DEFAULT for CMU_CMD */
+#define CMU_CMD_HFXOPEAKDETSTART                          (0x1UL << 4)                              /**< HFXO Peak Detection Start */
+#define _CMU_CMD_HFXOPEAKDETSTART_SHIFT                   4                                         /**< Shift value for CMU_HFXOPEAKDETSTART */
+#define _CMU_CMD_HFXOPEAKDETSTART_MASK                    0x10UL                                    /**< Bit mask for CMU_HFXOPEAKDETSTART */
+#define _CMU_CMD_HFXOPEAKDETSTART_DEFAULT                 0x00000000UL                              /**< Mode DEFAULT for CMU_CMD */
+#define CMU_CMD_HFXOPEAKDETSTART_DEFAULT                  (_CMU_CMD_HFXOPEAKDETSTART_DEFAULT << 4)  /**< Shifted mode DEFAULT for CMU_CMD */
+#define CMU_CMD_HFXOSHUNTOPTSTART                         (0x1UL << 5)                              /**< HFXO Shunt Current Optimization Start */
+#define _CMU_CMD_HFXOSHUNTOPTSTART_SHIFT                  5                                         /**< Shift value for CMU_HFXOSHUNTOPTSTART */
+#define _CMU_CMD_HFXOSHUNTOPTSTART_MASK                   0x20UL                                    /**< Bit mask for CMU_HFXOSHUNTOPTSTART */
+#define _CMU_CMD_HFXOSHUNTOPTSTART_DEFAULT                0x00000000UL                              /**< Mode DEFAULT for CMU_CMD */
+#define CMU_CMD_HFXOSHUNTOPTSTART_DEFAULT                 (_CMU_CMD_HFXOSHUNTOPTSTART_DEFAULT << 5) /**< Shifted mode DEFAULT for CMU_CMD */
+
+/* Bit fields for CMU DBGCLKSEL */
+#define _CMU_DBGCLKSEL_RESETVALUE                         0x00000000UL                       /**< Default value for CMU_DBGCLKSEL */
+#define _CMU_DBGCLKSEL_MASK                               0x00000001UL                       /**< Mask for CMU_DBGCLKSEL */
+#define _CMU_DBGCLKSEL_DBG_SHIFT                          0                                  /**< Shift value for CMU_DBG */
+#define _CMU_DBGCLKSEL_DBG_MASK                           0x1UL                              /**< Bit mask for CMU_DBG */
+#define _CMU_DBGCLKSEL_DBG_DEFAULT                        0x00000000UL                       /**< Mode DEFAULT for CMU_DBGCLKSEL */
+#define _CMU_DBGCLKSEL_DBG_AUXHFRCO                       0x00000000UL                       /**< Mode AUXHFRCO for CMU_DBGCLKSEL */
+#define _CMU_DBGCLKSEL_DBG_HFCLK                          0x00000001UL                       /**< Mode HFCLK for CMU_DBGCLKSEL */
+#define CMU_DBGCLKSEL_DBG_DEFAULT                         (_CMU_DBGCLKSEL_DBG_DEFAULT << 0)  /**< Shifted mode DEFAULT for CMU_DBGCLKSEL */
+#define CMU_DBGCLKSEL_DBG_AUXHFRCO                        (_CMU_DBGCLKSEL_DBG_AUXHFRCO << 0) /**< Shifted mode AUXHFRCO for CMU_DBGCLKSEL */
+#define CMU_DBGCLKSEL_DBG_HFCLK                           (_CMU_DBGCLKSEL_DBG_HFCLK << 0)    /**< Shifted mode HFCLK for CMU_DBGCLKSEL */
+
+/* Bit fields for CMU HFCLKSEL */
+#define _CMU_HFCLKSEL_RESETVALUE                          0x00000000UL                      /**< Default value for CMU_HFCLKSEL */
+#define _CMU_HFCLKSEL_MASK                                0x00000007UL                      /**< Mask for CMU_HFCLKSEL */
+#define _CMU_HFCLKSEL_HF_SHIFT                            0                                 /**< Shift value for CMU_HF */
+#define _CMU_HFCLKSEL_HF_MASK                             0x7UL                             /**< Bit mask for CMU_HF */
+#define _CMU_HFCLKSEL_HF_DEFAULT                          0x00000000UL                      /**< Mode DEFAULT for CMU_HFCLKSEL */
+#define _CMU_HFCLKSEL_HF_HFRCO                            0x00000001UL                      /**< Mode HFRCO for CMU_HFCLKSEL */
+#define _CMU_HFCLKSEL_HF_HFXO                             0x00000002UL                      /**< Mode HFXO for CMU_HFCLKSEL */
+#define _CMU_HFCLKSEL_HF_LFRCO                            0x00000003UL                      /**< Mode LFRCO for CMU_HFCLKSEL */
+#define _CMU_HFCLKSEL_HF_LFXO                             0x00000004UL                      /**< Mode LFXO for CMU_HFCLKSEL */
+#define _CMU_HFCLKSEL_HF_HFRCODIV2                        0x00000005UL                      /**< Mode HFRCODIV2 for CMU_HFCLKSEL */
+#define _CMU_HFCLKSEL_HF_CLKIN0                           0x00000007UL                      /**< Mode CLKIN0 for CMU_HFCLKSEL */
+#define CMU_HFCLKSEL_HF_DEFAULT                           (_CMU_HFCLKSEL_HF_DEFAULT << 0)   /**< Shifted mode DEFAULT for CMU_HFCLKSEL */
+#define CMU_HFCLKSEL_HF_HFRCO                             (_CMU_HFCLKSEL_HF_HFRCO << 0)     /**< Shifted mode HFRCO for CMU_HFCLKSEL */
+#define CMU_HFCLKSEL_HF_HFXO                              (_CMU_HFCLKSEL_HF_HFXO << 0)      /**< Shifted mode HFXO for CMU_HFCLKSEL */
+#define CMU_HFCLKSEL_HF_LFRCO                             (_CMU_HFCLKSEL_HF_LFRCO << 0)     /**< Shifted mode LFRCO for CMU_HFCLKSEL */
+#define CMU_HFCLKSEL_HF_LFXO                              (_CMU_HFCLKSEL_HF_LFXO << 0)      /**< Shifted mode LFXO for CMU_HFCLKSEL */
+#define CMU_HFCLKSEL_HF_HFRCODIV2                         (_CMU_HFCLKSEL_HF_HFRCODIV2 << 0) /**< Shifted mode HFRCODIV2 for CMU_HFCLKSEL */
+#define CMU_HFCLKSEL_HF_CLKIN0                            (_CMU_HFCLKSEL_HF_CLKIN0 << 0)    /**< Shifted mode CLKIN0 for CMU_HFCLKSEL */
+
+/* Bit fields for CMU LFACLKSEL */
+#define _CMU_LFACLKSEL_RESETVALUE                         0x00000000UL                       /**< Default value for CMU_LFACLKSEL */
+#define _CMU_LFACLKSEL_MASK                               0x00000007UL                       /**< Mask for CMU_LFACLKSEL */
+#define _CMU_LFACLKSEL_LFA_SHIFT                          0                                  /**< Shift value for CMU_LFA */
+#define _CMU_LFACLKSEL_LFA_MASK                           0x7UL                              /**< Bit mask for CMU_LFA */
+#define _CMU_LFACLKSEL_LFA_DEFAULT                        0x00000000UL                       /**< Mode DEFAULT for CMU_LFACLKSEL */
+#define _CMU_LFACLKSEL_LFA_DISABLED                       0x00000000UL                       /**< Mode DISABLED for CMU_LFACLKSEL */
+#define _CMU_LFACLKSEL_LFA_LFRCO                          0x00000001UL                       /**< Mode LFRCO for CMU_LFACLKSEL */
+#define _CMU_LFACLKSEL_LFA_LFXO                           0x00000002UL                       /**< Mode LFXO for CMU_LFACLKSEL */
+#define _CMU_LFACLKSEL_LFA_ULFRCO                         0x00000004UL                       /**< Mode ULFRCO for CMU_LFACLKSEL */
+#define CMU_LFACLKSEL_LFA_DEFAULT                         (_CMU_LFACLKSEL_LFA_DEFAULT << 0)  /**< Shifted mode DEFAULT for CMU_LFACLKSEL */
+#define CMU_LFACLKSEL_LFA_DISABLED                        (_CMU_LFACLKSEL_LFA_DISABLED << 0) /**< Shifted mode DISABLED for CMU_LFACLKSEL */
+#define CMU_LFACLKSEL_LFA_LFRCO                           (_CMU_LFACLKSEL_LFA_LFRCO << 0)    /**< Shifted mode LFRCO for CMU_LFACLKSEL */
+#define CMU_LFACLKSEL_LFA_LFXO                            (_CMU_LFACLKSEL_LFA_LFXO << 0)     /**< Shifted mode LFXO for CMU_LFACLKSEL */
+#define CMU_LFACLKSEL_LFA_ULFRCO                          (_CMU_LFACLKSEL_LFA_ULFRCO << 0)   /**< Shifted mode ULFRCO for CMU_LFACLKSEL */
+
+/* Bit fields for CMU LFBCLKSEL */
+#define _CMU_LFBCLKSEL_RESETVALUE                         0x00000000UL                       /**< Default value for CMU_LFBCLKSEL */
+#define _CMU_LFBCLKSEL_MASK                               0x00000007UL                       /**< Mask for CMU_LFBCLKSEL */
+#define _CMU_LFBCLKSEL_LFB_SHIFT                          0                                  /**< Shift value for CMU_LFB */
+#define _CMU_LFBCLKSEL_LFB_MASK                           0x7UL                              /**< Bit mask for CMU_LFB */
+#define _CMU_LFBCLKSEL_LFB_DEFAULT                        0x00000000UL                       /**< Mode DEFAULT for CMU_LFBCLKSEL */
+#define _CMU_LFBCLKSEL_LFB_DISABLED                       0x00000000UL                       /**< Mode DISABLED for CMU_LFBCLKSEL */
+#define _CMU_LFBCLKSEL_LFB_LFRCO                          0x00000001UL                       /**< Mode LFRCO for CMU_LFBCLKSEL */
+#define _CMU_LFBCLKSEL_LFB_LFXO                           0x00000002UL                       /**< Mode LFXO for CMU_LFBCLKSEL */
+#define _CMU_LFBCLKSEL_LFB_HFCLKLE                        0x00000003UL                       /**< Mode HFCLKLE for CMU_LFBCLKSEL */
+#define _CMU_LFBCLKSEL_LFB_ULFRCO                         0x00000004UL                       /**< Mode ULFRCO for CMU_LFBCLKSEL */
+#define CMU_LFBCLKSEL_LFB_DEFAULT                         (_CMU_LFBCLKSEL_LFB_DEFAULT << 0)  /**< Shifted mode DEFAULT for CMU_LFBCLKSEL */
+#define CMU_LFBCLKSEL_LFB_DISABLED                        (_CMU_LFBCLKSEL_LFB_DISABLED << 0) /**< Shifted mode DISABLED for CMU_LFBCLKSEL */
+#define CMU_LFBCLKSEL_LFB_LFRCO                           (_CMU_LFBCLKSEL_LFB_LFRCO << 0)    /**< Shifted mode LFRCO for CMU_LFBCLKSEL */
+#define CMU_LFBCLKSEL_LFB_LFXO                            (_CMU_LFBCLKSEL_LFB_LFXO << 0)     /**< Shifted mode LFXO for CMU_LFBCLKSEL */
+#define CMU_LFBCLKSEL_LFB_HFCLKLE                         (_CMU_LFBCLKSEL_LFB_HFCLKLE << 0)  /**< Shifted mode HFCLKLE for CMU_LFBCLKSEL */
+#define CMU_LFBCLKSEL_LFB_ULFRCO                          (_CMU_LFBCLKSEL_LFB_ULFRCO << 0)   /**< Shifted mode ULFRCO for CMU_LFBCLKSEL */
+
+/* Bit fields for CMU LFECLKSEL */
+#define _CMU_LFECLKSEL_RESETVALUE                         0x00000000UL                       /**< Default value for CMU_LFECLKSEL */
+#define _CMU_LFECLKSEL_MASK                               0x00000007UL                       /**< Mask for CMU_LFECLKSEL */
+#define _CMU_LFECLKSEL_LFE_SHIFT                          0                                  /**< Shift value for CMU_LFE */
+#define _CMU_LFECLKSEL_LFE_MASK                           0x7UL                              /**< Bit mask for CMU_LFE */
+#define _CMU_LFECLKSEL_LFE_DEFAULT                        0x00000000UL                       /**< Mode DEFAULT for CMU_LFECLKSEL */
+#define _CMU_LFECLKSEL_LFE_DISABLED                       0x00000000UL                       /**< Mode DISABLED for CMU_LFECLKSEL */
+#define _CMU_LFECLKSEL_LFE_LFRCO                          0x00000001UL                       /**< Mode LFRCO for CMU_LFECLKSEL */
+#define _CMU_LFECLKSEL_LFE_LFXO                           0x00000002UL                       /**< Mode LFXO for CMU_LFECLKSEL */
+#define _CMU_LFECLKSEL_LFE_ULFRCO                         0x00000004UL                       /**< Mode ULFRCO for CMU_LFECLKSEL */
+#define CMU_LFECLKSEL_LFE_DEFAULT                         (_CMU_LFECLKSEL_LFE_DEFAULT << 0)  /**< Shifted mode DEFAULT for CMU_LFECLKSEL */
+#define CMU_LFECLKSEL_LFE_DISABLED                        (_CMU_LFECLKSEL_LFE_DISABLED << 0) /**< Shifted mode DISABLED for CMU_LFECLKSEL */
+#define CMU_LFECLKSEL_LFE_LFRCO                           (_CMU_LFECLKSEL_LFE_LFRCO << 0)    /**< Shifted mode LFRCO for CMU_LFECLKSEL */
+#define CMU_LFECLKSEL_LFE_LFXO                            (_CMU_LFECLKSEL_LFE_LFXO << 0)     /**< Shifted mode LFXO for CMU_LFECLKSEL */
+#define CMU_LFECLKSEL_LFE_ULFRCO                          (_CMU_LFECLKSEL_LFE_ULFRCO << 0)   /**< Shifted mode ULFRCO for CMU_LFECLKSEL */
+
+/* Bit fields for CMU STATUS */
+#define _CMU_STATUS_RESETVALUE                            0x00010003UL                                /**< Default value for CMU_STATUS */
+#define _CMU_STATUS_MASK                                  0x3FE133FFUL                                /**< Mask for CMU_STATUS */
+#define CMU_STATUS_HFRCOENS                               (0x1UL << 0)                                /**< HFRCO Enable Status */
+#define _CMU_STATUS_HFRCOENS_SHIFT                        0                                           /**< Shift value for CMU_HFRCOENS */
+#define _CMU_STATUS_HFRCOENS_MASK                         0x1UL                                       /**< Bit mask for CMU_HFRCOENS */
+#define _CMU_STATUS_HFRCOENS_DEFAULT                      0x00000001UL                                /**< Mode DEFAULT for CMU_STATUS */
+#define CMU_STATUS_HFRCOENS_DEFAULT                       (_CMU_STATUS_HFRCOENS_DEFAULT << 0)         /**< Shifted mode DEFAULT for CMU_STATUS */
+#define CMU_STATUS_HFRCORDY                               (0x1UL << 1)                                /**< HFRCO Ready */
+#define _CMU_STATUS_HFRCORDY_SHIFT                        1                                           /**< Shift value for CMU_HFRCORDY */
+#define _CMU_STATUS_HFRCORDY_MASK                         0x2UL                                       /**< Bit mask for CMU_HFRCORDY */
+#define _CMU_STATUS_HFRCORDY_DEFAULT                      0x00000001UL                                /**< Mode DEFAULT for CMU_STATUS */
+#define CMU_STATUS_HFRCORDY_DEFAULT                       (_CMU_STATUS_HFRCORDY_DEFAULT << 1)         /**< Shifted mode DEFAULT for CMU_STATUS */
+#define CMU_STATUS_HFXOENS                                (0x1UL << 2)                                /**< HFXO Enable Status */
+#define _CMU_STATUS_HFXOENS_SHIFT                         2                                           /**< Shift value for CMU_HFXOENS */
+#define _CMU_STATUS_HFXOENS_MASK                          0x4UL                                       /**< Bit mask for CMU_HFXOENS */
+#define _CMU_STATUS_HFXOENS_DEFAULT                       0x00000000UL                                /**< Mode DEFAULT for CMU_STATUS */
+#define CMU_STATUS_HFXOENS_DEFAULT                        (_CMU_STATUS_HFXOENS_DEFAULT << 2)          /**< Shifted mode DEFAULT for CMU_STATUS */
+#define CMU_STATUS_HFXORDY                                (0x1UL << 3)                                /**< HFXO Ready */
+#define _CMU_STATUS_HFXORDY_SHIFT                         3                                           /**< Shift value for CMU_HFXORDY */
+#define _CMU_STATUS_HFXORDY_MASK                          0x8UL                                       /**< Bit mask for CMU_HFXORDY */
+#define _CMU_STATUS_HFXORDY_DEFAULT                       0x00000000UL                                /**< Mode DEFAULT for CMU_STATUS */
+#define CMU_STATUS_HFXORDY_DEFAULT                        (_CMU_STATUS_HFXORDY_DEFAULT << 3)          /**< Shifted mode DEFAULT for CMU_STATUS */
+#define CMU_STATUS_AUXHFRCOENS                            (0x1UL << 4)                                /**< AUXHFRCO Enable Status */
+#define _CMU_STATUS_AUXHFRCOENS_SHIFT                     4                                           /**< Shift value for CMU_AUXHFRCOENS */
+#define _CMU_STATUS_AUXHFRCOENS_MASK                      0x10UL                                      /**< Bit mask for CMU_AUXHFRCOENS */
+#define _CMU_STATUS_AUXHFRCOENS_DEFAULT                   0x00000000UL                                /**< Mode DEFAULT for CMU_STATUS */
+#define CMU_STATUS_AUXHFRCOENS_DEFAULT                    (_CMU_STATUS_AUXHFRCOENS_DEFAULT << 4)      /**< Shifted mode DEFAULT for CMU_STATUS */
+#define CMU_STATUS_AUXHFRCORDY                            (0x1UL << 5)                                /**< AUXHFRCO Ready */
+#define _CMU_STATUS_AUXHFRCORDY_SHIFT                     5                                           /**< Shift value for CMU_AUXHFRCORDY */
+#define _CMU_STATUS_AUXHFRCORDY_MASK                      0x20UL                                      /**< Bit mask for CMU_AUXHFRCORDY */
+#define _CMU_STATUS_AUXHFRCORDY_DEFAULT                   0x00000000UL                                /**< Mode DEFAULT for CMU_STATUS */
+#define CMU_STATUS_AUXHFRCORDY_DEFAULT                    (_CMU_STATUS_AUXHFRCORDY_DEFAULT << 5)      /**< Shifted mode DEFAULT for CMU_STATUS */
+#define CMU_STATUS_LFRCOENS                               (0x1UL << 6)                                /**< LFRCO Enable Status */
+#define _CMU_STATUS_LFRCOENS_SHIFT                        6                                           /**< Shift value for CMU_LFRCOENS */
+#define _CMU_STATUS_LFRCOENS_MASK                         0x40UL                                      /**< Bit mask for CMU_LFRCOENS */
+#define _CMU_STATUS_LFRCOENS_DEFAULT                      0x00000000UL                                /**< Mode DEFAULT for CMU_STATUS */
+#define CMU_STATUS_LFRCOENS_DEFAULT                       (_CMU_STATUS_LFRCOENS_DEFAULT << 6)         /**< Shifted mode DEFAULT for CMU_STATUS */
+#define CMU_STATUS_LFRCORDY                               (0x1UL << 7)                                /**< LFRCO Ready */
+#define _CMU_STATUS_LFRCORDY_SHIFT                        7                                           /**< Shift value for CMU_LFRCORDY */
+#define _CMU_STATUS_LFRCORDY_MASK                         0x80UL                                      /**< Bit mask for CMU_LFRCORDY */
+#define _CMU_STATUS_LFRCORDY_DEFAULT                      0x00000000UL                                /**< Mode DEFAULT for CMU_STATUS */
+#define CMU_STATUS_LFRCORDY_DEFAULT                       (_CMU_STATUS_LFRCORDY_DEFAULT << 7)         /**< Shifted mode DEFAULT for CMU_STATUS */
+#define CMU_STATUS_LFXOENS                                (0x1UL << 8)                                /**< LFXO Enable Status */
+#define _CMU_STATUS_LFXOENS_SHIFT                         8                                           /**< Shift value for CMU_LFXOENS */
+#define _CMU_STATUS_LFXOENS_MASK                          0x100UL                                     /**< Bit mask for CMU_LFXOENS */
+#define _CMU_STATUS_LFXOENS_DEFAULT                       0x00000000UL                                /**< Mode DEFAULT for CMU_STATUS */
+#define CMU_STATUS_LFXOENS_DEFAULT                        (_CMU_STATUS_LFXOENS_DEFAULT << 8)          /**< Shifted mode DEFAULT for CMU_STATUS */
+#define CMU_STATUS_LFXORDY                                (0x1UL << 9)                                /**< LFXO Ready */
+#define _CMU_STATUS_LFXORDY_SHIFT                         9                                           /**< Shift value for CMU_LFXORDY */
+#define _CMU_STATUS_LFXORDY_MASK                          0x200UL                                     /**< Bit mask for CMU_LFXORDY */
+#define _CMU_STATUS_LFXORDY_DEFAULT                       0x00000000UL                                /**< Mode DEFAULT for CMU_STATUS */
+#define CMU_STATUS_LFXORDY_DEFAULT                        (_CMU_STATUS_LFXORDY_DEFAULT << 9)          /**< Shifted mode DEFAULT for CMU_STATUS */
+#define CMU_STATUS_DPLLENS                                (0x1UL << 12)                               /**< DPLL Enable Status */
+#define _CMU_STATUS_DPLLENS_SHIFT                         12                                          /**< Shift value for CMU_DPLLENS */
+#define _CMU_STATUS_DPLLENS_MASK                          0x1000UL                                    /**< Bit mask for CMU_DPLLENS */
+#define _CMU_STATUS_DPLLENS_DEFAULT                       0x00000000UL                                /**< Mode DEFAULT for CMU_STATUS */
+#define CMU_STATUS_DPLLENS_DEFAULT                        (_CMU_STATUS_DPLLENS_DEFAULT << 12)         /**< Shifted mode DEFAULT for CMU_STATUS */
+#define CMU_STATUS_DPLLRDY                                (0x1UL << 13)                               /**< DPLL Ready */
+#define _CMU_STATUS_DPLLRDY_SHIFT                         13                                          /**< Shift value for CMU_DPLLRDY */
+#define _CMU_STATUS_DPLLRDY_MASK                          0x2000UL                                    /**< Bit mask for CMU_DPLLRDY */
+#define _CMU_STATUS_DPLLRDY_DEFAULT                       0x00000000UL                                /**< Mode DEFAULT for CMU_STATUS */
+#define CMU_STATUS_DPLLRDY_DEFAULT                        (_CMU_STATUS_DPLLRDY_DEFAULT << 13)         /**< Shifted mode DEFAULT for CMU_STATUS */
+#define CMU_STATUS_CALRDY                                 (0x1UL << 16)                               /**< Calibration Ready */
+#define _CMU_STATUS_CALRDY_SHIFT                          16                                          /**< Shift value for CMU_CALRDY */
+#define _CMU_STATUS_CALRDY_MASK                           0x10000UL                                   /**< Bit mask for CMU_CALRDY */
+#define _CMU_STATUS_CALRDY_DEFAULT                        0x00000001UL                                /**< Mode DEFAULT for CMU_STATUS */
+#define CMU_STATUS_CALRDY_DEFAULT                         (_CMU_STATUS_CALRDY_DEFAULT << 16)          /**< Shifted mode DEFAULT for CMU_STATUS */
+#define CMU_STATUS_HFXOREQ                                (0x1UL << 21)                               /**< HFXO is Required by Hardware */
+#define _CMU_STATUS_HFXOREQ_SHIFT                         21                                          /**< Shift value for CMU_HFXOREQ */
+#define _CMU_STATUS_HFXOREQ_MASK                          0x200000UL                                  /**< Bit mask for CMU_HFXOREQ */
+#define _CMU_STATUS_HFXOREQ_DEFAULT                       0x00000000UL                                /**< Mode DEFAULT for CMU_STATUS */
+#define CMU_STATUS_HFXOREQ_DEFAULT                        (_CMU_STATUS_HFXOREQ_DEFAULT << 21)         /**< Shifted mode DEFAULT for CMU_STATUS */
+#define CMU_STATUS_HFXOPEAKDETRDY                         (0x1UL << 22)                               /**< HFXO Peak Detection Ready */
+#define _CMU_STATUS_HFXOPEAKDETRDY_SHIFT                  22                                          /**< Shift value for CMU_HFXOPEAKDETRDY */
+#define _CMU_STATUS_HFXOPEAKDETRDY_MASK                   0x400000UL                                  /**< Bit mask for CMU_HFXOPEAKDETRDY */
+#define _CMU_STATUS_HFXOPEAKDETRDY_DEFAULT                0x00000000UL                                /**< Mode DEFAULT for CMU_STATUS */
+#define CMU_STATUS_HFXOPEAKDETRDY_DEFAULT                 (_CMU_STATUS_HFXOPEAKDETRDY_DEFAULT << 22)  /**< Shifted mode DEFAULT for CMU_STATUS */
+#define CMU_STATUS_HFXOSHUNTOPTRDY                        (0x1UL << 23)                               /**< HFXO Shunt Current Optimization ready */
+#define _CMU_STATUS_HFXOSHUNTOPTRDY_SHIFT                 23                                          /**< Shift value for CMU_HFXOSHUNTOPTRDY */
+#define _CMU_STATUS_HFXOSHUNTOPTRDY_MASK                  0x800000UL                                  /**< Bit mask for CMU_HFXOSHUNTOPTRDY */
+#define _CMU_STATUS_HFXOSHUNTOPTRDY_DEFAULT               0x00000000UL                                /**< Mode DEFAULT for CMU_STATUS */
+#define CMU_STATUS_HFXOSHUNTOPTRDY_DEFAULT                (_CMU_STATUS_HFXOSHUNTOPTRDY_DEFAULT << 23) /**< Shifted mode DEFAULT for CMU_STATUS */
+#define CMU_STATUS_HFXOAMPHIGH                            (0x1UL << 24)                               /**< HFXO oscillation amplitude is too high */
+#define _CMU_STATUS_HFXOAMPHIGH_SHIFT                     24                                          /**< Shift value for CMU_HFXOAMPHIGH */
+#define _CMU_STATUS_HFXOAMPHIGH_MASK                      0x1000000UL                                 /**< Bit mask for CMU_HFXOAMPHIGH */
+#define _CMU_STATUS_HFXOAMPHIGH_DEFAULT                   0x00000000UL                                /**< Mode DEFAULT for CMU_STATUS */
+#define CMU_STATUS_HFXOAMPHIGH_DEFAULT                    (_CMU_STATUS_HFXOAMPHIGH_DEFAULT << 24)     /**< Shifted mode DEFAULT for CMU_STATUS */
+#define CMU_STATUS_HFXOAMPLOW                             (0x1UL << 25)                               /**< HFXO amplitude tuning value too low */
+#define _CMU_STATUS_HFXOAMPLOW_SHIFT                      25                                          /**< Shift value for CMU_HFXOAMPLOW */
+#define _CMU_STATUS_HFXOAMPLOW_MASK                       0x2000000UL                                 /**< Bit mask for CMU_HFXOAMPLOW */
+#define _CMU_STATUS_HFXOAMPLOW_DEFAULT                    0x00000000UL                                /**< Mode DEFAULT for CMU_STATUS */
+#define CMU_STATUS_HFXOAMPLOW_DEFAULT                     (_CMU_STATUS_HFXOAMPLOW_DEFAULT << 25)      /**< Shifted mode DEFAULT for CMU_STATUS */
+#define CMU_STATUS_HFXOREGILOW                            (0x1UL << 26)                               /**< HFXO regulator shunt current too low */
+#define _CMU_STATUS_HFXOREGILOW_SHIFT                     26                                          /**< Shift value for CMU_HFXOREGILOW */
+#define _CMU_STATUS_HFXOREGILOW_MASK                      0x4000000UL                                 /**< Bit mask for CMU_HFXOREGILOW */
+#define _CMU_STATUS_HFXOREGILOW_DEFAULT                   0x00000000UL                                /**< Mode DEFAULT for CMU_STATUS */
+#define CMU_STATUS_HFXOREGILOW_DEFAULT                    (_CMU_STATUS_HFXOREGILOW_DEFAULT << 26)     /**< Shifted mode DEFAULT for CMU_STATUS */
+#define CMU_STATUS_LFXOPHASE                              (0x1UL << 27)                               /**< LFXO clock phase */
+#define _CMU_STATUS_LFXOPHASE_SHIFT                       27                                          /**< Shift value for CMU_LFXOPHASE */
+#define _CMU_STATUS_LFXOPHASE_MASK                        0x8000000UL                                 /**< Bit mask for CMU_LFXOPHASE */
+#define _CMU_STATUS_LFXOPHASE_DEFAULT                     0x00000000UL                                /**< Mode DEFAULT for CMU_STATUS */
+#define CMU_STATUS_LFXOPHASE_DEFAULT                      (_CMU_STATUS_LFXOPHASE_DEFAULT << 27)       /**< Shifted mode DEFAULT for CMU_STATUS */
+#define CMU_STATUS_LFRCOPHASE                             (0x1UL << 28)                               /**< LFRCO clock phase */
+#define _CMU_STATUS_LFRCOPHASE_SHIFT                      28                                          /**< Shift value for CMU_LFRCOPHASE */
+#define _CMU_STATUS_LFRCOPHASE_MASK                       0x10000000UL                                /**< Bit mask for CMU_LFRCOPHASE */
+#define _CMU_STATUS_LFRCOPHASE_DEFAULT                    0x00000000UL                                /**< Mode DEFAULT for CMU_STATUS */
+#define CMU_STATUS_LFRCOPHASE_DEFAULT                     (_CMU_STATUS_LFRCOPHASE_DEFAULT << 28)      /**< Shifted mode DEFAULT for CMU_STATUS */
+#define CMU_STATUS_ULFRCOPHASE                            (0x1UL << 29)                               /**< ULFRCO clock phase */
+#define _CMU_STATUS_ULFRCOPHASE_SHIFT                     29                                          /**< Shift value for CMU_ULFRCOPHASE */
+#define _CMU_STATUS_ULFRCOPHASE_MASK                      0x20000000UL                                /**< Bit mask for CMU_ULFRCOPHASE */
+#define _CMU_STATUS_ULFRCOPHASE_DEFAULT                   0x00000000UL                                /**< Mode DEFAULT for CMU_STATUS */
+#define CMU_STATUS_ULFRCOPHASE_DEFAULT                    (_CMU_STATUS_ULFRCOPHASE_DEFAULT << 29)     /**< Shifted mode DEFAULT for CMU_STATUS */
+
+/* Bit fields for CMU HFCLKSTATUS */
+#define _CMU_HFCLKSTATUS_RESETVALUE                       0x00000001UL                               /**< Default value for CMU_HFCLKSTATUS */
+#define _CMU_HFCLKSTATUS_MASK                             0x00000007UL                               /**< Mask for CMU_HFCLKSTATUS */
+#define _CMU_HFCLKSTATUS_SELECTED_SHIFT                   0                                          /**< Shift value for CMU_SELECTED */
+#define _CMU_HFCLKSTATUS_SELECTED_MASK                    0x7UL                                      /**< Bit mask for CMU_SELECTED */
+#define _CMU_HFCLKSTATUS_SELECTED_DEFAULT                 0x00000001UL                               /**< Mode DEFAULT for CMU_HFCLKSTATUS */
+#define _CMU_HFCLKSTATUS_SELECTED_HFRCO                   0x00000001UL                               /**< Mode HFRCO for CMU_HFCLKSTATUS */
+#define _CMU_HFCLKSTATUS_SELECTED_HFXO                    0x00000002UL                               /**< Mode HFXO for CMU_HFCLKSTATUS */
+#define _CMU_HFCLKSTATUS_SELECTED_LFRCO                   0x00000003UL                               /**< Mode LFRCO for CMU_HFCLKSTATUS */
+#define _CMU_HFCLKSTATUS_SELECTED_LFXO                    0x00000004UL                               /**< Mode LFXO for CMU_HFCLKSTATUS */
+#define _CMU_HFCLKSTATUS_SELECTED_HFRCODIV2               0x00000005UL                               /**< Mode HFRCODIV2 for CMU_HFCLKSTATUS */
+#define _CMU_HFCLKSTATUS_SELECTED_CLKIN0                  0x00000007UL                               /**< Mode CLKIN0 for CMU_HFCLKSTATUS */
+#define CMU_HFCLKSTATUS_SELECTED_DEFAULT                  (_CMU_HFCLKSTATUS_SELECTED_DEFAULT << 0)   /**< Shifted mode DEFAULT for CMU_HFCLKSTATUS */
+#define CMU_HFCLKSTATUS_SELECTED_HFRCO                    (_CMU_HFCLKSTATUS_SELECTED_HFRCO << 0)     /**< Shifted mode HFRCO for CMU_HFCLKSTATUS */
+#define CMU_HFCLKSTATUS_SELECTED_HFXO                     (_CMU_HFCLKSTATUS_SELECTED_HFXO << 0)      /**< Shifted mode HFXO for CMU_HFCLKSTATUS */
+#define CMU_HFCLKSTATUS_SELECTED_LFRCO                    (_CMU_HFCLKSTATUS_SELECTED_LFRCO << 0)     /**< Shifted mode LFRCO for CMU_HFCLKSTATUS */
+#define CMU_HFCLKSTATUS_SELECTED_LFXO                     (_CMU_HFCLKSTATUS_SELECTED_LFXO << 0)      /**< Shifted mode LFXO for CMU_HFCLKSTATUS */
+#define CMU_HFCLKSTATUS_SELECTED_HFRCODIV2                (_CMU_HFCLKSTATUS_SELECTED_HFRCODIV2 << 0) /**< Shifted mode HFRCODIV2 for CMU_HFCLKSTATUS */
+#define CMU_HFCLKSTATUS_SELECTED_CLKIN0                   (_CMU_HFCLKSTATUS_SELECTED_CLKIN0 << 0)    /**< Shifted mode CLKIN0 for CMU_HFCLKSTATUS */
+
+/* Bit fields for CMU HFXOTRIMSTATUS */
+#define _CMU_HFXOTRIMSTATUS_RESETVALUE                    0x00000500UL                                    /**< Default value for CMU_HFXOTRIMSTATUS */
+#define _CMU_HFXOTRIMSTATUS_MASK                          0x000007FFUL                                    /**< Mask for CMU_HFXOTRIMSTATUS */
+#define _CMU_HFXOTRIMSTATUS_IBTRIMXOCORE_SHIFT            0                                               /**< Shift value for CMU_IBTRIMXOCORE */
+#define _CMU_HFXOTRIMSTATUS_IBTRIMXOCORE_MASK             0x7FUL                                          /**< Bit mask for CMU_IBTRIMXOCORE */
+#define _CMU_HFXOTRIMSTATUS_IBTRIMXOCORE_DEFAULT          0x00000000UL                                    /**< Mode DEFAULT for CMU_HFXOTRIMSTATUS */
+#define CMU_HFXOTRIMSTATUS_IBTRIMXOCORE_DEFAULT           (_CMU_HFXOTRIMSTATUS_IBTRIMXOCORE_DEFAULT << 0) /**< Shifted mode DEFAULT for CMU_HFXOTRIMSTATUS */
+#define _CMU_HFXOTRIMSTATUS_REGISH_SHIFT                  7                                               /**< Shift value for CMU_REGISH */
+#define _CMU_HFXOTRIMSTATUS_REGISH_MASK                   0x780UL                                         /**< Bit mask for CMU_REGISH */
+#define _CMU_HFXOTRIMSTATUS_REGISH_DEFAULT                0x0000000AUL                                    /**< Mode DEFAULT for CMU_HFXOTRIMSTATUS */
+#define CMU_HFXOTRIMSTATUS_REGISH_DEFAULT                 (_CMU_HFXOTRIMSTATUS_REGISH_DEFAULT << 7)       /**< Shifted mode DEFAULT for CMU_HFXOTRIMSTATUS */
+
+/* Bit fields for CMU IF */
+#define _CMU_IF_RESETVALUE                                0x00000001UL                             /**< Default value for CMU_IF */
+#define _CMU_IF_MASK                                      0xB803FF7FUL                             /**< Mask for CMU_IF */
+#define CMU_IF_HFRCORDY                                   (0x1UL << 0)                             /**< HFRCO Ready Interrupt Flag */
+#define _CMU_IF_HFRCORDY_SHIFT                            0                                        /**< Shift value for CMU_HFRCORDY */
+#define _CMU_IF_HFRCORDY_MASK                             0x1UL                                    /**< Bit mask for CMU_HFRCORDY */
+#define _CMU_IF_HFRCORDY_DEFAULT                          0x00000001UL                             /**< Mode DEFAULT for CMU_IF */
+#define CMU_IF_HFRCORDY_DEFAULT                           (_CMU_IF_HFRCORDY_DEFAULT << 0)          /**< Shifted mode DEFAULT for CMU_IF */
+#define CMU_IF_HFXORDY                                    (0x1UL << 1)                             /**< HFXO Ready Interrupt Flag */
+#define _CMU_IF_HFXORDY_SHIFT                             1                                        /**< Shift value for CMU_HFXORDY */
+#define _CMU_IF_HFXORDY_MASK                              0x2UL                                    /**< Bit mask for CMU_HFXORDY */
+#define _CMU_IF_HFXORDY_DEFAULT                           0x00000000UL                             /**< Mode DEFAULT for CMU_IF */
+#define CMU_IF_HFXORDY_DEFAULT                            (_CMU_IF_HFXORDY_DEFAULT << 1)           /**< Shifted mode DEFAULT for CMU_IF */
+#define CMU_IF_LFRCORDY                                   (0x1UL << 2)                             /**< LFRCO Ready Interrupt Flag */
+#define _CMU_IF_LFRCORDY_SHIFT                            2                                        /**< Shift value for CMU_LFRCORDY */
+#define _CMU_IF_LFRCORDY_MASK                             0x4UL                                    /**< Bit mask for CMU_LFRCORDY */
+#define _CMU_IF_LFRCORDY_DEFAULT                          0x00000000UL                             /**< Mode DEFAULT for CMU_IF */
+#define CMU_IF_LFRCORDY_DEFAULT                           (_CMU_IF_LFRCORDY_DEFAULT << 2)          /**< Shifted mode DEFAULT for CMU_IF */
+#define CMU_IF_LFXORDY                                    (0x1UL << 3)                             /**< LFXO Ready Interrupt Flag */
+#define _CMU_IF_LFXORDY_SHIFT                             3                                        /**< Shift value for CMU_LFXORDY */
+#define _CMU_IF_LFXORDY_MASK                              0x8UL                                    /**< Bit mask for CMU_LFXORDY */
+#define _CMU_IF_LFXORDY_DEFAULT                           0x00000000UL                             /**< Mode DEFAULT for CMU_IF */
+#define CMU_IF_LFXORDY_DEFAULT                            (_CMU_IF_LFXORDY_DEFAULT << 3)           /**< Shifted mode DEFAULT for CMU_IF */
+#define CMU_IF_AUXHFRCORDY                                (0x1UL << 4)                             /**< AUXHFRCO Ready Interrupt Flag */
+#define _CMU_IF_AUXHFRCORDY_SHIFT                         4                                        /**< Shift value for CMU_AUXHFRCORDY */
+#define _CMU_IF_AUXHFRCORDY_MASK                          0x10UL                                   /**< Bit mask for CMU_AUXHFRCORDY */
+#define _CMU_IF_AUXHFRCORDY_DEFAULT                       0x00000000UL                             /**< Mode DEFAULT for CMU_IF */
+#define CMU_IF_AUXHFRCORDY_DEFAULT                        (_CMU_IF_AUXHFRCORDY_DEFAULT << 4)       /**< Shifted mode DEFAULT for CMU_IF */
+#define CMU_IF_CALRDY                                     (0x1UL << 5)                             /**< Calibration Ready Interrupt Flag */
+#define _CMU_IF_CALRDY_SHIFT                              5                                        /**< Shift value for CMU_CALRDY */
+#define _CMU_IF_CALRDY_MASK                               0x20UL                                   /**< Bit mask for CMU_CALRDY */
+#define _CMU_IF_CALRDY_DEFAULT                            0x00000000UL                             /**< Mode DEFAULT for CMU_IF */
+#define CMU_IF_CALRDY_DEFAULT                             (_CMU_IF_CALRDY_DEFAULT << 5)            /**< Shifted mode DEFAULT for CMU_IF */
+#define CMU_IF_CALOF                                      (0x1UL << 6)                             /**< Calibration Overflow Interrupt Flag */
+#define _CMU_IF_CALOF_SHIFT                               6                                        /**< Shift value for CMU_CALOF */
+#define _CMU_IF_CALOF_MASK                                0x40UL                                   /**< Bit mask for CMU_CALOF */
+#define _CMU_IF_CALOF_DEFAULT                             0x00000000UL                             /**< Mode DEFAULT for CMU_IF */
+#define CMU_IF_CALOF_DEFAULT                              (_CMU_IF_CALOF_DEFAULT << 6)             /**< Shifted mode DEFAULT for CMU_IF */
+#define CMU_IF_HFXODISERR                                 (0x1UL << 8)                             /**< HFXO Disable Error Interrupt Flag */
+#define _CMU_IF_HFXODISERR_SHIFT                          8                                        /**< Shift value for CMU_HFXODISERR */
+#define _CMU_IF_HFXODISERR_MASK                           0x100UL                                  /**< Bit mask for CMU_HFXODISERR */
+#define _CMU_IF_HFXODISERR_DEFAULT                        0x00000000UL                             /**< Mode DEFAULT for CMU_IF */
+#define CMU_IF_HFXODISERR_DEFAULT                         (_CMU_IF_HFXODISERR_DEFAULT << 8)        /**< Shifted mode DEFAULT for CMU_IF */
+#define CMU_IF_HFXOAUTOSW                                 (0x1UL << 9)                             /**< HFXO Automatic Switch Interrupt Flag */
+#define _CMU_IF_HFXOAUTOSW_SHIFT                          9                                        /**< Shift value for CMU_HFXOAUTOSW */
+#define _CMU_IF_HFXOAUTOSW_MASK                           0x200UL                                  /**< Bit mask for CMU_HFXOAUTOSW */
+#define _CMU_IF_HFXOAUTOSW_DEFAULT                        0x00000000UL                             /**< Mode DEFAULT for CMU_IF */
+#define CMU_IF_HFXOAUTOSW_DEFAULT                         (_CMU_IF_HFXOAUTOSW_DEFAULT << 9)        /**< Shifted mode DEFAULT for CMU_IF */
+#define CMU_IF_HFXOPEAKDETERR                             (0x1UL << 10)                            /**< HFXO Automatic Peak Detection Error Interrupt Flag */
+#define _CMU_IF_HFXOPEAKDETERR_SHIFT                      10                                       /**< Shift value for CMU_HFXOPEAKDETERR */
+#define _CMU_IF_HFXOPEAKDETERR_MASK                       0x400UL                                  /**< Bit mask for CMU_HFXOPEAKDETERR */
+#define _CMU_IF_HFXOPEAKDETERR_DEFAULT                    0x00000000UL                             /**< Mode DEFAULT for CMU_IF */
+#define CMU_IF_HFXOPEAKDETERR_DEFAULT                     (_CMU_IF_HFXOPEAKDETERR_DEFAULT << 10)   /**< Shifted mode DEFAULT for CMU_IF */
+#define CMU_IF_HFXOPEAKDETRDY                             (0x1UL << 11)                            /**< HFXO Automatic Peak Detection Ready Interrupt Flag */
+#define _CMU_IF_HFXOPEAKDETRDY_SHIFT                      11                                       /**< Shift value for CMU_HFXOPEAKDETRDY */
+#define _CMU_IF_HFXOPEAKDETRDY_MASK                       0x800UL                                  /**< Bit mask for CMU_HFXOPEAKDETRDY */
+#define _CMU_IF_HFXOPEAKDETRDY_DEFAULT                    0x00000000UL                             /**< Mode DEFAULT for CMU_IF */
+#define CMU_IF_HFXOPEAKDETRDY_DEFAULT                     (_CMU_IF_HFXOPEAKDETRDY_DEFAULT << 11)   /**< Shifted mode DEFAULT for CMU_IF */
+#define CMU_IF_HFXOSHUNTOPTRDY                            (0x1UL << 12)                            /**< HFXO Automatic Shunt Current Optimization Ready Interrupt Flag */
+#define _CMU_IF_HFXOSHUNTOPTRDY_SHIFT                     12                                       /**< Shift value for CMU_HFXOSHUNTOPTRDY */
+#define _CMU_IF_HFXOSHUNTOPTRDY_MASK                      0x1000UL                                 /**< Bit mask for CMU_HFXOSHUNTOPTRDY */
+#define _CMU_IF_HFXOSHUNTOPTRDY_DEFAULT                   0x00000000UL                             /**< Mode DEFAULT for CMU_IF */
+#define CMU_IF_HFXOSHUNTOPTRDY_DEFAULT                    (_CMU_IF_HFXOSHUNTOPTRDY_DEFAULT << 12)  /**< Shifted mode DEFAULT for CMU_IF */
+#define CMU_IF_HFRCODIS                                   (0x1UL << 13)                            /**< HFRCO Disable Interrupt Flag */
+#define _CMU_IF_HFRCODIS_SHIFT                            13                                       /**< Shift value for CMU_HFRCODIS */
+#define _CMU_IF_HFRCODIS_MASK                             0x2000UL                                 /**< Bit mask for CMU_HFRCODIS */
+#define _CMU_IF_HFRCODIS_DEFAULT                          0x00000000UL                             /**< Mode DEFAULT for CMU_IF */
+#define CMU_IF_HFRCODIS_DEFAULT                           (_CMU_IF_HFRCODIS_DEFAULT << 13)         /**< Shifted mode DEFAULT for CMU_IF */
+#define CMU_IF_LFTIMEOUTERR                               (0x1UL << 14)                            /**< Low Frequency Timeout Error Interrupt Flag */
+#define _CMU_IF_LFTIMEOUTERR_SHIFT                        14                                       /**< Shift value for CMU_LFTIMEOUTERR */
+#define _CMU_IF_LFTIMEOUTERR_MASK                         0x4000UL                                 /**< Bit mask for CMU_LFTIMEOUTERR */
+#define _CMU_IF_LFTIMEOUTERR_DEFAULT                      0x00000000UL                             /**< Mode DEFAULT for CMU_IF */
+#define CMU_IF_LFTIMEOUTERR_DEFAULT                       (_CMU_IF_LFTIMEOUTERR_DEFAULT << 14)     /**< Shifted mode DEFAULT for CMU_IF */
+#define CMU_IF_DPLLRDY                                    (0x1UL << 15)                            /**< DPLL Lock Interrupt Flag */
+#define _CMU_IF_DPLLRDY_SHIFT                             15                                       /**< Shift value for CMU_DPLLRDY */
+#define _CMU_IF_DPLLRDY_MASK                              0x8000UL                                 /**< Bit mask for CMU_DPLLRDY */
+#define _CMU_IF_DPLLRDY_DEFAULT                           0x00000000UL                             /**< Mode DEFAULT for CMU_IF */
+#define CMU_IF_DPLLRDY_DEFAULT                            (_CMU_IF_DPLLRDY_DEFAULT << 15)          /**< Shifted mode DEFAULT for CMU_IF */
+#define CMU_IF_DPLLLOCKFAILLOW                            (0x1UL << 16)                            /**< DPLL Lock Failure Low Interrupt Flag */
+#define _CMU_IF_DPLLLOCKFAILLOW_SHIFT                     16                                       /**< Shift value for CMU_DPLLLOCKFAILLOW */
+#define _CMU_IF_DPLLLOCKFAILLOW_MASK                      0x10000UL                                /**< Bit mask for CMU_DPLLLOCKFAILLOW */
+#define _CMU_IF_DPLLLOCKFAILLOW_DEFAULT                   0x00000000UL                             /**< Mode DEFAULT for CMU_IF */
+#define CMU_IF_DPLLLOCKFAILLOW_DEFAULT                    (_CMU_IF_DPLLLOCKFAILLOW_DEFAULT << 16)  /**< Shifted mode DEFAULT for CMU_IF */
+#define CMU_IF_DPLLLOCKFAILHIGH                           (0x1UL << 17)                            /**< DPLL Lock Failure Low Interrupt Flag */
+#define _CMU_IF_DPLLLOCKFAILHIGH_SHIFT                    17                                       /**< Shift value for CMU_DPLLLOCKFAILHIGH */
+#define _CMU_IF_DPLLLOCKFAILHIGH_MASK                     0x20000UL                                /**< Bit mask for CMU_DPLLLOCKFAILHIGH */
+#define _CMU_IF_DPLLLOCKFAILHIGH_DEFAULT                  0x00000000UL                             /**< Mode DEFAULT for CMU_IF */
+#define CMU_IF_DPLLLOCKFAILHIGH_DEFAULT                   (_CMU_IF_DPLLLOCKFAILHIGH_DEFAULT << 17) /**< Shifted mode DEFAULT for CMU_IF */
+#define CMU_IF_LFXOEDGE                                   (0x1UL << 27)                            /**< LFXO Clock Edge Detected Interrupt Flag */
+#define _CMU_IF_LFXOEDGE_SHIFT                            27                                       /**< Shift value for CMU_LFXOEDGE */
+#define _CMU_IF_LFXOEDGE_MASK                             0x8000000UL                              /**< Bit mask for CMU_LFXOEDGE */
+#define _CMU_IF_LFXOEDGE_DEFAULT                          0x00000000UL                             /**< Mode DEFAULT for CMU_IF */
+#define CMU_IF_LFXOEDGE_DEFAULT                           (_CMU_IF_LFXOEDGE_DEFAULT << 27)         /**< Shifted mode DEFAULT for CMU_IF */
+#define CMU_IF_LFRCOEDGE                                  (0x1UL << 28)                            /**< LFRCO Clock Edge Detected Interrupt Flag */
+#define _CMU_IF_LFRCOEDGE_SHIFT                           28                                       /**< Shift value for CMU_LFRCOEDGE */
+#define _CMU_IF_LFRCOEDGE_MASK                            0x10000000UL                             /**< Bit mask for CMU_LFRCOEDGE */
+#define _CMU_IF_LFRCOEDGE_DEFAULT                         0x00000000UL                             /**< Mode DEFAULT for CMU_IF */
+#define CMU_IF_LFRCOEDGE_DEFAULT                          (_CMU_IF_LFRCOEDGE_DEFAULT << 28)        /**< Shifted mode DEFAULT for CMU_IF */
+#define CMU_IF_ULFRCOEDGE                                 (0x1UL << 29)                            /**< ULFRCO Clock Edge Detected Interrupt Flag */
+#define _CMU_IF_ULFRCOEDGE_SHIFT                          29                                       /**< Shift value for CMU_ULFRCOEDGE */
+#define _CMU_IF_ULFRCOEDGE_MASK                           0x20000000UL                             /**< Bit mask for CMU_ULFRCOEDGE */
+#define _CMU_IF_ULFRCOEDGE_DEFAULT                        0x00000000UL                             /**< Mode DEFAULT for CMU_IF */
+#define CMU_IF_ULFRCOEDGE_DEFAULT                         (_CMU_IF_ULFRCOEDGE_DEFAULT << 29)       /**< Shifted mode DEFAULT for CMU_IF */
+#define CMU_IF_CMUERR                                     (0x1UL << 31)                            /**< CMU Error Interrupt Flag */
+#define _CMU_IF_CMUERR_SHIFT                              31                                       /**< Shift value for CMU_CMUERR */
+#define _CMU_IF_CMUERR_MASK                               0x80000000UL                             /**< Bit mask for CMU_CMUERR */
+#define _CMU_IF_CMUERR_DEFAULT                            0x00000000UL                             /**< Mode DEFAULT for CMU_IF */
+#define CMU_IF_CMUERR_DEFAULT                             (_CMU_IF_CMUERR_DEFAULT << 31)           /**< Shifted mode DEFAULT for CMU_IF */
+
+/* Bit fields for CMU IFS */
+#define _CMU_IFS_RESETVALUE                               0x00000000UL                              /**< Default value for CMU_IFS */
+#define _CMU_IFS_MASK                                     0xB803FF7FUL                              /**< Mask for CMU_IFS */
+#define CMU_IFS_HFRCORDY                                  (0x1UL << 0)                              /**< Set HFRCORDY Interrupt Flag */
+#define _CMU_IFS_HFRCORDY_SHIFT                           0                                         /**< Shift value for CMU_HFRCORDY */
+#define _CMU_IFS_HFRCORDY_MASK                            0x1UL                                     /**< Bit mask for CMU_HFRCORDY */
+#define _CMU_IFS_HFRCORDY_DEFAULT                         0x00000000UL                              /**< Mode DEFAULT for CMU_IFS */
+#define CMU_IFS_HFRCORDY_DEFAULT                          (_CMU_IFS_HFRCORDY_DEFAULT << 0)          /**< Shifted mode DEFAULT for CMU_IFS */
+#define CMU_IFS_HFXORDY                                   (0x1UL << 1)                              /**< Set HFXORDY Interrupt Flag */
+#define _CMU_IFS_HFXORDY_SHIFT                            1                                         /**< Shift value for CMU_HFXORDY */
+#define _CMU_IFS_HFXORDY_MASK                             0x2UL                                     /**< Bit mask for CMU_HFXORDY */
+#define _CMU_IFS_HFXORDY_DEFAULT                          0x00000000UL                              /**< Mode DEFAULT for CMU_IFS */
+#define CMU_IFS_HFXORDY_DEFAULT                           (_CMU_IFS_HFXORDY_DEFAULT << 1)           /**< Shifted mode DEFAULT for CMU_IFS */
+#define CMU_IFS_LFRCORDY                                  (0x1UL << 2)                              /**< Set LFRCORDY Interrupt Flag */
+#define _CMU_IFS_LFRCORDY_SHIFT                           2                                         /**< Shift value for CMU_LFRCORDY */
+#define _CMU_IFS_LFRCORDY_MASK                            0x4UL                                     /**< Bit mask for CMU_LFRCORDY */
+#define _CMU_IFS_LFRCORDY_DEFAULT                         0x00000000UL                              /**< Mode DEFAULT for CMU_IFS */
+#define CMU_IFS_LFRCORDY_DEFAULT                          (_CMU_IFS_LFRCORDY_DEFAULT << 2)          /**< Shifted mode DEFAULT for CMU_IFS */
+#define CMU_IFS_LFXORDY                                   (0x1UL << 3)                              /**< Set LFXORDY Interrupt Flag */
+#define _CMU_IFS_LFXORDY_SHIFT                            3                                         /**< Shift value for CMU_LFXORDY */
+#define _CMU_IFS_LFXORDY_MASK                             0x8UL                                     /**< Bit mask for CMU_LFXORDY */
+#define _CMU_IFS_LFXORDY_DEFAULT                          0x00000000UL                              /**< Mode DEFAULT for CMU_IFS */
+#define CMU_IFS_LFXORDY_DEFAULT                           (_CMU_IFS_LFXORDY_DEFAULT << 3)           /**< Shifted mode DEFAULT for CMU_IFS */
+#define CMU_IFS_AUXHFRCORDY                               (0x1UL << 4)                              /**< Set AUXHFRCORDY Interrupt Flag */
+#define _CMU_IFS_AUXHFRCORDY_SHIFT                        4                                         /**< Shift value for CMU_AUXHFRCORDY */
+#define _CMU_IFS_AUXHFRCORDY_MASK                         0x10UL                                    /**< Bit mask for CMU_AUXHFRCORDY */
+#define _CMU_IFS_AUXHFRCORDY_DEFAULT                      0x00000000UL                              /**< Mode DEFAULT for CMU_IFS */
+#define CMU_IFS_AUXHFRCORDY_DEFAULT                       (_CMU_IFS_AUXHFRCORDY_DEFAULT << 4)       /**< Shifted mode DEFAULT for CMU_IFS */
+#define CMU_IFS_CALRDY                                    (0x1UL << 5)                              /**< Set CALRDY Interrupt Flag */
+#define _CMU_IFS_CALRDY_SHIFT                             5                                         /**< Shift value for CMU_CALRDY */
+#define _CMU_IFS_CALRDY_MASK                              0x20UL                                    /**< Bit mask for CMU_CALRDY */
+#define _CMU_IFS_CALRDY_DEFAULT                           0x00000000UL                              /**< Mode DEFAULT for CMU_IFS */
+#define CMU_IFS_CALRDY_DEFAULT                            (_CMU_IFS_CALRDY_DEFAULT << 5)            /**< Shifted mode DEFAULT for CMU_IFS */
+#define CMU_IFS_CALOF                                     (0x1UL << 6)                              /**< Set CALOF Interrupt Flag */
+#define _CMU_IFS_CALOF_SHIFT                              6                                         /**< Shift value for CMU_CALOF */
+#define _CMU_IFS_CALOF_MASK                               0x40UL                                    /**< Bit mask for CMU_CALOF */
+#define _CMU_IFS_CALOF_DEFAULT                            0x00000000UL                              /**< Mode DEFAULT for CMU_IFS */
+#define CMU_IFS_CALOF_DEFAULT                             (_CMU_IFS_CALOF_DEFAULT << 6)             /**< Shifted mode DEFAULT for CMU_IFS */
+#define CMU_IFS_HFXODISERR                                (0x1UL << 8)                              /**< Set HFXODISERR Interrupt Flag */
+#define _CMU_IFS_HFXODISERR_SHIFT                         8                                         /**< Shift value for CMU_HFXODISERR */
+#define _CMU_IFS_HFXODISERR_MASK                          0x100UL                                   /**< Bit mask for CMU_HFXODISERR */
+#define _CMU_IFS_HFXODISERR_DEFAULT                       0x00000000UL                              /**< Mode DEFAULT for CMU_IFS */
+#define CMU_IFS_HFXODISERR_DEFAULT                        (_CMU_IFS_HFXODISERR_DEFAULT << 8)        /**< Shifted mode DEFAULT for CMU_IFS */
+#define CMU_IFS_HFXOAUTOSW                                (0x1UL << 9)                              /**< Set HFXOAUTOSW Interrupt Flag */
+#define _CMU_IFS_HFXOAUTOSW_SHIFT                         9                                         /**< Shift value for CMU_HFXOAUTOSW */
+#define _CMU_IFS_HFXOAUTOSW_MASK                          0x200UL                                   /**< Bit mask for CMU_HFXOAUTOSW */
+#define _CMU_IFS_HFXOAUTOSW_DEFAULT                       0x00000000UL                              /**< Mode DEFAULT for CMU_IFS */
+#define CMU_IFS_HFXOAUTOSW_DEFAULT                        (_CMU_IFS_HFXOAUTOSW_DEFAULT << 9)        /**< Shifted mode DEFAULT for CMU_IFS */
+#define CMU_IFS_HFXOPEAKDETERR                            (0x1UL << 10)                             /**< Set HFXOPEAKDETERR Interrupt Flag */
+#define _CMU_IFS_HFXOPEAKDETERR_SHIFT                     10                                        /**< Shift value for CMU_HFXOPEAKDETERR */
+#define _CMU_IFS_HFXOPEAKDETERR_MASK                      0x400UL                                   /**< Bit mask for CMU_HFXOPEAKDETERR */
+#define _CMU_IFS_HFXOPEAKDETERR_DEFAULT                   0x00000000UL                              /**< Mode DEFAULT for CMU_IFS */
+#define CMU_IFS_HFXOPEAKDETERR_DEFAULT                    (_CMU_IFS_HFXOPEAKDETERR_DEFAULT << 10)   /**< Shifted mode DEFAULT for CMU_IFS */
+#define CMU_IFS_HFXOPEAKDETRDY                            (0x1UL << 11)                             /**< Set HFXOPEAKDETRDY Interrupt Flag */
+#define _CMU_IFS_HFXOPEAKDETRDY_SHIFT                     11                                        /**< Shift value for CMU_HFXOPEAKDETRDY */
+#define _CMU_IFS_HFXOPEAKDETRDY_MASK                      0x800UL                                   /**< Bit mask for CMU_HFXOPEAKDETRDY */
+#define _CMU_IFS_HFXOPEAKDETRDY_DEFAULT                   0x00000000UL                              /**< Mode DEFAULT for CMU_IFS */
+#define CMU_IFS_HFXOPEAKDETRDY_DEFAULT                    (_CMU_IFS_HFXOPEAKDETRDY_DEFAULT << 11)   /**< Shifted mode DEFAULT for CMU_IFS */
+#define CMU_IFS_HFXOSHUNTOPTRDY                           (0x1UL << 12)                             /**< Set HFXOSHUNTOPTRDY Interrupt Flag */
+#define _CMU_IFS_HFXOSHUNTOPTRDY_SHIFT                    12                                        /**< Shift value for CMU_HFXOSHUNTOPTRDY */
+#define _CMU_IFS_HFXOSHUNTOPTRDY_MASK                     0x1000UL                                  /**< Bit mask for CMU_HFXOSHUNTOPTRDY */
+#define _CMU_IFS_HFXOSHUNTOPTRDY_DEFAULT                  0x00000000UL                              /**< Mode DEFAULT for CMU_IFS */
+#define CMU_IFS_HFXOSHUNTOPTRDY_DEFAULT                   (_CMU_IFS_HFXOSHUNTOPTRDY_DEFAULT << 12)  /**< Shifted mode DEFAULT for CMU_IFS */
+#define CMU_IFS_HFRCODIS                                  (0x1UL << 13)                             /**< Set HFRCODIS Interrupt Flag */
+#define _CMU_IFS_HFRCODIS_SHIFT                           13                                        /**< Shift value for CMU_HFRCODIS */
+#define _CMU_IFS_HFRCODIS_MASK                            0x2000UL                                  /**< Bit mask for CMU_HFRCODIS */
+#define _CMU_IFS_HFRCODIS_DEFAULT                         0x00000000UL                              /**< Mode DEFAULT for CMU_IFS */
+#define CMU_IFS_HFRCODIS_DEFAULT                          (_CMU_IFS_HFRCODIS_DEFAULT << 13)         /**< Shifted mode DEFAULT for CMU_IFS */
+#define CMU_IFS_LFTIMEOUTERR                              (0x1UL << 14)                             /**< Set LFTIMEOUTERR Interrupt Flag */
+#define _CMU_IFS_LFTIMEOUTERR_SHIFT                       14                                        /**< Shift value for CMU_LFTIMEOUTERR */
+#define _CMU_IFS_LFTIMEOUTERR_MASK                        0x4000UL                                  /**< Bit mask for CMU_LFTIMEOUTERR */
+#define _CMU_IFS_LFTIMEOUTERR_DEFAULT                     0x00000000UL                              /**< Mode DEFAULT for CMU_IFS */
+#define CMU_IFS_LFTIMEOUTERR_DEFAULT                      (_CMU_IFS_LFTIMEOUTERR_DEFAULT << 14)     /**< Shifted mode DEFAULT for CMU_IFS */
+#define CMU_IFS_DPLLRDY                                   (0x1UL << 15)                             /**< Set DPLLRDY Interrupt Flag */
+#define _CMU_IFS_DPLLRDY_SHIFT                            15                                        /**< Shift value for CMU_DPLLRDY */
+#define _CMU_IFS_DPLLRDY_MASK                             0x8000UL                                  /**< Bit mask for CMU_DPLLRDY */
+#define _CMU_IFS_DPLLRDY_DEFAULT                          0x00000000UL                              /**< Mode DEFAULT for CMU_IFS */
+#define CMU_IFS_DPLLRDY_DEFAULT                           (_CMU_IFS_DPLLRDY_DEFAULT << 15)          /**< Shifted mode DEFAULT for CMU_IFS */
+#define CMU_IFS_DPLLLOCKFAILLOW                           (0x1UL << 16)                             /**< Set DPLLLOCKFAILLOW Interrupt Flag */
+#define _CMU_IFS_DPLLLOCKFAILLOW_SHIFT                    16                                        /**< Shift value for CMU_DPLLLOCKFAILLOW */
+#define _CMU_IFS_DPLLLOCKFAILLOW_MASK                     0x10000UL                                 /**< Bit mask for CMU_DPLLLOCKFAILLOW */
+#define _CMU_IFS_DPLLLOCKFAILLOW_DEFAULT                  0x00000000UL                              /**< Mode DEFAULT for CMU_IFS */
+#define CMU_IFS_DPLLLOCKFAILLOW_DEFAULT                   (_CMU_IFS_DPLLLOCKFAILLOW_DEFAULT << 16)  /**< Shifted mode DEFAULT for CMU_IFS */
+#define CMU_IFS_DPLLLOCKFAILHIGH                          (0x1UL << 17)                             /**< Set DPLLLOCKFAILHIGH Interrupt Flag */
+#define _CMU_IFS_DPLLLOCKFAILHIGH_SHIFT                   17                                        /**< Shift value for CMU_DPLLLOCKFAILHIGH */
+#define _CMU_IFS_DPLLLOCKFAILHIGH_MASK                    0x20000UL                                 /**< Bit mask for CMU_DPLLLOCKFAILHIGH */
+#define _CMU_IFS_DPLLLOCKFAILHIGH_DEFAULT                 0x00000000UL                              /**< Mode DEFAULT for CMU_IFS */
+#define CMU_IFS_DPLLLOCKFAILHIGH_DEFAULT                  (_CMU_IFS_DPLLLOCKFAILHIGH_DEFAULT << 17) /**< Shifted mode DEFAULT for CMU_IFS */
+#define CMU_IFS_LFXOEDGE                                  (0x1UL << 27)                             /**< Set LFXOEDGE Interrupt Flag */
+#define _CMU_IFS_LFXOEDGE_SHIFT                           27                                        /**< Shift value for CMU_LFXOEDGE */
+#define _CMU_IFS_LFXOEDGE_MASK                            0x8000000UL                               /**< Bit mask for CMU_LFXOEDGE */
+#define _CMU_IFS_LFXOEDGE_DEFAULT                         0x00000000UL                              /**< Mode DEFAULT for CMU_IFS */
+#define CMU_IFS_LFXOEDGE_DEFAULT                          (_CMU_IFS_LFXOEDGE_DEFAULT << 27)         /**< Shifted mode DEFAULT for CMU_IFS */
+#define CMU_IFS_LFRCOEDGE                                 (0x1UL << 28)                             /**< Set LFRCOEDGE Interrupt Flag */
+#define _CMU_IFS_LFRCOEDGE_SHIFT                          28                                        /**< Shift value for CMU_LFRCOEDGE */
+#define _CMU_IFS_LFRCOEDGE_MASK                           0x10000000UL                              /**< Bit mask for CMU_LFRCOEDGE */
+#define _CMU_IFS_LFRCOEDGE_DEFAULT                        0x00000000UL                              /**< Mode DEFAULT for CMU_IFS */
+#define CMU_IFS_LFRCOEDGE_DEFAULT                         (_CMU_IFS_LFRCOEDGE_DEFAULT << 28)        /**< Shifted mode DEFAULT for CMU_IFS */
+#define CMU_IFS_ULFRCOEDGE                                (0x1UL << 29)                             /**< Set ULFRCOEDGE Interrupt Flag */
+#define _CMU_IFS_ULFRCOEDGE_SHIFT                         29                                        /**< Shift value for CMU_ULFRCOEDGE */
+#define _CMU_IFS_ULFRCOEDGE_MASK                          0x20000000UL                              /**< Bit mask for CMU_ULFRCOEDGE */
+#define _CMU_IFS_ULFRCOEDGE_DEFAULT                       0x00000000UL                              /**< Mode DEFAULT for CMU_IFS */
+#define CMU_IFS_ULFRCOEDGE_DEFAULT                        (_CMU_IFS_ULFRCOEDGE_DEFAULT << 29)       /**< Shifted mode DEFAULT for CMU_IFS */
+#define CMU_IFS_CMUERR                                    (0x1UL << 31)                             /**< Set CMUERR Interrupt Flag */
+#define _CMU_IFS_CMUERR_SHIFT                             31                                        /**< Shift value for CMU_CMUERR */
+#define _CMU_IFS_CMUERR_MASK                              0x80000000UL                              /**< Bit mask for CMU_CMUERR */
+#define _CMU_IFS_CMUERR_DEFAULT                           0x00000000UL                              /**< Mode DEFAULT for CMU_IFS */
+#define CMU_IFS_CMUERR_DEFAULT                            (_CMU_IFS_CMUERR_DEFAULT << 31)           /**< Shifted mode DEFAULT for CMU_IFS */
+
+/* Bit fields for CMU IFC */
+#define _CMU_IFC_RESETVALUE                               0x00000000UL                              /**< Default value for CMU_IFC */
+#define _CMU_IFC_MASK                                     0xB803FF7FUL                              /**< Mask for CMU_IFC */
+#define CMU_IFC_HFRCORDY                                  (0x1UL << 0)                              /**< Clear HFRCORDY Interrupt Flag */
+#define _CMU_IFC_HFRCORDY_SHIFT                           0                                         /**< Shift value for CMU_HFRCORDY */
+#define _CMU_IFC_HFRCORDY_MASK                            0x1UL                                     /**< Bit mask for CMU_HFRCORDY */
+#define _CMU_IFC_HFRCORDY_DEFAULT                         0x00000000UL                              /**< Mode DEFAULT for CMU_IFC */
+#define CMU_IFC_HFRCORDY_DEFAULT                          (_CMU_IFC_HFRCORDY_DEFAULT << 0)          /**< Shifted mode DEFAULT for CMU_IFC */
+#define CMU_IFC_HFXORDY                                   (0x1UL << 1)                              /**< Clear HFXORDY Interrupt Flag */
+#define _CMU_IFC_HFXORDY_SHIFT                            1                                         /**< Shift value for CMU_HFXORDY */
+#define _CMU_IFC_HFXORDY_MASK                             0x2UL                                     /**< Bit mask for CMU_HFXORDY */
+#define _CMU_IFC_HFXORDY_DEFAULT                          0x00000000UL                              /**< Mode DEFAULT for CMU_IFC */
+#define CMU_IFC_HFXORDY_DEFAULT                           (_CMU_IFC_HFXORDY_DEFAULT << 1)           /**< Shifted mode DEFAULT for CMU_IFC */
+#define CMU_IFC_LFRCORDY                                  (0x1UL << 2)                              /**< Clear LFRCORDY Interrupt Flag */
+#define _CMU_IFC_LFRCORDY_SHIFT                           2                                         /**< Shift value for CMU_LFRCORDY */
+#define _CMU_IFC_LFRCORDY_MASK                            0x4UL                                     /**< Bit mask for CMU_LFRCORDY */
+#define _CMU_IFC_LFRCORDY_DEFAULT                         0x00000000UL                              /**< Mode DEFAULT for CMU_IFC */
+#define CMU_IFC_LFRCORDY_DEFAULT                          (_CMU_IFC_LFRCORDY_DEFAULT << 2)          /**< Shifted mode DEFAULT for CMU_IFC */
+#define CMU_IFC_LFXORDY                                   (0x1UL << 3)                              /**< Clear LFXORDY Interrupt Flag */
+#define _CMU_IFC_LFXORDY_SHIFT                            3                                         /**< Shift value for CMU_LFXORDY */
+#define _CMU_IFC_LFXORDY_MASK                             0x8UL                                     /**< Bit mask for CMU_LFXORDY */
+#define _CMU_IFC_LFXORDY_DEFAULT                          0x00000000UL                              /**< Mode DEFAULT for CMU_IFC */
+#define CMU_IFC_LFXORDY_DEFAULT                           (_CMU_IFC_LFXORDY_DEFAULT << 3)           /**< Shifted mode DEFAULT for CMU_IFC */
+#define CMU_IFC_AUXHFRCORDY                               (0x1UL << 4)                              /**< Clear AUXHFRCORDY Interrupt Flag */
+#define _CMU_IFC_AUXHFRCORDY_SHIFT                        4                                         /**< Shift value for CMU_AUXHFRCORDY */
+#define _CMU_IFC_AUXHFRCORDY_MASK                         0x10UL                                    /**< Bit mask for CMU_AUXHFRCORDY */
+#define _CMU_IFC_AUXHFRCORDY_DEFAULT                      0x00000000UL                              /**< Mode DEFAULT for CMU_IFC */
+#define CMU_IFC_AUXHFRCORDY_DEFAULT                       (_CMU_IFC_AUXHFRCORDY_DEFAULT << 4)       /**< Shifted mode DEFAULT for CMU_IFC */
+#define CMU_IFC_CALRDY                                    (0x1UL << 5)                              /**< Clear CALRDY Interrupt Flag */
+#define _CMU_IFC_CALRDY_SHIFT                             5                                         /**< Shift value for CMU_CALRDY */
+#define _CMU_IFC_CALRDY_MASK                              0x20UL                                    /**< Bit mask for CMU_CALRDY */
+#define _CMU_IFC_CALRDY_DEFAULT                           0x00000000UL                              /**< Mode DEFAULT for CMU_IFC */
+#define CMU_IFC_CALRDY_DEFAULT                            (_CMU_IFC_CALRDY_DEFAULT << 5)            /**< Shifted mode DEFAULT for CMU_IFC */
+#define CMU_IFC_CALOF                                     (0x1UL << 6)                              /**< Clear CALOF Interrupt Flag */
+#define _CMU_IFC_CALOF_SHIFT                              6                                         /**< Shift value for CMU_CALOF */
+#define _CMU_IFC_CALOF_MASK                               0x40UL                                    /**< Bit mask for CMU_CALOF */
+#define _CMU_IFC_CALOF_DEFAULT                            0x00000000UL                              /**< Mode DEFAULT for CMU_IFC */
+#define CMU_IFC_CALOF_DEFAULT                             (_CMU_IFC_CALOF_DEFAULT << 6)             /**< Shifted mode DEFAULT for CMU_IFC */
+#define CMU_IFC_HFXODISERR                                (0x1UL << 8)                              /**< Clear HFXODISERR Interrupt Flag */
+#define _CMU_IFC_HFXODISERR_SHIFT                         8                                         /**< Shift value for CMU_HFXODISERR */
+#define _CMU_IFC_HFXODISERR_MASK                          0x100UL                                   /**< Bit mask for CMU_HFXODISERR */
+#define _CMU_IFC_HFXODISERR_DEFAULT                       0x00000000UL                              /**< Mode DEFAULT for CMU_IFC */
+#define CMU_IFC_HFXODISERR_DEFAULT                        (_CMU_IFC_HFXODISERR_DEFAULT << 8)        /**< Shifted mode DEFAULT for CMU_IFC */
+#define CMU_IFC_HFXOAUTOSW                                (0x1UL << 9)                              /**< Clear HFXOAUTOSW Interrupt Flag */
+#define _CMU_IFC_HFXOAUTOSW_SHIFT                         9                                         /**< Shift value for CMU_HFXOAUTOSW */
+#define _CMU_IFC_HFXOAUTOSW_MASK                          0x200UL                                   /**< Bit mask for CMU_HFXOAUTOSW */
+#define _CMU_IFC_HFXOAUTOSW_DEFAULT                       0x00000000UL                              /**< Mode DEFAULT for CMU_IFC */
+#define CMU_IFC_HFXOAUTOSW_DEFAULT                        (_CMU_IFC_HFXOAUTOSW_DEFAULT << 9)        /**< Shifted mode DEFAULT for CMU_IFC */
+#define CMU_IFC_HFXOPEAKDETERR                            (0x1UL << 10)                             /**< Clear HFXOPEAKDETERR Interrupt Flag */
+#define _CMU_IFC_HFXOPEAKDETERR_SHIFT                     10                                        /**< Shift value for CMU_HFXOPEAKDETERR */
+#define _CMU_IFC_HFXOPEAKDETERR_MASK                      0x400UL                                   /**< Bit mask for CMU_HFXOPEAKDETERR */
+#define _CMU_IFC_HFXOPEAKDETERR_DEFAULT                   0x00000000UL                              /**< Mode DEFAULT for CMU_IFC */
+#define CMU_IFC_HFXOPEAKDETERR_DEFAULT                    (_CMU_IFC_HFXOPEAKDETERR_DEFAULT << 10)   /**< Shifted mode DEFAULT for CMU_IFC */
+#define CMU_IFC_HFXOPEAKDETRDY                            (0x1UL << 11)                             /**< Clear HFXOPEAKDETRDY Interrupt Flag */
+#define _CMU_IFC_HFXOPEAKDETRDY_SHIFT                     11                                        /**< Shift value for CMU_HFXOPEAKDETRDY */
+#define _CMU_IFC_HFXOPEAKDETRDY_MASK                      0x800UL                                   /**< Bit mask for CMU_HFXOPEAKDETRDY */
+#define _CMU_IFC_HFXOPEAKDETRDY_DEFAULT                   0x00000000UL                              /**< Mode DEFAULT for CMU_IFC */
+#define CMU_IFC_HFXOPEAKDETRDY_DEFAULT                    (_CMU_IFC_HFXOPEAKDETRDY_DEFAULT << 11)   /**< Shifted mode DEFAULT for CMU_IFC */
+#define CMU_IFC_HFXOSHUNTOPTRDY                           (0x1UL << 12)                             /**< Clear HFXOSHUNTOPTRDY Interrupt Flag */
+#define _CMU_IFC_HFXOSHUNTOPTRDY_SHIFT                    12                                        /**< Shift value for CMU_HFXOSHUNTOPTRDY */
+#define _CMU_IFC_HFXOSHUNTOPTRDY_MASK                     0x1000UL                                  /**< Bit mask for CMU_HFXOSHUNTOPTRDY */
+#define _CMU_IFC_HFXOSHUNTOPTRDY_DEFAULT                  0x00000000UL                              /**< Mode DEFAULT for CMU_IFC */
+#define CMU_IFC_HFXOSHUNTOPTRDY_DEFAULT                   (_CMU_IFC_HFXOSHUNTOPTRDY_DEFAULT << 12)  /**< Shifted mode DEFAULT for CMU_IFC */
+#define CMU_IFC_HFRCODIS                                  (0x1UL << 13)                             /**< Clear HFRCODIS Interrupt Flag */
+#define _CMU_IFC_HFRCODIS_SHIFT                           13                                        /**< Shift value for CMU_HFRCODIS */
+#define _CMU_IFC_HFRCODIS_MASK                            0x2000UL                                  /**< Bit mask for CMU_HFRCODIS */
+#define _CMU_IFC_HFRCODIS_DEFAULT                         0x00000000UL                              /**< Mode DEFAULT for CMU_IFC */
+#define CMU_IFC_HFRCODIS_DEFAULT                          (_CMU_IFC_HFRCODIS_DEFAULT << 13)         /**< Shifted mode DEFAULT for CMU_IFC */
+#define CMU_IFC_LFTIMEOUTERR                              (0x1UL << 14)                             /**< Clear LFTIMEOUTERR Interrupt Flag */
+#define _CMU_IFC_LFTIMEOUTERR_SHIFT                       14                                        /**< Shift value for CMU_LFTIMEOUTERR */
+#define _CMU_IFC_LFTIMEOUTERR_MASK                        0x4000UL                                  /**< Bit mask for CMU_LFTIMEOUTERR */
+#define _CMU_IFC_LFTIMEOUTERR_DEFAULT                     0x00000000UL                              /**< Mode DEFAULT for CMU_IFC */
+#define CMU_IFC_LFTIMEOUTERR_DEFAULT                      (_CMU_IFC_LFTIMEOUTERR_DEFAULT << 14)     /**< Shifted mode DEFAULT for CMU_IFC */
+#define CMU_IFC_DPLLRDY                                   (0x1UL << 15)                             /**< Clear DPLLRDY Interrupt Flag */
+#define _CMU_IFC_DPLLRDY_SHIFT                            15                                        /**< Shift value for CMU_DPLLRDY */
+#define _CMU_IFC_DPLLRDY_MASK                             0x8000UL                                  /**< Bit mask for CMU_DPLLRDY */
+#define _CMU_IFC_DPLLRDY_DEFAULT                          0x00000000UL                              /**< Mode DEFAULT for CMU_IFC */
+#define CMU_IFC_DPLLRDY_DEFAULT                           (_CMU_IFC_DPLLRDY_DEFAULT << 15)          /**< Shifted mode DEFAULT for CMU_IFC */
+#define CMU_IFC_DPLLLOCKFAILLOW                           (0x1UL << 16)                             /**< Clear DPLLLOCKFAILLOW Interrupt Flag */
+#define _CMU_IFC_DPLLLOCKFAILLOW_SHIFT                    16                                        /**< Shift value for CMU_DPLLLOCKFAILLOW */
+#define _CMU_IFC_DPLLLOCKFAILLOW_MASK                     0x10000UL                                 /**< Bit mask for CMU_DPLLLOCKFAILLOW */
+#define _CMU_IFC_DPLLLOCKFAILLOW_DEFAULT                  0x00000000UL                              /**< Mode DEFAULT for CMU_IFC */
+#define CMU_IFC_DPLLLOCKFAILLOW_DEFAULT                   (_CMU_IFC_DPLLLOCKFAILLOW_DEFAULT << 16)  /**< Shifted mode DEFAULT for CMU_IFC */
+#define CMU_IFC_DPLLLOCKFAILHIGH                          (0x1UL << 17)                             /**< Clear DPLLLOCKFAILHIGH Interrupt Flag */
+#define _CMU_IFC_DPLLLOCKFAILHIGH_SHIFT                   17                                        /**< Shift value for CMU_DPLLLOCKFAILHIGH */
+#define _CMU_IFC_DPLLLOCKFAILHIGH_MASK                    0x20000UL                                 /**< Bit mask for CMU_DPLLLOCKFAILHIGH */
+#define _CMU_IFC_DPLLLOCKFAILHIGH_DEFAULT                 0x00000000UL                              /**< Mode DEFAULT for CMU_IFC */
+#define CMU_IFC_DPLLLOCKFAILHIGH_DEFAULT                  (_CMU_IFC_DPLLLOCKFAILHIGH_DEFAULT << 17) /**< Shifted mode DEFAULT for CMU_IFC */
+#define CMU_IFC_LFXOEDGE                                  (0x1UL << 27)                             /**< Clear LFXOEDGE Interrupt Flag */
+#define _CMU_IFC_LFXOEDGE_SHIFT                           27                                        /**< Shift value for CMU_LFXOEDGE */
+#define _CMU_IFC_LFXOEDGE_MASK                            0x8000000UL                               /**< Bit mask for CMU_LFXOEDGE */
+#define _CMU_IFC_LFXOEDGE_DEFAULT                         0x00000000UL                              /**< Mode DEFAULT for CMU_IFC */
+#define CMU_IFC_LFXOEDGE_DEFAULT                          (_CMU_IFC_LFXOEDGE_DEFAULT << 27)         /**< Shifted mode DEFAULT for CMU_IFC */
+#define CMU_IFC_LFRCOEDGE                                 (0x1UL << 28)                             /**< Clear LFRCOEDGE Interrupt Flag */
+#define _CMU_IFC_LFRCOEDGE_SHIFT                          28                                        /**< Shift value for CMU_LFRCOEDGE */
+#define _CMU_IFC_LFRCOEDGE_MASK                           0x10000000UL                              /**< Bit mask for CMU_LFRCOEDGE */
+#define _CMU_IFC_LFRCOEDGE_DEFAULT                        0x00000000UL                              /**< Mode DEFAULT for CMU_IFC */
+#define CMU_IFC_LFRCOEDGE_DEFAULT                         (_CMU_IFC_LFRCOEDGE_DEFAULT << 28)        /**< Shifted mode DEFAULT for CMU_IFC */
+#define CMU_IFC_ULFRCOEDGE                                (0x1UL << 29)                             /**< Clear ULFRCOEDGE Interrupt Flag */
+#define _CMU_IFC_ULFRCOEDGE_SHIFT                         29                                        /**< Shift value for CMU_ULFRCOEDGE */
+#define _CMU_IFC_ULFRCOEDGE_MASK                          0x20000000UL                              /**< Bit mask for CMU_ULFRCOEDGE */
+#define _CMU_IFC_ULFRCOEDGE_DEFAULT                       0x00000000UL                              /**< Mode DEFAULT for CMU_IFC */
+#define CMU_IFC_ULFRCOEDGE_DEFAULT                        (_CMU_IFC_ULFRCOEDGE_DEFAULT << 29)       /**< Shifted mode DEFAULT for CMU_IFC */
+#define CMU_IFC_CMUERR                                    (0x1UL << 31)                             /**< Clear CMUERR Interrupt Flag */
+#define _CMU_IFC_CMUERR_SHIFT                             31                                        /**< Shift value for CMU_CMUERR */
+#define _CMU_IFC_CMUERR_MASK                              0x80000000UL                              /**< Bit mask for CMU_CMUERR */
+#define _CMU_IFC_CMUERR_DEFAULT                           0x00000000UL                              /**< Mode DEFAULT for CMU_IFC */
+#define CMU_IFC_CMUERR_DEFAULT                            (_CMU_IFC_CMUERR_DEFAULT << 31)           /**< Shifted mode DEFAULT for CMU_IFC */
+
+/* Bit fields for CMU IEN */
+#define _CMU_IEN_RESETVALUE                               0x00000000UL                              /**< Default value for CMU_IEN */
+#define _CMU_IEN_MASK                                     0xB803FF7FUL                              /**< Mask for CMU_IEN */
+#define CMU_IEN_HFRCORDY                                  (0x1UL << 0)                              /**< HFRCORDY Interrupt Enable */
+#define _CMU_IEN_HFRCORDY_SHIFT                           0                                         /**< Shift value for CMU_HFRCORDY */
+#define _CMU_IEN_HFRCORDY_MASK                            0x1UL                                     /**< Bit mask for CMU_HFRCORDY */
+#define _CMU_IEN_HFRCORDY_DEFAULT                         0x00000000UL                              /**< Mode DEFAULT for CMU_IEN */
+#define CMU_IEN_HFRCORDY_DEFAULT                          (_CMU_IEN_HFRCORDY_DEFAULT << 0)          /**< Shifted mode DEFAULT for CMU_IEN */
+#define CMU_IEN_HFXORDY                                   (0x1UL << 1)                              /**< HFXORDY Interrupt Enable */
+#define _CMU_IEN_HFXORDY_SHIFT                            1                                         /**< Shift value for CMU_HFXORDY */
+#define _CMU_IEN_HFXORDY_MASK                             0x2UL                                     /**< Bit mask for CMU_HFXORDY */
+#define _CMU_IEN_HFXORDY_DEFAULT                          0x00000000UL                              /**< Mode DEFAULT for CMU_IEN */
+#define CMU_IEN_HFXORDY_DEFAULT                           (_CMU_IEN_HFXORDY_DEFAULT << 1)           /**< Shifted mode DEFAULT for CMU_IEN */
+#define CMU_IEN_LFRCORDY                                  (0x1UL << 2)                              /**< LFRCORDY Interrupt Enable */
+#define _CMU_IEN_LFRCORDY_SHIFT                           2                                         /**< Shift value for CMU_LFRCORDY */
+#define _CMU_IEN_LFRCORDY_MASK                            0x4UL                                     /**< Bit mask for CMU_LFRCORDY */
+#define _CMU_IEN_LFRCORDY_DEFAULT                         0x00000000UL                              /**< Mode DEFAULT for CMU_IEN */
+#define CMU_IEN_LFRCORDY_DEFAULT                          (_CMU_IEN_LFRCORDY_DEFAULT << 2)          /**< Shifted mode DEFAULT for CMU_IEN */
+#define CMU_IEN_LFXORDY                                   (0x1UL << 3)                              /**< LFXORDY Interrupt Enable */
+#define _CMU_IEN_LFXORDY_SHIFT                            3                                         /**< Shift value for CMU_LFXORDY */
+#define _CMU_IEN_LFXORDY_MASK                             0x8UL                                     /**< Bit mask for CMU_LFXORDY */
+#define _CMU_IEN_LFXORDY_DEFAULT                          0x00000000UL                              /**< Mode DEFAULT for CMU_IEN */
+#define CMU_IEN_LFXORDY_DEFAULT                           (_CMU_IEN_LFXORDY_DEFAULT << 3)           /**< Shifted mode DEFAULT for CMU_IEN */
+#define CMU_IEN_AUXHFRCORDY                               (0x1UL << 4)                              /**< AUXHFRCORDY Interrupt Enable */
+#define _CMU_IEN_AUXHFRCORDY_SHIFT                        4                                         /**< Shift value for CMU_AUXHFRCORDY */
+#define _CMU_IEN_AUXHFRCORDY_MASK                         0x10UL                                    /**< Bit mask for CMU_AUXHFRCORDY */
+#define _CMU_IEN_AUXHFRCORDY_DEFAULT                      0x00000000UL                              /**< Mode DEFAULT for CMU_IEN */
+#define CMU_IEN_AUXHFRCORDY_DEFAULT                       (_CMU_IEN_AUXHFRCORDY_DEFAULT << 4)       /**< Shifted mode DEFAULT for CMU_IEN */
+#define CMU_IEN_CALRDY                                    (0x1UL << 5)                              /**< CALRDY Interrupt Enable */
+#define _CMU_IEN_CALRDY_SHIFT                             5                                         /**< Shift value for CMU_CALRDY */
+#define _CMU_IEN_CALRDY_MASK                              0x20UL                                    /**< Bit mask for CMU_CALRDY */
+#define _CMU_IEN_CALRDY_DEFAULT                           0x00000000UL                              /**< Mode DEFAULT for CMU_IEN */
+#define CMU_IEN_CALRDY_DEFAULT                            (_CMU_IEN_CALRDY_DEFAULT << 5)            /**< Shifted mode DEFAULT for CMU_IEN */
+#define CMU_IEN_CALOF                                     (0x1UL << 6)                              /**< CALOF Interrupt Enable */
+#define _CMU_IEN_CALOF_SHIFT                              6                                         /**< Shift value for CMU_CALOF */
+#define _CMU_IEN_CALOF_MASK                               0x40UL                                    /**< Bit mask for CMU_CALOF */
+#define _CMU_IEN_CALOF_DEFAULT                            0x00000000UL                              /**< Mode DEFAULT for CMU_IEN */
+#define CMU_IEN_CALOF_DEFAULT                             (_CMU_IEN_CALOF_DEFAULT << 6)             /**< Shifted mode DEFAULT for CMU_IEN */
+#define CMU_IEN_HFXODISERR                                (0x1UL << 8)                              /**< HFXODISERR Interrupt Enable */
+#define _CMU_IEN_HFXODISERR_SHIFT                         8                                         /**< Shift value for CMU_HFXODISERR */
+#define _CMU_IEN_HFXODISERR_MASK                          0x100UL                                   /**< Bit mask for CMU_HFXODISERR */
+#define _CMU_IEN_HFXODISERR_DEFAULT                       0x00000000UL                              /**< Mode DEFAULT for CMU_IEN */
+#define CMU_IEN_HFXODISERR_DEFAULT                        (_CMU_IEN_HFXODISERR_DEFAULT << 8)        /**< Shifted mode DEFAULT for CMU_IEN */
+#define CMU_IEN_HFXOAUTOSW                                (0x1UL << 9)                              /**< HFXOAUTOSW Interrupt Enable */
+#define _CMU_IEN_HFXOAUTOSW_SHIFT                         9                                         /**< Shift value for CMU_HFXOAUTOSW */
+#define _CMU_IEN_HFXOAUTOSW_MASK                          0x200UL                                   /**< Bit mask for CMU_HFXOAUTOSW */
+#define _CMU_IEN_HFXOAUTOSW_DEFAULT                       0x00000000UL                              /**< Mode DEFAULT for CMU_IEN */
+#define CMU_IEN_HFXOAUTOSW_DEFAULT                        (_CMU_IEN_HFXOAUTOSW_DEFAULT << 9)        /**< Shifted mode DEFAULT for CMU_IEN */
+#define CMU_IEN_HFXOPEAKDETERR                            (0x1UL << 10)                             /**< HFXOPEAKDETERR Interrupt Enable */
+#define _CMU_IEN_HFXOPEAKDETERR_SHIFT                     10                                        /**< Shift value for CMU_HFXOPEAKDETERR */
+#define _CMU_IEN_HFXOPEAKDETERR_MASK                      0x400UL                                   /**< Bit mask for CMU_HFXOPEAKDETERR */
+#define _CMU_IEN_HFXOPEAKDETERR_DEFAULT                   0x00000000UL                              /**< Mode DEFAULT for CMU_IEN */
+#define CMU_IEN_HFXOPEAKDETERR_DEFAULT                    (_CMU_IEN_HFXOPEAKDETERR_DEFAULT << 10)   /**< Shifted mode DEFAULT for CMU_IEN */
+#define CMU_IEN_HFXOPEAKDETRDY                            (0x1UL << 11)                             /**< HFXOPEAKDETRDY Interrupt Enable */
+#define _CMU_IEN_HFXOPEAKDETRDY_SHIFT                     11                                        /**< Shift value for CMU_HFXOPEAKDETRDY */
+#define _CMU_IEN_HFXOPEAKDETRDY_MASK                      0x800UL                                   /**< Bit mask for CMU_HFXOPEAKDETRDY */
+#define _CMU_IEN_HFXOPEAKDETRDY_DEFAULT                   0x00000000UL                              /**< Mode DEFAULT for CMU_IEN */
+#define CMU_IEN_HFXOPEAKDETRDY_DEFAULT                    (_CMU_IEN_HFXOPEAKDETRDY_DEFAULT << 11)   /**< Shifted mode DEFAULT for CMU_IEN */
+#define CMU_IEN_HFXOSHUNTOPTRDY                           (0x1UL << 12)                             /**< HFXOSHUNTOPTRDY Interrupt Enable */
+#define _CMU_IEN_HFXOSHUNTOPTRDY_SHIFT                    12                                        /**< Shift value for CMU_HFXOSHUNTOPTRDY */
+#define _CMU_IEN_HFXOSHUNTOPTRDY_MASK                     0x1000UL                                  /**< Bit mask for CMU_HFXOSHUNTOPTRDY */
+#define _CMU_IEN_HFXOSHUNTOPTRDY_DEFAULT                  0x00000000UL                              /**< Mode DEFAULT for CMU_IEN */
+#define CMU_IEN_HFXOSHUNTOPTRDY_DEFAULT                   (_CMU_IEN_HFXOSHUNTOPTRDY_DEFAULT << 12)  /**< Shifted mode DEFAULT for CMU_IEN */
+#define CMU_IEN_HFRCODIS                                  (0x1UL << 13)                             /**< HFRCODIS Interrupt Enable */
+#define _CMU_IEN_HFRCODIS_SHIFT                           13                                        /**< Shift value for CMU_HFRCODIS */
+#define _CMU_IEN_HFRCODIS_MASK                            0x2000UL                                  /**< Bit mask for CMU_HFRCODIS */
+#define _CMU_IEN_HFRCODIS_DEFAULT                         0x00000000UL                              /**< Mode DEFAULT for CMU_IEN */
+#define CMU_IEN_HFRCODIS_DEFAULT                          (_CMU_IEN_HFRCODIS_DEFAULT << 13)         /**< Shifted mode DEFAULT for CMU_IEN */
+#define CMU_IEN_LFTIMEOUTERR                              (0x1UL << 14)                             /**< LFTIMEOUTERR Interrupt Enable */
+#define _CMU_IEN_LFTIMEOUTERR_SHIFT                       14                                        /**< Shift value for CMU_LFTIMEOUTERR */
+#define _CMU_IEN_LFTIMEOUTERR_MASK                        0x4000UL                                  /**< Bit mask for CMU_LFTIMEOUTERR */
+#define _CMU_IEN_LFTIMEOUTERR_DEFAULT                     0x00000000UL                              /**< Mode DEFAULT for CMU_IEN */
+#define CMU_IEN_LFTIMEOUTERR_DEFAULT                      (_CMU_IEN_LFTIMEOUTERR_DEFAULT << 14)     /**< Shifted mode DEFAULT for CMU_IEN */
+#define CMU_IEN_DPLLRDY                                   (0x1UL << 15)                             /**< DPLLRDY Interrupt Enable */
+#define _CMU_IEN_DPLLRDY_SHIFT                            15                                        /**< Shift value for CMU_DPLLRDY */
+#define _CMU_IEN_DPLLRDY_MASK                             0x8000UL                                  /**< Bit mask for CMU_DPLLRDY */
+#define _CMU_IEN_DPLLRDY_DEFAULT                          0x00000000UL                              /**< Mode DEFAULT for CMU_IEN */
+#define CMU_IEN_DPLLRDY_DEFAULT                           (_CMU_IEN_DPLLRDY_DEFAULT << 15)          /**< Shifted mode DEFAULT for CMU_IEN */
+#define CMU_IEN_DPLLLOCKFAILLOW                           (0x1UL << 16)                             /**< DPLLLOCKFAILLOW Interrupt Enable */
+#define _CMU_IEN_DPLLLOCKFAILLOW_SHIFT                    16                                        /**< Shift value for CMU_DPLLLOCKFAILLOW */
+#define _CMU_IEN_DPLLLOCKFAILLOW_MASK                     0x10000UL                                 /**< Bit mask for CMU_DPLLLOCKFAILLOW */
+#define _CMU_IEN_DPLLLOCKFAILLOW_DEFAULT                  0x00000000UL                              /**< Mode DEFAULT for CMU_IEN */
+#define CMU_IEN_DPLLLOCKFAILLOW_DEFAULT                   (_CMU_IEN_DPLLLOCKFAILLOW_DEFAULT << 16)  /**< Shifted mode DEFAULT for CMU_IEN */
+#define CMU_IEN_DPLLLOCKFAILHIGH                          (0x1UL << 17)                             /**< DPLLLOCKFAILHIGH Interrupt Enable */
+#define _CMU_IEN_DPLLLOCKFAILHIGH_SHIFT                   17                                        /**< Shift value for CMU_DPLLLOCKFAILHIGH */
+#define _CMU_IEN_DPLLLOCKFAILHIGH_MASK                    0x20000UL                                 /**< Bit mask for CMU_DPLLLOCKFAILHIGH */
+#define _CMU_IEN_DPLLLOCKFAILHIGH_DEFAULT                 0x00000000UL                              /**< Mode DEFAULT for CMU_IEN */
+#define CMU_IEN_DPLLLOCKFAILHIGH_DEFAULT                  (_CMU_IEN_DPLLLOCKFAILHIGH_DEFAULT << 17) /**< Shifted mode DEFAULT for CMU_IEN */
+#define CMU_IEN_LFXOEDGE                                  (0x1UL << 27)                             /**< LFXOEDGE Interrupt Enable */
+#define _CMU_IEN_LFXOEDGE_SHIFT                           27                                        /**< Shift value for CMU_LFXOEDGE */
+#define _CMU_IEN_LFXOEDGE_MASK                            0x8000000UL                               /**< Bit mask for CMU_LFXOEDGE */
+#define _CMU_IEN_LFXOEDGE_DEFAULT                         0x00000000UL                              /**< Mode DEFAULT for CMU_IEN */
+#define CMU_IEN_LFXOEDGE_DEFAULT                          (_CMU_IEN_LFXOEDGE_DEFAULT << 27)         /**< Shifted mode DEFAULT for CMU_IEN */
+#define CMU_IEN_LFRCOEDGE                                 (0x1UL << 28)                             /**< LFRCOEDGE Interrupt Enable */
+#define _CMU_IEN_LFRCOEDGE_SHIFT                          28                                        /**< Shift value for CMU_LFRCOEDGE */
+#define _CMU_IEN_LFRCOEDGE_MASK                           0x10000000UL                              /**< Bit mask for CMU_LFRCOEDGE */
+#define _CMU_IEN_LFRCOEDGE_DEFAULT                        0x00000000UL                              /**< Mode DEFAULT for CMU_IEN */
+#define CMU_IEN_LFRCOEDGE_DEFAULT                         (_CMU_IEN_LFRCOEDGE_DEFAULT << 28)        /**< Shifted mode DEFAULT for CMU_IEN */
+#define CMU_IEN_ULFRCOEDGE                                (0x1UL << 29)                             /**< ULFRCOEDGE Interrupt Enable */
+#define _CMU_IEN_ULFRCOEDGE_SHIFT                         29                                        /**< Shift value for CMU_ULFRCOEDGE */
+#define _CMU_IEN_ULFRCOEDGE_MASK                          0x20000000UL                              /**< Bit mask for CMU_ULFRCOEDGE */
+#define _CMU_IEN_ULFRCOEDGE_DEFAULT                       0x00000000UL                              /**< Mode DEFAULT for CMU_IEN */
+#define CMU_IEN_ULFRCOEDGE_DEFAULT                        (_CMU_IEN_ULFRCOEDGE_DEFAULT << 29)       /**< Shifted mode DEFAULT for CMU_IEN */
+#define CMU_IEN_CMUERR                                    (0x1UL << 31)                             /**< CMUERR Interrupt Enable */
+#define _CMU_IEN_CMUERR_SHIFT                             31                                        /**< Shift value for CMU_CMUERR */
+#define _CMU_IEN_CMUERR_MASK                              0x80000000UL                              /**< Bit mask for CMU_CMUERR */
+#define _CMU_IEN_CMUERR_DEFAULT                           0x00000000UL                              /**< Mode DEFAULT for CMU_IEN */
+#define CMU_IEN_CMUERR_DEFAULT                            (_CMU_IEN_CMUERR_DEFAULT << 31)           /**< Shifted mode DEFAULT for CMU_IEN */
+
+/* Bit fields for CMU HFBUSCLKEN0 */
+#define _CMU_HFBUSCLKEN0_RESETVALUE                       0x00000000UL                            /**< Default value for CMU_HFBUSCLKEN0 */
+#define _CMU_HFBUSCLKEN0_MASK                             0x0000007FUL                            /**< Mask for CMU_HFBUSCLKEN0 */
+#define CMU_HFBUSCLKEN0_CRYPTO0                           (0x1UL << 0)                            /**< Advanced Encryption Standard Accelerator 0 Clock Enable */
+#define CMU_HFBUSCLKEN0_CRYPTO                            CMU_HFBUSCLKEN0_CRYPTO0                 /**< Alias for CRYPTO0 */
+#define _CMU_HFBUSCLKEN0_CRYPTO0_SHIFT                    0                                       /**< Shift value for CMU_CRYPTO0 */
+#define _CMU_HFBUSCLKEN0_CRYPTO0_MASK                     0x1UL                                   /**< Bit mask for CMU_CRYPTO0 */
+#define _CMU_HFBUSCLKEN0_CRYPTO_SHIFT                     _CMU_HFBUSCLKEN0_CRYPTO0_SHIFT          /**< Alias for CMU_CRYPTO0 */
+#define _CMU_HFBUSCLKEN0_CRYPTO_MASK                      _CMU_HFBUSCLKEN0_CRYPTO0_MASK           /**< Alias for CMU_CRYPTO0 */
+#define _CMU_HFBUSCLKEN0_CRYPTO0_DEFAULT                  0x00000000UL                            /**< Mode DEFAULT for CMU_HFBUSCLKEN0 */
+#define _CMU_HFBUSCLKEN0_CRYPTO_DEFAULT                   _CMU_HFBUSCLKEN0_CRYPTO0_DEFAULT        /**< Alias for CRYPTO0 mode DEFAULT */
+#define CMU_HFBUSCLKEN0_CRYPTO0_DEFAULT                   (_CMU_HFBUSCLKEN0_CRYPTO0_DEFAULT << 0) /**< Shifted mode DEFAULT for CMU_HFBUSCLKEN0 */
+#define  CMU_HFBUSCLKEN0_CRYPTO_DEFAULT                   CMU_HFBUSCLKEN0_CRYPTO0_DEFAULT         /**< Alias for CRYPTO0 mode DEFAULT*/
+#define CMU_HFBUSCLKEN0_CRYPTO1                           (0x1UL << 1)                            /**< Advanced Encryption Standard Accelerator 1 Clock Enable */
+#define _CMU_HFBUSCLKEN0_CRYPTO1_SHIFT                    1                                       /**< Shift value for CMU_CRYPTO1 */
+#define _CMU_HFBUSCLKEN0_CRYPTO1_MASK                     0x2UL                                   /**< Bit mask for CMU_CRYPTO1 */
+#define _CMU_HFBUSCLKEN0_CRYPTO1_DEFAULT                  0x00000000UL                            /**< Mode DEFAULT for CMU_HFBUSCLKEN0 */
+#define CMU_HFBUSCLKEN0_CRYPTO1_DEFAULT                   (_CMU_HFBUSCLKEN0_CRYPTO1_DEFAULT << 1) /**< Shifted mode DEFAULT for CMU_HFBUSCLKEN0 */
+#define CMU_HFBUSCLKEN0_LE                                (0x1UL << 2)                            /**< Low Energy Peripheral Interface Clock Enable */
+#define _CMU_HFBUSCLKEN0_LE_SHIFT                         2                                       /**< Shift value for CMU_LE */
+#define _CMU_HFBUSCLKEN0_LE_MASK                          0x4UL                                   /**< Bit mask for CMU_LE */
+#define _CMU_HFBUSCLKEN0_LE_DEFAULT                       0x00000000UL                            /**< Mode DEFAULT for CMU_HFBUSCLKEN0 */
+#define CMU_HFBUSCLKEN0_LE_DEFAULT                        (_CMU_HFBUSCLKEN0_LE_DEFAULT << 2)      /**< Shifted mode DEFAULT for CMU_HFBUSCLKEN0 */
+#define CMU_HFBUSCLKEN0_GPIO                              (0x1UL << 3)                            /**< General purpose Input/Output Clock Enable */
+#define _CMU_HFBUSCLKEN0_GPIO_SHIFT                       3                                       /**< Shift value for CMU_GPIO */
+#define _CMU_HFBUSCLKEN0_GPIO_MASK                        0x8UL                                   /**< Bit mask for CMU_GPIO */
+#define _CMU_HFBUSCLKEN0_GPIO_DEFAULT                     0x00000000UL                            /**< Mode DEFAULT for CMU_HFBUSCLKEN0 */
+#define CMU_HFBUSCLKEN0_GPIO_DEFAULT                      (_CMU_HFBUSCLKEN0_GPIO_DEFAULT << 3)    /**< Shifted mode DEFAULT for CMU_HFBUSCLKEN0 */
+#define CMU_HFBUSCLKEN0_PRS                               (0x1UL << 4)                            /**< Peripheral Reflex System Clock Enable */
+#define _CMU_HFBUSCLKEN0_PRS_SHIFT                        4                                       /**< Shift value for CMU_PRS */
+#define _CMU_HFBUSCLKEN0_PRS_MASK                         0x10UL                                  /**< Bit mask for CMU_PRS */
+#define _CMU_HFBUSCLKEN0_PRS_DEFAULT                      0x00000000UL                            /**< Mode DEFAULT for CMU_HFBUSCLKEN0 */
+#define CMU_HFBUSCLKEN0_PRS_DEFAULT                       (_CMU_HFBUSCLKEN0_PRS_DEFAULT << 4)     /**< Shifted mode DEFAULT for CMU_HFBUSCLKEN0 */
+#define CMU_HFBUSCLKEN0_LDMA                              (0x1UL << 5)                            /**< Linked Direct Memory Access Controller Clock Enable */
+#define _CMU_HFBUSCLKEN0_LDMA_SHIFT                       5                                       /**< Shift value for CMU_LDMA */
+#define _CMU_HFBUSCLKEN0_LDMA_MASK                        0x20UL                                  /**< Bit mask for CMU_LDMA */
+#define _CMU_HFBUSCLKEN0_LDMA_DEFAULT                     0x00000000UL                            /**< Mode DEFAULT for CMU_HFBUSCLKEN0 */
+#define CMU_HFBUSCLKEN0_LDMA_DEFAULT                      (_CMU_HFBUSCLKEN0_LDMA_DEFAULT << 5)    /**< Shifted mode DEFAULT for CMU_HFBUSCLKEN0 */
+#define CMU_HFBUSCLKEN0_GPCRC                             (0x1UL << 6)                            /**< General Purpose CRC Clock Enable */
+#define _CMU_HFBUSCLKEN0_GPCRC_SHIFT                      6                                       /**< Shift value for CMU_GPCRC */
+#define _CMU_HFBUSCLKEN0_GPCRC_MASK                       0x40UL                                  /**< Bit mask for CMU_GPCRC */
+#define _CMU_HFBUSCLKEN0_GPCRC_DEFAULT                    0x00000000UL                            /**< Mode DEFAULT for CMU_HFBUSCLKEN0 */
+#define CMU_HFBUSCLKEN0_GPCRC_DEFAULT                     (_CMU_HFBUSCLKEN0_GPCRC_DEFAULT << 6)   /**< Shifted mode DEFAULT for CMU_HFBUSCLKEN0 */
+
+/* Bit fields for CMU HFPERCLKEN0 */
+#define _CMU_HFPERCLKEN0_RESETVALUE                       0x00000000UL                               /**< Default value for CMU_HFPERCLKEN0 */
+#define _CMU_HFPERCLKEN0_MASK                             0x00009FFFUL                               /**< Mask for CMU_HFPERCLKEN0 */
+#define CMU_HFPERCLKEN0_TIMER0                            (0x1UL << 0)                               /**< Timer 0 Clock Enable */
+#define _CMU_HFPERCLKEN0_TIMER0_SHIFT                     0                                          /**< Shift value for CMU_TIMER0 */
+#define _CMU_HFPERCLKEN0_TIMER0_MASK                      0x1UL                                      /**< Bit mask for CMU_TIMER0 */
+#define _CMU_HFPERCLKEN0_TIMER0_DEFAULT                   0x00000000UL                               /**< Mode DEFAULT for CMU_HFPERCLKEN0 */
+#define CMU_HFPERCLKEN0_TIMER0_DEFAULT                    (_CMU_HFPERCLKEN0_TIMER0_DEFAULT << 0)     /**< Shifted mode DEFAULT for CMU_HFPERCLKEN0 */
+#define CMU_HFPERCLKEN0_TIMER1                            (0x1UL << 1)                               /**< Timer 1 Clock Enable */
+#define _CMU_HFPERCLKEN0_TIMER1_SHIFT                     1                                          /**< Shift value for CMU_TIMER1 */
+#define _CMU_HFPERCLKEN0_TIMER1_MASK                      0x2UL                                      /**< Bit mask for CMU_TIMER1 */
+#define _CMU_HFPERCLKEN0_TIMER1_DEFAULT                   0x00000000UL                               /**< Mode DEFAULT for CMU_HFPERCLKEN0 */
+#define CMU_HFPERCLKEN0_TIMER1_DEFAULT                    (_CMU_HFPERCLKEN0_TIMER1_DEFAULT << 1)     /**< Shifted mode DEFAULT for CMU_HFPERCLKEN0 */
+#define CMU_HFPERCLKEN0_WTIMER0                           (0x1UL << 2)                               /**< Wide Timer 0 Clock Enable */
+#define _CMU_HFPERCLKEN0_WTIMER0_SHIFT                    2                                          /**< Shift value for CMU_WTIMER0 */
+#define _CMU_HFPERCLKEN0_WTIMER0_MASK                     0x4UL                                      /**< Bit mask for CMU_WTIMER0 */
+#define _CMU_HFPERCLKEN0_WTIMER0_DEFAULT                  0x00000000UL                               /**< Mode DEFAULT for CMU_HFPERCLKEN0 */
+#define CMU_HFPERCLKEN0_WTIMER0_DEFAULT                   (_CMU_HFPERCLKEN0_WTIMER0_DEFAULT << 2)    /**< Shifted mode DEFAULT for CMU_HFPERCLKEN0 */
+#define CMU_HFPERCLKEN0_USART0                            (0x1UL << 3)                               /**< Universal Synchronous/Asynchronous Receiver/Transmitter 0 Clock Enable */
+#define _CMU_HFPERCLKEN0_USART0_SHIFT                     3                                          /**< Shift value for CMU_USART0 */
+#define _CMU_HFPERCLKEN0_USART0_MASK                      0x8UL                                      /**< Bit mask for CMU_USART0 */
+#define _CMU_HFPERCLKEN0_USART0_DEFAULT                   0x00000000UL                               /**< Mode DEFAULT for CMU_HFPERCLKEN0 */
+#define CMU_HFPERCLKEN0_USART0_DEFAULT                    (_CMU_HFPERCLKEN0_USART0_DEFAULT << 3)     /**< Shifted mode DEFAULT for CMU_HFPERCLKEN0 */
+#define CMU_HFPERCLKEN0_USART1                            (0x1UL << 4)                               /**< Universal Synchronous/Asynchronous Receiver/Transmitter 1 Clock Enable */
+#define _CMU_HFPERCLKEN0_USART1_SHIFT                     4                                          /**< Shift value for CMU_USART1 */
+#define _CMU_HFPERCLKEN0_USART1_MASK                      0x10UL                                     /**< Bit mask for CMU_USART1 */
+#define _CMU_HFPERCLKEN0_USART1_DEFAULT                   0x00000000UL                               /**< Mode DEFAULT for CMU_HFPERCLKEN0 */
+#define CMU_HFPERCLKEN0_USART1_DEFAULT                    (_CMU_HFPERCLKEN0_USART1_DEFAULT << 4)     /**< Shifted mode DEFAULT for CMU_HFPERCLKEN0 */
+#define CMU_HFPERCLKEN0_USART2                            (0x1UL << 5)                               /**< Universal Synchronous/Asynchronous Receiver/Transmitter 2 Clock Enable */
+#define _CMU_HFPERCLKEN0_USART2_SHIFT                     5                                          /**< Shift value for CMU_USART2 */
+#define _CMU_HFPERCLKEN0_USART2_MASK                      0x20UL                                     /**< Bit mask for CMU_USART2 */
+#define _CMU_HFPERCLKEN0_USART2_DEFAULT                   0x00000000UL                               /**< Mode DEFAULT for CMU_HFPERCLKEN0 */
+#define CMU_HFPERCLKEN0_USART2_DEFAULT                    (_CMU_HFPERCLKEN0_USART2_DEFAULT << 5)     /**< Shifted mode DEFAULT for CMU_HFPERCLKEN0 */
+#define CMU_HFPERCLKEN0_I2C0                              (0x1UL << 6)                               /**< I2C 0 Clock Enable */
+#define _CMU_HFPERCLKEN0_I2C0_SHIFT                       6                                          /**< Shift value for CMU_I2C0 */
+#define _CMU_HFPERCLKEN0_I2C0_MASK                        0x40UL                                     /**< Bit mask for CMU_I2C0 */
+#define _CMU_HFPERCLKEN0_I2C0_DEFAULT                     0x00000000UL                               /**< Mode DEFAULT for CMU_HFPERCLKEN0 */
+#define CMU_HFPERCLKEN0_I2C0_DEFAULT                      (_CMU_HFPERCLKEN0_I2C0_DEFAULT << 6)       /**< Shifted mode DEFAULT for CMU_HFPERCLKEN0 */
+#define CMU_HFPERCLKEN0_I2C1                              (0x1UL << 7)                               /**< I2C 1 Clock Enable */
+#define _CMU_HFPERCLKEN0_I2C1_SHIFT                       7                                          /**< Shift value for CMU_I2C1 */
+#define _CMU_HFPERCLKEN0_I2C1_MASK                        0x80UL                                     /**< Bit mask for CMU_I2C1 */
+#define _CMU_HFPERCLKEN0_I2C1_DEFAULT                     0x00000000UL                               /**< Mode DEFAULT for CMU_HFPERCLKEN0 */
+#define CMU_HFPERCLKEN0_I2C1_DEFAULT                      (_CMU_HFPERCLKEN0_I2C1_DEFAULT << 7)       /**< Shifted mode DEFAULT for CMU_HFPERCLKEN0 */
+#define CMU_HFPERCLKEN0_ACMP0                             (0x1UL << 8)                               /**< Analog Comparator 0 Clock Enable */
+#define _CMU_HFPERCLKEN0_ACMP0_SHIFT                      8                                          /**< Shift value for CMU_ACMP0 */
+#define _CMU_HFPERCLKEN0_ACMP0_MASK                       0x100UL                                    /**< Bit mask for CMU_ACMP0 */
+#define _CMU_HFPERCLKEN0_ACMP0_DEFAULT                    0x00000000UL                               /**< Mode DEFAULT for CMU_HFPERCLKEN0 */
+#define CMU_HFPERCLKEN0_ACMP0_DEFAULT                     (_CMU_HFPERCLKEN0_ACMP0_DEFAULT << 8)      /**< Shifted mode DEFAULT for CMU_HFPERCLKEN0 */
+#define CMU_HFPERCLKEN0_ACMP1                             (0x1UL << 9)                               /**< Analog Comparator 1 Clock Enable */
+#define _CMU_HFPERCLKEN0_ACMP1_SHIFT                      9                                          /**< Shift value for CMU_ACMP1 */
+#define _CMU_HFPERCLKEN0_ACMP1_MASK                       0x200UL                                    /**< Bit mask for CMU_ACMP1 */
+#define _CMU_HFPERCLKEN0_ACMP1_DEFAULT                    0x00000000UL                               /**< Mode DEFAULT for CMU_HFPERCLKEN0 */
+#define CMU_HFPERCLKEN0_ACMP1_DEFAULT                     (_CMU_HFPERCLKEN0_ACMP1_DEFAULT << 9)      /**< Shifted mode DEFAULT for CMU_HFPERCLKEN0 */
+#define CMU_HFPERCLKEN0_CRYOTIMER                         (0x1UL << 10)                              /**< CryoTimer Clock Enable */
+#define _CMU_HFPERCLKEN0_CRYOTIMER_SHIFT                  10                                         /**< Shift value for CMU_CRYOTIMER */
+#define _CMU_HFPERCLKEN0_CRYOTIMER_MASK                   0x400UL                                    /**< Bit mask for CMU_CRYOTIMER */
+#define _CMU_HFPERCLKEN0_CRYOTIMER_DEFAULT                0x00000000UL                               /**< Mode DEFAULT for CMU_HFPERCLKEN0 */
+#define CMU_HFPERCLKEN0_CRYOTIMER_DEFAULT                 (_CMU_HFPERCLKEN0_CRYOTIMER_DEFAULT << 10) /**< Shifted mode DEFAULT for CMU_HFPERCLKEN0 */
+#define CMU_HFPERCLKEN0_ADC0                              (0x1UL << 11)                              /**< Analog to Digital Converter 0 Clock Enable */
+#define _CMU_HFPERCLKEN0_ADC0_SHIFT                       11                                         /**< Shift value for CMU_ADC0 */
+#define _CMU_HFPERCLKEN0_ADC0_MASK                        0x800UL                                    /**< Bit mask for CMU_ADC0 */
+#define _CMU_HFPERCLKEN0_ADC0_DEFAULT                     0x00000000UL                               /**< Mode DEFAULT for CMU_HFPERCLKEN0 */
+#define CMU_HFPERCLKEN0_ADC0_DEFAULT                      (_CMU_HFPERCLKEN0_ADC0_DEFAULT << 11)      /**< Shifted mode DEFAULT for CMU_HFPERCLKEN0 */
+#define CMU_HFPERCLKEN0_VDAC0                             (0x1UL << 12)                              /**< Digital to Analog Converter 0 Clock Enable */
+#define _CMU_HFPERCLKEN0_VDAC0_SHIFT                      12                                         /**< Shift value for CMU_VDAC0 */
+#define _CMU_HFPERCLKEN0_VDAC0_MASK                       0x1000UL                                   /**< Bit mask for CMU_VDAC0 */
+#define _CMU_HFPERCLKEN0_VDAC0_DEFAULT                    0x00000000UL                               /**< Mode DEFAULT for CMU_HFPERCLKEN0 */
+#define CMU_HFPERCLKEN0_VDAC0_DEFAULT                     (_CMU_HFPERCLKEN0_VDAC0_DEFAULT << 12)     /**< Shifted mode DEFAULT for CMU_HFPERCLKEN0 */
+#define CMU_HFPERCLKEN0_TRNG0                             (0x1UL << 15)                              /**< True Random Number Generator 0 Clock Enable */
+#define _CMU_HFPERCLKEN0_TRNG0_SHIFT                      15                                         /**< Shift value for CMU_TRNG0 */
+#define _CMU_HFPERCLKEN0_TRNG0_MASK                       0x8000UL                                   /**< Bit mask for CMU_TRNG0 */
+#define _CMU_HFPERCLKEN0_TRNG0_DEFAULT                    0x00000000UL                               /**< Mode DEFAULT for CMU_HFPERCLKEN0 */
+#define CMU_HFPERCLKEN0_TRNG0_DEFAULT                     (_CMU_HFPERCLKEN0_TRNG0_DEFAULT << 15)     /**< Shifted mode DEFAULT for CMU_HFPERCLKEN0 */
+
+/* Bit fields for CMU LFACLKEN0 */
+#define _CMU_LFACLKEN0_RESETVALUE                         0x00000000UL                           /**< Default value for CMU_LFACLKEN0 */
+#define _CMU_LFACLKEN0_MASK                               0x00000003UL                           /**< Mask for CMU_LFACLKEN0 */
+#define CMU_LFACLKEN0_LETIMER0                            (0x1UL << 0)                           /**< Low Energy Timer 0 Clock Enable */
+#define _CMU_LFACLKEN0_LETIMER0_SHIFT                     0                                      /**< Shift value for CMU_LETIMER0 */
+#define _CMU_LFACLKEN0_LETIMER0_MASK                      0x1UL                                  /**< Bit mask for CMU_LETIMER0 */
+#define _CMU_LFACLKEN0_LETIMER0_DEFAULT                   0x00000000UL                           /**< Mode DEFAULT for CMU_LFACLKEN0 */
+#define CMU_LFACLKEN0_LETIMER0_DEFAULT                    (_CMU_LFACLKEN0_LETIMER0_DEFAULT << 0) /**< Shifted mode DEFAULT for CMU_LFACLKEN0 */
+#define CMU_LFACLKEN0_LESENSE                             (0x1UL << 1)                           /**< Low Energy Sensor Interface Clock Enable */
+#define _CMU_LFACLKEN0_LESENSE_SHIFT                      1                                      /**< Shift value for CMU_LESENSE */
+#define _CMU_LFACLKEN0_LESENSE_MASK                       0x2UL                                  /**< Bit mask for CMU_LESENSE */
+#define _CMU_LFACLKEN0_LESENSE_DEFAULT                    0x00000000UL                           /**< Mode DEFAULT for CMU_LFACLKEN0 */
+#define CMU_LFACLKEN0_LESENSE_DEFAULT                     (_CMU_LFACLKEN0_LESENSE_DEFAULT << 1)  /**< Shifted mode DEFAULT for CMU_LFACLKEN0 */
+
+/* Bit fields for CMU LFBCLKEN0 */
+#define _CMU_LFBCLKEN0_RESETVALUE                         0x00000000UL                          /**< Default value for CMU_LFBCLKEN0 */
+#define _CMU_LFBCLKEN0_MASK                               0x00000003UL                          /**< Mask for CMU_LFBCLKEN0 */
+#define CMU_LFBCLKEN0_SYSTICK                             (0x1UL << 0)                          /**<  Clock Enable */
+#define _CMU_LFBCLKEN0_SYSTICK_SHIFT                      0                                     /**< Shift value for CMU_SYSTICK */
+#define _CMU_LFBCLKEN0_SYSTICK_MASK                       0x1UL                                 /**< Bit mask for CMU_SYSTICK */
+#define _CMU_LFBCLKEN0_SYSTICK_DEFAULT                    0x00000000UL                          /**< Mode DEFAULT for CMU_LFBCLKEN0 */
+#define CMU_LFBCLKEN0_SYSTICK_DEFAULT                     (_CMU_LFBCLKEN0_SYSTICK_DEFAULT << 0) /**< Shifted mode DEFAULT for CMU_LFBCLKEN0 */
+#define CMU_LFBCLKEN0_LEUART0                             (0x1UL << 1)                          /**< Low Energy UART 0 Clock Enable */
+#define _CMU_LFBCLKEN0_LEUART0_SHIFT                      1                                     /**< Shift value for CMU_LEUART0 */
+#define _CMU_LFBCLKEN0_LEUART0_MASK                       0x2UL                                 /**< Bit mask for CMU_LEUART0 */
+#define _CMU_LFBCLKEN0_LEUART0_DEFAULT                    0x00000000UL                          /**< Mode DEFAULT for CMU_LFBCLKEN0 */
+#define CMU_LFBCLKEN0_LEUART0_DEFAULT                     (_CMU_LFBCLKEN0_LEUART0_DEFAULT << 1) /**< Shifted mode DEFAULT for CMU_LFBCLKEN0 */
+
+/* Bit fields for CMU LFECLKEN0 */
+#define _CMU_LFECLKEN0_RESETVALUE                         0x00000000UL                       /**< Default value for CMU_LFECLKEN0 */
+#define _CMU_LFECLKEN0_MASK                               0x00000001UL                       /**< Mask for CMU_LFECLKEN0 */
+#define CMU_LFECLKEN0_RTCC                                (0x1UL << 0)                       /**< Real-Time Counter and Calendar Clock Enable */
+#define _CMU_LFECLKEN0_RTCC_SHIFT                         0                                  /**< Shift value for CMU_RTCC */
+#define _CMU_LFECLKEN0_RTCC_MASK                          0x1UL                              /**< Bit mask for CMU_RTCC */
+#define _CMU_LFECLKEN0_RTCC_DEFAULT                       0x00000000UL                       /**< Mode DEFAULT for CMU_LFECLKEN0 */
+#define CMU_LFECLKEN0_RTCC_DEFAULT                        (_CMU_LFECLKEN0_RTCC_DEFAULT << 0) /**< Shifted mode DEFAULT for CMU_LFECLKEN0 */
+
+/* Bit fields for CMU HFPRESC */
+#define _CMU_HFPRESC_RESETVALUE                           0x00000000UL                              /**< Default value for CMU_HFPRESC */
+#define _CMU_HFPRESC_MASK                                 0x01001F00UL                              /**< Mask for CMU_HFPRESC */
+#define _CMU_HFPRESC_PRESC_SHIFT                          8                                         /**< Shift value for CMU_PRESC */
+#define _CMU_HFPRESC_PRESC_MASK                           0x1F00UL                                  /**< Bit mask for CMU_PRESC */
+#define _CMU_HFPRESC_PRESC_DEFAULT                        0x00000000UL                              /**< Mode DEFAULT for CMU_HFPRESC */
+#define _CMU_HFPRESC_PRESC_NODIVISION                     0x00000000UL                              /**< Mode NODIVISION for CMU_HFPRESC */
+#define CMU_HFPRESC_PRESC_DEFAULT                         (_CMU_HFPRESC_PRESC_DEFAULT << 8)         /**< Shifted mode DEFAULT for CMU_HFPRESC */
+#define CMU_HFPRESC_PRESC_NODIVISION                      (_CMU_HFPRESC_PRESC_NODIVISION << 8)      /**< Shifted mode NODIVISION for CMU_HFPRESC */
+#define _CMU_HFPRESC_HFCLKLEPRESC_SHIFT                   24                                        /**< Shift value for CMU_HFCLKLEPRESC */
+#define _CMU_HFPRESC_HFCLKLEPRESC_MASK                    0x1000000UL                               /**< Bit mask for CMU_HFCLKLEPRESC */
+#define _CMU_HFPRESC_HFCLKLEPRESC_DEFAULT                 0x00000000UL                              /**< Mode DEFAULT for CMU_HFPRESC */
+#define _CMU_HFPRESC_HFCLKLEPRESC_DIV2                    0x00000000UL                              /**< Mode DIV2 for CMU_HFPRESC */
+#define _CMU_HFPRESC_HFCLKLEPRESC_DIV4                    0x00000001UL                              /**< Mode DIV4 for CMU_HFPRESC */
+#define CMU_HFPRESC_HFCLKLEPRESC_DEFAULT                  (_CMU_HFPRESC_HFCLKLEPRESC_DEFAULT << 24) /**< Shifted mode DEFAULT for CMU_HFPRESC */
+#define CMU_HFPRESC_HFCLKLEPRESC_DIV2                     (_CMU_HFPRESC_HFCLKLEPRESC_DIV2 << 24)    /**< Shifted mode DIV2 for CMU_HFPRESC */
+#define CMU_HFPRESC_HFCLKLEPRESC_DIV4                     (_CMU_HFPRESC_HFCLKLEPRESC_DIV4 << 24)    /**< Shifted mode DIV4 for CMU_HFPRESC */
+
+/* Bit fields for CMU HFCOREPRESC */
+#define _CMU_HFCOREPRESC_RESETVALUE                       0x00000000UL                             /**< Default value for CMU_HFCOREPRESC */
+#define _CMU_HFCOREPRESC_MASK                             0x0001FF00UL                             /**< Mask for CMU_HFCOREPRESC */
+#define _CMU_HFCOREPRESC_PRESC_SHIFT                      8                                        /**< Shift value for CMU_PRESC */
+#define _CMU_HFCOREPRESC_PRESC_MASK                       0x1FF00UL                                /**< Bit mask for CMU_PRESC */
+#define _CMU_HFCOREPRESC_PRESC_DEFAULT                    0x00000000UL                             /**< Mode DEFAULT for CMU_HFCOREPRESC */
+#define _CMU_HFCOREPRESC_PRESC_NODIVISION                 0x00000000UL                             /**< Mode NODIVISION for CMU_HFCOREPRESC */
+#define CMU_HFCOREPRESC_PRESC_DEFAULT                     (_CMU_HFCOREPRESC_PRESC_DEFAULT << 8)    /**< Shifted mode DEFAULT for CMU_HFCOREPRESC */
+#define CMU_HFCOREPRESC_PRESC_NODIVISION                  (_CMU_HFCOREPRESC_PRESC_NODIVISION << 8) /**< Shifted mode NODIVISION for CMU_HFCOREPRESC */
+
+/* Bit fields for CMU HFPERPRESC */
+#define _CMU_HFPERPRESC_RESETVALUE                        0x00000000UL                            /**< Default value for CMU_HFPERPRESC */
+#define _CMU_HFPERPRESC_MASK                              0x0001FF00UL                            /**< Mask for CMU_HFPERPRESC */
+#define _CMU_HFPERPRESC_PRESC_SHIFT                       8                                       /**< Shift value for CMU_PRESC */
+#define _CMU_HFPERPRESC_PRESC_MASK                        0x1FF00UL                               /**< Bit mask for CMU_PRESC */
+#define _CMU_HFPERPRESC_PRESC_DEFAULT                     0x00000000UL                            /**< Mode DEFAULT for CMU_HFPERPRESC */
+#define _CMU_HFPERPRESC_PRESC_NODIVISION                  0x00000000UL                            /**< Mode NODIVISION for CMU_HFPERPRESC */
+#define CMU_HFPERPRESC_PRESC_DEFAULT                      (_CMU_HFPERPRESC_PRESC_DEFAULT << 8)    /**< Shifted mode DEFAULT for CMU_HFPERPRESC */
+#define CMU_HFPERPRESC_PRESC_NODIVISION                   (_CMU_HFPERPRESC_PRESC_NODIVISION << 8) /**< Shifted mode NODIVISION for CMU_HFPERPRESC */
+
+/* Bit fields for CMU HFEXPPRESC */
+#define _CMU_HFEXPPRESC_RESETVALUE                        0x00000000UL                            /**< Default value for CMU_HFEXPPRESC */
+#define _CMU_HFEXPPRESC_MASK                              0x00001F00UL                            /**< Mask for CMU_HFEXPPRESC */
+#define _CMU_HFEXPPRESC_PRESC_SHIFT                       8                                       /**< Shift value for CMU_PRESC */
+#define _CMU_HFEXPPRESC_PRESC_MASK                        0x1F00UL                                /**< Bit mask for CMU_PRESC */
+#define _CMU_HFEXPPRESC_PRESC_DEFAULT                     0x00000000UL                            /**< Mode DEFAULT for CMU_HFEXPPRESC */
+#define _CMU_HFEXPPRESC_PRESC_NODIVISION                  0x00000000UL                            /**< Mode NODIVISION for CMU_HFEXPPRESC */
+#define CMU_HFEXPPRESC_PRESC_DEFAULT                      (_CMU_HFEXPPRESC_PRESC_DEFAULT << 8)    /**< Shifted mode DEFAULT for CMU_HFEXPPRESC */
+#define CMU_HFEXPPRESC_PRESC_NODIVISION                   (_CMU_HFEXPPRESC_PRESC_NODIVISION << 8) /**< Shifted mode NODIVISION for CMU_HFEXPPRESC */
+
+/* Bit fields for CMU LFAPRESC0 */
+#define _CMU_LFAPRESC0_RESETVALUE                         0x00000000UL                            /**< Default value for CMU_LFAPRESC0 */
+#define _CMU_LFAPRESC0_MASK                               0x0000003FUL                            /**< Mask for CMU_LFAPRESC0 */
+#define _CMU_LFAPRESC0_LETIMER0_SHIFT                     0                                       /**< Shift value for CMU_LETIMER0 */
+#define _CMU_LFAPRESC0_LETIMER0_MASK                      0xFUL                                   /**< Bit mask for CMU_LETIMER0 */
+#define _CMU_LFAPRESC0_LETIMER0_DIV1                      0x00000000UL                            /**< Mode DIV1 for CMU_LFAPRESC0 */
+#define _CMU_LFAPRESC0_LETIMER0_DIV2                      0x00000001UL                            /**< Mode DIV2 for CMU_LFAPRESC0 */
+#define _CMU_LFAPRESC0_LETIMER0_DIV4                      0x00000002UL                            /**< Mode DIV4 for CMU_LFAPRESC0 */
+#define _CMU_LFAPRESC0_LETIMER0_DIV8                      0x00000003UL                            /**< Mode DIV8 for CMU_LFAPRESC0 */
+#define _CMU_LFAPRESC0_LETIMER0_DIV16                     0x00000004UL                            /**< Mode DIV16 for CMU_LFAPRESC0 */
+#define _CMU_LFAPRESC0_LETIMER0_DIV32                     0x00000005UL                            /**< Mode DIV32 for CMU_LFAPRESC0 */
+#define _CMU_LFAPRESC0_LETIMER0_DIV64                     0x00000006UL                            /**< Mode DIV64 for CMU_LFAPRESC0 */
+#define _CMU_LFAPRESC0_LETIMER0_DIV128                    0x00000007UL                            /**< Mode DIV128 for CMU_LFAPRESC0 */
+#define _CMU_LFAPRESC0_LETIMER0_DIV256                    0x00000008UL                            /**< Mode DIV256 for CMU_LFAPRESC0 */
+#define _CMU_LFAPRESC0_LETIMER0_DIV512                    0x00000009UL                            /**< Mode DIV512 for CMU_LFAPRESC0 */
+#define _CMU_LFAPRESC0_LETIMER0_DIV1024                   0x0000000AUL                            /**< Mode DIV1024 for CMU_LFAPRESC0 */
+#define _CMU_LFAPRESC0_LETIMER0_DIV2048                   0x0000000BUL                            /**< Mode DIV2048 for CMU_LFAPRESC0 */
+#define _CMU_LFAPRESC0_LETIMER0_DIV4096                   0x0000000CUL                            /**< Mode DIV4096 for CMU_LFAPRESC0 */
+#define _CMU_LFAPRESC0_LETIMER0_DIV8192                   0x0000000DUL                            /**< Mode DIV8192 for CMU_LFAPRESC0 */
+#define _CMU_LFAPRESC0_LETIMER0_DIV16384                  0x0000000EUL                            /**< Mode DIV16384 for CMU_LFAPRESC0 */
+#define _CMU_LFAPRESC0_LETIMER0_DIV32768                  0x0000000FUL                            /**< Mode DIV32768 for CMU_LFAPRESC0 */
+#define CMU_LFAPRESC0_LETIMER0_DIV1                       (_CMU_LFAPRESC0_LETIMER0_DIV1 << 0)     /**< Shifted mode DIV1 for CMU_LFAPRESC0 */
+#define CMU_LFAPRESC0_LETIMER0_DIV2                       (_CMU_LFAPRESC0_LETIMER0_DIV2 << 0)     /**< Shifted mode DIV2 for CMU_LFAPRESC0 */
+#define CMU_LFAPRESC0_LETIMER0_DIV4                       (_CMU_LFAPRESC0_LETIMER0_DIV4 << 0)     /**< Shifted mode DIV4 for CMU_LFAPRESC0 */
+#define CMU_LFAPRESC0_LETIMER0_DIV8                       (_CMU_LFAPRESC0_LETIMER0_DIV8 << 0)     /**< Shifted mode DIV8 for CMU_LFAPRESC0 */
+#define CMU_LFAPRESC0_LETIMER0_DIV16                      (_CMU_LFAPRESC0_LETIMER0_DIV16 << 0)    /**< Shifted mode DIV16 for CMU_LFAPRESC0 */
+#define CMU_LFAPRESC0_LETIMER0_DIV32                      (_CMU_LFAPRESC0_LETIMER0_DIV32 << 0)    /**< Shifted mode DIV32 for CMU_LFAPRESC0 */
+#define CMU_LFAPRESC0_LETIMER0_DIV64                      (_CMU_LFAPRESC0_LETIMER0_DIV64 << 0)    /**< Shifted mode DIV64 for CMU_LFAPRESC0 */
+#define CMU_LFAPRESC0_LETIMER0_DIV128                     (_CMU_LFAPRESC0_LETIMER0_DIV128 << 0)   /**< Shifted mode DIV128 for CMU_LFAPRESC0 */
+#define CMU_LFAPRESC0_LETIMER0_DIV256                     (_CMU_LFAPRESC0_LETIMER0_DIV256 << 0)   /**< Shifted mode DIV256 for CMU_LFAPRESC0 */
+#define CMU_LFAPRESC0_LETIMER0_DIV512                     (_CMU_LFAPRESC0_LETIMER0_DIV512 << 0)   /**< Shifted mode DIV512 for CMU_LFAPRESC0 */
+#define CMU_LFAPRESC0_LETIMER0_DIV1024                    (_CMU_LFAPRESC0_LETIMER0_DIV1024 << 0)  /**< Shifted mode DIV1024 for CMU_LFAPRESC0 */
+#define CMU_LFAPRESC0_LETIMER0_DIV2048                    (_CMU_LFAPRESC0_LETIMER0_DIV2048 << 0)  /**< Shifted mode DIV2048 for CMU_LFAPRESC0 */
+#define CMU_LFAPRESC0_LETIMER0_DIV4096                    (_CMU_LFAPRESC0_LETIMER0_DIV4096 << 0)  /**< Shifted mode DIV4096 for CMU_LFAPRESC0 */
+#define CMU_LFAPRESC0_LETIMER0_DIV8192                    (_CMU_LFAPRESC0_LETIMER0_DIV8192 << 0)  /**< Shifted mode DIV8192 for CMU_LFAPRESC0 */
+#define CMU_LFAPRESC0_LETIMER0_DIV16384                   (_CMU_LFAPRESC0_LETIMER0_DIV16384 << 0) /**< Shifted mode DIV16384 for CMU_LFAPRESC0 */
+#define CMU_LFAPRESC0_LETIMER0_DIV32768                   (_CMU_LFAPRESC0_LETIMER0_DIV32768 << 0) /**< Shifted mode DIV32768 for CMU_LFAPRESC0 */
+#define _CMU_LFAPRESC0_LESENSE_SHIFT                      4                                       /**< Shift value for CMU_LESENSE */
+#define _CMU_LFAPRESC0_LESENSE_MASK                       0x30UL                                  /**< Bit mask for CMU_LESENSE */
+#define _CMU_LFAPRESC0_LESENSE_DIV1                       0x00000000UL                            /**< Mode DIV1 for CMU_LFAPRESC0 */
+#define _CMU_LFAPRESC0_LESENSE_DIV2                       0x00000001UL                            /**< Mode DIV2 for CMU_LFAPRESC0 */
+#define _CMU_LFAPRESC0_LESENSE_DIV4                       0x00000002UL                            /**< Mode DIV4 for CMU_LFAPRESC0 */
+#define _CMU_LFAPRESC0_LESENSE_DIV8                       0x00000003UL                            /**< Mode DIV8 for CMU_LFAPRESC0 */
+#define CMU_LFAPRESC0_LESENSE_DIV1                        (_CMU_LFAPRESC0_LESENSE_DIV1 << 4)      /**< Shifted mode DIV1 for CMU_LFAPRESC0 */
+#define CMU_LFAPRESC0_LESENSE_DIV2                        (_CMU_LFAPRESC0_LESENSE_DIV2 << 4)      /**< Shifted mode DIV2 for CMU_LFAPRESC0 */
+#define CMU_LFAPRESC0_LESENSE_DIV4                        (_CMU_LFAPRESC0_LESENSE_DIV4 << 4)      /**< Shifted mode DIV4 for CMU_LFAPRESC0 */
+#define CMU_LFAPRESC0_LESENSE_DIV8                        (_CMU_LFAPRESC0_LESENSE_DIV8 << 4)      /**< Shifted mode DIV8 for CMU_LFAPRESC0 */
+
+/* Bit fields for CMU LFBPRESC0 */
+#define _CMU_LFBPRESC0_RESETVALUE                         0x00000000UL                       /**< Default value for CMU_LFBPRESC0 */
+#define _CMU_LFBPRESC0_MASK                               0x0000003FUL                       /**< Mask for CMU_LFBPRESC0 */
+#define _CMU_LFBPRESC0_SYSTICK_SHIFT                      0                                  /**< Shift value for CMU_SYSTICK */
+#define _CMU_LFBPRESC0_SYSTICK_MASK                       0xFUL                              /**< Bit mask for CMU_SYSTICK */
+#define _CMU_LFBPRESC0_SYSTICK_DIV1                       0x00000000UL                       /**< Mode DIV1 for CMU_LFBPRESC0 */
+#define CMU_LFBPRESC0_SYSTICK_DIV1                        (_CMU_LFBPRESC0_SYSTICK_DIV1 << 0) /**< Shifted mode DIV1 for CMU_LFBPRESC0 */
+#define _CMU_LFBPRESC0_LEUART0_SHIFT                      4                                  /**< Shift value for CMU_LEUART0 */
+#define _CMU_LFBPRESC0_LEUART0_MASK                       0x30UL                             /**< Bit mask for CMU_LEUART0 */
+#define _CMU_LFBPRESC0_LEUART0_DIV1                       0x00000000UL                       /**< Mode DIV1 for CMU_LFBPRESC0 */
+#define _CMU_LFBPRESC0_LEUART0_DIV2                       0x00000001UL                       /**< Mode DIV2 for CMU_LFBPRESC0 */
+#define _CMU_LFBPRESC0_LEUART0_DIV4                       0x00000002UL                       /**< Mode DIV4 for CMU_LFBPRESC0 */
+#define _CMU_LFBPRESC0_LEUART0_DIV8                       0x00000003UL                       /**< Mode DIV8 for CMU_LFBPRESC0 */
+#define CMU_LFBPRESC0_LEUART0_DIV1                        (_CMU_LFBPRESC0_LEUART0_DIV1 << 4) /**< Shifted mode DIV1 for CMU_LFBPRESC0 */
+#define CMU_LFBPRESC0_LEUART0_DIV2                        (_CMU_LFBPRESC0_LEUART0_DIV2 << 4) /**< Shifted mode DIV2 for CMU_LFBPRESC0 */
+#define CMU_LFBPRESC0_LEUART0_DIV4                        (_CMU_LFBPRESC0_LEUART0_DIV4 << 4) /**< Shifted mode DIV4 for CMU_LFBPRESC0 */
+#define CMU_LFBPRESC0_LEUART0_DIV8                        (_CMU_LFBPRESC0_LEUART0_DIV8 << 4) /**< Shifted mode DIV8 for CMU_LFBPRESC0 */
+
+/* Bit fields for CMU LFEPRESC0 */
+#define _CMU_LFEPRESC0_RESETVALUE                         0x00000000UL                    /**< Default value for CMU_LFEPRESC0 */
+#define _CMU_LFEPRESC0_MASK                               0x00000003UL                    /**< Mask for CMU_LFEPRESC0 */
+#define _CMU_LFEPRESC0_RTCC_SHIFT                         0                               /**< Shift value for CMU_RTCC */
+#define _CMU_LFEPRESC0_RTCC_MASK                          0x3UL                           /**< Bit mask for CMU_RTCC */
+#define _CMU_LFEPRESC0_RTCC_DIV1                          0x00000000UL                    /**< Mode DIV1 for CMU_LFEPRESC0 */
+#define _CMU_LFEPRESC0_RTCC_DIV2                          0x00000001UL                    /**< Mode DIV2 for CMU_LFEPRESC0 */
+#define _CMU_LFEPRESC0_RTCC_DIV4                          0x00000002UL                    /**< Mode DIV4 for CMU_LFEPRESC0 */
+#define CMU_LFEPRESC0_RTCC_DIV1                           (_CMU_LFEPRESC0_RTCC_DIV1 << 0) /**< Shifted mode DIV1 for CMU_LFEPRESC0 */
+#define CMU_LFEPRESC0_RTCC_DIV2                           (_CMU_LFEPRESC0_RTCC_DIV2 << 0) /**< Shifted mode DIV2 for CMU_LFEPRESC0 */
+#define CMU_LFEPRESC0_RTCC_DIV4                           (_CMU_LFEPRESC0_RTCC_DIV4 << 0) /**< Shifted mode DIV4 for CMU_LFEPRESC0 */
+
+/* Bit fields for CMU SYNCBUSY */
+#define _CMU_SYNCBUSY_RESETVALUE                          0x00000000UL                               /**< Default value for CMU_SYNCBUSY */
+#define _CMU_SYNCBUSY_MASK                                0x3F050055UL                               /**< Mask for CMU_SYNCBUSY */
+#define CMU_SYNCBUSY_LFACLKEN0                            (0x1UL << 0)                               /**< Low Frequency A Clock Enable 0 Busy */
+#define _CMU_SYNCBUSY_LFACLKEN0_SHIFT                     0                                          /**< Shift value for CMU_LFACLKEN0 */
+#define _CMU_SYNCBUSY_LFACLKEN0_MASK                      0x1UL                                      /**< Bit mask for CMU_LFACLKEN0 */
+#define _CMU_SYNCBUSY_LFACLKEN0_DEFAULT                   0x00000000UL                               /**< Mode DEFAULT for CMU_SYNCBUSY */
+#define CMU_SYNCBUSY_LFACLKEN0_DEFAULT                    (_CMU_SYNCBUSY_LFACLKEN0_DEFAULT << 0)     /**< Shifted mode DEFAULT for CMU_SYNCBUSY */
+#define CMU_SYNCBUSY_LFAPRESC0                            (0x1UL << 2)                               /**< Low Frequency A Prescaler 0 Busy */
+#define _CMU_SYNCBUSY_LFAPRESC0_SHIFT                     2                                          /**< Shift value for CMU_LFAPRESC0 */
+#define _CMU_SYNCBUSY_LFAPRESC0_MASK                      0x4UL                                      /**< Bit mask for CMU_LFAPRESC0 */
+#define _CMU_SYNCBUSY_LFAPRESC0_DEFAULT                   0x00000000UL                               /**< Mode DEFAULT for CMU_SYNCBUSY */
+#define CMU_SYNCBUSY_LFAPRESC0_DEFAULT                    (_CMU_SYNCBUSY_LFAPRESC0_DEFAULT << 2)     /**< Shifted mode DEFAULT for CMU_SYNCBUSY */
+#define CMU_SYNCBUSY_LFBCLKEN0                            (0x1UL << 4)                               /**< Low Frequency B Clock Enable 0 Busy */
+#define _CMU_SYNCBUSY_LFBCLKEN0_SHIFT                     4                                          /**< Shift value for CMU_LFBCLKEN0 */
+#define _CMU_SYNCBUSY_LFBCLKEN0_MASK                      0x10UL                                     /**< Bit mask for CMU_LFBCLKEN0 */
+#define _CMU_SYNCBUSY_LFBCLKEN0_DEFAULT                   0x00000000UL                               /**< Mode DEFAULT for CMU_SYNCBUSY */
+#define CMU_SYNCBUSY_LFBCLKEN0_DEFAULT                    (_CMU_SYNCBUSY_LFBCLKEN0_DEFAULT << 4)     /**< Shifted mode DEFAULT for CMU_SYNCBUSY */
+#define CMU_SYNCBUSY_LFBPRESC0                            (0x1UL << 6)                               /**< Low Frequency B Prescaler 0 Busy */
+#define _CMU_SYNCBUSY_LFBPRESC0_SHIFT                     6                                          /**< Shift value for CMU_LFBPRESC0 */
+#define _CMU_SYNCBUSY_LFBPRESC0_MASK                      0x40UL                                     /**< Bit mask for CMU_LFBPRESC0 */
+#define _CMU_SYNCBUSY_LFBPRESC0_DEFAULT                   0x00000000UL                               /**< Mode DEFAULT for CMU_SYNCBUSY */
+#define CMU_SYNCBUSY_LFBPRESC0_DEFAULT                    (_CMU_SYNCBUSY_LFBPRESC0_DEFAULT << 6)     /**< Shifted mode DEFAULT for CMU_SYNCBUSY */
+#define CMU_SYNCBUSY_LFECLKEN0                            (0x1UL << 16)                              /**< Low Frequency E Clock Enable 0 Busy */
+#define _CMU_SYNCBUSY_LFECLKEN0_SHIFT                     16                                         /**< Shift value for CMU_LFECLKEN0 */
+#define _CMU_SYNCBUSY_LFECLKEN0_MASK                      0x10000UL                                  /**< Bit mask for CMU_LFECLKEN0 */
+#define _CMU_SYNCBUSY_LFECLKEN0_DEFAULT                   0x00000000UL                               /**< Mode DEFAULT for CMU_SYNCBUSY */
+#define CMU_SYNCBUSY_LFECLKEN0_DEFAULT                    (_CMU_SYNCBUSY_LFECLKEN0_DEFAULT << 16)    /**< Shifted mode DEFAULT for CMU_SYNCBUSY */
+#define CMU_SYNCBUSY_LFEPRESC0                            (0x1UL << 18)                              /**< Low Frequency E Prescaler 0 Busy */
+#define _CMU_SYNCBUSY_LFEPRESC0_SHIFT                     18                                         /**< Shift value for CMU_LFEPRESC0 */
+#define _CMU_SYNCBUSY_LFEPRESC0_MASK                      0x40000UL                                  /**< Bit mask for CMU_LFEPRESC0 */
+#define _CMU_SYNCBUSY_LFEPRESC0_DEFAULT                   0x00000000UL                               /**< Mode DEFAULT for CMU_SYNCBUSY */
+#define CMU_SYNCBUSY_LFEPRESC0_DEFAULT                    (_CMU_SYNCBUSY_LFEPRESC0_DEFAULT << 18)    /**< Shifted mode DEFAULT for CMU_SYNCBUSY */
+#define CMU_SYNCBUSY_HFRCOBSY                             (0x1UL << 24)                              /**< HFRCO Busy */
+#define _CMU_SYNCBUSY_HFRCOBSY_SHIFT                      24                                         /**< Shift value for CMU_HFRCOBSY */
+#define _CMU_SYNCBUSY_HFRCOBSY_MASK                       0x1000000UL                                /**< Bit mask for CMU_HFRCOBSY */
+#define _CMU_SYNCBUSY_HFRCOBSY_DEFAULT                    0x00000000UL                               /**< Mode DEFAULT for CMU_SYNCBUSY */
+#define CMU_SYNCBUSY_HFRCOBSY_DEFAULT                     (_CMU_SYNCBUSY_HFRCOBSY_DEFAULT << 24)     /**< Shifted mode DEFAULT for CMU_SYNCBUSY */
+#define CMU_SYNCBUSY_AUXHFRCOBSY                          (0x1UL << 25)                              /**< AUXHFRCO Busy */
+#define _CMU_SYNCBUSY_AUXHFRCOBSY_SHIFT                   25                                         /**< Shift value for CMU_AUXHFRCOBSY */
+#define _CMU_SYNCBUSY_AUXHFRCOBSY_MASK                    0x2000000UL                                /**< Bit mask for CMU_AUXHFRCOBSY */
+#define _CMU_SYNCBUSY_AUXHFRCOBSY_DEFAULT                 0x00000000UL                               /**< Mode DEFAULT for CMU_SYNCBUSY */
+#define CMU_SYNCBUSY_AUXHFRCOBSY_DEFAULT                  (_CMU_SYNCBUSY_AUXHFRCOBSY_DEFAULT << 25)  /**< Shifted mode DEFAULT for CMU_SYNCBUSY */
+#define CMU_SYNCBUSY_LFRCOBSY                             (0x1UL << 26)                              /**< LFRCO Busy */
+#define _CMU_SYNCBUSY_LFRCOBSY_SHIFT                      26                                         /**< Shift value for CMU_LFRCOBSY */
+#define _CMU_SYNCBUSY_LFRCOBSY_MASK                       0x4000000UL                                /**< Bit mask for CMU_LFRCOBSY */
+#define _CMU_SYNCBUSY_LFRCOBSY_DEFAULT                    0x00000000UL                               /**< Mode DEFAULT for CMU_SYNCBUSY */
+#define CMU_SYNCBUSY_LFRCOBSY_DEFAULT                     (_CMU_SYNCBUSY_LFRCOBSY_DEFAULT << 26)     /**< Shifted mode DEFAULT for CMU_SYNCBUSY */
+#define CMU_SYNCBUSY_LFRCOVREFBSY                         (0x1UL << 27)                              /**< LFRCO VREF Busy */
+#define _CMU_SYNCBUSY_LFRCOVREFBSY_SHIFT                  27                                         /**< Shift value for CMU_LFRCOVREFBSY */
+#define _CMU_SYNCBUSY_LFRCOVREFBSY_MASK                   0x8000000UL                                /**< Bit mask for CMU_LFRCOVREFBSY */
+#define _CMU_SYNCBUSY_LFRCOVREFBSY_DEFAULT                0x00000000UL                               /**< Mode DEFAULT for CMU_SYNCBUSY */
+#define CMU_SYNCBUSY_LFRCOVREFBSY_DEFAULT                 (_CMU_SYNCBUSY_LFRCOVREFBSY_DEFAULT << 27) /**< Shifted mode DEFAULT for CMU_SYNCBUSY */
+#define CMU_SYNCBUSY_HFXOBSY                              (0x1UL << 28)                              /**< HFXO Busy */
+#define _CMU_SYNCBUSY_HFXOBSY_SHIFT                       28                                         /**< Shift value for CMU_HFXOBSY */
+#define _CMU_SYNCBUSY_HFXOBSY_MASK                        0x10000000UL                               /**< Bit mask for CMU_HFXOBSY */
+#define _CMU_SYNCBUSY_HFXOBSY_DEFAULT                     0x00000000UL                               /**< Mode DEFAULT for CMU_SYNCBUSY */
+#define CMU_SYNCBUSY_HFXOBSY_DEFAULT                      (_CMU_SYNCBUSY_HFXOBSY_DEFAULT << 28)      /**< Shifted mode DEFAULT for CMU_SYNCBUSY */
+#define CMU_SYNCBUSY_LFXOBSY                              (0x1UL << 29)                              /**< LFXO Busy */
+#define _CMU_SYNCBUSY_LFXOBSY_SHIFT                       29                                         /**< Shift value for CMU_LFXOBSY */
+#define _CMU_SYNCBUSY_LFXOBSY_MASK                        0x20000000UL                               /**< Bit mask for CMU_LFXOBSY */
+#define _CMU_SYNCBUSY_LFXOBSY_DEFAULT                     0x00000000UL                               /**< Mode DEFAULT for CMU_SYNCBUSY */
+#define CMU_SYNCBUSY_LFXOBSY_DEFAULT                      (_CMU_SYNCBUSY_LFXOBSY_DEFAULT << 29)      /**< Shifted mode DEFAULT for CMU_SYNCBUSY */
+
+/* Bit fields for CMU FREEZE */
+#define _CMU_FREEZE_RESETVALUE                            0x00000000UL                         /**< Default value for CMU_FREEZE */
+#define _CMU_FREEZE_MASK                                  0x00000001UL                         /**< Mask for CMU_FREEZE */
+#define CMU_FREEZE_REGFREEZE                              (0x1UL << 0)                         /**< Register Update Freeze */
+#define _CMU_FREEZE_REGFREEZE_SHIFT                       0                                    /**< Shift value for CMU_REGFREEZE */
+#define _CMU_FREEZE_REGFREEZE_MASK                        0x1UL                                /**< Bit mask for CMU_REGFREEZE */
+#define _CMU_FREEZE_REGFREEZE_DEFAULT                     0x00000000UL                         /**< Mode DEFAULT for CMU_FREEZE */
+#define _CMU_FREEZE_REGFREEZE_UPDATE                      0x00000000UL                         /**< Mode UPDATE for CMU_FREEZE */
+#define _CMU_FREEZE_REGFREEZE_FREEZE                      0x00000001UL                         /**< Mode FREEZE for CMU_FREEZE */
+#define CMU_FREEZE_REGFREEZE_DEFAULT                      (_CMU_FREEZE_REGFREEZE_DEFAULT << 0) /**< Shifted mode DEFAULT for CMU_FREEZE */
+#define CMU_FREEZE_REGFREEZE_UPDATE                       (_CMU_FREEZE_REGFREEZE_UPDATE << 0)  /**< Shifted mode UPDATE for CMU_FREEZE */
+#define CMU_FREEZE_REGFREEZE_FREEZE                       (_CMU_FREEZE_REGFREEZE_FREEZE << 0)  /**< Shifted mode FREEZE for CMU_FREEZE */
+
+/* Bit fields for CMU PCNTCTRL */
+#define _CMU_PCNTCTRL_RESETVALUE                          0x00000000UL                             /**< Default value for CMU_PCNTCTRL */
+#define _CMU_PCNTCTRL_MASK                                0x00000003UL                             /**< Mask for CMU_PCNTCTRL */
+#define CMU_PCNTCTRL_PCNT0CLKEN                           (0x1UL << 0)                             /**< PCNT0 Clock Enable */
+#define _CMU_PCNTCTRL_PCNT0CLKEN_SHIFT                    0                                        /**< Shift value for CMU_PCNT0CLKEN */
+#define _CMU_PCNTCTRL_PCNT0CLKEN_MASK                     0x1UL                                    /**< Bit mask for CMU_PCNT0CLKEN */
+#define _CMU_PCNTCTRL_PCNT0CLKEN_DEFAULT                  0x00000000UL                             /**< Mode DEFAULT for CMU_PCNTCTRL */
+#define CMU_PCNTCTRL_PCNT0CLKEN_DEFAULT                   (_CMU_PCNTCTRL_PCNT0CLKEN_DEFAULT << 0)  /**< Shifted mode DEFAULT for CMU_PCNTCTRL */
+#define CMU_PCNTCTRL_PCNT0CLKSEL                          (0x1UL << 1)                             /**< PCNT0 Clock Select */
+#define _CMU_PCNTCTRL_PCNT0CLKSEL_SHIFT                   1                                        /**< Shift value for CMU_PCNT0CLKSEL */
+#define _CMU_PCNTCTRL_PCNT0CLKSEL_MASK                    0x2UL                                    /**< Bit mask for CMU_PCNT0CLKSEL */
+#define _CMU_PCNTCTRL_PCNT0CLKSEL_DEFAULT                 0x00000000UL                             /**< Mode DEFAULT for CMU_PCNTCTRL */
+#define _CMU_PCNTCTRL_PCNT0CLKSEL_LFACLK                  0x00000000UL                             /**< Mode LFACLK for CMU_PCNTCTRL */
+#define _CMU_PCNTCTRL_PCNT0CLKSEL_PCNT0S0                 0x00000001UL                             /**< Mode PCNT0S0 for CMU_PCNTCTRL */
+#define CMU_PCNTCTRL_PCNT0CLKSEL_DEFAULT                  (_CMU_PCNTCTRL_PCNT0CLKSEL_DEFAULT << 1) /**< Shifted mode DEFAULT for CMU_PCNTCTRL */
+#define CMU_PCNTCTRL_PCNT0CLKSEL_LFACLK                   (_CMU_PCNTCTRL_PCNT0CLKSEL_LFACLK << 1)  /**< Shifted mode LFACLK for CMU_PCNTCTRL */
+#define CMU_PCNTCTRL_PCNT0CLKSEL_PCNT0S0                  (_CMU_PCNTCTRL_PCNT0CLKSEL_PCNT0S0 << 1) /**< Shifted mode PCNT0S0 for CMU_PCNTCTRL */
+
+/* Bit fields for CMU ADCCTRL */
+#define _CMU_ADCCTRL_RESETVALUE                           0x00000000UL                            /**< Default value for CMU_ADCCTRL */
+#define _CMU_ADCCTRL_MASK                                 0x00000130UL                            /**< Mask for CMU_ADCCTRL */
+#define _CMU_ADCCTRL_ADC0CLKSEL_SHIFT                     4                                       /**< Shift value for CMU_ADC0CLKSEL */
+#define _CMU_ADCCTRL_ADC0CLKSEL_MASK                      0x30UL                                  /**< Bit mask for CMU_ADC0CLKSEL */
+#define _CMU_ADCCTRL_ADC0CLKSEL_DEFAULT                   0x00000000UL                            /**< Mode DEFAULT for CMU_ADCCTRL */
+#define _CMU_ADCCTRL_ADC0CLKSEL_DISABLED                  0x00000000UL                            /**< Mode DISABLED for CMU_ADCCTRL */
+#define _CMU_ADCCTRL_ADC0CLKSEL_AUXHFRCO                  0x00000001UL                            /**< Mode AUXHFRCO for CMU_ADCCTRL */
+#define _CMU_ADCCTRL_ADC0CLKSEL_HFXO                      0x00000002UL                            /**< Mode HFXO for CMU_ADCCTRL */
+#define _CMU_ADCCTRL_ADC0CLKSEL_HFSRCCLK                  0x00000003UL                            /**< Mode HFSRCCLK for CMU_ADCCTRL */
+#define CMU_ADCCTRL_ADC0CLKSEL_DEFAULT                    (_CMU_ADCCTRL_ADC0CLKSEL_DEFAULT << 4)  /**< Shifted mode DEFAULT for CMU_ADCCTRL */
+#define CMU_ADCCTRL_ADC0CLKSEL_DISABLED                   (_CMU_ADCCTRL_ADC0CLKSEL_DISABLED << 4) /**< Shifted mode DISABLED for CMU_ADCCTRL */
+#define CMU_ADCCTRL_ADC0CLKSEL_AUXHFRCO                   (_CMU_ADCCTRL_ADC0CLKSEL_AUXHFRCO << 4) /**< Shifted mode AUXHFRCO for CMU_ADCCTRL */
+#define CMU_ADCCTRL_ADC0CLKSEL_HFXO                       (_CMU_ADCCTRL_ADC0CLKSEL_HFXO << 4)     /**< Shifted mode HFXO for CMU_ADCCTRL */
+#define CMU_ADCCTRL_ADC0CLKSEL_HFSRCCLK                   (_CMU_ADCCTRL_ADC0CLKSEL_HFSRCCLK << 4) /**< Shifted mode HFSRCCLK for CMU_ADCCTRL */
+#define CMU_ADCCTRL_ADC0CLKINV                            (0x1UL << 8)                            /**< Invert clock selected by ADC0CLKSEL */
+#define _CMU_ADCCTRL_ADC0CLKINV_SHIFT                     8                                       /**< Shift value for CMU_ADC0CLKINV */
+#define _CMU_ADCCTRL_ADC0CLKINV_MASK                      0x100UL                                 /**< Bit mask for CMU_ADC0CLKINV */
+#define _CMU_ADCCTRL_ADC0CLKINV_DEFAULT                   0x00000000UL                            /**< Mode DEFAULT for CMU_ADCCTRL */
+#define CMU_ADCCTRL_ADC0CLKINV_DEFAULT                    (_CMU_ADCCTRL_ADC0CLKINV_DEFAULT << 8)  /**< Shifted mode DEFAULT for CMU_ADCCTRL */
+
+/* Bit fields for CMU ROUTEPEN */
+#define _CMU_ROUTEPEN_RESETVALUE                          0x00000000UL                            /**< Default value for CMU_ROUTEPEN */
+#define _CMU_ROUTEPEN_MASK                                0x10000003UL                            /**< Mask for CMU_ROUTEPEN */
+#define CMU_ROUTEPEN_CLKOUT0PEN                           (0x1UL << 0)                            /**< CLKOUT0 Pin Enable */
+#define _CMU_ROUTEPEN_CLKOUT0PEN_SHIFT                    0                                       /**< Shift value for CMU_CLKOUT0PEN */
+#define _CMU_ROUTEPEN_CLKOUT0PEN_MASK                     0x1UL                                   /**< Bit mask for CMU_CLKOUT0PEN */
+#define _CMU_ROUTEPEN_CLKOUT0PEN_DEFAULT                  0x00000000UL                            /**< Mode DEFAULT for CMU_ROUTEPEN */
+#define CMU_ROUTEPEN_CLKOUT0PEN_DEFAULT                   (_CMU_ROUTEPEN_CLKOUT0PEN_DEFAULT << 0) /**< Shifted mode DEFAULT for CMU_ROUTEPEN */
+#define CMU_ROUTEPEN_CLKOUT1PEN                           (0x1UL << 1)                            /**< CLKOUT1 Pin Enable */
+#define _CMU_ROUTEPEN_CLKOUT1PEN_SHIFT                    1                                       /**< Shift value for CMU_CLKOUT1PEN */
+#define _CMU_ROUTEPEN_CLKOUT1PEN_MASK                     0x2UL                                   /**< Bit mask for CMU_CLKOUT1PEN */
+#define _CMU_ROUTEPEN_CLKOUT1PEN_DEFAULT                  0x00000000UL                            /**< Mode DEFAULT for CMU_ROUTEPEN */
+#define CMU_ROUTEPEN_CLKOUT1PEN_DEFAULT                   (_CMU_ROUTEPEN_CLKOUT1PEN_DEFAULT << 1) /**< Shifted mode DEFAULT for CMU_ROUTEPEN */
+#define CMU_ROUTEPEN_CLKIN0PEN                            (0x1UL << 28)                           /**< CLKIN0 Pin Enable */
+#define _CMU_ROUTEPEN_CLKIN0PEN_SHIFT                     28                                      /**< Shift value for CMU_CLKIN0PEN */
+#define _CMU_ROUTEPEN_CLKIN0PEN_MASK                      0x10000000UL                            /**< Bit mask for CMU_CLKIN0PEN */
+#define _CMU_ROUTEPEN_CLKIN0PEN_DEFAULT                   0x00000000UL                            /**< Mode DEFAULT for CMU_ROUTEPEN */
+#define CMU_ROUTEPEN_CLKIN0PEN_DEFAULT                    (_CMU_ROUTEPEN_CLKIN0PEN_DEFAULT << 28) /**< Shifted mode DEFAULT for CMU_ROUTEPEN */
+
+/* Bit fields for CMU ROUTELOC0 */
+#define _CMU_ROUTELOC0_RESETVALUE                         0x00000000UL                             /**< Default value for CMU_ROUTELOC0 */
+#define _CMU_ROUTELOC0_MASK                               0x00000707UL                             /**< Mask for CMU_ROUTELOC0 */
+#define _CMU_ROUTELOC0_CLKOUT0LOC_SHIFT                   0                                        /**< Shift value for CMU_CLKOUT0LOC */
+#define _CMU_ROUTELOC0_CLKOUT0LOC_MASK                    0x7UL                                    /**< Bit mask for CMU_CLKOUT0LOC */
+#define _CMU_ROUTELOC0_CLKOUT0LOC_LOC0                    0x00000000UL                             /**< Mode LOC0 for CMU_ROUTELOC0 */
+#define _CMU_ROUTELOC0_CLKOUT0LOC_DEFAULT                 0x00000000UL                             /**< Mode DEFAULT for CMU_ROUTELOC0 */
+#define _CMU_ROUTELOC0_CLKOUT0LOC_LOC1                    0x00000001UL                             /**< Mode LOC1 for CMU_ROUTELOC0 */
+#define _CMU_ROUTELOC0_CLKOUT0LOC_LOC2                    0x00000002UL                             /**< Mode LOC2 for CMU_ROUTELOC0 */
+#define _CMU_ROUTELOC0_CLKOUT0LOC_LOC3                    0x00000003UL                             /**< Mode LOC3 for CMU_ROUTELOC0 */
+#define _CMU_ROUTELOC0_CLKOUT0LOC_LOC4                    0x00000004UL                             /**< Mode LOC4 for CMU_ROUTELOC0 */
+#define _CMU_ROUTELOC0_CLKOUT0LOC_LOC5                    0x00000005UL                             /**< Mode LOC5 for CMU_ROUTELOC0 */
+#define _CMU_ROUTELOC0_CLKOUT0LOC_LOC6                    0x00000006UL                             /**< Mode LOC6 for CMU_ROUTELOC0 */
+#define _CMU_ROUTELOC0_CLKOUT0LOC_LOC7                    0x00000007UL                             /**< Mode LOC7 for CMU_ROUTELOC0 */
+#define CMU_ROUTELOC0_CLKOUT0LOC_LOC0                     (_CMU_ROUTELOC0_CLKOUT0LOC_LOC0 << 0)    /**< Shifted mode LOC0 for CMU_ROUTELOC0 */
+#define CMU_ROUTELOC0_CLKOUT0LOC_DEFAULT                  (_CMU_ROUTELOC0_CLKOUT0LOC_DEFAULT << 0) /**< Shifted mode DEFAULT for CMU_ROUTELOC0 */
+#define CMU_ROUTELOC0_CLKOUT0LOC_LOC1                     (_CMU_ROUTELOC0_CLKOUT0LOC_LOC1 << 0)    /**< Shifted mode LOC1 for CMU_ROUTELOC0 */
+#define CMU_ROUTELOC0_CLKOUT0LOC_LOC2                     (_CMU_ROUTELOC0_CLKOUT0LOC_LOC2 << 0)    /**< Shifted mode LOC2 for CMU_ROUTELOC0 */
+#define CMU_ROUTELOC0_CLKOUT0LOC_LOC3                     (_CMU_ROUTELOC0_CLKOUT0LOC_LOC3 << 0)    /**< Shifted mode LOC3 for CMU_ROUTELOC0 */
+#define CMU_ROUTELOC0_CLKOUT0LOC_LOC4                     (_CMU_ROUTELOC0_CLKOUT0LOC_LOC4 << 0)    /**< Shifted mode LOC4 for CMU_ROUTELOC0 */
+#define CMU_ROUTELOC0_CLKOUT0LOC_LOC5                     (_CMU_ROUTELOC0_CLKOUT0LOC_LOC5 << 0)    /**< Shifted mode LOC5 for CMU_ROUTELOC0 */
+#define CMU_ROUTELOC0_CLKOUT0LOC_LOC6                     (_CMU_ROUTELOC0_CLKOUT0LOC_LOC6 << 0)    /**< Shifted mode LOC6 for CMU_ROUTELOC0 */
+#define CMU_ROUTELOC0_CLKOUT0LOC_LOC7                     (_CMU_ROUTELOC0_CLKOUT0LOC_LOC7 << 0)    /**< Shifted mode LOC7 for CMU_ROUTELOC0 */
+#define _CMU_ROUTELOC0_CLKOUT1LOC_SHIFT                   8                                        /**< Shift value for CMU_CLKOUT1LOC */
+#define _CMU_ROUTELOC0_CLKOUT1LOC_MASK                    0x700UL                                  /**< Bit mask for CMU_CLKOUT1LOC */
+#define _CMU_ROUTELOC0_CLKOUT1LOC_LOC0                    0x00000000UL                             /**< Mode LOC0 for CMU_ROUTELOC0 */
+#define _CMU_ROUTELOC0_CLKOUT1LOC_DEFAULT                 0x00000000UL                             /**< Mode DEFAULT for CMU_ROUTELOC0 */
+#define _CMU_ROUTELOC0_CLKOUT1LOC_LOC1                    0x00000001UL                             /**< Mode LOC1 for CMU_ROUTELOC0 */
+#define _CMU_ROUTELOC0_CLKOUT1LOC_LOC2                    0x00000002UL                             /**< Mode LOC2 for CMU_ROUTELOC0 */
+#define _CMU_ROUTELOC0_CLKOUT1LOC_LOC3                    0x00000003UL                             /**< Mode LOC3 for CMU_ROUTELOC0 */
+#define _CMU_ROUTELOC0_CLKOUT1LOC_LOC4                    0x00000004UL                             /**< Mode LOC4 for CMU_ROUTELOC0 */
+#define _CMU_ROUTELOC0_CLKOUT1LOC_LOC5                    0x00000005UL                             /**< Mode LOC5 for CMU_ROUTELOC0 */
+#define _CMU_ROUTELOC0_CLKOUT1LOC_LOC6                    0x00000006UL                             /**< Mode LOC6 for CMU_ROUTELOC0 */
+#define _CMU_ROUTELOC0_CLKOUT1LOC_LOC7                    0x00000007UL                             /**< Mode LOC7 for CMU_ROUTELOC0 */
+#define CMU_ROUTELOC0_CLKOUT1LOC_LOC0                     (_CMU_ROUTELOC0_CLKOUT1LOC_LOC0 << 8)    /**< Shifted mode LOC0 for CMU_ROUTELOC0 */
+#define CMU_ROUTELOC0_CLKOUT1LOC_DEFAULT                  (_CMU_ROUTELOC0_CLKOUT1LOC_DEFAULT << 8) /**< Shifted mode DEFAULT for CMU_ROUTELOC0 */
+#define CMU_ROUTELOC0_CLKOUT1LOC_LOC1                     (_CMU_ROUTELOC0_CLKOUT1LOC_LOC1 << 8)    /**< Shifted mode LOC1 for CMU_ROUTELOC0 */
+#define CMU_ROUTELOC0_CLKOUT1LOC_LOC2                     (_CMU_ROUTELOC0_CLKOUT1LOC_LOC2 << 8)    /**< Shifted mode LOC2 for CMU_ROUTELOC0 */
+#define CMU_ROUTELOC0_CLKOUT1LOC_LOC3                     (_CMU_ROUTELOC0_CLKOUT1LOC_LOC3 << 8)    /**< Shifted mode LOC3 for CMU_ROUTELOC0 */
+#define CMU_ROUTELOC0_CLKOUT1LOC_LOC4                     (_CMU_ROUTELOC0_CLKOUT1LOC_LOC4 << 8)    /**< Shifted mode LOC4 for CMU_ROUTELOC0 */
+#define CMU_ROUTELOC0_CLKOUT1LOC_LOC5                     (_CMU_ROUTELOC0_CLKOUT1LOC_LOC5 << 8)    /**< Shifted mode LOC5 for CMU_ROUTELOC0 */
+#define CMU_ROUTELOC0_CLKOUT1LOC_LOC6                     (_CMU_ROUTELOC0_CLKOUT1LOC_LOC6 << 8)    /**< Shifted mode LOC6 for CMU_ROUTELOC0 */
+#define CMU_ROUTELOC0_CLKOUT1LOC_LOC7                     (_CMU_ROUTELOC0_CLKOUT1LOC_LOC7 << 8)    /**< Shifted mode LOC7 for CMU_ROUTELOC0 */
+
+/* Bit fields for CMU ROUTELOC1 */
+#define _CMU_ROUTELOC1_RESETVALUE                         0x00000000UL                            /**< Default value for CMU_ROUTELOC1 */
+#define _CMU_ROUTELOC1_MASK                               0x00000007UL                            /**< Mask for CMU_ROUTELOC1 */
+#define _CMU_ROUTELOC1_CLKIN0LOC_SHIFT                    0                                       /**< Shift value for CMU_CLKIN0LOC */
+#define _CMU_ROUTELOC1_CLKIN0LOC_MASK                     0x7UL                                   /**< Bit mask for CMU_CLKIN0LOC */
+#define _CMU_ROUTELOC1_CLKIN0LOC_LOC0                     0x00000000UL                            /**< Mode LOC0 for CMU_ROUTELOC1 */
+#define _CMU_ROUTELOC1_CLKIN0LOC_DEFAULT                  0x00000000UL                            /**< Mode DEFAULT for CMU_ROUTELOC1 */
+#define _CMU_ROUTELOC1_CLKIN0LOC_LOC1                     0x00000001UL                            /**< Mode LOC1 for CMU_ROUTELOC1 */
+#define _CMU_ROUTELOC1_CLKIN0LOC_LOC2                     0x00000002UL                            /**< Mode LOC2 for CMU_ROUTELOC1 */
+#define _CMU_ROUTELOC1_CLKIN0LOC_LOC3                     0x00000003UL                            /**< Mode LOC3 for CMU_ROUTELOC1 */
+#define _CMU_ROUTELOC1_CLKIN0LOC_LOC4                     0x00000004UL                            /**< Mode LOC4 for CMU_ROUTELOC1 */
+#define CMU_ROUTELOC1_CLKIN0LOC_LOC0                      (_CMU_ROUTELOC1_CLKIN0LOC_LOC0 << 0)    /**< Shifted mode LOC0 for CMU_ROUTELOC1 */
+#define CMU_ROUTELOC1_CLKIN0LOC_DEFAULT                   (_CMU_ROUTELOC1_CLKIN0LOC_DEFAULT << 0) /**< Shifted mode DEFAULT for CMU_ROUTELOC1 */
+#define CMU_ROUTELOC1_CLKIN0LOC_LOC1                      (_CMU_ROUTELOC1_CLKIN0LOC_LOC1 << 0)    /**< Shifted mode LOC1 for CMU_ROUTELOC1 */
+#define CMU_ROUTELOC1_CLKIN0LOC_LOC2                      (_CMU_ROUTELOC1_CLKIN0LOC_LOC2 << 0)    /**< Shifted mode LOC2 for CMU_ROUTELOC1 */
+#define CMU_ROUTELOC1_CLKIN0LOC_LOC3                      (_CMU_ROUTELOC1_CLKIN0LOC_LOC3 << 0)    /**< Shifted mode LOC3 for CMU_ROUTELOC1 */
+#define CMU_ROUTELOC1_CLKIN0LOC_LOC4                      (_CMU_ROUTELOC1_CLKIN0LOC_LOC4 << 0)    /**< Shifted mode LOC4 for CMU_ROUTELOC1 */
+
+/* Bit fields for CMU LOCK */
+#define _CMU_LOCK_RESETVALUE                              0x00000000UL                      /**< Default value for CMU_LOCK */
+#define _CMU_LOCK_MASK                                    0x0000FFFFUL                      /**< Mask for CMU_LOCK */
+#define _CMU_LOCK_LOCKKEY_SHIFT                           0                                 /**< Shift value for CMU_LOCKKEY */
+#define _CMU_LOCK_LOCKKEY_MASK                            0xFFFFUL                          /**< Bit mask for CMU_LOCKKEY */
+#define _CMU_LOCK_LOCKKEY_DEFAULT                         0x00000000UL                      /**< Mode DEFAULT for CMU_LOCK */
+#define _CMU_LOCK_LOCKKEY_LOCK                            0x00000000UL                      /**< Mode LOCK for CMU_LOCK */
+#define _CMU_LOCK_LOCKKEY_UNLOCKED                        0x00000000UL                      /**< Mode UNLOCKED for CMU_LOCK */
+#define _CMU_LOCK_LOCKKEY_LOCKED                          0x00000001UL                      /**< Mode LOCKED for CMU_LOCK */
+#define _CMU_LOCK_LOCKKEY_UNLOCK                          0x0000580EUL                      /**< Mode UNLOCK for CMU_LOCK */
+#define CMU_LOCK_LOCKKEY_DEFAULT                          (_CMU_LOCK_LOCKKEY_DEFAULT << 0)  /**< Shifted mode DEFAULT for CMU_LOCK */
+#define CMU_LOCK_LOCKKEY_LOCK                             (_CMU_LOCK_LOCKKEY_LOCK << 0)     /**< Shifted mode LOCK for CMU_LOCK */
+#define CMU_LOCK_LOCKKEY_UNLOCKED                         (_CMU_LOCK_LOCKKEY_UNLOCKED << 0) /**< Shifted mode UNLOCKED for CMU_LOCK */
+#define CMU_LOCK_LOCKKEY_LOCKED                           (_CMU_LOCK_LOCKKEY_LOCKED << 0)   /**< Shifted mode LOCKED for CMU_LOCK */
+#define CMU_LOCK_LOCKKEY_UNLOCK                           (_CMU_LOCK_LOCKKEY_UNLOCK << 0)   /**< Shifted mode UNLOCK for CMU_LOCK */
+
+/* Bit fields for CMU HFRCOSS */
+#define _CMU_HFRCOSS_RESETVALUE                           0x00000000UL                      /**< Default value for CMU_HFRCOSS */
+#define _CMU_HFRCOSS_MASK                                 0x00001F07UL                      /**< Mask for CMU_HFRCOSS */
+#define _CMU_HFRCOSS_SSAMP_SHIFT                          0                                 /**< Shift value for CMU_SSAMP */
+#define _CMU_HFRCOSS_SSAMP_MASK                           0x7UL                             /**< Bit mask for CMU_SSAMP */
+#define _CMU_HFRCOSS_SSAMP_DEFAULT                        0x00000000UL                      /**< Mode DEFAULT for CMU_HFRCOSS */
+#define CMU_HFRCOSS_SSAMP_DEFAULT                         (_CMU_HFRCOSS_SSAMP_DEFAULT << 0) /**< Shifted mode DEFAULT for CMU_HFRCOSS */
+#define _CMU_HFRCOSS_SSINV_SHIFT                          8                                 /**< Shift value for CMU_SSINV */
+#define _CMU_HFRCOSS_SSINV_MASK                           0x1F00UL                          /**< Bit mask for CMU_SSINV */
+#define _CMU_HFRCOSS_SSINV_DEFAULT                        0x00000000UL                      /**< Mode DEFAULT for CMU_HFRCOSS */
+#define CMU_HFRCOSS_SSINV_DEFAULT                         (_CMU_HFRCOSS_SSINV_DEFAULT << 8) /**< Shifted mode DEFAULT for CMU_HFRCOSS */
+
+/** @} */
+/** @} End of group EFR32MG13P832F512IM48_CMU */
 
 /**************************************************************************//**
- * @defgroup EFR32MG13P832F512IM48_UNLOCK EFR32MG13P832F512IM48 Unlock Codes
+ * @addtogroup EFR32MG13P832F512IM48_LDMA
+ * @{
+ * @defgroup EFR32MG13P832F512IM48_LDMA_BitFields  LDMA Bit Fields
+ * @{
+ *****************************************************************************/
+
+/* Bit fields for LDMA CTRL */
+#define _LDMA_CTRL_RESETVALUE                        0x07000000UL                           /**< Default value for LDMA_CTRL */
+#define _LDMA_CTRL_MASK                              0x0700FFFFUL                           /**< Mask for LDMA_CTRL */
+#define _LDMA_CTRL_SYNCPRSSETEN_SHIFT                0                                      /**< Shift value for LDMA_SYNCPRSSETEN */
+#define _LDMA_CTRL_SYNCPRSSETEN_MASK                 0xFFUL                                 /**< Bit mask for LDMA_SYNCPRSSETEN */
+#define _LDMA_CTRL_SYNCPRSSETEN_DEFAULT              0x00000000UL                           /**< Mode DEFAULT for LDMA_CTRL */
+#define LDMA_CTRL_SYNCPRSSETEN_DEFAULT               (_LDMA_CTRL_SYNCPRSSETEN_DEFAULT << 0) /**< Shifted mode DEFAULT for LDMA_CTRL */
+#define _LDMA_CTRL_SYNCPRSCLREN_SHIFT                8                                      /**< Shift value for LDMA_SYNCPRSCLREN */
+#define _LDMA_CTRL_SYNCPRSCLREN_MASK                 0xFF00UL                               /**< Bit mask for LDMA_SYNCPRSCLREN */
+#define _LDMA_CTRL_SYNCPRSCLREN_DEFAULT              0x00000000UL                           /**< Mode DEFAULT for LDMA_CTRL */
+#define LDMA_CTRL_SYNCPRSCLREN_DEFAULT               (_LDMA_CTRL_SYNCPRSCLREN_DEFAULT << 8) /**< Shifted mode DEFAULT for LDMA_CTRL */
+#define _LDMA_CTRL_NUMFIXED_SHIFT                    24                                     /**< Shift value for LDMA_NUMFIXED */
+#define _LDMA_CTRL_NUMFIXED_MASK                     0x7000000UL                            /**< Bit mask for LDMA_NUMFIXED */
+#define _LDMA_CTRL_NUMFIXED_DEFAULT                  0x00000007UL                           /**< Mode DEFAULT for LDMA_CTRL */
+#define LDMA_CTRL_NUMFIXED_DEFAULT                   (_LDMA_CTRL_NUMFIXED_DEFAULT << 24)    /**< Shifted mode DEFAULT for LDMA_CTRL */
+
+/* Bit fields for LDMA STATUS */
+#define _LDMA_STATUS_RESETVALUE                      0x08100000UL                           /**< Default value for LDMA_STATUS */
+#define _LDMA_STATUS_MASK                            0x1F1F073BUL                           /**< Mask for LDMA_STATUS */
+#define LDMA_STATUS_ANYBUSY                          (0x1UL << 0)                           /**< Any DMA Channel Busy */
+#define _LDMA_STATUS_ANYBUSY_SHIFT                   0                                      /**< Shift value for LDMA_ANYBUSY */
+#define _LDMA_STATUS_ANYBUSY_MASK                    0x1UL                                  /**< Bit mask for LDMA_ANYBUSY */
+#define _LDMA_STATUS_ANYBUSY_DEFAULT                 0x00000000UL                           /**< Mode DEFAULT for LDMA_STATUS */
+#define LDMA_STATUS_ANYBUSY_DEFAULT                  (_LDMA_STATUS_ANYBUSY_DEFAULT << 0)    /**< Shifted mode DEFAULT for LDMA_STATUS */
+#define LDMA_STATUS_ANYREQ                           (0x1UL << 1)                           /**< Any DMA Channel Request Pending */
+#define _LDMA_STATUS_ANYREQ_SHIFT                    1                                      /**< Shift value for LDMA_ANYREQ */
+#define _LDMA_STATUS_ANYREQ_MASK                     0x2UL                                  /**< Bit mask for LDMA_ANYREQ */
+#define _LDMA_STATUS_ANYREQ_DEFAULT                  0x00000000UL                           /**< Mode DEFAULT for LDMA_STATUS */
+#define LDMA_STATUS_ANYREQ_DEFAULT                   (_LDMA_STATUS_ANYREQ_DEFAULT << 1)     /**< Shifted mode DEFAULT for LDMA_STATUS */
+#define _LDMA_STATUS_CHGRANT_SHIFT                   3                                      /**< Shift value for LDMA_CHGRANT */
+#define _LDMA_STATUS_CHGRANT_MASK                    0x38UL                                 /**< Bit mask for LDMA_CHGRANT */
+#define _LDMA_STATUS_CHGRANT_DEFAULT                 0x00000000UL                           /**< Mode DEFAULT for LDMA_STATUS */
+#define LDMA_STATUS_CHGRANT_DEFAULT                  (_LDMA_STATUS_CHGRANT_DEFAULT << 3)    /**< Shifted mode DEFAULT for LDMA_STATUS */
+#define _LDMA_STATUS_CHERROR_SHIFT                   8                                      /**< Shift value for LDMA_CHERROR */
+#define _LDMA_STATUS_CHERROR_MASK                    0x700UL                                /**< Bit mask for LDMA_CHERROR */
+#define _LDMA_STATUS_CHERROR_DEFAULT                 0x00000000UL                           /**< Mode DEFAULT for LDMA_STATUS */
+#define LDMA_STATUS_CHERROR_DEFAULT                  (_LDMA_STATUS_CHERROR_DEFAULT << 8)    /**< Shifted mode DEFAULT for LDMA_STATUS */
+#define _LDMA_STATUS_FIFOLEVEL_SHIFT                 16                                     /**< Shift value for LDMA_FIFOLEVEL */
+#define _LDMA_STATUS_FIFOLEVEL_MASK                  0x1F0000UL                             /**< Bit mask for LDMA_FIFOLEVEL */
+#define _LDMA_STATUS_FIFOLEVEL_DEFAULT               0x00000010UL                           /**< Mode DEFAULT for LDMA_STATUS */
+#define LDMA_STATUS_FIFOLEVEL_DEFAULT                (_LDMA_STATUS_FIFOLEVEL_DEFAULT << 16) /**< Shifted mode DEFAULT for LDMA_STATUS */
+#define _LDMA_STATUS_CHNUM_SHIFT                     24                                     /**< Shift value for LDMA_CHNUM */
+#define _LDMA_STATUS_CHNUM_MASK                      0x1F000000UL                           /**< Bit mask for LDMA_CHNUM */
+#define _LDMA_STATUS_CHNUM_DEFAULT                   0x00000008UL                           /**< Mode DEFAULT for LDMA_STATUS */
+#define LDMA_STATUS_CHNUM_DEFAULT                    (_LDMA_STATUS_CHNUM_DEFAULT << 24)     /**< Shifted mode DEFAULT for LDMA_STATUS */
+
+/* Bit fields for LDMA SYNC */
+#define _LDMA_SYNC_RESETVALUE                        0x00000000UL                       /**< Default value for LDMA_SYNC */
+#define _LDMA_SYNC_MASK                              0x000000FFUL                       /**< Mask for LDMA_SYNC */
+#define _LDMA_SYNC_SYNCTRIG_SHIFT                    0                                  /**< Shift value for LDMA_SYNCTRIG */
+#define _LDMA_SYNC_SYNCTRIG_MASK                     0xFFUL                             /**< Bit mask for LDMA_SYNCTRIG */
+#define _LDMA_SYNC_SYNCTRIG_DEFAULT                  0x00000000UL                       /**< Mode DEFAULT for LDMA_SYNC */
+#define LDMA_SYNC_SYNCTRIG_DEFAULT                   (_LDMA_SYNC_SYNCTRIG_DEFAULT << 0) /**< Shifted mode DEFAULT for LDMA_SYNC */
+
+/* Bit fields for LDMA CHEN */
+#define _LDMA_CHEN_RESETVALUE                        0x00000000UL                   /**< Default value for LDMA_CHEN */
+#define _LDMA_CHEN_MASK                              0x000000FFUL                   /**< Mask for LDMA_CHEN */
+#define _LDMA_CHEN_CHEN_SHIFT                        0                              /**< Shift value for LDMA_CHEN */
+#define _LDMA_CHEN_CHEN_MASK                         0xFFUL                         /**< Bit mask for LDMA_CHEN */
+#define _LDMA_CHEN_CHEN_DEFAULT                      0x00000000UL                   /**< Mode DEFAULT for LDMA_CHEN */
+#define LDMA_CHEN_CHEN_DEFAULT                       (_LDMA_CHEN_CHEN_DEFAULT << 0) /**< Shifted mode DEFAULT for LDMA_CHEN */
+
+/* Bit fields for LDMA CHBUSY */
+#define _LDMA_CHBUSY_RESETVALUE                      0x00000000UL                     /**< Default value for LDMA_CHBUSY */
+#define _LDMA_CHBUSY_MASK                            0x000000FFUL                     /**< Mask for LDMA_CHBUSY */
+#define _LDMA_CHBUSY_BUSY_SHIFT                      0                                /**< Shift value for LDMA_BUSY */
+#define _LDMA_CHBUSY_BUSY_MASK                       0xFFUL                           /**< Bit mask for LDMA_BUSY */
+#define _LDMA_CHBUSY_BUSY_DEFAULT                    0x00000000UL                     /**< Mode DEFAULT for LDMA_CHBUSY */
+#define LDMA_CHBUSY_BUSY_DEFAULT                     (_LDMA_CHBUSY_BUSY_DEFAULT << 0) /**< Shifted mode DEFAULT for LDMA_CHBUSY */
+
+/* Bit fields for LDMA CHDONE */
+#define _LDMA_CHDONE_RESETVALUE                      0x00000000UL                       /**< Default value for LDMA_CHDONE */
+#define _LDMA_CHDONE_MASK                            0x000000FFUL                       /**< Mask for LDMA_CHDONE */
+#define _LDMA_CHDONE_CHDONE_SHIFT                    0                                  /**< Shift value for LDMA_CHDONE */
+#define _LDMA_CHDONE_CHDONE_MASK                     0xFFUL                             /**< Bit mask for LDMA_CHDONE */
+#define _LDMA_CHDONE_CHDONE_DEFAULT                  0x00000000UL                       /**< Mode DEFAULT for LDMA_CHDONE */
+#define LDMA_CHDONE_CHDONE_DEFAULT                   (_LDMA_CHDONE_CHDONE_DEFAULT << 0) /**< Shifted mode DEFAULT for LDMA_CHDONE */
+
+/* Bit fields for LDMA DBGHALT */
+#define _LDMA_DBGHALT_RESETVALUE                     0x00000000UL                         /**< Default value for LDMA_DBGHALT */
+#define _LDMA_DBGHALT_MASK                           0x000000FFUL                         /**< Mask for LDMA_DBGHALT */
+#define _LDMA_DBGHALT_DBGHALT_SHIFT                  0                                    /**< Shift value for LDMA_DBGHALT */
+#define _LDMA_DBGHALT_DBGHALT_MASK                   0xFFUL                               /**< Bit mask for LDMA_DBGHALT */
+#define _LDMA_DBGHALT_DBGHALT_DEFAULT                0x00000000UL                         /**< Mode DEFAULT for LDMA_DBGHALT */
+#define LDMA_DBGHALT_DBGHALT_DEFAULT                 (_LDMA_DBGHALT_DBGHALT_DEFAULT << 0) /**< Shifted mode DEFAULT for LDMA_DBGHALT */
+
+/* Bit fields for LDMA SWREQ */
+#define _LDMA_SWREQ_RESETVALUE                       0x00000000UL                     /**< Default value for LDMA_SWREQ */
+#define _LDMA_SWREQ_MASK                             0x000000FFUL                     /**< Mask for LDMA_SWREQ */
+#define _LDMA_SWREQ_SWREQ_SHIFT                      0                                /**< Shift value for LDMA_SWREQ */
+#define _LDMA_SWREQ_SWREQ_MASK                       0xFFUL                           /**< Bit mask for LDMA_SWREQ */
+#define _LDMA_SWREQ_SWREQ_DEFAULT                    0x00000000UL                     /**< Mode DEFAULT for LDMA_SWREQ */
+#define LDMA_SWREQ_SWREQ_DEFAULT                     (_LDMA_SWREQ_SWREQ_DEFAULT << 0) /**< Shifted mode DEFAULT for LDMA_SWREQ */
+
+/* Bit fields for LDMA REQDIS */
+#define _LDMA_REQDIS_RESETVALUE                      0x00000000UL                       /**< Default value for LDMA_REQDIS */
+#define _LDMA_REQDIS_MASK                            0x000000FFUL                       /**< Mask for LDMA_REQDIS */
+#define _LDMA_REQDIS_REQDIS_SHIFT                    0                                  /**< Shift value for LDMA_REQDIS */
+#define _LDMA_REQDIS_REQDIS_MASK                     0xFFUL                             /**< Bit mask for LDMA_REQDIS */
+#define _LDMA_REQDIS_REQDIS_DEFAULT                  0x00000000UL                       /**< Mode DEFAULT for LDMA_REQDIS */
+#define LDMA_REQDIS_REQDIS_DEFAULT                   (_LDMA_REQDIS_REQDIS_DEFAULT << 0) /**< Shifted mode DEFAULT for LDMA_REQDIS */
+
+/* Bit fields for LDMA REQPEND */
+#define _LDMA_REQPEND_RESETVALUE                     0x00000000UL                         /**< Default value for LDMA_REQPEND */
+#define _LDMA_REQPEND_MASK                           0x000000FFUL                         /**< Mask for LDMA_REQPEND */
+#define _LDMA_REQPEND_REQPEND_SHIFT                  0                                    /**< Shift value for LDMA_REQPEND */
+#define _LDMA_REQPEND_REQPEND_MASK                   0xFFUL                               /**< Bit mask for LDMA_REQPEND */
+#define _LDMA_REQPEND_REQPEND_DEFAULT                0x00000000UL                         /**< Mode DEFAULT for LDMA_REQPEND */
+#define LDMA_REQPEND_REQPEND_DEFAULT                 (_LDMA_REQPEND_REQPEND_DEFAULT << 0) /**< Shifted mode DEFAULT for LDMA_REQPEND */
+
+/* Bit fields for LDMA LINKLOAD */
+#define _LDMA_LINKLOAD_RESETVALUE                    0x00000000UL                           /**< Default value for LDMA_LINKLOAD */
+#define _LDMA_LINKLOAD_MASK                          0x000000FFUL                           /**< Mask for LDMA_LINKLOAD */
+#define _LDMA_LINKLOAD_LINKLOAD_SHIFT                0                                      /**< Shift value for LDMA_LINKLOAD */
+#define _LDMA_LINKLOAD_LINKLOAD_MASK                 0xFFUL                                 /**< Bit mask for LDMA_LINKLOAD */
+#define _LDMA_LINKLOAD_LINKLOAD_DEFAULT              0x00000000UL                           /**< Mode DEFAULT for LDMA_LINKLOAD */
+#define LDMA_LINKLOAD_LINKLOAD_DEFAULT               (_LDMA_LINKLOAD_LINKLOAD_DEFAULT << 0) /**< Shifted mode DEFAULT for LDMA_LINKLOAD */
+
+/* Bit fields for LDMA REQCLEAR */
+#define _LDMA_REQCLEAR_RESETVALUE                    0x00000000UL                           /**< Default value for LDMA_REQCLEAR */
+#define _LDMA_REQCLEAR_MASK                          0x000000FFUL                           /**< Mask for LDMA_REQCLEAR */
+#define _LDMA_REQCLEAR_REQCLEAR_SHIFT                0                                      /**< Shift value for LDMA_REQCLEAR */
+#define _LDMA_REQCLEAR_REQCLEAR_MASK                 0xFFUL                                 /**< Bit mask for LDMA_REQCLEAR */
+#define _LDMA_REQCLEAR_REQCLEAR_DEFAULT              0x00000000UL                           /**< Mode DEFAULT for LDMA_REQCLEAR */
+#define LDMA_REQCLEAR_REQCLEAR_DEFAULT               (_LDMA_REQCLEAR_REQCLEAR_DEFAULT << 0) /**< Shifted mode DEFAULT for LDMA_REQCLEAR */
+
+/* Bit fields for LDMA IF */
+#define _LDMA_IF_RESETVALUE                          0x00000000UL                   /**< Default value for LDMA_IF */
+#define _LDMA_IF_MASK                                0x800000FFUL                   /**< Mask for LDMA_IF */
+#define _LDMA_IF_DONE_SHIFT                          0                              /**< Shift value for LDMA_DONE */
+#define _LDMA_IF_DONE_MASK                           0xFFUL                         /**< Bit mask for LDMA_DONE */
+#define _LDMA_IF_DONE_DEFAULT                        0x00000000UL                   /**< Mode DEFAULT for LDMA_IF */
+#define LDMA_IF_DONE_DEFAULT                         (_LDMA_IF_DONE_DEFAULT << 0)   /**< Shifted mode DEFAULT for LDMA_IF */
+#define LDMA_IF_ERROR                                (0x1UL << 31)                  /**< Transfer Error Interrupt Flag */
+#define _LDMA_IF_ERROR_SHIFT                         31                             /**< Shift value for LDMA_ERROR */
+#define _LDMA_IF_ERROR_MASK                          0x80000000UL                   /**< Bit mask for LDMA_ERROR */
+#define _LDMA_IF_ERROR_DEFAULT                       0x00000000UL                   /**< Mode DEFAULT for LDMA_IF */
+#define LDMA_IF_ERROR_DEFAULT                        (_LDMA_IF_ERROR_DEFAULT << 31) /**< Shifted mode DEFAULT for LDMA_IF */
+
+/* Bit fields for LDMA IFS */
+#define _LDMA_IFS_RESETVALUE                         0x00000000UL                    /**< Default value for LDMA_IFS */
+#define _LDMA_IFS_MASK                               0x800000FFUL                    /**< Mask for LDMA_IFS */
+#define _LDMA_IFS_DONE_SHIFT                         0                               /**< Shift value for LDMA_DONE */
+#define _LDMA_IFS_DONE_MASK                          0xFFUL                          /**< Bit mask for LDMA_DONE */
+#define _LDMA_IFS_DONE_DEFAULT                       0x00000000UL                    /**< Mode DEFAULT for LDMA_IFS */
+#define LDMA_IFS_DONE_DEFAULT                        (_LDMA_IFS_DONE_DEFAULT << 0)   /**< Shifted mode DEFAULT for LDMA_IFS */
+#define LDMA_IFS_ERROR                               (0x1UL << 31)                   /**< Set ERROR Interrupt Flag */
+#define _LDMA_IFS_ERROR_SHIFT                        31                              /**< Shift value for LDMA_ERROR */
+#define _LDMA_IFS_ERROR_MASK                         0x80000000UL                    /**< Bit mask for LDMA_ERROR */
+#define _LDMA_IFS_ERROR_DEFAULT                      0x00000000UL                    /**< Mode DEFAULT for LDMA_IFS */
+#define LDMA_IFS_ERROR_DEFAULT                       (_LDMA_IFS_ERROR_DEFAULT << 31) /**< Shifted mode DEFAULT for LDMA_IFS */
+
+/* Bit fields for LDMA IFC */
+#define _LDMA_IFC_RESETVALUE                         0x00000000UL                    /**< Default value for LDMA_IFC */
+#define _LDMA_IFC_MASK                               0x800000FFUL                    /**< Mask for LDMA_IFC */
+#define _LDMA_IFC_DONE_SHIFT                         0                               /**< Shift value for LDMA_DONE */
+#define _LDMA_IFC_DONE_MASK                          0xFFUL                          /**< Bit mask for LDMA_DONE */
+#define _LDMA_IFC_DONE_DEFAULT                       0x00000000UL                    /**< Mode DEFAULT for LDMA_IFC */
+#define LDMA_IFC_DONE_DEFAULT                        (_LDMA_IFC_DONE_DEFAULT << 0)   /**< Shifted mode DEFAULT for LDMA_IFC */
+#define LDMA_IFC_ERROR                               (0x1UL << 31)                   /**< Clear ERROR Interrupt Flag */
+#define _LDMA_IFC_ERROR_SHIFT                        31                              /**< Shift value for LDMA_ERROR */
+#define _LDMA_IFC_ERROR_MASK                         0x80000000UL                    /**< Bit mask for LDMA_ERROR */
+#define _LDMA_IFC_ERROR_DEFAULT                      0x00000000UL                    /**< Mode DEFAULT for LDMA_IFC */
+#define LDMA_IFC_ERROR_DEFAULT                       (_LDMA_IFC_ERROR_DEFAULT << 31) /**< Shifted mode DEFAULT for LDMA_IFC */
+
+/* Bit fields for LDMA IEN */
+#define _LDMA_IEN_RESETVALUE                         0x00000000UL                    /**< Default value for LDMA_IEN */
+#define _LDMA_IEN_MASK                               0x800000FFUL                    /**< Mask for LDMA_IEN */
+#define _LDMA_IEN_DONE_SHIFT                         0                               /**< Shift value for LDMA_DONE */
+#define _LDMA_IEN_DONE_MASK                          0xFFUL                          /**< Bit mask for LDMA_DONE */
+#define _LDMA_IEN_DONE_DEFAULT                       0x00000000UL                    /**< Mode DEFAULT for LDMA_IEN */
+#define LDMA_IEN_DONE_DEFAULT                        (_LDMA_IEN_DONE_DEFAULT << 0)   /**< Shifted mode DEFAULT for LDMA_IEN */
+#define LDMA_IEN_ERROR                               (0x1UL << 31)                   /**< ERROR Interrupt Enable */
+#define _LDMA_IEN_ERROR_SHIFT                        31                              /**< Shift value for LDMA_ERROR */
+#define _LDMA_IEN_ERROR_MASK                         0x80000000UL                    /**< Bit mask for LDMA_ERROR */
+#define _LDMA_IEN_ERROR_DEFAULT                      0x00000000UL                    /**< Mode DEFAULT for LDMA_IEN */
+#define LDMA_IEN_ERROR_DEFAULT                       (_LDMA_IEN_ERROR_DEFAULT << 31) /**< Shifted mode DEFAULT for LDMA_IEN */
+
+/* Bit fields for LDMA CH_REQSEL */
+#define _LDMA_CH_REQSEL_RESETVALUE                   0x00000000UL                                     /**< Default value for LDMA_CH_REQSEL */
+#define _LDMA_CH_REQSEL_MASK                         0x003F000FUL                                     /**< Mask for LDMA_CH_REQSEL */
+#define _LDMA_CH_REQSEL_SIGSEL_SHIFT                 0                                                /**< Shift value for LDMA_SIGSEL */
+#define _LDMA_CH_REQSEL_SIGSEL_MASK                  0xFUL                                            /**< Bit mask for LDMA_SIGSEL */
+#define _LDMA_CH_REQSEL_SIGSEL_PRSREQ0               0x00000000UL                                     /**< Mode PRSREQ0 for LDMA_CH_REQSEL */
+#define _LDMA_CH_REQSEL_SIGSEL_ADC0SINGLE            0x00000000UL                                     /**< Mode ADC0SINGLE for LDMA_CH_REQSEL */
+#define _LDMA_CH_REQSEL_SIGSEL_VDAC0CH0              0x00000000UL                                     /**< Mode VDAC0CH0 for LDMA_CH_REQSEL */
+#define _LDMA_CH_REQSEL_SIGSEL_USART0RXDATAV         0x00000000UL                                     /**< Mode USART0RXDATAV for LDMA_CH_REQSEL */
+#define _LDMA_CH_REQSEL_SIGSEL_USART1RXDATAV         0x00000000UL                                     /**< Mode USART1RXDATAV for LDMA_CH_REQSEL */
+#define _LDMA_CH_REQSEL_SIGSEL_USART2RXDATAV         0x00000000UL                                     /**< Mode USART2RXDATAV for LDMA_CH_REQSEL */
+#define _LDMA_CH_REQSEL_SIGSEL_LEUART0RXDATAV        0x00000000UL                                     /**< Mode LEUART0RXDATAV for LDMA_CH_REQSEL */
+#define _LDMA_CH_REQSEL_SIGSEL_I2C0RXDATAV           0x00000000UL                                     /**< Mode I2C0RXDATAV for LDMA_CH_REQSEL */
+#define _LDMA_CH_REQSEL_SIGSEL_I2C1RXDATAV           0x00000000UL                                     /**< Mode I2C1RXDATAV for LDMA_CH_REQSEL */
+#define _LDMA_CH_REQSEL_SIGSEL_TIMER0UFOF            0x00000000UL                                     /**< Mode TIMER0UFOF for LDMA_CH_REQSEL */
+#define _LDMA_CH_REQSEL_SIGSEL_TIMER1UFOF            0x00000000UL                                     /**< Mode TIMER1UFOF for LDMA_CH_REQSEL */
+#define _LDMA_CH_REQSEL_SIGSEL_WTIMER0UFOF           0x00000000UL                                     /**< Mode WTIMER0UFOF for LDMA_CH_REQSEL */
+#define _LDMA_CH_REQSEL_SIGSEL_MSCWDATA              0x00000000UL                                     /**< Mode MSCWDATA for LDMA_CH_REQSEL */
+#define _LDMA_CH_REQSEL_SIGSEL_CRYPTO0DATA0WR        0x00000000UL                                     /**< Mode CRYPTO0DATA0WR for LDMA_CH_REQSEL */
+#define _LDMA_CH_REQSEL_SIGSEL_CRYPTODATA0WR         _LDMA_CH_REQSEL_SIGSEL_CRYPTO0DATA0WR            /**< Alias for mode CRYPTO0DATA0WR */
+#define _LDMA_CH_REQSEL_SIGSEL_LESENSEBUFDATAV       0x00000000UL                                     /**< Mode LESENSEBUFDATAV for LDMA_CH_REQSEL */
+#define _LDMA_CH_REQSEL_SIGSEL_CRYPTO1DATA0WR        0x00000000UL                                     /**< Mode CRYPTO1DATA0WR for LDMA_CH_REQSEL */
+#define _LDMA_CH_REQSEL_SIGSEL_PRSREQ1               0x00000001UL                                     /**< Mode PRSREQ1 for LDMA_CH_REQSEL */
+#define _LDMA_CH_REQSEL_SIGSEL_ADC0SCAN              0x00000001UL                                     /**< Mode ADC0SCAN for LDMA_CH_REQSEL */
+#define _LDMA_CH_REQSEL_SIGSEL_VDAC0CH1              0x00000001UL                                     /**< Mode VDAC0CH1 for LDMA_CH_REQSEL */
+#define _LDMA_CH_REQSEL_SIGSEL_USART0TXBL            0x00000001UL                                     /**< Mode USART0TXBL for LDMA_CH_REQSEL */
+#define _LDMA_CH_REQSEL_SIGSEL_USART1TXBL            0x00000001UL                                     /**< Mode USART1TXBL for LDMA_CH_REQSEL */
+#define _LDMA_CH_REQSEL_SIGSEL_USART2TXBL            0x00000001UL                                     /**< Mode USART2TXBL for LDMA_CH_REQSEL */
+#define _LDMA_CH_REQSEL_SIGSEL_LEUART0TXBL           0x00000001UL                                     /**< Mode LEUART0TXBL for LDMA_CH_REQSEL */
+#define _LDMA_CH_REQSEL_SIGSEL_I2C0TXBL              0x00000001UL                                     /**< Mode I2C0TXBL for LDMA_CH_REQSEL */
+#define _LDMA_CH_REQSEL_SIGSEL_I2C1TXBL              0x00000001UL                                     /**< Mode I2C1TXBL for LDMA_CH_REQSEL */
+#define _LDMA_CH_REQSEL_SIGSEL_TIMER0CC0             0x00000001UL                                     /**< Mode TIMER0CC0 for LDMA_CH_REQSEL */
+#define _LDMA_CH_REQSEL_SIGSEL_TIMER1CC0             0x00000001UL                                     /**< Mode TIMER1CC0 for LDMA_CH_REQSEL */
+#define _LDMA_CH_REQSEL_SIGSEL_WTIMER0CC0            0x00000001UL                                     /**< Mode WTIMER0CC0 for LDMA_CH_REQSEL */
+#define _LDMA_CH_REQSEL_SIGSEL_CRYPTO0DATA0XWR       0x00000001UL                                     /**< Mode CRYPTO0DATA0XWR for LDMA_CH_REQSEL */
+#define _LDMA_CH_REQSEL_SIGSEL_CRYPTODATA0XWR        _LDMA_CH_REQSEL_SIGSEL_CRYPTO0DATA0XWR           /**< Alias for mode CRYPTO0DATA0XWR */
+#define _LDMA_CH_REQSEL_SIGSEL_CRYPTO1DATA0XWR       0x00000001UL                                     /**< Mode CRYPTO1DATA0XWR for LDMA_CH_REQSEL */
+#define _LDMA_CH_REQSEL_SIGSEL_USART0TXEMPTY         0x00000002UL                                     /**< Mode USART0TXEMPTY for LDMA_CH_REQSEL */
+#define _LDMA_CH_REQSEL_SIGSEL_USART1TXEMPTY         0x00000002UL                                     /**< Mode USART1TXEMPTY for LDMA_CH_REQSEL */
+#define _LDMA_CH_REQSEL_SIGSEL_USART2TXEMPTY         0x00000002UL                                     /**< Mode USART2TXEMPTY for LDMA_CH_REQSEL */
+#define _LDMA_CH_REQSEL_SIGSEL_LEUART0TXEMPTY        0x00000002UL                                     /**< Mode LEUART0TXEMPTY for LDMA_CH_REQSEL */
+#define _LDMA_CH_REQSEL_SIGSEL_TIMER0CC1             0x00000002UL                                     /**< Mode TIMER0CC1 for LDMA_CH_REQSEL */
+#define _LDMA_CH_REQSEL_SIGSEL_TIMER1CC1             0x00000002UL                                     /**< Mode TIMER1CC1 for LDMA_CH_REQSEL */
+#define _LDMA_CH_REQSEL_SIGSEL_WTIMER0CC1            0x00000002UL                                     /**< Mode WTIMER0CC1 for LDMA_CH_REQSEL */
+#define _LDMA_CH_REQSEL_SIGSEL_CRYPTO0DATA0RD        0x00000002UL                                     /**< Mode CRYPTO0DATA0RD for LDMA_CH_REQSEL */
+#define _LDMA_CH_REQSEL_SIGSEL_CRYPTODATA0RD         _LDMA_CH_REQSEL_SIGSEL_CRYPTO0DATA0RD            /**< Alias for mode CRYPTO0DATA0RD */
+#define _LDMA_CH_REQSEL_SIGSEL_CRYPTO1DATA0RD        0x00000002UL                                     /**< Mode CRYPTO1DATA0RD for LDMA_CH_REQSEL */
+#define _LDMA_CH_REQSEL_SIGSEL_USART1RXDATAVRIGHT    0x00000003UL                                     /**< Mode USART1RXDATAVRIGHT for LDMA_CH_REQSEL */
+#define _LDMA_CH_REQSEL_SIGSEL_TIMER0CC2             0x00000003UL                                     /**< Mode TIMER0CC2 for LDMA_CH_REQSEL */
+#define _LDMA_CH_REQSEL_SIGSEL_TIMER1CC2             0x00000003UL                                     /**< Mode TIMER1CC2 for LDMA_CH_REQSEL */
+#define _LDMA_CH_REQSEL_SIGSEL_WTIMER0CC2            0x00000003UL                                     /**< Mode WTIMER0CC2 for LDMA_CH_REQSEL */
+#define _LDMA_CH_REQSEL_SIGSEL_CRYPTO0DATA1WR        0x00000003UL                                     /**< Mode CRYPTO0DATA1WR for LDMA_CH_REQSEL */
+#define _LDMA_CH_REQSEL_SIGSEL_CRYPTODATA1WR         _LDMA_CH_REQSEL_SIGSEL_CRYPTO0DATA1WR            /**< Alias for mode CRYPTO0DATA1WR */
+#define _LDMA_CH_REQSEL_SIGSEL_CRYPTO1DATA1WR        0x00000003UL                                     /**< Mode CRYPTO1DATA1WR for LDMA_CH_REQSEL */
+#define _LDMA_CH_REQSEL_SIGSEL_USART1TXBLRIGHT       0x00000004UL                                     /**< Mode USART1TXBLRIGHT for LDMA_CH_REQSEL */
+#define _LDMA_CH_REQSEL_SIGSEL_TIMER1CC3             0x00000004UL                                     /**< Mode TIMER1CC3 for LDMA_CH_REQSEL */
+#define _LDMA_CH_REQSEL_SIGSEL_CRYPTO0DATA1RD        0x00000004UL                                     /**< Mode CRYPTO0DATA1RD for LDMA_CH_REQSEL */
+#define _LDMA_CH_REQSEL_SIGSEL_CRYPTODATA1RD         _LDMA_CH_REQSEL_SIGSEL_CRYPTO0DATA1RD            /**< Alias for mode CRYPTO0DATA1RD */
+#define _LDMA_CH_REQSEL_SIGSEL_CRYPTO1DATA1RD        0x00000004UL                                     /**< Mode CRYPTO1DATA1RD for LDMA_CH_REQSEL */
+#define LDMA_CH_REQSEL_SIGSEL_PRSREQ0                (_LDMA_CH_REQSEL_SIGSEL_PRSREQ0 << 0)            /**< Shifted mode PRSREQ0 for LDMA_CH_REQSEL */
+#define LDMA_CH_REQSEL_SIGSEL_ADC0SINGLE             (_LDMA_CH_REQSEL_SIGSEL_ADC0SINGLE << 0)         /**< Shifted mode ADC0SINGLE for LDMA_CH_REQSEL */
+#define LDMA_CH_REQSEL_SIGSEL_VDAC0CH0               (_LDMA_CH_REQSEL_SIGSEL_VDAC0CH0 << 0)           /**< Shifted mode VDAC0CH0 for LDMA_CH_REQSEL */
+#define LDMA_CH_REQSEL_SIGSEL_USART0RXDATAV          (_LDMA_CH_REQSEL_SIGSEL_USART0RXDATAV << 0)      /**< Shifted mode USART0RXDATAV for LDMA_CH_REQSEL */
+#define LDMA_CH_REQSEL_SIGSEL_USART1RXDATAV          (_LDMA_CH_REQSEL_SIGSEL_USART1RXDATAV << 0)      /**< Shifted mode USART1RXDATAV for LDMA_CH_REQSEL */
+#define LDMA_CH_REQSEL_SIGSEL_USART2RXDATAV          (_LDMA_CH_REQSEL_SIGSEL_USART2RXDATAV << 0)      /**< Shifted mode USART2RXDATAV for LDMA_CH_REQSEL */
+#define LDMA_CH_REQSEL_SIGSEL_LEUART0RXDATAV         (_LDMA_CH_REQSEL_SIGSEL_LEUART0RXDATAV << 0)     /**< Shifted mode LEUART0RXDATAV for LDMA_CH_REQSEL */
+#define LDMA_CH_REQSEL_SIGSEL_I2C0RXDATAV            (_LDMA_CH_REQSEL_SIGSEL_I2C0RXDATAV << 0)        /**< Shifted mode I2C0RXDATAV for LDMA_CH_REQSEL */
+#define LDMA_CH_REQSEL_SIGSEL_I2C1RXDATAV            (_LDMA_CH_REQSEL_SIGSEL_I2C1RXDATAV << 0)        /**< Shifted mode I2C1RXDATAV for LDMA_CH_REQSEL */
+#define LDMA_CH_REQSEL_SIGSEL_TIMER0UFOF             (_LDMA_CH_REQSEL_SIGSEL_TIMER0UFOF << 0)         /**< Shifted mode TIMER0UFOF for LDMA_CH_REQSEL */
+#define LDMA_CH_REQSEL_SIGSEL_TIMER1UFOF             (_LDMA_CH_REQSEL_SIGSEL_TIMER1UFOF << 0)         /**< Shifted mode TIMER1UFOF for LDMA_CH_REQSEL */
+#define LDMA_CH_REQSEL_SIGSEL_WTIMER0UFOF            (_LDMA_CH_REQSEL_SIGSEL_WTIMER0UFOF << 0)        /**< Shifted mode WTIMER0UFOF for LDMA_CH_REQSEL */
+#define LDMA_CH_REQSEL_SIGSEL_MSCWDATA               (_LDMA_CH_REQSEL_SIGSEL_MSCWDATA << 0)           /**< Shifted mode MSCWDATA for LDMA_CH_REQSEL */
+#define LDMA_CH_REQSEL_SIGSEL_CRYPTO0DATA0WR         (_LDMA_CH_REQSEL_SIGSEL_CRYPTO0DATA0WR << 0)     /**< Shifted mode CRYPTO0DATA0WR for LDMA_CH_REQSEL */
+#define LDMA_CH_REQSEL_SIGSEL_LESENSEBUFDATAV        (_LDMA_CH_REQSEL_SIGSEL_LESENSEBUFDATAV << 0)    /**< Shifted mode LESENSEBUFDATAV for LDMA_CH_REQSEL */
+#define LDMA_CH_REQSEL_SIGSEL_CRYPTO1DATA0WR         (_LDMA_CH_REQSEL_SIGSEL_CRYPTO1DATA0WR << 0)     /**< Shifted mode CRYPTO1DATA0WR for LDMA_CH_REQSEL */
+#define LDMA_CH_REQSEL_SIGSEL_PRSREQ1                (_LDMA_CH_REQSEL_SIGSEL_PRSREQ1 << 0)            /**< Shifted mode PRSREQ1 for LDMA_CH_REQSEL */
+#define LDMA_CH_REQSEL_SIGSEL_ADC0SCAN               (_LDMA_CH_REQSEL_SIGSEL_ADC0SCAN << 0)           /**< Shifted mode ADC0SCAN for LDMA_CH_REQSEL */
+#define LDMA_CH_REQSEL_SIGSEL_VDAC0CH1               (_LDMA_CH_REQSEL_SIGSEL_VDAC0CH1 << 0)           /**< Shifted mode VDAC0CH1 for LDMA_CH_REQSEL */
+#define LDMA_CH_REQSEL_SIGSEL_USART0TXBL             (_LDMA_CH_REQSEL_SIGSEL_USART0TXBL << 0)         /**< Shifted mode USART0TXBL for LDMA_CH_REQSEL */
+#define LDMA_CH_REQSEL_SIGSEL_USART1TXBL             (_LDMA_CH_REQSEL_SIGSEL_USART1TXBL << 0)         /**< Shifted mode USART1TXBL for LDMA_CH_REQSEL */
+#define LDMA_CH_REQSEL_SIGSEL_USART2TXBL             (_LDMA_CH_REQSEL_SIGSEL_USART2TXBL << 0)         /**< Shifted mode USART2TXBL for LDMA_CH_REQSEL */
+#define LDMA_CH_REQSEL_SIGSEL_LEUART0TXBL            (_LDMA_CH_REQSEL_SIGSEL_LEUART0TXBL << 0)        /**< Shifted mode LEUART0TXBL for LDMA_CH_REQSEL */
+#define LDMA_CH_REQSEL_SIGSEL_I2C0TXBL               (_LDMA_CH_REQSEL_SIGSEL_I2C0TXBL << 0)           /**< Shifted mode I2C0TXBL for LDMA_CH_REQSEL */
+#define LDMA_CH_REQSEL_SIGSEL_I2C1TXBL               (_LDMA_CH_REQSEL_SIGSEL_I2C1TXBL << 0)           /**< Shifted mode I2C1TXBL for LDMA_CH_REQSEL */
+#define LDMA_CH_REQSEL_SIGSEL_TIMER0CC0              (_LDMA_CH_REQSEL_SIGSEL_TIMER0CC0 << 0)          /**< Shifted mode TIMER0CC0 for LDMA_CH_REQSEL */
+#define LDMA_CH_REQSEL_SIGSEL_TIMER1CC0              (_LDMA_CH_REQSEL_SIGSEL_TIMER1CC0 << 0)          /**< Shifted mode TIMER1CC0 for LDMA_CH_REQSEL */
+#define LDMA_CH_REQSEL_SIGSEL_WTIMER0CC0             (_LDMA_CH_REQSEL_SIGSEL_WTIMER0CC0 << 0)         /**< Shifted mode WTIMER0CC0 for LDMA_CH_REQSEL */
+#define LDMA_CH_REQSEL_SIGSEL_CRYPTO0DATA0XWR        (_LDMA_CH_REQSEL_SIGSEL_CRYPTO0DATA0XWR << 0)    /**< Shifted mode CRYPTO0DATA0XWR for LDMA_CH_REQSEL */
+#define LDMA_CH_REQSEL_SIGSEL_CRYPTO1DATA0XWR        (_LDMA_CH_REQSEL_SIGSEL_CRYPTO1DATA0XWR << 0)    /**< Shifted mode CRYPTO1DATA0XWR for LDMA_CH_REQSEL */
+#define LDMA_CH_REQSEL_SIGSEL_USART0TXEMPTY          (_LDMA_CH_REQSEL_SIGSEL_USART0TXEMPTY << 0)      /**< Shifted mode USART0TXEMPTY for LDMA_CH_REQSEL */
+#define LDMA_CH_REQSEL_SIGSEL_USART1TXEMPTY          (_LDMA_CH_REQSEL_SIGSEL_USART1TXEMPTY << 0)      /**< Shifted mode USART1TXEMPTY for LDMA_CH_REQSEL */
+#define LDMA_CH_REQSEL_SIGSEL_USART2TXEMPTY          (_LDMA_CH_REQSEL_SIGSEL_USART2TXEMPTY << 0)      /**< Shifted mode USART2TXEMPTY for LDMA_CH_REQSEL */
+#define LDMA_CH_REQSEL_SIGSEL_LEUART0TXEMPTY         (_LDMA_CH_REQSEL_SIGSEL_LEUART0TXEMPTY << 0)     /**< Shifted mode LEUART0TXEMPTY for LDMA_CH_REQSEL */
+#define LDMA_CH_REQSEL_SIGSEL_TIMER0CC1              (_LDMA_CH_REQSEL_SIGSEL_TIMER0CC1 << 0)          /**< Shifted mode TIMER0CC1 for LDMA_CH_REQSEL */
+#define LDMA_CH_REQSEL_SIGSEL_TIMER1CC1              (_LDMA_CH_REQSEL_SIGSEL_TIMER1CC1 << 0)          /**< Shifted mode TIMER1CC1 for LDMA_CH_REQSEL */
+#define LDMA_CH_REQSEL_SIGSEL_WTIMER0CC1             (_LDMA_CH_REQSEL_SIGSEL_WTIMER0CC1 << 0)         /**< Shifted mode WTIMER0CC1 for LDMA_CH_REQSEL */
+#define LDMA_CH_REQSEL_SIGSEL_CRYPTO0DATA0RD         (_LDMA_CH_REQSEL_SIGSEL_CRYPTO0DATA0RD << 0)     /**< Shifted mode CRYPTO0DATA0RD for LDMA_CH_REQSEL */
+#define LDMA_CH_REQSEL_SIGSEL_CRYPTO1DATA0RD         (_LDMA_CH_REQSEL_SIGSEL_CRYPTO1DATA0RD << 0)     /**< Shifted mode CRYPTO1DATA0RD for LDMA_CH_REQSEL */
+#define LDMA_CH_REQSEL_SIGSEL_USART1RXDATAVRIGHT     (_LDMA_CH_REQSEL_SIGSEL_USART1RXDATAVRIGHT << 0) /**< Shifted mode USART1RXDATAVRIGHT for LDMA_CH_REQSEL */
+#define LDMA_CH_REQSEL_SIGSEL_TIMER0CC2              (_LDMA_CH_REQSEL_SIGSEL_TIMER0CC2 << 0)          /**< Shifted mode TIMER0CC2 for LDMA_CH_REQSEL */
+#define LDMA_CH_REQSEL_SIGSEL_TIMER1CC2              (_LDMA_CH_REQSEL_SIGSEL_TIMER1CC2 << 0)          /**< Shifted mode TIMER1CC2 for LDMA_CH_REQSEL */
+#define LDMA_CH_REQSEL_SIGSEL_WTIMER0CC2             (_LDMA_CH_REQSEL_SIGSEL_WTIMER0CC2 << 0)         /**< Shifted mode WTIMER0CC2 for LDMA_CH_REQSEL */
+#define LDMA_CH_REQSEL_SIGSEL_CRYPTO0DATA1WR         (_LDMA_CH_REQSEL_SIGSEL_CRYPTO0DATA1WR << 0)     /**< Shifted mode CRYPTO0DATA1WR for LDMA_CH_REQSEL */
+#define LDMA_CH_REQSEL_SIGSEL_CRYPTO1DATA1WR         (_LDMA_CH_REQSEL_SIGSEL_CRYPTO1DATA1WR << 0)     /**< Shifted mode CRYPTO1DATA1WR for LDMA_CH_REQSEL */
+#define LDMA_CH_REQSEL_SIGSEL_USART1TXBLRIGHT        (_LDMA_CH_REQSEL_SIGSEL_USART1TXBLRIGHT << 0)    /**< Shifted mode USART1TXBLRIGHT for LDMA_CH_REQSEL */
+#define LDMA_CH_REQSEL_SIGSEL_TIMER1CC3              (_LDMA_CH_REQSEL_SIGSEL_TIMER1CC3 << 0)          /**< Shifted mode TIMER1CC3 for LDMA_CH_REQSEL */
+#define LDMA_CH_REQSEL_SIGSEL_CRYPTO0DATA1RD         (_LDMA_CH_REQSEL_SIGSEL_CRYPTO0DATA1RD << 0)     /**< Shifted mode CRYPTO0DATA1RD for LDMA_CH_REQSEL */
+#define LDMA_CH_REQSEL_SIGSEL_CRYPTO1DATA1RD         (_LDMA_CH_REQSEL_SIGSEL_CRYPTO1DATA1RD << 0)     /**< Shifted mode CRYPTO1DATA1RD for LDMA_CH_REQSEL */
+#define _LDMA_CH_REQSEL_SOURCESEL_SHIFT              16                                               /**< Shift value for LDMA_SOURCESEL */
+#define _LDMA_CH_REQSEL_SOURCESEL_MASK               0x3F0000UL                                       /**< Bit mask for LDMA_SOURCESEL */
+#define _LDMA_CH_REQSEL_SOURCESEL_NONE               0x00000000UL                                     /**< Mode NONE for LDMA_CH_REQSEL */
+#define _LDMA_CH_REQSEL_SOURCESEL_PRS                0x00000001UL                                     /**< Mode PRS for LDMA_CH_REQSEL */
+#define _LDMA_CH_REQSEL_SOURCESEL_ADC0               0x00000008UL                                     /**< Mode ADC0 for LDMA_CH_REQSEL */
+#define _LDMA_CH_REQSEL_SOURCESEL_VDAC0              0x0000000AUL                                     /**< Mode VDAC0 for LDMA_CH_REQSEL */
+#define _LDMA_CH_REQSEL_SOURCESEL_USART0             0x0000000CUL                                     /**< Mode USART0 for LDMA_CH_REQSEL */
+#define _LDMA_CH_REQSEL_SOURCESEL_USART1             0x0000000DUL                                     /**< Mode USART1 for LDMA_CH_REQSEL */
+#define _LDMA_CH_REQSEL_SOURCESEL_USART2             0x0000000EUL                                     /**< Mode USART2 for LDMA_CH_REQSEL */
+#define _LDMA_CH_REQSEL_SOURCESEL_LEUART0            0x00000010UL                                     /**< Mode LEUART0 for LDMA_CH_REQSEL */
+#define _LDMA_CH_REQSEL_SOURCESEL_I2C0               0x00000014UL                                     /**< Mode I2C0 for LDMA_CH_REQSEL */
+#define _LDMA_CH_REQSEL_SOURCESEL_I2C1               0x00000015UL                                     /**< Mode I2C1 for LDMA_CH_REQSEL */
+#define _LDMA_CH_REQSEL_SOURCESEL_TIMER0             0x00000018UL                                     /**< Mode TIMER0 for LDMA_CH_REQSEL */
+#define _LDMA_CH_REQSEL_SOURCESEL_TIMER1             0x00000019UL                                     /**< Mode TIMER1 for LDMA_CH_REQSEL */
+#define _LDMA_CH_REQSEL_SOURCESEL_WTIMER0            0x0000001AUL                                     /**< Mode WTIMER0 for LDMA_CH_REQSEL */
+#define _LDMA_CH_REQSEL_SOURCESEL_MSC                0x00000030UL                                     /**< Mode MSC for LDMA_CH_REQSEL */
+#define _LDMA_CH_REQSEL_SOURCESEL_CRYPTO0            0x00000031UL                                     /**< Mode CRYPTO0 for LDMA_CH_REQSEL */
+#define _LDMA_CH_REQSEL_SOURCESEL_CRYPTO             _LDMA_CH_REQSEL_SOURCESEL_CRYPTO0                /**< Alias for mode CRYPTO0 */
+#define _LDMA_CH_REQSEL_SOURCESEL_LESENSE            0x00000033UL                                     /**< Mode LESENSE for LDMA_CH_REQSEL */
+#define _LDMA_CH_REQSEL_SOURCESEL_CRYPTO1            0x00000034UL                                     /**< Mode CRYPTO1 for LDMA_CH_REQSEL */
+#define LDMA_CH_REQSEL_SOURCESEL_NONE                (_LDMA_CH_REQSEL_SOURCESEL_NONE << 16)           /**< Shifted mode NONE for LDMA_CH_REQSEL */
+#define LDMA_CH_REQSEL_SOURCESEL_PRS                 (_LDMA_CH_REQSEL_SOURCESEL_PRS << 16)            /**< Shifted mode PRS for LDMA_CH_REQSEL */
+#define LDMA_CH_REQSEL_SOURCESEL_ADC0                (_LDMA_CH_REQSEL_SOURCESEL_ADC0 << 16)           /**< Shifted mode ADC0 for LDMA_CH_REQSEL */
+#define LDMA_CH_REQSEL_SOURCESEL_VDAC0               (_LDMA_CH_REQSEL_SOURCESEL_VDAC0 << 16)          /**< Shifted mode VDAC0 for LDMA_CH_REQSEL */
+#define LDMA_CH_REQSEL_SOURCESEL_USART0              (_LDMA_CH_REQSEL_SOURCESEL_USART0 << 16)         /**< Shifted mode USART0 for LDMA_CH_REQSEL */
+#define LDMA_CH_REQSEL_SOURCESEL_USART1              (_LDMA_CH_REQSEL_SOURCESEL_USART1 << 16)         /**< Shifted mode USART1 for LDMA_CH_REQSEL */
+#define LDMA_CH_REQSEL_SOURCESEL_USART2              (_LDMA_CH_REQSEL_SOURCESEL_USART2 << 16)         /**< Shifted mode USART2 for LDMA_CH_REQSEL */
+#define LDMA_CH_REQSEL_SOURCESEL_LEUART0             (_LDMA_CH_REQSEL_SOURCESEL_LEUART0 << 16)        /**< Shifted mode LEUART0 for LDMA_CH_REQSEL */
+#define LDMA_CH_REQSEL_SOURCESEL_I2C0                (_LDMA_CH_REQSEL_SOURCESEL_I2C0 << 16)           /**< Shifted mode I2C0 for LDMA_CH_REQSEL */
+#define LDMA_CH_REQSEL_SOURCESEL_I2C1                (_LDMA_CH_REQSEL_SOURCESEL_I2C1 << 16)           /**< Shifted mode I2C1 for LDMA_CH_REQSEL */
+#define LDMA_CH_REQSEL_SOURCESEL_TIMER0              (_LDMA_CH_REQSEL_SOURCESEL_TIMER0 << 16)         /**< Shifted mode TIMER0 for LDMA_CH_REQSEL */
+#define LDMA_CH_REQSEL_SOURCESEL_TIMER1              (_LDMA_CH_REQSEL_SOURCESEL_TIMER1 << 16)         /**< Shifted mode TIMER1 for LDMA_CH_REQSEL */
+#define LDMA_CH_REQSEL_SOURCESEL_WTIMER0             (_LDMA_CH_REQSEL_SOURCESEL_WTIMER0 << 16)        /**< Shifted mode WTIMER0 for LDMA_CH_REQSEL */
+#define LDMA_CH_REQSEL_SOURCESEL_MSC                 (_LDMA_CH_REQSEL_SOURCESEL_MSC << 16)            /**< Shifted mode MSC for LDMA_CH_REQSEL */
+#define LDMA_CH_REQSEL_SOURCESEL_CRYPTO0             (_LDMA_CH_REQSEL_SOURCESEL_CRYPTO0 << 16)        /**< Shifted mode CRYPTO0 for LDMA_CH_REQSEL */
+#define LDMA_CH_REQSEL_SOURCESEL_LESENSE             (_LDMA_CH_REQSEL_SOURCESEL_LESENSE << 16)        /**< Shifted mode LESENSE for LDMA_CH_REQSEL */
+#define LDMA_CH_REQSEL_SOURCESEL_CRYPTO1             (_LDMA_CH_REQSEL_SOURCESEL_CRYPTO1 << 16)        /**< Shifted mode CRYPTO1 for LDMA_CH_REQSEL */
+
+/* Bit fields for LDMA CH_CFG */
+#define _LDMA_CH_CFG_RESETVALUE                      0x00000000UL                             /**< Default value for LDMA_CH_CFG */
+#define _LDMA_CH_CFG_MASK                            0x00330000UL                             /**< Mask for LDMA_CH_CFG */
+#define _LDMA_CH_CFG_ARBSLOTS_SHIFT                  16                                       /**< Shift value for LDMA_ARBSLOTS */
+#define _LDMA_CH_CFG_ARBSLOTS_MASK                   0x30000UL                                /**< Bit mask for LDMA_ARBSLOTS */
+#define _LDMA_CH_CFG_ARBSLOTS_DEFAULT                0x00000000UL                             /**< Mode DEFAULT for LDMA_CH_CFG */
+#define _LDMA_CH_CFG_ARBSLOTS_ONE                    0x00000000UL                             /**< Mode ONE for LDMA_CH_CFG */
+#define _LDMA_CH_CFG_ARBSLOTS_TWO                    0x00000001UL                             /**< Mode TWO for LDMA_CH_CFG */
+#define _LDMA_CH_CFG_ARBSLOTS_FOUR                   0x00000002UL                             /**< Mode FOUR for LDMA_CH_CFG */
+#define _LDMA_CH_CFG_ARBSLOTS_EIGHT                  0x00000003UL                             /**< Mode EIGHT for LDMA_CH_CFG */
+#define LDMA_CH_CFG_ARBSLOTS_DEFAULT                 (_LDMA_CH_CFG_ARBSLOTS_DEFAULT << 16)    /**< Shifted mode DEFAULT for LDMA_CH_CFG */
+#define LDMA_CH_CFG_ARBSLOTS_ONE                     (_LDMA_CH_CFG_ARBSLOTS_ONE << 16)        /**< Shifted mode ONE for LDMA_CH_CFG */
+#define LDMA_CH_CFG_ARBSLOTS_TWO                     (_LDMA_CH_CFG_ARBSLOTS_TWO << 16)        /**< Shifted mode TWO for LDMA_CH_CFG */
+#define LDMA_CH_CFG_ARBSLOTS_FOUR                    (_LDMA_CH_CFG_ARBSLOTS_FOUR << 16)       /**< Shifted mode FOUR for LDMA_CH_CFG */
+#define LDMA_CH_CFG_ARBSLOTS_EIGHT                   (_LDMA_CH_CFG_ARBSLOTS_EIGHT << 16)      /**< Shifted mode EIGHT for LDMA_CH_CFG */
+#define LDMA_CH_CFG_SRCINCSIGN                       (0x1UL << 20)                            /**< Source Address Increment Sign */
+#define _LDMA_CH_CFG_SRCINCSIGN_SHIFT                20                                       /**< Shift value for LDMA_SRCINCSIGN */
+#define _LDMA_CH_CFG_SRCINCSIGN_MASK                 0x100000UL                               /**< Bit mask for LDMA_SRCINCSIGN */
+#define _LDMA_CH_CFG_SRCINCSIGN_DEFAULT              0x00000000UL                             /**< Mode DEFAULT for LDMA_CH_CFG */
+#define _LDMA_CH_CFG_SRCINCSIGN_POSITIVE             0x00000000UL                             /**< Mode POSITIVE for LDMA_CH_CFG */
+#define _LDMA_CH_CFG_SRCINCSIGN_NEGATIVE             0x00000001UL                             /**< Mode NEGATIVE for LDMA_CH_CFG */
+#define LDMA_CH_CFG_SRCINCSIGN_DEFAULT               (_LDMA_CH_CFG_SRCINCSIGN_DEFAULT << 20)  /**< Shifted mode DEFAULT for LDMA_CH_CFG */
+#define LDMA_CH_CFG_SRCINCSIGN_POSITIVE              (_LDMA_CH_CFG_SRCINCSIGN_POSITIVE << 20) /**< Shifted mode POSITIVE for LDMA_CH_CFG */
+#define LDMA_CH_CFG_SRCINCSIGN_NEGATIVE              (_LDMA_CH_CFG_SRCINCSIGN_NEGATIVE << 20) /**< Shifted mode NEGATIVE for LDMA_CH_CFG */
+#define LDMA_CH_CFG_DSTINCSIGN                       (0x1UL << 21)                            /**< Destination Address Increment Sign */
+#define _LDMA_CH_CFG_DSTINCSIGN_SHIFT                21                                       /**< Shift value for LDMA_DSTINCSIGN */
+#define _LDMA_CH_CFG_DSTINCSIGN_MASK                 0x200000UL                               /**< Bit mask for LDMA_DSTINCSIGN */
+#define _LDMA_CH_CFG_DSTINCSIGN_DEFAULT              0x00000000UL                             /**< Mode DEFAULT for LDMA_CH_CFG */
+#define _LDMA_CH_CFG_DSTINCSIGN_POSITIVE             0x00000000UL                             /**< Mode POSITIVE for LDMA_CH_CFG */
+#define _LDMA_CH_CFG_DSTINCSIGN_NEGATIVE             0x00000001UL                             /**< Mode NEGATIVE for LDMA_CH_CFG */
+#define LDMA_CH_CFG_DSTINCSIGN_DEFAULT               (_LDMA_CH_CFG_DSTINCSIGN_DEFAULT << 21)  /**< Shifted mode DEFAULT for LDMA_CH_CFG */
+#define LDMA_CH_CFG_DSTINCSIGN_POSITIVE              (_LDMA_CH_CFG_DSTINCSIGN_POSITIVE << 21) /**< Shifted mode POSITIVE for LDMA_CH_CFG */
+#define LDMA_CH_CFG_DSTINCSIGN_NEGATIVE              (_LDMA_CH_CFG_DSTINCSIGN_NEGATIVE << 21) /**< Shifted mode NEGATIVE for LDMA_CH_CFG */
+
+/* Bit fields for LDMA CH_LOOP */
+#define _LDMA_CH_LOOP_RESETVALUE                     0x00000000UL                         /**< Default value for LDMA_CH_LOOP */
+#define _LDMA_CH_LOOP_MASK                           0x000000FFUL                         /**< Mask for LDMA_CH_LOOP */
+#define _LDMA_CH_LOOP_LOOPCNT_SHIFT                  0                                    /**< Shift value for LDMA_LOOPCNT */
+#define _LDMA_CH_LOOP_LOOPCNT_MASK                   0xFFUL                               /**< Bit mask for LDMA_LOOPCNT */
+#define _LDMA_CH_LOOP_LOOPCNT_DEFAULT                0x00000000UL                         /**< Mode DEFAULT for LDMA_CH_LOOP */
+#define LDMA_CH_LOOP_LOOPCNT_DEFAULT                 (_LDMA_CH_LOOP_LOOPCNT_DEFAULT << 0) /**< Shifted mode DEFAULT for LDMA_CH_LOOP */
+
+/* Bit fields for LDMA CH_CTRL */
+#define _LDMA_CH_CTRL_RESETVALUE                     0x00000000UL                                /**< Default value for LDMA_CH_CTRL */
+#define _LDMA_CH_CTRL_MASK                           0xFFFFFFFBUL                                /**< Mask for LDMA_CH_CTRL */
+#define _LDMA_CH_CTRL_STRUCTTYPE_SHIFT               0                                           /**< Shift value for LDMA_STRUCTTYPE */
+#define _LDMA_CH_CTRL_STRUCTTYPE_MASK                0x3UL                                       /**< Bit mask for LDMA_STRUCTTYPE */
+#define _LDMA_CH_CTRL_STRUCTTYPE_DEFAULT             0x00000000UL                                /**< Mode DEFAULT for LDMA_CH_CTRL */
+#define _LDMA_CH_CTRL_STRUCTTYPE_TRANSFER            0x00000000UL                                /**< Mode TRANSFER for LDMA_CH_CTRL */
+#define _LDMA_CH_CTRL_STRUCTTYPE_SYNCHRONIZE         0x00000001UL                                /**< Mode SYNCHRONIZE for LDMA_CH_CTRL */
+#define _LDMA_CH_CTRL_STRUCTTYPE_WRITE               0x00000002UL                                /**< Mode WRITE for LDMA_CH_CTRL */
+#define LDMA_CH_CTRL_STRUCTTYPE_DEFAULT              (_LDMA_CH_CTRL_STRUCTTYPE_DEFAULT << 0)     /**< Shifted mode DEFAULT for LDMA_CH_CTRL */
+#define LDMA_CH_CTRL_STRUCTTYPE_TRANSFER             (_LDMA_CH_CTRL_STRUCTTYPE_TRANSFER << 0)    /**< Shifted mode TRANSFER for LDMA_CH_CTRL */
+#define LDMA_CH_CTRL_STRUCTTYPE_SYNCHRONIZE          (_LDMA_CH_CTRL_STRUCTTYPE_SYNCHRONIZE << 0) /**< Shifted mode SYNCHRONIZE for LDMA_CH_CTRL */
+#define LDMA_CH_CTRL_STRUCTTYPE_WRITE                (_LDMA_CH_CTRL_STRUCTTYPE_WRITE << 0)       /**< Shifted mode WRITE for LDMA_CH_CTRL */
+#define LDMA_CH_CTRL_STRUCTREQ                       (0x1UL << 3)                                /**< Structure DMA Transfer Request */
+#define _LDMA_CH_CTRL_STRUCTREQ_SHIFT                3                                           /**< Shift value for LDMA_STRUCTREQ */
+#define _LDMA_CH_CTRL_STRUCTREQ_MASK                 0x8UL                                       /**< Bit mask for LDMA_STRUCTREQ */
+#define _LDMA_CH_CTRL_STRUCTREQ_DEFAULT              0x00000000UL                                /**< Mode DEFAULT for LDMA_CH_CTRL */
+#define LDMA_CH_CTRL_STRUCTREQ_DEFAULT               (_LDMA_CH_CTRL_STRUCTREQ_DEFAULT << 3)      /**< Shifted mode DEFAULT for LDMA_CH_CTRL */
+#define _LDMA_CH_CTRL_XFERCNT_SHIFT                  4                                           /**< Shift value for LDMA_XFERCNT */
+#define _LDMA_CH_CTRL_XFERCNT_MASK                   0x7FF0UL                                    /**< Bit mask for LDMA_XFERCNT */
+#define _LDMA_CH_CTRL_XFERCNT_DEFAULT                0x00000000UL                                /**< Mode DEFAULT for LDMA_CH_CTRL */
+#define LDMA_CH_CTRL_XFERCNT_DEFAULT                 (_LDMA_CH_CTRL_XFERCNT_DEFAULT << 4)        /**< Shifted mode DEFAULT for LDMA_CH_CTRL */
+#define LDMA_CH_CTRL_BYTESWAP                        (0x1UL << 15)                               /**< Endian Byte Swap */
+#define _LDMA_CH_CTRL_BYTESWAP_SHIFT                 15                                          /**< Shift value for LDMA_BYTESWAP */
+#define _LDMA_CH_CTRL_BYTESWAP_MASK                  0x8000UL                                    /**< Bit mask for LDMA_BYTESWAP */
+#define _LDMA_CH_CTRL_BYTESWAP_DEFAULT               0x00000000UL                                /**< Mode DEFAULT for LDMA_CH_CTRL */
+#define LDMA_CH_CTRL_BYTESWAP_DEFAULT                (_LDMA_CH_CTRL_BYTESWAP_DEFAULT << 15)      /**< Shifted mode DEFAULT for LDMA_CH_CTRL */
+#define _LDMA_CH_CTRL_BLOCKSIZE_SHIFT                16                                          /**< Shift value for LDMA_BLOCKSIZE */
+#define _LDMA_CH_CTRL_BLOCKSIZE_MASK                 0xF0000UL                                   /**< Bit mask for LDMA_BLOCKSIZE */
+#define _LDMA_CH_CTRL_BLOCKSIZE_DEFAULT              0x00000000UL                                /**< Mode DEFAULT for LDMA_CH_CTRL */
+#define _LDMA_CH_CTRL_BLOCKSIZE_UNIT1                0x00000000UL                                /**< Mode UNIT1 for LDMA_CH_CTRL */
+#define _LDMA_CH_CTRL_BLOCKSIZE_UNIT2                0x00000001UL                                /**< Mode UNIT2 for LDMA_CH_CTRL */
+#define _LDMA_CH_CTRL_BLOCKSIZE_UNIT3                0x00000002UL                                /**< Mode UNIT3 for LDMA_CH_CTRL */
+#define _LDMA_CH_CTRL_BLOCKSIZE_UNIT4                0x00000003UL                                /**< Mode UNIT4 for LDMA_CH_CTRL */
+#define _LDMA_CH_CTRL_BLOCKSIZE_UNIT6                0x00000004UL                                /**< Mode UNIT6 for LDMA_CH_CTRL */
+#define _LDMA_CH_CTRL_BLOCKSIZE_UNIT8                0x00000005UL                                /**< Mode UNIT8 for LDMA_CH_CTRL */
+#define _LDMA_CH_CTRL_BLOCKSIZE_UNIT16               0x00000007UL                                /**< Mode UNIT16 for LDMA_CH_CTRL */
+#define _LDMA_CH_CTRL_BLOCKSIZE_UNIT32               0x00000009UL                                /**< Mode UNIT32 for LDMA_CH_CTRL */
+#define _LDMA_CH_CTRL_BLOCKSIZE_UNIT64               0x0000000AUL                                /**< Mode UNIT64 for LDMA_CH_CTRL */
+#define _LDMA_CH_CTRL_BLOCKSIZE_UNIT128              0x0000000BUL                                /**< Mode UNIT128 for LDMA_CH_CTRL */
+#define _LDMA_CH_CTRL_BLOCKSIZE_UNIT256              0x0000000CUL                                /**< Mode UNIT256 for LDMA_CH_CTRL */
+#define _LDMA_CH_CTRL_BLOCKSIZE_UNIT512              0x0000000DUL                                /**< Mode UNIT512 for LDMA_CH_CTRL */
+#define _LDMA_CH_CTRL_BLOCKSIZE_UNIT1024             0x0000000EUL                                /**< Mode UNIT1024 for LDMA_CH_CTRL */
+#define _LDMA_CH_CTRL_BLOCKSIZE_ALL                  0x0000000FUL                                /**< Mode ALL for LDMA_CH_CTRL */
+#define LDMA_CH_CTRL_BLOCKSIZE_DEFAULT               (_LDMA_CH_CTRL_BLOCKSIZE_DEFAULT << 16)     /**< Shifted mode DEFAULT for LDMA_CH_CTRL */
+#define LDMA_CH_CTRL_BLOCKSIZE_UNIT1                 (_LDMA_CH_CTRL_BLOCKSIZE_UNIT1 << 16)       /**< Shifted mode UNIT1 for LDMA_CH_CTRL */
+#define LDMA_CH_CTRL_BLOCKSIZE_UNIT2                 (_LDMA_CH_CTRL_BLOCKSIZE_UNIT2 << 16)       /**< Shifted mode UNIT2 for LDMA_CH_CTRL */
+#define LDMA_CH_CTRL_BLOCKSIZE_UNIT3                 (_LDMA_CH_CTRL_BLOCKSIZE_UNIT3 << 16)       /**< Shifted mode UNIT3 for LDMA_CH_CTRL */
+#define LDMA_CH_CTRL_BLOCKSIZE_UNIT4                 (_LDMA_CH_CTRL_BLOCKSIZE_UNIT4 << 16)       /**< Shifted mode UNIT4 for LDMA_CH_CTRL */
+#define LDMA_CH_CTRL_BLOCKSIZE_UNIT6                 (_LDMA_CH_CTRL_BLOCKSIZE_UNIT6 << 16)       /**< Shifted mode UNIT6 for LDMA_CH_CTRL */
+#define LDMA_CH_CTRL_BLOCKSIZE_UNIT8                 (_LDMA_CH_CTRL_BLOCKSIZE_UNIT8 << 16)       /**< Shifted mode UNIT8 for LDMA_CH_CTRL */
+#define LDMA_CH_CTRL_BLOCKSIZE_UNIT16                (_LDMA_CH_CTRL_BLOCKSIZE_UNIT16 << 16)      /**< Shifted mode UNIT16 for LDMA_CH_CTRL */
+#define LDMA_CH_CTRL_BLOCKSIZE_UNIT32                (_LDMA_CH_CTRL_BLOCKSIZE_UNIT32 << 16)      /**< Shifted mode UNIT32 for LDMA_CH_CTRL */
+#define LDMA_CH_CTRL_BLOCKSIZE_UNIT64                (_LDMA_CH_CTRL_BLOCKSIZE_UNIT64 << 16)      /**< Shifted mode UNIT64 for LDMA_CH_CTRL */
+#define LDMA_CH_CTRL_BLOCKSIZE_UNIT128               (_LDMA_CH_CTRL_BLOCKSIZE_UNIT128 << 16)     /**< Shifted mode UNIT128 for LDMA_CH_CTRL */
+#define LDMA_CH_CTRL_BLOCKSIZE_UNIT256               (_LDMA_CH_CTRL_BLOCKSIZE_UNIT256 << 16)     /**< Shifted mode UNIT256 for LDMA_CH_CTRL */
+#define LDMA_CH_CTRL_BLOCKSIZE_UNIT512               (_LDMA_CH_CTRL_BLOCKSIZE_UNIT512 << 16)     /**< Shifted mode UNIT512 for LDMA_CH_CTRL */
+#define LDMA_CH_CTRL_BLOCKSIZE_UNIT1024              (_LDMA_CH_CTRL_BLOCKSIZE_UNIT1024 << 16)    /**< Shifted mode UNIT1024 for LDMA_CH_CTRL */
+#define LDMA_CH_CTRL_BLOCKSIZE_ALL                   (_LDMA_CH_CTRL_BLOCKSIZE_ALL << 16)         /**< Shifted mode ALL for LDMA_CH_CTRL */
+#define LDMA_CH_CTRL_DONEIFSEN                       (0x1UL << 20)                               /**< DMA Operation Done Interrupt Flag Set Enable */
+#define _LDMA_CH_CTRL_DONEIFSEN_SHIFT                20                                          /**< Shift value for LDMA_DONEIFSEN */
+#define _LDMA_CH_CTRL_DONEIFSEN_MASK                 0x100000UL                                  /**< Bit mask for LDMA_DONEIFSEN */
+#define _LDMA_CH_CTRL_DONEIFSEN_DEFAULT              0x00000000UL                                /**< Mode DEFAULT for LDMA_CH_CTRL */
+#define LDMA_CH_CTRL_DONEIFSEN_DEFAULT               (_LDMA_CH_CTRL_DONEIFSEN_DEFAULT << 20)     /**< Shifted mode DEFAULT for LDMA_CH_CTRL */
+#define LDMA_CH_CTRL_REQMODE                         (0x1UL << 21)                               /**< DMA Request Transfer Mode Select */
+#define _LDMA_CH_CTRL_REQMODE_SHIFT                  21                                          /**< Shift value for LDMA_REQMODE */
+#define _LDMA_CH_CTRL_REQMODE_MASK                   0x200000UL                                  /**< Bit mask for LDMA_REQMODE */
+#define _LDMA_CH_CTRL_REQMODE_DEFAULT                0x00000000UL                                /**< Mode DEFAULT for LDMA_CH_CTRL */
+#define _LDMA_CH_CTRL_REQMODE_BLOCK                  0x00000000UL                                /**< Mode BLOCK for LDMA_CH_CTRL */
+#define _LDMA_CH_CTRL_REQMODE_ALL                    0x00000001UL                                /**< Mode ALL for LDMA_CH_CTRL */
+#define LDMA_CH_CTRL_REQMODE_DEFAULT                 (_LDMA_CH_CTRL_REQMODE_DEFAULT << 21)       /**< Shifted mode DEFAULT for LDMA_CH_CTRL */
+#define LDMA_CH_CTRL_REQMODE_BLOCK                   (_LDMA_CH_CTRL_REQMODE_BLOCK << 21)         /**< Shifted mode BLOCK for LDMA_CH_CTRL */
+#define LDMA_CH_CTRL_REQMODE_ALL                     (_LDMA_CH_CTRL_REQMODE_ALL << 21)           /**< Shifted mode ALL for LDMA_CH_CTRL */
+#define LDMA_CH_CTRL_DECLOOPCNT                      (0x1UL << 22)                               /**< Decrement Loop Count */
+#define _LDMA_CH_CTRL_DECLOOPCNT_SHIFT               22                                          /**< Shift value for LDMA_DECLOOPCNT */
+#define _LDMA_CH_CTRL_DECLOOPCNT_MASK                0x400000UL                                  /**< Bit mask for LDMA_DECLOOPCNT */
+#define _LDMA_CH_CTRL_DECLOOPCNT_DEFAULT             0x00000000UL                                /**< Mode DEFAULT for LDMA_CH_CTRL */
+#define LDMA_CH_CTRL_DECLOOPCNT_DEFAULT              (_LDMA_CH_CTRL_DECLOOPCNT_DEFAULT << 22)    /**< Shifted mode DEFAULT for LDMA_CH_CTRL */
+#define LDMA_CH_CTRL_IGNORESREQ                      (0x1UL << 23)                               /**< Ignore Sreq */
+#define _LDMA_CH_CTRL_IGNORESREQ_SHIFT               23                                          /**< Shift value for LDMA_IGNORESREQ */
+#define _LDMA_CH_CTRL_IGNORESREQ_MASK                0x800000UL                                  /**< Bit mask for LDMA_IGNORESREQ */
+#define _LDMA_CH_CTRL_IGNORESREQ_DEFAULT             0x00000000UL                                /**< Mode DEFAULT for LDMA_CH_CTRL */
+#define LDMA_CH_CTRL_IGNORESREQ_DEFAULT              (_LDMA_CH_CTRL_IGNORESREQ_DEFAULT << 23)    /**< Shifted mode DEFAULT for LDMA_CH_CTRL */
+#define _LDMA_CH_CTRL_SRCINC_SHIFT                   24                                          /**< Shift value for LDMA_SRCINC */
+#define _LDMA_CH_CTRL_SRCINC_MASK                    0x3000000UL                                 /**< Bit mask for LDMA_SRCINC */
+#define _LDMA_CH_CTRL_SRCINC_DEFAULT                 0x00000000UL                                /**< Mode DEFAULT for LDMA_CH_CTRL */
+#define _LDMA_CH_CTRL_SRCINC_ONE                     0x00000000UL                                /**< Mode ONE for LDMA_CH_CTRL */
+#define _LDMA_CH_CTRL_SRCINC_TWO                     0x00000001UL                                /**< Mode TWO for LDMA_CH_CTRL */
+#define _LDMA_CH_CTRL_SRCINC_FOUR                    0x00000002UL                                /**< Mode FOUR for LDMA_CH_CTRL */
+#define _LDMA_CH_CTRL_SRCINC_NONE                    0x00000003UL                                /**< Mode NONE for LDMA_CH_CTRL */
+#define LDMA_CH_CTRL_SRCINC_DEFAULT                  (_LDMA_CH_CTRL_SRCINC_DEFAULT << 24)        /**< Shifted mode DEFAULT for LDMA_CH_CTRL */
+#define LDMA_CH_CTRL_SRCINC_ONE                      (_LDMA_CH_CTRL_SRCINC_ONE << 24)            /**< Shifted mode ONE for LDMA_CH_CTRL */
+#define LDMA_CH_CTRL_SRCINC_TWO                      (_LDMA_CH_CTRL_SRCINC_TWO << 24)            /**< Shifted mode TWO for LDMA_CH_CTRL */
+#define LDMA_CH_CTRL_SRCINC_FOUR                     (_LDMA_CH_CTRL_SRCINC_FOUR << 24)           /**< Shifted mode FOUR for LDMA_CH_CTRL */
+#define LDMA_CH_CTRL_SRCINC_NONE                     (_LDMA_CH_CTRL_SRCINC_NONE << 24)           /**< Shifted mode NONE for LDMA_CH_CTRL */
+#define _LDMA_CH_CTRL_SIZE_SHIFT                     26                                          /**< Shift value for LDMA_SIZE */
+#define _LDMA_CH_CTRL_SIZE_MASK                      0xC000000UL                                 /**< Bit mask for LDMA_SIZE */
+#define _LDMA_CH_CTRL_SIZE_DEFAULT                   0x00000000UL                                /**< Mode DEFAULT for LDMA_CH_CTRL */
+#define _LDMA_CH_CTRL_SIZE_BYTE                      0x00000000UL                                /**< Mode BYTE for LDMA_CH_CTRL */
+#define _LDMA_CH_CTRL_SIZE_HALFWORD                  0x00000001UL                                /**< Mode HALFWORD for LDMA_CH_CTRL */
+#define _LDMA_CH_CTRL_SIZE_WORD                      0x00000002UL                                /**< Mode WORD for LDMA_CH_CTRL */
+#define LDMA_CH_CTRL_SIZE_DEFAULT                    (_LDMA_CH_CTRL_SIZE_DEFAULT << 26)          /**< Shifted mode DEFAULT for LDMA_CH_CTRL */
+#define LDMA_CH_CTRL_SIZE_BYTE                       (_LDMA_CH_CTRL_SIZE_BYTE << 26)             /**< Shifted mode BYTE for LDMA_CH_CTRL */
+#define LDMA_CH_CTRL_SIZE_HALFWORD                   (_LDMA_CH_CTRL_SIZE_HALFWORD << 26)         /**< Shifted mode HALFWORD for LDMA_CH_CTRL */
+#define LDMA_CH_CTRL_SIZE_WORD                       (_LDMA_CH_CTRL_SIZE_WORD << 26)             /**< Shifted mode WORD for LDMA_CH_CTRL */
+#define _LDMA_CH_CTRL_DSTINC_SHIFT                   28                                          /**< Shift value for LDMA_DSTINC */
+#define _LDMA_CH_CTRL_DSTINC_MASK                    0x30000000UL                                /**< Bit mask for LDMA_DSTINC */
+#define _LDMA_CH_CTRL_DSTINC_DEFAULT                 0x00000000UL                                /**< Mode DEFAULT for LDMA_CH_CTRL */
+#define _LDMA_CH_CTRL_DSTINC_ONE                     0x00000000UL                                /**< Mode ONE for LDMA_CH_CTRL */
+#define _LDMA_CH_CTRL_DSTINC_TWO                     0x00000001UL                                /**< Mode TWO for LDMA_CH_CTRL */
+#define _LDMA_CH_CTRL_DSTINC_FOUR                    0x00000002UL                                /**< Mode FOUR for LDMA_CH_CTRL */
+#define _LDMA_CH_CTRL_DSTINC_NONE                    0x00000003UL                                /**< Mode NONE for LDMA_CH_CTRL */
+#define LDMA_CH_CTRL_DSTINC_DEFAULT                  (_LDMA_CH_CTRL_DSTINC_DEFAULT << 28)        /**< Shifted mode DEFAULT for LDMA_CH_CTRL */
+#define LDMA_CH_CTRL_DSTINC_ONE                      (_LDMA_CH_CTRL_DSTINC_ONE << 28)            /**< Shifted mode ONE for LDMA_CH_CTRL */
+#define LDMA_CH_CTRL_DSTINC_TWO                      (_LDMA_CH_CTRL_DSTINC_TWO << 28)            /**< Shifted mode TWO for LDMA_CH_CTRL */
+#define LDMA_CH_CTRL_DSTINC_FOUR                     (_LDMA_CH_CTRL_DSTINC_FOUR << 28)           /**< Shifted mode FOUR for LDMA_CH_CTRL */
+#define LDMA_CH_CTRL_DSTINC_NONE                     (_LDMA_CH_CTRL_DSTINC_NONE << 28)           /**< Shifted mode NONE for LDMA_CH_CTRL */
+#define LDMA_CH_CTRL_SRCMODE                         (0x1UL << 30)                               /**< Source Addressing Mode */
+#define _LDMA_CH_CTRL_SRCMODE_SHIFT                  30                                          /**< Shift value for LDMA_SRCMODE */
+#define _LDMA_CH_CTRL_SRCMODE_MASK                   0x40000000UL                                /**< Bit mask for LDMA_SRCMODE */
+#define _LDMA_CH_CTRL_SRCMODE_DEFAULT                0x00000000UL                                /**< Mode DEFAULT for LDMA_CH_CTRL */
+#define _LDMA_CH_CTRL_SRCMODE_ABSOLUTE               0x00000000UL                                /**< Mode ABSOLUTE for LDMA_CH_CTRL */
+#define _LDMA_CH_CTRL_SRCMODE_RELATIVE               0x00000001UL                                /**< Mode RELATIVE for LDMA_CH_CTRL */
+#define LDMA_CH_CTRL_SRCMODE_DEFAULT                 (_LDMA_CH_CTRL_SRCMODE_DEFAULT << 30)       /**< Shifted mode DEFAULT for LDMA_CH_CTRL */
+#define LDMA_CH_CTRL_SRCMODE_ABSOLUTE                (_LDMA_CH_CTRL_SRCMODE_ABSOLUTE << 30)      /**< Shifted mode ABSOLUTE for LDMA_CH_CTRL */
+#define LDMA_CH_CTRL_SRCMODE_RELATIVE                (_LDMA_CH_CTRL_SRCMODE_RELATIVE << 30)      /**< Shifted mode RELATIVE for LDMA_CH_CTRL */
+#define LDMA_CH_CTRL_DSTMODE                         (0x1UL << 31)                               /**< Destination Addressing Mode */
+#define _LDMA_CH_CTRL_DSTMODE_SHIFT                  31                                          /**< Shift value for LDMA_DSTMODE */
+#define _LDMA_CH_CTRL_DSTMODE_MASK                   0x80000000UL                                /**< Bit mask for LDMA_DSTMODE */
+#define _LDMA_CH_CTRL_DSTMODE_DEFAULT                0x00000000UL                                /**< Mode DEFAULT for LDMA_CH_CTRL */
+#define _LDMA_CH_CTRL_DSTMODE_ABSOLUTE               0x00000000UL                                /**< Mode ABSOLUTE for LDMA_CH_CTRL */
+#define _LDMA_CH_CTRL_DSTMODE_RELATIVE               0x00000001UL                                /**< Mode RELATIVE for LDMA_CH_CTRL */
+#define LDMA_CH_CTRL_DSTMODE_DEFAULT                 (_LDMA_CH_CTRL_DSTMODE_DEFAULT << 31)       /**< Shifted mode DEFAULT for LDMA_CH_CTRL */
+#define LDMA_CH_CTRL_DSTMODE_ABSOLUTE                (_LDMA_CH_CTRL_DSTMODE_ABSOLUTE << 31)      /**< Shifted mode ABSOLUTE for LDMA_CH_CTRL */
+#define LDMA_CH_CTRL_DSTMODE_RELATIVE                (_LDMA_CH_CTRL_DSTMODE_RELATIVE << 31)      /**< Shifted mode RELATIVE for LDMA_CH_CTRL */
+
+/* Bit fields for LDMA CH_SRC */
+#define _LDMA_CH_SRC_RESETVALUE                      0x00000000UL                        /**< Default value for LDMA_CH_SRC */
+#define _LDMA_CH_SRC_MASK                            0xFFFFFFFFUL                        /**< Mask for LDMA_CH_SRC */
+#define _LDMA_CH_SRC_SRCADDR_SHIFT                   0                                   /**< Shift value for LDMA_SRCADDR */
+#define _LDMA_CH_SRC_SRCADDR_MASK                    0xFFFFFFFFUL                        /**< Bit mask for LDMA_SRCADDR */
+#define _LDMA_CH_SRC_SRCADDR_DEFAULT                 0x00000000UL                        /**< Mode DEFAULT for LDMA_CH_SRC */
+#define LDMA_CH_SRC_SRCADDR_DEFAULT                  (_LDMA_CH_SRC_SRCADDR_DEFAULT << 0) /**< Shifted mode DEFAULT for LDMA_CH_SRC */
+
+/* Bit fields for LDMA CH_DST */
+#define _LDMA_CH_DST_RESETVALUE                      0x00000000UL                        /**< Default value for LDMA_CH_DST */
+#define _LDMA_CH_DST_MASK                            0xFFFFFFFFUL                        /**< Mask for LDMA_CH_DST */
+#define _LDMA_CH_DST_DSTADDR_SHIFT                   0                                   /**< Shift value for LDMA_DSTADDR */
+#define _LDMA_CH_DST_DSTADDR_MASK                    0xFFFFFFFFUL                        /**< Bit mask for LDMA_DSTADDR */
+#define _LDMA_CH_DST_DSTADDR_DEFAULT                 0x00000000UL                        /**< Mode DEFAULT for LDMA_CH_DST */
+#define LDMA_CH_DST_DSTADDR_DEFAULT                  (_LDMA_CH_DST_DSTADDR_DEFAULT << 0) /**< Shifted mode DEFAULT for LDMA_CH_DST */
+
+/* Bit fields for LDMA CH_LINK */
+#define _LDMA_CH_LINK_RESETVALUE                     0x00000000UL                           /**< Default value for LDMA_CH_LINK */
+#define _LDMA_CH_LINK_MASK                           0xFFFFFFFFUL                           /**< Mask for LDMA_CH_LINK */
+#define LDMA_CH_LINK_LINKMODE                        (0x1UL << 0)                           /**< Link Structure Addressing Mode */
+#define _LDMA_CH_LINK_LINKMODE_SHIFT                 0                                      /**< Shift value for LDMA_LINKMODE */
+#define _LDMA_CH_LINK_LINKMODE_MASK                  0x1UL                                  /**< Bit mask for LDMA_LINKMODE */
+#define _LDMA_CH_LINK_LINKMODE_DEFAULT               0x00000000UL                           /**< Mode DEFAULT for LDMA_CH_LINK */
+#define _LDMA_CH_LINK_LINKMODE_ABSOLUTE              0x00000000UL                           /**< Mode ABSOLUTE for LDMA_CH_LINK */
+#define _LDMA_CH_LINK_LINKMODE_RELATIVE              0x00000001UL                           /**< Mode RELATIVE for LDMA_CH_LINK */
+#define LDMA_CH_LINK_LINKMODE_DEFAULT                (_LDMA_CH_LINK_LINKMODE_DEFAULT << 0)  /**< Shifted mode DEFAULT for LDMA_CH_LINK */
+#define LDMA_CH_LINK_LINKMODE_ABSOLUTE               (_LDMA_CH_LINK_LINKMODE_ABSOLUTE << 0) /**< Shifted mode ABSOLUTE for LDMA_CH_LINK */
+#define LDMA_CH_LINK_LINKMODE_RELATIVE               (_LDMA_CH_LINK_LINKMODE_RELATIVE << 0) /**< Shifted mode RELATIVE for LDMA_CH_LINK */
+#define LDMA_CH_LINK_LINK                            (0x1UL << 1)                           /**< Link Next Structure */
+#define _LDMA_CH_LINK_LINK_SHIFT                     1                                      /**< Shift value for LDMA_LINK */
+#define _LDMA_CH_LINK_LINK_MASK                      0x2UL                                  /**< Bit mask for LDMA_LINK */
+#define _LDMA_CH_LINK_LINK_DEFAULT                   0x00000000UL                           /**< Mode DEFAULT for LDMA_CH_LINK */
+#define LDMA_CH_LINK_LINK_DEFAULT                    (_LDMA_CH_LINK_LINK_DEFAULT << 1)      /**< Shifted mode DEFAULT for LDMA_CH_LINK */
+#define _LDMA_CH_LINK_LINKADDR_SHIFT                 2                                      /**< Shift value for LDMA_LINKADDR */
+#define _LDMA_CH_LINK_LINKADDR_MASK                  0xFFFFFFFCUL                           /**< Bit mask for LDMA_LINKADDR */
+#define _LDMA_CH_LINK_LINKADDR_DEFAULT               0x00000000UL                           /**< Mode DEFAULT for LDMA_CH_LINK */
+#define LDMA_CH_LINK_LINKADDR_DEFAULT                (_LDMA_CH_LINK_LINKADDR_DEFAULT << 2)  /**< Shifted mode DEFAULT for LDMA_CH_LINK */
+
+/** @} */
+/** @} End of group EFR32MG13P832F512IM48_LDMA */
+
+/**************************************************************************//**
+ * @addtogroup EFR32MG13P832F512IM48_SMU
+ * @{
+ * @defgroup EFR32MG13P832F512IM48_SMU_BitFields  SMU Bit Fields
+ * @{
+ *****************************************************************************/
+
+/* Bit fields for SMU IF */
+#define _SMU_IF_RESETVALUE                 0x00000000UL                   /**< Default value for SMU_IF */
+#define _SMU_IF_MASK                       0x00000001UL                   /**< Mask for SMU_IF */
+#define SMU_IF_PPUPRIV                     (0x1UL << 0)                   /**< PPU Privilege Interrupt Flag */
+#define _SMU_IF_PPUPRIV_SHIFT              0                              /**< Shift value for SMU_PPUPRIV */
+#define _SMU_IF_PPUPRIV_MASK               0x1UL                          /**< Bit mask for SMU_PPUPRIV */
+#define _SMU_IF_PPUPRIV_DEFAULT            0x00000000UL                   /**< Mode DEFAULT for SMU_IF */
+#define SMU_IF_PPUPRIV_DEFAULT             (_SMU_IF_PPUPRIV_DEFAULT << 0) /**< Shifted mode DEFAULT for SMU_IF */
+
+/* Bit fields for SMU IFS */
+#define _SMU_IFS_RESETVALUE                0x00000000UL                    /**< Default value for SMU_IFS */
+#define _SMU_IFS_MASK                      0x00000001UL                    /**< Mask for SMU_IFS */
+#define SMU_IFS_PPUPRIV                    (0x1UL << 0)                    /**< Set PPUPRIV Interrupt Flag */
+#define _SMU_IFS_PPUPRIV_SHIFT             0                               /**< Shift value for SMU_PPUPRIV */
+#define _SMU_IFS_PPUPRIV_MASK              0x1UL                           /**< Bit mask for SMU_PPUPRIV */
+#define _SMU_IFS_PPUPRIV_DEFAULT           0x00000000UL                    /**< Mode DEFAULT for SMU_IFS */
+#define SMU_IFS_PPUPRIV_DEFAULT            (_SMU_IFS_PPUPRIV_DEFAULT << 0) /**< Shifted mode DEFAULT for SMU_IFS */
+
+/* Bit fields for SMU IFC */
+#define _SMU_IFC_RESETVALUE                0x00000000UL                    /**< Default value for SMU_IFC */
+#define _SMU_IFC_MASK                      0x00000001UL                    /**< Mask for SMU_IFC */
+#define SMU_IFC_PPUPRIV                    (0x1UL << 0)                    /**< Clear PPUPRIV Interrupt Flag */
+#define _SMU_IFC_PPUPRIV_SHIFT             0                               /**< Shift value for SMU_PPUPRIV */
+#define _SMU_IFC_PPUPRIV_MASK              0x1UL                           /**< Bit mask for SMU_PPUPRIV */
+#define _SMU_IFC_PPUPRIV_DEFAULT           0x00000000UL                    /**< Mode DEFAULT for SMU_IFC */
+#define SMU_IFC_PPUPRIV_DEFAULT            (_SMU_IFC_PPUPRIV_DEFAULT << 0) /**< Shifted mode DEFAULT for SMU_IFC */
+
+/* Bit fields for SMU IEN */
+#define _SMU_IEN_RESETVALUE                0x00000000UL                    /**< Default value for SMU_IEN */
+#define _SMU_IEN_MASK                      0x00000001UL                    /**< Mask for SMU_IEN */
+#define SMU_IEN_PPUPRIV                    (0x1UL << 0)                    /**< PPUPRIV Interrupt Enable */
+#define _SMU_IEN_PPUPRIV_SHIFT             0                               /**< Shift value for SMU_PPUPRIV */
+#define _SMU_IEN_PPUPRIV_MASK              0x1UL                           /**< Bit mask for SMU_PPUPRIV */
+#define _SMU_IEN_PPUPRIV_DEFAULT           0x00000000UL                    /**< Mode DEFAULT for SMU_IEN */
+#define SMU_IEN_PPUPRIV_DEFAULT            (_SMU_IEN_PPUPRIV_DEFAULT << 0) /**< Shifted mode DEFAULT for SMU_IEN */
+
+/* Bit fields for SMU PPUCTRL */
+#define _SMU_PPUCTRL_RESETVALUE            0x00000000UL                       /**< Default value for SMU_PPUCTRL */
+#define _SMU_PPUCTRL_MASK                  0x00000001UL                       /**< Mask for SMU_PPUCTRL */
+#define SMU_PPUCTRL_ENABLE                 (0x1UL << 0)                       /**<  */
+#define _SMU_PPUCTRL_ENABLE_SHIFT          0                                  /**< Shift value for SMU_ENABLE */
+#define _SMU_PPUCTRL_ENABLE_MASK           0x1UL                              /**< Bit mask for SMU_ENABLE */
+#define _SMU_PPUCTRL_ENABLE_DEFAULT        0x00000000UL                       /**< Mode DEFAULT for SMU_PPUCTRL */
+#define SMU_PPUCTRL_ENABLE_DEFAULT         (_SMU_PPUCTRL_ENABLE_DEFAULT << 0) /**< Shifted mode DEFAULT for SMU_PPUCTRL */
+
+/* Bit fields for SMU PPUPATD0 */
+#define _SMU_PPUPATD0_RESETVALUE           0x00000000UL                           /**< Default value for SMU_PPUPATD0 */
+#define _SMU_PPUPATD0_MASK                 0x0BEF7BA7UL                           /**< Mask for SMU_PPUPATD0 */
+#define SMU_PPUPATD0_ACMP0                 (0x1UL << 0)                           /**< Analog Comparator 0 access control bit */
+#define _SMU_PPUPATD0_ACMP0_SHIFT          0                                      /**< Shift value for SMU_ACMP0 */
+#define _SMU_PPUPATD0_ACMP0_MASK           0x1UL                                  /**< Bit mask for SMU_ACMP0 */
+#define _SMU_PPUPATD0_ACMP0_DEFAULT        0x00000000UL                           /**< Mode DEFAULT for SMU_PPUPATD0 */
+#define SMU_PPUPATD0_ACMP0_DEFAULT         (_SMU_PPUPATD0_ACMP0_DEFAULT << 0)     /**< Shifted mode DEFAULT for SMU_PPUPATD0 */
+#define SMU_PPUPATD0_ACMP1                 (0x1UL << 1)                           /**< Analog Comparator 1 access control bit */
+#define _SMU_PPUPATD0_ACMP1_SHIFT          1                                      /**< Shift value for SMU_ACMP1 */
+#define _SMU_PPUPATD0_ACMP1_MASK           0x2UL                                  /**< Bit mask for SMU_ACMP1 */
+#define _SMU_PPUPATD0_ACMP1_DEFAULT        0x00000000UL                           /**< Mode DEFAULT for SMU_PPUPATD0 */
+#define SMU_PPUPATD0_ACMP1_DEFAULT         (_SMU_PPUPATD0_ACMP1_DEFAULT << 1)     /**< Shifted mode DEFAULT for SMU_PPUPATD0 */
+#define SMU_PPUPATD0_ADC0                  (0x1UL << 2)                           /**< Analog to Digital Converter 0 access control bit */
+#define _SMU_PPUPATD0_ADC0_SHIFT           2                                      /**< Shift value for SMU_ADC0 */
+#define _SMU_PPUPATD0_ADC0_MASK            0x4UL                                  /**< Bit mask for SMU_ADC0 */
+#define _SMU_PPUPATD0_ADC0_DEFAULT         0x00000000UL                           /**< Mode DEFAULT for SMU_PPUPATD0 */
+#define SMU_PPUPATD0_ADC0_DEFAULT          (_SMU_PPUPATD0_ADC0_DEFAULT << 2)      /**< Shifted mode DEFAULT for SMU_PPUPATD0 */
+#define SMU_PPUPATD0_CMU                   (0x1UL << 5)                           /**< Clock Management Unit access control bit */
+#define _SMU_PPUPATD0_CMU_SHIFT            5                                      /**< Shift value for SMU_CMU */
+#define _SMU_PPUPATD0_CMU_MASK             0x20UL                                 /**< Bit mask for SMU_CMU */
+#define _SMU_PPUPATD0_CMU_DEFAULT          0x00000000UL                           /**< Mode DEFAULT for SMU_PPUPATD0 */
+#define SMU_PPUPATD0_CMU_DEFAULT           (_SMU_PPUPATD0_CMU_DEFAULT << 5)       /**< Shifted mode DEFAULT for SMU_PPUPATD0 */
+#define SMU_PPUPATD0_CRYOTIMER             (0x1UL << 7)                           /**< CryoTimer access control bit */
+#define _SMU_PPUPATD0_CRYOTIMER_SHIFT      7                                      /**< Shift value for SMU_CRYOTIMER */
+#define _SMU_PPUPATD0_CRYOTIMER_MASK       0x80UL                                 /**< Bit mask for SMU_CRYOTIMER */
+#define _SMU_PPUPATD0_CRYOTIMER_DEFAULT    0x00000000UL                           /**< Mode DEFAULT for SMU_PPUPATD0 */
+#define SMU_PPUPATD0_CRYOTIMER_DEFAULT     (_SMU_PPUPATD0_CRYOTIMER_DEFAULT << 7) /**< Shifted mode DEFAULT for SMU_PPUPATD0 */
+#define SMU_PPUPATD0_CRYPTO0               (0x1UL << 8)                           /**< Advanced Encryption Standard Accelerator 0 access control bit */
+#define _SMU_PPUPATD0_CRYPTO0_SHIFT        8                                      /**< Shift value for SMU_CRYPTO0 */
+#define _SMU_PPUPATD0_CRYPTO0_MASK         0x100UL                                /**< Bit mask for SMU_CRYPTO0 */
+#define _SMU_PPUPATD0_CRYPTO0_DEFAULT      0x00000000UL                           /**< Mode DEFAULT for SMU_PPUPATD0 */
+#define SMU_PPUPATD0_CRYPTO0_DEFAULT       (_SMU_PPUPATD0_CRYPTO0_DEFAULT << 8)   /**< Shifted mode DEFAULT for SMU_PPUPATD0 */
+#define SMU_PPUPATD0_CRYPTO1               (0x1UL << 9)                           /**< Advanced Encryption Standard Accelerator 1 access control bit */
+#define _SMU_PPUPATD0_CRYPTO1_SHIFT        9                                      /**< Shift value for SMU_CRYPTO1 */
+#define _SMU_PPUPATD0_CRYPTO1_MASK         0x200UL                                /**< Bit mask for SMU_CRYPTO1 */
+#define _SMU_PPUPATD0_CRYPTO1_DEFAULT      0x00000000UL                           /**< Mode DEFAULT for SMU_PPUPATD0 */
+#define SMU_PPUPATD0_CRYPTO1_DEFAULT       (_SMU_PPUPATD0_CRYPTO1_DEFAULT << 9)   /**< Shifted mode DEFAULT for SMU_PPUPATD0 */
+#define SMU_PPUPATD0_VDAC0                 (0x1UL << 11)                          /**< Digital to Analog Converter 0 access control bit */
+#define _SMU_PPUPATD0_VDAC0_SHIFT          11                                     /**< Shift value for SMU_VDAC0 */
+#define _SMU_PPUPATD0_VDAC0_MASK           0x800UL                                /**< Bit mask for SMU_VDAC0 */
+#define _SMU_PPUPATD0_VDAC0_DEFAULT        0x00000000UL                           /**< Mode DEFAULT for SMU_PPUPATD0 */
+#define SMU_PPUPATD0_VDAC0_DEFAULT         (_SMU_PPUPATD0_VDAC0_DEFAULT << 11)    /**< Shifted mode DEFAULT for SMU_PPUPATD0 */
+#define SMU_PPUPATD0_PRS                   (0x1UL << 12)                          /**< Peripheral Reflex System access control bit */
+#define _SMU_PPUPATD0_PRS_SHIFT            12                                     /**< Shift value for SMU_PRS */
+#define _SMU_PPUPATD0_PRS_MASK             0x1000UL                               /**< Bit mask for SMU_PRS */
+#define _SMU_PPUPATD0_PRS_DEFAULT          0x00000000UL                           /**< Mode DEFAULT for SMU_PPUPATD0 */
+#define SMU_PPUPATD0_PRS_DEFAULT           (_SMU_PPUPATD0_PRS_DEFAULT << 12)      /**< Shifted mode DEFAULT for SMU_PPUPATD0 */
+#define SMU_PPUPATD0_EMU                   (0x1UL << 13)                          /**< Energy Management Unit access control bit */
+#define _SMU_PPUPATD0_EMU_SHIFT            13                                     /**< Shift value for SMU_EMU */
+#define _SMU_PPUPATD0_EMU_MASK             0x2000UL                               /**< Bit mask for SMU_EMU */
+#define _SMU_PPUPATD0_EMU_DEFAULT          0x00000000UL                           /**< Mode DEFAULT for SMU_PPUPATD0 */
+#define SMU_PPUPATD0_EMU_DEFAULT           (_SMU_PPUPATD0_EMU_DEFAULT << 13)      /**< Shifted mode DEFAULT for SMU_PPUPATD0 */
+#define SMU_PPUPATD0_FPUEH                 (0x1UL << 14)                          /**< FPU Exception Handler access control bit */
+#define _SMU_PPUPATD0_FPUEH_SHIFT          14                                     /**< Shift value for SMU_FPUEH */
+#define _SMU_PPUPATD0_FPUEH_MASK           0x4000UL                               /**< Bit mask for SMU_FPUEH */
+#define _SMU_PPUPATD0_FPUEH_DEFAULT        0x00000000UL                           /**< Mode DEFAULT for SMU_PPUPATD0 */
+#define SMU_PPUPATD0_FPUEH_DEFAULT         (_SMU_PPUPATD0_FPUEH_DEFAULT << 14)    /**< Shifted mode DEFAULT for SMU_PPUPATD0 */
+#define SMU_PPUPATD0_GPCRC                 (0x1UL << 16)                          /**< General Purpose CRC access control bit */
+#define _SMU_PPUPATD0_GPCRC_SHIFT          16                                     /**< Shift value for SMU_GPCRC */
+#define _SMU_PPUPATD0_GPCRC_MASK           0x10000UL                              /**< Bit mask for SMU_GPCRC */
+#define _SMU_PPUPATD0_GPCRC_DEFAULT        0x00000000UL                           /**< Mode DEFAULT for SMU_PPUPATD0 */
+#define SMU_PPUPATD0_GPCRC_DEFAULT         (_SMU_PPUPATD0_GPCRC_DEFAULT << 16)    /**< Shifted mode DEFAULT for SMU_PPUPATD0 */
+#define SMU_PPUPATD0_GPIO                  (0x1UL << 17)                          /**< General purpose Input/Output access control bit */
+#define _SMU_PPUPATD0_GPIO_SHIFT           17                                     /**< Shift value for SMU_GPIO */
+#define _SMU_PPUPATD0_GPIO_MASK            0x20000UL                              /**< Bit mask for SMU_GPIO */
+#define _SMU_PPUPATD0_GPIO_DEFAULT         0x00000000UL                           /**< Mode DEFAULT for SMU_PPUPATD0 */
+#define SMU_PPUPATD0_GPIO_DEFAULT          (_SMU_PPUPATD0_GPIO_DEFAULT << 17)     /**< Shifted mode DEFAULT for SMU_PPUPATD0 */
+#define SMU_PPUPATD0_I2C0                  (0x1UL << 18)                          /**< I2C 0 access control bit */
+#define _SMU_PPUPATD0_I2C0_SHIFT           18                                     /**< Shift value for SMU_I2C0 */
+#define _SMU_PPUPATD0_I2C0_MASK            0x40000UL                              /**< Bit mask for SMU_I2C0 */
+#define _SMU_PPUPATD0_I2C0_DEFAULT         0x00000000UL                           /**< Mode DEFAULT for SMU_PPUPATD0 */
+#define SMU_PPUPATD0_I2C0_DEFAULT          (_SMU_PPUPATD0_I2C0_DEFAULT << 18)     /**< Shifted mode DEFAULT for SMU_PPUPATD0 */
+#define SMU_PPUPATD0_I2C1                  (0x1UL << 19)                          /**< I2C 1 access control bit */
+#define _SMU_PPUPATD0_I2C1_SHIFT           19                                     /**< Shift value for SMU_I2C1 */
+#define _SMU_PPUPATD0_I2C1_MASK            0x80000UL                              /**< Bit mask for SMU_I2C1 */
+#define _SMU_PPUPATD0_I2C1_DEFAULT         0x00000000UL                           /**< Mode DEFAULT for SMU_PPUPATD0 */
+#define SMU_PPUPATD0_I2C1_DEFAULT          (_SMU_PPUPATD0_I2C1_DEFAULT << 19)     /**< Shifted mode DEFAULT for SMU_PPUPATD0 */
+#define SMU_PPUPATD0_MSC                   (0x1UL << 21)                          /**< Memory System Controller access control bit */
+#define _SMU_PPUPATD0_MSC_SHIFT            21                                     /**< Shift value for SMU_MSC */
+#define _SMU_PPUPATD0_MSC_MASK             0x200000UL                             /**< Bit mask for SMU_MSC */
+#define _SMU_PPUPATD0_MSC_DEFAULT          0x00000000UL                           /**< Mode DEFAULT for SMU_PPUPATD0 */
+#define SMU_PPUPATD0_MSC_DEFAULT           (_SMU_PPUPATD0_MSC_DEFAULT << 21)      /**< Shifted mode DEFAULT for SMU_PPUPATD0 */
+#define SMU_PPUPATD0_LDMA                  (0x1UL << 22)                          /**< Linked Direct Memory Access Controller access control bit */
+#define _SMU_PPUPATD0_LDMA_SHIFT           22                                     /**< Shift value for SMU_LDMA */
+#define _SMU_PPUPATD0_LDMA_MASK            0x400000UL                             /**< Bit mask for SMU_LDMA */
+#define _SMU_PPUPATD0_LDMA_DEFAULT         0x00000000UL                           /**< Mode DEFAULT for SMU_PPUPATD0 */
+#define SMU_PPUPATD0_LDMA_DEFAULT          (_SMU_PPUPATD0_LDMA_DEFAULT << 22)     /**< Shifted mode DEFAULT for SMU_PPUPATD0 */
+#define SMU_PPUPATD0_LESENSE               (0x1UL << 23)                          /**< Low Energy Sensor Interface access control bit */
+#define _SMU_PPUPATD0_LESENSE_SHIFT        23                                     /**< Shift value for SMU_LESENSE */
+#define _SMU_PPUPATD0_LESENSE_MASK         0x800000UL                             /**< Bit mask for SMU_LESENSE */
+#define _SMU_PPUPATD0_LESENSE_DEFAULT      0x00000000UL                           /**< Mode DEFAULT for SMU_PPUPATD0 */
+#define SMU_PPUPATD0_LESENSE_DEFAULT       (_SMU_PPUPATD0_LESENSE_DEFAULT << 23)  /**< Shifted mode DEFAULT for SMU_PPUPATD0 */
+#define SMU_PPUPATD0_LETIMER0              (0x1UL << 24)                          /**< Low Energy Timer 0 access control bit */
+#define _SMU_PPUPATD0_LETIMER0_SHIFT       24                                     /**< Shift value for SMU_LETIMER0 */
+#define _SMU_PPUPATD0_LETIMER0_MASK        0x1000000UL                            /**< Bit mask for SMU_LETIMER0 */
+#define _SMU_PPUPATD0_LETIMER0_DEFAULT     0x00000000UL                           /**< Mode DEFAULT for SMU_PPUPATD0 */
+#define SMU_PPUPATD0_LETIMER0_DEFAULT      (_SMU_PPUPATD0_LETIMER0_DEFAULT << 24) /**< Shifted mode DEFAULT for SMU_PPUPATD0 */
+#define SMU_PPUPATD0_LEUART0               (0x1UL << 25)                          /**< Low Energy UART 0 access control bit */
+#define _SMU_PPUPATD0_LEUART0_SHIFT        25                                     /**< Shift value for SMU_LEUART0 */
+#define _SMU_PPUPATD0_LEUART0_MASK         0x2000000UL                            /**< Bit mask for SMU_LEUART0 */
+#define _SMU_PPUPATD0_LEUART0_DEFAULT      0x00000000UL                           /**< Mode DEFAULT for SMU_PPUPATD0 */
+#define SMU_PPUPATD0_LEUART0_DEFAULT       (_SMU_PPUPATD0_LEUART0_DEFAULT << 25)  /**< Shifted mode DEFAULT for SMU_PPUPATD0 */
+#define SMU_PPUPATD0_PCNT0                 (0x1UL << 27)                          /**< Pulse Counter 0 access control bit */
+#define _SMU_PPUPATD0_PCNT0_SHIFT          27                                     /**< Shift value for SMU_PCNT0 */
+#define _SMU_PPUPATD0_PCNT0_MASK           0x8000000UL                            /**< Bit mask for SMU_PCNT0 */
+#define _SMU_PPUPATD0_PCNT0_DEFAULT        0x00000000UL                           /**< Mode DEFAULT for SMU_PPUPATD0 */
+#define SMU_PPUPATD0_PCNT0_DEFAULT         (_SMU_PPUPATD0_PCNT0_DEFAULT << 27)    /**< Shifted mode DEFAULT for SMU_PPUPATD0 */
+
+/* Bit fields for SMU PPUPATD1 */
+#define _SMU_PPUPATD1_RESETVALUE           0x00000000UL                          /**< Default value for SMU_PPUPATD1 */
+#define _SMU_PPUPATD1_MASK                 0x00001FF7UL                          /**< Mask for SMU_PPUPATD1 */
+#define SMU_PPUPATD1_RMU                   (0x1UL << 0)                          /**< Reset Management Unit access control bit */
+#define _SMU_PPUPATD1_RMU_SHIFT            0                                     /**< Shift value for SMU_RMU */
+#define _SMU_PPUPATD1_RMU_MASK             0x1UL                                 /**< Bit mask for SMU_RMU */
+#define _SMU_PPUPATD1_RMU_DEFAULT          0x00000000UL                          /**< Mode DEFAULT for SMU_PPUPATD1 */
+#define SMU_PPUPATD1_RMU_DEFAULT           (_SMU_PPUPATD1_RMU_DEFAULT << 0)      /**< Shifted mode DEFAULT for SMU_PPUPATD1 */
+#define SMU_PPUPATD1_RTCC                  (0x1UL << 1)                          /**< Real-Time Counter and Calendar access control bit */
+#define _SMU_PPUPATD1_RTCC_SHIFT           1                                     /**< Shift value for SMU_RTCC */
+#define _SMU_PPUPATD1_RTCC_MASK            0x2UL                                 /**< Bit mask for SMU_RTCC */
+#define _SMU_PPUPATD1_RTCC_DEFAULT         0x00000000UL                          /**< Mode DEFAULT for SMU_PPUPATD1 */
+#define SMU_PPUPATD1_RTCC_DEFAULT          (_SMU_PPUPATD1_RTCC_DEFAULT << 1)     /**< Shifted mode DEFAULT for SMU_PPUPATD1 */
+#define SMU_PPUPATD1_SMU                   (0x1UL << 2)                          /**< Security Management Unit access control bit */
+#define _SMU_PPUPATD1_SMU_SHIFT            2                                     /**< Shift value for SMU_SMU */
+#define _SMU_PPUPATD1_SMU_MASK             0x4UL                                 /**< Bit mask for SMU_SMU */
+#define _SMU_PPUPATD1_SMU_DEFAULT          0x00000000UL                          /**< Mode DEFAULT for SMU_PPUPATD1 */
+#define SMU_PPUPATD1_SMU_DEFAULT           (_SMU_PPUPATD1_SMU_DEFAULT << 2)      /**< Shifted mode DEFAULT for SMU_PPUPATD1 */
+#define SMU_PPUPATD1_TIMER0                (0x1UL << 4)                          /**< Timer 0 access control bit */
+#define _SMU_PPUPATD1_TIMER0_SHIFT         4                                     /**< Shift value for SMU_TIMER0 */
+#define _SMU_PPUPATD1_TIMER0_MASK          0x10UL                                /**< Bit mask for SMU_TIMER0 */
+#define _SMU_PPUPATD1_TIMER0_DEFAULT       0x00000000UL                          /**< Mode DEFAULT for SMU_PPUPATD1 */
+#define SMU_PPUPATD1_TIMER0_DEFAULT        (_SMU_PPUPATD1_TIMER0_DEFAULT << 4)   /**< Shifted mode DEFAULT for SMU_PPUPATD1 */
+#define SMU_PPUPATD1_TIMER1                (0x1UL << 5)                          /**< Timer 1 access control bit */
+#define _SMU_PPUPATD1_TIMER1_SHIFT         5                                     /**< Shift value for SMU_TIMER1 */
+#define _SMU_PPUPATD1_TIMER1_MASK          0x20UL                                /**< Bit mask for SMU_TIMER1 */
+#define _SMU_PPUPATD1_TIMER1_DEFAULT       0x00000000UL                          /**< Mode DEFAULT for SMU_PPUPATD1 */
+#define SMU_PPUPATD1_TIMER1_DEFAULT        (_SMU_PPUPATD1_TIMER1_DEFAULT << 5)   /**< Shifted mode DEFAULT for SMU_PPUPATD1 */
+#define SMU_PPUPATD1_TRNG0                 (0x1UL << 6)                          /**< True Random Number Generator 0 access control bit */
+#define _SMU_PPUPATD1_TRNG0_SHIFT          6                                     /**< Shift value for SMU_TRNG0 */
+#define _SMU_PPUPATD1_TRNG0_MASK           0x40UL                                /**< Bit mask for SMU_TRNG0 */
+#define _SMU_PPUPATD1_TRNG0_DEFAULT        0x00000000UL                          /**< Mode DEFAULT for SMU_PPUPATD1 */
+#define SMU_PPUPATD1_TRNG0_DEFAULT         (_SMU_PPUPATD1_TRNG0_DEFAULT << 6)    /**< Shifted mode DEFAULT for SMU_PPUPATD1 */
+#define SMU_PPUPATD1_USART0                (0x1UL << 7)                          /**< Universal Synchronous/Asynchronous Receiver/Transmitter 0 access control bit */
+#define _SMU_PPUPATD1_USART0_SHIFT         7                                     /**< Shift value for SMU_USART0 */
+#define _SMU_PPUPATD1_USART0_MASK          0x80UL                                /**< Bit mask for SMU_USART0 */
+#define _SMU_PPUPATD1_USART0_DEFAULT       0x00000000UL                          /**< Mode DEFAULT for SMU_PPUPATD1 */
+#define SMU_PPUPATD1_USART0_DEFAULT        (_SMU_PPUPATD1_USART0_DEFAULT << 7)   /**< Shifted mode DEFAULT for SMU_PPUPATD1 */
+#define SMU_PPUPATD1_USART1                (0x1UL << 8)                          /**< Universal Synchronous/Asynchronous Receiver/Transmitter 1 access control bit */
+#define _SMU_PPUPATD1_USART1_SHIFT         8                                     /**< Shift value for SMU_USART1 */
+#define _SMU_PPUPATD1_USART1_MASK          0x100UL                               /**< Bit mask for SMU_USART1 */
+#define _SMU_PPUPATD1_USART1_DEFAULT       0x00000000UL                          /**< Mode DEFAULT for SMU_PPUPATD1 */
+#define SMU_PPUPATD1_USART1_DEFAULT        (_SMU_PPUPATD1_USART1_DEFAULT << 8)   /**< Shifted mode DEFAULT for SMU_PPUPATD1 */
+#define SMU_PPUPATD1_USART2                (0x1UL << 9)                          /**< Universal Synchronous/Asynchronous Receiver/Transmitter 2 access control bit */
+#define _SMU_PPUPATD1_USART2_SHIFT         9                                     /**< Shift value for SMU_USART2 */
+#define _SMU_PPUPATD1_USART2_MASK          0x200UL                               /**< Bit mask for SMU_USART2 */
+#define _SMU_PPUPATD1_USART2_DEFAULT       0x00000000UL                          /**< Mode DEFAULT for SMU_PPUPATD1 */
+#define SMU_PPUPATD1_USART2_DEFAULT        (_SMU_PPUPATD1_USART2_DEFAULT << 9)   /**< Shifted mode DEFAULT for SMU_PPUPATD1 */
+#define SMU_PPUPATD1_WDOG0                 (0x1UL << 10)                         /**< Watchdog 0 access control bit */
+#define _SMU_PPUPATD1_WDOG0_SHIFT          10                                    /**< Shift value for SMU_WDOG0 */
+#define _SMU_PPUPATD1_WDOG0_MASK           0x400UL                               /**< Bit mask for SMU_WDOG0 */
+#define _SMU_PPUPATD1_WDOG0_DEFAULT        0x00000000UL                          /**< Mode DEFAULT for SMU_PPUPATD1 */
+#define SMU_PPUPATD1_WDOG0_DEFAULT         (_SMU_PPUPATD1_WDOG0_DEFAULT << 10)   /**< Shifted mode DEFAULT for SMU_PPUPATD1 */
+#define SMU_PPUPATD1_WDOG1                 (0x1UL << 11)                         /**< Watchdog 1 access control bit */
+#define _SMU_PPUPATD1_WDOG1_SHIFT          11                                    /**< Shift value for SMU_WDOG1 */
+#define _SMU_PPUPATD1_WDOG1_MASK           0x800UL                               /**< Bit mask for SMU_WDOG1 */
+#define _SMU_PPUPATD1_WDOG1_DEFAULT        0x00000000UL                          /**< Mode DEFAULT for SMU_PPUPATD1 */
+#define SMU_PPUPATD1_WDOG1_DEFAULT         (_SMU_PPUPATD1_WDOG1_DEFAULT << 11)   /**< Shifted mode DEFAULT for SMU_PPUPATD1 */
+#define SMU_PPUPATD1_WTIMER0               (0x1UL << 12)                         /**< Wide Timer 0 access control bit */
+#define _SMU_PPUPATD1_WTIMER0_SHIFT        12                                    /**< Shift value for SMU_WTIMER0 */
+#define _SMU_PPUPATD1_WTIMER0_MASK         0x1000UL                              /**< Bit mask for SMU_WTIMER0 */
+#define _SMU_PPUPATD1_WTIMER0_DEFAULT      0x00000000UL                          /**< Mode DEFAULT for SMU_PPUPATD1 */
+#define SMU_PPUPATD1_WTIMER0_DEFAULT       (_SMU_PPUPATD1_WTIMER0_DEFAULT << 12) /**< Shifted mode DEFAULT for SMU_PPUPATD1 */
+
+/* Bit fields for SMU PPUFS */
+#define _SMU_PPUFS_RESETVALUE              0x00000000UL                         /**< Default value for SMU_PPUFS */
+#define _SMU_PPUFS_MASK                    0x0000007FUL                         /**< Mask for SMU_PPUFS */
+#define _SMU_PPUFS_PERIPHID_SHIFT          0                                    /**< Shift value for SMU_PERIPHID */
+#define _SMU_PPUFS_PERIPHID_MASK           0x7FUL                               /**< Bit mask for SMU_PERIPHID */
+#define _SMU_PPUFS_PERIPHID_DEFAULT        0x00000000UL                         /**< Mode DEFAULT for SMU_PPUFS */
+#define _SMU_PPUFS_PERIPHID_ACMP0          0x00000000UL                         /**< Mode ACMP0 for SMU_PPUFS */
+#define _SMU_PPUFS_PERIPHID_ACMP1          0x00000001UL                         /**< Mode ACMP1 for SMU_PPUFS */
+#define _SMU_PPUFS_PERIPHID_ADC0           0x00000002UL                         /**< Mode ADC0 for SMU_PPUFS */
+#define _SMU_PPUFS_PERIPHID_CMU            0x00000005UL                         /**< Mode CMU for SMU_PPUFS */
+#define _SMU_PPUFS_PERIPHID_CRYOTIMER      0x00000007UL                         /**< Mode CRYOTIMER for SMU_PPUFS */
+#define _SMU_PPUFS_PERIPHID_CRYPTO0        0x00000008UL                         /**< Mode CRYPTO0 for SMU_PPUFS */
+#define _SMU_PPUFS_PERIPHID_CRYPTO1        0x00000009UL                         /**< Mode CRYPTO1 for SMU_PPUFS */
+#define _SMU_PPUFS_PERIPHID_VDAC0          0x0000000BUL                         /**< Mode VDAC0 for SMU_PPUFS */
+#define _SMU_PPUFS_PERIPHID_PRS            0x0000000CUL                         /**< Mode PRS for SMU_PPUFS */
+#define _SMU_PPUFS_PERIPHID_EMU            0x0000000DUL                         /**< Mode EMU for SMU_PPUFS */
+#define _SMU_PPUFS_PERIPHID_FPUEH          0x0000000EUL                         /**< Mode FPUEH for SMU_PPUFS */
+#define _SMU_PPUFS_PERIPHID_GPCRC          0x00000010UL                         /**< Mode GPCRC for SMU_PPUFS */
+#define _SMU_PPUFS_PERIPHID_GPIO           0x00000011UL                         /**< Mode GPIO for SMU_PPUFS */
+#define _SMU_PPUFS_PERIPHID_I2C0           0x00000012UL                         /**< Mode I2C0 for SMU_PPUFS */
+#define _SMU_PPUFS_PERIPHID_I2C1           0x00000013UL                         /**< Mode I2C1 for SMU_PPUFS */
+#define _SMU_PPUFS_PERIPHID_MSC            0x00000015UL                         /**< Mode MSC for SMU_PPUFS */
+#define _SMU_PPUFS_PERIPHID_LDMA           0x00000016UL                         /**< Mode LDMA for SMU_PPUFS */
+#define _SMU_PPUFS_PERIPHID_LESENSE        0x00000017UL                         /**< Mode LESENSE for SMU_PPUFS */
+#define _SMU_PPUFS_PERIPHID_LETIMER0       0x00000018UL                         /**< Mode LETIMER0 for SMU_PPUFS */
+#define _SMU_PPUFS_PERIPHID_LEUART0        0x00000019UL                         /**< Mode LEUART0 for SMU_PPUFS */
+#define _SMU_PPUFS_PERIPHID_PCNT0          0x0000001BUL                         /**< Mode PCNT0 for SMU_PPUFS */
+#define _SMU_PPUFS_PERIPHID_RMU            0x00000020UL                         /**< Mode RMU for SMU_PPUFS */
+#define _SMU_PPUFS_PERIPHID_RTCC           0x00000021UL                         /**< Mode RTCC for SMU_PPUFS */
+#define _SMU_PPUFS_PERIPHID_SMU            0x00000022UL                         /**< Mode SMU for SMU_PPUFS */
+#define _SMU_PPUFS_PERIPHID_TIMER0         0x00000024UL                         /**< Mode TIMER0 for SMU_PPUFS */
+#define _SMU_PPUFS_PERIPHID_TIMER1         0x00000025UL                         /**< Mode TIMER1 for SMU_PPUFS */
+#define _SMU_PPUFS_PERIPHID_TRNG0          0x00000026UL                         /**< Mode TRNG0 for SMU_PPUFS */
+#define _SMU_PPUFS_PERIPHID_USART0         0x00000027UL                         /**< Mode USART0 for SMU_PPUFS */
+#define _SMU_PPUFS_PERIPHID_USART1         0x00000028UL                         /**< Mode USART1 for SMU_PPUFS */
+#define _SMU_PPUFS_PERIPHID_USART2         0x00000029UL                         /**< Mode USART2 for SMU_PPUFS */
+#define _SMU_PPUFS_PERIPHID_WDOG0          0x0000002AUL                         /**< Mode WDOG0 for SMU_PPUFS */
+#define _SMU_PPUFS_PERIPHID_WDOG1          0x0000002BUL                         /**< Mode WDOG1 for SMU_PPUFS */
+#define _SMU_PPUFS_PERIPHID_WTIMER0        0x0000002CUL                         /**< Mode WTIMER0 for SMU_PPUFS */
+#define SMU_PPUFS_PERIPHID_DEFAULT         (_SMU_PPUFS_PERIPHID_DEFAULT << 0)   /**< Shifted mode DEFAULT for SMU_PPUFS */
+#define SMU_PPUFS_PERIPHID_ACMP0           (_SMU_PPUFS_PERIPHID_ACMP0 << 0)     /**< Shifted mode ACMP0 for SMU_PPUFS */
+#define SMU_PPUFS_PERIPHID_ACMP1           (_SMU_PPUFS_PERIPHID_ACMP1 << 0)     /**< Shifted mode ACMP1 for SMU_PPUFS */
+#define SMU_PPUFS_PERIPHID_ADC0            (_SMU_PPUFS_PERIPHID_ADC0 << 0)      /**< Shifted mode ADC0 for SMU_PPUFS */
+#define SMU_PPUFS_PERIPHID_CMU             (_SMU_PPUFS_PERIPHID_CMU << 0)       /**< Shifted mode CMU for SMU_PPUFS */
+#define SMU_PPUFS_PERIPHID_CRYOTIMER       (_SMU_PPUFS_PERIPHID_CRYOTIMER << 0) /**< Shifted mode CRYOTIMER for SMU_PPUFS */
+#define SMU_PPUFS_PERIPHID_CRYPTO0         (_SMU_PPUFS_PERIPHID_CRYPTO0 << 0)   /**< Shifted mode CRYPTO0 for SMU_PPUFS */
+#define SMU_PPUFS_PERIPHID_CRYPTO1         (_SMU_PPUFS_PERIPHID_CRYPTO1 << 0)   /**< Shifted mode CRYPTO1 for SMU_PPUFS */
+#define SMU_PPUFS_PERIPHID_VDAC0           (_SMU_PPUFS_PERIPHID_VDAC0 << 0)     /**< Shifted mode VDAC0 for SMU_PPUFS */
+#define SMU_PPUFS_PERIPHID_PRS             (_SMU_PPUFS_PERIPHID_PRS << 0)       /**< Shifted mode PRS for SMU_PPUFS */
+#define SMU_PPUFS_PERIPHID_EMU             (_SMU_PPUFS_PERIPHID_EMU << 0)       /**< Shifted mode EMU for SMU_PPUFS */
+#define SMU_PPUFS_PERIPHID_FPUEH           (_SMU_PPUFS_PERIPHID_FPUEH << 0)     /**< Shifted mode FPUEH for SMU_PPUFS */
+#define SMU_PPUFS_PERIPHID_GPCRC           (_SMU_PPUFS_PERIPHID_GPCRC << 0)     /**< Shifted mode GPCRC for SMU_PPUFS */
+#define SMU_PPUFS_PERIPHID_GPIO            (_SMU_PPUFS_PERIPHID_GPIO << 0)      /**< Shifted mode GPIO for SMU_PPUFS */
+#define SMU_PPUFS_PERIPHID_I2C0            (_SMU_PPUFS_PERIPHID_I2C0 << 0)      /**< Shifted mode I2C0 for SMU_PPUFS */
+#define SMU_PPUFS_PERIPHID_I2C1            (_SMU_PPUFS_PERIPHID_I2C1 << 0)      /**< Shifted mode I2C1 for SMU_PPUFS */
+#define SMU_PPUFS_PERIPHID_MSC             (_SMU_PPUFS_PERIPHID_MSC << 0)       /**< Shifted mode MSC for SMU_PPUFS */
+#define SMU_PPUFS_PERIPHID_LDMA            (_SMU_PPUFS_PERIPHID_LDMA << 0)      /**< Shifted mode LDMA for SMU_PPUFS */
+#define SMU_PPUFS_PERIPHID_LESENSE         (_SMU_PPUFS_PERIPHID_LESENSE << 0)   /**< Shifted mode LESENSE for SMU_PPUFS */
+#define SMU_PPUFS_PERIPHID_LETIMER0        (_SMU_PPUFS_PERIPHID_LETIMER0 << 0)  /**< Shifted mode LETIMER0 for SMU_PPUFS */
+#define SMU_PPUFS_PERIPHID_LEUART0         (_SMU_PPUFS_PERIPHID_LEUART0 << 0)   /**< Shifted mode LEUART0 for SMU_PPUFS */
+#define SMU_PPUFS_PERIPHID_PCNT0           (_SMU_PPUFS_PERIPHID_PCNT0 << 0)     /**< Shifted mode PCNT0 for SMU_PPUFS */
+#define SMU_PPUFS_PERIPHID_RMU             (_SMU_PPUFS_PERIPHID_RMU << 0)       /**< Shifted mode RMU for SMU_PPUFS */
+#define SMU_PPUFS_PERIPHID_RTCC            (_SMU_PPUFS_PERIPHID_RTCC << 0)      /**< Shifted mode RTCC for SMU_PPUFS */
+#define SMU_PPUFS_PERIPHID_SMU             (_SMU_PPUFS_PERIPHID_SMU << 0)       /**< Shifted mode SMU for SMU_PPUFS */
+#define SMU_PPUFS_PERIPHID_TIMER0          (_SMU_PPUFS_PERIPHID_TIMER0 << 0)    /**< Shifted mode TIMER0 for SMU_PPUFS */
+#define SMU_PPUFS_PERIPHID_TIMER1          (_SMU_PPUFS_PERIPHID_TIMER1 << 0)    /**< Shifted mode TIMER1 for SMU_PPUFS */
+#define SMU_PPUFS_PERIPHID_TRNG0           (_SMU_PPUFS_PERIPHID_TRNG0 << 0)     /**< Shifted mode TRNG0 for SMU_PPUFS */
+#define SMU_PPUFS_PERIPHID_USART0          (_SMU_PPUFS_PERIPHID_USART0 << 0)    /**< Shifted mode USART0 for SMU_PPUFS */
+#define SMU_PPUFS_PERIPHID_USART1          (_SMU_PPUFS_PERIPHID_USART1 << 0)    /**< Shifted mode USART1 for SMU_PPUFS */
+#define SMU_PPUFS_PERIPHID_USART2          (_SMU_PPUFS_PERIPHID_USART2 << 0)    /**< Shifted mode USART2 for SMU_PPUFS */
+#define SMU_PPUFS_PERIPHID_WDOG0           (_SMU_PPUFS_PERIPHID_WDOG0 << 0)     /**< Shifted mode WDOG0 for SMU_PPUFS */
+#define SMU_PPUFS_PERIPHID_WDOG1           (_SMU_PPUFS_PERIPHID_WDOG1 << 0)     /**< Shifted mode WDOG1 for SMU_PPUFS */
+#define SMU_PPUFS_PERIPHID_WTIMER0         (_SMU_PPUFS_PERIPHID_WTIMER0 << 0)   /**< Shifted mode WTIMER0 for SMU_PPUFS */
+
+/** @} */
+/** @} End of group EFR32MG13P832F512IM48_SMU */
+
+/**************************************************************************//**
+ * @defgroup EFR32MG13P832F512IM48_UNLOCK Unlock Codes
  * @{
  *****************************************************************************/
 #define MSC_UNLOCK_CODE      0x1B71 /**< MSC unlock code */
@@ -2029,15 +4992,8 @@ typedef enum IRQn
 
 /** @} End of group EFR32MG13P832F512IM48_BitFields */
 
-/**************************************************************************//**
- * @defgroup EFR32MG13P832F512IM48_Alternate_Function EFR32MG13P832F512IM48 Alternate Function
- * @{
- *****************************************************************************/
-
 #include "efr32mg13p_af_ports.h"
 #include "efr32mg13p_af_pins.h"
-
-/** @} End of group EFR32MG13P832F512IM48_Alternate_Function */
 
 /** @} End of group EFR32MG13P832F512IM48 */
 

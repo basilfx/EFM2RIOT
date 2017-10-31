@@ -1,27 +1,27 @@
-From 587da79168750055a8e6adac777c9b537a0e9231 Mon Sep 17 00:00:00 2001
+From fe00d8e3ddc82505ce66ba292d1612d4cc82d2a9 Mon Sep 17 00:00:00 2001
 From: Bas Stottelaar <basstottelaar@gmail.com>
-Date: Tue, 24 Oct 2017 21:12:55 +0200
+Date: Tue, 31 Oct 2017 17:30:21 +0100
 Subject: [PATCH 2/2] Remove emlib deprecated files.
 
 ---
- emlib/inc/em_int.h | 132 -----------------------------------------------------
- emlib/src/em_int.c |  78 -------------------------------
- 2 files changed, 210 deletions(-)
+ emlib/inc/em_int.h | 127 -----------------------------------------------------
+ emlib/src/em_int.c |  78 --------------------------------
+ 2 files changed, 205 deletions(-)
  delete mode 100644 emlib/inc/em_int.h
  delete mode 100644 emlib/src/em_int.c
 
 diff --git a/emlib/inc/em_int.h b/emlib/inc/em_int.h
 deleted file mode 100644
-index c7325001..00000000
+index f43f7448..00000000
 --- a/emlib/inc/em_int.h
 +++ /dev/null
-@@ -1,132 +0,0 @@
+@@ -1,127 +0,0 @@
 -/***************************************************************************//**
 - * @file em_int.h
 - * @brief Interrupt enable/disable unit API
-- * @version 5.1.2
+- * @version 5.3.3
 - *******************************************************************************
-- * @section License
+- * # License
 - * <b>Copyright 2016 Silicon Laboratories, Inc. http://www.silabs.com</b>
 - *******************************************************************************
 - *
@@ -96,8 +96,7 @@ index c7325001..00000000
 -__STATIC_INLINE uint32_t INT_Disable(void)
 -{
 -  __disable_irq();
--  if (INT_LockCnt < UINT32_MAX)
--  {
+-  if (INT_LockCnt < UINT32_MAX) {
 -    INT_LockCnt++;
 -  }
 -
@@ -124,18 +123,14 @@ index c7325001..00000000
 -{
 -  uint32_t retVal;
 -
--  if (INT_LockCnt > 0)
--  {
+-  if (INT_LockCnt > 0) {
 -    INT_LockCnt--;
 -    retVal = INT_LockCnt;
--    if (retVal == 0)
--    {
+-    if (retVal == 0) {
 -      __enable_irq();
 -    }
 -    return retVal;
--  }
--  else
--  {
+-  } else {
 -    return 0;
 -  }
 -}
@@ -150,16 +145,16 @@ index c7325001..00000000
 -#endif /* EM_INT_H */
 diff --git a/emlib/src/em_int.c b/emlib/src/em_int.c
 deleted file mode 100644
-index 32ef9701..00000000
+index 02f35b00..00000000
 --- a/emlib/src/em_int.c
 +++ /dev/null
 @@ -1,78 +0,0 @@
--/**************************************************************************//**
+-/***************************************************************************//**
 - * @file em_int.c
 - * @brief Interrupt enable/disable unit API
-- * @version 5.1.2
+- * @version 5.3.3
 - ******************************************************************************
-- * @section License
+- * # License
 - * <b>Copyright 2016 Silicon Laboratories, Inc. http://www.silabs.com</b>
 - *******************************************************************************
 - *

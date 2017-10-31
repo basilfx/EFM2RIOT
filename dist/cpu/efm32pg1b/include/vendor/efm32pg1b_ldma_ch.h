@@ -1,9 +1,9 @@
 /**************************************************************************//**
  * @file efm32pg1b_ldma_ch.h
  * @brief EFM32PG1B_LDMA_CH register and bit field definitions
- * @version 5.1.2
+ * @version 5.3.3
  ******************************************************************************
- * @section License
+ * # License
  * <b>Copyright 2017 Silicon Laboratories, Inc. http://www.silabs.com</b>
  ******************************************************************************
  *
@@ -34,15 +34,22 @@
 extern "C" {
 #endif
 
+
+#if defined(__ICCARM__)
+#pragma system_include       /* Treat file as system include file. */
+#elif defined(__ARMCC_VERSION) && (__ARMCC_VERSION >= 6010050)
+#pragma clang system_header  /* Treat file as system include file. */
+#endif
+
 /**************************************************************************//**
 * @addtogroup Parts
 * @{
 ******************************************************************************/
 /**************************************************************************//**
- * @brief LDMA_CH EFM32PG1B LDMA CH
+ * @brief LDMA_CH LDMA CH Register
+ * @ingroup EFM32PG1B_LDMA
  *****************************************************************************/
-typedef struct
-{
+typedef struct {
   __IOM uint32_t REQSEL;       /**< Channel Peripheral Request Select Register  */
   __IOM uint32_t CFG;          /**< Channel Configuration Register  */
   __IOM uint32_t LOOP;         /**< Channel Loop Counter Register  */
@@ -54,8 +61,6 @@ typedef struct
 } LDMA_CH_TypeDef;
 
 /** @} End of group Parts */
-
-
 #ifdef __cplusplus
 }
 #endif

@@ -1,9 +1,9 @@
 /**************************************************************************//**
  * @file efm32jg12b_timer.h
  * @brief EFM32JG12B_TIMER register and bit field definitions
- * @version 5.1.2
+ * @version 5.3.3
  ******************************************************************************
- * @section License
+ * # License
  * <b>Copyright 2017 Silicon Laboratories, Inc. http://www.silabs.com</b>
  ******************************************************************************
  *
@@ -34,17 +34,24 @@
 extern "C" {
 #endif
 
+
+#if defined(__ICCARM__)
+#pragma system_include       /* Treat file as system include file. */
+#elif defined(__ARMCC_VERSION) && (__ARMCC_VERSION >= 6010050)
+#pragma clang system_header  /* Treat file as system include file. */
+#endif
+
 /**************************************************************************//**
 * @addtogroup Parts
 * @{
 ******************************************************************************/
 /**************************************************************************//**
- * @defgroup EFM32JG12B_TIMER
+ * @defgroup EFM32JG12B_TIMER TIMER
  * @{
  * @brief EFM32JG12B_TIMER Register Declaration
  *****************************************************************************/
-typedef struct
-{
+/** TIMER Register Declaration */
+typedef struct {
   __IOM uint32_t   CTRL;         /**< Control Register  */
   __IOM uint32_t   CMD;          /**< Command Register  */
   __IM uint32_t    STATUS;       /**< Status Register  */
@@ -75,7 +82,9 @@ typedef struct
 } TIMER_TypeDef;                 /** @} */
 
 /**************************************************************************//**
- * @defgroup EFM32JG12B_TIMER_BitFields
+ * @addtogroup EFM32JG12B_TIMER
+ * @{
+ * @defgroup EFM32JG12B_TIMER_BitFields  TIMER Bit Fields
  * @{
  *****************************************************************************/
 
@@ -1575,9 +1584,9 @@ typedef struct
 #define TIMER_DTLOCK_LOCKKEY_LOCKED                (_TIMER_DTLOCK_LOCKKEY_LOCKED << 0)   /**< Shifted mode LOCKED for TIMER_DTLOCK */
 #define TIMER_DTLOCK_LOCKKEY_UNLOCK                (_TIMER_DTLOCK_LOCKKEY_UNLOCK << 0)   /**< Shifted mode UNLOCK for TIMER_DTLOCK */
 
+/** @} */
 /** @} End of group EFM32JG12B_TIMER */
 /** @} End of group Parts */
-
 #ifdef __cplusplus
 }
 #endif

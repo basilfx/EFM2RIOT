@@ -1,9 +1,9 @@
 /**************************************************************************//**
  * @file efr32mg1p_cmu.h
  * @brief EFR32MG1P_CMU register and bit field definitions
- * @version 5.1.2
+ * @version 5.3.3
  ******************************************************************************
- * @section License
+ * # License
  * <b>Copyright 2017 Silicon Laboratories, Inc. http://www.silabs.com</b>
  ******************************************************************************
  *
@@ -34,17 +34,24 @@
 extern "C" {
 #endif
 
+
+#if defined(__ICCARM__)
+#pragma system_include       /* Treat file as system include file. */
+#elif defined(__ARMCC_VERSION) && (__ARMCC_VERSION >= 6010050)
+#pragma clang system_header  /* Treat file as system include file. */
+#endif
+
 /**************************************************************************//**
 * @addtogroup Parts
 * @{
 ******************************************************************************/
 /**************************************************************************//**
- * @defgroup EFR32MG1P_CMU
+ * @defgroup EFR32MG1P_CMU CMU
  * @{
  * @brief EFR32MG1P_CMU Register Declaration
  *****************************************************************************/
-typedef struct
-{
+/** CMU Register Declaration */
+typedef struct {
   __IOM uint32_t CTRL;                /**< CMU Control Register  */
 
   uint32_t       RESERVED0[3];        /**< Reserved for future use **/
@@ -113,7 +120,7 @@ typedef struct
   uint32_t       RESERVED17[1];       /**< Reserved for future use **/
   __IOM uint32_t LFBPRESC0;           /**< Low Frequency B Prescaler Register 0  (Async Reg)  */
   uint32_t       RESERVED18[1];       /**< Reserved for future use **/
-  __IOM uint32_t LFEPRESC0;           /**< Low Frequency E Prescaler Register 0  (Async Reg).  When waking up from EM4 make sure EM4UNLATCH in EMU_CMD is set for this to take effect  */
+  __IOM uint32_t LFEPRESC0;           /**< Low Frequency E Prescaler Register 0  (Async Reg)  */
 
   uint32_t       RESERVED19[3];       /**< Reserved for future use **/
   __IM uint32_t  SYNCBUSY;            /**< Synchronization Busy Register  */
@@ -133,7 +140,9 @@ typedef struct
 } CMU_TypeDef;                        /** @} */
 
 /**************************************************************************//**
- * @defgroup EFR32MG1P_CMU_BitFields
+ * @addtogroup EFR32MG1P_CMU
+ * @{
+ * @defgroup EFR32MG1P_CMU_BitFields  CMU Bit Fields
  * @{
  *****************************************************************************/
 
@@ -988,7 +997,7 @@ typedef struct
 #define _CMU_STATUS_CALRDY_MASK                           0x10000UL                                   /**< Bit mask for CMU_CALRDY */
 #define _CMU_STATUS_CALRDY_DEFAULT                        0x00000001UL                                /**< Mode DEFAULT for CMU_STATUS */
 #define CMU_STATUS_CALRDY_DEFAULT                         (_CMU_STATUS_CALRDY_DEFAULT << 16)          /**< Shifted mode DEFAULT for CMU_STATUS */
-#define CMU_STATUS_HFXOREQ                                (0x1UL << 21)                               /**< HFXO is Required by Hardware (e.g. RAC) */
+#define CMU_STATUS_HFXOREQ                                (0x1UL << 21)                               /**< HFXO is Required by Hardware */
 #define _CMU_STATUS_HFXOREQ_SHIFT                         21                                          /**< Shift value for CMU_HFXOREQ */
 #define _CMU_STATUS_HFXOREQ_MASK                          0x200000UL                                  /**< Bit mask for CMU_HFXOREQ */
 #define _CMU_STATUS_HFXOREQ_DEFAULT                       0x00000000UL                                /**< Mode DEFAULT for CMU_STATUS */
@@ -1776,9 +1785,9 @@ typedef struct
 #define CMU_LOCK_LOCKKEY_LOCKED                           (_CMU_LOCK_LOCKKEY_LOCKED << 0)   /**< Shifted mode LOCKED for CMU_LOCK */
 #define CMU_LOCK_LOCKKEY_UNLOCK                           (_CMU_LOCK_LOCKKEY_UNLOCK << 0)   /**< Shifted mode UNLOCK for CMU_LOCK */
 
+/** @} */
 /** @} End of group EFR32MG1P_CMU */
 /** @} End of group Parts */
-
 #ifdef __cplusplus
 }
 #endif

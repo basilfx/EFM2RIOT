@@ -1,9 +1,9 @@
 /**************************************************************************//**
  * @file ezr32lg_dac.h
  * @brief EZR32LG_DAC register and bit field definitions
- * @version 5.1.2
+ * @version 5.3.3
  ******************************************************************************
- * @section License
+ * # License
  * <b>Copyright 2017 Silicon Laboratories, Inc. http://www.silabs.com</b>
  ******************************************************************************
  *
@@ -34,6 +34,13 @@
 extern "C" {
 #endif
 
+
+#if defined(__ICCARM__)
+#pragma system_include       /* Treat file as system include file. */
+#elif defined(__ARMCC_VERSION) && (__ARMCC_VERSION >= 6010050)
+#pragma clang system_header  /* Treat file as system include file. */
+#endif
+
 /**************************************************************************//**
 * @addtogroup Parts
 * @{
@@ -43,8 +50,7 @@ extern "C" {
  * @{
  * @brief EZR32LG_DAC Register Declaration
  *****************************************************************************/
-typedef struct
-{
+typedef struct {
   __IOM uint32_t CTRL;         /**< Control Register  */
   __IM uint32_t  STATUS;       /**< Status Register  */
   __IOM uint32_t CH0CTRL;      /**< Channel 0 Control Register  */
@@ -64,7 +70,7 @@ typedef struct
   __IOM uint32_t OPA0MUX;      /**< Operational Amplifier Mux Configuration Register  */
   __IOM uint32_t OPA1MUX;      /**< Operational Amplifier Mux Configuration Register  */
   __IOM uint32_t OPA2MUX;      /**< Operational Amplifier Mux Configuration Register  */
-} DAC_TypeDef;                 /** @} */
+} DAC_TypeDef;                 /**< DAC Register Declaration *//** @} */
 
 /**************************************************************************//**
  * @defgroup EZR32LG_DAC_BitFields
@@ -798,7 +804,6 @@ typedef struct
 
 /** @} End of group EZR32LG_DAC */
 /** @} End of group Parts */
-
 #ifdef __cplusplus
 }
 #endif

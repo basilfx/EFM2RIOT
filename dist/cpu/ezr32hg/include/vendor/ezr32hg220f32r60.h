@@ -2,9 +2,9 @@
  * @file ezr32hg220f32r60.h
  * @brief CMSIS Cortex-M Peripheral Access Layer Header File
  *        for EZR32HG220F32R60
- * @version 5.1.2
+ * @version 5.3.3
  ******************************************************************************
- * @section License
+ * # License
  * <b>Copyright 2017 Silicon Laboratories, Inc. http://www.silabs.com</b>
  ******************************************************************************
  *
@@ -31,6 +31,12 @@
  *
  *****************************************************************************/
 
+#if defined(__ICCARM__)
+#pragma system_include       /* Treat file as system include file. */
+#elif defined(__ARMCC_VERSION) && (__ARMCC_VERSION >= 6010050)
+#pragma clang system_header  /* Treat file as system include file. */
+#endif
+
 #ifndef EZR32HG220F32R60_H
 #define EZR32HG220F32R60_H
 
@@ -49,8 +55,7 @@ extern "C" {
  *****************************************************************************/
 
 /** Interrupt Number Definition */
-typedef enum IRQn
-{
+typedef enum IRQn{
 /******  Cortex-M0+ Processor Exceptions Numbers *****************************************/
   NonMaskableInt_IRQn = -14,                /*!< -14 Cortex-M0+ Non Maskable Interrupt   */
   HardFault_IRQn      = -13,                /*!< -13 Cortex-M0+ Hard Fault Interrupt     */
@@ -104,8 +109,8 @@ typedef enum IRQn
 #define _EZR_DEVICE                                /**< Silicon Labs EZR-type microcontroller */
 #define _SILICON_LABS_32B_SERIES_0                 /**< Silicon Labs series number */
 #define _SILICON_LABS_32B_SERIES                0  /**< Silicon Labs series number */
-#define _SILICON_LABS_GECKO_INTERNAL_SDID       77 /** Silicon Labs internal use only, may change any time */
-#define _SILICON_LABS_GECKO_INTERNAL_SDID_77       /** Silicon Labs internal use only, may change any time */
+#define _SILICON_LABS_GECKO_INTERNAL_SDID       77 /**< Silicon Labs internal use only, may change any time */
+#define _SILICON_LABS_GECKO_INTERNAL_SDID_77       /**< Silicon Labs internal use only, may change any time */
 #define _SILICON_LABS_32B_PLATFORM_1               /**< @deprecated Silicon Labs platform name */
 #define _SILICON_LABS_32B_PLATFORM              1  /**< @deprecated Silicon Labs platform name */
 
@@ -150,7 +155,7 @@ typedef enum IRQn
 /** Flash and SRAM limits for EZR32HG220F32R60 */
 #define FLASH_BASE           (0x00000000UL) /**< Flash Base Address */
 #define FLASH_SIZE           (0x00008000UL) /**< Available Flash Memory */
-#define FLASH_PAGE_SIZE      1024           /**< Flash Memory page size */
+#define FLASH_PAGE_SIZE      1024U          /**< Flash Memory page size */
 #define SRAM_BASE            (0x20000000UL) /**< SRAM Base Address */
 #define SRAM_SIZE            (0x00002000UL) /**< Available SRAM Memory */
 #define __CM0PLUS_REV        0x001          /**< Cortex-M0+ Core revision r0p1 */
@@ -182,46 +187,46 @@ typedef enum IRQn
 #define PCNT_COUNT              1 /**< 1 PCNTs available  */
 #define I2C_PRESENT               /**< I2C is available in this part */
 #define I2C_COUNT               1 /**< 1 I2Cs available  */
-#define AES_PRESENT
-#define AES_COUNT               1
-#define DMA_PRESENT
-#define DMA_COUNT               1
-#define LE_PRESENT
-#define LE_COUNT                1
-#define USBLE_PRESENT
-#define USBLE_COUNT             1
-#define MSC_PRESENT
-#define MSC_COUNT               1
-#define EMU_PRESENT
-#define EMU_COUNT               1
-#define RMU_PRESENT
-#define RMU_COUNT               1
-#define CMU_PRESENT
-#define CMU_COUNT               1
-#define PRS_PRESENT
-#define PRS_COUNT               1
-#define GPIO_PRESENT
-#define GPIO_COUNT              1
-#define VCMP_PRESENT
-#define VCMP_COUNT              1
-#define RTC_PRESENT
-#define RTC_COUNT               1
-#define HFXTAL_PRESENT
-#define HFXTAL_COUNT            1
-#define LFXTAL_PRESENT
-#define LFXTAL_COUNT            1
-#define USHFRCO_PRESENT
-#define USHFRCO_COUNT           1
-#define WDOG_PRESENT
-#define WDOG_COUNT              1
-#define DBG_PRESENT
-#define DBG_COUNT               1
-#define MTB_PRESENT
-#define MTB_COUNT               1
-#define BOOTLOADER_PRESENT
-#define BOOTLOADER_COUNT        1
-#define ANALOG_PRESENT
-#define ANALOG_COUNT            1
+#define AES_PRESENT               /**< AES is available in this part */
+#define AES_COUNT               1 /**< 1 AES available */
+#define DMA_PRESENT               /**< DMA is available in this part */
+#define DMA_COUNT               1 /**< 1 DMA available */
+#define LE_PRESENT                /**< LE is available in this part */
+#define LE_COUNT                1 /**< 1 LE available */
+#define USBLE_PRESENT             /**< USBLE is available in this part */
+#define USBLE_COUNT             1 /**< 1 USBLE available */
+#define MSC_PRESENT               /**< MSC is available in this part */
+#define MSC_COUNT               1 /**< 1 MSC available */
+#define EMU_PRESENT               /**< EMU is available in this part */
+#define EMU_COUNT               1 /**< 1 EMU available */
+#define RMU_PRESENT               /**< RMU is available in this part */
+#define RMU_COUNT               1 /**< 1 RMU available */
+#define CMU_PRESENT               /**< CMU is available in this part */
+#define CMU_COUNT               1 /**< 1 CMU available */
+#define PRS_PRESENT               /**< PRS is available in this part */
+#define PRS_COUNT               1 /**< 1 PRS available */
+#define GPIO_PRESENT              /**< GPIO is available in this part */
+#define GPIO_COUNT              1 /**< 1 GPIO available */
+#define VCMP_PRESENT              /**< VCMP is available in this part */
+#define VCMP_COUNT              1 /**< 1 VCMP available */
+#define RTC_PRESENT               /**< RTC is available in this part */
+#define RTC_COUNT               1 /**< 1 RTC available */
+#define HFXTAL_PRESENT            /**< HFXTAL is available in this part */
+#define HFXTAL_COUNT            1 /**< 1 HFXTAL available */
+#define LFXTAL_PRESENT            /**< LFXTAL is available in this part */
+#define LFXTAL_COUNT            1 /**< 1 LFXTAL available */
+#define USHFRCO_PRESENT           /**< USHFRCO is available in this part */
+#define USHFRCO_COUNT           1 /**< 1 USHFRCO available */
+#define WDOG_PRESENT              /**< WDOG is available in this part */
+#define WDOG_COUNT              1 /**< 1 WDOG available */
+#define DBG_PRESENT               /**< DBG is available in this part */
+#define DBG_COUNT               1 /**< 1 DBG available */
+#define MTB_PRESENT               /**< MTB is available in this part */
+#define MTB_COUNT               1 /**< 1 MTB available */
+#define BOOTLOADER_PRESENT        /**< BOOTLOADER is available in this part */
+#define BOOTLOADER_COUNT        1 /**< 1 BOOTLOADER available */
+#define ANALOG_PRESENT            /**< ANALOG is available in this part */
+#define ANALOG_COUNT            1 /**< 1 ANALOG available */
 
 /**************************************************************************//**
  * @defgroup EZR32HG220F32R60_RF_Interface EZR32HG220F32R60 RF_Interface
@@ -249,8 +254,8 @@ typedef enum IRQn
 #ifndef ARM_MATH_CM0PLUS
 #define ARM_MATH_CM0PLUS
 #endif
-#include "arm_math.h"       /* To get __CLZ definitions etc. */
-#include "core_cm0plus.h"   /* Cortex-M0+ processor and core peripherals */
+#include "arm_math.h"     /* To get __CLZ definitions etc. */
+#include "core_cm0plus.h" /* Cortex-M0+ processor and core peripherals */
 #include "system_ezr32hg.h" /* System Header */
 
 /**************************************************************************//**
@@ -271,8 +276,7 @@ typedef enum IRQn
  * @{
  * @brief EZR32HG220F32R60_CMU Register Declaration
  *****************************************************************************/
-typedef struct
-{
+typedef struct {
   __IOM uint32_t CTRL;          /**< CMU Control Register  */
   __IOM uint32_t HFCORECLKDIV;  /**< High Frequency Core Clock Division Register  */
   __IOM uint32_t HFPERCLKDIV;   /**< High Frequency Peripheral Clock Division Register  */
@@ -313,7 +317,7 @@ typedef struct
   __IOM uint32_t USHFRCOCTRL;   /**< USHFRCO Control  */
   __IOM uint32_t USHFRCOTUNE;   /**< USHFRCO Frequency Tune  */
   __IOM uint32_t USHFRCOCONF;   /**< USHFRCO Configuration  */
-} CMU_TypeDef;                  /** @} */
+} CMU_TypeDef;                  /**< CMU Register Declaration *//** @} */
 
 #include "ezr32hg_timer_cc.h"
 #include "ezr32hg_timer.h"
@@ -325,8 +329,7 @@ typedef struct
  * @{
  * @brief EZR32HG220F32R60_PRS Register Declaration
  *****************************************************************************/
-typedef struct
-{
+typedef struct {
   __IOM uint32_t SWPULSE;      /**< Software Pulse Register  */
   __IOM uint32_t SWLEVEL;      /**< Software Level Register  */
   __IOM uint32_t ROUTE;        /**< I/O Routing Register  */
@@ -336,7 +339,7 @@ typedef struct
 
   uint32_t       RESERVED1[6]; /**< Reserved for future use **/
   __IOM uint32_t TRACECTRL;    /**< MTB Trace Control Register  */
-} PRS_TypeDef;                 /** @} */
+} PRS_TypeDef;                 /**< PRS Register Declaration *//** @} */
 
 #include "ezr32hg_idac.h"
 #include "ezr32hg_gpio_p.h"
@@ -1834,8 +1837,6 @@ typedef struct
 #define PRS_TRACECTRL_TSTOP_PRSCH5             (_PRS_TRACECTRL_TSTOP_PRSCH5 << 9)     /**< Shifted mode PRSCH5 for PRS_TRACECTRL */
 
 /** @} End of group EZR32HG220F32R60_PRS */
-
-
 
 /**************************************************************************//**
  * @defgroup EZR32HG220F32R60_UNLOCK EZR32HG220F32R60 Unlock Codes

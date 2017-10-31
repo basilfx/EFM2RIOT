@@ -1,9 +1,9 @@
 /**************************************************************************//**
  * @file efm32g_aes.h
  * @brief EFM32G_AES register and bit field definitions
- * @version 5.1.2
+ * @version 5.3.3
  ******************************************************************************
- * @section License
+ * # License
  * <b>Copyright 2017 Silicon Laboratories, Inc. http://www.silabs.com</b>
  ******************************************************************************
  *
@@ -34,6 +34,13 @@
 extern "C" {
 #endif
 
+
+#if defined(__ICCARM__)
+#pragma system_include       /* Treat file as system include file. */
+#elif defined(__ARMCC_VERSION) && (__ARMCC_VERSION >= 6010050)
+#pragma clang system_header  /* Treat file as system include file. */
+#endif
+
 /**************************************************************************//**
 * @addtogroup Parts
 * @{
@@ -43,8 +50,7 @@ extern "C" {
  * @{
  * @brief EFM32G_AES Register Declaration
  *****************************************************************************/
-typedef struct
-{
+typedef struct {
   __IOM uint32_t CTRL;         /**< Control Register  */
   __IOM uint32_t CMD;          /**< Command Register  */
   __IM uint32_t  STATUS;       /**< Status Register  */
@@ -63,7 +69,7 @@ typedef struct
   __IOM uint32_t KEYHB;        /**< KEY High Register  */
   __IOM uint32_t KEYHC;        /**< KEY High Register  */
   __IOM uint32_t KEYHD;        /**< KEY High Register  */
-} AES_TypeDef;                 /** @} */
+} AES_TypeDef;                 /**< AES Register Declaration *//** @} */
 
 /**************************************************************************//**
  * @defgroup EFM32G_AES_BitFields
@@ -240,7 +246,6 @@ typedef struct
 
 /** @} End of group EFM32G_AES */
 /** @} End of group Parts */
-
 #ifdef __cplusplus
 }
 #endif

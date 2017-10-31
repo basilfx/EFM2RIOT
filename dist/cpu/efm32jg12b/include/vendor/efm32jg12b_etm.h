@@ -1,9 +1,9 @@
 /**************************************************************************//**
  * @file efm32jg12b_etm.h
  * @brief EFM32JG12B_ETM register and bit field definitions
- * @version 5.1.2
+ * @version 5.3.3
  ******************************************************************************
- * @section License
+ * # License
  * <b>Copyright 2017 Silicon Laboratories, Inc. http://www.silabs.com</b>
  ******************************************************************************
  *
@@ -34,17 +34,24 @@
 extern "C" {
 #endif
 
+
+#if defined(__ICCARM__)
+#pragma system_include       /* Treat file as system include file. */
+#elif defined(__ARMCC_VERSION) && (__ARMCC_VERSION >= 6010050)
+#pragma clang system_header  /* Treat file as system include file. */
+#endif
+
 /**************************************************************************//**
 * @addtogroup Parts
 * @{
 ******************************************************************************/
 /**************************************************************************//**
- * @defgroup EFM32JG12B_ETM
+ * @defgroup EFM32JG12B_ETM ETM
  * @{
  * @brief EFM32JG12B_ETM Register Declaration
  *****************************************************************************/
-typedef struct
-{
+/** ETM Register Declaration */
+typedef struct {
   __IOM uint32_t ETMCR;           /**< Main Control Register  */
   __IM uint32_t  ETMCCR;          /**< Configuration Code Register  */
   __IOM uint32_t ETMTRIGGER;      /**< ETM Trigger Event Register  */
@@ -106,7 +113,9 @@ typedef struct
 } ETM_TypeDef;                    /** @} */
 
 /**************************************************************************//**
- * @defgroup EFM32JG12B_ETM_BitFields
+ * @addtogroup EFM32JG12B_ETM
+ * @{
+ * @defgroup EFM32JG12B_ETM_BitFields  ETM Bit Fields
  * @{
  *****************************************************************************/
 
@@ -781,9 +790,9 @@ typedef struct
 #define _ETM_ETMCIDR3_PREAMB_DEFAULT                  0x000000B1UL                        /**< Mode DEFAULT for ETM_ETMCIDR3 */
 #define ETM_ETMCIDR3_PREAMB_DEFAULT                   (_ETM_ETMCIDR3_PREAMB_DEFAULT << 0) /**< Shifted mode DEFAULT for ETM_ETMCIDR3 */
 
+/** @} */
 /** @} End of group EFM32JG12B_ETM */
 /** @} End of group Parts */
-
 #ifdef __cplusplus
 }
 #endif

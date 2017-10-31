@@ -1,9 +1,9 @@
 /**************************************************************************//**
  * @file efr32fg1p_adc.h
  * @brief EFR32FG1P_ADC register and bit field definitions
- * @version 5.1.2
+ * @version 5.3.3
  ******************************************************************************
- * @section License
+ * # License
  * <b>Copyright 2017 Silicon Laboratories, Inc. http://www.silabs.com</b>
  ******************************************************************************
  *
@@ -34,17 +34,24 @@
 extern "C" {
 #endif
 
+
+#if defined(__ICCARM__)
+#pragma system_include       /* Treat file as system include file. */
+#elif defined(__ARMCC_VERSION) && (__ARMCC_VERSION >= 6010050)
+#pragma clang system_header  /* Treat file as system include file. */
+#endif
+
 /**************************************************************************//**
 * @addtogroup Parts
 * @{
 ******************************************************************************/
 /**************************************************************************//**
- * @defgroup EFR32FG1P_ADC
+ * @defgroup EFR32FG1P_ADC ADC
  * @{
  * @brief EFR32FG1P_ADC Register Declaration
  *****************************************************************************/
-typedef struct
-{
+/** ADC Register Declaration */
+typedef struct {
   __IOM uint32_t CTRL;            /**< Control Register  */
   uint32_t       RESERVED0[1];    /**< Reserved for future use **/
   __IOM uint32_t CMD;             /**< Command Register  */
@@ -82,7 +89,9 @@ typedef struct
 } ADC_TypeDef;                    /** @} */
 
 /**************************************************************************//**
- * @defgroup EFR32FG1P_ADC_BitFields
+ * @addtogroup EFR32FG1P_ADC
+ * @{
+ * @defgroup EFR32FG1P_ADC_BitFields  ADC Bit Fields
  * @{
  *****************************************************************************/
 
@@ -480,7 +489,7 @@ typedef struct
 #define _ADC_SINGLECTRL_POSSEL_OPA2                        0x000000F2UL                               /**< Mode OPA2 for ADC_SINGLECTRL */
 #define _ADC_SINGLECTRL_POSSEL_TEMP                        0x000000F3UL                               /**< Mode TEMP for ADC_SINGLECTRL */
 #define _ADC_SINGLECTRL_POSSEL_DAC0OUT0                    0x000000F4UL                               /**< Mode DAC0OUT0 for ADC_SINGLECTRL */
-#define _ADC_SINGLECTRL_POSSEL_TESTP                       0x000000F5UL                               /**< Mode TESTP for ADC_SINGLECTRL */
+#define _ADC_SINGLECTRL_POSSEL_R5VOUT                      0x000000F5UL                               /**< Mode R5VOUT for ADC_SINGLECTRL */
 #define _ADC_SINGLECTRL_POSSEL_SP1                         0x000000F6UL                               /**< Mode SP1 for ADC_SINGLECTRL */
 #define _ADC_SINGLECTRL_POSSEL_SP2                         0x000000F7UL                               /**< Mode SP2 for ADC_SINGLECTRL */
 #define _ADC_SINGLECTRL_POSSEL_DAC0OUT1                    0x000000F8UL                               /**< Mode DAC0OUT1 for ADC_SINGLECTRL */
@@ -659,7 +668,7 @@ typedef struct
 #define ADC_SINGLECTRL_POSSEL_OPA2                         (_ADC_SINGLECTRL_POSSEL_OPA2 << 8)         /**< Shifted mode OPA2 for ADC_SINGLECTRL */
 #define ADC_SINGLECTRL_POSSEL_TEMP                         (_ADC_SINGLECTRL_POSSEL_TEMP << 8)         /**< Shifted mode TEMP for ADC_SINGLECTRL */
 #define ADC_SINGLECTRL_POSSEL_DAC0OUT0                     (_ADC_SINGLECTRL_POSSEL_DAC0OUT0 << 8)     /**< Shifted mode DAC0OUT0 for ADC_SINGLECTRL */
-#define ADC_SINGLECTRL_POSSEL_TESTP                        (_ADC_SINGLECTRL_POSSEL_TESTP << 8)        /**< Shifted mode TESTP for ADC_SINGLECTRL */
+#define ADC_SINGLECTRL_POSSEL_R5VOUT                       (_ADC_SINGLECTRL_POSSEL_R5VOUT << 8)       /**< Shifted mode R5VOUT for ADC_SINGLECTRL */
 #define ADC_SINGLECTRL_POSSEL_SP1                          (_ADC_SINGLECTRL_POSSEL_SP1 << 8)          /**< Shifted mode SP1 for ADC_SINGLECTRL */
 #define ADC_SINGLECTRL_POSSEL_SP2                          (_ADC_SINGLECTRL_POSSEL_SP2 << 8)          /**< Shifted mode SP2 for ADC_SINGLECTRL */
 #define ADC_SINGLECTRL_POSSEL_DAC0OUT1                     (_ADC_SINGLECTRL_POSSEL_DAC0OUT1 << 8)     /**< Shifted mode DAC0OUT1 for ADC_SINGLECTRL */
@@ -2231,9 +2240,9 @@ typedef struct
 #define _ADC_APORTMASTERDIS_APORT4YMASTERDIS_DEFAULT       0x00000000UL                                        /**< Mode DEFAULT for ADC_APORTMASTERDIS */
 #define ADC_APORTMASTERDIS_APORT4YMASTERDIS_DEFAULT        (_ADC_APORTMASTERDIS_APORT4YMASTERDIS_DEFAULT << 9) /**< Shifted mode DEFAULT for ADC_APORTMASTERDIS */
 
+/** @} */
 /** @} End of group EFR32FG1P_ADC */
 /** @} End of group Parts */
-
 #ifdef __cplusplus
 }
 #endif

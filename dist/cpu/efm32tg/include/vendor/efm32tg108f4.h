@@ -2,9 +2,9 @@
  * @file efm32tg108f4.h
  * @brief CMSIS Cortex-M3 Peripheral Access Layer Header File
  *        for EFM EFM32TG108F4
- * @version 5.1.2
+ * @version 5.3.3
  ******************************************************************************
- * @section License
+ * # License
  * <b>Copyright 2017 Silicon Laboratories, Inc. http://www.silabs.com</b>
  ******************************************************************************
  *
@@ -31,6 +31,12 @@
  *
  *****************************************************************************/
 
+#if defined(__ICCARM__)
+#pragma system_include       /* Treat file as system include file. */
+#elif defined(__ARMCC_VERSION) && (__ARMCC_VERSION >= 6010050)
+#pragma clang system_header  /* Treat file as system include file. */
+#endif
+
 #ifndef EFM32TG108F4_H
 #define EFM32TG108F4_H
 
@@ -49,8 +55,7 @@ extern "C" {
  *****************************************************************************/
 
 /** Interrupt Number Definition */
-typedef enum IRQn
-{
+typedef enum IRQn{
 /******  Cortex-M3 Processor Exceptions Numbers ********************************************/
   NonMaskableInt_IRQn   = -14,              /*!< -14 Cortex-M3 Non Maskable Interrupt      */
   HardFault_IRQn        = -13,              /*!< -13 Cortex-M3 Hard Fault Interrupt        */
@@ -104,8 +109,8 @@ typedef enum IRQn
 #define _EFM_DEVICE                                /**< Silicon Labs EFM-type microcontroller */
 #define _SILICON_LABS_32B_SERIES_0                 /**< Silicon Labs series number */
 #define _SILICON_LABS_32B_SERIES                0  /**< Silicon Labs series number */
-#define _SILICON_LABS_GECKO_INTERNAL_SDID       73 /** Silicon Labs internal use only, may change any time */
-#define _SILICON_LABS_GECKO_INTERNAL_SDID_73       /** Silicon Labs internal use only, may change any time */
+#define _SILICON_LABS_GECKO_INTERNAL_SDID       73 /**< Silicon Labs internal use only, may change any time */
+#define _SILICON_LABS_GECKO_INTERNAL_SDID_73       /**< Silicon Labs internal use only, may change any time */
 #define _SILICON_LABS_32B_PLATFORM_1               /**< @deprecated Silicon Labs platform name */
 #define _SILICON_LABS_32B_PLATFORM              1  /**< @deprecated Silicon Labs platform name */
 
@@ -146,7 +151,7 @@ typedef enum IRQn
 /** Flash and SRAM limits for EFM32TG108F4 */
 #define FLASH_BASE           (0x00000000UL) /**< Flash Base Address */
 #define FLASH_SIZE           (0x00001000UL) /**< Available Flash Memory */
-#define FLASH_PAGE_SIZE      512            /**< Flash Memory page size */
+#define FLASH_PAGE_SIZE      512U           /**< Flash Memory page size */
 #define SRAM_BASE            (0x20000000UL) /**< SRAM Base Address */
 #define SRAM_SIZE            (0x00000800UL) /**< Available SRAM Memory */
 #define __CM3_REV            0x201          /**< Cortex-M3 Core revision r2p1 */
@@ -162,57 +167,57 @@ typedef enum IRQn
 
 /* Part number capabilities */
 
-#define ACMP_PRESENT          /**< ACMP is available in this part */
-#define ACMP_COUNT          2 /**< 2 ACMPs available  */
-#define USART_PRESENT         /**< USART is available in this part */
-#define USART_COUNT         1 /**< 1 USARTs available  */
-#define TIMER_PRESENT         /**< TIMER is available in this part */
-#define TIMER_COUNT         2 /**< 2 TIMERs available  */
-#define LEUART_PRESENT        /**< LEUART is available in this part */
-#define LEUART_COUNT        1 /**< 1 LEUARTs available  */
-#define LETIMER_PRESENT       /**< LETIMER is available in this part */
-#define LETIMER_COUNT       1 /**< 1 LETIMERs available  */
-#define PCNT_PRESENT          /**< PCNT is available in this part */
-#define PCNT_COUNT          1 /**< 1 PCNTs available  */
-#define I2C_PRESENT           /**< I2C is available in this part */
-#define I2C_COUNT           1 /**< 1 I2Cs available  */
-#define DMA_PRESENT
-#define DMA_COUNT           1
-#define LE_PRESENT
-#define LE_COUNT            1
-#define MSC_PRESENT
-#define MSC_COUNT           1
-#define EMU_PRESENT
-#define EMU_COUNT           1
-#define RMU_PRESENT
-#define RMU_COUNT           1
-#define CMU_PRESENT
-#define CMU_COUNT           1
-#define LESENSE_PRESENT
-#define LESENSE_COUNT       1
-#define RTC_PRESENT
-#define RTC_COUNT           1
-#define GPIO_PRESENT
-#define GPIO_COUNT          1
-#define VCMP_PRESENT
-#define VCMP_COUNT          1
-#define PRS_PRESENT
-#define PRS_COUNT           1
-#define HFXTAL_PRESENT
-#define HFXTAL_COUNT        1
-#define LFXTAL_PRESENT
-#define LFXTAL_COUNT        1
-#define WDOG_PRESENT
-#define WDOG_COUNT          1
-#define DBG_PRESENT
-#define DBG_COUNT           1
-#define BOOTLOADER_PRESENT
-#define BOOTLOADER_COUNT    1
-#define ANALOG_PRESENT
-#define ANALOG_COUNT        1
+#define ACMP_PRESENT            /**< ACMP is available in this part */
+#define ACMP_COUNT            2 /**< 2 ACMPs available  */
+#define USART_PRESENT           /**< USART is available in this part */
+#define USART_COUNT           1 /**< 1 USARTs available  */
+#define TIMER_PRESENT           /**< TIMER is available in this part */
+#define TIMER_COUNT           2 /**< 2 TIMERs available  */
+#define LEUART_PRESENT          /**< LEUART is available in this part */
+#define LEUART_COUNT          1 /**< 1 LEUARTs available  */
+#define LETIMER_PRESENT         /**< LETIMER is available in this part */
+#define LETIMER_COUNT         1 /**< 1 LETIMERs available  */
+#define PCNT_PRESENT            /**< PCNT is available in this part */
+#define PCNT_COUNT            1 /**< 1 PCNTs available  */
+#define I2C_PRESENT             /**< I2C is available in this part */
+#define I2C_COUNT             1 /**< 1 I2Cs available  */
+#define DMA_PRESENT             /**< DMA is available in this part */
+#define DMA_COUNT             1 /**< 1 DMA available */
+#define LE_PRESENT              /**< LE is available in this part */
+#define LE_COUNT              1 /**< 1 LE available */
+#define MSC_PRESENT             /**< MSC is available in this part */
+#define MSC_COUNT             1 /**< 1 MSC available */
+#define EMU_PRESENT             /**< EMU is available in this part */
+#define EMU_COUNT             1 /**< 1 EMU available */
+#define RMU_PRESENT             /**< RMU is available in this part */
+#define RMU_COUNT             1 /**< 1 RMU available */
+#define CMU_PRESENT             /**< CMU is available in this part */
+#define CMU_COUNT             1 /**< 1 CMU available */
+#define LESENSE_PRESENT         /**< LESENSE is available in this part */
+#define LESENSE_COUNT         1 /**< 1 LESENSE available */
+#define RTC_PRESENT             /**< RTC is available in this part */
+#define RTC_COUNT             1 /**< 1 RTC available */
+#define GPIO_PRESENT            /**< GPIO is available in this part */
+#define GPIO_COUNT            1 /**< 1 GPIO available */
+#define VCMP_PRESENT            /**< VCMP is available in this part */
+#define VCMP_COUNT            1 /**< 1 VCMP available */
+#define PRS_PRESENT             /**< PRS is available in this part */
+#define PRS_COUNT             1 /**< 1 PRS available */
+#define HFXTAL_PRESENT          /**< HFXTAL is available in this part */
+#define HFXTAL_COUNT          1 /**< 1 HFXTAL available */
+#define LFXTAL_PRESENT          /**< LFXTAL is available in this part */
+#define LFXTAL_COUNT          1 /**< 1 LFXTAL available */
+#define WDOG_PRESENT            /**< WDOG is available in this part */
+#define WDOG_COUNT            1 /**< 1 WDOG available */
+#define DBG_PRESENT             /**< DBG is available in this part */
+#define DBG_COUNT             1 /**< 1 DBG available */
+#define BOOTLOADER_PRESENT      /**< BOOTLOADER is available in this part */
+#define BOOTLOADER_COUNT      1 /**< 1 BOOTLOADER available */
+#define ANALOG_PRESENT          /**< ANALOG is available in this part */
+#define ANALOG_COUNT          1 /**< 1 ANALOG available */
 
-#include "core_cm3.h"       /* Cortex-M3 processor and core peripherals */
-#include "system_efm32tg.h" /* System Header */
+#include "core_cm3.h"           /* Cortex-M3 processor and core peripherals */
+#include "system_efm32tg.h"       /* System Header */
 
 /** @} End of group EFM32TG108F4_Part */
 
@@ -229,8 +234,7 @@ typedef enum IRQn
  * @brief EFM32TG108F4_DMA Register Declaration
  * @{
  *****************************************************************************/
-typedef struct
-{
+typedef struct {
   __IM uint32_t  STATUS;         /**< DMA Status Registers  */
   __OM uint32_t  CONFIG;         /**< DMA Configuration Register  */
   __IOM uint32_t CTRLBASE;       /**< Channel Control Data Base Pointer Register  */
@@ -262,7 +266,7 @@ typedef struct
 
   uint32_t       RESERVED4[60];  /**< Reserved registers */
   DMA_CH_TypeDef CH[8];          /**< Channel registers */
-} DMA_TypeDef;                   /** @} */
+} DMA_TypeDef;                   /**< DMA Register Declaration *//** @} */
 
 #include "efm32tg_msc.h"
 #include "efm32tg_emu.h"
@@ -273,8 +277,7 @@ typedef struct
  * @brief EFM32TG108F4_CMU Register Declaration
  * @{
  *****************************************************************************/
-typedef struct
-{
+typedef struct {
   __IOM uint32_t CTRL;         /**< CMU Control Register  */
   __IOM uint32_t HFCORECLKDIV; /**< High Frequency Core Clock Division Register  */
   __IOM uint32_t HFPERCLKDIV;  /**< High Frequency Peripheral Clock Division Register  */
@@ -308,7 +311,7 @@ typedef struct
   uint32_t       RESERVED5[1]; /**< Reserved for future use **/
   __IOM uint32_t ROUTE;        /**< I/O Routing Register  */
   __IOM uint32_t LOCK;         /**< Configuration Lock Register  */
-} CMU_TypeDef;                 /** @} */
+} CMU_TypeDef;                 /**< CMU Register Declaration *//** @} */
 
 #include "efm32tg_lesense_st.h"
 #include "efm32tg_lesense_buf.h"
@@ -329,15 +332,14 @@ typedef struct
  * @brief EFM32TG108F4_PRS Register Declaration
  * @{
  *****************************************************************************/
-typedef struct
-{
+typedef struct {
   __IOM uint32_t SWPULSE;      /**< Software Pulse Register  */
   __IOM uint32_t SWLEVEL;      /**< Software Level Register  */
   __IOM uint32_t ROUTE;        /**< I/O Routing Register  */
 
   uint32_t       RESERVED0[1]; /**< Reserved registers */
   PRS_CH_TypeDef CH[8];        /**< Channel registers */
-} PRS_TypeDef;                 /** @} */
+} PRS_TypeDef;                 /**< PRS Register Declaration *//** @} */
 
 #include "efm32tg_leuart.h"
 #include "efm32tg_letimer.h"
@@ -1452,8 +1454,6 @@ typedef struct
 
 /** @} End of group EFM32TG108F4_DMA */
 
-
-
 /**************************************************************************//**
  * @defgroup EFM32TG108F4_CMU_BitFields  EFM32TG108F4_CMU Bit Fields
  * @{
@@ -2404,8 +2404,6 @@ typedef struct
 
 /** @} End of group EFM32TG108F4_CMU */
 
-
-
 /**************************************************************************//**
  * @defgroup EFM32TG108F4_PRS_BitFields  EFM32TG108F4_PRS Bit Fields
  * @{
@@ -2695,8 +2693,6 @@ typedef struct
 #define PRS_CH_CTRL_ASYNC_DEFAULT               (_PRS_CH_CTRL_ASYNC_DEFAULT << 28)          /**< Shifted mode DEFAULT for PRS_CH_CTRL */
 
 /** @} End of group EFM32TG108F4_PRS */
-
-
 
 /**************************************************************************//**
  * @defgroup EFM32TG108F4_UNLOCK EFM32TG108F4 Unlock Codes

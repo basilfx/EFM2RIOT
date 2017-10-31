@@ -1,9 +1,9 @@
 /**************************************************************************//**
  * @file efm32lg_dma_ch.h
  * @brief EFM32LG_DMA_CH register and bit field definitions
- * @version 5.1.2
+ * @version 5.3.3
  ******************************************************************************
- * @section License
+ * # License
  * <b>Copyright 2017 Silicon Laboratories, Inc. http://www.silabs.com</b>
  ******************************************************************************
  *
@@ -34,6 +34,13 @@
 extern "C" {
 #endif
 
+
+#if defined(__ICCARM__)
+#pragma system_include       /* Treat file as system include file. */
+#elif defined(__ARMCC_VERSION) && (__ARMCC_VERSION >= 6010050)
+#pragma clang system_header  /* Treat file as system include file. */
+#endif
+
 /**************************************************************************//**
 * @addtogroup Parts
 * @{
@@ -41,14 +48,11 @@ extern "C" {
 /**************************************************************************//**
  * @brief DMA_CH EFM32LG DMA CH
  *****************************************************************************/
-typedef struct
-{
+typedef struct {
   __IOM uint32_t CTRL; /**< Channel Control Register  */
 } DMA_CH_TypeDef;
 
 /** @} End of group Parts */
-
-
 #ifdef __cplusplus
 }
 #endif

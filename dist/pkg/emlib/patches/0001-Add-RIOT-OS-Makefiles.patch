@@ -1,6 +1,6 @@
-From 0a79cb6afc2c41a204b5fe314ba72ee7d4218b3a Mon Sep 17 00:00:00 2001
+From aff670ac96de7da433eadd4d00bdf9d9b6a0800d Mon Sep 17 00:00:00 2001
 From: Bas Stottelaar <basstottelaar@gmail.com>
-Date: Tue, 24 Oct 2017 21:12:26 +0200
+Date: Tue, 31 Oct 2017 17:29:53 +0100
 Subject: [PATCH 1/2] Add RIOT-OS Makefiles.
 
 ---
@@ -23,7 +23,7 @@ index 00000000..844599e5
 +include $(RIOTBASE)/Makefile.base
 diff --git a/emlib-extra/src/Makefile b/emlib-extra/src/Makefile
 new file mode 100644
-index 00000000..79af4f81
+index 00000000..11f547d3
 --- /dev/null
 +++ b/emlib-extra/src/Makefile
 @@ -0,0 +1,3 @@
@@ -39,5 +39,6 @@ index 00000000..11f547d3
 +MODULE = emlib
 +
 +include $(RIOTBASE)/Makefile.base
---
+-- 
 2.14.2
+

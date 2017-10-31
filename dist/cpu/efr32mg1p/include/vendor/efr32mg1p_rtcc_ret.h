@@ -1,9 +1,9 @@
 /**************************************************************************//**
  * @file efr32mg1p_rtcc_ret.h
  * @brief EFR32MG1P_RTCC_RET register and bit field definitions
- * @version 5.1.2
+ * @version 5.3.3
  ******************************************************************************
- * @section License
+ * # License
  * <b>Copyright 2017 Silicon Laboratories, Inc. http://www.silabs.com</b>
  ******************************************************************************
  *
@@ -34,21 +34,26 @@
 extern "C" {
 #endif
 
+
+#if defined(__ICCARM__)
+#pragma system_include       /* Treat file as system include file. */
+#elif defined(__ARMCC_VERSION) && (__ARMCC_VERSION >= 6010050)
+#pragma clang system_header  /* Treat file as system include file. */
+#endif
+
 /**************************************************************************//**
 * @addtogroup Parts
 * @{
 ******************************************************************************/
 /**************************************************************************//**
- * @brief RTCC_RET EFR32MG1P RTCC RET
+ * @brief RTCC_RET RTCC RET Register
+ * @ingroup EFR32MG1P_RTCC
  *****************************************************************************/
-typedef struct
-{
+typedef struct {
   __IOM uint32_t REG; /**< Retention register  */
 } RTCC_RET_TypeDef;
 
 /** @} End of group Parts */
-
-
 #ifdef __cplusplus
 }
 #endif

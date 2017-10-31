@@ -1,9 +1,9 @@
 /**************************************************************************//**
  * @file ezr32lg_romtable.h
  * @brief EZR32LG_ROMTABLE register and bit field definitions
- * @version 5.1.2
+ * @version 5.3.3
  ******************************************************************************
- * @section License
+ * # License
  * <b>Copyright 2017 Silicon Laboratories, Inc. http://www.silabs.com</b>
  ******************************************************************************
  *
@@ -34,6 +34,13 @@
 extern "C" {
 #endif
 
+
+#if defined(__ICCARM__)
+#pragma system_include       /* Treat file as system include file. */
+#elif defined(__ARMCC_VERSION) && (__ARMCC_VERSION >= 6010050)
+#pragma clang system_header  /* Treat file as system include file. */
+#endif
+
 /**************************************************************************//**
 * @addtogroup Parts
 * @{
@@ -43,8 +50,7 @@ extern "C" {
  * @{
  * @brief Chip Information, Revision numbers
  *****************************************************************************/
-typedef struct
-{
+typedef struct {
   __IM uint32_t PID4; /**< JEP_106_BANK */
   __IM uint32_t PID5; /**< Unused */
   __IM uint32_t PID6; /**< Unused */
@@ -74,7 +80,6 @@ typedef struct
 
 /** @} End of group EZR32LG_ROMTABLE */
 /** @} End of group Parts */
-
 #ifdef __cplusplus
 }
 #endif

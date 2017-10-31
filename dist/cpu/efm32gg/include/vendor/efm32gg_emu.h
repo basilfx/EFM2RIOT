@@ -1,9 +1,9 @@
 /**************************************************************************//**
  * @file efm32gg_emu.h
  * @brief EFM32GG_EMU register and bit field definitions
- * @version 5.1.2
+ * @version 5.3.3
  ******************************************************************************
- * @section License
+ * # License
  * <b>Copyright 2017 Silicon Laboratories, Inc. http://www.silabs.com</b>
  ******************************************************************************
  *
@@ -34,6 +34,13 @@
 extern "C" {
 #endif
 
+
+#if defined(__ICCARM__)
+#pragma system_include       /* Treat file as system include file. */
+#elif defined(__ARMCC_VERSION) && (__ARMCC_VERSION >= 6010050)
+#pragma clang system_header  /* Treat file as system include file. */
+#endif
+
 /**************************************************************************//**
 * @addtogroup Parts
 * @{
@@ -43,8 +50,7 @@ extern "C" {
  * @{
  * @brief EFM32GG_EMU Register Declaration
  *****************************************************************************/
-typedef struct
-{
+typedef struct {
   __IOM uint32_t CTRL;          /**< Control Register  */
   __IOM uint32_t MEMCTRL;       /**< Memory Control Register  */
   __IOM uint32_t LOCK;          /**< Configuration Lock Register  */
@@ -66,7 +72,7 @@ typedef struct
   __IOM uint32_t IEN;           /**< Interrupt Enable Register  */
   __IOM uint32_t BUBODBUVINCAL; /**< BU_VIN Backup BOD calibration  */
   __IOM uint32_t BUBODUNREGCAL; /**< Unregulated power Backup BOD calibration  */
-} EMU_TypeDef;                  /** @} */
+} EMU_TypeDef;                  /**< EMU Register Declaration *//** @} */
 
 /**************************************************************************//**
  * @defgroup EFM32GG_EMU_BitFields
@@ -368,7 +374,6 @@ typedef struct
 
 /** @} End of group EFM32GG_EMU */
 /** @} End of group Parts */
-
 #ifdef __cplusplus
 }
 #endif

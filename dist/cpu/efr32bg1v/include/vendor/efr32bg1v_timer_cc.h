@@ -1,9 +1,9 @@
 /**************************************************************************//**
  * @file efr32bg1v_timer_cc.h
  * @brief EFR32BG1V_TIMER_CC register and bit field definitions
- * @version 5.1.2
+ * @version 5.3.3
  ******************************************************************************
- * @section License
+ * # License
  * <b>Copyright 2017 Silicon Laboratories, Inc. http://www.silabs.com</b>
  ******************************************************************************
  *
@@ -34,15 +34,22 @@
 extern "C" {
 #endif
 
+
+#if defined(__ICCARM__)
+#pragma system_include       /* Treat file as system include file. */
+#elif defined(__ARMCC_VERSION) && (__ARMCC_VERSION >= 6010050)
+#pragma clang system_header  /* Treat file as system include file. */
+#endif
+
 /**************************************************************************//**
 * @addtogroup Parts
 * @{
 ******************************************************************************/
 /**************************************************************************//**
- * @brief TIMER_CC EFR32BG1V TIMER CC
+ * @brief TIMER_CC TIMER CC Register
+ * @ingroup EFR32BG1V_TIMER
  *****************************************************************************/
-typedef struct
-{
+typedef struct {
   __IOM uint32_t CTRL; /**< CC Channel Control Register  */
   __IOM uint32_t CCV;  /**< CC Channel Value Register  */
   __IM uint32_t  CCVP; /**< CC Channel Value Peek Register  */
@@ -50,8 +57,6 @@ typedef struct
 } TIMER_CC_TypeDef;
 
 /** @} End of group Parts */
-
-
 #ifdef __cplusplus
 }
 #endif

@@ -1,9 +1,9 @@
 /**************************************************************************//**
  * @file efm32hg_usart.h
  * @brief EFM32HG_USART register and bit field definitions
- * @version 5.1.2
+ * @version 5.3.3
  ******************************************************************************
- * @section License
+ * # License
  * <b>Copyright 2017 Silicon Laboratories, Inc. http://www.silabs.com</b>
  ******************************************************************************
  *
@@ -34,6 +34,13 @@
 extern "C" {
 #endif
 
+
+#if defined(__ICCARM__)
+#pragma system_include       /* Treat file as system include file. */
+#elif defined(__ARMCC_VERSION) && (__ARMCC_VERSION >= 6010050)
+#pragma clang system_header  /* Treat file as system include file. */
+#endif
+
 /**************************************************************************//**
 * @addtogroup Parts
 * @{
@@ -43,8 +50,7 @@ extern "C" {
  * @{
  * @brief EFM32HG_USART Register Declaration
  *****************************************************************************/
-typedef struct
-{
+typedef struct {
   __IOM uint32_t CTRL;       /**< Control Register  */
   __IOM uint32_t FRAME;      /**< USART Frame Format Register  */
   __IOM uint32_t TRIGCTRL;   /**< USART Trigger Control register  */
@@ -69,7 +75,7 @@ typedef struct
   __IOM uint32_t ROUTE;      /**< I/O Routing Register  */
   __IOM uint32_t INPUT;      /**< USART Input Register  */
   __IOM uint32_t I2SCTRL;    /**< I2S Control Register  */
-} USART_TypeDef;             /** @} */
+} USART_TypeDef;             /**< USART Register Declaration *//** @} */
 
 /**************************************************************************//**
  * @defgroup EFM32HG_USART_BitFields
@@ -1151,7 +1157,6 @@ typedef struct
 
 /** @} End of group EFM32HG_USART */
 /** @} End of group Parts */
-
 #ifdef __cplusplus
 }
 #endif

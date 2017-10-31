@@ -1,9 +1,9 @@
 /**************************************************************************//**
  * @file efr32mg13p_rmu.h
  * @brief EFR32MG13P_RMU register and bit field definitions
- * @version 5.1.2
+ * @version 5.3.3
  ******************************************************************************
- * @section License
+ * # License
  * <b>Copyright 2017 Silicon Laboratories, Inc. http://www.silabs.com</b>
  ******************************************************************************
  *
@@ -34,17 +34,24 @@
 extern "C" {
 #endif
 
+
+#if defined(__ICCARM__)
+#pragma system_include       /* Treat file as system include file. */
+#elif defined(__ARMCC_VERSION) && (__ARMCC_VERSION >= 6010050)
+#pragma clang system_header  /* Treat file as system include file. */
+#endif
+
 /**************************************************************************//**
 * @addtogroup Parts
 * @{
 ******************************************************************************/
 /**************************************************************************//**
- * @defgroup EFR32MG13P_RMU
+ * @defgroup EFR32MG13P_RMU RMU
  * @{
  * @brief EFR32MG13P_RMU Register Declaration
  *****************************************************************************/
-typedef struct
-{
+/** RMU Register Declaration */
+typedef struct {
   __IOM uint32_t CTRL;     /**< Control Register  */
   __IM uint32_t  RSTCAUSE; /**< Reset Cause Register  */
   __IOM uint32_t CMD;      /**< Command Register  */
@@ -53,7 +60,9 @@ typedef struct
 } RMU_TypeDef;             /** @} */
 
 /**************************************************************************//**
- * @defgroup EFR32MG13P_RMU_BitFields
+ * @addtogroup EFR32MG13P_RMU
+ * @{
+ * @defgroup EFR32MG13P_RMU_BitFields  RMU Bit Fields
  * @{
  *****************************************************************************/
 
@@ -191,9 +200,9 @@ typedef struct
 #define RMU_LOCK_LOCKKEY_LOCKED            (_RMU_LOCK_LOCKKEY_LOCKED << 0)   /**< Shifted mode LOCKED for RMU_LOCK */
 #define RMU_LOCK_LOCKKEY_UNLOCK            (_RMU_LOCK_LOCKKEY_UNLOCK << 0)   /**< Shifted mode UNLOCK for RMU_LOCK */
 
+/** @} */
 /** @} End of group EFR32MG13P_RMU */
 /** @} End of group Parts */
-
 #ifdef __cplusplus
 }
 #endif

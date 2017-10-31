@@ -1,9 +1,9 @@
 /**************************************************************************//**
  * @file efr32mg13p_prs_signals.h
  * @brief EFR32MG13P_PRS_SIGNALS register and bit field definitions
- * @version 5.1.2
+ * @version 5.3.3
  ******************************************************************************
- * @section License
+ * # License
  * <b>Copyright 2017 Silicon Laboratories, Inc. http://www.silabs.com</b>
  ******************************************************************************
  *
@@ -34,12 +34,21 @@
 extern "C" {
 #endif
 
+
+#if defined(__ICCARM__)
+#pragma system_include       /* Treat file as system include file. */
+#elif defined(__ARMCC_VERSION) && (__ARMCC_VERSION >= 6010050)
+#pragma clang system_header  /* Treat file as system include file. */
+#endif
+
 /**************************************************************************//**
 * @addtogroup Parts
 * @{
 ******************************************************************************/
 /**************************************************************************//**
- * @addtogroup EFR32MG13P_PRS_Signals
+ * @addtogroup EFR32MG13P_PRS
+ * @{
+ * @addtogroup EFR32MG13P_PRS_Signals PRS Signals
  * @{
  * @brief PRS Signal names
  *****************************************************************************/
@@ -111,6 +120,7 @@ extern "C" {
 #define PRS_VDAC0_OPA0              ((24 << 8) + 2) /**< PRS OPA0 warmedup or outputvalid based on OPA0PRSOUTMODE mode in OPACTRL. */
 #define PRS_VDAC0_OPA1              ((24 << 8) + 3) /**< PRS OPA1 warmedup or outputvalid based on OPA1PRSOUTMODE mode in OPACTRL. */
 #define PRS_VDAC0_OPA2              ((24 << 8) + 4) /**< PRS OPA2 warmedup or outputvalid based on OPA2PRSOUTMODE mode in OPACTRL. */
+#define PRS_RFSENSE_WU              ((25 << 8) + 0) /**< PRS RFSENSE Output */
 #define PRS_CRYOTIMER_PERIOD        ((26 << 8) + 0) /**< PRS CRYOTIMER Output */
 #define PRS_USART0_IRTX             ((48 << 8) + 0) /**< PRS USART 0 IRDA out */
 #define PRS_USART0_TXC              ((48 << 8) + 1) /**< PRS USART 0 TX complete */
@@ -148,10 +158,24 @@ extern "C" {
 #define PRS_CM4_TXEV                ((67 << 8) + 0) /**< PRS  */
 #define PRS_CM4_ICACHEPCHITSOF      ((67 << 8) + 1) /**< PRS  */
 #define PRS_CM4_ICACHEPCMISSESOF    ((67 << 8) + 2) /**< PRS  */
+#define PRS_RAC_ACTIVE              ((81 << 8) + 0) /**< PRS RAC is active */
+#define PRS_RAC_TX                  ((81 << 8) + 1) /**< PRS RAC is in TX */
+#define PRS_RAC_RX                  ((81 << 8) + 2) /**< PRS RAC is in RX */
+#define PRS_RAC_LNAEN               ((81 << 8) + 3) /**< PRS LNA enable */
+#define PRS_RAC_PAEN                ((81 << 8) + 4) /**< PRS PA enable */
+#define PRS_PROTIMER_LBTS           ((84 << 8) + 5) /**< PRS Listen Before Talk Success */
+#define PRS_PROTIMER_LBTR           ((84 << 8) + 6) /**< PRS Listen Before Talk Retry */
+#define PRS_PROTIMER_LBTF           ((84 << 8) + 7) /**< PRS Listen Before Talk Failure */
+#define PRS_MODEM_FRAMEDET          ((86 << 8) + 0) /**< PRS Frame detected */
+#define PRS_MODEM_PREDET            ((86 << 8) + 1) /**< PRS Receive preamble detected */
+#define PRS_MODEM_TIMDET            ((86 << 8) + 2) /**< PRS Receive timing detected */
+#define PRS_MODEM_FRAMESENT         ((86 << 8) + 3) /**< PRS Entire frame transmitted */
+#define PRS_MODEM_SYNCSENT          ((86 << 8) + 4) /**< PRS Syncword transmitted */
+#define PRS_MODEM_PRESENT           ((86 << 8) + 5) /**< PRS Preamble transmitted */
 
+/** @} */
 /** @} End of group EFR32MG13P_PRS */
 /** @} End of group Parts */
-
 #ifdef __cplusplus
 }
 #endif

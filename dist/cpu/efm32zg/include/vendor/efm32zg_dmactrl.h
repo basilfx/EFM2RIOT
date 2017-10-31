@@ -1,9 +1,9 @@
 /**************************************************************************//**
  * @file efm32zg_dmactrl.h
  * @brief EFM32ZG_DMACTRL register and bit field definitions
- * @version 5.1.2
+ * @version 5.3.3
  ******************************************************************************
- * @section License
+ * # License
  * <b>Copyright 2017 Silicon Laboratories, Inc. http://www.silabs.com</b>
  ******************************************************************************
  *
@@ -32,6 +32,13 @@
 
 #ifdef __cplusplus
 extern "C" {
+#endif
+
+
+#if defined(__ICCARM__)
+#pragma system_include       /* Treat file as system include file. */
+#elif defined(__ARMCC_VERSION) && (__ARMCC_VERSION >= 6010050)
+#pragma clang system_header  /* Treat file as system include file. */
 #endif
 
 /**************************************************************************//**
@@ -142,7 +149,6 @@ extern "C" {
 
 /** @} End of group EFM32ZG_DMA */
 /** @} End of group Parts */
-
 #ifdef __cplusplus
 }
 #endif

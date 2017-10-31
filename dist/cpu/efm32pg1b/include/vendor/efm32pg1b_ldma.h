@@ -1,9 +1,9 @@
 /**************************************************************************//**
  * @file efm32pg1b_ldma.h
  * @brief EFM32PG1B_LDMA register and bit field definitions
- * @version 5.1.2
+ * @version 5.3.3
  ******************************************************************************
- * @section License
+ * # License
  * <b>Copyright 2017 Silicon Laboratories, Inc. http://www.silabs.com</b>
  ******************************************************************************
  *
@@ -34,17 +34,24 @@
 extern "C" {
 #endif
 
+
+#if defined(__ICCARM__)
+#pragma system_include       /* Treat file as system include file. */
+#elif defined(__ARMCC_VERSION) && (__ARMCC_VERSION >= 6010050)
+#pragma clang system_header  /* Treat file as system include file. */
+#endif
+
 /**************************************************************************//**
 * @addtogroup Parts
 * @{
 ******************************************************************************/
 /**************************************************************************//**
- * @defgroup EFM32PG1B_LDMA
+ * @defgroup EFM32PG1B_LDMA LDMA
  * @{
  * @brief EFM32PG1B_LDMA Register Declaration
  *****************************************************************************/
-typedef struct
-{
+/** LDMA Register Declaration */
+typedef struct {
   __IOM uint32_t  CTRL;         /**< DMA Control Register  */
   __IM uint32_t   STATUS;       /**< DMA Status Register  */
   __IOM uint32_t  SYNC;         /**< DMA Synchronization Trigger Register (Single-Cycle RMW)  */
@@ -69,7 +76,9 @@ typedef struct
 } LDMA_TypeDef;                 /** @} */
 
 /**************************************************************************//**
- * @defgroup EFM32PG1B_LDMA_BitFields
+ * @addtogroup EFM32PG1B_LDMA
+ * @{
+ * @defgroup EFM32PG1B_LDMA_BitFields  LDMA Bit Fields
  * @{
  *****************************************************************************/
 
@@ -561,9 +570,9 @@ typedef struct
 #define _LDMA_CH_LINK_LINKADDR_DEFAULT               0x00000000UL                           /**< Mode DEFAULT for LDMA_CH_LINK */
 #define LDMA_CH_LINK_LINKADDR_DEFAULT                (_LDMA_CH_LINK_LINKADDR_DEFAULT << 2)  /**< Shifted mode DEFAULT for LDMA_CH_LINK */
 
+/** @} */
 /** @} End of group EFM32PG1B_LDMA */
 /** @} End of group Parts */
-
 #ifdef __cplusplus
 }
 #endif

@@ -1,9 +1,9 @@
 /**************************************************************************//**
  * @file efm32tg_gpio.h
  * @brief EFM32TG_GPIO register and bit field definitions
- * @version 5.1.2
+ * @version 5.3.3
  ******************************************************************************
- * @section License
+ * # License
  * <b>Copyright 2017 Silicon Laboratories, Inc. http://www.silabs.com</b>
  ******************************************************************************
  *
@@ -34,6 +34,13 @@
 extern "C" {
 #endif
 
+
+#if defined(__ICCARM__)
+#pragma system_include       /* Treat file as system include file. */
+#elif defined(__ARMCC_VERSION) && (__ARMCC_VERSION >= 6010050)
+#pragma clang system_header  /* Treat file as system include file. */
+#endif
+
 /**************************************************************************//**
 * @addtogroup Parts
 * @{
@@ -43,8 +50,7 @@ extern "C" {
  * @brief EFM32TG_GPIO Register Declaration
  * @{
  *****************************************************************************/
-typedef struct
-{
+typedef struct {
   GPIO_P_TypeDef P[6];          /**< Port configuration bits */
 
   uint32_t       RESERVED0[10]; /**< Reserved for future use **/
@@ -65,7 +71,7 @@ typedef struct
   __IOM uint32_t EM4WUEN;       /**< EM4 Wake-up Enable Register  */
   __IOM uint32_t EM4WUPOL;      /**< EM4 Wake-up Polarity Register  */
   __IM uint32_t  EM4WUCAUSE;    /**< EM4 Wake-up Cause Register  */
-} GPIO_TypeDef;                 /** @} */
+} GPIO_TypeDef;                 /**< GPIO Register Declaration *//** @} */
 
 /**************************************************************************//**
  * @defgroup EFM32TG_GPIO_BitFields
@@ -1169,7 +1175,6 @@ typedef struct
 
 /** @} End of group EFM32TG_GPIO */
 /** @} End of group Parts */
-
 #ifdef __cplusplus
 }
 #endif

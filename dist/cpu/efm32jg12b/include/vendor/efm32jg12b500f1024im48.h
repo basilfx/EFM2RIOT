@@ -2,9 +2,9 @@
  * @file efm32jg12b500f1024im48.h
  * @brief CMSIS Cortex-M Peripheral Access Layer Header File
  *        for EFM32JG12B500F1024IM48
- * @version 5.1.2
+ * @version 5.3.3
  ******************************************************************************
- * @section License
+ * # License
  * <b>Copyright 2017 Silicon Laboratories, Inc. http://www.silabs.com</b>
  ******************************************************************************
  *
@@ -31,6 +31,12 @@
  *
  *****************************************************************************/
 
+#if defined(__ICCARM__)
+#pragma system_include       /* Treat file as system include file. */
+#elif defined(__ARMCC_VERSION) && (__ARMCC_VERSION >= 6010050)
+#pragma clang system_header  /* Treat file as system include file. */
+#endif
+
 #ifndef EFM32JG12B500F1024IM48_H
 #define EFM32JG12B500F1024IM48_H
 
@@ -49,66 +55,65 @@ extern "C" {
  *****************************************************************************/
 
 /** Interrupt Number Definition */
-typedef enum IRQn
-{
+typedef enum IRQn{
 /******  Cortex-M3 Processor Exceptions Numbers ********************************************/
-  NonMaskableInt_IRQn   = -14,              /*!< -14 Cortex-M3 Non Maskable Interrupt      */
-  HardFault_IRQn        = -13,              /*!< -13 Cortex-M3 Hard Fault Interrupt        */
-  MemoryManagement_IRQn = -12,              /*!< -12 Cortex-M3 Memory Management Interrupt */
-  BusFault_IRQn         = -11,              /*!< -11 Cortex-M3 Bus Fault Interrupt         */
-  UsageFault_IRQn       = -10,              /*!< -10 Cortex-M3 Usage Fault Interrupt       */
-  SVCall_IRQn           = -5,               /*!< -5  Cortex-M3 SV Call Interrupt           */
-  DebugMonitor_IRQn     = -4,               /*!< -4  Cortex-M3 Debug Monitor Interrupt     */
-  PendSV_IRQn           = -2,               /*!< -2  Cortex-M3 Pend SV Interrupt           */
-  SysTick_IRQn          = -1,               /*!< -1  Cortex-M3 System Tick Interrupt       */
+  NonMaskableInt_IRQn   = -14,              /*!< 2  Cortex-M3 Non Maskable Interrupt      */
+  HardFault_IRQn        = -13,              /*!< 3  Cortex-M3 Hard Fault Interrupt        */
+  MemoryManagement_IRQn = -12,              /*!< 4  Cortex-M3 Memory Management Interrupt */
+  BusFault_IRQn         = -11,              /*!< 5  Cortex-M3 Bus Fault Interrupt         */
+  UsageFault_IRQn       = -10,              /*!< 6  Cortex-M3 Usage Fault Interrupt       */
+  SVCall_IRQn           = -5,               /*!< 11 Cortex-M3 SV Call Interrupt           */
+  DebugMonitor_IRQn     = -4,               /*!< 12 Cortex-M3 Debug Monitor Interrupt     */
+  PendSV_IRQn           = -2,               /*!< 14 Cortex-M3 Pend SV Interrupt           */
+  SysTick_IRQn          = -1,               /*!< 15 Cortex-M3 System Tick Interrupt       */
 
 /******  EFM32JG12B Peripheral Interrupt Numbers ********************************************/
 
-  EMU_IRQn              = 0,  /*!< 0 EFM32 EMU Interrupt */
-  WDOG0_IRQn            = 2,  /*!< 2 EFM32 WDOG0 Interrupt */
-  WDOG1_IRQn            = 3,  /*!< 3 EFM32 WDOG1 Interrupt */
-  LDMA_IRQn             = 9,  /*!< 9 EFM32 LDMA Interrupt */
-  GPIO_EVEN_IRQn        = 10, /*!< 10 EFM32 GPIO_EVEN Interrupt */
-  TIMER0_IRQn           = 11, /*!< 11 EFM32 TIMER0 Interrupt */
-  USART0_RX_IRQn        = 12, /*!< 12 EFM32 USART0_RX Interrupt */
-  USART0_TX_IRQn        = 13, /*!< 13 EFM32 USART0_TX Interrupt */
-  ACMP0_IRQn            = 14, /*!< 14 EFM32 ACMP0 Interrupt */
-  ADC0_IRQn             = 15, /*!< 15 EFM32 ADC0 Interrupt */
-  IDAC0_IRQn            = 16, /*!< 16 EFM32 IDAC0 Interrupt */
-  I2C0_IRQn             = 17, /*!< 17 EFM32 I2C0 Interrupt */
-  GPIO_ODD_IRQn         = 18, /*!< 18 EFM32 GPIO_ODD Interrupt */
-  TIMER1_IRQn           = 19, /*!< 19 EFM32 TIMER1 Interrupt */
-  USART1_RX_IRQn        = 20, /*!< 20 EFM32 USART1_RX Interrupt */
-  USART1_TX_IRQn        = 21, /*!< 21 EFM32 USART1_TX Interrupt */
-  LEUART0_IRQn          = 22, /*!< 22 EFM32 LEUART0 Interrupt */
-  PCNT0_IRQn            = 23, /*!< 23 EFM32 PCNT0 Interrupt */
-  CMU_IRQn              = 24, /*!< 24 EFM32 CMU Interrupt */
-  MSC_IRQn              = 25, /*!< 25 EFM32 MSC Interrupt */
-  CRYPTO0_IRQn          = 26, /*!< 26 EFM32 CRYPTO0 Interrupt */
-  LETIMER0_IRQn         = 27, /*!< 27 EFM32 LETIMER0 Interrupt */
-  RTCC_IRQn             = 30, /*!< 30 EFM32 RTCC Interrupt */
-  CRYOTIMER_IRQn        = 32, /*!< 32 EFM32 CRYOTIMER Interrupt */
-  SMU_IRQn              = 35, /*!< 35 EFM32 SMU Interrupt */
-  WTIMER0_IRQn          = 36, /*!< 36 EFM32 WTIMER0 Interrupt */
-  WTIMER1_IRQn          = 37, /*!< 37 EFM32 WTIMER1 Interrupt */
-  PCNT1_IRQn            = 38, /*!< 38 EFM32 PCNT1 Interrupt */
-  PCNT2_IRQn            = 39, /*!< 39 EFM32 PCNT2 Interrupt */
-  USART2_RX_IRQn        = 40, /*!< 40 EFM32 USART2_RX Interrupt */
-  USART2_TX_IRQn        = 41, /*!< 41 EFM32 USART2_TX Interrupt */
-  I2C1_IRQn             = 42, /*!< 42 EFM32 I2C1 Interrupt */
-  USART3_RX_IRQn        = 43, /*!< 43 EFM32 USART3_RX Interrupt */
-  USART3_TX_IRQn        = 44, /*!< 44 EFM32 USART3_TX Interrupt */
-  VDAC0_IRQn            = 45, /*!< 45 EFM32 VDAC0 Interrupt */
-  CSEN_IRQn             = 46, /*!< 46 EFM32 CSEN Interrupt */
-  LESENSE_IRQn          = 47, /*!< 47 EFM32 LESENSE Interrupt */
-  CRYPTO1_IRQn          = 48, /*!< 48 EFM32 CRYPTO1 Interrupt */
-  TRNG0_IRQn            = 49, /*!< 49 EFM32 TRNG0 Interrupt */
+  EMU_IRQn              = 0,  /*!< 16+0 EFM32 EMU Interrupt */
+  WDOG0_IRQn            = 2,  /*!< 16+2 EFM32 WDOG0 Interrupt */
+  WDOG1_IRQn            = 3,  /*!< 16+3 EFM32 WDOG1 Interrupt */
+  LDMA_IRQn             = 9,  /*!< 16+9 EFM32 LDMA Interrupt */
+  GPIO_EVEN_IRQn        = 10, /*!< 16+10 EFM32 GPIO_EVEN Interrupt */
+  TIMER0_IRQn           = 11, /*!< 16+11 EFM32 TIMER0 Interrupt */
+  USART0_RX_IRQn        = 12, /*!< 16+12 EFM32 USART0_RX Interrupt */
+  USART0_TX_IRQn        = 13, /*!< 16+13 EFM32 USART0_TX Interrupt */
+  ACMP0_IRQn            = 14, /*!< 16+14 EFM32 ACMP0 Interrupt */
+  ADC0_IRQn             = 15, /*!< 16+15 EFM32 ADC0 Interrupt */
+  IDAC0_IRQn            = 16, /*!< 16+16 EFM32 IDAC0 Interrupt */
+  I2C0_IRQn             = 17, /*!< 16+17 EFM32 I2C0 Interrupt */
+  GPIO_ODD_IRQn         = 18, /*!< 16+18 EFM32 GPIO_ODD Interrupt */
+  TIMER1_IRQn           = 19, /*!< 16+19 EFM32 TIMER1 Interrupt */
+  USART1_RX_IRQn        = 20, /*!< 16+20 EFM32 USART1_RX Interrupt */
+  USART1_TX_IRQn        = 21, /*!< 16+21 EFM32 USART1_TX Interrupt */
+  LEUART0_IRQn          = 22, /*!< 16+22 EFM32 LEUART0 Interrupt */
+  PCNT0_IRQn            = 23, /*!< 16+23 EFM32 PCNT0 Interrupt */
+  CMU_IRQn              = 24, /*!< 16+24 EFM32 CMU Interrupt */
+  MSC_IRQn              = 25, /*!< 16+25 EFM32 MSC Interrupt */
+  CRYPTO0_IRQn          = 26, /*!< 16+26 EFM32 CRYPTO0 Interrupt */
+  LETIMER0_IRQn         = 27, /*!< 16+27 EFM32 LETIMER0 Interrupt */
+  RTCC_IRQn             = 30, /*!< 16+30 EFM32 RTCC Interrupt */
+  CRYOTIMER_IRQn        = 32, /*!< 16+32 EFM32 CRYOTIMER Interrupt */
+  SMU_IRQn              = 35, /*!< 16+35 EFM32 SMU Interrupt */
+  WTIMER0_IRQn          = 36, /*!< 16+36 EFM32 WTIMER0 Interrupt */
+  WTIMER1_IRQn          = 37, /*!< 16+37 EFM32 WTIMER1 Interrupt */
+  PCNT1_IRQn            = 38, /*!< 16+38 EFM32 PCNT1 Interrupt */
+  PCNT2_IRQn            = 39, /*!< 16+39 EFM32 PCNT2 Interrupt */
+  USART2_RX_IRQn        = 40, /*!< 16+40 EFM32 USART2_RX Interrupt */
+  USART2_TX_IRQn        = 41, /*!< 16+41 EFM32 USART2_TX Interrupt */
+  I2C1_IRQn             = 42, /*!< 16+42 EFM32 I2C1 Interrupt */
+  USART3_RX_IRQn        = 43, /*!< 16+43 EFM32 USART3_RX Interrupt */
+  USART3_TX_IRQn        = 44, /*!< 16+44 EFM32 USART3_TX Interrupt */
+  VDAC0_IRQn            = 45, /*!< 16+45 EFM32 VDAC0 Interrupt */
+  CSEN_IRQn             = 46, /*!< 16+46 EFM32 CSEN Interrupt */
+  LESENSE_IRQn          = 47, /*!< 16+47 EFM32 LESENSE Interrupt */
+  CRYPTO1_IRQn          = 48, /*!< 16+48 EFM32 CRYPTO1 Interrupt */
+  TRNG0_IRQn            = 49, /*!< 16+49 EFM32 TRNG0 Interrupt */
 } IRQn_Type;
 
 #define CRYPTO_IRQn               CRYPTO0_IRQn /*!< Alias for CRYPTO0_IRQn */
 
 /**************************************************************************//**
- * @defgroup EFM32JG12B500F1024IM48_Core EFM32JG12B500F1024IM48 Core
+ * @defgroup EFM32JG12B500F1024IM48_Core Core
  * @{
  * @brief Processor and Core Peripheral Section
  *****************************************************************************/
@@ -120,7 +125,7 @@ typedef enum IRQn
 /** @} End of group EFM32JG12B500F1024IM48_Core */
 
 /**************************************************************************//**
-* @defgroup EFM32JG12B500F1024IM48_Part EFM32JG12B500F1024IM48 Part
+* @defgroup EFM32JG12B500F1024IM48_Part Part
 * @{
 ******************************************************************************/
 
@@ -131,8 +136,8 @@ typedef enum IRQn
 #define _SILICON_LABS_32B_SERIES                1  /**< Silicon Labs series number */
 #define _SILICON_LABS_32B_SERIES_1_CONFIG_2        /**< Series 1, Configuration 2 */
 #define _SILICON_LABS_32B_SERIES_1_CONFIG       2  /**< Series 1, Configuration 2 */
-#define _SILICON_LABS_GECKO_INTERNAL_SDID       84 /** Silicon Labs internal use only, may change any time */
-#define _SILICON_LABS_GECKO_INTERNAL_SDID_84       /** Silicon Labs internal use only, may change any time */
+#define _SILICON_LABS_GECKO_INTERNAL_SDID       84 /**< Silicon Labs internal use only, may change any time */
+#define _SILICON_LABS_GECKO_INTERNAL_SDID_84       /**< Silicon Labs internal use only, may change any time */
 #define _SILICON_LABS_32B_PLATFORM_2               /**< @deprecated Silicon Labs platform name */
 #define _SILICON_LABS_32B_PLATFORM              2  /**< @deprecated Silicon Labs platform name */
 #define _SILICON_LABS_32B_PLATFORM_2_GEN_2         /**< @deprecated Platform 2, generation 2 */
@@ -231,7 +236,7 @@ typedef enum IRQn
 /** Flash and SRAM limits for EFM32JG12B500F1024IM48 */
 #define FLASH_BASE                 (0x00000000UL) /**< Flash Base Address */
 #define FLASH_SIZE                 (0x00100000UL) /**< Available Flash Memory */
-#define FLASH_PAGE_SIZE            2048           /**< Flash Memory page size (interleaving off) */
+#define FLASH_PAGE_SIZE            2048U          /**< Flash Memory page size (interleaving off) */
 #define SRAM_BASE                  (0x20000000UL) /**< SRAM Base Address */
 #define SRAM_SIZE                  (0x00040000UL) /**< Available SRAM Memory */
 #define __CM3_REV                  0x201          /**< Cortex-M3 Core revision r2p1 */
@@ -241,80 +246,81 @@ typedef enum IRQn
 
 /** AF channels connect the different on-chip peripherals with the af-mux */
 #define AFCHAN_MAX                 136
+/** AF channel maximum location number */
 #define AFCHANLOC_MAX              32
 /** Analog AF channels */
 #define AFACHAN_MAX                125
 
 /* Part number capabilities */
 
-#define CRYPTO_PRESENT        /**< CRYPTO is available in this part */
-#define CRYPTO_COUNT        2 /**< 2 CRYPTOs available  */
-#define TIMER_PRESENT         /**< TIMER is available in this part */
-#define TIMER_COUNT         2 /**< 2 TIMERs available  */
-#define WTIMER_PRESENT        /**< WTIMER is available in this part */
-#define WTIMER_COUNT        2 /**< 2 WTIMERs available  */
-#define USART_PRESENT         /**< USART is available in this part */
-#define USART_COUNT         4 /**< 4 USARTs available  */
-#define LEUART_PRESENT        /**< LEUART is available in this part */
-#define LEUART_COUNT        1 /**< 1 LEUARTs available  */
-#define LETIMER_PRESENT       /**< LETIMER is available in this part */
-#define LETIMER_COUNT       1 /**< 1 LETIMERs available  */
-#define PCNT_PRESENT          /**< PCNT is available in this part */
-#define PCNT_COUNT          3 /**< 3 PCNTs available  */
-#define I2C_PRESENT           /**< I2C is available in this part */
-#define I2C_COUNT           2 /**< 2 I2Cs available  */
-#define ADC_PRESENT           /**< ADC is available in this part */
-#define ADC_COUNT           1 /**< 1 ADCs available  */
-#define ACMP_PRESENT          /**< ACMP is available in this part */
-#define ACMP_COUNT          2 /**< 2 ACMPs available  */
-#define IDAC_PRESENT          /**< IDAC is available in this part */
-#define IDAC_COUNT          1 /**< 1 IDACs available  */
-#define VDAC_PRESENT          /**< VDAC is available in this part */
-#define VDAC_COUNT          1 /**< 1 VDACs available  */
-#define WDOG_PRESENT          /**< WDOG is available in this part */
-#define WDOG_COUNT          2 /**< 2 WDOGs available  */
-#define TRNG_PRESENT          /**< TRNG is available in this part */
-#define TRNG_COUNT          1 /**< 1 TRNGs available  */
-#define SYSTICK_PRESENT
-#define SYSTICK_COUNT       1
-#define MSC_PRESENT
-#define MSC_COUNT           1
-#define EMU_PRESENT
-#define EMU_COUNT           1
-#define RMU_PRESENT
-#define RMU_COUNT           1
-#define CMU_PRESENT
-#define CMU_COUNT           1
-#define GPIO_PRESENT
-#define GPIO_COUNT          1
-#define PRS_PRESENT
-#define PRS_COUNT           1
-#define LDMA_PRESENT
-#define LDMA_COUNT          1
-#define GPCRC_PRESENT
-#define GPCRC_COUNT         1
-#define CRYOTIMER_PRESENT
-#define CRYOTIMER_COUNT     1
-#define CSEN_PRESENT
-#define CSEN_COUNT          1
-#define LESENSE_PRESENT
-#define LESENSE_COUNT       1
-#define RTCC_PRESENT
-#define RTCC_COUNT          1
-#define ETM_PRESENT
-#define ETM_COUNT           1
-#define BOOTLOADER_PRESENT
-#define BOOTLOADER_COUNT    1
-#define SMU_PRESENT
-#define SMU_COUNT           1
+#define CRYPTO_PRESENT          /**< CRYPTO is available in this part */
+#define CRYPTO_COUNT          2 /**< 2 CRYPTOs available  */
+#define TIMER_PRESENT           /**< TIMER is available in this part */
+#define TIMER_COUNT           2 /**< 2 TIMERs available  */
+#define WTIMER_PRESENT          /**< WTIMER is available in this part */
+#define WTIMER_COUNT          2 /**< 2 WTIMERs available  */
+#define USART_PRESENT           /**< USART is available in this part */
+#define USART_COUNT           4 /**< 4 USARTs available  */
+#define LEUART_PRESENT          /**< LEUART is available in this part */
+#define LEUART_COUNT          1 /**< 1 LEUARTs available  */
+#define LETIMER_PRESENT         /**< LETIMER is available in this part */
+#define LETIMER_COUNT         1 /**< 1 LETIMERs available  */
+#define PCNT_PRESENT            /**< PCNT is available in this part */
+#define PCNT_COUNT            3 /**< 3 PCNTs available  */
+#define I2C_PRESENT             /**< I2C is available in this part */
+#define I2C_COUNT             2 /**< 2 I2Cs available  */
+#define ADC_PRESENT             /**< ADC is available in this part */
+#define ADC_COUNT             1 /**< 1 ADCs available  */
+#define ACMP_PRESENT            /**< ACMP is available in this part */
+#define ACMP_COUNT            2 /**< 2 ACMPs available  */
+#define IDAC_PRESENT            /**< IDAC is available in this part */
+#define IDAC_COUNT            1 /**< 1 IDACs available  */
+#define VDAC_PRESENT            /**< VDAC is available in this part */
+#define VDAC_COUNT            1 /**< 1 VDACs available  */
+#define WDOG_PRESENT            /**< WDOG is available in this part */
+#define WDOG_COUNT            2 /**< 2 WDOGs available  */
+#define TRNG_PRESENT            /**< TRNG is available in this part */
+#define TRNG_COUNT            1 /**< 1 TRNGs available  */
+#define MSC_PRESENT             /**< MSC is available in this part */
+#define MSC_COUNT             1 /**< 1 MSC available */
+#define EMU_PRESENT             /**< EMU is available in this part */
+#define EMU_COUNT             1 /**< 1 EMU available */
+#define RMU_PRESENT             /**< RMU is available in this part */
+#define RMU_COUNT             1 /**< 1 RMU available */
+#define CMU_PRESENT             /**< CMU is available in this part */
+#define CMU_COUNT             1 /**< 1 CMU available */
+#define GPIO_PRESENT            /**< GPIO is available in this part */
+#define GPIO_COUNT            1 /**< 1 GPIO available */
+#define PRS_PRESENT             /**< PRS is available in this part */
+#define PRS_COUNT             1 /**< 1 PRS available */
+#define LDMA_PRESENT            /**< LDMA is available in this part */
+#define LDMA_COUNT            1 /**< 1 LDMA available */
+#define GPCRC_PRESENT           /**< GPCRC is available in this part */
+#define GPCRC_COUNT           1 /**< 1 GPCRC available */
+#define CRYOTIMER_PRESENT       /**< CRYOTIMER is available in this part */
+#define CRYOTIMER_COUNT       1 /**< 1 CRYOTIMER available */
+#define CSEN_PRESENT            /**< CSEN is available in this part */
+#define CSEN_COUNT            1 /**< 1 CSEN available */
+#define LESENSE_PRESENT         /**< LESENSE is available in this part */
+#define LESENSE_COUNT         1 /**< 1 LESENSE available */
+#define RTCC_PRESENT            /**< RTCC is available in this part */
+#define RTCC_COUNT            1 /**< 1 RTCC available */
+#define ETM_PRESENT             /**< ETM is available in this part */
+#define ETM_COUNT             1 /**< 1 ETM available */
+#define BOOTLOADER_PRESENT      /**< BOOTLOADER is available in this part */
+#define BOOTLOADER_COUNT      1 /**< 1 BOOTLOADER available */
+#define SMU_PRESENT             /**< SMU is available in this part */
+#define SMU_COUNT             1 /**< 1 SMU available */
+#define DCDC_PRESENT            /**< DCDC is available in this part */
+#define DCDC_COUNT            1 /**< 1 DCDC available */
 
-#include "core_cm3.h"          /* Cortex-M3 processor and core peripherals */
-#include "system_efm32jg12b.h" /* System Header File */
+#include "core_cm3.h"           /* Cortex-M3 processor and core peripherals */
+#include "system_efm32jg12b.h"  /* System Header File */
 
 /** @} End of group EFM32JG12B500F1024IM48_Part */
 
 /**************************************************************************//**
- * @defgroup EFM32JG12B500F1024IM48_Peripheral_TypeDefs EFM32JG12B500F1024IM48 Peripheral TypeDefs
+ * @defgroup EFM32JG12B500F1024IM48_Peripheral_TypeDefs Peripheral TypeDefs
  * @{
  * @brief Device Specific Peripheral Register Structures
  *****************************************************************************/
@@ -364,7 +370,7 @@ typedef enum IRQn
 /** @} End of group EFM32JG12B500F1024IM48_Peripheral_TypeDefs  */
 
 /**************************************************************************//**
- * @defgroup EFM32JG12B500F1024IM48_Peripheral_Base EFM32JG12B500F1024IM48 Peripheral Memory Map
+ * @defgroup EFM32JG12B500F1024IM48_Peripheral_Base Peripheral Memory Map
  * @{
  *****************************************************************************/
 
@@ -416,7 +422,7 @@ typedef enum IRQn
 /** @} End of group EFM32JG12B500F1024IM48_Peripheral_Base */
 
 /**************************************************************************//**
- * @defgroup EFM32JG12B500F1024IM48_Peripheral_Declaration  EFM32JG12B500F1024IM48 Peripheral Declarations
+ * @defgroup EFM32JG12B500F1024IM48_Peripheral_Declaration Peripheral Declarations
  * @{
  *****************************************************************************/
 
@@ -466,7 +472,7 @@ typedef enum IRQn
 /** @} End of group EFM32JG12B500F1024IM48_Peripheral_Declaration */
 
 /**************************************************************************//**
- * @defgroup EFM32JG12B500F1024IM48_Peripheral_Offsets  EFM32JG12B500F1024IM48 Peripheral Offsets
+ * @defgroup EFM32JG12B500F1024IM48_Peripheral_Offsets Peripheral Offsets
  * @{
  *****************************************************************************/
 
@@ -487,9 +493,8 @@ typedef enum IRQn
 
 /** @} End of group EFM32JG12B500F1024IM48_Peripheral_Offsets */
 
-
 /**************************************************************************//**
- * @defgroup EFM32JG12B500F1024IM48_BitFields EFM32JG12B500F1024IM48 Bit Fields
+ * @defgroup EFM32JG12B500F1024IM48_BitFields Bit Fields
  * @{
  *****************************************************************************/
 
@@ -497,7 +502,9 @@ typedef enum IRQn
 #include "efm32jg12b_dmareq.h"
 
 /**************************************************************************//**
- * @defgroup EFM32JG12B500F1024IM48_WTIMER_BitFields  EFM32JG12B500F1024IM48_WTIMER Bit Fields
+ * @addtogroup EFM32JG12B500F1024IM48_WTIMER
+ * @{
+ * @defgroup EFM32JG12B500F1024IM48_WTIMER_BitFields  WTIMER Bit Fields
  * @{
  *****************************************************************************/
 
@@ -1997,21 +2004,11 @@ typedef enum IRQn
 #define WTIMER_DTLOCK_LOCKKEY_LOCKED                (_WTIMER_DTLOCK_LOCKKEY_LOCKED << 0)   /**< Shifted mode LOCKED for WTIMER_DTLOCK */
 #define WTIMER_DTLOCK_LOCKKEY_UNLOCK                (_WTIMER_DTLOCK_LOCKKEY_UNLOCK << 0)   /**< Shifted mode UNLOCK for WTIMER_DTLOCK */
 
+/** @} */
 /** @} End of group EFM32JG12B500F1024IM48_WTIMER */
 
-
-
 /**************************************************************************//**
- * @defgroup EFM32JG12B500F1024IM48_SYSTICK_BitFields  EFM32JG12B500F1024IM48_SYSTICK Bit Fields
- * @{
- *****************************************************************************/
-
-/** @} End of group EFM32JG12B500F1024IM48_SYSTICK */
-
-
-
-/**************************************************************************//**
- * @defgroup EFM32JG12B500F1024IM48_UNLOCK EFM32JG12B500F1024IM48 Unlock Codes
+ * @defgroup EFM32JG12B500F1024IM48_UNLOCK Unlock Codes
  * @{
  *****************************************************************************/
 #define MSC_UNLOCK_CODE      0x1B71 /**< MSC unlock code */
@@ -2026,15 +2023,8 @@ typedef enum IRQn
 
 /** @} End of group EFM32JG12B500F1024IM48_BitFields */
 
-/**************************************************************************//**
- * @defgroup EFM32JG12B500F1024IM48_Alternate_Function EFM32JG12B500F1024IM48 Alternate Function
- * @{
- *****************************************************************************/
-
 #include "efm32jg12b_af_ports.h"
 #include "efm32jg12b_af_pins.h"
-
-/** @} End of group EFM32JG12B500F1024IM48_Alternate_Function */
 
 /** @} End of group EFM32JG12B500F1024IM48 */
 

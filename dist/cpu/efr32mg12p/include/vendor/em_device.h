@@ -9,12 +9,12 @@
  * @verbatim
  * Example: Add "-DEFM32G890F128" to your build options, to define part
  *          Add "#include "em_device.h" to your source files
- *
+
  *
  * @endverbatim
- * @version 5.1.2
+ * @version 5.3.3
  ******************************************************************************
- * @section License
+ * # License
  * <b>Copyright 2017 Silicon Laboratories, Inc. http://www.silabs.com</b>
  ******************************************************************************
  *
@@ -67,17 +67,35 @@ extern "C" {
 #elif defined(EFR32MG12P332F1024GM48)
 #include "efr32mg12p332f1024gm48.h"
 
+#elif defined(EFR32MG12P332F1024IM48)
+#include "efr32mg12p332f1024im48.h"
+
 #elif defined(EFR32MG12P432F1024GL125)
 #include "efr32mg12p432f1024gl125.h"
 
 #elif defined(EFR32MG12P432F1024GM48)
 #include "efr32mg12p432f1024gm48.h"
 
+#elif defined(EFR32MG12P432F1024GM68)
+#include "efr32mg12p432f1024gm68.h"
+
+#elif defined(EFR32MG12P432F1024IM48)
+#include "efr32mg12p432f1024im48.h"
+
 #elif defined(EFR32MG12P433F1024GL125)
 #include "efr32mg12p433f1024gl125.h"
 
 #elif defined(EFR32MG12P433F1024GM48)
 #include "efr32mg12p433f1024gm48.h"
+
+#elif defined(EFR32MG12P433F1024GM68)
+#include "efr32mg12p433f1024gm68.h"
+
+#elif defined(EFR32MG12P433F1024IL125)
+#include "efr32mg12p433f1024il125.h"
+
+#elif defined(EFR32MG12P433F1024IM48)
+#include "efr32mg12p433f1024im48.h"
 
 #else
 #error "em_device.h: PART NUMBER undefined"

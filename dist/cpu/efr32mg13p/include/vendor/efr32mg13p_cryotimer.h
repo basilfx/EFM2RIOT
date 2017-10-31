@@ -1,9 +1,9 @@
 /**************************************************************************//**
  * @file efr32mg13p_cryotimer.h
  * @brief EFR32MG13P_CRYOTIMER register and bit field definitions
- * @version 5.1.2
+ * @version 5.3.3
  ******************************************************************************
- * @section License
+ * # License
  * <b>Copyright 2017 Silicon Laboratories, Inc. http://www.silabs.com</b>
  ******************************************************************************
  *
@@ -34,17 +34,24 @@
 extern "C" {
 #endif
 
+
+#if defined(__ICCARM__)
+#pragma system_include       /* Treat file as system include file. */
+#elif defined(__ARMCC_VERSION) && (__ARMCC_VERSION >= 6010050)
+#pragma clang system_header  /* Treat file as system include file. */
+#endif
+
 /**************************************************************************//**
 * @addtogroup Parts
 * @{
 ******************************************************************************/
 /**************************************************************************//**
- * @defgroup EFR32MG13P_CRYOTIMER
+ * @defgroup EFR32MG13P_CRYOTIMER CRYOTIMER
  * @{
  * @brief EFR32MG13P_CRYOTIMER Register Declaration
  *****************************************************************************/
-typedef struct
-{
+/** CRYOTIMER Register Declaration */
+typedef struct {
   __IOM uint32_t CTRL;      /**< Control Register  */
   __IOM uint32_t PERIODSEL; /**< Interrupt Duration  */
   __IM uint32_t  CNT;       /**< Counter Value  */
@@ -56,7 +63,9 @@ typedef struct
 } CRYOTIMER_TypeDef;        /** @} */
 
 /**************************************************************************//**
- * @defgroup EFR32MG13P_CRYOTIMER_BitFields
+ * @addtogroup EFR32MG13P_CRYOTIMER
+ * @{
+ * @defgroup EFR32MG13P_CRYOTIMER_BitFields  CRYOTIMER Bit Fields
  * @{
  *****************************************************************************/
 
@@ -167,9 +176,9 @@ typedef struct
 #define _CRYOTIMER_IEN_PERIOD_DEFAULT             0x00000000UL                         /**< Mode DEFAULT for CRYOTIMER_IEN */
 #define CRYOTIMER_IEN_PERIOD_DEFAULT              (_CRYOTIMER_IEN_PERIOD_DEFAULT << 0) /**< Shifted mode DEFAULT for CRYOTIMER_IEN */
 
+/** @} */
 /** @} End of group EFR32MG13P_CRYOTIMER */
 /** @} End of group Parts */
-
 #ifdef __cplusplus
 }
 #endif

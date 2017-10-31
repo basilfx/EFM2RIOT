@@ -1,9 +1,9 @@
 /**************************************************************************//**
  * @file efm32jg1b_prs.h
  * @brief EFM32JG1B_PRS register and bit field definitions
- * @version 5.1.2
+ * @version 5.3.3
  ******************************************************************************
- * @section License
+ * # License
  * <b>Copyright 2017 Silicon Laboratories, Inc. http://www.silabs.com</b>
  ******************************************************************************
  *
@@ -34,17 +34,24 @@
 extern "C" {
 #endif
 
+
+#if defined(__ICCARM__)
+#pragma system_include       /* Treat file as system include file. */
+#elif defined(__ARMCC_VERSION) && (__ARMCC_VERSION >= 6010050)
+#pragma clang system_header  /* Treat file as system include file. */
+#endif
+
 /**************************************************************************//**
 * @addtogroup Parts
 * @{
 ******************************************************************************/
 /**************************************************************************//**
- * @defgroup EFM32JG1B_PRS
+ * @defgroup EFM32JG1B_PRS PRS
  * @{
  * @brief EFM32JG1B_PRS Register Declaration
  *****************************************************************************/
-typedef struct
-{
+/** PRS Register Declaration */
+typedef struct {
   __IOM uint32_t SWPULSE;      /**< Software Pulse Register  */
   __IOM uint32_t SWLEVEL;      /**< Software Level Register  */
   __IOM uint32_t ROUTEPEN;     /**< I/O Routing Pin Enable Register  */
@@ -65,7 +72,9 @@ typedef struct
 } PRS_TypeDef;                 /** @} */
 
 /**************************************************************************//**
- * @defgroup EFM32JG1B_PRS_BitFields
+ * @addtogroup EFM32JG1B_PRS
+ * @{
+ * @defgroup EFM32JG1B_PRS_BitFields  PRS Bit Fields
  * @{
  *****************************************************************************/
 
@@ -955,9 +964,9 @@ typedef struct
 #define _PRS_CH_CTRL_ASYNC_DEFAULT             0x00000000UL                               /**< Mode DEFAULT for PRS_CH_CTRL */
 #define PRS_CH_CTRL_ASYNC_DEFAULT              (_PRS_CH_CTRL_ASYNC_DEFAULT << 30)         /**< Shifted mode DEFAULT for PRS_CH_CTRL */
 
+/** @} */
 /** @} End of group EFM32JG1B_PRS */
 /** @} End of group Parts */
-
 #ifdef __cplusplus
 }
 #endif

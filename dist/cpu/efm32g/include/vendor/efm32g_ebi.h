@@ -1,9 +1,9 @@
 /**************************************************************************//**
  * @file efm32g_ebi.h
  * @brief EFM32G_EBI register and bit field definitions
- * @version 5.1.2
+ * @version 5.3.3
  ******************************************************************************
- * @section License
+ * # License
  * <b>Copyright 2017 Silicon Laboratories, Inc. http://www.silabs.com</b>
  ******************************************************************************
  *
@@ -34,6 +34,13 @@
 extern "C" {
 #endif
 
+
+#if defined(__ICCARM__)
+#pragma system_include       /* Treat file as system include file. */
+#elif defined(__ARMCC_VERSION) && (__ARMCC_VERSION >= 6010050)
+#pragma clang system_header  /* Treat file as system include file. */
+#endif
+
 /**************************************************************************//**
 * @addtogroup Parts
 * @{
@@ -43,15 +50,14 @@ extern "C" {
  * @{
  * @brief EFM32G_EBI Register Declaration
  *****************************************************************************/
-typedef struct
-{
+typedef struct {
   __IOM uint32_t CTRL;       /**< Control Register  */
   __IOM uint32_t ADDRTIMING; /**< Address Timing Register  */
   __IOM uint32_t RDTIMING;   /**< Read Timing Register  */
   __IOM uint32_t WRTIMING;   /**< Write Timing Register  */
   __IOM uint32_t POLARITY;   /**< Polarity Register  */
   __IOM uint32_t ROUTE;      /**< I/O Routing Register  */
-} EBI_TypeDef;               /** @} */
+} EBI_TypeDef;               /**< EBI Register Declaration *//** @} */
 
 /**************************************************************************//**
  * @defgroup EFM32G_EBI_BitFields
@@ -236,7 +242,6 @@ typedef struct
 
 /** @} End of group EFM32G_EBI */
 /** @} End of group Parts */
-
 #ifdef __cplusplus
 }
 #endif

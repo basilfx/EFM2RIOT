@@ -1,9 +1,9 @@
 /**************************************************************************//**
  * @file efm32pg12b_csen.h
  * @brief EFM32PG12B_CSEN register and bit field definitions
- * @version 5.1.2
+ * @version 5.3.3
  ******************************************************************************
- * @section License
+ * # License
  * <b>Copyright 2017 Silicon Laboratories, Inc. http://www.silabs.com</b>
  ******************************************************************************
  *
@@ -34,46 +34,55 @@
 extern "C" {
 #endif
 
+
+#if defined(__ICCARM__)
+#pragma system_include       /* Treat file as system include file. */
+#elif defined(__ARMCC_VERSION) && (__ARMCC_VERSION >= 6010050)
+#pragma clang system_header  /* Treat file as system include file. */
+#endif
+
 /**************************************************************************//**
 * @addtogroup Parts
 * @{
 ******************************************************************************/
 /**************************************************************************//**
- * @defgroup EFM32PG12B_CSEN
+ * @defgroup EFM32PG12B_CSEN CSEN
  * @{
  * @brief EFM32PG12B_CSEN Register Declaration
  *****************************************************************************/
-typedef struct
-{
-  __IOM uint32_t CTRL;          /**< Control Register  */
-  __IOM uint32_t TIMCTRL;       /**< Timing Control Register  */
-  __IOM uint32_t CMD;           /**< Command Register  */
-  __IM uint32_t  STATUS;        /**< Status Register  */
-  __IOM uint32_t PRSSEL;        /**< Control Register  */
-  __IOM uint32_t DATA;          /**< Control Register  */
-  __IOM uint32_t SCANMASK0;     /**< CSEN Channel Scan Mask  */
-  __IOM uint32_t SCANINPUTSEL0; /**< Input Channel Configuration register for Scan mode  */
-  __IOM uint32_t SCANMASK1;     /**< CSEN Channel Scan Mask  */
-  __IOM uint32_t SCANINPUTSEL1; /**< Input Channel Configuration register for Scan mode  */
-  __IM uint32_t  APORTREQ;      /**< APORT Request Status Register  */
-  __IM uint32_t  APORTCONFLICT; /**< APORT Request Status Register  */
-  __IOM uint32_t CMPTHR;        /**< CSEN Comparator Threshold  */
+/** CSEN Register Declaration */
+typedef struct {
+  __IOM uint32_t CTRL;          /**< Control  */
+  __IOM uint32_t TIMCTRL;       /**< Timing Control  */
+  __IOM uint32_t CMD;           /**< Command  */
+  __IM uint32_t  STATUS;        /**< Status  */
+  __IOM uint32_t PRSSEL;        /**< PRS Select  */
+  __IOM uint32_t DATA;          /**< Output Data  */
+  __IOM uint32_t SCANMASK0;     /**< Scan Channel Mask 0  */
+  __IOM uint32_t SCANINPUTSEL0; /**< Scan Input Selection 0  */
+  __IOM uint32_t SCANMASK1;     /**< Scan Channel Mask 1  */
+  __IOM uint32_t SCANINPUTSEL1; /**< Scan Input Selection 1  */
+  __IM uint32_t  APORTREQ;      /**< APORT Request Status  */
+  __IM uint32_t  APORTCONFLICT; /**< APORT Request Conflict  */
+  __IOM uint32_t CMPTHR;        /**< Comparator Threshold  */
   __IOM uint32_t EMA;           /**< Exponential Moving Average  */
-  __IOM uint32_t EMACTRL;       /**< Exponential Moving Average  */
-  __IOM uint32_t SINGLECTRL;    /**< CSEN Single Conversion Control Register  */
-  __IOM uint32_t DMBASELINE;    /**< Control Register  */
-  __IOM uint32_t DMCFG;         /**< Control Register  */
-  __IOM uint32_t ANACTRL;       /**< Analog Control Register  */
+  __IOM uint32_t EMACTRL;       /**< Exponential Moving Average Control  */
+  __IOM uint32_t SINGLECTRL;    /**< Single Conversion Control  */
+  __IOM uint32_t DMBASELINE;    /**< Delta Modulation Baseline  */
+  __IOM uint32_t DMCFG;         /**< Delta Modulation Configuration  */
+  __IOM uint32_t ANACTRL;       /**< Analog Control  */
 
   uint32_t       RESERVED0[2];  /**< Reserved for future use **/
-  __IM uint32_t  IF;            /**< Interrupt Flag Register  */
-  __IOM uint32_t IFS;           /**< Interrupt Flag Set Register  */
-  __IOM uint32_t IFC;           /**< Interrupt Flag Clear Register  */
-  __IOM uint32_t IEN;           /**< Interrupt Enable Register  */
+  __IM uint32_t  IF;            /**< Interrupt Flag  */
+  __IOM uint32_t IFS;           /**< Interrupt Flag Set  */
+  __IOM uint32_t IFC;           /**< Interrupt Flag Clear  */
+  __IOM uint32_t IEN;           /**< Interrupt Enable  */
 } CSEN_TypeDef;                 /** @} */
 
 /**************************************************************************//**
- * @defgroup EFM32PG12B_CSEN_BitFields
+ * @addtogroup EFM32PG12B_CSEN
+ * @{
+ * @defgroup EFM32PG12B_CSEN_BitFields  CSEN Bit Fields
  * @{
  *****************************************************************************/
 
@@ -161,7 +170,7 @@ typedef struct
 #define CSEN_CTRL_STM_START                                  (_CSEN_CTRL_STM_START << 16)               /**< Shifted mode START for CSEN_CTRL */
 #define CSEN_CTRL_STM_DEFAULT                                (_CSEN_CTRL_STM_DEFAULT << 16)             /**< Shifted mode DEFAULT for CSEN_CTRL */
 #define CSEN_CTRL_STM_DEFAULT                                (_CSEN_CTRL_STM_DEFAULT << 16)             /**< Shifted mode DEFAULT for CSEN_CTRL */
-#define CSEN_CTRL_CMPEN                                      (0x1UL << 18)                              /**< CSEN Digital Comparator Enable Bit. */
+#define CSEN_CTRL_CMPEN                                      (0x1UL << 18)                              /**< CSEN Digital Comparator Enable */
 #define _CSEN_CTRL_CMPEN_SHIFT                               18                                         /**< Shift value for CSEN_CMPEN */
 #define _CSEN_CTRL_CMPEN_MASK                                0x40000UL                                  /**< Bit mask for CSEN_CMPEN */
 #define _CSEN_CTRL_CMPEN_DEFAULT                             0x00000000UL                               /**< Mode DEFAULT for CSEN_CTRL */
@@ -170,7 +179,7 @@ typedef struct
 #define CSEN_CTRL_CMPEN_DEFAULT                              (_CSEN_CTRL_CMPEN_DEFAULT << 18)           /**< Shifted mode DEFAULT for CSEN_CTRL */
 #define CSEN_CTRL_CMPEN_DISABLE                              (_CSEN_CTRL_CMPEN_DISABLE << 18)           /**< Shifted mode DISABLE for CSEN_CTRL */
 #define CSEN_CTRL_CMPEN_ENABLE                               (_CSEN_CTRL_CMPEN_ENABLE << 18)            /**< Shifted mode ENABLE for CSEN_CTRL */
-#define CSEN_CTRL_DRSF                                       (0x1UL << 19)                              /**< CSEN Disable Right-Shift. */
+#define CSEN_CTRL_DRSF                                       (0x1UL << 19)                              /**< CSEN Disable Right-Shift */
 #define _CSEN_CTRL_DRSF_SHIFT                                19                                         /**< Shift value for CSEN_DRSF */
 #define _CSEN_CTRL_DRSF_MASK                                 0x80000UL                                  /**< Bit mask for CSEN_DRSF */
 #define _CSEN_CTRL_DRSF_DEFAULT                              0x00000000UL                               /**< Mode DEFAULT for CSEN_CTRL */
@@ -206,7 +215,7 @@ typedef struct
 #define CSEN_CTRL_CHOPEN_DEFAULT                             (_CSEN_CTRL_CHOPEN_DEFAULT << 22)          /**< Shifted mode DEFAULT for CSEN_CTRL */
 #define CSEN_CTRL_CHOPEN_DISABLE                             (_CSEN_CTRL_CHOPEN_DISABLE << 22)          /**< Shifted mode DISABLE for CSEN_CTRL */
 #define CSEN_CTRL_CHOPEN_ENABLE                              (_CSEN_CTRL_CHOPEN_ENABLE << 22)           /**< Shifted mode ENABLE for CSEN_CTRL */
-#define CSEN_CTRL_AUTOGND                                    (0x1UL << 23)                              /**< CSEN auto ground enable */
+#define CSEN_CTRL_AUTOGND                                    (0x1UL << 23)                              /**< CSEN Automatic Ground Enable */
 #define _CSEN_CTRL_AUTOGND_SHIFT                             23                                         /**< Shift value for CSEN_AUTOGND */
 #define _CSEN_CTRL_AUTOGND_MASK                              0x800000UL                                 /**< Bit mask for CSEN_AUTOGND */
 #define _CSEN_CTRL_AUTOGND_DEFAULT                           0x00000000UL                               /**< Mode DEFAULT for CSEN_CTRL */
@@ -238,12 +247,12 @@ typedef struct
 #define CSEN_CTRL_WARMUPMODE_DEFAULT                         (_CSEN_CTRL_WARMUPMODE_DEFAULT << 26)      /**< Shifted mode DEFAULT for CSEN_CTRL */
 #define CSEN_CTRL_WARMUPMODE_NORMAL                          (_CSEN_CTRL_WARMUPMODE_NORMAL << 26)       /**< Shifted mode NORMAL for CSEN_CTRL */
 #define CSEN_CTRL_WARMUPMODE_KEEPCSENWARM                    (_CSEN_CTRL_WARMUPMODE_KEEPCSENWARM << 26) /**< Shifted mode KEEPCSENWARM for CSEN_CTRL */
-#define CSEN_CTRL_LOCALSENS                                  (0x1UL << 27)                              /**< Sense local cap connection instead of the external kelvin connection. */
+#define CSEN_CTRL_LOCALSENS                                  (0x1UL << 27)                              /**< Local Sensing Enable */
 #define _CSEN_CTRL_LOCALSENS_SHIFT                           27                                         /**< Shift value for CSEN_LOCALSENS */
 #define _CSEN_CTRL_LOCALSENS_MASK                            0x8000000UL                                /**< Bit mask for CSEN_LOCALSENS */
 #define _CSEN_CTRL_LOCALSENS_DEFAULT                         0x00000000UL                               /**< Mode DEFAULT for CSEN_CTRL */
 #define CSEN_CTRL_LOCALSENS_DEFAULT                          (_CSEN_CTRL_LOCALSENS_DEFAULT << 27)       /**< Shifted mode DEFAULT for CSEN_CTRL */
-#define CSEN_CTRL_CPACCURACY                                 (0x1UL << 28)                              /**< Sets the accuracy of the charge pump. */
+#define CSEN_CTRL_CPACCURACY                                 (0x1UL << 28)                              /**< Charge Pump Accuracy */
 #define _CSEN_CTRL_CPACCURACY_SHIFT                          28                                         /**< Shift value for CSEN_CPACCURACY */
 #define _CSEN_CTRL_CPACCURACY_MASK                           0x10000000UL                               /**< Bit mask for CSEN_CPACCURACY */
 #define _CSEN_CTRL_CPACCURACY_DEFAULT                        0x00000000UL                               /**< Mode DEFAULT for CSEN_CTRL */
@@ -288,7 +297,7 @@ typedef struct
 /* Bit fields for CSEN CMD */
 #define _CSEN_CMD_RESETVALUE                                 0x00000000UL                   /**< Default value for CSEN_CMD */
 #define _CSEN_CMD_MASK                                       0x00000001UL                   /**< Mask for CSEN_CMD */
-#define CSEN_CMD_START                                       (0x1UL << 0)                   /**< Start a CSEN conversion. */
+#define CSEN_CMD_START                                       (0x1UL << 0)                   /**< Start Software-Triggered Conversions */
 #define _CSEN_CMD_START_SHIFT                                0                              /**< Shift value for CSEN_START */
 #define _CSEN_CMD_START_MASK                                 0x1UL                          /**< Bit mask for CSEN_START */
 #define _CSEN_CMD_START_DEFAULT                              0x00000000UL                   /**< Mode DEFAULT for CSEN_CMD */
@@ -297,7 +306,7 @@ typedef struct
 /* Bit fields for CSEN STATUS */
 #define _CSEN_STATUS_RESETVALUE                              0x00000000UL                         /**< Default value for CSEN_STATUS */
 #define _CSEN_STATUS_MASK                                    0x00000001UL                         /**< Mask for CSEN_STATUS */
-#define CSEN_STATUS_CSENBUSY                                 (0x1UL << 0)                         /**< CSEN Busy */
+#define CSEN_STATUS_CSENBUSY                                 (0x1UL << 0)                         /**< Busy Flag */
 #define _CSEN_STATUS_CSENBUSY_SHIFT                          0                                    /**< Shift value for CSEN_CSENBUSY */
 #define _CSEN_STATUS_CSENBUSY_MASK                           0x1UL                                /**< Bit mask for CSEN_CSENBUSY */
 #define _CSEN_STATUS_CSENBUSY_DEFAULT                        0x00000000UL                         /**< Mode DEFAULT for CSEN_STATUS */
@@ -832,80 +841,47 @@ typedef struct
 #define CSEN_DMCFG_CRMODE_DM12                               (_CSEN_DMCFG_CRMODE_DM12 << 20)     /**< Shifted mode DM12 for CSEN_DMCFG */
 #define CSEN_DMCFG_CRMODE_DM14                               (_CSEN_DMCFG_CRMODE_DM14 << 20)     /**< Shifted mode DM14 for CSEN_DMCFG */
 #define CSEN_DMCFG_CRMODE_DM16                               (_CSEN_DMCFG_CRMODE_DM16 << 20)     /**< Shifted mode DM16 for CSEN_DMCFG */
-#define CSEN_DMCFG_DMGRDIS                                   (0x1UL << 28)                       /**< Disable delta modulator gain reduction. */
+#define CSEN_DMCFG_DMGRDIS                                   (0x1UL << 28)                       /**< Delta Modulation Gain Step Reduction Disable */
 #define _CSEN_DMCFG_DMGRDIS_SHIFT                            28                                  /**< Shift value for CSEN_DMGRDIS */
 #define _CSEN_DMCFG_DMGRDIS_MASK                             0x10000000UL                        /**< Bit mask for CSEN_DMGRDIS */
 #define _CSEN_DMCFG_DMGRDIS_DEFAULT                          0x00000000UL                        /**< Mode DEFAULT for CSEN_DMCFG */
 #define CSEN_DMCFG_DMGRDIS_DEFAULT                           (_CSEN_DMCFG_DMGRDIS_DEFAULT << 28) /**< Shifted mode DEFAULT for CSEN_DMCFG */
 
 /* Bit fields for CSEN ANACTRL */
-#define _CSEN_ANACTRL_RESETVALUE                             0x00000070UL                            /**< Default value for CSEN_ANACTRL */
-#define _CSEN_ANACTRL_MASK                                   0x03730771UL                            /**< Mask for CSEN_ANACTRL */
-#define CSEN_ANACTRL_CREFHALF                                (0x1UL << 0)                            /**< Reference capacitor divide by half. */
-#define _CSEN_ANACTRL_CREFHALF_SHIFT                         0                                       /**< Shift value for CSEN_CREFHALF */
-#define _CSEN_ANACTRL_CREFHALF_MASK                          0x1UL                                   /**< Bit mask for CSEN_CREFHALF */
-#define _CSEN_ANACTRL_CREFHALF_DEFAULT                       0x00000000UL                            /**< Mode DEFAULT for CSEN_ANACTRL */
-#define _CSEN_ANACTRL_CREFHALF_FULL                          0x00000000UL                            /**< Mode FULL for CSEN_ANACTRL */
-#define _CSEN_ANACTRL_CREFHALF_HALF                          0x00000001UL                            /**< Mode HALF for CSEN_ANACTRL */
-#define CSEN_ANACTRL_CREFHALF_DEFAULT                        (_CSEN_ANACTRL_CREFHALF_DEFAULT << 0)   /**< Shifted mode DEFAULT for CSEN_ANACTRL */
-#define CSEN_ANACTRL_CREFHALF_FULL                           (_CSEN_ANACTRL_CREFHALF_FULL << 0)      /**< Shifted mode FULL for CSEN_ANACTRL */
-#define CSEN_ANACTRL_CREFHALF_HALF                           (_CSEN_ANACTRL_CREFHALF_HALF << 0)      /**< Shifted mode HALF for CSEN_ANACTRL */
-#define _CSEN_ANACTRL_IREFPROG_SHIFT                         4                                       /**< Shift value for CSEN_IREFPROG */
-#define _CSEN_ANACTRL_IREFPROG_MASK                          0x70UL                                  /**< Bit mask for CSEN_IREFPROG */
-#define _CSEN_ANACTRL_IREFPROG_DEFAULT                       0x00000007UL                            /**< Mode DEFAULT for CSEN_ANACTRL */
-#define CSEN_ANACTRL_IREFPROG_DEFAULT                        (_CSEN_ANACTRL_IREFPROG_DEFAULT << 4)   /**< Shifted mode DEFAULT for CSEN_ANACTRL */
-#define _CSEN_ANACTRL_IDACIREFS_SHIFT                        8                                       /**< Shift value for CSEN_IDACIREFS */
-#define _CSEN_ANACTRL_IDACIREFS_MASK                         0x700UL                                 /**< Bit mask for CSEN_IDACIREFS */
-#define _CSEN_ANACTRL_IDACIREFS_DEFAULT                      0x00000000UL                            /**< Mode DEFAULT for CSEN_ANACTRL */
-#define CSEN_ANACTRL_IDACIREFS_DEFAULT                       (_CSEN_ANACTRL_IDACIREFS_DEFAULT << 8)  /**< Shifted mode DEFAULT for CSEN_ANACTRL */
-#define _CSEN_ANACTRL_DUTYSCALE_SHIFT                        16                                      /**< Shift value for CSEN_DUTYSCALE */
-#define _CSEN_ANACTRL_DUTYSCALE_MASK                         0x30000UL                               /**< Bit mask for CSEN_DUTYSCALE */
-#define _CSEN_ANACTRL_DUTYSCALE_DEFAULT                      0x00000000UL                            /**< Mode DEFAULT for CSEN_ANACTRL */
-#define _CSEN_ANACTRL_DUTYSCALE_DIV1                         0x00000000UL                            /**< Mode DIV1 for CSEN_ANACTRL */
-#define _CSEN_ANACTRL_DUTYSCALE_DIV2                         0x00000001UL                            /**< Mode DIV2 for CSEN_ANACTRL */
-#define _CSEN_ANACTRL_DUTYSCALE_DIV4                         0x00000002UL                            /**< Mode DIV4 for CSEN_ANACTRL */
-#define _CSEN_ANACTRL_DUTYSCALE_DIV8                         0x00000003UL                            /**< Mode DIV8 for CSEN_ANACTRL */
-#define CSEN_ANACTRL_DUTYSCALE_DEFAULT                       (_CSEN_ANACTRL_DUTYSCALE_DEFAULT << 16) /**< Shifted mode DEFAULT for CSEN_ANACTRL */
-#define CSEN_ANACTRL_DUTYSCALE_DIV1                          (_CSEN_ANACTRL_DUTYSCALE_DIV1 << 16)    /**< Shifted mode DIV1 for CSEN_ANACTRL */
-#define CSEN_ANACTRL_DUTYSCALE_DIV2                          (_CSEN_ANACTRL_DUTYSCALE_DIV2 << 16)    /**< Shifted mode DIV2 for CSEN_ANACTRL */
-#define CSEN_ANACTRL_DUTYSCALE_DIV4                          (_CSEN_ANACTRL_DUTYSCALE_DIV4 << 16)    /**< Shifted mode DIV4 for CSEN_ANACTRL */
-#define CSEN_ANACTRL_DUTYSCALE_DIV8                          (_CSEN_ANACTRL_DUTYSCALE_DIV8 << 16)    /**< Shifted mode DIV8 for CSEN_ANACTRL */
-#define _CSEN_ANACTRL_TRSTPROG_SHIFT                         20                                      /**< Shift value for CSEN_TRSTPROG */
-#define _CSEN_ANACTRL_TRSTPROG_MASK                          0x700000UL                              /**< Bit mask for CSEN_TRSTPROG */
-#define _CSEN_ANACTRL_TRSTPROG_DEFAULT                       0x00000000UL                            /**< Mode DEFAULT for CSEN_ANACTRL */
-#define CSEN_ANACTRL_TRSTPROG_DEFAULT                        (_CSEN_ANACTRL_TRSTPROG_DEFAULT << 20)  /**< Shifted mode DEFAULT for CSEN_ANACTRL */
-#define _CSEN_ANACTRL_BIASPROG_SHIFT                         24                                      /**< Shift value for CSEN_BIASPROG */
-#define _CSEN_ANACTRL_BIASPROG_MASK                          0x3000000UL                             /**< Bit mask for CSEN_BIASPROG */
-#define _CSEN_ANACTRL_BIASPROG_DEFAULT                       0x00000000UL                            /**< Mode DEFAULT for CSEN_ANACTRL */
-#define _CSEN_ANACTRL_BIASPROG_ONEX                          0x00000000UL                            /**< Mode ONEX for CSEN_ANACTRL */
-#define _CSEN_ANACTRL_BIASPROG_TWOX                          0x00000001UL                            /**< Mode TWOX for CSEN_ANACTRL */
-#define _CSEN_ANACTRL_BIASPROG_ONETENTH                      0x00000002UL                            /**< Mode ONETENTH for CSEN_ANACTRL */
-#define _CSEN_ANACTRL_BIASPROG_HALF                          0x00000003UL                            /**< Mode HALF for CSEN_ANACTRL */
-#define CSEN_ANACTRL_BIASPROG_DEFAULT                        (_CSEN_ANACTRL_BIASPROG_DEFAULT << 24)  /**< Shifted mode DEFAULT for CSEN_ANACTRL */
-#define CSEN_ANACTRL_BIASPROG_ONEX                           (_CSEN_ANACTRL_BIASPROG_ONEX << 24)     /**< Shifted mode ONEX for CSEN_ANACTRL */
-#define CSEN_ANACTRL_BIASPROG_TWOX                           (_CSEN_ANACTRL_BIASPROG_TWOX << 24)     /**< Shifted mode TWOX for CSEN_ANACTRL */
-#define CSEN_ANACTRL_BIASPROG_ONETENTH                       (_CSEN_ANACTRL_BIASPROG_ONETENTH << 24) /**< Shifted mode ONETENTH for CSEN_ANACTRL */
-#define CSEN_ANACTRL_BIASPROG_HALF                           (_CSEN_ANACTRL_BIASPROG_HALF << 24)     /**< Shifted mode HALF for CSEN_ANACTRL */
+#define _CSEN_ANACTRL_RESETVALUE                             0x00000070UL                           /**< Default value for CSEN_ANACTRL */
+#define _CSEN_ANACTRL_MASK                                   0x00700770UL                           /**< Mask for CSEN_ANACTRL */
+#define _CSEN_ANACTRL_IREFPROG_SHIFT                         4                                      /**< Shift value for CSEN_IREFPROG */
+#define _CSEN_ANACTRL_IREFPROG_MASK                          0x70UL                                 /**< Bit mask for CSEN_IREFPROG */
+#define _CSEN_ANACTRL_IREFPROG_DEFAULT                       0x00000007UL                           /**< Mode DEFAULT for CSEN_ANACTRL */
+#define CSEN_ANACTRL_IREFPROG_DEFAULT                        (_CSEN_ANACTRL_IREFPROG_DEFAULT << 4)  /**< Shifted mode DEFAULT for CSEN_ANACTRL */
+#define _CSEN_ANACTRL_IDACIREFS_SHIFT                        8                                      /**< Shift value for CSEN_IDACIREFS */
+#define _CSEN_ANACTRL_IDACIREFS_MASK                         0x700UL                                /**< Bit mask for CSEN_IDACIREFS */
+#define _CSEN_ANACTRL_IDACIREFS_DEFAULT                      0x00000000UL                           /**< Mode DEFAULT for CSEN_ANACTRL */
+#define CSEN_ANACTRL_IDACIREFS_DEFAULT                       (_CSEN_ANACTRL_IDACIREFS_DEFAULT << 8) /**< Shifted mode DEFAULT for CSEN_ANACTRL */
+#define _CSEN_ANACTRL_TRSTPROG_SHIFT                         20                                     /**< Shift value for CSEN_TRSTPROG */
+#define _CSEN_ANACTRL_TRSTPROG_MASK                          0x700000UL                             /**< Bit mask for CSEN_TRSTPROG */
+#define _CSEN_ANACTRL_TRSTPROG_DEFAULT                       0x00000000UL                           /**< Mode DEFAULT for CSEN_ANACTRL */
+#define CSEN_ANACTRL_TRSTPROG_DEFAULT                        (_CSEN_ANACTRL_TRSTPROG_DEFAULT << 20) /**< Shifted mode DEFAULT for CSEN_ANACTRL */
 
 /* Bit fields for CSEN IF */
 #define _CSEN_IF_RESETVALUE                                  0x00000000UL                          /**< Default value for CSEN_IF */
 #define _CSEN_IF_MASK                                        0x0000001FUL                          /**< Mask for CSEN_IF */
-#define CSEN_IF_CMP                                          (0x1UL << 0)                          /**< CSEN Digital Comparator Interrupt Flag */
+#define CSEN_IF_CMP                                          (0x1UL << 0)                          /**< Digital Comparator Interrupt Flag */
 #define _CSEN_IF_CMP_SHIFT                                   0                                     /**< Shift value for CSEN_CMP */
 #define _CSEN_IF_CMP_MASK                                    0x1UL                                 /**< Bit mask for CSEN_CMP */
 #define _CSEN_IF_CMP_DEFAULT                                 0x00000000UL                          /**< Mode DEFAULT for CSEN_IF */
 #define CSEN_IF_CMP_DEFAULT                                  (_CSEN_IF_CMP_DEFAULT << 0)           /**< Shifted mode DEFAULT for CSEN_IF */
-#define CSEN_IF_CONV                                         (0x1UL << 1)                          /**< CSEN Conversion Done Interrupt Flag */
+#define CSEN_IF_CONV                                         (0x1UL << 1)                          /**< Conversion Done Interrupt Flag */
 #define _CSEN_IF_CONV_SHIFT                                  1                                     /**< Shift value for CSEN_CONV */
 #define _CSEN_IF_CONV_MASK                                   0x2UL                                 /**< Bit mask for CSEN_CONV */
 #define _CSEN_IF_CONV_DEFAULT                                0x00000000UL                          /**< Mode DEFAULT for CSEN_IF */
 #define CSEN_IF_CONV_DEFAULT                                 (_CSEN_IF_CONV_DEFAULT << 1)          /**< Shifted mode DEFAULT for CSEN_IF */
-#define CSEN_IF_EOS                                          (0x1UL << 2)                          /**< CSEN End of Scan Interrupt Flag. */
+#define CSEN_IF_EOS                                          (0x1UL << 2)                          /**< End of Scan Interrupt Flag. */
 #define _CSEN_IF_EOS_SHIFT                                   2                                     /**< Shift value for CSEN_EOS */
 #define _CSEN_IF_EOS_MASK                                    0x4UL                                 /**< Bit mask for CSEN_EOS */
 #define _CSEN_IF_EOS_DEFAULT                                 0x00000000UL                          /**< Mode DEFAULT for CSEN_IF */
 #define CSEN_IF_EOS_DEFAULT                                  (_CSEN_IF_EOS_DEFAULT << 2)           /**< Shifted mode DEFAULT for CSEN_IF */
-#define CSEN_IF_DMAOF                                        (0x1UL << 3)                          /**< CSEN DMA Overflow Interrupt Flag. */
+#define CSEN_IF_DMAOF                                        (0x1UL << 3)                          /**< DMA Overflow Interrupt Flag. */
 #define _CSEN_IF_DMAOF_SHIFT                                 3                                     /**< Shift value for CSEN_DMAOF */
 #define _CSEN_IF_DMAOF_MASK                                  0x8UL                                 /**< Bit mask for CSEN_DMAOF */
 #define _CSEN_IF_DMAOF_DEFAULT                               0x00000000UL                          /**< Mode DEFAULT for CSEN_IF */
@@ -1003,9 +979,9 @@ typedef struct
 #define _CSEN_IEN_APORTCONFLICT_DEFAULT                      0x00000000UL                           /**< Mode DEFAULT for CSEN_IEN */
 #define CSEN_IEN_APORTCONFLICT_DEFAULT                       (_CSEN_IEN_APORTCONFLICT_DEFAULT << 4) /**< Shifted mode DEFAULT for CSEN_IEN */
 
+/** @} */
 /** @} End of group EFM32PG12B_CSEN */
 /** @} End of group Parts */
-
 #ifdef __cplusplus
 }
 #endif

@@ -1,9 +1,9 @@
 /**************************************************************************//**
  * @file efr32mg1b_rtcc.h
  * @brief EFR32MG1B_RTCC register and bit field definitions
- * @version 5.1.2
+ * @version 5.3.3
  ******************************************************************************
- * @section License
+ * # License
  * <b>Copyright 2017 Silicon Laboratories, Inc. http://www.silabs.com</b>
  ******************************************************************************
  *
@@ -34,17 +34,24 @@
 extern "C" {
 #endif
 
+
+#if defined(__ICCARM__)
+#pragma system_include       /* Treat file as system include file. */
+#elif defined(__ARMCC_VERSION) && (__ARMCC_VERSION >= 6010050)
+#pragma clang system_header  /* Treat file as system include file. */
+#endif
+
 /**************************************************************************//**
 * @addtogroup Parts
 * @{
 ******************************************************************************/
 /**************************************************************************//**
- * @defgroup EFR32MG1B_RTCC
+ * @defgroup EFR32MG1B_RTCC RTCC
  * @{
  * @brief EFR32MG1B_RTCC Register Declaration
  *****************************************************************************/
-typedef struct
-{
+/** RTCC Register Declaration */
+typedef struct {
   __IOM uint32_t   CTRL;          /**< Control Register  */
   __IOM uint32_t   PRECNT;        /**< Pre-Counter Value Register  */
   __IOM uint32_t   CNT;           /**< Counter Value Register  */
@@ -69,7 +76,9 @@ typedef struct
 } RTCC_TypeDef;                   /** @} */
 
 /**************************************************************************//**
- * @defgroup EFR32MG1B_RTCC_BitFields
+ * @addtogroup EFR32MG1B_RTCC
+ * @{
+ * @defgroup EFR32MG1B_RTCC_BitFields  RTCC Bit Fields
  * @{
  *****************************************************************************/
 
@@ -695,9 +704,9 @@ typedef struct
 #define _RTCC_RET_REG_REG_DEFAULT           0x00000000UL                     /**< Mode DEFAULT for RTCC_RET_REG */
 #define RTCC_RET_REG_REG_DEFAULT            (_RTCC_RET_REG_REG_DEFAULT << 0) /**< Shifted mode DEFAULT for RTCC_RET_REG */
 
+/** @} */
 /** @} End of group EFR32MG1B_RTCC */
 /** @} End of group Parts */
-
 #ifdef __cplusplus
 }
 #endif

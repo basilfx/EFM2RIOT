@@ -1,9 +1,9 @@
 /**************************************************************************//**
  * @file efm32hg_usb_diep.h
  * @brief EFM32HG_USB_DIEP register and bit field definitions
- * @version 5.1.2
+ * @version 5.3.3
  ******************************************************************************
- * @section License
+ * # License
  * <b>Copyright 2017 Silicon Laboratories, Inc. http://www.silabs.com</b>
  ******************************************************************************
  *
@@ -34,6 +34,13 @@
 extern "C" {
 #endif
 
+
+#if defined(__ICCARM__)
+#pragma system_include       /* Treat file as system include file. */
+#elif defined(__ARMCC_VERSION) && (__ARMCC_VERSION >= 6010050)
+#pragma clang system_header  /* Treat file as system include file. */
+#endif
+
 /**************************************************************************//**
 * @addtogroup Parts
 * @{
@@ -41,8 +48,7 @@ extern "C" {
 /**************************************************************************//**
  * @brief USB_DIEP EFM32HG USB DIEP
  *****************************************************************************/
-typedef struct
-{
+typedef struct {
   __IOM uint32_t CTL;          /**< Device IN Endpoint x+1 Control Register  */
   uint32_t       RESERVED0[1]; /**< Reserved for future use **/
   __IOM uint32_t INT;          /**< Device IN Endpoint x+1 Interrupt Register  */
@@ -54,8 +60,6 @@ typedef struct
 } USB_DIEP_TypeDef;
 
 /** @} End of group Parts */
-
-
 #ifdef __cplusplus
 }
 #endif

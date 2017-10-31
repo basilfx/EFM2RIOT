@@ -1,9 +1,9 @@
 /**************************************************************************//**
  * @file efm32jg12b_dmareq.h
  * @brief EFM32JG12B_DMAREQ register and bit field definitions
- * @version 5.1.2
+ * @version 5.3.3
  ******************************************************************************
- * @section License
+ * # License
  * <b>Copyright 2017 Silicon Laboratories, Inc. http://www.silabs.com</b>
  ******************************************************************************
  *
@@ -34,13 +34,22 @@
 extern "C" {
 #endif
 
+
+#if defined(__ICCARM__)
+#pragma system_include       /* Treat file as system include file. */
+#elif defined(__ARMCC_VERSION) && (__ARMCC_VERSION >= 6010050)
+#pragma clang system_header  /* Treat file as system include file. */
+#endif
+
 /**************************************************************************//**
 * @addtogroup Parts
 * @{
 ******************************************************************************/
 
 /**************************************************************************//**
- * @defgroup EFM32JG12B_DMAREQ_BitFields
+ * @addtogroup EFM32JG12B_DMAREQ DMAREQ
+ * @{
+ * @defgroup EFM32JG12B_DMAREQ_BitFields DMAREQ Bit Fields
  * @{
  *****************************************************************************/
 #define DMAREQ_PRS_REQ0               ((1 << 16) + 0)         /**< DMA channel select for PRS_REQ0 */
@@ -110,9 +119,9 @@ extern "C" {
 #define DMAREQ_CRYPTO1_DATA1WR        ((52 << 16) + 3)        /**< DMA channel select for CRYPTO1_DATA1WR */
 #define DMAREQ_CRYPTO1_DATA1RD        ((52 << 16) + 4)        /**< DMA channel select for CRYPTO1_DATA1RD */
 
+/** @} */
 /** @} End of group EFM32JG12B_DMAREQ */
 /** @} End of group Parts */
-
 #ifdef __cplusplus
 }
 #endif

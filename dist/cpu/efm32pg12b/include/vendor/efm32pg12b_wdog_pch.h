@@ -1,9 +1,9 @@
 /**************************************************************************//**
  * @file efm32pg12b_wdog_pch.h
  * @brief EFM32PG12B_WDOG_PCH register and bit field definitions
- * @version 5.1.2
+ * @version 5.3.3
  ******************************************************************************
- * @section License
+ * # License
  * <b>Copyright 2017 Silicon Laboratories, Inc. http://www.silabs.com</b>
  ******************************************************************************
  *
@@ -34,21 +34,26 @@
 extern "C" {
 #endif
 
+
+#if defined(__ICCARM__)
+#pragma system_include       /* Treat file as system include file. */
+#elif defined(__ARMCC_VERSION) && (__ARMCC_VERSION >= 6010050)
+#pragma clang system_header  /* Treat file as system include file. */
+#endif
+
 /**************************************************************************//**
 * @addtogroup Parts
 * @{
 ******************************************************************************/
 /**************************************************************************//**
- * @brief WDOG_PCH EFM32PG12B WDOG PCH
+ * @brief WDOG_PCH WDOG PCH Register
+ * @ingroup EFM32PG12B_WDOG
  *****************************************************************************/
-typedef struct
-{
+typedef struct {
   __IOM uint32_t PRSCTRL; /**< PRS Control Register  */
 } WDOG_PCH_TypeDef;
 
 /** @} End of group Parts */
-
-
 #ifdef __cplusplus
 }
 #endif

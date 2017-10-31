@@ -1,9 +1,9 @@
 /**************************************************************************//**
  * @file efm32pg12b_gpcrc.h
  * @brief EFM32PG12B_GPCRC register and bit field definitions
- * @version 5.1.2
+ * @version 5.3.3
  ******************************************************************************
- * @section License
+ * # License
  * <b>Copyright 2017 Silicon Laboratories, Inc. http://www.silabs.com</b>
  ******************************************************************************
  *
@@ -34,17 +34,24 @@
 extern "C" {
 #endif
 
+
+#if defined(__ICCARM__)
+#pragma system_include       /* Treat file as system include file. */
+#elif defined(__ARMCC_VERSION) && (__ARMCC_VERSION >= 6010050)
+#pragma clang system_header  /* Treat file as system include file. */
+#endif
+
 /**************************************************************************//**
 * @addtogroup Parts
 * @{
 ******************************************************************************/
 /**************************************************************************//**
- * @defgroup EFM32PG12B_GPCRC
+ * @defgroup EFM32PG12B_GPCRC GPCRC
  * @{
  * @brief EFM32PG12B_GPCRC Register Declaration
  *****************************************************************************/
-typedef struct
-{
+/** GPCRC Register Declaration */
+typedef struct {
   __IOM uint32_t CTRL;           /**< Control Register  */
   __IOM uint32_t CMD;            /**< Command Register  */
   __IOM uint32_t INIT;           /**< CRC Init Value  */
@@ -58,7 +65,9 @@ typedef struct
 } GPCRC_TypeDef;                 /** @} */
 
 /**************************************************************************//**
- * @defgroup EFM32PG12B_GPCRC_BitFields
+ * @addtogroup EFM32PG12B_GPCRC
+ * @{
+ * @defgroup EFM32PG12B_GPCRC_BitFields  GPCRC Bit Fields
  * @{
  *****************************************************************************/
 
@@ -185,9 +194,9 @@ typedef struct
 #define _GPCRC_DATABYTEREV_DATABYTEREV_DEFAULT          0x00000000UL                                  /**< Mode DEFAULT for GPCRC_DATABYTEREV */
 #define GPCRC_DATABYTEREV_DATABYTEREV_DEFAULT           (_GPCRC_DATABYTEREV_DATABYTEREV_DEFAULT << 0) /**< Shifted mode DEFAULT for GPCRC_DATABYTEREV */
 
+/** @} */
 /** @} End of group EFM32PG12B_GPCRC */
 /** @} End of group Parts */
-
 #ifdef __cplusplus
 }
 #endif

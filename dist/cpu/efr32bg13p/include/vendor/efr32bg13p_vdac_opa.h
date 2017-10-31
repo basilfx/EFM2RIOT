@@ -1,9 +1,9 @@
 /**************************************************************************//**
  * @file efr32bg13p_vdac_opa.h
  * @brief EFR32BG13P_VDAC_OPA register and bit field definitions
- * @version 5.1.2
+ * @version 5.3.3
  ******************************************************************************
- * @section License
+ * # License
  * <b>Copyright 2017 Silicon Laboratories, Inc. http://www.silabs.com</b>
  ******************************************************************************
  *
@@ -34,15 +34,22 @@
 extern "C" {
 #endif
 
+
+#if defined(__ICCARM__)
+#pragma system_include       /* Treat file as system include file. */
+#elif defined(__ARMCC_VERSION) && (__ARMCC_VERSION >= 6010050)
+#pragma clang system_header  /* Treat file as system include file. */
+#endif
+
 /**************************************************************************//**
 * @addtogroup Parts
 * @{
 ******************************************************************************/
 /**************************************************************************//**
- * @brief VDAC_OPA EFR32BG13P VDAC OPA
+ * @brief VDAC_OPA VDAC OPA Register
+ * @ingroup EFR32BG13P_VDAC
  *****************************************************************************/
-typedef struct
-{
+typedef struct {
   __IM uint32_t  APORTREQ;      /**< Operational Amplifier APORT Request Status Register  */
   __IM uint32_t  APORTCONFLICT; /**< Operational Amplifier APORT Conflict Status Register  */
   __IOM uint32_t CTRL;          /**< Operational Amplifier Control Register  */
@@ -54,8 +61,6 @@ typedef struct
 } VDAC_OPA_TypeDef;
 
 /** @} End of group Parts */
-
-
 #ifdef __cplusplus
 }
 #endif

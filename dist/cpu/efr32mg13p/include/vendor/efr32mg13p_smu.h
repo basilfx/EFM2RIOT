@@ -1,9 +1,9 @@
 /**************************************************************************//**
  * @file efr32mg13p_smu.h
  * @brief EFR32MG13P_SMU register and bit field definitions
- * @version 5.1.2
+ * @version 5.3.3
  ******************************************************************************
- * @section License
+ * # License
  * <b>Copyright 2017 Silicon Laboratories, Inc. http://www.silabs.com</b>
  ******************************************************************************
  *
@@ -34,17 +34,24 @@
 extern "C" {
 #endif
 
+
+#if defined(__ICCARM__)
+#pragma system_include       /* Treat file as system include file. */
+#elif defined(__ARMCC_VERSION) && (__ARMCC_VERSION >= 6010050)
+#pragma clang system_header  /* Treat file as system include file. */
+#endif
+
 /**************************************************************************//**
 * @addtogroup Parts
 * @{
 ******************************************************************************/
 /**************************************************************************//**
- * @defgroup EFR32MG13P_SMU
+ * @defgroup EFR32MG13P_SMU SMU
  * @{
  * @brief EFR32MG13P_SMU Register Declaration
  *****************************************************************************/
-typedef struct
-{
+/** SMU Register Declaration */
+typedef struct {
   uint32_t       RESERVED0[3];  /**< Reserved for future use **/
   __IM uint32_t  IF;            /**< Interrupt Flag Register  */
   __IOM uint32_t IFS;           /**< Interrupt Flag Set Register  */
@@ -62,7 +69,9 @@ typedef struct
 } SMU_TypeDef;                  /** @} */
 
 /**************************************************************************//**
- * @defgroup EFR32MG13P_SMU_BitFields
+ * @addtogroup EFR32MG13P_SMU
+ * @{
+ * @defgroup EFR32MG13P_SMU_BitFields  SMU Bit Fields
  * @{
  *****************************************************************************/
 
@@ -372,9 +381,9 @@ typedef struct
 #define SMU_PPUFS_PERIPHID_WDOG1           (_SMU_PPUFS_PERIPHID_WDOG1 << 0)     /**< Shifted mode WDOG1 for SMU_PPUFS */
 #define SMU_PPUFS_PERIPHID_WTIMER0         (_SMU_PPUFS_PERIPHID_WTIMER0 << 0)   /**< Shifted mode WTIMER0 for SMU_PPUFS */
 
+/** @} */
 /** @} End of group EFR32MG13P_SMU */
 /** @} End of group Parts */
-
 #ifdef __cplusplus
 }
 #endif
