@@ -40,10 +40,10 @@ volatile static I2C_TransferReturn_TypeDef i2c_progress[I2C_NUMOF];
 
 static mutex_t i2c_lock[I2C_NUMOF] = {
 #if I2C_0_EN
-    [I2C_0] = MUTEX_INIT,
+    MUTEX_INIT,
 #endif
 #if I2C_1_EN
-    [I2C_1] = MUTEX_INIT,
+    MUTEX_INIT,
 #endif
 };
 

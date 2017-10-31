@@ -227,10 +227,12 @@ extern "C" {
          * @{
          */
         #ifndef SI7021_ENABLED
-        #define SI7021_ENABLED      (1)
+        #define SI7021_ENABLED          (1)
         #endif
-        #define SI7021_I2C          (0)
-        #define SI7021_EN_PIN       GPIO_PIN(PF, 8)
+        #define SI7021_I2C              (0)
+        #define SI7021_EN_PIN           GPIO_PIN(PF, 8)
+
+        #define SI70XX_PARAM_I2C_DEV    SI7021_I2C
         /** @} */
     {% elif board in ["sltb001a"] %}
         /**
@@ -250,9 +252,11 @@ extern "C" {
          * @{
          */
         #ifndef BMP280_ENABLED
-        #define BMP280_ENABLED      (1)
+        #define BMP280_ENABLED          (1)
         #endif
-        #define BMP280_I2C          (0)
+        #define BMP280_I2C              (0)
+
+        #define BMX280_PARAM_I2C_DEV    BMP280_I2C
         /** @} */
 
         /**
@@ -340,9 +344,11 @@ extern "C" {
          * @{
          */
         #ifndef SI7021_ENABLED
-        #define SI7021_ENABLED      (1)
+        #define SI7021_ENABLED          (1)
         #endif
-        #define SI7021_I2C          (0)
+        #define SI7021_I2C              (0)
+
+        #define SI70XX_PARAM_I2C_DEV    SI7021_I2C
         /** @} */
 
         /**

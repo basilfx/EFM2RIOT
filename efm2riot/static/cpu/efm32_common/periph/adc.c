@@ -30,10 +30,10 @@
 
 static mutex_t adc_lock[ADC_NUMOF] = {
 #if ADC_0_EN
-    [ADC_0] = MUTEX_INIT,
+    MUTEX_INIT,
 #endif
 #if ADC_1_EN
-    [ADC_1] = MUTEX_INIT,
+    MUTEX_INIT,
 #endif
 };
 
