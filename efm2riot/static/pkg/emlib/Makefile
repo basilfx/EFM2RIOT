@@ -1,6 +1,6 @@
 PKG_NAME=emlib
 PKG_URL=https://github.com/basilfx/emlib
-PKG_VERSION=fbdacfd482fe8d69bec8f7bd8bce889d2b26005b
+PKG_VERSION=cd36cd4f1a2a4566b19d9c7d30b8cc2913fe5292
 PKG_LICENSE=Zlib
 
 .PHONY: all
