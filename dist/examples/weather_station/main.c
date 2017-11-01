@@ -75,7 +75,6 @@ int main(void)
 
     u8g2_t u8g2;
     si70xx_t dev;
-    uint32_t timeout;
     int16_t temperature;
     uint16_t humidity;
 
@@ -112,7 +111,7 @@ int main(void)
         snprintf(buffer[1], 16, "%d.%02d C", temperature / 100, temperature % 100);
         snprintf(buffer[2], 16, "%.2f C", get_internal_temp());
         snprintf(buffer[3], 16, "%.2f V", get_battery_voltage());
-        snprintf(buffer[4], 16, "%lu s", xtimer_now() / 1000);
+        snprintf(buffer[4], 16, "%lu s", (uint32_t) (xtimer_now_usec64() / 1000 / 1000));
 
         u8g2_FirstPage(&u8g2);
 
