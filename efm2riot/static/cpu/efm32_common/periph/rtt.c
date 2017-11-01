@@ -25,7 +25,6 @@
 
 #include "em_cmu.h"
 #include "em_rtc.h"
-#include "em_common_utils.h"
 
 #if defined(RTC_COUNT) && RTC_COUNT > 0
 
@@ -48,13 +47,13 @@ void rtt_init(void)
     CMU_ClockEnable(cmuClock_RTC, true);
 
     /* reset and initialize peripheral */
-    EFM32_CREATE_INIT(init, RTC_Init_TypeDef, RTC_INIT_DEFAULT,
-        .conf.enable = false,
-        .conf.comp0Top = false
-    );
+    RTC_Init_TypeDef init = RTC_INIT_DEFAULT;
+
+    init.enable = false,
+    init.comp0Top = false
 
     RTC_Reset();
-    RTC_Init(&init.conf);
+    RTC_Init(&init);
 
     /* enable interrupts */
     RTC_IntEnable(RTC_IEN_OF);

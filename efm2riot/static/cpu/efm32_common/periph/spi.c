@@ -33,7 +33,6 @@
 #include "em_device.h"
 #include "em_cmu.h"
 #include "em_usart.h"
-#include "em_common_utils.h"
 
 /* guard file in case no SPI device is defined */
 #if SPI_NUMOF
@@ -71,13 +70,13 @@ int spi_acquire(spi_t bus, spi_cs_t cs, spi_mode_t mode, spi_clk_t clk)
     CMU_ClockEnable(cmuClock_HFPER, true);
     CMU_ClockEnable(spi_config[bus].cmu, true);
 
-    EFM32_CREATE_INIT(init, USART_InitSync_TypeDef, USART_INITSYNC_DEFAULT,
-        .conf.baudrate = (uint32_t) clk,
-        .conf.clockMode = (USART_ClockMode_TypeDef) mode,
-        .conf.msbf = true
-    );
+    USART_InitSync_TypeDef init = USART_INITSYNC_DEFAULT;
 
-    USART_InitSync(spi_config[bus].dev, &init.conf);
+    init.baudrate = (uint32_t) clk;
+    init.clockMode = (USART_ClockMode_TypeDef) mode;
+    init.msbf = true;
+
+    USART_InitSync(spi_config[bus].dev, &init);
 
     /* configure pin functions */
 #ifdef _SILICON_LABS_32B_PLATFORM_1

@@ -29,7 +29,6 @@
 #if LOW_POWER_ENABLED && defined(LEUART_COUNT) && LEUART_COUNT > 0
 #include "em_leuart.h"
 #endif
-#include "em_common_utils.h"
 
 /**
  * @brief   Allocate memory to store the callback functions
@@ -70,12 +69,12 @@ int uart_init(uart_t dev, uint32_t baudrate, uart_rx_cb_t rx_cb, void *arg)
         CMU_ClockEnable(uart_config[dev].cmu, true);
 
         /* reset and initialize peripheral */
-        EFM32_CREATE_INIT(init, USART_InitAsync_TypeDef, USART_INITASYNC_DEFAULT,
-            .conf.enable = usartDisable,
-            .conf.baudrate = baudrate
-        );
+        USART_InitAsync_TypeDef init = USART_INITASYNC_DEFAULT;
 
-        USART_InitAsync(uart, &init.conf);
+        init.enable = usartDisable;
+        init.baudrate = baudrate;
+
+        USART_InitAsync(uart, &init);
 
         /* configure pin functions */
 #ifdef _SILICON_LABS_32B_PLATFORM_1
@@ -101,12 +100,12 @@ int uart_init(uart_t dev, uint32_t baudrate, uart_rx_cb_t rx_cb, void *arg)
         CMU_ClockEnable(uart_config[dev].cmu, true);
 
         /* reset and initialize peripheral */
-        EFM32_CREATE_INIT(init, LEUART_Init_TypeDef, LEUART_INIT_DEFAULT,
-            .conf.enable = leuartDisable,
-            .conf.baudrate = baudrate
-        );
+        LEUART_Init_TypeDef init = LEUART_INIT_DEFAULT;
 
-        LEUART_Init(leuart, &init.conf);
+        init.enable = leuartDisable;
+        init.baudrate = baudrate;
+
+        LEUART_Init(leuart, &init);
 
         /* configure pin functions */
 #ifdef _SILICON_LABS_32B_PLATFORM_1

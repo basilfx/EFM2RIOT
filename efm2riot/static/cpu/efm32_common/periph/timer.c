@@ -28,7 +28,6 @@
 #include "em_cmu.h"
 #include "em_timer.h"
 #include "em_timer_utils.h"
-#include "em_common_utils.h"
 
 /**
  * @brief   This timer implementation has three available channels
@@ -63,25 +62,25 @@ int timer_init(tim_t dev, unsigned long freq, timer_cb_t callback, void *arg)
     CMU_ClockEnable(timer_config[dev].timer.cmu, true);
 
     /* reset and initialize peripherals */
-    EFM32_CREATE_INIT(init_pre, TIMER_Init_TypeDef, TIMER_INIT_DEFAULT,
-        .conf.enable = false,
-        .conf.prescale = timerPrescale1
-    );
-    EFM32_CREATE_INIT(init_tim, TIMER_Init_TypeDef, TIMER_INIT_DEFAULT,
-        .conf.enable = false,
-        .conf.clkSel = timerClkSelCascade
-    );
+    TIMER_Init_TypeDef init_pre = TIMER_INIT_DEFAULT;
+    TIMER_Init_TypeDef init_tim = TIMER_INIT_DEFAULT;
+
+    init_pre.enable = false;
+    init_pre.prescale = timerPrescale1;
+
+    init_tim.enable = false;
+    init_tim.clkSel = timerClkSelCascade;
 
     TIMER_Reset(tim);
     TIMER_Reset(pre);
 
-    TIMER_Init(tim, &init_tim.conf);
-    TIMER_Init(pre, &init_pre.conf);
+    TIMER_Init(tim, &init_tim);
+    TIMER_Init(pre, &init_pre);
 
     /* configure the prescaler top value */
     uint32_t freq_timer = CMU_ClockFreqGet(timer_config[dev].prescaler.cmu);
     uint32_t top = (
-        freq_timer / TIMER_Prescaler2Div(init_pre.conf.prescale) / freq) - 1;
+        freq_timer / TIMER_Prescaler2Div(init_pre.prescale) / freq) - 1;
 
     TIMER_TopSet(pre, top);
     TIMER_TopSet(tim, 0xffff);

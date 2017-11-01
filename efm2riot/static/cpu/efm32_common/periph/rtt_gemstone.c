@@ -25,7 +25,6 @@
 
 #include "em_cmu.h"
 #include "em_rtcc.h"
-#include "em_common_utils.h"
 
 #if defined(RTCC_COUNT) && RTCC_COUNT > 0
 
@@ -45,13 +44,13 @@ void rtt_init(void)
     CMU_ClockEnable(cmuClock_RTCC, true);
 
     /* reset and initialize peripheral */
-    EFM32_CREATE_INIT(init, RTCC_Init_TypeDef, RTCC_INIT_DEFAULT,
-        .conf.enable = false,
-        .conf.presc = rtccCntPresc_32768
-    );
+    RTCC_Init_TypeDef init = RTCC_INIT_DEFAULT;
+
+    init.enable = false;
+    init.presc = rtccCntPresc_32768;
 
     RTCC_Reset();
-    RTCC_Init(&init.conf);
+    RTCC_Init(&init);
 
     /* initialize alarm channel */
     RTCC_CCChConf_TypeDef init_channel = RTCC_CH_INIT_COMPARE_DEFAULT;

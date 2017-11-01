@@ -31,7 +31,6 @@
 
 #include "em_cmu.h"
 #include "em_i2c.h"
-#include "em_common_utils.h"
 
 /* guard file in case no I2C device is defined */
 #if I2C_NUMOF
@@ -94,13 +93,13 @@ int i2c_init_master(i2c_t dev, i2c_speed_t speed)
     }
 
     /* reset and initialize the peripheral */
-    EFM32_CREATE_INIT(init, I2C_Init_TypeDef, I2C_INIT_DEFAULT,
-        .conf.enable = false,
-        .conf.freq = (uint32_t) speed
-    );
+    I2C_Init_TypeDef init = I2C_INIT_DEFAULT;
+
+    init.enable = false;
+    init.freq = (uint32_t) speed;
 
     I2C_Reset(i2c_config[dev].dev);
-    I2C_Init(i2c_config[dev].dev, &init.conf);
+    I2C_Init(i2c_config[dev].dev, &init);
 
     /* configure pin functions */
 #ifdef _SILICON_LABS_32B_PLATFORM_1

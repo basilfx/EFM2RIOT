@@ -26,7 +26,6 @@
 
 #include "em_cmu.h"
 #include "em_adc.h"
-#include "em_common_utils.h"
 
 static mutex_t adc_lock[ADC_NUMOF] = {
 #if ADC_0_EN
@@ -51,13 +50,13 @@ int adc_init(adc_t line)
     CMU_ClockEnable(adc_config[dev].cmu, true);
 
     /* reset and initialize peripheral */
-    EFM32_CREATE_INIT(init, ADC_Init_TypeDef, ADC_INIT_DEFAULT,
-        .conf.timebase = ADC_TimebaseCalc(0),
-        .conf.prescale = ADC_PrescaleCalc(400000, 0)
-    );
+    ADC_Init_TypeDef init = ADC_INIT_DEFAULT;
+
+    init.timebase = ADC_TimebaseCalc(0);
+    init.prescale = ADC_PrescaleCalc(400000, 0);
 
     ADC_Reset(adc_config[dev].dev);
-    ADC_Init(adc_config[dev].dev, &init.conf);
+    ADC_Init(adc_config[dev].dev, &init);
 
     return 0;
 }
@@ -70,18 +69,18 @@ int adc_sample(adc_t line, adc_res_t res)
     mutex_lock(&adc_lock[dev]);
 
     /* setup channel */
-    EFM32_CREATE_INIT(init, ADC_InitSingle_TypeDef, ADC_INITSINGLE_DEFAULT,
-        .conf.acqTime = adc_channel_config[line].acq_time,
-        .conf.reference = adc_channel_config[line].reference,
-        .conf.resolution = (ADC_Res_TypeDef) (res & 0xFF),
-#ifdef _SILICON_LABS_32B_PLATFORM_1
-        .conf.input = adc_channel_config[line].input,
-#else
-        .conf.posSel = adc_channel_config[line].input,
-#endif
-    );
+    ADC_InitSingle_TypeDef init = ADC_INITSINGLE_DEFAULT;
 
-    ADC_InitSingle(adc_config[dev].dev, &init.conf);
+    init.acqTime = adc_channel_config[line].acq_time;
+    init.reference = adc_channel_config[line].reference;
+    init.resolution = (ADC_Res_TypeDef) (res & 0xFF);
+#ifdef _SILICON_LABS_32B_PLATFORM_1
+    init.input = adc_channel_config[line].input;
+#else
+    init.posSel = adc_channel_config[line].input;
+#endif
+
+    ADC_InitSingle(adc_config[dev].dev, &init);
 
     /* start conversion and block until it completes */
     ADC_Start(adc_config[dev].dev, adcStartSingle);
