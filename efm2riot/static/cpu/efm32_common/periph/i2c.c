@@ -36,7 +36,7 @@
 /* guard file in case no I2C device is defined */
 #if I2C_NUMOF
 
-volatile static I2C_TransferReturn_TypeDef i2c_progress[I2C_NUMOF];
+static volatile I2C_TransferReturn_TypeDef i2c_progress[I2C_NUMOF];
 
 static mutex_t i2c_lock[I2C_NUMOF] = {
 #if I2C_0_EN

@@ -255,9 +255,9 @@ static const pwm_chan_conf_t pwm_channel_config[] = {
                 TIMER_ROUTE_LOCATION_LOC1   /* AF location */
             }
         {% elif board in ["stk3200"] %}
-            /* no available channels */
+            0                               /* no available channels */
         {% elif board in ["slstk3401a", "slstk3402a"] %}
-            /* no available channels */
+            0                               /* no available channels */
         {% elif board in ["slwstk6220a"] %}
             {
                 0,                          /* channel index */
@@ -270,7 +270,7 @@ static const pwm_chan_conf_t pwm_channel_config[] = {
                 TIMER_ROUTE_LOCATION_LOC2   /* AF location */
             }
         {% elif board in ["sltb001a"] %}
-            /* no available channels */
+            0                               /* no available channels */
         {% endif %}
     {% endstrip %}
 };
@@ -286,9 +286,9 @@ static const pwm_conf_t pwm_config[] = {
                 pwm_channel_config          /* first channel config */
             }
         {% elif board in ["stk3200"] %}
-            /* no available timers */
+            0                               /* no available timers */
         {% elif board in ["slstk3401a", "slstk3402a"] %}
-            /* no available timers */
+            0                               /* no available timers */
         {% elif board in ["slwstk6220a"] %}
             {
                 TIMER0,                     /* device */
@@ -298,9 +298,9 @@ static const pwm_conf_t pwm_config[] = {
                 pwm_channel_config          /* first channel config */
             }
         {% elif board in ["slstk3401a", "slstk3402a"] %}
-            /* no available timers */
+            0                               /* no available timers */
         {% elif board in ["sltb001a"] %}
-            /* no available timers */
+            0                               /* no available timers */
         {% endif %}
     {% endstrip %}
 };
