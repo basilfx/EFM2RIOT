@@ -39,10 +39,10 @@
 
 static mutex_t spi_lock[SPI_NUMOF] = {
 #if SPI_0_EN
-    MUTEX_INIT,
+    [0] = MUTEX_INIT,
 #endif
 #if SPI_1_EN
-    MUTEX_INIT,
+    [1] = MUTEX_INIT,
 #endif
 };
 
