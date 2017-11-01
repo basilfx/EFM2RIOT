@@ -39,8 +39,3 @@ void pm_set(unsigned mode)
             break;
     }
 }
-
-void pm_off(void)
-{
-    EMU_EnterEM4();
-}
