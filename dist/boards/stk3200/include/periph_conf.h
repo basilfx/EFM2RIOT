@@ -109,11 +109,11 @@ static const i2c_conf_t i2c_config[] = {
  * @{
  */
 static const pwm_chan_conf_t pwm_channel_config[] = {
-    /* no available channels */
+    0                               /* no available channels */
 };
 
 static const pwm_conf_t pwm_config[] = {
-    /* no available timers */
+    0                               /* no available timers */
 };
 
 #define PWM_NUMOF           (0U)

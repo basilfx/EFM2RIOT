@@ -25,7 +25,6 @@
 #include "em_cmu.h"
 #include "em_timer.h"
 #include "em_timer_utils.h"
-#include "em_common_utils.h"
 
 /* guard file in case no PWM device was specified */
 #if PWM_NUMOF
@@ -51,19 +50,19 @@ uint32_t pwm_init(pwm_t dev, pwm_mode_t mode, uint32_t freq, uint16_t res)
     }
 
     /* reset and initialize peripheral */
-    EFM32_CREATE_INIT(init, TIMER_Init_TypeDef, TIMER_INIT_DEFAULT,
-        .conf.enable = false,
-        .conf.prescale = prescaler
-    );
+    TIMER_Init_TypeDef init = TIMER_INIT_DEFAULT;
+
+    init.enable = false;
+    init.prescale = prescaler;
 
     TIMER_Reset(pwm_config[dev].dev);
-    TIMER_Init(pwm_config[dev].dev, &init.conf);
+    TIMER_Init(pwm_config[dev].dev, &init);
     TIMER_TopSet(pwm_config[dev].dev, res);
 
     /* initialize channels */
-    EFM32_CREATE_INIT(init_channel, TIMER_InitCC_TypeDef, TIMER_INITCC_DEFAULT,
-        .conf.mode = timerCCModePWM
-    );
+    TIMER_InitCC_TypeDef init_channel = TIMER_INITCC_DEFAULT;
+
+    init_channel.mode = timerCCModePWM;
 
     for (int i = 0; i < pwm_config[dev].channels; i++) {
         pwm_chan_conf_t channel = pwm_config[dev].channel[i];
@@ -81,7 +80,7 @@ uint32_t pwm_init(pwm_t dev, pwm_mode_t mode, uint32_t freq, uint16_t res)
 #endif
 
         /* setup channel */
-        TIMER_InitCC(pwm_config[dev].dev, channel.index, &init_channel.conf);
+        TIMER_InitCC(pwm_config[dev].dev, channel.index, &init_channel);
     }
 
     /* enable peripheral */

@@ -27,7 +27,6 @@
 #if defined(DAC_COUNT) && DAC_COUNT > 0
 #include "em_dac.h"
 #endif
-#include "em_common_utils.h"
 
 #if defined(DAC_COUNT) && DAC_COUNT > 0
 
@@ -51,12 +50,12 @@ int8_t dac_init(dac_t line)
     DAC_Init(dac_config[dev].dev, &init);
 
     /* initialize channel */
-    EFM32_CREATE_INIT(init_channel, DAC_InitChannel_TypeDef, DAC_INITCHANNEL_DEFAULT,
-        .conf.enable = true
-    );
+    DAC_InitChannel_TypeDef init_channel = DAC_INITCHANNEL_DEFAULT;
+
+    init.enable = true;
 
     DAC_InitChannel(dac_config[dev].dev,
-                    &init_channel.conf,
+                    &init_channel,
                     dac_channel_config[line].index);
 
     return 0;

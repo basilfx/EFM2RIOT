@@ -28,7 +28,6 @@
 #include "em_cmu.h"
 #include "em_rtcc.h"
 #include "em_rtcc_utils.h"
-#include "em_common_utils.h"
 
 #if defined(RTCC_COUNT) && RTCC_COUNT > 0
 
@@ -49,14 +48,14 @@ void rtc_init(void)
     CMU_ClockEnable(cmuClock_RTCC, true);
 
     /* reset and initialize peripheral */
-    EFM32_CREATE_INIT(init, RTCC_Init_TypeDef, RTCC_INIT_DEFAULT,
-        .conf.enable = false,
-        .conf.presc = rtccCntPresc_32768,
-        .conf.cntMode = rtccCntModeCalendar
-    );
+    RTCC_Init_TypeDef init = RTCC_INIT_DEFAULT;
+
+    init.enable = false;
+    init.presc = rtccCntPresc_32768;
+    init.cntMode = rtccCntModeCalendar;
 
     RTCC_Reset();
-    RTCC_Init(&init.conf);
+    RTCC_Init(&init);
 
     /* initialize alarm channel */
     RTCC_CCChConf_TypeDef init_channel = RTCC_CH_INIT_COMPARE_DEFAULT;
@@ -92,12 +91,12 @@ int rtc_get_time(struct tm *time)
     uint32_t timestamp = RTCC_TimeGet();
 
     time->tm_year = RTCC_BCD2Year(datestamp) + RTC_YEAR_OFFSET;
-    time->tm_mon  = RTCC_BCD2Month(datestamp);
+    time->tm_mon = RTCC_BCD2Month(datestamp);
     time->tm_mday = RTCC_BCD2DayOfMonth(datestamp);
     time->tm_wday = RTCC_BCD2DayOfWeek(datestamp);
     time->tm_hour = RTCC_BCD2Hour(timestamp);
-    time->tm_min  = RTCC_BCD2Minute(timestamp);
-    time->tm_sec  = RTCC_BCD2Second(timestamp);
+    time->tm_min = RTCC_BCD2Minute(timestamp);
+    time->tm_sec = RTCC_BCD2Second(timestamp);
 
     return 0;
 }
@@ -113,12 +112,12 @@ int rtc_set_alarm(struct tm *time, rtc_alarm_cb_t cb, void *arg)
 
     /* set compare registers */
     RTCC_ChannelDateSet(0,
-        RTCC_Channel_Month2BCD(time->tm_mon) |
-        RTCC_Channel_Day2BCD(time->tm_mday));
+                        RTCC_Channel_Month2BCD(time->tm_mon) |
+                        RTCC_Channel_Day2BCD(time->tm_mday));
     RTCC_ChannelTimeSet(0,
-        RTCC_Channel_Hour2BCD(time->tm_hour) |
-        RTCC_Channel_Minute2BCD(time->tm_min) |
-        RTCC_Channel_Second2BCD(time->tm_sec));
+                        RTCC_Channel_Hour2BCD(time->tm_hour) |
+                        RTCC_Channel_Minute2BCD(time->tm_min) |
+                        RTCC_Channel_Second2BCD(time->tm_sec));
 
     /* enable the interrupt */
     RTCC_IntClear(RTCC_IFC_CC0);
@@ -133,11 +132,11 @@ int rtc_get_alarm(struct tm *time)
     uint32_t timestamp = RTCC_ChannelTimeGet(0);
 
     time->tm_year = rtc_state.alarm_year;
-    time->tm_mon  = RTCC_Channel_BCD2Month(datestamp);
+    time->tm_mon = RTCC_Channel_BCD2Month(datestamp);
     time->tm_mday = RTCC_Channel_BCD2Day(datestamp);
     time->tm_hour = RTCC_Channel_BCD2Hour(timestamp);
-    time->tm_min  = RTCC_Channel_BCD2Minute(timestamp);
-    time->tm_sec  = RTCC_Channel_BCD2Second(timestamp);
+    time->tm_min = RTCC_Channel_BCD2Minute(timestamp);
+    time->tm_sec = RTCC_Channel_BCD2Second(timestamp);
 
     return 0;
 }

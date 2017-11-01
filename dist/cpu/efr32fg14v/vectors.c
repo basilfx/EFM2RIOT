@@ -27,7 +27,8 @@ extern uint32_t _estack;
 
 /* define a local dummy handler as it needs to be in the same compilation unit
  * as the alias definition */
-void dummy_handler(void) {
+void dummy_handler(void)
+{
     dummy_handler_default();
 }
 
