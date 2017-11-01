@@ -55,14 +55,14 @@ Most of the 32-bit families that are supported by emlib are supported by EFM2RIO
 ## Supported boards
 Currently, the following boards (development kits) are supported:
 
-* [STK3200](dist/doc/STK3200.md) &mdash; EFM32 Zero Gecko
 * [SLSTK3401A](dist/doc/SLSTK3401A.md) &mdash; EFM32 Pearl Gecko PG1
 * [SLSTK3402A](dist/doc/SLSTK3402A.md) &mdash; EFM32 Pearl Gecko PG12
+* [SLTB001A](dist/doc/SLTB001A.md) &mdash; EFR32 Mighty Gecko
+* [SLWSTK6220A](dist/doc/SLWSTK6220A.md) &mdash; EZR32 Wonder Gecko (untested)
+* [STK3200](dist/doc/STK3200.md) &mdash; EFM32 Zero Gecko
 * [STK3600](dist/doc/STK3600.md) &mdash; EFM32 Leopard Gecko
 * [STK3700](dist/doc/STK3700.md) &mdash; EFM32 Giant Gecko
 * [STK3800](dist/doc/STK3800.md) &mdash; EFM32 Wonder Gecko
-* [SLWSTK6220A](dist/doc/SLWSTK6220A.md) &mdash; EZR32 Wonder Gecko (untested)
-* [SLTB001A](dist/doc/SLTB001A.md) &mdash; EFR32 Mighty Gecko
 
 ## TODO
 * General: add support for DMA in peripheral drivers.
