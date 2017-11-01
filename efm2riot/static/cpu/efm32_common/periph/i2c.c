@@ -63,7 +63,8 @@ static void _transfer(i2c_t dev, I2C_TransferSeq_TypeDef *transfer)
 
         if (i2c_progress[dev] == i2cTransferInProgress) {
             cortexm_sleep_until_event();
-        } else {
+        }
+        else {
             busy = false;
         }
 

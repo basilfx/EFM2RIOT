@@ -49,8 +49,8 @@ void rtt_init(void)
     /* reset and initialize peripheral */
     RTC_Init_TypeDef init = RTC_INIT_DEFAULT;
 
-    init.enable = false,
-    init.comp0Top = false
+    init.enable = false;
+    init.comp0Top = false;
 
     RTC_Reset();
     RTC_Init(&init);
