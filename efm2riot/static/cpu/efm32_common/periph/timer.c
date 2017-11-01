@@ -51,6 +51,7 @@ int timer_init(tim_t dev, unsigned long freq, timer_cb_t callback, void *arg)
 
     /* save callback */
     isr_ctx[dev].cb = callback;
+    isr_ctx[dev].arg = arg;
 
     /* get timers */
     pre = timer_config[dev].prescaler.dev;
