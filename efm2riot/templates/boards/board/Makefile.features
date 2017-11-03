@@ -5,7 +5,6 @@ FEATURES_PROVIDED += periph_adc
         FEATURES_PROVIDED += periph_dac
     {% endif %}
 {% endstrip %}
-FEATURES_PROVIDED += periph_cpuid
 FEATURES_PROVIDED += periph_gpio
 {% strip 2 %}
     {% if development %}
