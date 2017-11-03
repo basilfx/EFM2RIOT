@@ -154,7 +154,7 @@ extern "C" {
          * Connection to the on-board Sharp Memory LCD (LS013B7DH03).
          * @{
          */
-        #define DISP_SPI            (0)
+        #define DISP_SPI            SPI_DEV(0)
         #define DISP_COM_PIN        GPIO_PIN(PE, 10)
         #define DISP_CS_PIN         GPIO_PIN(PE, 11)
         #define DISP_SELECT_PIN     GPIO_PIN(PA, 8)
@@ -167,7 +167,7 @@ extern "C" {
          * Connection to the on-board Sharp Memory LCD (LS013B7DH03).
          * @{
          */
-        #define DISP_SPI            (0)
+        #define DISP_SPI            SPI_DEV(0)
         #define DISP_COM_PIN        GPIO_PIN(PD, 13)
         #define DISP_CS_PIN         GPIO_PIN(PD, 14)
         #define DISP_EN_PIN         GPIO_PIN(PD, 15)
@@ -179,7 +179,7 @@ extern "C" {
          * Connection to the on-board Sharp Memory LCD (LS013B7DH03).
          * @{
          */
-        #define DISP_SPI            (0)
+        #define DISP_SPI            SPI_DEV(0)
         #define DISP_COM_PIN        GPIO_PIN(PE, 10)
         #define DISP_CS_PIN         GPIO_PIN(PE, 11)
         #define DISP_SELECT_PIN     GPIO_PIN(PA, 8)
@@ -199,7 +199,7 @@ extern "C" {
         #ifndef SI7021_ENABLED
         #define SI7021_ENABLED          (1)
         #endif
-        #define SI7021_I2C              (0)
+        #define SI7021_I2C              I2C_DEV(0)
         #define SI7021_EN_PIN           GPIO_PIN(PD, 9)
 
         #define SI70XX_PARAM_I2C_DEV    SI7021_I2C
@@ -214,7 +214,7 @@ extern "C" {
         #ifndef SI7021_ENABLED
         #define SI7021_ENABLED          (1)
         #endif
-        #define SI7021_I2C              (0)
+        #define SI7021_I2C              I2C_DEV(0)
         #define SI7021_EN_PIN           GPIO_PIN(PB, 10)
 
         #define SI70XX_PARAM_I2C_DEV    SI7021_I2C
@@ -229,7 +229,7 @@ extern "C" {
         #ifndef SI7021_ENABLED
         #define SI7021_ENABLED          (1)
         #endif
-        #define SI7021_I2C              (0)
+        #define SI7021_I2C              I2C_DEV(0)
         #define SI7021_EN_PIN           GPIO_PIN(PF, 8)
 
         #define SI70XX_PARAM_I2C_DEV    SI7021_I2C
@@ -254,7 +254,7 @@ extern "C" {
         #ifndef BMP280_ENABLED
         #define BMP280_ENABLED          (1)
         #endif
-        #define BMP280_I2C              (0)
+        #define BMP280_I2C              I2C_DEV(0)
 
         #define BMX280_PARAM_I2C_DEV    BMP280_I2C
         /** @} */
@@ -268,7 +268,7 @@ extern "C" {
         #ifndef CCS811_ENABLED
         #define CCS811_ENABLED      (0)
         #endif
-        #define CCS811_I2C          (0)
+        #define CCS811_I2C          I2C_DEV(0)
         #define CCS811_PIC_ADDR     (0x03)
         #define CCS811_PIC_EN_BIT   (0x00)
         #define CCS811_PIC_WAKE_BIT (0x01)
@@ -283,7 +283,7 @@ extern "C" {
         #ifndef ICM20648_ENABLED
         #define ICM20648_ENABLED    (0)
         #endif
-        #define ICM20648_SPI        (0)
+        #define ICM20648_SPI        SPI_DEV(0)
         #define ICM20648_PIC_ADDR   (0x00)
         #define ICM20648_PIC_EN_BIT (0x00)
         /** @} */
@@ -295,7 +295,7 @@ extern "C" {
          * @{
          */
         #define PIC_INT_WAKE_PIN    GPIO_PIN(PD, 10)
-        #define PIC_I2C             (0)
+        #define PIC_I2C             I2C_DEV(0)
         #define PIC_I2C_ADDR        (0x90)
         /** @} */
 
@@ -334,7 +334,7 @@ extern "C" {
         #ifndef SI1133_ENABLED
         #define SI1133_ENABLED      (0)
         #endif
-        #define SI1133_I2C          (0)
+        #define SI1133_I2C          I2C_DEV(0)
         /** @} */
 
         /**
@@ -346,7 +346,7 @@ extern "C" {
         #ifndef SI7021_ENABLED
         #define SI7021_ENABLED          (1)
         #endif
-        #define SI7021_I2C              (0)
+        #define SI7021_I2C              I2C_DEV(0)
 
         #define SI70XX_PARAM_I2C_DEV    SI7021_I2C
         /** @} */
@@ -359,9 +359,9 @@ extern "C" {
          * @{
          */
         #ifndef SI7210A_ENABLED
-        #define SI7210A_ENABLED      (0)
+        #define SI7210A_ENABLED     (0)
         #endif
-        #define SI7210A_I2C          (0)
+        #define SI7210A_I2C         I2C_DEV(0)
         /** @} */
     {% endif %}
 {% endstrip %}
