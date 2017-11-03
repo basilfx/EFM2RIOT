@@ -142,11 +142,6 @@ static const adc_chan_conf_t adc_channel_config[] = {
         #define DAC_NUMOF           (1U)
         #define DAC_0_EN            (1)
         /** @} */
-    {% else %}
-        /**
-         * @brief   DAC configuration
-         */
-        #define DAC_NUMOF           (0U)
     {% endif %}
 {% endstrip %}
 
