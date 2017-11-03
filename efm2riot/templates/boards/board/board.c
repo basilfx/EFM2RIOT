@@ -46,11 +46,10 @@
             RGB_LED4_ENABLED
         static inline void board_usleep(uint32_t delay)
         {
-            delay = (delay * 1000) / (1000 / (SystemCoreClock / 1000 / 1000));
+            /* decrement + compare take two cycles, therefore divide by two */
+            uint32_t count = (delay * (SystemCoreClock / 1000 / 1000)) / 2;
 
-            while (delay--) {
-                __asm("nop");
-            }
+            while (count--) {}
         }
 
         static void board_pic_init(void)
