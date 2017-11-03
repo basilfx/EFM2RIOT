@@ -37,18 +37,14 @@
 /* guard file in case no SPI device is defined */
 #if SPI_NUMOF
 
-static mutex_t spi_lock[SPI_NUMOF] = {
-#if SPI_0_EN
-    [0] = MUTEX_INIT,
-#endif
-#if SPI_1_EN
-    [1] = MUTEX_INIT,
-#endif
-};
+static mutex_t spi_lock[SPI_NUMOF];
 
 void spi_init(spi_t bus)
 {
     assert(bus < SPI_NUMOF);
+
+    /* initialize lock */
+    mutex_init(&spi_lock[dev]);
 
     /* initialize pins */
     spi_init_pins(bus);

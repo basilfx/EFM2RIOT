@@ -31,6 +31,11 @@ extern "C" {
 #endif
 
 /**
+ * @brief   Local helper to calculate *_NUMOF based on config.
+ */
+#define NUMOF(config)    (sizeof(config) / sizeof(config[0]))
+
+/**
  * @name    Clock configuration
  * @{
  */
@@ -67,8 +72,8 @@ extern "C" {
  */
 static const adc_conf_t adc_config[] = {
     {
-        ADC0,                               /* device */
-        cmuClock_ADC0,                      /* CMU register */
+        .dev = ADC0,
+        .cmu = cmuClock_ADC0,
     }
 };
 
@@ -76,37 +81,36 @@ static const adc_chan_conf_t adc_channel_config[] = {
     {% strip 2 %}
         {% if board in ["stk3200", "stk3600", "stk3700", "stk3800", "slwstk6220a"] %}
             {
-                0,                                  /* device index */
-                adcSingleInputTemp,                 /* channel to use */
-                adcRef1V25,                         /* channel reference */
-                adcAcqTime8                         /* acquisition time */
+                .dev = 0,
+                .input = adcSingleInputTemp,
+                .reference = adcRef1V25,
+                .acq_time = adcAcqTime8
             },
             {
-                0,                                  /* device index */
-                adcSingleInputVDDDiv3,              /* channel to use */
-                adcRef1V25,                         /* channel reference */
-                adcAcqTime8                         /* acquisition time */
+                .dev = 0,
+                .input = adcSingleInputVDDDiv3,
+                .reference = adcRef1V25,
+                .acq_time = adcAcqTime8
             }
         {% elif board in ["slstk3401a", "slstk3402a", "sltb001a"] %}
             {
-                0,                                  /* device index */
-                adcPosSelTEMP,                      /* channel to use */
-                adcRef1V25,                         /* channel reference */
-                adcAcqTime8                         /* acquisition time */
+                .dev = 0,
+                .input = adcPosSelTEMP,
+                .reference = adcRef1V25,
+                .acq_time = adcAcqTime8
             },
             {
-                0,                                  /* device index */
-                adcPosSelAVDD,                      /* channel to use */
-                adcRef5V,                           /* channel reference */
-                adcAcqTime8                         /* acquisition time */
+                .dev = 0,
+                .input = adcPosSelAVDD,
+                .reference = adcRef5V,
+                .acq_time = adcAcqTime8
             }
         {% endif %}
     {% endstrip %}
 };
 
-#define ADC_NUMOF           (2U)
-#define ADC_0_EN            (1)
-#define ADC_1_EN            (1)
+#define ADC_DEV_NUMOF       NUMOF(adc_config)
+#define ADC_NUMOF           NUMOF(adc_channel_config)
 /** @} */
 
 {% strip 2, ">" %}
@@ -126,21 +130,21 @@ static const adc_chan_conf_t adc_channel_config[] = {
          */
         static const dac_conf_t dac_config[] = {
             {
-                DAC0,                               /* device */
-                cmuClock_DAC0,                      /* CMU register */
+                .dev = DAC0,
+                .cmu = cmuClock_DAC0,
             }
         };
 
         static const dac_chan_conf_t dac_channel_config[] = {
             {
-                0,                                  /* DAC channel index */
-                1,                                  /* channel to use */
-                dacRefVDD,                          /* channel reference */
+                .dev = 0,
+                .index = 1,
+                .ref = dacRefVDD,
             }
         };
 
-        #define DAC_NUMOF           (1U)
-        #define DAC_0_EN            (1)
+        #define DAC_DEV_NUMOF       NUMOF(dac_config)
+        #define DAC_NUMOF           NUMOF(dac_channel_config)
         /** @} */
     {% endif %}
 {% endstrip %}
@@ -153,169 +157,137 @@ static const i2c_conf_t i2c_config[] = {
     {% strip 2 %}
         {% if board in ["stk3600", "stk3700", "stk3800"] %}
             {
-                I2C0,                               /* device */
-                GPIO_PIN(PD, 6),                    /* SDA pin */
-                GPIO_PIN(PD, 7),                    /* SCL pin */
-                I2C_ROUTE_LOCATION_LOC1,            /* AF location */
-                cmuClock_I2C0,                      /* CMU register */
-                I2C0_IRQn                           /* IRQ base channel */
+                .dev = I2C0,
+                .sda_pin = GPIO_PIN(PD, 6),
+                .scl_pin = GPIO_PIN(PD, 7),
+                .loc = I2C_ROUTE_LOCATION_LOC1,
+                .cmu = cmuClock_I2C0,
+                .irq = I2C0_IRQn
             },
             {
-                I2C1,                               /* device */
-                GPIO_PIN(PC, 4),                    /* SDA pin */
-                GPIO_PIN(PC, 5),                    /* SCL pin */
-                I2C_ROUTE_LOCATION_LOC0,            /* AF location */
-                cmuClock_I2C1,                      /* CMU register */
-                I2C1_IRQn                           /* IRQ base channel */
+                .dev = I2C1,
+                .sda_pin = GPIO_PIN(PC, 4),
+                .scl_pin = GPIO_PIN(PC, 5),
+                .loc = I2C_ROUTE_LOCATION_LOC0,
+                .cmu = cmuClock_I2C1,
+                .irq = I2C1_IRQn
             }
         {% elif board in ["stk3200"] %}
             {
-                I2C0,                               /* device */
-                GPIO_PIN(PE, 12),                   /* SDA pin */
-                GPIO_PIN(PE, 13),                   /* SCL pin */
-                I2C_ROUTE_LOCATION_LOC6,            /* AF location */
-                cmuClock_I2C0,                      /* CMU register */
-                I2C0_IRQn                           /* IRQ base channel */
+                .dev = I2C0,
+                .sda_pin = GPIO_PIN(PE, 12),
+                .scl_pin = GPIO_PIN(PE, 13),
+                .loc = I2C_ROUTE_LOCATION_LOC6,
+                .cmu = cmuClock_I2C0,
+                .irq = I2C0_IRQn
             }
         {% elif board in ["slstk3401a", "slstk3402a"] %}
             {
-                I2C0,                               /* device */
-                GPIO_PIN(PC, 10),                   /* SDA pin */
-                GPIO_PIN(PC, 11),                   /* SCL pin */
-                I2C_ROUTELOC0_SDALOC_LOC15 |
-                    I2C_ROUTELOC0_SCLLOC_LOC15,     /* AF location */
-                cmuClock_I2C0,                      /* CMU register */
-                I2C0_IRQn                           /* IRQ base channel */
+                .dev = I2C0,
+                .sda_pin = GPIO_PIN(PC, 10),
+                .scl_pin = GPIO_PIN(PC, 11),
+                .loc = I2C_ROUTELOC0_SDALOC_LOC15 |
+                       I2C_ROUTELOC0_SCLLOC_LOC15,
+                .cmu = cmuClock_I2C0,
+                .irq = I2C0_IRQn
             }
         {% elif board in ["slwstk6220a"] %}
             {
-                I2C1,                               /* device */
-                GPIO_PIN(PE, 0),                    /* SDA pin */
-                GPIO_PIN(PE, 1),                    /* SCL pin */
-                I2C_ROUTE_LOCATION_LOC2,            /* AF location */
-                cmuClock_I2C1,                      /* CMU register */
-                I2C1_IRQn                           /* IRQ base channel */
+                .dev = I2C1,
+                .sda_pin = GPIO_PIN(PE, 0),
+                .scl_pin = GPIO_PIN(PE, 1),
+                .loc = I2C_ROUTE_LOCATION_LOC2,
+                .cmu = cmuClock_I2C1,
+                .irq = I2C1_IRQn
             }
         {% elif board in ["sltb001a"] %}
             {
-                I2C0,                               /* device */
-                GPIO_PIN(PC, 10),                   /* SDA pin */
-                GPIO_PIN(PC, 11),                   /* SCL pin */
-                I2C_ROUTELOC0_SDALOC_LOC15 |
-                    I2C_ROUTELOC0_SCLLOC_LOC15,     /* AF location */
-                cmuClock_I2C0,                      /* CMU register */
-                I2C0_IRQn                           /* IRQ base channel */
+                .dev = I2C0,
+                .sda_pin = GPIO_PIN(PC, 10),
+                .scl_pin = GPIO_PIN(PC, 11),
+                .loc = I2C_ROUTELOC0_SDALOC_LOC15 |
+                       I2C_ROUTELOC0_SCLLOC_LOC15,
+                .cmu = cmuClock_I2C0,
+                .irq = I2C0_IRQn
+
             }
         {% endif %}
     {% endstrip %}
 };
 
+#define I2C_NUMOF           NUMOF(i2c_config)
 {% strip 2 %}
     {% if board in ["stk3600", "stk3700", "stk3800"] %}
-        #define I2C_NUMOF           (2U)
-        #define I2C_0_EN            (1)
-        #define I2C_1_EN            (1)
         #define I2C_0_ISR           isr_i2c0
         #define I2C_1_ISR           isr_i2c1
     {% elif board in ["stk3200"] %}
-        #define I2C_NUMOF           (1U)
-        #define I2C_0_EN            (1)
         #define I2C_0_ISR           isr_i2c0
     {% elif board in ["slstk3401a", "slstk3402a"] %}
-        #define I2C_NUMOF           (1U)
-        #define I2C_0_EN            (1)
         #define I2C_0_ISR           isr_i2c0
     {% elif board in ["slwstk6220a"] %}
-        #define I2C_NUMOF           (1U)
-        #define I2C_0_EN            (1)
         #define I2C_0_ISR           isr_i2c1
     {% elif board in ["sltb001a"] %}
-        #define I2C_NUMOF           (1U)
-        #define I2C_0_EN            (1)
         #define I2C_0_ISR           isr_i2c0
     {% endif %}
 {% endstrip %}
 /** @} */
 
-/**
- * @name    PWM configuration
- * @{
- */
-static const pwm_chan_conf_t pwm_channel_config[] = {
-    {% strip 2 %}
-        {% if board in ["stk3600", "stk3700", "stk3800"] %}
-            {
-                2,                          /* channel index */
-                GPIO_PIN(PE, 2),            /* PWM pin */
-                TIMER_ROUTE_LOCATION_LOC1   /* AF location */
-            }
-        {% elif board in ["stk3200"] %}
-            0                               /* no available channels */
-        {% elif board in ["slstk3401a", "slstk3402a"] %}
-            0                               /* no available channels */
-        {% elif board in ["slwstk6220a"] %}
-            {
-                0,                          /* channel index */
-                GPIO_PIN(PF, 6),            /* PWM pin */
-                TIMER_ROUTE_LOCATION_LOC2   /* AF location */
-            },
-            {
-                1,                          /* channel index */
-                GPIO_PIN(PF, 7),            /* PWM pin */
-                TIMER_ROUTE_LOCATION_LOC2   /* AF location */
-            }
-        {% elif board in ["sltb001a"] %}
-            0                               /* no available channels */
-        {% endif %}
-    {% endstrip %}
-};
+{% strip "2", ">" %}
+    {% if board not in ["stk3200", "slstk3401a", "slstk3402a", "sltb001a"] %}
+        /**
+         * @name    PWM configuration
+         * @{
+         */
+        static const pwm_chan_conf_t pwm_channel_config[] = {
+            {% strip 2 %}
+                {% if board in ["stk3600", "stk3700", "stk3800"] %}
+                    {
+                        .index = 2,
+                        .pin = GPIO_PIN(PE, 2),
+                        .loc = TIMER_ROUTE_LOCATION_LOC1
+                    }
+                {% elif board in ["slwstk6220a"] %}
+                    {
+                        .index = 0,
+                        .pin = GPIO_PIN(PF, 6),
+                        .loc = TIMER_ROUTE_LOCATION_LOC2
+                    },
+                    {
+                        .index = 1,
+                        .pin = GPIO_PIN(PF, 7),
+                        .loc = TIMER_ROUTE_LOCATION_LOC2
+                    }
+                {% endif %}
+            {% endstrip %}
+        };
 
-static const pwm_conf_t pwm_config[] = {
-    {% strip 2 %}
-        {% if board in ["stk3600", "stk3700", "stk3800"] %}
-            {
-                TIMER3,                     /* device */
-                cmuClock_TIMER3,            /* CMU register */
-                TIMER3_IRQn,                /* IRQ base channel */
-                1,                          /* number of channels */
-                pwm_channel_config          /* first channel config */
-            }
-        {% elif board in ["stk3200"] %}
-            0                               /* no available timers */
-        {% elif board in ["slstk3401a", "slstk3402a"] %}
-            0                               /* no available timers */
-        {% elif board in ["slwstk6220a"] %}
-            {
-                TIMER0,                     /* device */
-                cmuClock_TIMER0,            /* CMU register */
-                TIMER0_IRQn,                /* IRQ base channel */
-                2,                          /* number of channels */
-                pwm_channel_config          /* first channel config */
-            }
-        {% elif board in ["slstk3401a", "slstk3402a"] %}
-            0                               /* no available timers */
-        {% elif board in ["sltb001a"] %}
-            0                               /* no available timers */
-        {% endif %}
-    {% endstrip %}
-};
+        static const pwm_conf_t pwm_config[] = {
+            {% strip 2 %}
+                {% if board in ["stk3600", "stk3700", "stk3800"] %}
+                    {
+                        .dev = TIMER3,
+                        .cmu = cmuClock_TIMER3,
+                        .irq = TIMER3_IRQn,
+                        .channels = 1,
+                        .channel = pwm_channel_config
+                    }
+                {% elif board in ["slwstk6220a"] %}
+                    {
+                        .dev = TIMER0,
+                        .cmu = cmuClock_TIMER0,
+                        .irq = TIMER0_IRQn,
+                        .channels = 2,
+                        .channel = pwm_channel_config
+                    }
+                {% endif %}
+            {% endstrip %}
+        };
 
-{% strip 2 %}
-    {% if board in ["stk3600", "stk3700", "stk3800"] %}
-        #define PWM_NUMOF           (1U)
-        #define PWM_0_EN            (1)
-    {% elif board in ["stk3200"] %}
-        #define PWM_NUMOF           (0U)
-    {% elif board in ["slstk3401a", "slstk3402a"] %}
-        #define PWM_NUMOF           (0U)
-    {% elif board in ["slwstk6220a"] %}
-        #define PWM_NUMOF           (1U)
-        #define PWM_0_EN            (1)
-    {% elif board in ["sltb001a"] %}
-        #define PWM_NUMOF           (0U)
+        #define PWM_DEV_NUMOF       NUMOF(pwm_config)
+        #define PWM_NUMOF           NUMOF(pwm_channel_config)
+        /** @} */
     {% endif %}
 {% endstrip %}
-/** @} */
 
 /**
  * @brief   RTC configuration
@@ -347,94 +319,78 @@ static const spi_dev_t spi_config[] = {
     {% strip 2 %}
         {% if board in ["stk3600", "stk3700", "stk3800"] %}
             {
-                USART1,                             /* device */
-                GPIO_PIN(PD, 0),                    /* MOSI pin */
-                GPIO_PIN(PD, 1),                    /* MISO pin */
-                GPIO_PIN(PD, 2),                    /* CLK pin */
-                USART_ROUTE_LOCATION_LOC1,          /* AF location */
-                cmuClock_USART1,                    /* CMU register */
-                USART1_RX_IRQn                      /* IRQ base channel */
+                .dev = USART1,
+                .mosi_pin = GPIO_PIN(PD, 0),
+                .miso_pin = GPIO_PIN(PD, 1),
+                .clk_pin = GPIO_PIN(PD, 2),
+                .loc = USART_ROUTE_LOCATION_LOC1,
+                .cmu = cmuClock_USART1,
+                .irq = USART1_RX_IRQn
             },
             {
-                USART2,                             /* device */
-                GPIO_UNDEF,                         /* MOSI pin */
-                GPIO_PIN(PC, 3),                    /* MISO pin */
-                GPIO_PIN(PC, 4),                    /* CLK pin */
-                USART_ROUTE_LOCATION_LOC0,          /* AF location */
-                cmuClock_USART2,                    /* CMU register */
-                USART2_RX_IRQn                      /* IRQ base channel */
+                .dev = USART2,
+                .mosi_pin = GPIO_UNDEF,
+                .miso_pin = GPIO_PIN(PC, 3),
+                .clk_pin = GPIO_PIN(PC, 4),
+                .loc = USART_ROUTE_LOCATION_LOC0,
+                .cmu = cmuClock_USART2,
+                .irq = USART2_RX_IRQn
             }
         {% elif board in ["stk3200"] %}
             {
-                USART1,                             /* device */
-                GPIO_PIN(PD, 7),                    /* MOSI pin */
-                GPIO_PIN(PD, 6),                    /* MISO pin */
-                GPIO_PIN(PC, 15),                   /* CLK pin */
-                USART_ROUTE_LOCATION_LOC1,          /* AF location */
-                cmuClock_USART1,                    /* CMU register */
-                USART1_RX_IRQn                      /* IRQ base channel */
+                .dev = USART1,
+                .mosi_pin = GPIO_PIN(PD, 7),
+                .miso_pin = GPIO_PIN(PD, 6),
+                .clk_pin = GPIO_PIN(PC, 15),
+                .loc = USART_ROUTE_LOCATION_LOC1,
+                .cmu = cmuClock_USART1,
+                .irq = USART1_RX_IRQn
             }
         {% elif board in ["slstk3401a", "slstk3402a"] %}
             {
-                USART1,                             /* device */
-                GPIO_PIN(PC, 6),                    /* MOSI pin */
-                GPIO_PIN(PC, 7),                    /* MISO pin */
-                GPIO_PIN(PC, 8),                    /* CLK pin */
-                USART_ROUTELOC0_RXLOC_LOC11 |
-                    USART_ROUTELOC0_TXLOC_LOC11 |
-                    USART_ROUTELOC0_CLKLOC_LOC11,   /* AF location */
-                cmuClock_USART1,                    /* CMU register */
-                USART1_RX_IRQn                      /* IRQ base channel */
+                .dev = USART1,
+                .mosi_pin = GPIO_PIN(PC, 6),
+                .miso_pin = GPIO_PIN(PC, 7),
+                .clk_pin = GPIO_PIN(PC, 8),
+                .loc = USART_ROUTELOC0_RXLOC_LOC11 |
+                       USART_ROUTELOC0_TXLOC_LOC11 |
+                       USART_ROUTELOC0_CLKLOC_LOC11,
+                .cmu = cmuClock_USART1,
+                .irq = USART1_RX_IRQn
             }
         {% elif board in ["slwstk6220a"] %}
             {
-                USART1,                             /* device */
-                GPIO_PIN(PD, 0),                    /* MOSI pin */
-                GPIO_PIN(PD, 1),                    /* MISO pin */
-                GPIO_PIN(PD, 2),                    /* CLK pin */
-                USART_ROUTE_LOCATION_LOC1,          /* AF location */
-                cmuClock_USART1,                    /* CMU register */
-                USART1_RX_IRQn                      /* IRQ base channel */
+                .dev = USART1,
+                .mosi_pin = GPIO_PIN(PD, 0),
+                .miso_pin = GPIO_PIN(PD, 1),
+                .clk_pin = GPIO_PIN(PD, 2),
+                .loc = USART_ROUTE_LOCATION_LOC1,
+                .cmu = cmuClock_USART1,
+                .irq = USART1_RX_IRQn
             }
         {% elif board in ["sltb001a"] %}
             {
-                USART1,                             /* device */
-                GPIO_PIN(PC, 6),                    /* MOSI pin */
-                GPIO_PIN(PC, 7),                    /* MISO pin */
-                GPIO_PIN(PC, 8),                    /* CLK pin */
-                USART_ROUTELOC0_RXLOC_LOC11 |
-                    USART_ROUTELOC0_TXLOC_LOC11 |
-                    USART_ROUTELOC0_CLKLOC_LOC11,   /* AF location */
-                cmuClock_USART1,                    /* CMU register */
-                USART1_RX_IRQn                      /* IRQ base channel */
+                .dev = USART1,
+                .mosi_pin = GPIO_PIN(PC, 6),
+                .miso_pin = GPIO_PIN(PC, 7),
+                .clk_pin = GPIO_PIN(PC, 8),
+                .loc = USART_ROUTELOC0_RXLOC_LOC11 |
+                       USART_ROUTELOC0_TXLOC_LOC11 |
+                       USART_ROUTELOC0_CLKLOC_LOC11,
+                .cmu = cmuClock_USART1,
+                .irq = USART1_RX_IRQn
             }
         {% endif %}
     {% endstrip %}
 };
 
-{% strip 2 %}
-    {% if board in ["stk3600", "stk3700", "stk3800"] %}
-        #define SPI_NUMOF           (2U)
-        #define SPI_0_EN            (1)
-        #define SPI_1_EN            (1)
-    {% elif board in ["stk3200"] %}
-        #define SPI_NUMOF           (1U)
-        #define SPI_0_EN            (1)
-    {% elif board in ["slstk3401a", "slstk3402a"] %}
-        #define SPI_NUMOF           (1U)
-        #define SPI_0_EN            (1)
-    {% elif board in ["slwstk6220a"] %}
-        #define SPI_NUMOF           (1U)
-        #define SPI_0_EN            (1)
-    {% elif board in ["sltb001a"] %}
-        #define SPI_NUMOF           (1U)
-        #define SPI_0_EN            (1)
-    {% endif %}
-{% endstrip %}
+#define SPI_NUMOF           NUMOF(spi_config)
 /** @} */
 
 /**
  * @name    Timer configuration
+ *
+ * The implementation uses two timers in cascade mode.
  * @{
  */
 static const timer_conf_t timer_config[] = {
@@ -442,93 +398,79 @@ static const timer_conf_t timer_config[] = {
         {% if board in ["stk3600", "stk3700", "stk3800"] %}
             {
                 {
-                    TIMER0,             /* lower numbered timer */
-                    cmuClock_TIMER0     /* pre-scaler bit in the CMU register */
+                    .dev = TIMER0,
+                    .cmu = cmuClock_TIMER0
                 },
                 {
-                    TIMER1,             /* higher numbered timer, this is the one */
-                    cmuClock_TIMER1     /* pre-scaler bit in the CMU register */
+                    .dev = TIMER1,
+                    .cmu = cmuClock_TIMER1
                 },
-                TIMER1_IRQn             /* IRQn of the higher numbered timer */
+                .irq = TIMER1_IRQn
             }
         {% elif board in ["stk3200"] %}
             {
                 {
-                    TIMER0,             /* lower numbered timer */
-                    cmuClock_TIMER0     /* pre-scaler bit in the CMU register */
+                    .dev = TIMER0,
+                    .cmu = cmuClock_TIMER0
                 },
                 {
-                    TIMER1,             /* higher numbered timer, this is the one */
-                    cmuClock_TIMER1     /* pre-scaler bit in the CMU register */
+                    .dev = TIMER1,
+                    .cmu = cmuClock_TIMER1
                 },
-                TIMER1_IRQn             /* IRQn of the higher numbered timer */
+                .irq = TIMER1_IRQn
             }
         {% elif board in ["slstk3401a", "slstk3402a"] %}
             {
                 {
-                    TIMER0,             /* lower numbered timer */
-                    cmuClock_TIMER0     /* pre-scaler bit in the CMU register */
+                    .dev = TIMER0,
+                    .cmu = cmuClock_TIMER0
                 },
                 {
-                    TIMER1,             /* higher numbered timer, this is the one */
-                    cmuClock_TIMER1     /* pre-scaler bit in the CMU register */
+                    .dev = TIMER1,
+                    .cmu = cmuClock_TIMER1
                 },
-                TIMER1_IRQn             /* IRQn of the higher numbered timer */
+                .irq = TIMER1_IRQn
             }
         {% elif board in ["slwstk6220a"] %}
             {
                 {
-                    TIMER1,             /* lower numbered timer */
-                    cmuClock_TIMER1     /* pre-scaler bit in the CMU register */
+                    .dev = TIMER1,
+                    .cmu = cmuClock_TIMER1
                 },
                 {
-                    TIMER2,             /* higher numbered timer, this is the one */
-                    cmuClock_TIMER2     /* pre-scaler bit in the CMU register */
+                    .dev = TIMER2,
+                    .cmu = cmuClock_TIMER2
                 },
-                TIMER2_IRQn             /* IRQn of the higher numbered timer */
+                .irq = TIMER2_IRQn
             }
         {% elif board in ["sltb001a"] %}
             {
                 {
-                    TIMER0,             /* lower numbered timer */
-                    cmuClock_TIMER0     /* pre-scaler bit in the CMU register */
+                    .dev = TIMER0,
+                    .cmu = cmuClock_TIMER0
                 },
                 {
-                    TIMER1,             /* higher numbered timer, this is the one */
-                    cmuClock_TIMER1     /* pre-scaler bit in the CMU register */
+                    .dev = TIMER1,
+                    .cmu = cmuClock_TIMER1
                 },
-                TIMER1_IRQn             /* IRQn of the higher numbered timer */
+                .irq = TIMER1_IRQn
             }
         {% endif %}
     {% endstrip %}
 };
 
+#define TIMER_NUMOF         NUMOF(timer_config)
 {% strip 2 %}
     {% if board in ["stk3600", "stk3700", "stk3800"] %}
-        #define TIMER_NUMOF         (1U)
-        #define TIMER_0_EN          (1)
         #define TIMER_0_ISR         isr_timer1
-        #define TIMER_0_MAX_VALUE   (0xffff)
     {% elif board in ["stk3200"] %}
-        #define TIMER_NUMOF         (1U)
-        #define TIMER_0_EN          (1)
         #define TIMER_0_ISR         isr_timer1
-        #define TIMER_0_MAX_VALUE   (0xffff)
     {% elif board in ["slstk3401a", "slstk3402a"] %}
-        #define TIMER_NUMOF         (1U)
-        #define TIMER_0_EN          (1)
         #define TIMER_0_ISR         isr_timer1
-        #define TIMER_0_MAX_VALUE   (0xffff)
     {% elif board in ["slwstk6220a"] %}
-        #define TIMER_NUMOF         (1U)
-        #define TIMER_0_EN          (1)
         #define TIMER_0_ISR         isr_timer2
-        #define TIMER_0_MAX_VALUE   (0xffff)
     {% elif board in ["sltb001a"] %}
-        #define TIMER_NUMOF         (1U)
-        #define TIMER_0_EN          (1)
         #define TIMER_0_ISR         isr_timer1
-        #define TIMER_0_MAX_VALUE   (0xffff)
     {% endif %}
 {% endstrip %}
 /** @} */
@@ -541,167 +483,149 @@ static const uart_conf_t uart_config[] = {
     {% strip 2 %}
         {% if board in ["stk3600", "stk3700", "stk3800"] %}
             {
-                UART0,                              /* device */
-                GPIO_PIN(PE, 1),                    /* RX pin */
-                GPIO_PIN(PE, 0),                    /* TX pin */
-                UART_ROUTE_LOCATION_LOC1,           /* AF location */
-                cmuClock_UART0,                     /* CMU register */
-                UART0_RX_IRQn                       /* IRQ base channel */
+                .dev = UART0,
+                .rx_pin = GPIO_PIN(PE, 1),
+                .tx_pin = GPIO_PIN(PE, 0),
+                .loc = UART_ROUTE_LOCATION_LOC1,
+                .cmu = cmuClock_UART0,
+                .irq = UART0_RX_IRQn
             },
             {
-                USART1,                             /* device */
-                GPIO_PIN(PD, 1),                    /* RX pin */
-                GPIO_PIN(PD, 0),                    /* TX pin */
-                USART_ROUTE_LOCATION_LOC1,          /* AF location */
-                cmuClock_USART1,                    /* CMU register */
-                USART1_RX_IRQn                      /* IRQ base channel */
+                .dev = USART1,
+                .rx_pin = GPIO_PIN(PD, 1),
+                .tx_pin = GPIO_PIN(PD, 0),
+                .loc = USART_ROUTE_LOCATION_LOC1,
+                .cmu = cmuClock_USART1,
+                .irq = USART1_RX_IRQn
             },
             {
-                LEUART0,                            /* device */
-                GPIO_PIN(PD, 5),                    /* RX pin */
-                GPIO_PIN(PD, 4),                    /* TX pin */
-                LEUART_ROUTE_LOCATION_LOC0,         /* AF location */
-                cmuClock_LEUART0,                   /* CMU register */
-                LEUART0_IRQn                        /* IRQ base channel */
+                .dev = LEUART0,
+                .rx_pin = GPIO_PIN(PD, 5),
+                .tx_pin = GPIO_PIN(PD, 4),
+                .loc = LEUART_ROUTE_LOCATION_LOC0,
+                .cmu = cmuClock_LEUART0,
+                .irq = LEUART0_IRQn
             }
         {% elif board in ["stk3200"] %}
             {
-                LEUART0,                            /* device */
-                GPIO_PIN(PD, 5),                    /* RX pin */
-                GPIO_PIN(PD, 4),                    /* TX pin */
-                LEUART_ROUTE_LOCATION_LOC0,         /* AF location */
-                cmuClock_LEUART0,                   /* CMU register */
-                LEUART0_IRQn                        /* IRQ base channel */
+                .dev = LEUART0,
+                .rx_pin = GPIO_PIN(PD, 5),
+                .tx_pin = GPIO_PIN(PD, 4),
+                .loc = LEUART_ROUTE_LOCATION_LOC0,
+                .cmu = cmuClock_LEUART0,
+                .irq = LEUART0_IRQn
             },
             {
-                USART1,                             /* device */
-                GPIO_PIN(PD, 6),                    /* RX pin */
-                GPIO_PIN(PD, 7),                    /* TX pin */
-                USART_ROUTE_LOCATION_LOC2,          /* AF location */
-                cmuClock_USART1,                    /* CMU register */
-                USART1_RX_IRQn                      /* IRQ base channel */
+                .dev = USART1,
+                .rx_pin = GPIO_PIN(PD, 6),
+                .tx_pin = GPIO_PIN(PD, 7),
+                .loc = USART_ROUTE_LOCATION_LOC2,
+                .cmu = cmuClock_USART1,
+                .irq = USART1_RX_IRQn
             }
         {% elif board in ["slstk3401a", "slstk3402a"] %}
             {
-                USART0,                             /* device */
-                GPIO_PIN(PA, 1),                    /* RX pin */
-                GPIO_PIN(PA, 0),                    /* TX pin */
-                USART_ROUTELOC0_RXLOC_LOC0 |
-                    USART_ROUTELOC0_TXLOC_LOC0,     /* AF location */
-                cmuClock_USART0,                    /* CMU register */
-                USART0_RX_IRQn                      /* IRQ base channel */
+                .dev = USART0,
+                .rx_pin = GPIO_PIN(PA, 1),
+                .tx_pin = GPIO_PIN(PA, 0),
+                .loc = USART_ROUTELOC0_RXLOC_LOC0 |
+                       USART_ROUTELOC0_TXLOC_LOC0,
+                .cmu = cmuClock_USART0,
+                .irq = USART0_RX_IRQn
             },
             {
-                USART1,                             /* device */
-                GPIO_PIN(PC, 6),                    /* RX pin */
-                GPIO_PIN(PC, 7),                    /* TX pin */
-                USART_ROUTELOC0_RXLOC_LOC11 |
-                    USART_ROUTELOC0_TXLOC_LOC11,    /* AF location */
-                cmuClock_USART1,                    /* CMU register */
-                USART1_RX_IRQn                      /* IRQ base channel */
+                .dev = USART1,
+                .rx_pin = GPIO_PIN(PC, 6),
+                .tx_pin = GPIO_PIN(PC, 7),
+                .loc = USART_ROUTELOC0_RXLOC_LOC11 |
+                       USART_ROUTELOC0_TXLOC_LOC11,
+                .cmu = cmuClock_USART1,
+                .irq = USART1_RX_IRQn
             },
             {
-                LEUART0,                            /* device */
-                GPIO_PIN(PD, 11),                   /* RX pin */
-                GPIO_PIN(PD, 10),                   /* TX pin */
-                LEUART_ROUTELOC0_RXLOC_LOC18 |
-                    LEUART_ROUTELOC0_TXLOC_LOC18,   /* AF location */
-                cmuClock_LEUART0,                   /* CMU register */
-                LEUART0_IRQn                        /* IRQ base channel */
+                .dev = LEUART0,
+                .rx_pin = GPIO_PIN(PD, 11),
+                .tx_pin = GPIO_PIN(PD, 10),
+                .loc = LEUART_ROUTELOC0_RXLOC_LOC18 |
+                       LEUART_ROUTELOC0_TXLOC_LOC18,
+                .cmu = cmuClock_LEUART0,
+                .irq = LEUART0_IRQn
             }
         {% elif board in ["slwstk6220a"] %}
             {
-                USART2,                             /* device */
-                GPIO_PIN(PB, 4),                    /* RX pin */
-                GPIO_PIN(PB, 3),                    /* TX pin */
-                USART_ROUTE_LOCATION_LOC1,          /* AF location */
-                cmuClock_USART2,                    /* CMU register */
-                USART2_RX_IRQn                      /* IRQ base channel */
+                .dev = USART2,
+                .rx_pin = GPIO_PIN(PB, 4),
+                .tx_pin = GPIO_PIN(PB, 3),
+                .loc = USART_ROUTE_LOCATION_LOC1,
+                .cmu = cmuClock_USART2,
+                .irq = USART2_RX_IRQn
             },
             {
-                USART1,                             /* device */
-                GPIO_PIN(PD, 1),                    /* RX pin */
-                GPIO_PIN(PD, 0),                    /* TX pin */
-                USART_ROUTE_LOCATION_LOC1,          /* AF location */
-                cmuClock_USART1,                    /* CMU register */
-                USART1_RX_IRQn                      /* IRQ base channel */
+                .dev = USART1,
+                .rx_pin = GPIO_PIN(PD, 1),
+                .tx_pin = GPIO_PIN(PD, 0),
+                .loc = USART_ROUTE_LOCATION_LOC1,
+                .cmu = cmuClock_USART1,
+                .irq = USART1_RX_IRQn
             },
             {
-                LEUART0,                            /* device */
-                GPIO_PIN(PD, 5),                    /* RX pin */
-                GPIO_PIN(PD, 4),                    /* TX pin */
-                LEUART_ROUTE_LOCATION_LOC0,         /* AF location */
-                cmuClock_LEUART0,                   /* CMU register */
-                LEUART0_IRQn                        /* IRQ base channel */
+                .dev = LEUART0,
+                .rx_pin = GPIO_PIN(PD, 5),
+                .tx_pin = GPIO_PIN(PD, 4),
+                .loc = LEUART_ROUTE_LOCATION_LOC0,
+                .cmu = cmuClock_LEUART0,
+                .irq = LEUART0_IRQn
             }
         {% elif board in ["sltb001a"] %}
             {
-                USART0,                             /* device */
-                GPIO_PIN(PA, 1),                    /* RX pin */
-                GPIO_PIN(PA, 0),                    /* TX pin */
-                USART_ROUTELOC0_RXLOC_LOC0 |
-                    USART_ROUTELOC0_TXLOC_LOC0,     /* AF location */
-                cmuClock_USART0,                    /* CMU register */
-                USART0_RX_IRQn                      /* IRQ base channel */
+                .dev = USART0,
+                .rx_pin = GPIO_PIN(PA, 1),
+                .tx_pin = GPIO_PIN(PA, 0),
+                .loc = USART_ROUTELOC0_RXLOC_LOC0 |
+                       USART_ROUTELOC0_TXLOC_LOC0,
+                .cmu = cmuClock_USART0,
+                .irq = USART0_RX_IRQn
             },
             {
-                USART1,                             /* device */
-                GPIO_PIN(PC, 6),                    /* RX pin */
-                GPIO_PIN(PC, 7),                    /* TX pin */
-                USART_ROUTELOC0_RXLOC_LOC11 |
-                    USART_ROUTELOC0_TXLOC_LOC11,    /* AF location */
-                cmuClock_USART1,                    /* CMU register */
-                USART1_RX_IRQn                      /* IRQ base channel */
+                .dev = USART1,
+                .rx_pin = GPIO_PIN(PC, 6),
+                .tx_pin = GPIO_PIN(PC, 7),
+                .loc = USART_ROUTELOC0_RXLOC_LOC11 |
+                       USART_ROUTELOC0_TXLOC_LOC11,
+                .cmu = cmuClock_USART1,
+                .irq = USART1_RX_IRQn
             },
             {
-                LEUART0,                            /* device */
-                GPIO_PIN(PD, 11),                   /* RX pin */
-                GPIO_PIN(PD, 10),                   /* TX pin */
-                LEUART_ROUTELOC0_RXLOC_LOC18 |
-                    LEUART_ROUTELOC0_TXLOC_LOC18,   /* AF location */
-                cmuClock_LEUART0,                   /* CMU register */
-                LEUART0_IRQn                        /* IRQ base channel */
+                .dev = LEUART0,
+                .rx_pin = GPIO_PIN(PD, 11),
+                .tx_pin = GPIO_PIN(PD, 10),
+                .loc = LEUART_ROUTELOC0_RXLOC_LOC18 |
+                       LEUART_ROUTELOC0_TXLOC_LOC18,
+                .cmu = cmuClock_LEUART0,
+                .irq = LEUART0_IRQn
             }
         {% endif %}
     {% endstrip %}
 };
 
+#define UART_NUMOF          NUMOF(uart_config)
 {% strip 2 %}
     {% if board in ["stk3600", "stk3700", "stk3800"] %}
-        #define UART_NUMOF          (3U)
-        #define UART_0_EN           (1)
-        #define UART_1_EN           (1)
-        #define UART_2_EN           (1)
         #define UART_0_ISR_RX       isr_uart0_rx
         #define UART_1_ISR_RX       isr_usart1_rx
         #define UART_2_ISR_RX       isr_leuart0
     {% elif board in ["stk3200"] %}
-        #define UART_NUMOF          (2U)
-        #define UART_0_EN           (1)
-        #define UART_1_EN           (1)
         #define UART_0_ISR_RX       isr_leuart0
         #define UART_1_ISR_RX       isr_usart1_rx
     {% elif board in ["slstk3401a", "slstk3402a"] %}
-        #define UART_NUMOF          (3U)
-        #define UART_0_EN           (1)
-        #define UART_1_EN           (1)
-        #define UART_3_EN           (1)
         #define UART_0_ISR_RX       isr_usart0_rx
         #define UART_1_ISR_RX       isr_usart1_rx
         #define UART_2_ISR_RX       isr_leuart0
     {% elif board in ["slwstk6220a"] %}
-        #define UART_NUMOF          (3U)
-        #define UART_0_EN           (1)
-        #define UART_1_EN           (1)
-        #define UART_3_EN           (1)
         #define UART_0_ISR_RX       isr_usart1_rx
         #define UART_1_ISR_RX       isr_usart2_rx
         #define UART_2_ISR_RX       isr_leuart0
     {% elif board in ["sltb001a"] %}
-        #define UART_NUMOF          (3U)
-        #define UART_0_EN           (1)
-        #define UART_1_EN           (1)
-        #define UART_3_EN           (1)
         #define UART_0_ISR_RX       isr_usart0_rx
         #define UART_1_ISR_RX       isr_usart1_rx
         #define UART_2_ISR_RX       isr_leuart0
