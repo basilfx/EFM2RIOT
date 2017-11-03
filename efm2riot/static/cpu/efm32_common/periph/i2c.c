@@ -123,14 +123,14 @@ int i2c_init_master(i2c_t dev, i2c_speed_t speed)
 
 int i2c_acquire(i2c_t dev)
 {
-    mutex_lock((mutex_t *) &i2c_lock[dev]);
+    mutex_lock(&i2c_lock[dev]);
 
     return 0;
 }
 
 int i2c_release(i2c_t dev)
 {
-    mutex_unlock((mutex_t *) &i2c_lock[dev]);
+    mutex_unlock(&i2c_lock[dev]);
 
     return 0;
 }

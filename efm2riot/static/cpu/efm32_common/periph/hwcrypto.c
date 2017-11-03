@@ -237,14 +237,14 @@ int hwcrypto_hash_final(hwcrypto_hash_context_t* context, uint8_t* result, uint3
 
 int hwcrypto_acquire(void)
 {
-    mutex_lock((mutex_t *) &hwcrypto_lock);
+    mutex_lock(&hwcrypto_lock);
 
     return 0;
 }
 
 int hwcrypto_release(void)
 {
-    mutex_unlock((mutex_t *) &hwcrypto_lock);
+    mutex_unlock(&hwcrypto_lock);
 
     return 0;
 }
