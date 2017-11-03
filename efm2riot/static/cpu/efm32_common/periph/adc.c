@@ -63,6 +63,11 @@ int adc_init(adc_t line)
 
 int adc_sample(adc_t line, adc_res_t res)
 {
+    /* resolutions larger than 12 bits are not supported */
+    if (res == ADC_MODE_UNDEF) {
+        return -1;
+    }
+
     uint8_t dev = adc_channel_config[line].dev;
 
     /* lock device */
