@@ -32,11 +32,6 @@ void dummy_handler(void)
     dummy_handler_default();
 }
 
-/* Cortex-{{ architecture|upper }} common interrupt vectors */
-WEAK_DEFAULT void isr_svc(void);
-WEAK_DEFAULT void isr_pendsv(void);
-WEAK_DEFAULT void isr_systick(void);
-
 /* Silicon Labs specific interrupt vector */
 {% strip 3 %}
     {% for irq in irqs %}
