@@ -100,7 +100,7 @@ extern "C" {
  * Connection to the on-board Sharp Memory LCD (LS013B7DH03).
  * @{
  */
-#define DISP_SPI            (0)
+#define DISP_SPI            SPI_DEV(0)
 #define DISP_COM_PIN        GPIO_PIN(PD, 13)
 #define DISP_CS_PIN         GPIO_PIN(PD, 14)
 #define DISP_EN_PIN         GPIO_PIN(PD, 15)
@@ -115,7 +115,7 @@ extern "C" {
 #ifndef SI7021_ENABLED
 #define SI7021_ENABLED          (1)
 #endif
-#define SI7021_I2C              (0)
+#define SI7021_I2C              I2C_DEV(0)
 #define SI7021_EN_PIN           GPIO_PIN(PB, 10)
 
 #define SI70XX_PARAM_I2C_DEV    SI7021_I2C

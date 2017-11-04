@@ -35,6 +35,7 @@ void board_init(void)
 #if AEM_ENABLED
     if (DBG_Connected()) {
         /* enable GPIO clock for configuring SWO pins */
+        CMU_ClockEnable(cmuClock_HFPER, true);
         CMU_ClockEnable(cmuClock_GPIO, true);
 
         /* enable debug peripheral via SWO */

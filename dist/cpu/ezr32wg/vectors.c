@@ -32,11 +32,6 @@ void dummy_handler(void)
     dummy_handler_default();
 }
 
-/* Cortex-M4 common interrupt vectors */
-WEAK_DEFAULT void isr_svc(void);
-WEAK_DEFAULT void isr_pendsv(void);
-WEAK_DEFAULT void isr_systick(void);
-
 /* Silicon Labs specific interrupt vector */
 WEAK_DEFAULT void isr_dma(void);
 WEAK_DEFAULT void isr_gpio_even(void);
@@ -78,44 +73,41 @@ WEAK_DEFAULT void isr_fpueh(void);
 
 /* interrupt vector table */
 ISR_VECTOR(1) const isr_t vector_cpu[CPU_IRQ_NUMOF] = {
-    isr_dma,                /* 0 - DMA */
-    isr_gpio_even,          /* 1 - GPIO_EVEN */
-    isr_timer0,             /* 2 - TIMER0 */
-    isr_usartrf0_rx,        /* 3 - USARTRF0_RX */
-    isr_usartrf0_tx,        /* 4 - USARTRF0_TX */
-    (0UL),                  /* Reserved */
-    isr_acmp0,              /* 6 - ACMP0 */
-    isr_adc0,               /* 7 - ADC0 */
-    isr_dac0,               /* 8 - DAC0 */
-    isr_i2c0,               /* 9 - I2C0 */
-    isr_i2c1,               /* 10 - I2C1 */
-    isr_gpio_odd,           /* 11 - GPIO_ODD */
-    isr_timer1,             /* 12 - TIMER1 */
-    isr_timer2,             /* 13 - TIMER2 */
-    isr_timer3,             /* 14 - TIMER3 */
-    isr_usart1_rx,          /* 15 - USART1_RX */
-    isr_usart1_tx,          /* 16 - USART1_TX */
-    isr_lesense,            /* 17 - LESENSE */
-    isr_usart2_rx,          /* 18 - USART2_RX */
-    isr_usart2_tx,          /* 19 - USART2_TX */
-    isr_uart0_rx,           /* 20 - UART0_RX */
-    isr_uart0_tx,           /* 21 - UART0_TX */
-    isr_uart1_rx,           /* 22 - UART1_RX */
-    isr_uart1_tx,           /* 23 - UART1_TX */
-    isr_leuart0,            /* 24 - LEUART0 */
-    isr_leuart1,            /* 25 - LEUART1 */
-    isr_letimer0,           /* 26 - LETIMER0 */
-    isr_pcnt0,              /* 27 - PCNT0 */
-    isr_pcnt1,              /* 28 - PCNT1 */
-    isr_pcnt2,              /* 29 - PCNT2 */
-    isr_rtc,                /* 30 - RTC */
-    isr_burtc,              /* 31 - BURTC */
-    isr_cmu,                /* 32 - CMU */
-    isr_vcmp,               /* 33 - VCMP */
-    (0UL),                  /* Reserved */
-    isr_msc,                /* 35 - MSC */
-    isr_aes,                /* 36 - AES */
-    (0UL),                  /* Reserved */
-    isr_emu,                /* 38 - EMU */
-    isr_fpueh,              /* 39 - FPUEH */
+    [ 0] = isr_dma,                /* DMA */
+    [ 1] = isr_gpio_even,          /* GPIO_EVEN */
+    [ 2] = isr_timer0,             /* TIMER0 */
+    [ 3] = isr_usartrf0_rx,        /* USARTRF0_RX */
+    [ 4] = isr_usartrf0_tx,        /* USARTRF0_TX */
+    [ 6] = isr_acmp0,              /* ACMP0 */
+    [ 7] = isr_adc0,               /* ADC0 */
+    [ 8] = isr_dac0,               /* DAC0 */
+    [ 9] = isr_i2c0,               /* I2C0 */
+    [10] = isr_i2c1,               /* I2C1 */
+    [11] = isr_gpio_odd,           /* GPIO_ODD */
+    [12] = isr_timer1,             /* TIMER1 */
+    [13] = isr_timer2,             /* TIMER2 */
+    [14] = isr_timer3,             /* TIMER3 */
+    [15] = isr_usart1_rx,          /* USART1_RX */
+    [16] = isr_usart1_tx,          /* USART1_TX */
+    [17] = isr_lesense,            /* LESENSE */
+    [18] = isr_usart2_rx,          /* USART2_RX */
+    [19] = isr_usart2_tx,          /* USART2_TX */
+    [20] = isr_uart0_rx,           /* UART0_RX */
+    [21] = isr_uart0_tx,           /* UART0_TX */
+    [22] = isr_uart1_rx,           /* UART1_RX */
+    [23] = isr_uart1_tx,           /* UART1_TX */
+    [24] = isr_leuart0,            /* LEUART0 */
+    [25] = isr_leuart1,            /* LEUART1 */
+    [26] = isr_letimer0,           /* LETIMER0 */
+    [27] = isr_pcnt0,              /* PCNT0 */
+    [28] = isr_pcnt1,              /* PCNT1 */
+    [29] = isr_pcnt2,              /* PCNT2 */
+    [30] = isr_rtc,                /* RTC */
+    [31] = isr_burtc,              /* BURTC */
+    [32] = isr_cmu,                /* CMU */
+    [33] = isr_vcmp,               /* VCMP */
+    [35] = isr_msc,                /* MSC */
+    [36] = isr_aes,                /* AES */
+    [38] = isr_emu,                /* EMU */
+    [39] = isr_fpueh,              /* FPUEH */
 };

@@ -32,11 +32,6 @@ void dummy_handler(void)
     dummy_handler_default();
 }
 
-/* Cortex-M3 common interrupt vectors */
-WEAK_DEFAULT void isr_svc(void);
-WEAK_DEFAULT void isr_pendsv(void);
-WEAK_DEFAULT void isr_systick(void);
-
 /* Silicon Labs specific interrupt vector */
 WEAK_DEFAULT void isr_dma(void);
 WEAK_DEFAULT void isr_gpio_even(void);
@@ -64,27 +59,27 @@ WEAK_DEFAULT void isr_aes(void);
 
 /* interrupt vector table */
 ISR_VECTOR(1) const isr_t vector_cpu[CPU_IRQ_NUMOF] = {
-    isr_dma,                /* 0 - DMA */
-    isr_gpio_even,          /* 1 - GPIO_EVEN */
-    isr_timer0,             /* 2 - TIMER0 */
-    isr_usart0_rx,          /* 3 - USART0_RX */
-    isr_usart0_tx,          /* 4 - USART0_TX */
-    isr_acmp0,              /* 5 - ACMP0 */
-    isr_adc0,               /* 6 - ADC0 */
-    isr_dac0,               /* 7 - DAC0 */
-    isr_i2c0,               /* 8 - I2C0 */
-    isr_gpio_odd,           /* 9 - GPIO_ODD */
-    isr_timer1,             /* 10 - TIMER1 */
-    isr_usart1_rx,          /* 11 - USART1_RX */
-    isr_usart1_tx,          /* 12 - USART1_TX */
-    isr_lesense,            /* 13 - LESENSE */
-    isr_leuart0,            /* 14 - LEUART0 */
-    isr_letimer0,           /* 15 - LETIMER0 */
-    isr_pcnt0,              /* 16 - PCNT0 */
-    isr_rtc,                /* 17 - RTC */
-    isr_cmu,                /* 18 - CMU */
-    isr_vcmp,               /* 19 - VCMP */
-    isr_lcd,                /* 20 - LCD */
-    isr_msc,                /* 21 - MSC */
-    isr_aes,                /* 22 - AES */
+    [ 0] = isr_dma,                /* DMA */
+    [ 1] = isr_gpio_even,          /* GPIO_EVEN */
+    [ 2] = isr_timer0,             /* TIMER0 */
+    [ 3] = isr_usart0_rx,          /* USART0_RX */
+    [ 4] = isr_usart0_tx,          /* USART0_TX */
+    [ 5] = isr_acmp0,              /* ACMP0 */
+    [ 6] = isr_adc0,               /* ADC0 */
+    [ 7] = isr_dac0,               /* DAC0 */
+    [ 8] = isr_i2c0,               /* I2C0 */
+    [ 9] = isr_gpio_odd,           /* GPIO_ODD */
+    [10] = isr_timer1,             /* TIMER1 */
+    [11] = isr_usart1_rx,          /* USART1_RX */
+    [12] = isr_usart1_tx,          /* USART1_TX */
+    [13] = isr_lesense,            /* LESENSE */
+    [14] = isr_leuart0,            /* LEUART0 */
+    [15] = isr_letimer0,           /* LETIMER0 */
+    [16] = isr_pcnt0,              /* PCNT0 */
+    [17] = isr_rtc,                /* RTC */
+    [18] = isr_cmu,                /* CMU */
+    [19] = isr_vcmp,               /* VCMP */
+    [20] = isr_lcd,                /* LCD */
+    [21] = isr_msc,                /* MSC */
+    [22] = isr_aes,                /* AES */
 };

@@ -27,14 +27,7 @@
 #include "em_cmu.h"
 #include "em_adc.h"
 
-static mutex_t adc_lock[ADC_NUMOF] = {
-#if ADC_0_EN
-    [0] = MUTEX_INIT,
-#endif
-#if ADC_1_EN
-    [1] = MUTEX_INIT,
-#endif
-};
+static mutex_t adc_lock[ADC_DEV_NUMOF];
 
 int adc_init(adc_t line)
 {
@@ -44,6 +37,10 @@ int adc_init(adc_t line)
     }
 
     uint8_t dev = adc_channel_config[line].dev;
+    assert(dev < ADC_DEV_NUMOF);
+
+    /* initialize lock */
+    mutex_init(&adc_lock[dev]);
 
     /* enable clock */
     CMU_ClockEnable(cmuClock_HFPER, true);
@@ -63,6 +60,11 @@ int adc_init(adc_t line)
 
 int adc_sample(adc_t line, adc_res_t res)
 {
+    /* resolutions larger than 12 bits are not supported */
+    if (res == ADC_MODE_UNDEF) {
+        return -1;
+    }
+
     uint8_t dev = adc_channel_config[line].dev;
 
     /* lock device */

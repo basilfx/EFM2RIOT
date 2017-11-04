@@ -50,7 +50,12 @@ extern "C" {
  * @brief   Internal macro for combining ADC resolution (x) with number of
  *          shifts (y).
  */
-#define ADC_MODE(x, y)     ((y << 4) | x)
+#define ADC_MODE(x, y)      ((y << 4) | x)
+
+/**
+ * @brief   Internal define to note that resolution is not supported.
+ */
+#define ADC_MODE_UNDEF      (0xff)
 
 /**
  * @brief   Possible ADC resolution settings
@@ -62,6 +67,8 @@ typedef enum {
     ADC_RES_8BIT = ADC_MODE(adcRes8Bit, 0),     /**< ADC resolution: 8 bit */
     ADC_RES_10BIT = ADC_MODE(adcRes12Bit, 2),   /**< ADC resolution: 10 bit (shifted from 12 bit) */
     ADC_RES_12BIT = ADC_MODE(adcRes12Bit, 0),   /**< ADC resolution: 12 bit */
+    ADC_RES_14BIT = ADC_MODE_UNDEF,             /**< ADC resolution: 14 bit (unsupported) */
+    ADC_RES_16BIT = ADC_MODE_UNDEF,             /**< ADC resolution: 16 bit (unsupported) */
 } adc_res_t;
 /** @} */
 
@@ -116,11 +123,6 @@ typedef struct {
 #define HAVE_GPIO_T
 typedef uint32_t gpio_t;
 /** @} */
-
-/**
- * @brief   Definition of a fitting UNDEF value.
- */
-#define GPIO_UNDEF          (0xffffffff)
 
 /**
  * @brief   Mandatory function for defining a GPIO pins.
@@ -289,11 +291,6 @@ typedef struct {
 #define HAVE_TIMER_T
 typedef uint32_t tim_t;
 /** @} */
-
-/**
- * @brief   Override the timer undefined value.
- */
-#define TIMER_UNDEF         (0xffffffff)
 
 /**
  * @brief   Define timer configuration values

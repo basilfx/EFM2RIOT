@@ -1,6 +1,6 @@
 PKG_NAME=emlib
-PKG_URL=https://github.com/basilfx/emlib
-PKG_VERSION=cd36cd4f1a2a4566b19d9c7d30b8cc2913fe5292
+PKG_URL=https://github.com/basilfx/RIOT-emlib
+PKG_VERSION=0bd74c8a2756a466e256434a598468ccd5b5af54
 PKG_LICENSE=Zlib
 
 .PHONY: all

@@ -32,11 +32,6 @@ void dummy_handler(void)
     dummy_handler_default();
 }
 
-/* Cortex-M0PLUS common interrupt vectors */
-WEAK_DEFAULT void isr_svc(void);
-WEAK_DEFAULT void isr_pendsv(void);
-WEAK_DEFAULT void isr_systick(void);
-
 /* Silicon Labs specific interrupt vector */
 WEAK_DEFAULT void isr_emu(void);
 WEAK_DEFAULT void isr_wdog0(void);
@@ -73,36 +68,36 @@ WEAK_DEFAULT void isr_can0(void);
 
 /* interrupt vector table */
 ISR_VECTOR(1) const isr_t vector_cpu[CPU_IRQ_NUMOF] = {
-    isr_emu,                /* 0 - EMU */
-    isr_wdog0,              /* 1 - WDOG0 */
-    isr_ldma,               /* 2 - LDMA */
-    isr_gpio_even,          /* 3 - GPIO_EVEN */
-    isr_smu,                /* 4 - SMU */
-    isr_timer0,             /* 5 - TIMER0 */
-    isr_usart0,             /* 6 - USART0 */
-    isr_acmp0,              /* 7 - ACMP0 */
-    isr_adc0,               /* 8 - ADC0 */
-    isr_i2c0,               /* 9 - I2C0 */
-    isr_i2c1,               /* 10 - I2C1 */
-    isr_gpio_odd,           /* 11 - GPIO_ODD */
-    isr_timer1,             /* 12 - TIMER1 */
-    isr_usart1,             /* 13 - USART1 */
-    isr_usart2,             /* 14 - USART2 */
-    isr_uart0,              /* 15 - UART0 */
-    isr_leuart0,            /* 16 - LEUART0 */
-    isr_letimer0,           /* 17 - LETIMER0 */
-    isr_pcnt0,              /* 18 - PCNT0 */
-    isr_rtcc,               /* 19 - RTCC */
-    isr_cmu,                /* 20 - CMU */
-    isr_msc,                /* 21 - MSC */
-    isr_crypto0,            /* 22 - CRYPTO0 */
-    isr_cryotimer,          /* 23 - CRYOTIMER */
-    isr_usart3,             /* 24 - USART3 */
-    isr_wtimer0,            /* 25 - WTIMER0 */
-    isr_wtimer1,            /* 26 - WTIMER1 */
-    isr_vdac0,              /* 27 - VDAC0 */
-    isr_csen,               /* 28 - CSEN */
-    isr_lesense,            /* 29 - LESENSE */
-    isr_lcd,                /* 30 - LCD */
-    isr_can0,               /* 31 - CAN0 */
+    [ 0] = isr_emu,                /* EMU */
+    [ 1] = isr_wdog0,              /* WDOG0 */
+    [ 2] = isr_ldma,               /* LDMA */
+    [ 3] = isr_gpio_even,          /* GPIO_EVEN */
+    [ 4] = isr_smu,                /* SMU */
+    [ 5] = isr_timer0,             /* TIMER0 */
+    [ 6] = isr_usart0,             /* USART0 */
+    [ 7] = isr_acmp0,              /* ACMP0 */
+    [ 8] = isr_adc0,               /* ADC0 */
+    [ 9] = isr_i2c0,               /* I2C0 */
+    [10] = isr_i2c1,               /* I2C1 */
+    [11] = isr_gpio_odd,           /* GPIO_ODD */
+    [12] = isr_timer1,             /* TIMER1 */
+    [13] = isr_usart1,             /* USART1 */
+    [14] = isr_usart2,             /* USART2 */
+    [15] = isr_uart0,              /* UART0 */
+    [16] = isr_leuart0,            /* LEUART0 */
+    [17] = isr_letimer0,           /* LETIMER0 */
+    [18] = isr_pcnt0,              /* PCNT0 */
+    [19] = isr_rtcc,               /* RTCC */
+    [20] = isr_cmu,                /* CMU */
+    [21] = isr_msc,                /* MSC */
+    [22] = isr_crypto0,            /* CRYPTO0 */
+    [23] = isr_cryotimer,          /* CRYOTIMER */
+    [24] = isr_usart3,             /* USART3 */
+    [25] = isr_wtimer0,            /* WTIMER0 */
+    [26] = isr_wtimer1,            /* WTIMER1 */
+    [27] = isr_vdac0,              /* VDAC0 */
+    [28] = isr_csen,               /* CSEN */
+    [29] = isr_lesense,            /* LESENSE */
+    [30] = isr_lcd,                /* LCD */
+    [31] = isr_can0,               /* CAN0 */
 };

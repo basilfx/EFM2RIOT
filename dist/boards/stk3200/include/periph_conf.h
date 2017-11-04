@@ -31,6 +31,11 @@ extern "C" {
 #endif
 
 /**
+ * @brief   Internal macro to calculate *_NUMOF based on config.
+ */
+#define NUMOF(config)       (sizeof(config) / sizeof(config[0]))
+
+/**
  * @name    Clock configuration
  * @{
  */
@@ -54,35 +59,29 @@ extern "C" {
  */
 static const adc_conf_t adc_config[] = {
     {
-        ADC0,                               /* device */
-        cmuClock_ADC0,                      /* CMU register */
+        .dev = ADC0,
+        .cmu = cmuClock_ADC0,
     }
 };
 
 static const adc_chan_conf_t adc_channel_config[] = {
     {
-        0,                                  /* device index */
-        adcSingleInputTemp,                 /* channel to use */
-        adcRef1V25,                         /* channel reference */
-        adcAcqTime8                         /* acquisition time */
+        .dev = 0,
+        .input = adcSingleInputTemp,
+        .reference = adcRef1V25,
+        .acq_time = adcAcqTime8
     },
     {
-        0,                                  /* device index */
-        adcSingleInputVDDDiv3,              /* channel to use */
-        adcRef1V25,                         /* channel reference */
-        adcAcqTime8                         /* acquisition time */
+        .dev = 0,
+        .input = adcSingleInputVDDDiv3,
+        .reference = adcRef1V25,
+        .acq_time = adcAcqTime8
     }
 };
 
-#define ADC_NUMOF           (2U)
-#define ADC_0_EN            (1)
-#define ADC_1_EN            (1)
+#define ADC_DEV_NUMOF       NUMOF(adc_config)
+#define ADC_NUMOF           NUMOF(adc_channel_config)
 /** @} */
-
-/**
- * @brief   DAC configuration
- */
-#define DAC_NUMOF           (0U)
 
 /**
  * @name    I2C configuration
@@ -90,33 +89,17 @@ static const adc_chan_conf_t adc_channel_config[] = {
  */
 static const i2c_conf_t i2c_config[] = {
     {
-        I2C0,                               /* device */
-        GPIO_PIN(PE, 12),                   /* SDA pin */
-        GPIO_PIN(PE, 13),                   /* SCL pin */
-        I2C_ROUTE_LOCATION_LOC6,            /* AF location */
-        cmuClock_I2C0,                      /* CMU register */
-        I2C0_IRQn                           /* IRQ base channel */
+        .dev = I2C0,
+        .sda_pin = GPIO_PIN(PE, 12),
+        .scl_pin = GPIO_PIN(PE, 13),
+        .loc = I2C_ROUTE_LOCATION_LOC6,
+        .cmu = cmuClock_I2C0,
+        .irq = I2C0_IRQn
     }
 };
 
-#define I2C_NUMOF           (1U)
-#define I2C_0_EN            (1)
+#define I2C_NUMOF           NUMOF(i2c_config)
 #define I2C_0_ISR           isr_i2c0
-/** @} */
-
-/**
- * @name    PWM configuration
- * @{
- */
-static const pwm_chan_conf_t pwm_channel_config[] = {
-    0                               /* no available channels */
-};
-
-static const pwm_conf_t pwm_config[] = {
-    0                               /* no available timers */
-};
-
-#define PWM_NUMOF           (0U)
 /** @} */
 
 /**
@@ -140,42 +123,41 @@ static const pwm_conf_t pwm_config[] = {
  */
 static const spi_dev_t spi_config[] = {
     {
-        USART1,                             /* device */
-        GPIO_PIN(PD, 7),                    /* MOSI pin */
-        GPIO_PIN(PD, 6),                    /* MISO pin */
-        GPIO_PIN(PC, 15),                   /* CLK pin */
-        USART_ROUTE_LOCATION_LOC1,          /* AF location */
-        cmuClock_USART1,                    /* CMU register */
-        USART1_RX_IRQn                      /* IRQ base channel */
+        .dev = USART1,
+        .mosi_pin = GPIO_PIN(PD, 7),
+        .miso_pin = GPIO_PIN(PD, 6),
+        .clk_pin = GPIO_PIN(PC, 15),
+        .loc = USART_ROUTE_LOCATION_LOC1,
+        .cmu = cmuClock_USART1,
+        .irq = USART1_RX_IRQn
     }
 };
 
-#define SPI_NUMOF           (1U)
-#define SPI_0_EN            (1)
+#define SPI_NUMOF           NUMOF(spi_config)
 /** @} */
 
 /**
  * @name    Timer configuration
+ *
+ * The implementation uses two timers in cascade mode.
  * @{
  */
 static const timer_conf_t timer_config[] = {
     {
         {
-            TIMER0,             /* lower numbered timer */
-            cmuClock_TIMER0     /* pre-scaler bit in the CMU register */
+            .dev = TIMER0,
+            .cmu = cmuClock_TIMER0
         },
         {
-            TIMER1,             /* higher numbered timer, this is the one */
-            cmuClock_TIMER1     /* pre-scaler bit in the CMU register */
+            .dev = TIMER1,
+            .cmu = cmuClock_TIMER1
         },
-        TIMER1_IRQn             /* IRQn of the higher numbered timer */
+        .irq = TIMER1_IRQn
     }
 };
 
-#define TIMER_NUMOF         (1U)
-#define TIMER_0_EN          (1)
+#define TIMER_NUMOF         NUMOF(timer_config)
 #define TIMER_0_ISR         isr_timer1
-#define TIMER_0_MAX_VALUE   (0xffff)
 /** @} */
 
 /**
@@ -184,26 +166,24 @@ static const timer_conf_t timer_config[] = {
  */
 static const uart_conf_t uart_config[] = {
     {
-        LEUART0,                            /* device */
-        GPIO_PIN(PD, 5),                    /* RX pin */
-        GPIO_PIN(PD, 4),                    /* TX pin */
-        LEUART_ROUTE_LOCATION_LOC0,         /* AF location */
-        cmuClock_LEUART0,                   /* CMU register */
-        LEUART0_IRQn                        /* IRQ base channel */
+        .dev = LEUART0,
+        .rx_pin = GPIO_PIN(PD, 5),
+        .tx_pin = GPIO_PIN(PD, 4),
+        .loc = LEUART_ROUTE_LOCATION_LOC0,
+        .cmu = cmuClock_LEUART0,
+        .irq = LEUART0_IRQn
     },
     {
-        USART1,                             /* device */
-        GPIO_PIN(PD, 6),                    /* RX pin */
-        GPIO_PIN(PD, 7),                    /* TX pin */
-        USART_ROUTE_LOCATION_LOC2,          /* AF location */
-        cmuClock_USART1,                    /* CMU register */
-        USART1_RX_IRQn                      /* IRQ base channel */
+        .dev = USART1,
+        .rx_pin = GPIO_PIN(PD, 6),
+        .tx_pin = GPIO_PIN(PD, 7),
+        .loc = USART_ROUTE_LOCATION_LOC2,
+        .cmu = cmuClock_USART1,
+        .irq = USART1_RX_IRQn
     }
 };
 
-#define UART_NUMOF          (2U)
-#define UART_0_EN           (1)
-#define UART_1_EN           (1)
+#define UART_NUMOF          NUMOF(uart_config)
 #define UART_0_ISR_RX       isr_leuart0
 #define UART_1_ISR_RX       isr_usart1_rx
 /** @} */
