@@ -27,7 +27,7 @@
 #include "em_timer_utils.h"
 
 /* guard file in case no PWM device was specified */
-#if PWM_NUMOF
+#ifdef PWM_NUMOF
 
 uint32_t pwm_init(pwm_t dev, pwm_mode_t mode, uint32_t freq, uint16_t res)
 {

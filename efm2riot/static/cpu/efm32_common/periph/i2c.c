@@ -33,7 +33,7 @@
 #include "em_i2c.h"
 
 /* guard file in case no I2C device is defined */
-#if I2C_NUMOF
+#ifdef I2C_NUMOF
 
 static volatile I2C_TransferReturn_TypeDef i2c_progress[I2C_NUMOF];
 

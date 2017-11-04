@@ -31,9 +31,9 @@ extern "C" {
 #endif
 
 /**
- * @brief   Local helper to calculate *_NUMOF based on config.
+ * @brief   Internal macro to calculate *_NUMOF based on config.
  */
-#define NUMOF(config)    (sizeof(config) / sizeof(config[0]))
+#define NUMOF(config)       (sizeof(config) / sizeof(config[0]))
 
 /**
  * @name    Clock configuration
@@ -232,7 +232,7 @@ static const i2c_conf_t i2c_config[] = {
 {% endstrip %}
 /** @} */
 
-{% strip "2", ">" %}
+{% strip 2, ">" %}
     {% if board not in ["stk3200", "slstk3401a", "slstk3402a", "sltb001a"] %}
         /**
          * @name    PWM configuration
