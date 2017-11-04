@@ -50,10 +50,8 @@ WEAK_DEFAULT void isr_systick(void);
 ISR_VECTOR(1) const isr_t vector_cpu[CPU_IRQ_NUMOF] = {
     {% strip 3 %}
         {% for irq in irqs %}
-            {% if irq.reserved %}
-                (0UL),                  /* Reserved */
-            {% else %}
-                {{ (irq.method_name ~ ",")|align(23) }} /* {{ irq.number }} - {{ irq.name }} */
+            {% if not irq.reserved %}
+                [{{ irq.number|ralign(2) }}] = {{ (irq.method_name ~ ",")|align(23) }} /* {{ irq.name }} */
             {% endif %}
         {% endfor %}
     {% endstrip %}

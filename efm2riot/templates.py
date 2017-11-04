@@ -89,6 +89,7 @@ def create_environment():
         keep_trailing_newline=True)
 
     environment.filters["align"] = lambda x, y: ("%-" + str(y) + "s") % x
+    environment.filters["ralign"] = lambda x, y: ("%" + str(y) + "s") % x
     environment.filters["to_kb"] = lambda x: str(int(x) / 1024)
     environment.filters["to_freq"] = _to_freq
 
