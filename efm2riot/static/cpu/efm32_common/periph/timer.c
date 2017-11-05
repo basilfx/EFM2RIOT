@@ -8,7 +8,7 @@
 
 /**
  * @ingroup     cpu_efm32_common
- *
+ * @ingroup     drivers_periph_timer
  * @{
  *
  * @file
@@ -16,7 +16,6 @@
  *
  * @author      Hauke Petersen <hauke.petersen@fu-berlin.de>
  * @author      Bas Stottelaar <basstottelaar@gmail.com>
- *
  * @}
  */
 

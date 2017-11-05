@@ -8,6 +8,7 @@
 
 /**
  * @ingroup     cpu_efm32_common
+ * @ingroup     drivers_periph_pwm
  * @{
  *
  * @file

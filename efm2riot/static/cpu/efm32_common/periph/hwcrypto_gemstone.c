@@ -8,7 +8,7 @@
 
 /**
  * @ingroup     cpu_efm32_common
- *
+ * @ingroup     drivers_periph_hwcrypto
  * @{
  *
  * @file
@@ -16,7 +16,6 @@
  *              Gemstone MCUs.
  *
  * @author      Bas Stottelaar <basstottelaar@gmail.com>
- *
  * @}
  */
 

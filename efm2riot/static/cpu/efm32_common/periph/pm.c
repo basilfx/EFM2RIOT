@@ -8,13 +8,13 @@
 
 /**
  * @ingroup     cpu_efm32_common
+ * @ingroup     drivers_periph_pm
  * @{
  *
  * @file
  * @brief       Implementation of the power management peripheral
  *
  * @author      Bas Stottelaar <basstottelaar@gmail.com>
- *
  * @}
  */
 

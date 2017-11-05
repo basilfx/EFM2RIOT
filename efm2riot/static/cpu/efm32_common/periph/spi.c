@@ -8,7 +8,7 @@
 
 /**
  * @ingroup     cpu_efm32_common
- *
+ * @ingroup     drivers_periph_spi
  * @{
  *
  * @file
@@ -17,7 +17,6 @@
  * @author      Ryan Kurte <ryankurte@gmail.com>
  * @author      Bas Stottelaar <basstottelaar@gmail.com>
  * @author      Christian Amsüss <c@amsuess.com>
- *
  * @}
  */
 

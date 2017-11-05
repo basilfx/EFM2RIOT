@@ -8,13 +8,13 @@
 
 /**
  * @ingroup     cpu_efm32_common
+ * @ingroup     drivers_periph_i2c
  * @{
  *
  * @file
  * @brief       Low-level I2C driver implementation
  *
  * @author      Bas Stottelaar <basstottelaar@gmail.com>
- *
  * @}
  */
 

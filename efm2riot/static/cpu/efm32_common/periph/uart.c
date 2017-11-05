@@ -8,6 +8,7 @@
 
 /**
  * @ingroup     cpu_efm32_common
+ * @ingroup     drivers_periph_uart
  * @{
  *
  * @file
@@ -16,7 +17,6 @@
  * @author      Hauke Petersen <hauke.petersen@fu-berlin.de>
  * @author      Ryan Kurte <ryankurte@gmail.com>
  * @author      Bas Stottelaar <basstottelaar@gmail.com>
- *
  * @}
  */
 

@@ -8,14 +8,13 @@
 
 /**
  * @ingroup     cpu_efm32_common
- *
+ * @ingroup     drivers_periph_hwcrypto
  * @{
  *
  * @file
  * @brief       Low-level hardware cyrpto driver implementation
  *
  * @author      Bas Stottelaar <basstottelaar@gmail.com>
- *
  * @}
  */
 
