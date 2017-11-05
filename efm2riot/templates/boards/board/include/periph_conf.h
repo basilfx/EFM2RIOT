@@ -233,7 +233,7 @@ static const i2c_conf_t i2c_config[] = {
 /** @} */
 
 {% strip 2, ">" %}
-    {% if board not in ["stk3200", "slstk3401a", "slstk3402a", "sltb001a"] %}
+    {% if board in ["stk3600", "stk3700", "stk3800", "slwstk6220a"] %}
         /**
          * @name    PWM configuration
          * @{

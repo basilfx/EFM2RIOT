@@ -12,7 +12,11 @@ FEATURES_PROVIDED += periph_gpio
     {% endif %}
 {% endstrip %}
 FEATURES_PROVIDED += periph_i2c
-FEATURES_PROVIDED += periph_pwm
+{% strip 2 %}
+    {% if board in ["stk3600", "stk3700", "stk3800", "slwstk6220a"] %}
+        FEATURES_PROVIDED += periph_pwm
+    {% endif %}
+{% endstrip %}
 FEATURES_PROVIDED += periph_rtc
 FEATURES_PROVIDED += periph_rtt
 FEATURES_PROVIDED += periph_spi

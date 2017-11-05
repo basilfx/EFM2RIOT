@@ -6,6 +6,12 @@ Do not make pull requests on the `dist/` folder. This output will be overwritten
 ## Templates
 In `efm2riot/templates/`, the template files exist. [Jinja2](http://jinja.pocoo.org/) is used for converting templates to source.
 
+### Ordering
+Try to order per-board features alphabetically.
+
+### Exclusion
+Some boards may have features that others do not. Try to be explicit when listing features, which means that you should not use the `not` operator to exclude a single board for a particular feature, but instead should include the ones that have that feature. This way, it is less likely that adding new boards will result in broken compilations.
+
 ### Whitespace control
 The output of the source files *has* to be 'beautiful'. This means that whitespaces and newlines should be controlled explicitly. This can be hard while preserving readability of the source files.
 
