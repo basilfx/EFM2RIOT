@@ -279,7 +279,7 @@ extern "C" {
          */
         #define PIC_INT_WAKE_PIN    GPIO_PIN(PD, 10)
         #define PIC_I2C             I2C_DEV(0)
-        #define PIC_I2C_ADDR        (0x90)
+        #define PIC_I2C_ADDR        (0x48)
         /** @} */
 
         /**
