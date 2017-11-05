@@ -84,52 +84,50 @@ void board_init(void)
     /* initialize the CPU */
     cpu_init();
 
-    {% strip 4, ">" %}
-        {% if board not in ["sltb001a"] %}
-            {% if architecture not in ["m0", "m0plus"] %}
-                    /* enable core debug output AEM */
-                #if AEM_ENABLED
-                    if (DBG_Connected()) {
-                        /* enable GPIO clock for configuring SWO pins */
-                        CMU_ClockEnable(cmuClock_HFPER, true);
-                        CMU_ClockEnable(cmuClock_GPIO, true);
+    {% strip 3, ">" %}
+        {% if board in ["slstk3401a", "slstk3402a", "slwstk6220a", "stk3600", "stk3700", "stk3800"] %}
+                /* enable core debug output AEM */
+            #if AEM_ENABLED
+                if (DBG_Connected()) {
+                    /* enable GPIO clock for configuring SWO pins */
+                    CMU_ClockEnable(cmuClock_HFPER, true);
+                    CMU_ClockEnable(cmuClock_GPIO, true);
 
-                        /* enable debug peripheral via SWO */
-                        {% strip 2 %}
-                            {% if cpu_platform == 1 %}
-                                DBG_SWOEnable(GPIO_ROUTE_SWLOCATION_LOC0);
-                            {% else %}
-                                DBG_SWOEnable(GPIO_ROUTELOC0_SWVLOC_LOC0);
-                            {% endif %}
-                        {% endstrip %}
+                    /* enable debug peripheral via SWO */
+                    {% strip 2 %}
+                        {% if cpu_platform == 1 %}
+                            DBG_SWOEnable(GPIO_ROUTE_SWLOCATION_LOC0);
+                        {% else %}
+                            DBG_SWOEnable(GPIO_ROUTELOC0_SWVLOC_LOC0);
+                        {% endif %}
+                    {% endstrip %}
 
-                        /* enable trace in core debug */
-                        CoreDebug->DHCSR |= CoreDebug_DHCSR_C_DEBUGEN_Msk;
-                        CoreDebug->DEMCR |= CoreDebug_DEMCR_TRCENA_Msk;
+                    /* enable trace in core debug */
+                    CoreDebug->DHCSR |= CoreDebug_DHCSR_C_DEBUGEN_Msk;
+                    CoreDebug->DEMCR |= CoreDebug_DEMCR_TRCENA_Msk;
 
-                        /* enable PC and IRQ sampling output */
-                        DWT->CTRL = 0x400113FF;
+                    /* enable PC and IRQ sampling output */
+                    DWT->CTRL = 0x400113FF;
 
-                        /* set TPIU prescaler to 16 */
-                        TPI->ACPR = 15;
+                    /* set TPIU prescaler to 16 */
+                    TPI->ACPR = 15;
 
-                        /* set protocol to NRZ */
-                        TPI->SPPR = 2;
+                    /* set protocol to NRZ */
+                    TPI->SPPR = 2;
 
-                        /* disable continuous formatting */
-                        TPI->FFCR = 0x100;
+                    /* disable continuous formatting */
+                    TPI->FFCR = 0x100;
 
-                        /* unlock ITM and output data */
-                        ITM->LAR = 0xC5ACCE55;
-                        ITM->TCR = 0x10009;
-                    }
-                #endif
-            {% endif %}
+                    /* unlock ITM and output data */
+                    ITM->LAR = 0xC5ACCE55;
+                    ITM->TCR = 0x10009;
+                }
+            #endif
         {% endif %}
     {% endstrip %}
 
     {% strip 3, ">" %}
-        {% if board not in ["sltb001a"] %}
+        {% if board in ["slstk3401a", "slstk3402a", "slwstk6220a", "stk3200", "stk3600", "stk3700", "stk3800"] %}
                 /* enable the board controller, to enable virtual com port */
             #if BC_ENABLED
                 gpio_init(BC_PIN, GPIO_OUT);
@@ -147,7 +145,7 @@ void board_init(void)
     gpio_init(PB1_PIN, GPIO_IN);
 
     {% strip 3, "<" %}
-        {% if board in ["slstk3401a", "slwstk6220a"] %}
+        {% if board in ["slstk3401a", "slstk3402a", "slwstk6220a"] %}
                 /* initialize the Si7021 sensor */
             #if SI7021_ENABLED
                 gpio_init(SI7021_EN_PIN, GPIO_OUT);
