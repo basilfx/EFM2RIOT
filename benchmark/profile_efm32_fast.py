@@ -19,6 +19,7 @@ APPLICATIONS = [
     "tests/periph_cpuid",
     "tests/periph_dac",
     "tests/periph_gpio",
+    "tests/periph_hwrng",
     "tests/periph_i2c",
     "tests/periph_pwm",
     "tests/periph_rtc",
