@@ -29,7 +29,7 @@
 #include "em_cmu.h"
 #include "em_aes.h"
 
-#ifdef _SILICON_LABS_32B_PLATFORM_1
+#ifdef _SILICON_LABS_32B_SERIES_0
 
 /**
  * @brief   Global lock to ensure mutual exclusive access to crypto hardware.
@@ -258,4 +258,4 @@ void hwcrypto_poweroff(void)
     CMU_ClockEnable(cmuClock_AES, false);
 }
 
-#endif /* _SILICON_LABS_32B_PLATFORM_1 */
+#endif /* _SILICON_LABS_32B_SERIES_0 */

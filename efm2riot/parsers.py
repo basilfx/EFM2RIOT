@@ -60,6 +60,8 @@ def parse_cpus(sdk_directory, family, min_ram_size, min_flash_size):
             flash_size = None
             ram_size = None
             architecture = None
+            crypto = False
+            trng = False
             mpu = False
             fpu = False
             irqs = {}
@@ -74,10 +76,14 @@ def parse_cpus(sdk_directory, family, min_ram_size, min_flash_size):
                             flash_size = int(hex_re.match(line).group(1), 16)
                         elif "SRAM_SIZE" in line:
                             ram_size = int(hex_re.match(line).group(1), 16)
-                        elif "_SILICON_LABS_32B_PLATFORM_1" in line:
+                        elif "_SILICON_LABS_32B_SERIES_0" in line:
                             cpu_platform = 1
-                        elif "_SILICON_LABS_32B_PLATFORM_2" in line:
+                        elif "_SILICON_LABS_32B_SERIES_1" in line:
                             cpu_platform = 2
+                        elif "CRYPTO_PRESENT" in line:
+                            crypto = True
+                        elif "TRNG_PRESENT" in line:
+                            trng = True
                         elif "__MPU_PRESENT" in line and "1" in line:
                             mpu = True
                         elif "__FPU_PRESENT" in line and "1" in line:
@@ -136,6 +142,8 @@ def parse_cpus(sdk_directory, family, min_ram_size, min_flash_size):
             }
 
             family.update({
+                "crypto": crypto,
+                "trng": trng,
                 "fpu": fpu,
                 "mpu": mpu,
                 "architecture": architecture,

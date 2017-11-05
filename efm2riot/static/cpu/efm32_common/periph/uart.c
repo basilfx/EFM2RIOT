@@ -77,7 +77,7 @@ int uart_init(uart_t dev, uint32_t baudrate, uart_rx_cb_t rx_cb, void *arg)
         USART_InitAsync(uart, &init);
 
         /* configure pin functions */
-#ifdef _SILICON_LABS_32B_PLATFORM_1
+#ifdef _SILICON_LABS_32B_SERIES_0
         uart->ROUTE = (uart_config[dev].loc |
                        USART_ROUTE_RXPEN |
                        USART_ROUTE_TXPEN);
@@ -108,7 +108,7 @@ int uart_init(uart_t dev, uint32_t baudrate, uart_rx_cb_t rx_cb, void *arg)
         LEUART_Init(leuart, &init);
 
         /* configure pin functions */
-#ifdef _SILICON_LABS_32B_PLATFORM_1
+#ifdef _SILICON_LABS_32B_SERIES_0
         leuart->ROUTE = (uart_config[dev].loc |
                          LEUART_ROUTE_RXPEN |
                          LEUART_ROUTE_TXPEN);

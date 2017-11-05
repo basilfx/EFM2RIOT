@@ -99,7 +99,7 @@ int i2c_init_master(i2c_t dev, i2c_speed_t speed)
     I2C_Init(i2c_config[dev].dev, &init);
 
     /* configure pin functions */
-#ifdef _SILICON_LABS_32B_PLATFORM_1
+#ifdef _SILICON_LABS_32B_SERIES_0
     i2c_config[dev].dev->ROUTE = (i2c_config[dev].loc |
                                   I2C_ROUTE_SDAPEN | I2C_ROUTE_SCLPEN);
 #else

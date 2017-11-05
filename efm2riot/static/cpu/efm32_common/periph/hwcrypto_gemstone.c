@@ -32,7 +32,7 @@
 #define ENABLE_DEBUG    (0)
 #include "debug.h"
 
-#ifdef _SILICON_LABS_32B_PLATFORM_2
+#ifdef _SILICON_LABS_32B_SERIES_1
 
 /**
  * @brief   Global lock to ensure mutual exclusive access to crypto hardware.
@@ -276,4 +276,4 @@ void hwcrypto_poweroff(void)
     CMU_ClockEnable(cmuClock_CRYPTO, false);
 }
 
-#endif /* _SILICON_LABS_32B_PLATFORM_2 */
+#endif /* _SILICON_LABS_32B_SERIES_1 */

@@ -29,7 +29,7 @@
 #include "em_device.h"
 #include "em_gpio.h"
 #include "em_usart.h"
-#ifdef _SILICON_LABS_32B_PLATFORM_1
+#ifdef _SILICON_LABS_32B_SERIES_0
 #include "em_dac.h"
 #endif
 
@@ -83,7 +83,7 @@ typedef struct {
 
 typedef struct {
     uint8_t dev;                      /**< device index */
-#ifdef _SILICON_LABS_32B_PLATFORM_1
+#ifdef _SILICON_LABS_32B_SERIES_0
     ADC_SingleInput_TypeDef input;    /**< input channel */
 #else
     ADC_PosSel_TypeDef input;         /**< input channel */
@@ -188,7 +188,7 @@ typedef enum {
 #ifdef AES_CTRL_AES256
 #define HAVE_HWCRYPTO_AES256
 #endif
-#ifdef _SILICON_LABS_32B_PLATFORM_2
+#ifdef _SILICON_LABS_32B_SERIES_1
 #define HAVE_HWCRYPTO_SHA1
 #define HAVE_HWCRYPTO_SHA256
 #endif
