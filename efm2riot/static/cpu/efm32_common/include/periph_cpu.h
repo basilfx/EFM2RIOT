@@ -290,19 +290,6 @@ typedef struct {
 /** @} */
 
 /**
- * @brief   Override the timer type.
- * @{
- */
-#define HAVE_TIMER_T
-typedef uint32_t tim_t;
-/** @} */
-
-/**
- * @brief   Override the timer undefined value.
- */
-#define TIMER_UNDEF         (0xffffffff)
-
-/**
  * @brief   Define timer configuration values
  *
  * @note    The two timers must be adjacent to each other (e.g. TIMER0 and
