@@ -176,7 +176,7 @@ The starter kit is equipped with an Advanced Energy Monitor. This allows you to 
 {% strip 2 %}
     {% if board in ["stk3600", "stk3700", "stk3800"] %}
         | ADC        | 0       | ADC0            | CHAN0: internal temperature     | Ports are fixed, 14/16-bit resolution not supported       |
-        | Crypto     | &mdash; | &mdash;         |                                 | AES128/AES256 only                                        |
+        | HWCRYPTO   | &mdash; | &mdash;         |                                 | AES128/AES256 only                                        |
         | DAC        | 0       | DAC0            | CHAN0: PB11                     | Ports are fixed, shared with I2C                          |
         | I2C        | 0       | I2C0            | SDA: PD6, SCL: PD7              | `I2C_SPEED_LOW` and `I2C_SPEED_HIGH` clock speed deviate  |
         |            | 1       | I2C1            | SDA: PC4, SCL: PC5              | `I2C_SPEED_LOW` and `I2C_SPEED_HIGH` clock speed deviate  |
@@ -191,7 +191,7 @@ The starter kit is equipped with an Advanced Energy Monitor. This allows you to 
         |            | 2       | LEUART0         | RX: PD5, TX: PD4                | Baud rate limited (see below)                             |
     {% elif board in ["stk3200"] %}
         | ADC        | 0       | ADC0            | CHAN0: internal temperature     | Ports are fixed, 14/16-bit resolution not supported       |
-        | Crypto     | &mdash; | &mdash;         |                                 | AES128/AES256 only                                        |
+        | HWCRYPTO   | &mdash; | &mdash;         |                                 | AES128/AES256 only                                        |
         | I2C        | 0       | I2C0            | SDA: PE12, SCL: PE13            | `I2C_SPEED_LOW` and `I2C_SPEED_HIGH` clock speed deviate  |
         | RTT        | &mdash; | RTC             |                                 | Either RTT or RTC (see below)                             |
         | RTC        | &mdash; | RTC             |                                 | Either RTC or RTT (see below)                             |
@@ -199,9 +199,21 @@ The starter kit is equipped with an Advanced Energy Monitor. This allows you to 
         | Timer      | 0       | TIMER0 + TIMER1 |                                 | TIMER0 is used as prescaler (must be adjecent)            |
         | UART       | 0       | LEUART0         | RX: PD5, TX: PD4                | STDIO Output, Baud rate limited (see below)               |
         |            | 1       | USART1          | RX: PD6, TX: PD7                |                                                           |
-    {% elif board in ["slstk3401a", "slstk3402a"] %}
+    {% elif board in ["slstk3401a"] %}
         | ADC        | 0       | ADC0            | CHAN0: internal temperature     | Ports are fixed, 14/16-bit resolution not supported       |
-        | Crypto     | &mdash; | &mdash;         |                                 | AES128/AES256, SHA1, SHA256                               |
+        | HWCRYPTO   | &mdash; | &mdash;         |                                 | AES128/AES256, SHA1, SHA256                               |
+        | I2C        | 0       | I2C0            | SDA: PC10, CLK: PC11            | `I2C_SPEED_LOW` and `I2C_SPEED_HIGH` clock speed deviate  |
+        | RTT        | &mdash; | RTCC            |                                 | 1 Hz interval. Either RTT or RTC (see below)              |
+        | RTC        | &mdash; | RTCC            |                                 | 1 Hz interval. Either RTC or RTT (see below)              |
+        | SPI        | 0       | USART1          | MOSI: PC6, MISO: PC7, CLK: PC8  |                                                           |
+        | Timer      | 0       | TIMER0 + TIMER1 |                                 | TIMER0 is used as prescaler (must be adjecent)            |
+        | UART       | 0       | USART0          | RX: PA1, TX: PA0                | Default STDIO output                                      |
+        |            | 1       | USART1          | RX: PC6, TX: PC7                |                                                           |
+        |            | 2       | LEUART0         | RX: PD11, TX: PD10              | Baud rate limited (see below)                             |
+    {% elif board in ["slstk3402a"] %}
+        | ADC        | 0       | ADC0            | CHAN0: internal temperature     | Ports are fixed, 14/16-bit resolution not supported       |
+        | HWCRYPTO   | &mdash; | &mdash;         |                                 | AES128/AES256, SHA1, SHA256                               |
+        | HWRNG      | &mdash; | TNRG0           |                                 | Hardware-based true random number generator               |
         | I2C        | 0       | I2C0            | SDA: PC10, CLK: PC11            | `I2C_SPEED_LOW` and `I2C_SPEED_HIGH` clock speed deviate  |
         | RTT        | &mdash; | RTCC            |                                 | 1 Hz interval. Either RTT or RTC (see below)              |
         | RTC        | &mdash; | RTCC            |                                 | 1 Hz interval. Either RTC or RTT (see below)              |
@@ -212,12 +224,12 @@ The starter kit is equipped with an Advanced Energy Monitor. This allows you to 
         |            | 2       | LEUART0         | RX: PD11, TX: PD10              | Baud rate limited (see below)                             |
     {% elif board in ["slwstk6220a"] %}
         | ADC        | 0       | ADC0            | CHAN0: internal temperature     | Ports are fixed, 14/16-bit resolution not supported       |
-        | Crypto     | &mdash; | &mdash;         |                                 | AES128/AES256 only                                        |
+        | HWCRYPTO   | &mdash; | &mdash;         |                                 | AES128/AES256 only                                        |
         | DAC        | 0       | DAC0            | CHAN0: PB11                     | Ports are fixed, shared with I2C                          |
         | PWM        | 0       | TIMER0          | CHAN0: PF6, CHAN1: PF7          | Mapped to LED0 and LED1                                   |
     {% elif board in ["sltb001a"] %}
         | ADC        | 0       | ADC0            | CHAN0: internal temperature     | Ports are fixed, 14/16-bit resolution not supported       |
-        | Crypto     | &mdash; | &mdash;         |                                 | AES128/AES256, SHA1, SHA256                               |
+        | HWCRYPTO   | &mdash; | &mdash;         |                                 | AES128/AES256, SHA1, SHA256                               |
         | I2C        | 0       | I2C0            | SDA: PC10, CLK: PC11            | `I2C_SPEED_LOW` and `I2C_SPEED_HIGH` clock speed deviate  |
         | RTT        | &mdash; | RTCC            |                                 | 1 Hz interval. Either RTT or RTC (see below)              |
         | RTC        | &mdash; | RTCC            |                                 | 1 Hz interval. Either RTC or RTT (see below)              |
