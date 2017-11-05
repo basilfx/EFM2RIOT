@@ -42,16 +42,16 @@ extern "C" {
 #define XTIMER_WIDTH        (16)
 /** @} */
 
-/**
- * @name    Enable Advanced Energy Monitor
- *
- * When enabled, additional CPU statistics are available via SWO.
- * @{
- */
-#ifndef AEM_ENABLED
-#define AEM_ENABLED         (1)
-#endif
-/** @} */
+        /**
+         * @name    Enable Advanced Energy Monitor
+         *
+         * When enabled, additional CPU statistics are available via SWO.
+         * @{
+         */
+        #ifndef AEM_ENABLED
+        #define AEM_ENABLED         (1)
+        #endif
+        /** @} */
 
 /**
  * @name    Board controller configuration

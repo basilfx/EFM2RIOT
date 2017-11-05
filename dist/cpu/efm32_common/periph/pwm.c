@@ -8,6 +8,7 @@
 
 /**
  * @ingroup     cpu_efm32_common
+ * @ingroup     drivers_periph_pwm
  * @{
  *
  * @file
@@ -71,7 +72,7 @@ uint32_t pwm_init(pwm_t dev, pwm_mode_t mode, uint32_t freq, uint16_t res)
         gpio_init(channel.pin, GPIO_OUT);
 
         /* configure pin function */
-#ifdef _SILICON_LABS_32B_PLATFORM_1
+#ifdef _SILICON_LABS_32B_SERIES_0
         pwm_config[dev].dev->ROUTE |= (channel.loc |
                                        TIMER_Channel2Route(channel.index));
 #else

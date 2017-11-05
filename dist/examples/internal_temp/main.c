@@ -37,7 +37,7 @@ int main(void)
     }
 
     /* factory calibration values */
-#ifdef _SILICON_LABS_32B_PLATFORM_1
+#ifdef _SILICON_LABS_32B_SERIES_0
     float cal_temp = (float) ((DEVINFO->CAL & _DEVINFO_CAL_TEMP_MASK) >> _DEVINFO_CAL_TEMP_SHIFT);
     float cal_value = (float) ((DEVINFO->ADC0CAL2 & _DEVINFO_ADC0CAL2_TEMP1V25_MASK) >> _DEVINFO_ADC0CAL2_TEMP1V25_SHIFT);
 #else
@@ -50,7 +50,7 @@ int main(void)
         int32_t value = adc_sample(0, ADC_RES_12BIT);
 
         /* convert sample to degrees Celsius, using the correction factors */
-#ifdef _SILICON_LABS_32B_PLATFORM_1
+#ifdef _SILICON_LABS_32B_SERIES_0
         float temperature = cal_temp - ((cal_value - value) / -6.27);
 #else
         float temperature = cal_temp - ((cal_value - value) / -6.01);

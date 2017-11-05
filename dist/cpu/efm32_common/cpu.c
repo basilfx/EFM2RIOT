@@ -27,7 +27,7 @@
 #include "em_cmu.h"
 #include "em_emu.h"
 
-#ifdef _SILICON_LABS_32B_PLATFORM_2
+#ifdef _SILICON_LABS_32B_SERIES_1
 /**
  * @brief   Initialize integrated DC-DC regulator
  */
@@ -73,7 +73,7 @@ static void clk_init(void)
     CMU_ClockSelectSet(cmuClock_LFB, CLOCK_LFB);
 
     /* set the LFE clock source */
-#ifdef _SILICON_LABS_32B_PLATFORM_2
+#ifdef _SILICON_LABS_32B_SERIES_1
     CMU_ClockSelectSet(cmuClock_LFE, CLOCK_LFE);
 #endif
 }
@@ -91,7 +91,7 @@ static void pm_init(void)
 
     EMU_EM23Init(&init_em23);
 
-#ifdef _SILICON_LABS_32B_PLATFORM_2
+#ifdef _SILICON_LABS_32B_SERIES_1
     /* initialize EM4 */
     EMU_EM4Init_TypeDef init_em4 = EMU_EM4INIT_DEFAULT;
 
@@ -107,7 +107,7 @@ void cpu_init(void)
     /* initialize the Cortex-M core */
     cortexm_init();
     
-#ifdef _SILICON_LABS_32B_PLATFORM_2
+#ifdef _SILICON_LABS_32B_SERIES_1
     /* initialize dc-dc */
     dcdc_init();
 #endif

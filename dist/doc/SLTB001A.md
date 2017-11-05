@@ -9,31 +9,31 @@ The starter kit is equipped with an Advanced Energy Monitor. This allows you to 
 ![SLTB001A Starter Kit](images/sltb001a.png)
 
 ### MCU
-| MCU             | EFR32MG1P132F256GM48                          |
-|-----------------|------------------------------------------|
-| Family          | ARM Cortex-M4      |
-| Vendor          | Silicon Labs                             |
-| Vendor Family   | EFM32 Mighty Gecko Gecko           |
-| RAM             | 31.0KB                   |
-| Flash           | 256.0KB                 |
-| EEPROM          | no                                       |
-| Frequency       | up to 38.4 MHz            |
-| FPU             | yes             |
-| MPU             | yes             |
-| DMA             | 12 channels                              |
-| Timers          | 2 x 16-bit + 1x 16-bit (low power)       |
-| ADCs            | 12-bit ADC                               |
-| UARTs           | 3x UART, 2x USART, 1x LEUART             |
-| SPIs            | 2x USART                                 |
-| I2Cs            | 1x                                       |
-| Vcc             | 1.85V - 3.8V                             |
-| Datasheet       | [Datasheet](https://www.silabs.com/Support%20Documents/TechnicalDocs/EFR32MG1-DataSheet.pdf)         |
-| Manual          | [Manual](http://www.silabs.com/Support%20Documents/TechnicalDocs/EFR32-ReferenceManual.pdf)            |
-| Board Manual    | [Board Manual](http://www.silabs.com/Support%20Documents/TechnicalDocs/UG250.pdf)       |
-| Board Schematic | [Board Schematic](http://www.silabs.com/Support%20Documents/TechnicalDocs/UG250.pdf) |
+| MCU             | EFR32MG1P132F256GM48                                 |
+|-----------------|------------------------------------------------------|
+| Family          | ARM Cortex-M4                                        |
+| Vendor          | Silicon Labs                                         |
+| Vendor Family   | EFM32 Mighty Gecko Gecko                             |
+| RAM             | 31.0KB                                               |
+| Flash           | 256.0KB                                              |
+| EEPROM          | no                                                   |
+| Frequency       | up to 38.4 MHz                                       |
+| FPU             | yes                                                  |
+| MPU             | yes                                                  |
+| DMA             | 12 channels                                          |
+| Timers          | 2 x 16-bit + 1x 16-bit (low power)                   |
+| ADCs            | 12-bit ADC                                           |
+| UARTs           | 3x UART, 2x USART, 1x LEUART                         |
+| SPIs            | 2x USART                                             |
+| I2Cs            | 1x                                                   |
+| Vcc             | 1.85V - 3.8V                                         |
+| Datasheet       | [Datasheet](https://www.silabs.com/Support%20Documents/TechnicalDocs/EFR32MG1-DataSheet.pdf)                             |
+| Manual          | [Manual](http://www.silabs.com/Support%20Documents/TechnicalDocs/EFR32-ReferenceManual.pdf)                              |
+| Board Manual    | [Board Manual](http://www.silabs.com/Support%20Documents/TechnicalDocs/UG250.pdf)                                        |
+| Board Schematic | [Board Schematic](http://www.silabs.com/Support%20Documents/TechnicalDocs/UG250.pdf)                                     |
 
 ### Pinout
-This is the pinout of the Expansion Pins on the front side of the board. PIN 1 is the top-left contact, marked on the silkscreen.
+This is the pinout of the expansion pins on the front side of the board. PIN 1 is the top-left contact, marked on the silkscreen.
 
 |      | PIN | PIN |      |
 |------|-----|-----|------|
@@ -54,8 +54,8 @@ This is the pinout of the Expansion Pins on the front side of the board. PIN 1 i
 ### Peripheral mapping
 | Peripheral | Number  | Hardware        | Pins                            | Comments                                                  |
 |------------|---------|-----------------|---------------------------------|-----------------------------------------------------------|
-| ADC        | 0       | ADC0            | CHAN0: internal temperature     | Ports are fixed                                           |
-| Crypto     | &mdash; | &mdash;         |                                 | AES128/AES256, SHA1, SHA256                               |
+| ADC        | 0       | ADC0            | CHAN0: internal temperature     | Ports are fixed, 14/16-bit resolution not supported       |
+| HWCRYPTO   | &mdash; | &mdash;         |                                 | AES128/AES256, SHA1, SHA256                               |
 | I2C        | 0       | I2C0            | SDA: PC10, CLK: PC11            | `I2C_SPEED_LOW` and `I2C_SPEED_HIGH` clock speed deviate  |
 | RTT        | &mdash; | RTCC            |                                 | 1 Hz interval. Either RTT or RTC (see below)              |
 | RTC        | &mdash; | RTCC            |                                 | 1 Hz interval. Either RTC or RTT (see below)              |
@@ -75,24 +75,25 @@ This is the pinout of the Expansion Pins on the front side of the board. PIN 1 i
 |            | LED_GREEN | LED1     | PD12 | Green LED  |
 
 ## Implementation Status
-| Device                        | ID                             | Supported | Comments                                                       |
-|-------------------------------|--------------------------------|-----------|----------------------------------------------------------------|
-| MCU                           | EFR32MG1P      | yes       | LPM: EM1 maps to `LPM_IDLE` and EM2 maps to `LPM_SLEEP`        |
-| Low-level driver              | ADC                            | yes       |                                                                |
-|                               | GPIO                           | yes       | Interrupts are shared across pins (see reference manual)       |
-|                               | I2C                            | yes       |                                                                |
-|                               | PWM                            | yes       |                                                                |
-|                               | RTCC                           | yes       | As RTT or RTC                                                  |
-|                               | SPI                            | partially | Only master mode                                               |
-|                               | Timer                          | yes       |                                                                |
-|                               | UART                           | yes       | USART is shared with SPI. LEUART baud rate limited (see below) |
-|                               | USB                            | no        |                                                                |
-| Temperature + Humidity sensor | Si7021                         | yes       | Silicon Labs Temperature + Humidity sensor                     |
-| Microphone                    |                                | no        |                                                                |
-| Light sensor                  | Si1133                         | no        | Silicon Labs UV/Ambient Light sensor                           |
-| Hall-effect sensor            | Si7210A                        | no        | Silicon Labs Hall-effect sensor (Rev. A02 boards only)                 |
-| IMU sensor                    | ICM-20648                      | no        | InvenSense 6-axis inertial sensor                              |
-| Air sensor                    | CCS811                         | no        | Cambridge CMOS Sensors Air Quality/Gas sensor                  |
+| Device                        | ID                                  | Supported | Comments                                                       |
+|-------------------------------|-------------------------------------|-----------|----------------------------------------------------------------|
+| MCU                           | EFR32MG1P                           | yes       | LPM: EM1 maps to `LPM_IDLE` and EM2 maps to `LPM_SLEEP`        |
+| Low-level driver              | ADC                                 | yes       |                                                                |
+|                               | GPIO                                | yes       | Interrupts are shared across pins (see reference manual)       |
+|                               | I2C                                 | yes       |                                                                |
+|                               | PWM                                 | yes       |                                                                |
+|                               | RTCC                                | yes       | As RTT or RTC                                                  |
+|                               | SPI                                 | partially | Only master mode                                               |
+|                               | Timer                               | yes       |                                                                |
+|                               | UART                                | yes       | USART is shared with SPI. LEUART baud rate limited (see below) |
+|                               | USB                                 | no        |                                                                |
+| Temperature + humidity sensor | Si7021                              | yes       | Silicon Labs Temperature + Humidity sensor                     |
+| Microphone                    |                                     | no        |                                                                |
+| Pressure + temperature sensor | BMP280                              | yes       | Bosch pressure and temperature sensor                          |
+| Light sensor                  | Si1133                              | no        | Silicon Labs UV/Ambient Light sensor                           |
+| Hall-effect sensor            | Si7210A                             | no        | Silicon Labs Hall-effect sensor (Rev. A02 boards only)         |
+| IMU sensor                    | ICM-20648                           | no        | InvenSense 6-axis inertial sensor                              |
+| Air sensor                    | CCS811                              | no        | Cambridge CMOS Sensors Air Quality/Gas sensor                  |
 
 ## Board configuration
 
@@ -102,15 +103,15 @@ The starter kit is equipped with a Board Controller. This controller provides a 
 **Note:** the board controller *always* configures the virtual serial port at 115200 baud with 8 bits, no parity and one stop bit. This also means that it expects data from the MCU with the same settings.
 
 ### Clock selection
-There are several clock sources that are available for the different peripherals. You are advised to read [AN0004](https://www.silabs.com/Support Documents/TechnicalDocs/AN0004.pdf) to get familiar with the different clocks.
+There are several clock sources that are available for the different peripherals. You are advised to read [AN0004](https://www.silabs.com/Support%20Documents/TechnicalDocs/AN0004.pdf) to get familiar with the different clocks.
 
-| Source  | Internal | Speed                     | Comments                           |
-|---------|----------|---------------------------|------------------------------------|
-| HFRCO   | Yes      | 14 MHz  | Enabled during startup, changeable |
-| HFXO    | No       | 38.4 MHz   |                                    |
-| LFRCO   | Yes      | 32.768 kHz  |                                    |
-| LFXO    | No       | 32.768 kHz   |                                    |
-| ULFRCO  | No       | 1.000 kHz | Not very reliable as a time source |
+| Source  | Internal | Speed                               | Comments                           |
+|---------|----------|-------------------------------------|------------------------------------|
+| HFRCO   | Yes      | 14 MHz                              | Enabled during startup, changeable |
+| HFXO    | No       | 38.4 MHz                            |                                    |
+| LFRCO   | Yes      | 32.768 kHz                          |                                    |
+| LFXO    | No       | 32.768 kHz                          |                                    |
+| ULFRCO  | No       | 1.000 kHz                           | Not very reliable as a time source |
 
 The sources can be used to clock following branches:
 
@@ -139,7 +140,7 @@ If you don't need low-power peripheral support, passing `LOW_POWER_ENABLED=0` to
 ### RTC or RTT
 RIOT-OS has support for *Real-Time Tickers* and *Real-Time Clocks*.
 
-However, this board MCU family has support for a 32-bit *Real-Time Clock and Calendar*, which can be configured in ticker mode **or** calendar mode. Therefore, only one of both peripherals can be supported.
+However, this board MCU family has support for a 32-bit *Real-Time Clock and Calendar*, which can be configured in ticker mode **or** calendar mode. Therefore, only one of both peripherals can be enabled at the same time.
 
 Configured at 1 Hz interval, the RTCC will overflow each 136 years.
 
@@ -182,7 +183,7 @@ make debug-server
 ```
 
 ## Supported Toolchains
-For using the Silicon Labs SLTB001A starter kit we strongly recommend the usage of the [GNU Tools for ARM Embedded Processors](https://launchpad.net/gcc-arm-embedded) toolchain.
+For using the Silicon Labs SLTB001A starter kit we strongly recommend the usage of the [GNU Tools for ARM Embedded Processors](https://developer.arm.com/open-source/gnu-toolchain/gnu-rm) toolchain.
 
 ## License information
 * Silicon Labs' emlib: zlib-style license (permits distribution of source).

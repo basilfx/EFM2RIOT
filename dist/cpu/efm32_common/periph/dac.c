@@ -8,6 +8,7 @@
 
 /**
  * @ingroup     cpu_efm32_common
+ * @ingroup     drivers_periph_dac
  * @{
  *
  * @file
@@ -52,7 +53,7 @@ int8_t dac_init(dac_t line)
     /* initialize channel */
     DAC_InitChannel_TypeDef init_channel = DAC_INITCHANNEL_DEFAULT;
 
-    init.enable = true;
+    init_channel.enable = true;
 
     DAC_InitChannel(dac_config[dev].dev,
                     &init_channel,

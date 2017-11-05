@@ -29,7 +29,7 @@
 #include "em_device.h"
 #include "em_gpio.h"
 #include "em_usart.h"
-#ifdef _SILICON_LABS_32B_PLATFORM_1
+#ifdef _SILICON_LABS_32B_SERIES_0
 #include "em_dac.h"
 #endif
 
@@ -83,7 +83,7 @@ typedef struct {
 
 typedef struct {
     uint8_t dev;                      /**< device index */
-#ifdef _SILICON_LABS_32B_PLATFORM_1
+#ifdef _SILICON_LABS_32B_SERIES_0
     ADC_SingleInput_TypeDef input;    /**< input channel */
 #else
     ADC_PosSel_TypeDef input;         /**< input channel */
@@ -123,6 +123,11 @@ typedef struct {
 #define HAVE_GPIO_T
 typedef uint32_t gpio_t;
 /** @} */
+
+/**
+ * @brief   Definition of a fitting UNDEF value.
+ */
+#define GPIO_UNDEF          (0xffffffff)
 
 /**
  * @brief   Mandatory function for defining a GPIO pins.
@@ -183,7 +188,7 @@ typedef enum {
 #ifdef AES_CTRL_AES256
 #define HAVE_HWCRYPTO_AES256
 #endif
-#ifdef _SILICON_LABS_32B_PLATFORM_2
+#ifdef _SILICON_LABS_32B_SERIES_1
 #define HAVE_HWCRYPTO_SHA1
 #define HAVE_HWCRYPTO_SHA256
 #endif
@@ -282,14 +287,6 @@ typedef struct {
 #define PERIPH_SPI_NEEDS_TRANSFER_BYTE
 #define PERIPH_SPI_NEEDS_TRANSFER_REG
 #define PERIPH_SPI_NEEDS_TRANSFER_REGS
-/** @} */
-
-/**
- * @brief   Override the timer type.
- * @{
- */
-#define HAVE_TIMER_T
-typedef uint32_t tim_t;
 /** @} */
 
 /**

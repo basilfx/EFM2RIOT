@@ -8,6 +8,7 @@
 
 /**
  * @ingroup     cpu_efm32_common
+ * @ingroup     drivers_periph_adc
  * @{
  *
  * @file
@@ -76,7 +77,7 @@ int adc_sample(adc_t line, adc_res_t res)
     init.acqTime = adc_channel_config[line].acq_time;
     init.reference = adc_channel_config[line].reference;
     init.resolution = (ADC_Res_TypeDef) (res & 0xFF);
-#ifdef _SILICON_LABS_32B_PLATFORM_1
+#ifdef _SILICON_LABS_32B_SERIES_0
     init.input = adc_channel_config[line].input;
 #else
     init.posSel = adc_channel_config[line].input;

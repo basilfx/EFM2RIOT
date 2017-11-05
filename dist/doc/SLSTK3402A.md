@@ -9,31 +9,31 @@ The starter kit is equipped with an Advanced Energy Monitor. This allows you to 
 ![SLSTK3402A Starter Kit](images/slstk3402a.png)
 
 ### MCU
-| MCU             | EFM32PG12B500F1024GL125                          |
-|-----------------|------------------------------------------|
-| Family          | ARM Cortex-M4      |
-| Vendor          | Silicon Labs                             |
-| Vendor Family   | EFM32 Pearl Gecko           |
-| RAM             | 256.0KB                   |
-| Flash           | 1024.0KB                 |
-| EEPROM          | no                                       |
-| Frequency       | up to 40 MHz            |
-| FPU             | yes             |
-| MPU             | yes             |
-| DMA             | 12 channels                              |
-| Timers          | 2 x 16-bit + 1x 16-bit (low power)       |
-| ADCs            | 12-bit ADC                               |
-| UARTs           | 2x USART, 1x LEUART                      |
-| SPIs            | 2x USART                                 |
-| I2Cs            | 1x                                       |
-| Vcc             | 1.85V - 3.8V                             |
-| Datasheet       | [Datasheet](https://www.silabs.com/documents/public/data-sheets/efm32pg12-datasheet.pdf)         |
-| Manual          | [Manual](https://www.silabs.com/documents/public/reference-manuals/efm32pg12-rm.pdf)            |
-| Board Manual    | [Board Manual](https://www.silabs.com/documents/public/user-guides/ug257-stk3402-usersguide.pdf)       |
-| Board Schematic | [Board Schematic]() |
+| MCU             | EFM32PG12B500F1024GL125                              |
+|-----------------|------------------------------------------------------|
+| Family          | ARM Cortex-M4                                        |
+| Vendor          | Silicon Labs                                         |
+| Vendor Family   | EFM32 Pearl Gecko                                    |
+| RAM             | 256.0KB                                              |
+| Flash           | 1024.0KB                                             |
+| EEPROM          | no                                                   |
+| Frequency       | up to 40 MHz                                         |
+| FPU             | yes                                                  |
+| MPU             | yes                                                  |
+| DMA             | 8 channels                                           |
+| Timers          | 2 x 16-bit + 1x 16-bit (low power)                   |
+| ADCs            | 12-bit ADC                                           |
+| UARTs           | 2x USART, 1x LEUART                                  |
+| SPIs            | 2x USART                                             |
+| I2Cs            | 1x                                                   |
+| Vcc             | 1.85V - 3.8V                                         |
+| Datasheet       | [Datasheet](https://www.silabs.com/documents/public/data-sheets/efm32pg12-datasheet.pdf)                                 |
+| Manual          | [Manual](https://www.silabs.com/documents/public/reference-manuals/efm32pg12-rm.pdf)                                     |
+| Board Manual    | [Board Manual](https://www.silabs.com/documents/public/user-guides/ug257-stk3402-usersguide.pdf)                         |
+| Board Schematic | [Board Schematic]()                                                                                                      |
 
 ### Pinout
-This is the pinout of the Expansion Header on the right side of the board. PIN 1 is the bottom-left contact when the header faces towards you.
+This is the pinout of the expansion header on the right side of the board. PIN 1 is the bottom-left contact when the header faces towards you.
 
 |      | PIN | PIN |      |
 |------|-----|-----|------|
@@ -55,8 +55,9 @@ This is the pinout of the Expansion Header on the right side of the board. PIN 1
 ### Peripheral mapping
 | Peripheral | Number  | Hardware        | Pins                            | Comments                                                  |
 |------------|---------|-----------------|---------------------------------|-----------------------------------------------------------|
-| ADC        | 0       | ADC0            | CHAN0: internal temperature     | Ports are fixed                                           |
-| Crypto     | &mdash; | &mdash;         |                                 | AES128/AES256, SHA1, SHA256                               |
+| ADC        | 0       | ADC0            | CHAN0: internal temperature     | Ports are fixed, 14/16-bit resolution not supported       |
+| HWCRYPTO   | &mdash; | &mdash;         |                                 | AES128/AES256, SHA1, SHA256                               |
+| HWRNG      | &mdash; | TNRG0           |                                 | Hardware-based true random number generator               |
 | I2C        | 0       | I2C0            | SDA: PC10, CLK: PC11            | `I2C_SPEED_LOW` and `I2C_SPEED_HIGH` clock speed deviate  |
 | RTT        | &mdash; | RTCC            |                                 | 1 Hz interval. Either RTT or RTC (see below)              |
 | RTC        | &mdash; | RTCC            |                                 | 1 Hz interval. Either RTC or RTT (see below)              |
@@ -76,20 +77,20 @@ This is the pinout of the Expansion Header on the right side of the board. PIN 1
 |            | LED_GREEN | LED1     | PF5  | Yellow LED |
 
 ## Implementation Status
-| Device                        | ID                             | Supported | Comments                                                       |
-|-------------------------------|--------------------------------|-----------|----------------------------------------------------------------|
-| MCU                           | EFM32PG12B      | yes       | LPM: EM1 maps to `LPM_IDLE` and EM2 maps to `LPM_SLEEP`        |
-| Low-level driver              | ADC                            | yes       |                                                                |
-|                               | GPIO                           | yes       | Interrupts are shared across pins (see reference manual)       |
-|                               | I2C                            | yes       |                                                                |
-|                               | PWM                            | yes       |                                                                |
-|                               | RTCC                           | yes       | As RTT or RTC                                                  |
-|                               | SPI                            | partially | Only master mode                                               |
-|                               | Timer                          | yes       |                                                                |
-|                               | UART                           | yes       | USART is shared with SPI. LEUART baud rate limited (see below) |
-|                               | USB                            | no        |                                                                |
-| LCD driver                    | LS013B7DH03                    | yes       | Sharp Low Power Memory LCD                                     |
-| Temperature + Humidity sensor | Si7021                         | yes       | Silicon Labs Temperature + Humidity sensor                     |
+| Device                        | ID                                  | Supported | Comments                                                       |
+|-------------------------------|-------------------------------------|-----------|----------------------------------------------------------------|
+| MCU                           | EFM32PG12B                          | yes       | LPM: EM1 maps to `LPM_IDLE` and EM2 maps to `LPM_SLEEP`        |
+| Low-level driver              | ADC                                 | yes       |                                                                |
+|                               | GPIO                                | yes       | Interrupts are shared across pins (see reference manual)       |
+|                               | I2C                                 | yes       |                                                                |
+|                               | PWM                                 | yes       |                                                                |
+|                               | RTCC                                | yes       | As RTT or RTC                                                  |
+|                               | SPI                                 | partially | Only master mode                                               |
+|                               | Timer                               | yes       |                                                                |
+|                               | UART                                | yes       | USART is shared with SPI. LEUART baud rate limited (see below) |
+|                               | USB                                 | no        |                                                                |
+| LCD driver                    | LS013B7DH03                         | yes       | Sharp Low Power Memory LCD                                     |
+| Temperature + humidity sensor | Si7021                              | yes       | Silicon Labs Temperature + Humidity sensor                     |
 
 ## Board configuration
 
@@ -116,15 +117,15 @@ By default, this feature is enabled. It can be disabled by passing `AEM_ENABLED=
 Note that Simplicity Studio requires debug symbols to correlate code. RIOT-OS defaults to GDB debug symbols, but Simplicity Studio requires DWARF-2 debug symbols.
 
 ### Clock selection
-There are several clock sources that are available for the different peripherals. You are advised to read [AN0004](https://www.silabs.com/Support Documents/TechnicalDocs/AN0004.pdf) to get familiar with the different clocks.
+There are several clock sources that are available for the different peripherals. You are advised to read [AN0004](https://www.silabs.com/Support%20Documents/TechnicalDocs/AN0004.pdf) to get familiar with the different clocks.
 
-| Source  | Internal | Speed                     | Comments                           |
-|---------|----------|---------------------------|------------------------------------|
-| HFRCO   | Yes      | 19 MHz  | Enabled during startup, changeable |
-| HFXO    | No       | 40 MHz   |                                    |
-| LFRCO   | Yes      | 32.768 kHz  |                                    |
-| LFXO    | No       | 32.768 kHz   |                                    |
-| ULFRCO  | No       | 1.000 kHz | Not very reliable as a time source |
+| Source  | Internal | Speed                               | Comments                           |
+|---------|----------|-------------------------------------|------------------------------------|
+| HFRCO   | Yes      | 19 MHz                              | Enabled during startup, changeable |
+| HFXO    | No       | 40 MHz                              |                                    |
+| LFRCO   | Yes      | 32.768 kHz                          |                                    |
+| LFXO    | No       | 32.768 kHz                          |                                    |
+| ULFRCO  | No       | 1.000 kHz                           | Not very reliable as a time source |
 
 The sources can be used to clock following branches:
 
@@ -153,7 +154,7 @@ If you don't need low-power peripheral support, passing `LOW_POWER_ENABLED=0` to
 ### RTC or RTT
 RIOT-OS has support for *Real-Time Tickers* and *Real-Time Clocks*.
 
-However, this board MCU family has support for a 32-bit *Real-Time Clock and Calendar*, which can be configured in ticker mode **or** calendar mode. Therefore, only one of both peripherals can be supported.
+However, this board MCU family has support for a 32-bit *Real-Time Clock and Calendar*, which can be configured in ticker mode **or** calendar mode. Therefore, only one of both peripherals can be enabled at the same time.
 
 Configured at 1 Hz interval, the RTCC will overflow each 136 years.
 
@@ -196,7 +197,7 @@ make debug-server
 ```
 
 ## Supported Toolchains
-For using the Silicon Labs SLSTK3402A starter kit we strongly recommend the usage of the [GNU Tools for ARM Embedded Processors](https://launchpad.net/gcc-arm-embedded) toolchain.
+For using the Silicon Labs SLSTK3402A starter kit we strongly recommend the usage of the [GNU Tools for ARM Embedded Processors](https://developer.arm.com/open-source/gnu-toolchain/gnu-rm) toolchain.
 
 ## License information
 * Silicon Labs' emlib: zlib-style license (permits distribution of source).

@@ -9,31 +9,31 @@ The starter kit is equipped with an Advanced Energy Monitor. This allows you to 
 ![SLWSTK6220A Starter Kit](images/slwstk6220a.png)
 
 ### MCU
-| MCU             | EZR32WG330F256R60                          |
-|-----------------|------------------------------------------|
-| Family          | ARM Cortex-M4      |
-| Vendor          | Silicon Labs                             |
-| Vendor Family   | EZR32 Wonder Gecko           |
-| RAM             | 32.0KB                   |
-| Flash           | 256.0KB                 |
-| EEPROM          | no                                       |
-| Frequency       | up to 48 MHz            |
-| FPU             | yes             |
-| MPU             | yes             |
-| DMA             | 12 channels                              |
-| Timers          | 3 x 16-bit + 1x 16-bit (low power)       |
-| ADCs, DACs      | 12-bit ADC, 12-bit DAC                   |
-| UARTs           | 2x UART, 3x USART, 2x LEUART             |
-| SPIs            | 3x USART                                 |
-| I2Cs            | 2x                                       |
-| Vcc             | 1.98V - 3.8V                             |
-| Datasheet       | [Datasheet](https://www.silabs.com/Support%20Documents/TechnicalDocs/EZR32WG330_DataSheet.pdf)         |
-| Manual          | [Manual](http://www.silabs.com/Support%20Documents/TechnicalDocs/EZR32LG-RM.pdf)            |
-| Board Manual    | [Board Manual](https://www.silabs.com/Support%20Documents/TechnicalDocs/wstk6220_EZR32WG_868MHz_Wireless_Starter_Kit.pdf)       |
-| Board Schematic | [Board Schematic](http://www.silabs.com/Support%20Documents/TechnicalDocs/BRD2400A_A00.pdf) |
+| MCU             | EZR32WG330F256R60                                    |
+|-----------------|------------------------------------------------------|
+| Family          | ARM Cortex-M4                                        |
+| Vendor          | Silicon Labs                                         |
+| Vendor Family   | EZR32 Wonder Gecko                                   |
+| RAM             | 32.0KB                                               |
+| Flash           | 256.0KB                                              |
+| EEPROM          | no                                                   |
+| Frequency       | up to 48 MHz                                         |
+| FPU             | yes                                                  |
+| MPU             | yes                                                  |
+| DMA             | 12 channels                                          |
+| Timers          | 3 x 16-bit + 1x 16-bit (low power)                   |
+| ADCs, DACs      | 12-bit ADC, 12-bit DAC                               |
+| UARTs           | 2x UART, 3x USART, 2x LEUART                         |
+| SPIs            | 3x USART                                             |
+| I2Cs            | 2x                                                   |
+| Vcc             | 1.98V - 3.8V                                         |
+| Datasheet       | [Datasheet](https://www.silabs.com/Support%20Documents/TechnicalDocs/EZR32WG330_DataSheet.pdf)                           |
+| Manual          | [Manual](http://www.silabs.com/Support%20Documents/TechnicalDocs/EZR32LG-RM.pdf)                                         |
+| Board Manual    | [Board Manual](https://www.silabs.com/Support%20Documents/TechnicalDocs/wstk6220_EZR32WG_868MHz_Wireless_Starter_Kit.pdf) |
+| Board Schematic | [Board Schematic](http://www.silabs.com/Support%20Documents/TechnicalDocs/BRD2400A_A00.pdf)                              |
 
 ### Pinout
-This is the pinout of the Expansion Header on the right side of the board. PIN 1 is the bottom-left contact when the header faces towards you.
+This is the pinout of the expansion header on the right side of the board. PIN 1 is the bottom-left contact when the header faces towards you.
 
 |      | PIN | PIN |      |
 |------|-----|-----|------|
@@ -55,8 +55,8 @@ This is the pinout of the Expansion Header on the right side of the board. PIN 1
 ### Peripheral mapping
 | Peripheral | Number  | Hardware        | Pins                            | Comments                                                  |
 |------------|---------|-----------------|---------------------------------|-----------------------------------------------------------|
-| ADC        | 0       | ADC0            | CHAN0: internal temperature     | Ports are fixed                                           |
-| Crypto     | &mdash; | &mdash;         |                                 | AES128/AES256 only                                        |
+| ADC        | 0       | ADC0            | CHAN0: internal temperature     | Ports are fixed, 14/16-bit resolution not supported       |
+| HWCRYPTO   | &mdash; | &mdash;         |                                 | AES128/AES256 only                                        |
 | DAC        | 0       | DAC0            | CHAN0: PB11                     | Ports are fixed, shared with I2C                          |
 | PWM        | 0       | TIMER0          | CHAN0: PF6, CHAN1: PF7          | Mapped to LED0 and LED1                                   |
 
@@ -70,21 +70,21 @@ This is the pinout of the Expansion Header on the right side of the board. PIN 1
 |            | LED_GREEN | LED1     | PF7  | Yellow LED |
 
 ## Implementation Status
-| Device                        | ID                             | Supported | Comments                                                       |
-|-------------------------------|--------------------------------|-----------|----------------------------------------------------------------|
-| MCU                           | EZR32WG      | yes       | LPM: EM1 maps to `LPM_IDLE` and EM2 maps to `LPM_SLEEP`        |
-| Low-level driver              | ADC                            | yes       |                                                                |
-|                               | DAC                            | yes       |                                                                |
-|                               | GPIO                           | yes       | Interrupts are shared across pins (see reference manual)       |
-|                               | I2C                            | yes       |                                                                |
-|                               | PWM                            | yes       |                                                                |
-|                               | RTC                            | yes       | As RTT or RTC                                                  |
-|                               | SPI                            | partially | Only master mode                                               |
-|                               | Timer                          | yes       |                                                                |
-|                               | UART                           | yes       | USART is shared with SPI. LEUART baud rate limited (see below) |
-|                               | USB                            | no        |                                                                |
-| LCD driver                    | LS013B7DH03                    | yes       | Sharp Low Power Memory LCD                                     |
-| Temperature + Humidity sensor | Si7021                         | yes       | Silicon Labs Temperature + Humidity sensor                     |
+| Device                        | ID                                  | Supported | Comments                                                       |
+|-------------------------------|-------------------------------------|-----------|----------------------------------------------------------------|
+| MCU                           | EZR32WG                             | yes       | LPM: EM1 maps to `LPM_IDLE` and EM2 maps to `LPM_SLEEP`        |
+| Low-level driver              | ADC                                 | yes       |                                                                |
+|                               | DAC                                 | yes       |                                                                |
+|                               | GPIO                                | yes       | Interrupts are shared across pins (see reference manual)       |
+|                               | I2C                                 | yes       |                                                                |
+|                               | PWM                                 | yes       |                                                                |
+|                               | RTC                                 | yes       | As RTT or RTC                                                  |
+|                               | SPI                                 | partially | Only master mode                                               |
+|                               | Timer                               | yes       |                                                                |
+|                               | UART                                | yes       | USART is shared with SPI. LEUART baud rate limited (see below) |
+|                               | USB                                 | no        |                                                                |
+| LCD driver                    | LS013B7DH03                         | yes       | Sharp Low Power Memory LCD                                     |
+| Temperature + humidity sensor | Si7021                              | yes       | Silicon Labs Temperature + Humidity sensor                     |
 
 ## Board configuration
 
@@ -111,15 +111,15 @@ By default, this feature is enabled. It can be disabled by passing `AEM_ENABLED=
 Note that Simplicity Studio requires debug symbols to correlate code. RIOT-OS defaults to GDB debug symbols, but Simplicity Studio requires DWARF-2 debug symbols.
 
 ### Clock selection
-There are several clock sources that are available for the different peripherals. You are advised to read [AN0004](https://www.silabs.com/Support Documents/TechnicalDocs/AN0004.pdf) to get familiar with the different clocks.
+There are several clock sources that are available for the different peripherals. You are advised to read [AN0004](https://www.silabs.com/Support%20Documents/TechnicalDocs/AN0004.pdf) to get familiar with the different clocks.
 
-| Source  | Internal | Speed                     | Comments                           |
-|---------|----------|---------------------------|------------------------------------|
-| HFRCO   | Yes      | 14 MHz  | Enabled during startup, changeable |
-| HFXO    | No       | 48 MHz   |                                    |
-| LFRCO   | Yes      | 32.768 kHz  |                                    |
-| LFXO    | No       | 32.768 kHz   |                                    |
-| ULFRCO  | No       | 1.000 kHz | Not very reliable as a time source |
+| Source  | Internal | Speed                               | Comments                           |
+|---------|----------|-------------------------------------|------------------------------------|
+| HFRCO   | Yes      | 14 MHz                              | Enabled during startup, changeable |
+| HFXO    | No       | 48 MHz                              |                                    |
+| LFRCO   | Yes      | 32.768 kHz                          |                                    |
+| LFXO    | No       | 32.768 kHz                          |                                    |
+| ULFRCO  | No       | 1.000 kHz                           | Not very reliable as a time source |
 
 The sources can be used to clock following branches:
 
@@ -188,7 +188,7 @@ make debug-server
 ```
 
 ## Supported Toolchains
-For using the Silicon Labs SLWSTK6220A starter kit we strongly recommend the usage of the [GNU Tools for ARM Embedded Processors](https://launchpad.net/gcc-arm-embedded) toolchain.
+For using the Silicon Labs SLWSTK6220A starter kit we strongly recommend the usage of the [GNU Tools for ARM Embedded Processors](https://developer.arm.com/open-source/gnu-toolchain/gnu-rm) toolchain.
 
 ## License information
 * Silicon Labs' emlib: zlib-style license (permits distribution of source).

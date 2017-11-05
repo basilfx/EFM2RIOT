@@ -8,13 +8,13 @@
 
 /**
  * @ingroup     cpu_efm32_common
- *
+ * @ingroup     drivers_periph_rtc
  * @{
  *
  * @file
  * @brief       RTC peripheral driver implementation for EFM32 Gemstone MCUs
- * @author      Bas Stottelaar <basstottelaar@gmail.com>
  *
+ * @author      Bas Stottelaar <basstottelaar@gmail.com>
  * @}
  */
 

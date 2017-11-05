@@ -8,13 +8,12 @@
 
 /**
  * @ingroup     cpu_efm32_common
- *
+ * @ingroup     drivers_periph_rtt
  * @{
  *
  * @file
  * @brief       RTT peripheral driver implementation
  * @author      Bas Stottelaar <basstottelaar@gmail.com>
- *
  * @}
  */
 

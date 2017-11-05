@@ -8,7 +8,7 @@
 
 /**
  * @ingroup     cpu_efm32_common
- *
+ * @ingroup     drivers_periph_spi
  * @{
  *
  * @file
@@ -17,7 +17,6 @@
  * @author      Ryan Kurte <ryankurte@gmail.com>
  * @author      Bas Stottelaar <basstottelaar@gmail.com>
  * @author      Christian Amsüss <c@amsuess.com>
- *
  * @}
  */
 
@@ -77,7 +76,7 @@ int spi_acquire(spi_t bus, spi_cs_t cs, spi_mode_t mode, spi_clk_t clk)
     USART_InitSync(spi_config[bus].dev, &init);
 
     /* configure pin functions */
-#ifdef _SILICON_LABS_32B_PLATFORM_1
+#ifdef _SILICON_LABS_32B_SERIES_0
     spi_config[bus].dev->ROUTE = (spi_config[bus].loc |
                                   USART_ROUTE_RXPEN |
                                   USART_ROUTE_TXPEN |
