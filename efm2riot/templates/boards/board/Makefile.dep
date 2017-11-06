@@ -1,7 +1,7 @@
 ifneq (,$(filter saul_default,$(USEMODULE)))
     USEMODULE += saul_gpio
     {% strip 2 %}
-        {% if board in ["slstk3401a", "slwstk6220a"] %}
+        {% if board in ["slstk3401a", "slstk3402a", "slwstk6220a"] %}
             USEMODULE += si7021
         {% endif %}
         {% if board in ["sltb001a"] %}
@@ -22,3 +22,13 @@ ifneq (,$(filter saul_default,$(USEMODULE)))
         {% endif %}
     {% endstrip %}
 endif
+
+{% strip 2, "<" %}
+    {% if board in ["slstk3401a", "slstk3402a", "slwstk622a"] %}
+        # i2c is required for Si7021
+        USEMODULE += periph_i2c
+    {% elif board in ["sltb001a"] %}
+        # i2c is required for environmental sensors
+        USEMODULE += periph_i2c
+    {% endif %}
+{% endstrip %}
