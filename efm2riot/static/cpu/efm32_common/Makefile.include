@@ -13,5 +13,8 @@ USEMODULE += periph_common
 # include efm32 common periph drivers
 USEMODULE += efm32_common_periph
 
+# include layered power management
+USEMODULE += pm_layered
+
 # export the common include directory
 export INCLUDES += -I$(RIOTCPU)/efm32_common/include

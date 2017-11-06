@@ -8,8 +8,6 @@ export CPU_FAM = {{ family }}
     {% endif %}
 {% endstrip %}
 
-USEMODULE += pm_layered
-
 # include vendor device headers
 export INCLUDES += -I$(RIOTCPU)/{{ family }}/include/vendor
 
