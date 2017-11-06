@@ -4,10 +4,6 @@ export CPU_FAM = efm32tg11b
 # CMSIS-DSP is needed for arm_math.h
 USEPKG += cmsis-dsp
 
-# enable memory protection unit
-USEMODULE += mpu_stack_guard
-USEMODULE += pm_layered
-
 # include vendor device headers
 export INCLUDES += -I$(RIOTCPU)/efm32tg11b/include/vendor
 

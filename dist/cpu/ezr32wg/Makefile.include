@@ -1,10 +1,6 @@
 export CPU_ARCH = cortex-m4
 export CPU_FAM = ezr32wg
 
-# enable memory protection unit
-USEMODULE += mpu_stack_guard
-USEMODULE += pm_layered
-
 # include vendor device headers
 export INCLUDES += -I$(RIOTCPU)/ezr32wg/include/vendor
 

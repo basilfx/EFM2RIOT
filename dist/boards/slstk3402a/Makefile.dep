@@ -1,3 +1,7 @@
 ifneq (,$(filter saul_default,$(USEMODULE)))
     USEMODULE += saul_gpio
+    USEMODULE += si7021
 endif
+
+# i2c is required for Si7021
+USEMODULE += periph_i2c

@@ -1,8 +1,6 @@
 export CPU_ARCH = cortex-m3
 export CPU_FAM = efm32tg
 
-USEMODULE += pm_layered
-
 # include vendor device headers
 export INCLUDES += -I$(RIOTCPU)/efm32tg/include/vendor
 

@@ -4,8 +4,6 @@ export CPU_FAM = efm32zg
 # CMSIS-DSP is needed for arm_math.h
 USEPKG += cmsis-dsp
 
-USEMODULE += pm_layered
-
 # include vendor device headers
 export INCLUDES += -I$(RIOTCPU)/efm32zg/include/vendor
 
