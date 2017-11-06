@@ -8,12 +8,6 @@ export CPU_FAM = {{ family }}
     {% endif %}
 {% endstrip %}
 
-{% strip 2, ">" %}
-    {% if mpu %}
-        # enable memory protection unit
-        USEMODULE += mpu_stack_guard
-    {% endif %}
-{% endstrip %}
 USEMODULE += pm_layered
 
 # include vendor device headers
