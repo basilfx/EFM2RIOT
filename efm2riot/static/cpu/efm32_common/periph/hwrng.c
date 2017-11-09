@@ -27,8 +27,6 @@
 
 #include <string.h>
 
-#if defined(TRNG_COUNT) && TRNG_COUNT > 0
-
 void hwrng_init(void)
 {
     /* enable clocks */
@@ -64,5 +62,3 @@ void hwrng_read(void *buf, unsigned int num)
         memcpy((uint8_t *)out_buf, (const uint8_t *) &tmp, num);
     }
 }
-
-#endif /* defined(TRNG_COUNT) && TRNG_COUNT > 0 */

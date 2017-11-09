@@ -26,8 +26,6 @@
 #include "em_cmu.h"
 #include "em_rtcc.h"
 
-#if defined(RTCC_COUNT) && RTCC_COUNT > 0
-
 typedef struct {
     rtt_cb_t alarm_cb;              /**< callback called from RTC alarm */
     void *alarm_arg;                /**< argument passed to the callback */
@@ -152,5 +150,3 @@ void isr_rtcc(void)
     }
     cortexm_isr_end();
 }
-
-#endif /* defined(RTCC_COUNT) && RTCC_COUNT > 0 */

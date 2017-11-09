@@ -29,8 +29,6 @@
 #include "em_dac.h"
 #endif
 
-#if defined(DAC_COUNT) && DAC_COUNT > 0
-
 int8_t dac_init(dac_t line)
 {
     /* check if device is valid */
@@ -84,5 +82,3 @@ void dac_poweroff(dac_t line)
 
     CMU_ClockEnable(dac_config[dev].cmu, false);
 }
-
-#endif /* defined(DAC_COUNT) && DAC_COUNT > 0 */

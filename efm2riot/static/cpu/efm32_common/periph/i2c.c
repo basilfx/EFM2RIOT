@@ -32,9 +32,6 @@
 #include "em_cmu.h"
 #include "em_i2c.h"
 
-/* guard file in case no I2C device is defined */
-#ifdef I2C_NUMOF
-
 static volatile I2C_TransferReturn_TypeDef i2c_progress[I2C_NUMOF];
 
 static mutex_t i2c_lock[I2C_NUMOF];
@@ -258,5 +255,3 @@ void I2C_1_ISR(void)
     cortexm_isr_end();
 }
 #endif
-
-#endif /* I2C_NUMOF */

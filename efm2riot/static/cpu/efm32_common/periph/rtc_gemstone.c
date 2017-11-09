@@ -29,8 +29,6 @@
 #include "em_rtcc.h"
 #include "em_rtcc_utils.h"
 
-#if defined(RTCC_COUNT) && RTCC_COUNT > 0
-
 #define RTC_YEAR_OFFSET (100)       /**< RTCC has only two-digit notation */
 
 typedef struct {
@@ -174,5 +172,3 @@ void isr_rtcc(void)
     }
     cortexm_isr_end();
 }
-
-#endif /* defined(RTCC_COUNT) && RTCC_COUNT > 0 */
