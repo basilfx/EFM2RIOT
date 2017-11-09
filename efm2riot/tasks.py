@@ -93,7 +93,7 @@ def copy_templates(root_directory, dist_directory, sdk_directory,
 
                     if template["type"] == "file":
                         if source in filters:
-                            if not filters[source](contexts):
+                            if not filters[source](context):
                                 continue
 
                         templates.from_file(source, target, context)
