@@ -38,6 +38,7 @@ WEAK_DEFAULT void isr_gpio_even(void);
 WEAK_DEFAULT void isr_timer0(void);
 WEAK_DEFAULT void isr_usartrf0_rx(void);
 WEAK_DEFAULT void isr_usartrf0_tx(void);
+WEAK_DEFAULT void isr_usb(void);
 WEAK_DEFAULT void isr_acmp0(void);
 WEAK_DEFAULT void isr_adc0(void);
 WEAK_DEFAULT void isr_dac0(void);
@@ -78,6 +79,7 @@ ISR_VECTOR(1) const isr_t vector_cpu[CPU_IRQ_NUMOF] = {
     [ 2] = isr_timer0,             /* TIMER0 */
     [ 3] = isr_usartrf0_rx,        /* USARTRF0_RX */
     [ 4] = isr_usartrf0_tx,        /* USARTRF0_TX */
+    [ 5] = isr_usb,                /* USB */
     [ 6] = isr_acmp0,              /* ACMP0 */
     [ 7] = isr_adc0,               /* ADC0 */
     [ 8] = isr_dac0,               /* DAC0 */

@@ -67,6 +67,7 @@ WEAK_DEFAULT void isr_rtc(void);
 WEAK_DEFAULT void isr_burtc(void);
 WEAK_DEFAULT void isr_cmu(void);
 WEAK_DEFAULT void isr_vcmp(void);
+WEAK_DEFAULT void isr_lcd(void);
 WEAK_DEFAULT void isr_msc(void);
 WEAK_DEFAULT void isr_aes(void);
 WEAK_DEFAULT void isr_ebi(void);
@@ -109,6 +110,7 @@ ISR_VECTOR(1) const isr_t vector_cpu[CPU_IRQ_NUMOF] = {
     [31] = isr_burtc,              /* BURTC */
     [32] = isr_cmu,                /* CMU */
     [33] = isr_vcmp,               /* VCMP */
+    [34] = isr_lcd,                /* LCD */
     [35] = isr_msc,                /* MSC */
     [36] = isr_aes,                /* AES */
     [37] = isr_ebi,                /* EBI */

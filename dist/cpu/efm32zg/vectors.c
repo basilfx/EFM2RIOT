@@ -37,6 +37,7 @@ WEAK_DEFAULT void isr_dma(void);
 WEAK_DEFAULT void isr_gpio_even(void);
 WEAK_DEFAULT void isr_timer0(void);
 WEAK_DEFAULT void isr_acmp0(void);
+WEAK_DEFAULT void isr_adc0(void);
 WEAK_DEFAULT void isr_i2c0(void);
 WEAK_DEFAULT void isr_gpio_odd(void);
 WEAK_DEFAULT void isr_timer1(void);
@@ -48,6 +49,7 @@ WEAK_DEFAULT void isr_rtc(void);
 WEAK_DEFAULT void isr_cmu(void);
 WEAK_DEFAULT void isr_vcmp(void);
 WEAK_DEFAULT void isr_msc(void);
+WEAK_DEFAULT void isr_aes(void);
 
 /* interrupt vector table */
 ISR_VECTOR(1) const isr_t vector_cpu[CPU_IRQ_NUMOF] = {
@@ -55,6 +57,7 @@ ISR_VECTOR(1) const isr_t vector_cpu[CPU_IRQ_NUMOF] = {
     [ 1] = isr_gpio_even,          /* GPIO_EVEN */
     [ 2] = isr_timer0,             /* TIMER0 */
     [ 3] = isr_acmp0,              /* ACMP0 */
+    [ 4] = isr_adc0,               /* ADC0 */
     [ 5] = isr_i2c0,               /* I2C0 */
     [ 6] = isr_gpio_odd,           /* GPIO_ODD */
     [ 7] = isr_timer1,             /* TIMER1 */
@@ -66,4 +69,5 @@ ISR_VECTOR(1) const isr_t vector_cpu[CPU_IRQ_NUMOF] = {
     [13] = isr_cmu,                /* CMU */
     [14] = isr_vcmp,               /* VCMP */
     [15] = isr_msc,                /* MSC */
+    [16] = isr_aes,                /* AES */
 };

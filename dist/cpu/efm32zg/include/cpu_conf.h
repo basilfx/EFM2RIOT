@@ -35,7 +35,7 @@ extern "C" {
  * @{
  */
 #define CPU_DEFAULT_IRQ_PRIO            (1U)
-#define CPU_IRQ_NUMOF                   (MSC_IRQn + 1)
+#define CPU_IRQ_NUMOF                   (AES_IRQn + 1)
 #define CPU_FLASH_BASE                  FLASH_BASE
 /** @} */
 
