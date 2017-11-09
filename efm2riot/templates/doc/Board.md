@@ -14,10 +14,10 @@ The starter kit is equipped with an Advanced Energy Monitor. This allows you to 
 | Family          | {{ ("ARM Cortex-" ~ architecture|upper)|align(52) }} |
 | Vendor          | Silicon Labs                                         |
 | Vendor Family   | {{ family_display_name_full|align(52)             }} |
-| RAM             | {{ (ram_size|to_kb ~ "KB")|align(52)              }} |
-| Flash           | {{ (flash_size|to_kb ~ "KB")|align(52)            }} |
+| RAM             | {{ ((ram_size / 1024) ~ "KB")|align(52)           }} |
+| Flash           | {{ ((flash_size / 1024) ~ "KB")|align(52)         }} |
 | EEPROM          | no                                                   |
-| Frequency       | {{ ("up to " ~ freq.hfxo|to_freq)|align(52)       }} |
+| Frequency       | {{ ("up to " ~ freq.hfxo|freq)|align(52)          }} |
 | FPU             | {{ ("yes" if fpu else "no")|align(52)             }} |
 | MPU             | {{ ("yes" if mpu else "no")|align(52)             }} |
 {% strip 2 %}
@@ -367,13 +367,13 @@ The starter kit is equipped with an Advanced Energy Monitor. This allows you to 
 ### Clock selection
 There are several clock sources that are available for the different peripherals. You are advised to read [AN0004](https://www.silabs.com/Support%20Documents/TechnicalDocs/AN0004.pdf) to get familiar with the different clocks.
 
-| Source  | Internal | Speed                               | Comments                           |
-|---------|----------|-------------------------------------|------------------------------------|
-| HFRCO   | Yes      | {{ freq.hfrco|to_freq|align(35)  }} | Enabled during startup, changeable |
-| HFXO    | No       | {{ freq.hfxo|to_freq|align(35)   }} |                                    |
-| LFRCO   | Yes      | {{ freq.lfrco|to_freq|align(35)  }} |                                    |
-| LFXO    | No       | {{ freq.lfxo|to_freq|align(35)   }} |                                    |
-| ULFRCO  | No       | {{ freq.ulfrco|to_freq|align(35) }} | Not very reliable as a time source |
+| Source  | Internal | Speed                            | Comments                           |
+|---------|----------|----------------------------------|------------------------------------|
+| HFRCO   | Yes      | {{ freq.hfrco|freq|align(32)  }} | Enabled during startup, changeable |
+| HFXO    | No       | {{ freq.hfxo|freq|align(32)   }} |                                    |
+| LFRCO   | Yes      | {{ freq.lfrco|freq|align(32)  }} |                                    |
+| LFXO    | No       | {{ freq.lfxo|freq|align(32)   }} |                                    |
+| ULFRCO  | No       | {{ freq.ulfrco|freq|align(32) }} | Not very reliable as a time source |
 
 The sources can be used to clock following branches:
 

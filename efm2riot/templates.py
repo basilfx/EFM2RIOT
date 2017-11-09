@@ -70,13 +70,51 @@ def create_environment():
     Create a new Jinja2 render environment.
     """
 
-    def _to_freq(freq):
+    def _align(value, align):
+        return ("%-" + str(align) + "s") % value
+
+    def _ralign(value, align):
+        return ("%" + str(align) + "s") % value
+
+    def _hex(value, align=None):
+        if align:
+            return ("0x%0" + str(align) + "x") % value
+        else:
+            return ("0x%x" % value)
+
+    def _freq(freq):
         if freq > 1000000 and freq % 1000000 == 0:
             return "%d MHz" % (freq / 1000000)
         elif freq > 1000000:
             return "%.1f MHz" % (freq / 1000000.0)
         else:
             return "%.3f kHz" % (freq / 1000.0)
+
+    def _search(value, regex):
+        return re.search(regex, value).groups()
+
+    def _match(value, regex):
+        return re.match(regex, value).groups()
+
+    def _select(source, **attributes):
+        result = []
+
+        for item in source:
+            for key, value in attributes.items():
+                if not re.match(value, item[key]):
+                    break
+            else:
+                result.append(item)
+
+        return result
+
+    def _find(source, **attributes):
+        for item in source:
+            for key, value in attributes.items():
+                if item[key] != value:
+                    break
+            else:
+                return item
 
     root_dir = os.path.join(os.path.dirname(__file__), "..")
     file_dir = os.path.abspath(os.path.dirname(__file__))
@@ -88,10 +126,14 @@ def create_environment():
         trim_blocks=True,
         keep_trailing_newline=True)
 
-    environment.filters["align"] = lambda x, y: ("%-" + str(y) + "s") % x
-    environment.filters["ralign"] = lambda x, y: ("%" + str(y) + "s") % x
-    environment.filters["to_kb"] = lambda x: str(int(x) / 1024)
-    environment.filters["to_freq"] = _to_freq
+    environment.filters["align"] = _align
+    environment.filters["ralign"] = _ralign
+    environment.filters["hex"] = _hex
+    environment.filters["freq"] = _freq
+    environment.filters["search"] = _search
+    environment.filters["match"] = _match
+    environment.filters["select"] = _select
+    environment.filters["find"] = _find
 
     return environment
 
