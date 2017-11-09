@@ -1,1 +1,2 @@
-Jinja2>=2.9
+-e git+https://github.com/posborne/cmsis-svd.git#egg=cmsis-svd&subdirectory=python
+Jinja2>=2.10

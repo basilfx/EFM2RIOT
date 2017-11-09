@@ -16,6 +16,8 @@ def parse_arguments():
     parser.add_argument(
         "--sdk", action="store", help="path to EFM32 SDK")
     parser.add_argument(
+        "--svds", action="store", help="path to EFM32 SVDs folder")
+    parser.add_argument(
         "--dist", action="store", default="dist/", help="output folder")
     parser.add_argument(
         "--development", action="store_true", default=False,
@@ -36,6 +38,7 @@ def main(argv):
     root_directory = os.path.join(os.path.dirname(__file__), "efm2riot")
     dist_directory = arguments.dist
     sdk_directory = arguments.sdk
+    svds_directory = arguments.svds
 
     # Start with a clean output directory.
     tasks.clean_dist(dist_directory)
@@ -49,8 +52,11 @@ def main(argv):
     for family in families:
         cpus.extend(
             parsers.parse_cpus(
-                sdk_directory, family,
-                configuration.MIN_RAM, configuration.MIN_FLASH))
+                sdk_directory,
+                svds_directory,
+                family,
+                configuration.MIN_RAM,
+                configuration.MIN_FLASH))
 
     sys.stdout.write(
         "Found %d CPUs in %d families (filtered).\n" % (

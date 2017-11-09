@@ -1,3 +1,5 @@
+from cmsis_svd.parser import SVDParser
+
 import glob
 import os
 import re
@@ -146,6 +148,8 @@ def parse_cpus(sdk_directory, family, min_ram_size, min_flash_size):
                 "trng": trng,
                 "fpu": fpu,
                 "mpu": mpu,
+                "peripherals": parse_svd(
+                    svds_directory, family["family"], cpu_name),
                 "architecture": architecture,
                 "irqs": irq_table,
                 "max_irq": max_irq,
@@ -155,3 +159,27 @@ def parse_cpus(sdk_directory, family, min_ram_size, min_flash_size):
             cpus.append(cpu)
 
     return cpus
+
+
+def parse_svd(svds_directory, family, cpu):
+    """
+    Parse the SVD files (if available) and return the peripherals.
+
+    The data is returned lazy, to speedup the parsing process.
+    """
+
+    def _lazy():
+        if not svds_directory:
+            return
+
+        svd_file = os.path.join(
+            svds_directory, family.upper(), "%s.svd" % (cpu.upper()))
+
+        if not os.path.isfile(svd_file):
+            return
+
+        parser = SVDParser.for_xml_file(svd_file)
+
+        return parser.get_device().to_dict()["peripherals"]
+
+    return _lazy
