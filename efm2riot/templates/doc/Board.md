@@ -14,7 +14,7 @@ The starter kit is equipped with an Advanced Energy Monitor. This allows you to 
 | Family          | {{ ("ARM Cortex-" ~ architecture|upper)|align(52) }} |
 | Vendor          | Silicon Labs                                         |
 | Vendor Family   | {{ family_display_name_full|align(52)             }} |
-| RAM             | {{ ((ram_size / 1024) ~ "KB")|align(52)           }} |
+| RAM             | {{ ((sram_size / 1024) ~ "KB")|align(52)          }} |
 | Flash           | {{ ((flash_size / 1024) ~ "KB")|align(52)         }} |
 | EEPROM          | no                                                   |
 | Frequency       | {{ ("up to " ~ freq.hfxo|freq)|align(52)          }} |

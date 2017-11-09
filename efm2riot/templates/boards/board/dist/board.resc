@@ -1,0 +1,31 @@
+mach create
+using sysbus
+machine LoadPlatformDescription @platforms/boards/{{ board|lower }}.repl
+machine SetClockSource cpu
+
+# show the UART output
+{% strip 2 %}
+    {% if board in ["stk3600", "stk3700", "stk3800"] %}
+        showAnalyzer uart0
+    {% elif board in ["stk3200"] %}
+        showAnalyzer leuart0
+    {% elif board in ["slstk3401a", "slstk3402a"] %}
+        showAnalyzer usart0
+    {% elif board in ["slwstk6220a"] %}
+        showAnalyzer usart2
+    {% elif board in ["sltb001a"] %}
+        showAnalyzer usart0
+    {% endif %}
+{% endstrip %}
+
+# generate a unique device id
+$unique_id = `next_value 1`
+
+macro reset
+"""
+    sysbus LoadELF $image_file
+    deviceInformation Unique $unique_id
+"""
+
+runMacro $reset
+start

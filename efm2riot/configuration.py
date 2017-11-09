@@ -69,6 +69,15 @@ TEMPLATES = [
     {
         "type": "glob",
         "when": "per_board",
+        "source": "{{ root }}/templates/boards/board/dist/*",
+        "target": "boards/{{ board }}/dist",
+        "filters": {
+            "{{ root }}/templates/boards/board/dist/board.resc": filters.only_for_development(),  # noqa
+        }
+    },
+    {
+        "type": "glob",
+        "when": "per_board",
         "source": "{{ root }}/templates/boards/board/include/*",
         "target": "boards/{{ board }}/include",
     },
@@ -89,7 +98,34 @@ TEMPLATES = [
         "when": "once",
         "source": "{{ root }}/templates/contrib/*",
         "target": "contrib/",
-    }
+    },
+    {
+        "type": "file",
+        "when": "per_family",
+        "source": "{{ root }}/templates/contrib/emul8/DeviceInformation.cs",
+        "target": "contrib/emul8/{{ family|upper }}DeviceInformation.repl",
+        "filters": {
+            "{{ root }}/templates/contrib/emul8/DeviceInformation.cs": filters.only_for_development(),  # noqa
+        }
+    },
+    {
+        "type": "file",
+        "when": "per_board",
+        "source": "{{ root }}/templates/contrib/renode/platforms/boards/board.repl",  # noqa
+        "target": "contrib/renode/platforms/boards/{{ board }}.repl",
+        "filters": {
+            "{{ root }}/templates/contrib/renode/platforms/boards/board.repl": filters.only_for_development(),  # noqa
+        }
+    },
+    {
+        "type": "file",
+        "when": "per_cpu",
+        "source": "{{ root }}/templates/contrib/renode/platforms/cpus/cpu.repl",  # noqa
+        "target": "contrib/renode/platforms/cpu/{{ cpu }}.repl",
+        "filters": {
+            "{{ root }}/templates/contrib/renode/platforms/cpus/cpu.repl": filters.only_for_development(),  # noqa
+        }
+    },
 ]
 
 # Files that need a patch.

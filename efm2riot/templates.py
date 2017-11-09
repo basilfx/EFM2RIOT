@@ -2,6 +2,7 @@ from jinja2 import Environment, FileSystemLoader, StrictUndefined, nodes
 from jinja2.ext import Extension
 
 import os
+import re
 
 
 class StripExtension(Extension):

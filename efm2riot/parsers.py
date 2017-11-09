@@ -1,5 +1,7 @@
 from cmsis_svd.parser import SVDParser
 
+import hashlib
+import json
 import glob
 import os
 import re
@@ -32,10 +34,11 @@ def parse_families(sdk_directory):
             "family": family.lower(),
             "family_base": family.lower().split("32", 1)[0] + "32",
             "family_display_name": family.upper(),
-            "device_info": parse_device_info(sdk_directory, family)
+            "devinfo": parse_device_info(sdk_directory, family)
         })
 
     return families
+
 
 def parse_device_info(sdk_directory, family):
     """
@@ -110,15 +113,15 @@ def parse_device_info(sdk_directory, family):
 
             offset += 4
 
-        return {
-            "registers": registers,
-            "family_id": family_id,
-            "size": offset + 4,
-        }
+    return {
+        "registers": registers,
+        "family_id": family_id,
+        "size": offset + 4,
+    }
 
 
 def parse_cpus(sdk_directory, svds_directory, family,
-               min_ram_size, min_flash_size):
+               min_sram_size, min_flash_size):
     """
     Index all available CPUs of a family. Parse the source files and for the
     information needed.
@@ -139,8 +142,10 @@ def parse_cpus(sdk_directory, svds_directory, family,
             continue
 
         cpu_platform = None
+        flash_base = None
         flash_size = None
-        ram_size = None
+        sram_base = None
+        sram_size = None
         architecture = None
         crypto = False
         trng = False
@@ -149,16 +154,21 @@ def parse_cpus(sdk_directory, svds_directory, family,
         irqs = {}
         max_irq = None
         devinfo_base = None
+        devinfo_size = None
 
         in_irq = False
 
         with open(include, "r") as fp:
             for line in fp:
                 if "#define" in line:
-                    if "FLASH_SIZE" in line:
+                    if "FLASH_BASE" in line:
+                        flash_base = int(re_hex.match(line).group(1), 16)
+                    elif "FLASH_SIZE" in line:
                         flash_size = int(re_hex.match(line).group(1), 16)
+                    elif "SRAM_BASE" in line:
+                        sram_base = int(re_hex.match(line).group(1), 16)
                     elif "SRAM_SIZE" in line:
-                        ram_size = int(re_hex.match(line).group(1), 16)
+                        sram_size = int(re_hex.match(line).group(1), 16)
                     elif "_SILICON_LABS_32B_SERIES_0" in line:
                         cpu_platform = 1
                     elif "_SILICON_LABS_32B_SERIES_1" in line:
@@ -194,7 +204,7 @@ def parse_cpus(sdk_directory, svds_directory, family,
                         irqs[int(irq.group(2))] = irq.group(1)
                         max_irq = int(irq.group(2))
 
-        if not flash_size or not ram_size:
+        if not flash_size or not sram_size:
             raise Exception("Missing flash/ram size in include %s" % include)
 
         # Fix the IRQ to be a full list
@@ -220,19 +230,22 @@ def parse_cpus(sdk_directory, svds_directory, family,
                     "reserved": True
                 })
 
-        if ram_size >= min_ram_size and flash_size >= min_flash_size:
+        if sram_size >= min_sram_size and flash_size >= min_flash_size:
             cpu_name = os.path.basename(include).split(".")[0]
 
             cpu = {
                 "cpu": cpu_name,
                 "cpu_platform": cpu_platform,
+                "flash_base": flash_base,
                 "flash_size": flash_size,
-                "ram_size": ram_size,
+                "sram_base": sram_base,
+                "sram_size": sram_size,
                 "crypto": crypto,
                 "trng": trng,
                 "fpu": fpu,
                 "mpu": mpu,
                 "devinfo_base": devinfo_base,
+                "devinfo_size": devinfo_size,
                 "peripherals": parse_svd(
                     svds_directory, family["family"], cpu_name),
             }
@@ -274,21 +287,28 @@ def parse_svd(svds_directory, family, cpu):
     """
     Parse the SVD files (if available) and return the peripherals.
 
-    The data is returned lazy, to speedup the parsing process.
+    The data is returned from cache if available, to speedup the parsing
+    process.
     """
 
-    def _lazy():
-        if not svds_directory:
-            return
+    if not svds_directory:
+        return []
 
-        svd_file = os.path.join(
-            svds_directory, family.upper(), "%s.svd" % (cpu.upper()))
+    svd_file = os.path.join(
+        svds_directory, family.upper(), "%s.svd" % (cpu.upper()))
+    cache_key = hashlib.md5(svd_file.encode("ascii")).hexdigest()
+    cache_file = os.path.join("cache", cache_key)
 
-        if not os.path.isfile(svd_file):
-            return
+    if not os.path.isfile(svd_file):
+        return []
 
-        parser = SVDParser.for_xml_file(svd_file)
+    if not os.path.isfile(cache_file):
+        device = SVDParser.for_xml_file(svd_file).get_device()
 
-        return parser.get_device().to_dict()["peripherals"]
+        with open(cache_file, "w") as fp:
+            json.dump([
+                peripheral.to_dict() for peripheral in device.peripherals
+            ], fp)
 
-    return _lazy
+    with open(cache_file, "r") as fp:
+        return json.load(fp)

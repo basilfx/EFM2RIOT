@@ -19,7 +19,7 @@
 MEMORY
 {
     rom (rx)    : ORIGIN = 0x00000000, LENGTH = {{ flash_size }}
-    ram (rwx)   : ORIGIN = 0x20000000, LENGTH = {{ ram_size }}
+    ram (rwx)   : ORIGIN = 0x20000000, LENGTH = {{ sram_size }}
 }
 
 INCLUDE cortexm_base.ld
