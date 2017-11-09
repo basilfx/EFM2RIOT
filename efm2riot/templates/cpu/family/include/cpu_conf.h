@@ -35,7 +35,7 @@ extern "C" {
  * @{
  */
 #define CPU_DEFAULT_IRQ_PRIO            (1U)
-#define CPU_IRQ_NUMOF                   ({{ max_irq_name }} + 1)
+#define CPU_IRQ_NUMOF                   ({{ (irqs|last).irq_name }} + 1)
 #define CPU_FLASH_BASE                  FLASH_BASE
 /** @} */
 
