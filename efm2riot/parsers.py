@@ -37,7 +37,7 @@ def parse_families(sdk_directory):
             "devinfo": parse_device_info(sdk_directory, family)
         })
 
-    return families
+    return sorted(families, key=lambda family: family["family"])
 
 
 def parse_device_info(sdk_directory, family):
@@ -52,7 +52,7 @@ def parse_device_info(sdk_directory, family):
     re_family_id_dec = re.compile(r"   ([0-9]+)")
 
     header_file = os.path.join(sdk_directory,
-        f"Device/SiliconLabs/{family}/Include", f"{family}_devinfo.h")
+        f"Device/SiliconLabs/{family}/Include", f"{family.lower()}_devinfo.h")
 
     skip = 0
     read = False
@@ -134,7 +134,7 @@ def parse_cpus(sdk_directory, svds_directory, family,
 
     includes = glob.glob(os.path.join(
         sdk_directory,
-        "Device/SiliconLabs/%(family)s/Include/*.h" % family))
+        "Device/SiliconLabs/%s/Include/*.h" % family["family"].upper()))
 
     for include in includes:
         # Only looking for device header files.
@@ -280,7 +280,7 @@ def parse_cpus(sdk_directory, svds_directory, family,
             cpu.update(family)
             cpus.append(cpu)
 
-    return cpus
+    return sorted(cpus, key=lambda cpu: cpu["cpu"])
 
 
 def parse_svd(svds_directory, family, cpu):

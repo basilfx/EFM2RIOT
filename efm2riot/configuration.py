@@ -142,25 +142,6 @@ PATCHES = [
 # Board definitions.
 BOARDS = [
     {
-        "cpu": "efm32zg222f32",
-        "cpu_datasheet": "https://www.silabs.com/Support%20Documents/TechnicalDocs/EFM32ZG222.pdf",  # noqa
-        "board": "stk3200",
-        "board_display_name": "STK3200",
-        "board_manual": "https://www.silabs.com/Support%20Documents/TechnicalDocs/efm32zg-stk3200-ug.pdf",  # noqa
-        "board_schematic": "https://www.silabs.com/Support%20Documents/TechnicalDocs/BRD2010A_B01.pdf",  # noqa
-        "family_display_name": "EFM32ZG",
-        "family_display_name_full": "EFM32 Zero Gecko",
-        "family_manual": "https://www.silabs.com/Support%20Documents/TechnicalDocs/EFM32ZG-RM.pdf",  # noqa
-        "freq": {
-            "hfxo": 24000000,
-            "hfrco": 14000000,
-            "lfxo": 32768,
-            "lfrco": 32768,
-            "ulfrco": 1000
-        },
-        "marketing_display_name": "EFM32 Zero Gecko Starter Kit"
-    },
-    {
         "cpu": "efm32pg1b200f256gm48",
         "cpu_datasheet": "https://www.silabs.com/Support%20Documents/TechnicalDocs/EFM32PG1-DataSheet.pdf",  # noqa
         "board": "slstk3401a",
@@ -199,6 +180,65 @@ BOARDS = [
             "ulfrco": 1000
         },
         "marketing_display_name": "EFM32 Pearl Gecko PG12 Starter Kit"
+    },
+    {
+        "cpu": "efr32mg1p132f256gm48",
+        "cpu_datasheet": "https://www.silabs.com/Support%20Documents/TechnicalDocs/EFR32MG1-DataSheet.pdf",  # noqa
+        "board": "sltb001a",
+        "board_display_name": "SLTB001A",
+        "board_manual": "http://www.silabs.com/Support%20Documents/TechnicalDocs/UG250.pdf",  # noqa
+        "board_schematic": "http://www.silabs.com/Support%20Documents/TechnicalDocs/UG250.pdf",  # noqa
+        "family": "efm32mg",
+        "family_display_name": "EFR32MG",
+        "family_display_name_full": "EFM32 Mighty Gecko Gecko",
+        "family_manual": "http://www.silabs.com/Support%20Documents/TechnicalDocs/EFR32-ReferenceManual.pdf",  # noqa
+        "freq": {
+            "hfxo": 38400000,
+            "hfrco": 14000000,
+            "lfxo": 32768,
+            "lfrco": 32768,
+            "ulfrco": 1000
+        },
+        "marketing_display_name": "Thunderboard Sense"
+    },
+    {
+        "cpu": "ezr32wg330f256r60",
+        "cpu_datasheet": "https://www.silabs.com/Support%20Documents/TechnicalDocs/EZR32WG330_DataSheet.pdf",  # noqa
+        "board": "slwstk6220a",
+        "board_display_name": "SLWSTK6220A",
+        "board_manual": "https://www.silabs.com/Support%20Documents/TechnicalDocs/wstk6220_EZR32WG_868MHz_Wireless_Starter_Kit.pdf",  # noqa
+        "board_schematic": "http://www.silabs.com/Support%20Documents/TechnicalDocs/BRD2400A_A00.pdf",  # noqa
+        "family": "ezr32wg",
+        "family_display_name": "EZR32WG",
+        "family_display_name_full": "EZR32 Wonder Gecko",
+        "family_manual": "http://www.silabs.com/Support%20Documents/TechnicalDocs/EZR32LG-RM.pdf",  # noqa
+        "freq": {
+            "hfxo": 48000000,
+            "hfrco": 14000000,
+            "lfxo": 32768,
+            "lfrco": 32768,
+            "ulfrco": 1000
+        },
+        "marketing_display_name": "EZR32WG 868MHz Wireless Starter Kit"
+    },
+    {
+        "cpu": "efm32zg222f32",
+        "cpu_datasheet": "https://www.silabs.com/Support%20Documents/TechnicalDocs/EFM32ZG222.pdf",  # noqa
+        "board": "stk3200",
+        "board_display_name": "STK3200",
+        "board_manual": "https://www.silabs.com/Support%20Documents/TechnicalDocs/efm32zg-stk3200-ug.pdf",  # noqa
+        "board_schematic": "https://www.silabs.com/Support%20Documents/TechnicalDocs/BRD2010A_B01.pdf",  # noqa
+        "family_display_name": "EFM32ZG",
+        "family_display_name_full": "EFM32 Zero Gecko",
+        "family_manual": "https://www.silabs.com/Support%20Documents/TechnicalDocs/EFM32ZG-RM.pdf",  # noqa
+        "freq": {
+            "hfxo": 24000000,
+            "hfrco": 14000000,
+            "lfxo": 32768,
+            "lfrco": 32768,
+            "ulfrco": 1000
+        },
+        "marketing_display_name": "EFM32 Zero Gecko Starter Kit"
     },
     {
         "cpu": "efm32lg990f256",
@@ -259,46 +299,6 @@ BOARDS = [
             "ulfrco": 1000
         },
         "marketing_display_name": "EFM32 Wonder Gecko Starter Kit"
-    },
-    {
-        "cpu": "ezr32wg330f256r60",
-        "cpu_datasheet": "https://www.silabs.com/Support%20Documents/TechnicalDocs/EZR32WG330_DataSheet.pdf",  # noqa
-        "board": "slwstk6220a",
-        "board_display_name": "SLWSTK6220A",
-        "board_manual": "https://www.silabs.com/Support%20Documents/TechnicalDocs/wstk6220_EZR32WG_868MHz_Wireless_Starter_Kit.pdf",  # noqa
-        "board_schematic": "http://www.silabs.com/Support%20Documents/TechnicalDocs/BRD2400A_A00.pdf",  # noqa
-        "family": "ezr32wg",
-        "family_display_name": "EZR32WG",
-        "family_display_name_full": "EZR32 Wonder Gecko",
-        "family_manual": "http://www.silabs.com/Support%20Documents/TechnicalDocs/EZR32LG-RM.pdf",  # noqa
-        "freq": {
-            "hfxo": 48000000,
-            "hfrco": 14000000,
-            "lfxo": 32768,
-            "lfrco": 32768,
-            "ulfrco": 1000
-        },
-        "marketing_display_name": "EZR32WG 868MHz Wireless Starter Kit"
-    },
-    {
-        "cpu": "efr32mg1p132f256gm48",
-        "cpu_datasheet": "https://www.silabs.com/Support%20Documents/TechnicalDocs/EFR32MG1-DataSheet.pdf",  # noqa
-        "board": "sltb001a",
-        "board_display_name": "SLTB001A",
-        "board_manual": "http://www.silabs.com/Support%20Documents/TechnicalDocs/UG250.pdf",  # noqa
-        "board_schematic": "http://www.silabs.com/Support%20Documents/TechnicalDocs/UG250.pdf",  # noqa
-        "family": "efm32mg",
-        "family_display_name": "EFR32MG",
-        "family_display_name_full": "EFM32 Mighty Gecko Gecko",
-        "family_manual": "http://www.silabs.com/Support%20Documents/TechnicalDocs/EFR32-ReferenceManual.pdf",  # noqa
-        "freq": {
-            "hfxo": 38400000,
-            "hfrco": 14000000,
-            "lfxo": 32768,
-            "lfrco": 32768,
-            "ulfrco": 1000
-        },
-        "marketing_display_name": "Thunderboard Sense"
     }
 ]
 
