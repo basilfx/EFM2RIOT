@@ -1,0 +1,7 @@
+ifneq (,$(filter periph_rtc,$(FEATURES_PROVIDED)))
+  FEATURES_PROVIDED += periph_rtc_series$(CPU_SERIES)
+endif
+
+ifneq (,$(filter periph_rtt,$(FEATURES_PROVIDED)))
+  FEATURES_PROVIDED += periph_rtt_series$(CPU_SERIES)
+endif
