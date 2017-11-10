@@ -1,5 +1,6 @@
 export CPU_ARCH = cortex-{{ architecture }}
 export CPU_FAM = {{ family }}
+export CPU_SERIES = {{ cpu_series }}
 
 {% strip 2, ">" %}
     {% if architecture in ["m0", "m0plus"] %}

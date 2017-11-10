@@ -141,7 +141,7 @@ def parse_cpus(sdk_directory, svds_directory, family,
         if "_" in os.path.basename(include):
             continue
 
-        cpu_platform = None
+        cpu_series = None
         flash_base = None
         flash_size = None
         sram_base = None
@@ -170,9 +170,9 @@ def parse_cpus(sdk_directory, svds_directory, family,
                     elif "SRAM_SIZE" in line:
                         sram_size = int(re_hex.match(line).group(1), 16)
                     elif "_SILICON_LABS_32B_SERIES_0" in line:
-                        cpu_platform = 1
+                        cpu_series = 1
                     elif "_SILICON_LABS_32B_SERIES_1" in line:
-                        cpu_platform = 2
+                        cpu_series = 2
                     elif "CRYPTO_PRESENT" in line:
                         crypto = True
                     elif "TRNG_PRESENT" in line:
@@ -235,7 +235,6 @@ def parse_cpus(sdk_directory, svds_directory, family,
 
             cpu = {
                 "cpu": cpu_name,
-                "cpu_platform": cpu_platform,
                 "flash_base": flash_base,
                 "flash_size": flash_size,
                 "sram_base": sram_base,
@@ -274,6 +273,7 @@ def parse_cpus(sdk_directory, svds_directory, family,
 
             family.update({
                 "architecture": architecture,
+                "cpu_series": cpu_series,
                 "irqs": irq_table,
             })
 
