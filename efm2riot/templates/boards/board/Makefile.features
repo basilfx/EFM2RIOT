@@ -6,16 +6,6 @@ FEATURES_PROVIDED += periph_adc
     {% endif %}
 {% endstrip %}
 FEATURES_PROVIDED += periph_gpio
-{% strip 2 %}
-    {% if development %}
-        FEATURES_PROVIDED += periph_hwcrypto
-    {% endif %}
-{% endstrip %}
-{% strip 2 %}
-    {% if board in ["slstk3402a"] %}
-        FEATURES_PROVIDED += periph_hwrng
-    {% endif %}
-{% endstrip %}
 FEATURES_PROVIDED += periph_i2c
 {% strip 2 %}
     {% if board in ["stk3600", "stk3700", "stk3800", "slwstk6220a"] %}

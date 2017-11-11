@@ -1,2 +1,12 @@
-FEATURES_PROVIDED += periph_cpuid
-FEATURES_PROVIDED += periph_pm
+{% strip 2 %}
+    {% if crypto and development %}
+        FEATURES_PROVIDED += periph_hwcrypto
+    {% endif %}
+{% endstrip %}
+{% strip 2 %}
+    {% if trng %}
+        FEATURES_PROVIDED += periph_hwrng
+    {% endif %}
+{% endstrip %}
+
+include $(RIOTCPU)/efm32_common/Makefile.features

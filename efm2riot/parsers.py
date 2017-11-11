@@ -241,8 +241,6 @@ def parse_cpus(sdk_directory, svds_directory, family,
                 "flash_size": flash_size,
                 "sram_base": sram_base,
                 "sram_size": sram_size,
-                "crypto": crypto,
-                "trng": trng,
                 "fpu": fpu,
                 "mpu": mpu,
                 "devinfo_base": devinfo_base,
@@ -277,6 +275,8 @@ def parse_cpus(sdk_directory, svds_directory, family,
                 "architecture": architecture,
                 "cpu_series": cpu_series,
                 "irqs": irq_table,
+                "crypto": crypto,
+                "trng": trng,
             })
 
             cpu.update(family)
