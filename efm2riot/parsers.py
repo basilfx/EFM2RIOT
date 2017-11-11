@@ -170,8 +170,10 @@ def parse_cpus(sdk_directory, svds_directory, family,
                     elif "SRAM_SIZE" in line:
                         sram_size = int(re_hex.match(line).group(1), 16)
                     elif "_SILICON_LABS_32B_SERIES_0" in line:
-                        cpu_series = 1
+                        cpu_series = 0
                     elif "_SILICON_LABS_32B_SERIES_1" in line:
+                        cpu_series = 1
+                    elif "_SILICON_LABS_32B_SERIES_2" in line:
                         cpu_series = 2
                     elif "CRYPTO_PRESENT" in line:
                         crypto = True

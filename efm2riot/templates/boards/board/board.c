@@ -95,7 +95,7 @@ void board_init(void)
 
                     /* enable debug peripheral via SWO */
                     {% strip 2 %}
-                        {% if cpu_series == 1 %}
+                        {% if cpu_series == 0 %}
                             DBG_SWOEnable(GPIO_ROUTE_SWLOCATION_LOC0);
                         {% else %}
                             DBG_SWOEnable(GPIO_ROUTELOC0_SWVLOC_LOC0);

@@ -293,7 +293,7 @@ The starter kit is equipped with an Advanced Energy Monitor. This allows you to 
 |                               | I2C                                 | yes       |                                                                |
 |                               | PWM                                 | yes       |                                                                |
 {% strip 2 %}
-    {% if cpu_series == 1 %}
+    {% if cpu_series == 0 %}
         |                               | RTC                                 | yes       | As RTT or RTC                                                  |
     {% else %}
         |                               | RTCC                                | yes       | As RTT or RTC                                                  |
@@ -383,7 +383,7 @@ The sources can be used to clock following branches:
 | LFA    | LFRCO, LFXO             | Low-power timers             |
 | LFB    | LFRCO, LFXO, CORELEDIV2 | Low-power UART               |
 {% strip 2 %}
-    {% if cpu_series == 2 %}
+    {% if cpu_series == 1 %}
         | LFE    | LFRCO, LFXO             | Real-time Clock and Calendar |
     {% endif %}
 {% endstrip %}
@@ -407,7 +407,7 @@ If you don't need low-power peripheral support, passing `LOW_POWER_ENABLED=0` to
 RIOT-OS has support for *Real-Time Tickers* and *Real-Time Clocks*.
 
 {% strip 2 %}
-    {% if cpu_series == 1 %}
+    {% if cpu_series == 0 %}
         However, this board MCU family has support for a 24-bit *Real-Time Counter* only, which is a ticker only. A compatibility layer for ticker-to-calendar is available, but this includes extra code size to convert from timestamps to time structures and visa versa.
 
         Configured at 1 Hz interval, the RTC will overflow each 194 days. When using the ticker-to-calendar mode, this interval is extended artificially.
@@ -420,10 +420,10 @@ RIOT-OS has support for *Real-Time Tickers* and *Real-Time Clocks*.
 
 ### Hardware crypto
 {% strip 2 %}
-    {% if cpu_series == 1 %}
-        The MCU has support for hardware accelerated AES128 and AES256.
+    {% if cpu_series == 0 %}
+        This MCUs has support for hardware accelerated AES128 and AES256.
     {% else %}
-        The Gemstone MCUs are equipped with a hardware accelerated crypto peripheral that can speed up AES128, AES256, SHA1, SHA256 and several other cryptographic computations.
+        This MCU is equipped with a hardware accelerated crypto peripheral that can speed up AES128, AES256, SHA1, SHA256 and several other cryptographic computations.
     {% endif %}
 {% endstrip %}
 
@@ -440,8 +440,8 @@ The EFM32 platform supports peripheral to be mapped to different pins (predefine
 In other words, these definitions must match. Refer to the data sheet for more information.
 
 {% strip 2, ">" %}
-    {% if cpu_series == 2 %}
-        The EFM32 Gemstone MCUs have extended support for pin mapping. Each pin of a peripheral can be connected separately to one of the predefined pins for that peripheral.
+    {% if cpu_series == 1 %}
+        This MCU has extended pin mapping support. Each pin of a peripheral can be connected separately to one of the predefined pins for that peripheral.
     {% endif %}
 {% endstrip %}
 

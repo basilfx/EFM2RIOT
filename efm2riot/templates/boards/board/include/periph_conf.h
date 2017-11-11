@@ -301,7 +301,7 @@ static const i2c_conf_t i2c_config[] = {
 #define RTT_NUMOF           (1U)
 
 {% strip 2 %}
-    {% if cpu_series == 1 %}
+    {% if cpu_series == 0 %}
         #define RTT_MAX_VALUE       (0xFFFFFF)
         #define RTT_FREQUENCY       (1U)
     {% else %}

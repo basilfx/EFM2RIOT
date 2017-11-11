@@ -13,8 +13,8 @@ STATICS = [
         "target": "cpu/efm32_common",
         "filters": {
             "{{ root }}/static/cpu/efm32_common/include/periph_hwcrypto.h": filters.only_for_development(),  # noqa
-            "{{ root }}/static/cpu/efm32_common/periph/hwcrypto.c": filters.only_for_development(),  # noqa
-            "{{ root }}/static/cpu/efm32_common/periph/hwcrypto_gemstone.c": filters.only_for_development(),  # noqa
+            "{{ root }}/static/cpu/efm32_common/periph/hwcrypto_series0.c": filters.only_for_development(),  # noqa
+            "{{ root }}/static/cpu/efm32_common/periph/hwcrypto_series1.c": filters.only_for_development(),  # noqa
         }
     },
     {

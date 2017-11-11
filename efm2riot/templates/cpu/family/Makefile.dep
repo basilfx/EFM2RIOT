@@ -1,1 +1,1 @@
--include $(RIOTCPU)/efm32_common/Makefile.dep
+include $(RIOTCPU)/efm32_common/Makefile.dep

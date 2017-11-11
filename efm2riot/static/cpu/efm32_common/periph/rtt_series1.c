@@ -12,7 +12,7 @@
  * @{
  *
  * @file
- * @brief       RTT peripheral driver implementation for EFM32 Gemstone MCUs
+ * @brief       RTT peripheral driver implementation for EFM32 Series 1 MCUs
  *
  * @author      Bas Stottelaar <basstottelaar@gmail.com>
  * @}
