@@ -12,7 +12,7 @@
  * @{
  *
  * @file
- * @brief       RTC peripheral driver implementation for EFM32 Gemstone MCUs
+ * @brief       RTC peripheral driver implementation for EFM32 Series 1 MCUs
  *
  * @author      Bas Stottelaar <basstottelaar@gmail.com>
  * @}
@@ -28,8 +28,6 @@
 #include "em_cmu.h"
 #include "em_rtcc.h"
 #include "em_rtcc_utils.h"
-
-#if defined(RTCC_COUNT) && RTCC_COUNT > 0
 
 #define RTC_YEAR_OFFSET (100)       /**< RTCC has only two-digit notation */
 
@@ -174,5 +172,3 @@ void isr_rtcc(void)
     }
     cortexm_isr_end();
 }
-
-#endif /* defined(RTCC_COUNT) && RTCC_COUNT > 0 */

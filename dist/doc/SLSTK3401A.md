@@ -56,8 +56,8 @@ This is the pinout of the expansion header on the right side of the board. PIN 1
 | Peripheral | Number  | Hardware        | Pins                            | Comments                                                  |
 |------------|---------|-----------------|---------------------------------|-----------------------------------------------------------|
 | ADC        | 0       | ADC0            | CHAN0: internal temperature     | Ports are fixed, 14/16-bit resolution not supported       |
-| HWCRYPTO   | &mdash; | &mdash;         |                                 | AES128/AES256, SHA1, SHA256                               |
 | I2C        | 0       | I2C0            | SDA: PC10, CLK: PC11            | `I2C_SPEED_LOW` and `I2C_SPEED_HIGH` clock speed deviate  |
+| HWCRYPTO   | &mdash; | &mdash;         |                                 | AES128/AES256, SHA1, SHA256                               |
 | RTT        | &mdash; | RTCC            |                                 | 1 Hz interval. Either RTT or RTC (see below)              |
 | RTC        | &mdash; | RTCC            |                                 | 1 Hz interval. Either RTC or RTT (see below)              |
 | SPI        | 0       | USART1          | MOSI: PC6, MISO: PC7, CLK: PC8  |                                                           |
@@ -79,9 +79,11 @@ Board has support for PWM, but there are no timers left to use.
 ## Implementation Status
 | Device                        | ID                                  | Supported | Comments                                                       |
 |-------------------------------|-------------------------------------|-----------|----------------------------------------------------------------|
-| MCU                           | EFM32PG1B                           | yes       | LPM: EM1 maps to `LPM_IDLE` and EM2 maps to `LPM_SLEEP`        |
+| MCU                           | EFM32PG1B                           | yes       | Power modes supported                                          |
 | Low-level driver              | ADC                                 | yes       |                                                                |
+|                               | Flash                               | yes       |                                                                |
 |                               | GPIO                                | yes       | Interrupts are shared across pins (see reference manual)       |
+|                               | HW Crypto                           | yes       |                                                                |
 |                               | I2C                                 | yes       |                                                                |
 |                               | PWM                                 | yes       |                                                                |
 |                               | RTCC                                | yes       | As RTT or RTC                                                  |
@@ -159,7 +161,7 @@ However, this board MCU family has support for a 32-bit *Real-Time Clock and Cal
 Configured at 1 Hz interval, the RTCC will overflow each 136 years.
 
 ### Hardware crypto
-The Gemstone MCUs are equipped with a hardware accelerated crypto peripheral that can speed up AES128, AES256, SHA1, SHA256 and several other cryptographic computations.
+This MCU is equipped with a hardware accelerated crypto peripheral that can speed up AES128, AES256, SHA1, SHA256 and several other cryptographic computations.
 
 A peripheral driver interface for RIOT-OS is proposed, but not yet implemented.
 
@@ -173,7 +175,7 @@ The EFM32 platform supports peripheral to be mapped to different pins (predefine
 
 In other words, these definitions must match. Refer to the data sheet for more information.
 
-The EFM32 Gemstone MCUs have extended support for pin mapping. Each pin of a peripheral can be connected separately to one of the predefined pins for that peripheral.
+This MCU has extended pin mapping support. Each pin of a peripheral can be connected separately to one of the predefined pins for that peripheral.
 
 ## Flashing the device
 To flash, the [J-Link Software](https://www.segger.com/jlink-software.html) from SEGGER is required.

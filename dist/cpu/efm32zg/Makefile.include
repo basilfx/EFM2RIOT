@@ -1,5 +1,6 @@
 export CPU_ARCH = cortex-m0plus
 export CPU_FAM = efm32zg
+export CPU_SERIES = 0
 
 # CMSIS-DSP is needed for arm_math.h
 USEPKG += cmsis-dsp
@@ -7,8 +8,8 @@ USEPKG += cmsis-dsp
 # include vendor device headers
 export INCLUDES += -I$(RIOTCPU)/efm32zg/include/vendor
 
-# include efm32_common
-include $(RIOTCPU)/efm32_common/Makefile.include
-
 # include cortexm_common
 include $(RIOTMAKE)/arch/cortexm.inc.mk
+
+# include efm32_common
+include $(RIOTCPU)/efm32_common/Makefile.include

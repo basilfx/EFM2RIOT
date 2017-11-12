@@ -28,8 +28,6 @@
 #include "em_cmu.h"
 #include "em_rtc.h"
 
-#if defined(RTC_COUNT) && RTC_COUNT > 0
-
 #define RTC_MAX_VALUE       (0xFFFFFF)
 #define RTC_SHIFT_VALUE     (24U)
 
@@ -177,5 +175,3 @@ void isr_rtc(void)
     }
     cortexm_isr_end();
 }
-
-#endif /* defined(RTC_COUNT) && RTC_COUNT > 0 */

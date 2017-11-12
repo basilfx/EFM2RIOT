@@ -2,3 +2,5 @@ ifneq (,$(filter saul_default,$(USEMODULE)))
     USEMODULE += saul_gpio
     USEMODULE += si7021
 endif
+
+include $(RIOTCPU)/ezr32wg/Makefile.dep

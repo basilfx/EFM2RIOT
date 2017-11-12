@@ -1,2 +1,2 @@
-FEATURES_PROVIDED += periph_cpuid
-FEATURES_PROVIDED += periph_pm
+
+include $(RIOTCPU)/efm32_common/Makefile.features

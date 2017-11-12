@@ -33,9 +33,6 @@
 #include "em_cmu.h"
 #include "em_usart.h"
 
-/* guard file in case no SPI device is defined */
-#ifdef SPI_NUMOF
-
 static mutex_t spi_lock[SPI_NUMOF];
 
 void spi_init(spi_t bus)
@@ -122,5 +119,3 @@ void spi_transfer_bytes(spi_t bus, spi_cs_t cs, bool cont,
         gpio_set((gpio_t)cs);
     }
 }
-
-#endif /* SPI_NUMOF */

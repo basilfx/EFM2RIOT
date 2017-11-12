@@ -1,7 +1,7 @@
 #!/bin/sh
 
-BOARDS="stk3200 slstk3401a slstk3402a stk3600 stk3700 stk3800 slwstk6220a sltb001a"
-FAMILIES="efm32_common efr32fg13p efm32tg11b efm32gg efr32bg1p efr32fg1v efm32gg11b efr32mg12p efr32bg1b efr32fg1p efr32bg1v efr32bg13p efm32pg12b efr32mg1p efr32mg1b efr32mg1v efm32pg1b efr32bg14p efr32fg14p efr32fg14v efm32jg1b efm32g ezr32lg efm32hg efm32zg efr32mg14p ezr32wg efm32jg12b efr32bg12p efm32wg efr32mg13p efm32tg efm32lg ezr32hg efr32fg12p"
+BOARDS="slstk3401a slstk3402a sltb001a slwstk6220a stk3200 stk3600 stk3700 stk3800"
+FAMILIES="efm32_common efm32g efm32gg efm32gg11b efm32hg efm32jg12b efm32jg1b efm32lg efm32pg12b efm32pg1b efm32tg efm32tg11b efm32wg efm32zg efr32bg12p efr32bg13p efr32bg14p efr32bg1b efr32bg1p efr32bg1v efr32fg12p efr32fg13p efr32fg14p efr32fg14v efr32fg1p efr32fg1v efr32mg12p efr32mg13p efr32mg14p efr32mg1b efr32mg1p efr32mg1v ezr32hg ezr32lg ezr32wg"
 
 SOURCE=`dirname $0`/..
 TARGET=$1

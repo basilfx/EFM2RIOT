@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2016 Freie Universität Berlin
+ * Copyright (C) 2015-2017 Freie Universität Berlin
  *
  * This file is subject to the terms and conditions of the GNU Lesser
  * General Public License v2.1. See the file LICENSE in the top level
@@ -12,6 +12,9 @@
  *
  * @file
  * @brief           Memory definitions for the EFR32BG12P332F1024GM48 CPU
+ *
+ * @author          Hauke Petersen <hauke.petersen@fu-berlin.de>
+ * @author          Bas Stottelaar <basstottelaar@gmail.com>
  *
  * @}
  */

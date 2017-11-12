@@ -56,8 +56,8 @@ This is the pinout of the expansion header on the right side of the board. PIN 1
 | Peripheral | Number  | Hardware        | Pins                            | Comments                                                  |
 |------------|---------|-----------------|---------------------------------|-----------------------------------------------------------|
 | ADC        | 0       | ADC0            | CHAN0: internal temperature     | Ports are fixed, 14/16-bit resolution not supported       |
-| HWCRYPTO   | &mdash; | &mdash;         |                                 | AES128/AES256 only                                        |
 | DAC        | 0       | DAC0            | CHAN0: PB11                     | Ports are fixed, shared with I2C                          |
+| HWCRYPTO   | &mdash; | &mdash;         |                                 | AES128/AES256 only                                        |
 | PWM        | 0       | TIMER0          | CHAN0: PF6, CHAN1: PF7          | Mapped to LED0 and LED1                                   |
 
 
@@ -72,10 +72,12 @@ This is the pinout of the expansion header on the right side of the board. PIN 1
 ## Implementation Status
 | Device                        | ID                                  | Supported | Comments                                                       |
 |-------------------------------|-------------------------------------|-----------|----------------------------------------------------------------|
-| MCU                           | EZR32WG                             | yes       | LPM: EM1 maps to `LPM_IDLE` and EM2 maps to `LPM_SLEEP`        |
+| MCU                           | EZR32WG                             | yes       | Power modes supported                                          |
 | Low-level driver              | ADC                                 | yes       |                                                                |
 |                               | DAC                                 | yes       |                                                                |
+|                               | Flash                               | yes       |                                                                |
 |                               | GPIO                                | yes       | Interrupts are shared across pins (see reference manual)       |
+|                               | HW Crypto                           | yes       |                                                                |
 |                               | I2C                                 | yes       |                                                                |
 |                               | PWM                                 | yes       |                                                                |
 |                               | RTC                                 | yes       | As RTT or RTC                                                  |
@@ -152,7 +154,7 @@ However, this board MCU family has support for a 24-bit *Real-Time Counter* only
 Configured at 1 Hz interval, the RTC will overflow each 194 days. When using the ticker-to-calendar mode, this interval is extended artificially.
 
 ### Hardware crypto
-The MCU has support for hardware accelerated AES128 and AES256.
+This MCUs has support for hardware accelerated AES128 and AES256.
 
 A peripheral driver interface for RIOT-OS is proposed, but not yet implemented.
 

@@ -1,11 +1,12 @@
 export CPU_ARCH = cortex-m4
 export CPU_FAM = efm32wg
+export CPU_SERIES = 0
 
 # include vendor device headers
 export INCLUDES += -I$(RIOTCPU)/efm32wg/include/vendor
 
-# include efm32_common
-include $(RIOTCPU)/efm32_common/Makefile.include
-
 # include cortexm_common
 include $(RIOTMAKE)/arch/cortexm.inc.mk
+
+# include efm32_common
+include $(RIOTCPU)/efm32_common/Makefile.include
