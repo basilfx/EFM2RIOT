@@ -34,7 +34,7 @@
 static void dcdc_init(void)
 {
     EMU_DCDCInit_TypeDef init_dcdc = EMU_DCDCINIT_DEFAULT;
-    
+
     EMU_DCDCInit(&init_dcdc);
 }
 #endif
@@ -51,12 +51,12 @@ static void dcdc_init(void)
 static void clk_init(void)
 {
     CMU_HFXOInit_TypeDef init_hfxo = CMU_HFXOINIT_DEFAULT;
-  
+
     /* initialize HFXO with board-specific parameters before switching */
     if (CLOCK_HF == cmuSelect_HFXO) {
         CMU_HFXOInit(&init_hfxo);
     }
-    
+
     /* set the HF clock source */
     CMU_ClockSelectSet(cmuClock_HF, CLOCK_HF);
     CMU_ClockDivSet(cmuClock_CORE, CLOCK_CORE_DIV);
@@ -103,10 +103,10 @@ void cpu_init(void)
 {
     /* apply errata that may be applicable (see em_chip.h) */
     CHIP_Init();
-    
+
     /* initialize the Cortex-M core */
     cortexm_init();
-    
+
 #ifdef _SILICON_LABS_32B_SERIES_1
     /* initialize dc-dc */
     dcdc_init();
@@ -114,10 +114,10 @@ void cpu_init(void)
 
     /* initialize clock sources and generic clocks */
     clk_init();
-    
+
     /* initialize power management interface */
     pm_init();
-    
+
     /* trigger static peripheral initialization */
     periph_init();
 }

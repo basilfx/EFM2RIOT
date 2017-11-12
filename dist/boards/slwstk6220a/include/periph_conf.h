@@ -33,7 +33,7 @@ extern "C" {
 /**
  * @brief   Internal macro to calculate *_NUMOF based on config.
  */
-#define NUMOF(config)       (sizeof(config) / sizeof(config[0]))
+#define PERIPH_NUMOF(config)    (sizeof(config) / sizeof(config[0]))
 
 /**
  * @name    Clock configuration
@@ -79,8 +79,8 @@ static const adc_chan_conf_t adc_channel_config[] = {
     }
 };
 
-#define ADC_DEV_NUMOF       NUMOF(adc_config)
-#define ADC_NUMOF           NUMOF(adc_channel_config)
+#define ADC_DEV_NUMOF       PERIPH_NUMOF(adc_config)
+#define ADC_NUMOF           PERIPH_NUMOF(adc_channel_config)
 /** @} */
 
 /**
@@ -102,8 +102,8 @@ static const dac_chan_conf_t dac_channel_config[] = {
     }
 };
 
-#define DAC_DEV_NUMOF       NUMOF(dac_config)
-#define DAC_NUMOF           NUMOF(dac_channel_config)
+#define DAC_DEV_NUMOF       PERIPH_NUMOF(dac_config)
+#define DAC_NUMOF           PERIPH_NUMOF(dac_channel_config)
 /** @} */
 
 /**
@@ -121,7 +121,7 @@ static const i2c_conf_t i2c_config[] = {
     }
 };
 
-#define I2C_NUMOF           NUMOF(i2c_config)
+#define I2C_NUMOF           PERIPH_NUMOF(i2c_config)
 #define I2C_0_ISR           isr_i2c1
 /** @} */
 
@@ -152,8 +152,8 @@ static const pwm_conf_t pwm_config[] = {
     }
 };
 
-#define PWM_DEV_NUMOF       NUMOF(pwm_config)
-#define PWM_NUMOF           NUMOF(pwm_channel_config)
+#define PWM_DEV_NUMOF       PERIPH_NUMOF(pwm_config)
+#define PWM_NUMOF           PERIPH_NUMOF(pwm_channel_config)
 /** @} */
 
 /**
@@ -187,7 +187,7 @@ static const spi_dev_t spi_config[] = {
     }
 };
 
-#define SPI_NUMOF           NUMOF(spi_config)
+#define SPI_NUMOF           PERIPH_NUMOF(spi_config)
 /** @} */
 
 /**
@@ -210,7 +210,7 @@ static const timer_conf_t timer_config[] = {
     }
 };
 
-#define TIMER_NUMOF         NUMOF(timer_config)
+#define TIMER_NUMOF         PERIPH_NUMOF(timer_config)
 #define TIMER_0_ISR         isr_timer2
 /** @} */
 
@@ -245,7 +245,7 @@ static const uart_conf_t uart_config[] = {
     }
 };
 
-#define UART_NUMOF          NUMOF(uart_config)
+#define UART_NUMOF          PERIPH_NUMOF(uart_config)
 #define UART_0_ISR_RX       isr_usart1_rx
 #define UART_1_ISR_RX       isr_usart2_rx
 #define UART_2_ISR_RX       isr_leuart0

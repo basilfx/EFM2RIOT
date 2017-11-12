@@ -143,11 +143,6 @@ void timer_start(tim_t dev)
     TIMER_Enable(timer_config[dev].timer.dev, true);
 }
 
-void timer_reset(tim_t dev)
-{
-    TIMER_CounterSet(timer_config[dev].timer.dev, 0);
-}
-
 #ifdef TIMER_0_ISR
 void TIMER_0_ISR(void)
 {
