@@ -297,8 +297,8 @@ typedef struct {
  * @{
  */
 typedef struct {
-    TIMER_TypeDef *dev;
-    CMU_Clock_TypeDef cmu;
+    TIMER_TypeDef *dev;     /**< Timer device used */
+    CMU_Clock_TypeDef cmu;  /**< the device CMU channel */
 } timer_dev_t;
 
 typedef struct {
