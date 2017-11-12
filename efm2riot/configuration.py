@@ -103,7 +103,7 @@ TEMPLATES = [
         "type": "file",
         "when": "per_family",
         "source": "{{ root }}/templates/contrib/emul8/DeviceInformation.cs",
-        "target": "contrib/emul8/{{ family|upper }}DeviceInformation.repl",
+        "target": "contrib/emul8/{{ family|upper }}DeviceInformation.cs",
         "filters": {
             "{{ root }}/templates/contrib/emul8/DeviceInformation.cs": filters.only_for_development(),  # noqa
         }
@@ -121,7 +121,7 @@ TEMPLATES = [
         "type": "file",
         "when": "per_cpu",
         "source": "{{ root }}/templates/contrib/renode/platforms/cpus/cpu.repl",  # noqa
-        "target": "contrib/renode/platforms/cpu/{{ cpu }}.repl",
+        "target": "contrib/renode/platforms/cpus/{{ cpu }}.repl",
         "filters": {
             "{{ root }}/templates/contrib/renode/platforms/cpus/cpu.repl": filters.only_for_development(),  # noqa
         }

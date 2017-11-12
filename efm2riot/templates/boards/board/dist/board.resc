@@ -1,6 +1,6 @@
 mach create
 using sysbus
-machine LoadPlatformDescription @platforms/boards/{{ board|lower }}.repl
+machine LoadPlatformDescription @platforms/boards2/{{ board|lower }}.repl
 machine SetClockSource cpu
 
 # show the UART output
@@ -8,7 +8,7 @@ machine SetClockSource cpu
     {% if board in ["stk3600", "stk3700", "stk3800"] %}
         showAnalyzer uart0
     {% elif board in ["stk3200"] %}
-        showAnalyzer leuart0
+        showAnalyzer leUart0
     {% elif board in ["slstk3401a", "slstk3402a"] %}
         showAnalyzer usart0
     {% elif board in ["slwstk6220a"] %}

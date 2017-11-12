@@ -147,6 +147,7 @@ def parse_cpus(sdk_directory, svds_directory, family,
         sram_base = None
         sram_size = None
         architecture = None
+        architecture_short = None
         crypto = False
         trng = False
         mpu = False
@@ -188,12 +189,16 @@ def parse_cpus(sdk_directory, svds_directory, family,
 
                 elif "Cortex-M4" in line:
                     architecture = "m4"
+                    architecture_short = "m4"
                 elif "Cortex-M3" in line:
                     architecture = "m3"
+                    architecture_short = "m3"
                 elif "Cortex-M0+" in line:
                     architecture = "m0plus"
+                    architecture_short = "m0+"
                 elif "Cortex-M0" in line:
                     architecture = "m0"
+                    architecture_short = "m0"
                 elif "typedef enum IRQn" in line:
                     in_irq = True
                 elif "} IRQn_Type;" in line:
@@ -273,6 +278,7 @@ def parse_cpus(sdk_directory, svds_directory, family,
 
             family.update({
                 "architecture": architecture,
+                "architecture_short": architecture_short,
                 "cpu_series": cpu_series,
                 "irqs": irq_table,
                 "crypto": crypto,

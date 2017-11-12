@@ -15,10 +15,10 @@ namespace Emul8.Peripherals
     {
         public {{ family|upper }}DeviceInformation(ushort deviceNumber, ushort flashSize, ushort sramSize, byte productRevision = 0)
         {
-            this.family = {{ devinfo.family_id|hex }};
             this.flashSize = flashSize;
             this.sramSize = sramSize;
             this.productRevision = productRevision;
+            this.deviceFamily = {{ devinfo.family_id|hex }};
             this.deviceNumber = deviceNumber;
         }
 
@@ -30,10 +30,14 @@ namespace Emul8.Peripherals
         {
             switch((DeviceInformationOffset)offset)
             {
-            case DeviceInformationOffset.EUI48L:
-                return (uint)(EUI >> 32);
-            case DeviceInformationOffset.EUI48H:
-                return (uint)(EUI & 0xFFFFFFFF);
+            {% strip 2 %}
+                {% if devinfo.registers|select(name='^EUI48(H|L)+$') %}
+                    case DeviceInformationOffset.EUI48L:
+                        return (uint)(EUI >> 32);
+                    case DeviceInformationOffset.EUI48H:
+                        return (uint)(EUI & 0xFFFFFFFF);
+                {% endif %}
+            {% endstrip %}
             case DeviceInformationOffset.UNIQUEL:
                 return (uint)(Unique >> 32);
             case DeviceInformationOffset.UNIQUEH:
@@ -42,8 +46,12 @@ namespace Emul8.Peripherals
                 return (uint)((sramSize << 16) | (flashSize & 0xFFFF));
             case DeviceInformationOffset.PART:
                 return (uint)((productRevision << 24) | ((byte)deviceFamily << 16) | deviceNumber);
-            case DeviceInformationOffset.DEVINFOREV:
-                return 0xFFFFFF00 | 0x01;
+            {% strip 2 %}
+                {% if devinfo.registers|select(name='^DEVINFOREV$') %}
+                    case DeviceInformationOffset.DEVINFOREV:
+                        return 0xFFFFFF00 | 0x01;
+                {% endif %}
+            {% endstrip %}
             default:
                 this.LogUnhandledRead(offset);
                 return 0;
@@ -63,13 +71,17 @@ namespace Emul8.Peripherals
             }
         }
 
-        public ulong EUI { get; set; }
+        {% strip 2 %}
+            {% if devinfo.registers|select(name='^EUI48(H|L)+$') %}
+                public ulong EUI { get; set; }
+            {% endif %}
+        {% endstrip %}
         public ulong Unique { get; set; }
 
-        private readonly byte family;
         private readonly ushort flashSize;
         private readonly ushort sramSize;
         private readonly byte productRevision;
+        private readonly byte deviceFamily;
         private readonly ushort deviceNumber;
 
         // This structure should resemble the structure of {{ family }}_devinfo.h.

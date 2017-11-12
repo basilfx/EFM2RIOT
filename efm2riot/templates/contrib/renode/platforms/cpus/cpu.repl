@@ -40,9 +40,15 @@
 {% strip 3, "<" %}
     {% with peripheral=peripherals|find(name='GPIO') %}
         {% if peripheral %}
-            gpioPort: GPIOPort.EFR32_GPIOPort @ sysbus {{ peripheral.base_address|hex(8) }}
-                EvenIRQ -> nvic@{{ peripheral.interrupts.0.value }}
-                OddIRQ -> nvic@{{ peripheral.interrupts.1.value }}
+            {% strip 2 %}
+                {% if cpu_series == 0 %}
+                    gpioPort: GPIOPort.EFMGPIOPort @ sysbus {{ peripheral.base_address|hex(8) }}
+                {% else %}
+                    gpioPort: GPIOPort.EFR32_GPIOPort @ sysbus {{ peripheral.base_address|hex(8) }}
+                        EvenIRQ -> nvic@{{ peripheral.interrupts.0.value }}
+                        OddIRQ -> nvic@{{ peripheral.interrupts.1.value }}
+                {% endif %}
+            {% endstrip %}
         {% endif %}
     {% endwith %}
 {% endstrip %}
@@ -61,7 +67,7 @@ nvic: IRQControllers.NVIC @ sysbus 0xE000E000
 
 cpu: CPU.CortexM @ sysbus
     nvic: nvic
-    cpuType: "cortex-{{ architecture }}"
+    cpuType: "cortex-{{ architecture_short }}"
 
 deviceInformation: {{ family|upper }}DeviceInformation @ sysbus {{ devinfo_base|hex(8) }}
     deviceNumber: 1
