@@ -42,7 +42,7 @@ extern "C" {
 #define XTIMER_WIDTH        (16)
 /** @} */
 
-{% strip 3, ">" %}
+{% strip 2, ">" %}
     {% if board in ["slstk3401a", "slstk3402a", "slwstk6220a", "stk3600", "stk3700", "stk3800"] %}
         /**
          * @name    Enable Advanced Energy Monitor
