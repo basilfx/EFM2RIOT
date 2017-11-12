@@ -1,0 +1,10 @@
+/**
+ * @defgroup        cpu_efr32bg12p Silicon Labs EFR32BG12P
+ * @ingroup         cpu
+ * @brief           Implementation of Silicon Labs's EFR32BG12P MCU
+ */
+
+/**
+ * @defgroup        cpu_efr32bg12p_definitions Silicon Labs EFR32BG12P definitions
+ * @ingroup         cpu_efr32bg12p
+ */

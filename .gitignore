@@ -6,6 +6,7 @@ env
 
 # Compiled files
 dist/examples/**/bin
+dist-development/examples/**/bin
 efm2riot/static/examples/**/bin
 
 # Benchmark files

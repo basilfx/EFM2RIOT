@@ -1,0 +1,10 @@
+/**
+ * @defgroup        cpu_efr32fg14v Silicon Labs EFR32FG14V
+ * @ingroup         cpu
+ * @brief           Implementation of Silicon Labs's EFR32FG14V MCU
+ */
+
+/**
+ * @defgroup        cpu_efr32fg14v_definitions Silicon Labs EFR32FG14V definitions
+ * @ingroup         cpu_efr32fg14v
+ */

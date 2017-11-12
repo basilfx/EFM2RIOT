@@ -1,0 +1,13 @@
+using "platforms/cpus2/efm32pg12b500f1024gl125.repl"
+
+led0: Miscellaneous.LED @ gpioPort 66
+led1: Miscellaneous.LED @ gpioPort 67
+
+button0: Miscellaneous.Button @ gpioPort 64
+button1: Miscellaneous.Button @ gpioPort 65
+
+// TODO
+// ls013b7dh03: Video.LS013B7DH03 @ spi0
+
+si7021: Sensors.SI70xx @ i2c0 0x80
+    model: Model.SI7021

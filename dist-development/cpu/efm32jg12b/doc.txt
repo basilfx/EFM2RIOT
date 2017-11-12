@@ -1,0 +1,10 @@
+/**
+ * @defgroup        cpu_efm32jg12b Silicon Labs EFM32JG12B
+ * @ingroup         cpu
+ * @brief           Implementation of Silicon Labs's EFM32JG12B MCU
+ */
+
+/**
+ * @defgroup        cpu_efm32jg12b_definitions Silicon Labs EFM32JG12B definitions
+ * @ingroup         cpu_efm32jg12b
+ */
