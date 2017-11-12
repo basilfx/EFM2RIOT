@@ -57,6 +57,7 @@ extern "C" {
  */
 #define ADC_MODE_UNDEF      (0xff)
 
+#ifndef DOXYGEN
 /**
  * @brief   Possible ADC resolution settings
  * @{
@@ -71,16 +72,19 @@ typedef enum {
     ADC_RES_16BIT = ADC_MODE_UNDEF,             /**< ADC resolution: 16 bit (unsupported) */
 } adc_res_t;
 /** @} */
+#endif /* ndef DOXYGEN */
 
 /**
  * @brief   ADC device configuration
- * @{
  */
 typedef struct {
     ADC_TypeDef *dev;                 /**< ADC device used */
     CMU_Clock_TypeDef cmu;            /**< the device CMU channel */
 } adc_conf_t;
 
+/**
+ * @brief   ADC channel configuration
+ */
 typedef struct {
     uint8_t dev;                      /**< device index */
 #ifdef _SILICON_LABS_32B_SERIES_0
@@ -91,30 +95,30 @@ typedef struct {
     ADC_Ref_TypeDef reference;        /**< channel voltage reference */
     ADC_AcqTime_TypeDef acq_time;     /**< channel acquisition time */
 } adc_chan_conf_t;
-/** @} */
 
 /**
  * @brief   Length of CPU ID in octets.
  */
 #define CPUID_LEN           (8U)
 
+#if defined(DAC_COUNT) && DAC_COUNT > 0
 /**
  * @brief   DAC device configuration
- * @{
  */
-#if defined(DAC_COUNT) && DAC_COUNT > 0
 typedef struct {
     DAC_TypeDef *dev;       /**< DAC device used */
     CMU_Clock_TypeDef cmu;  /**< the device CMU channel */
 } dac_conf_t;
 
+/**
+ * @brief   DAC channel configuration
+ */
 typedef struct {
     uint8_t dev;            /**< device index */
     uint8_t index;          /**< channel index */
     DAC_Ref_TypeDef ref;    /**< channel voltage reference */
 } dac_chan_conf_t;
 #endif
-/** @} */
 
 /**
  * @brief   Define a custom type for GPIO pins.
@@ -153,6 +157,7 @@ enum {
     PF = gpioPortF          /**< port F */
 };
 
+#ifndef DOXYGEN
 /**
  * @brief   Override direction values.
  * @{
@@ -179,6 +184,7 @@ typedef enum {
     GPIO_BOTH = 3           /**< emit interrupt on both flanks */
 } gpio_flank_t;
 /** @} */
+#endif /* ndef DOXYGEN */
 
 /**
  * @brief   Override hardware crypto supported methods.
@@ -194,6 +200,7 @@ typedef enum {
 #endif
 /** @} */
 
+#ifndef DOXYGEN
 /**
  * @brief   Override I2C speed values.
  * @{
@@ -207,6 +214,7 @@ typedef enum {
     I2C_SPEED_HIGH = 3400000,         /**< high speed mode: ~3.4Mbit/s */
 } i2c_speed_t;
 /** @} */
+#endif /* ndef DOXYGEN */
 
 /**
  * @brief   I2C device configuration.
@@ -221,8 +229,7 @@ typedef struct {
 } i2c_conf_t;
 
 /**
- * @brief   PWM device configuration.
- * @{
+ * @brief   PWM channel configuration.
  */
 typedef struct {
     uint8_t index;          /**< TIMER channel to use */
@@ -230,6 +237,9 @@ typedef struct {
     uint32_t loc;           /**< location of the pin */
 } pwm_chan_conf_t;
 
+/**
+ * @brief   PWM device configuration.
+ */
 typedef struct {
     TIMER_TypeDef *dev;               /**< TIMER device used */
     CMU_Clock_TypeDef cmu;            /**< the device CMU channel */
@@ -237,8 +247,8 @@ typedef struct {
     uint8_t channels;                 /**< the number of available channels */
     const pwm_chan_conf_t* channel;   /**< pointer to first channel config */
 } pwm_conf_t;
-/** @} */
 
+#ifndef DOXYGEN
 /**
  * @brief   Override SPI clocks.
  * @{
@@ -265,6 +275,7 @@ typedef enum {
     SPI_CLK_10MHZ = 10000000          /**< drive the SPI bus with 10MHz */
 } spi_clk_t;
 /** @} */
+#endif /* ndef DOXYGEN */
 
 /**
  * @brief   SPI device configuration.
