@@ -41,7 +41,6 @@ static mutex_t i2c_lock[I2C_NUMOF];
  */
 static void _transfer(i2c_t dev, I2C_TransferSeq_TypeDef *transfer)
 {
-    unsigned int cpsr;
     bool busy = true;
 
     /* start the i2c transaction */
@@ -49,7 +48,7 @@ static void _transfer(i2c_t dev, I2C_TransferSeq_TypeDef *transfer)
 
     /* the transfer progresses via the interrupt handler */
     while (busy) {
-        cpsr = irq_disable();
+        unsigned int cpsr = irq_disable();
 
         if (i2c_progress[dev] == i2cTransferInProgress) {
             cortexm_sleep_until_event();
