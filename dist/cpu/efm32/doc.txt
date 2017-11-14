@@ -1,0 +1,5 @@
+/**
+ * @defgroup        cpu_efm32 Silicon Labs EFM32/EFR32/EZR32
+ * @ingroup         cpu
+ * @brief           Implementation of Silicon Labs's EFM32/EFR32/EZR32 MCUs
+ */

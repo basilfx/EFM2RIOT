@@ -1,4 +1,0 @@
-FEATURES_PROVIDED += periph_hwcrypto
-FEATURES_PROVIDED += periph_hwrng
-
-include $(RIOTCPU)/efm32_common/Makefile.features

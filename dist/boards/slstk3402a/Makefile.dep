@@ -3,4 +3,4 @@ ifneq (,$(filter saul_default,$(USEMODULE)))
     USEMODULE += si7021
 endif
 
-include $(RIOTCPU)/efm32pg12b/Makefile.dep
+include $(RIOTCPU)/efm32/Makefile.dep

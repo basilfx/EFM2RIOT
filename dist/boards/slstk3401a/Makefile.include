@@ -1,6 +1,9 @@
 # define the cpu used by SLSTK3401A
-export CPU = efm32pg1b
+export CPU = efm32
+export CPU_ARCH = cortex-m4
+export CPU_FAMILY = efm32pg1b
 export CPU_MODEL = efm32pg1b200f256gm48
+export CPU_SERIES = 1
 
 # set default port depending on operating system
 PORT_LINUX ?= /dev/ttyACM0

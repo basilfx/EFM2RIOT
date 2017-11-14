@@ -1,6 +1,9 @@
 # define the cpu used by STK3700
-export CPU = efm32gg
+export CPU = efm32
+export CPU_ARCH = cortex-m3
+export CPU_FAMILY = efm32gg
 export CPU_MODEL = efm32gg990f1024
+export CPU_SERIES = 0
 
 # set default port depending on operating system
 PORT_LINUX ?= /dev/ttyACM0
