@@ -13,10 +13,10 @@ This generator prepares the required files for using EFM32 with RIOT-OS, which i
 ## Usage
 
 ### As a end-user
-When you have cloned this repository, a ready-to-use version is available in the `dist/` folder. Copy the desired CPU and board folder from `cpu/` and `boards/` to your RIOT-OS project. For any CPU, you also need to copy `cpu/efm32_common/` and `pkg/emlib/` too.
+When you have cloned this repository, a ready-to-use version is available in the `dist/` folder. Copy the desired CPU and board folder from `cpu/` and `boards/` to your RIOT-OS project.
 
 ### As a developer
-You will need Python 3.6 and the Exx32 SDK v5.3.3 (can be installed via [Simplicity Studio v4](https://www.silabs.com/products/development-tools/software/simplicity-studio)).
+You will need Python 3.6 and the Gecko SDK v5.3.3 (can be installed via [Simplicity Studio v4](https://www.silabs.com/products/development-tools/software/simplicity-studio)).
 
 * The `efm2riot/configuration.py` defines all the jobs and boards.
 * The `efm2riot/templates/` folder contains all the files that need to be pre-processed.
@@ -77,9 +77,10 @@ It started as an experiment on generating code from configuration, but turned ou
 * All supported MCUs are extracted from the SDK. Using templates, new MCUs that are supported by the SDK will also be supported by this port.
 
 ### Why is this not (yet) part of RIOT-OS?
-The generator is something completely different and has no intention to be part of the RIOT-OS project.
+As of November 2017, initial support for the EFM32 is included in RIOT-OS. This generator still exists to initialize new targets.
 
-The generated files (the ones in the `dist/` folder) *could* be part of RIOT-OS. However, the developers have a strong preference for a port that is not dependent on any vendor libraries. While I respect this choice, I have the following arguments for using emlib:
+### What is the benefit of using emlib?
+The use of emlib abstracts away all the chip-specific details, while providing a clean interface to RIOT-OS.
 
 * emlib contains powerful assertions to help development.
 * (New) families are supported, as long as the emlib API stays the same.
@@ -90,7 +91,7 @@ The generated files (the ones in the `dist/` folder) *could* be part of RIOT-OS.
 
 There are doubts on the performance and memory overhead of emlib. I have concluded the following, based on a benchmarking script (included):
 
-* Code size does increase when using emlib. The overhead is in the range of 3 to 5 kb of flash, depending on the target and peripherals used.
+* Code size does increase when using emlib. The overhead is in the range of 5 to 10 KiB of flash, depending on the target and peripherals used.
 * A large part of the overhead is contained within the clock management unit. This is an integral part for proper clock setup and low-power support. It is used by all peripherals and has a constant code size.
 * Most get/set/read/write/enable/clear methods are implemented as macro's or inline methods. They are equally efficient as their direct register alternative.
 
