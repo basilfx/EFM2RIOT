@@ -30,4 +30,4 @@ endif
     {% endif %}
 {% endstrip %}
 
-include $(RIOTCPU)/{{ family }}/Makefile.dep
+include $(RIOTCPU)/efm32/Makefile.dep

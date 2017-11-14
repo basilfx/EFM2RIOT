@@ -15,7 +15,7 @@ def clean_dist(dist_directory):
     shutil.rmtree(dist_directory, ignore_errors=True)
 
     # Create a new one
-    os.mkdir(dist_directory)
+    os.makedirs(dist_directory)
 
 
 def copy_static(root_directory, dist_directory, sdk_directory, development):
@@ -154,7 +154,7 @@ def copy_patches(root_directory, dist_directory, sdk_directory,
                             content = method(source, content)
 
                         if not os.path.isdir(target):
-                            os.mkdir(target)
+                            os.makedirs(target)
 
                         with open(target, "w") as fp:
                             fp.write(content)
@@ -171,7 +171,7 @@ def copy_patches(root_directory, dist_directory, sdk_directory,
                                     content = method(source, content)
 
                                 if not os.path.isdir(target):
-                                    os.mkdir(target)
+                                    os.makedirs(target)
 
                                 with open(target_file, "w") as fp:
                                     fp.write(content)

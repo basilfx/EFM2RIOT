@@ -7,9 +7,9 @@
  */
 
 /**
- * @defgroup    cpu_{{ family }} Silicon Labs {{ family_display_name }}
+ * @defgroup    cpu_efm32 Silicon Labs EFM32/EFR32/EZR32
  * @ingroup     cpu
- * @brief       Support for the Silicon Labs {{ family_display_name }} CPU
+ * @brief       Support for Silicon Labs EFM32/EFR32/EZR32 CPUs
  * @{
  *
  * @file
@@ -31,12 +31,12 @@ extern "C" {
 #endif
 
 /**
- * @brief   ARM Cortex-{{ architecture|upper }} specific CPU configuration
+ * @brief   ARM Cortex-M specific CPU configuration
  * @{
  */
 #define CPU_DEFAULT_IRQ_PRIO            (1U)
-#define CPU_IRQ_NUMOF                   ({{ (irqs|last).irq_name }} + 1)
-#define CPU_FLASH_BASE                  FLASH_BASE
+#define CPU_IRQ_NUMOF                   (EXT_IRQ_COUNT)
+#define CPU_FLASH_BASE                  (FLASH_BASE)
 /** @} */
 
 /**

@@ -7,11 +7,11 @@
  */
 
 /**
- * @addtogroup      cpu_{{ family }}
+ * @addtogroup      cpu_efm32
  * @{
  *
  * @file
- * @brief           Memory definitions for the {{ cpu|upper }} CPU
+ * @brief           Memory definitions for EFM32/EFR32/EZR32 CPUs
  *
  * @author          Hauke Petersen <hauke.petersen@fu-berlin.de>
  * @author          Bas Stottelaar <basstottelaar@gmail.com>
@@ -21,8 +21,8 @@
 
 MEMORY
 {
-    rom (rx)    : ORIGIN = {{ flash_base|hex(8) }}, LENGTH = {{ flash_size }}
-    ram (rwx)   : ORIGIN = {{ sram_base|hex(8) }}, LENGTH = {{ sram_size }}
+    rom (rx)    : ORIGIN = _rom_start_addr, LENGTH = _rom_length
+    ram (rwx)   : ORIGIN = _ram_start_addr, LENGTH = _ram_length
 }
 
 INCLUDE cortexm_base.ld

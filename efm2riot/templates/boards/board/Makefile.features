@@ -29,4 +29,4 @@ FEATURES_PROVIDED += periph_uart
     {% endif %}
 {% endstrip %}
 
-include $(RIOTCPU)/{{ family }}/Makefile.features
+include $(RIOTCPU)/efm32/Makefile.features

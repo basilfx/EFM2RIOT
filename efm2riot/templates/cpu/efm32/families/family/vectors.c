@@ -19,7 +19,6 @@
  * @}
  */
 
-#include <stdint.h>
 #include "vectors_cortexm.h"
 
 /* define a local dummy handler as it needs to be in the same compilation unit

@@ -9,6 +9,11 @@ STATICS = [
     },
     {
         "type": "directory",
+        "source": "{{ root }}/static/cpu/efm32",
+        "target": "cpu/efm32"
+    },
+    {
+        "type": "directory",
         "source": "{{ root }}/static/doc/images",
         "target": "doc/images"
     },
@@ -23,33 +28,21 @@ STATICS = [
 TEMPLATES = [
     {
         "type": "file",
-        "when": "per_cpu",
-        "source": "{{ root }}/templates/cpu/family/ldscripts/cpu.ld",
-        "target": "cpu/{{ family }}/ldscripts/{{ cpu }}.ld"
+        "when": "per_family",
+        "source": "{{ sdk }}/Device/SiliconLabs/{{ family|upper }}/Source/system_{{ family }}.c",  # noqa
+        "target": "cpu/efm32/families/{{ family }}/system.c"
     },
     {
         "type": "file",
         "when": "per_family",
-        "source": "{{ sdk }}/Device/SiliconLabs/{{ family|upper }}/Source/system_{{ family }}.c",  # noqa
-        "target": "cpu/{{ family }}/system_{{ family }}.c"
+        "source": "{{ root }}/templates/cpu/efm32/families/family/Makefile",
+        "target": "cpu/efm32/families/{{ family }}/Makefile"
     },
     {
-        "type": "glob",
+        "type": "file",
         "when": "per_family",
-        "source": "{{ root }}/templates/cpu/family/include/*",
-        "target": "cpu/{{ family }}/include"
-    },
-    {
-        "type": "glob",
-        "when": "per_family",
-        "source": "{{ root }}/templates/cpu/family/*",
-        "target": "cpu/{{ family }}"
-    },
-    {
-        "type": "glob",
-        "when": "per_family",
-        "source": "{{ root }}/templates/cpu/family/periph/*",
-        "target": "cpu/{{ family }}/periph"
+        "source": "{{ root }}/templates/cpu/efm32/families/family/vectors.c",
+        "target": "cpu/efm32/families/{{ family }}/vectors.c"
     },
     {
         "type": "glob",
@@ -119,7 +112,7 @@ PATCHES = [
         "type": "glob",
         "when": "per_family",
         "source": "{{ sdk }}/Device/SiliconLabs/{{ family|upper }}/Include/*.h",  # noqa
-        "target": "cpu/{{ family }}/include/vendor",
+        "target": "cpu/efm32/families/{{ family }}/include/vendor",
         "methods": [patches.add_extern_c, patches.fix_arm_math]
     }
 ]
