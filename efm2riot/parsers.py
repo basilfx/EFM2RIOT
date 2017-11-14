@@ -120,8 +120,7 @@ def parse_device_info(sdk_directory, family):
     }
 
 
-def parse_cpus(sdk_directory, svds_directory, family,
-               min_sram_size, min_flash_size):
+def parse_cpus(sdk_directory, svds_directory, family):
     """
     Index all available CPUs of a family. Parse the source files and for the
     information needed.
@@ -237,56 +236,55 @@ def parse_cpus(sdk_directory, svds_directory, family,
                     "reserved": True
                 })
 
-        if sram_size >= min_sram_size and flash_size >= min_flash_size:
-            cpu_name = os.path.basename(include).split(".")[0]
+        cpu_name = os.path.basename(include).split(".")[0]
 
-            cpu = {
-                "cpu": cpu_name,
-                "flash_base": flash_base,
-                "flash_size": flash_size,
-                "sram_base": sram_base,
-                "sram_size": sram_size,
-                "fpu": fpu,
-                "mpu": mpu,
-                "devinfo_base": devinfo_base,
-                "devinfo_size": devinfo_size,
-                "peripherals": parse_svd(
-                    svds_directory, family["family"], cpu_name),
-            }
+        cpu = {
+            "cpu": cpu_name,
+            "flash_base": flash_base,
+            "flash_size": flash_size,
+            "sram_base": sram_base,
+            "sram_size": sram_size,
+            "fpu": fpu,
+            "mpu": mpu,
+            "devinfo_base": devinfo_base,
+            "devinfo_size": devinfo_size,
+            "peripherals": parse_svd(
+                svds_directory, family["family"], cpu_name),
+        }
 
-            # Sanity checks: CPUs in same family must have the same
-            # characteristics.
-            if "architecture" in family:
-                if family["architecture"] != architecture:
-                    raise Exception("Architecture changed.")
+        # Sanity checks: CPUs in same family must have the same
+        # characteristics.
+        if "architecture" in family:
+            if family["architecture"] != architecture:
+                raise Exception("Architecture changed.")
 
-            # IRQ maps of all CPUs must be merged, since a single CPU may not
-            # have all IRQs mapped.
-            if "irqs" in family:
-                other_irq_table = {}
+        # IRQ maps of all CPUs must be merged, since a single CPU may not
+        # have all IRQs mapped.
+        if "irqs" in family:
+            other_irq_table = {}
 
-                for irq in (irq_table + family["irqs"]):
-                    if irq["number"] not in other_irq_table:
-                        other_irq_table[irq["number"]] = irq
+            for irq in (irq_table + family["irqs"]):
+                if irq["number"] not in other_irq_table:
+                    other_irq_table[irq["number"]] = irq
 
-                    if other_irq_table[irq["number"]]["reserved"] and not \
-                            irq["reserved"]:
-                        other_irq_table[irq["number"]] = irq
+                if other_irq_table[irq["number"]]["reserved"] and not \
+                        irq["reserved"]:
+                    other_irq_table[irq["number"]] = irq
 
-                irq_table = sorted(
-                    other_irq_table.values(), key=lambda irq: irq["number"])
+            irq_table = sorted(
+                other_irq_table.values(), key=lambda irq: irq["number"])
 
-            family.update({
-                "architecture": architecture,
-                "architecture_short": architecture_short,
-                "cpu_series": cpu_series,
-                "irqs": irq_table,
-                "crypto": crypto,
-                "trng": trng,
-            })
+        family.update({
+            "architecture": architecture,
+            "architecture_short": architecture_short,
+            "cpu_series": cpu_series,
+            "irqs": irq_table,
+            "crypto": crypto,
+            "trng": trng,
+        })
 
-            cpu.update(family)
-            cpus.append(cpu)
+        cpu.update(family)
+        cpus.append(cpu)
 
     return sorted(cpus, key=lambda cpu: cpu["cpu"])
 

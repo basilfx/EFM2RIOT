@@ -50,7 +50,7 @@ Most of the 32-bit families that are supported by emlib are supported by EFM2RIO
 * EZR32 Leopard Gecko
 * EZR32 Wonder Gecko
 
-**Note:** not all MCUs may be supported or have sufficient resources for use with RIOT-OS, for instance, low-memory MCUs. Currently, MCUs with less than 8KB of flash and/or 4KB of RAM are not included.
+**Note:** not all MCUs may be supported or have sufficient resources for use with RIOT-OS, for instance, low-memory MCUs.
 
 ## Supported boards
 Currently, the following boards (development kits) are supported:

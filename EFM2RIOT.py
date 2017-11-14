@@ -54,9 +54,7 @@ def main(argv):
             parsers.parse_cpus(
                 sdk_directory,
                 svds_directory,
-                family,
-                configuration.MIN_RAM,
-                configuration.MIN_FLASH))
+                family))
 
     sys.stdout.write(
         "Found %d CPUs in %d families (filtered).\n" % (
