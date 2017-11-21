@@ -63,6 +63,9 @@ int main(void)
 #ifdef I2C1
     PRINT_FREQ(I2C1);
 #endif
+#ifdef I2C2
+    PRINT_FREQ(I2C2);
+#endif
 
     /* RTC and RTCC */
 #ifdef RTC
@@ -102,11 +105,26 @@ int main(void)
 #ifdef USART2
     PRINT_FREQ(USART2);
 #endif
+#ifdef USART3
+    PRINT_FREQ(USART3);
+#endif
+#ifdef USART4
+    PRINT_FREQ(USART4);
+#endif
 #ifdef UART0
     PRINT_FREQ(UART0);
 #endif
 #ifdef UART1
     PRINT_FREQ(UART1);
+#endif
+#ifdef UART2
+    PRINT_FREQ(UART2);
+#endif
+#ifdef UART3
+    PRINT_FREQ(UART3);
+#endif
+#ifdef UART4
+    PRINT_FREQ(UART4);
 #endif
 #ifdef LEUART0
     PRINT_FREQ(LEUART0);
