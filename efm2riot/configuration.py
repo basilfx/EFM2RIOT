@@ -120,6 +120,26 @@ PATCHES = [
 # Board definitions.
 BOARDS = [
     {
+        "cpu": "efr32mg12p332f1024gl125",
+        "cpu_datasheet": "https://www.silabs.com/documents/public/data-sheets/efr32mg12-datasheet.pdf",  # noqa
+        "board": "brd4162a",
+        "board_display_name": "BRD4162A",
+        "board_manual": "https://www.silabs.com/documents/public/reference-manuals/brd4162a-rm.pdf",  # noqa
+        "board_schematic": "https://www.silabs.com/documents/public/reference-manuals/brd4162a-rm.pdf",  # noqa
+        "family": "efr32mg",
+        "family_display_name": "EFR32MG",
+        "family_display_name_full": "EFR32 Mighty Gecko",
+        "family_manual": "http://www.silabs.com/Support%20Documents/TechnicalDocs/EFR32-ReferenceManual.pdf",  # noqa
+        "freq": {
+            "hfxo": 38400000,
+            "hfrco": 19000000,
+            "lfxo": 32768,
+            "lfrco": 32768,
+            "ulfrco": 1000
+        },
+        "marketing_display_name": "Mighty Gecko Radio Board"
+    },
+    {
         "cpu": "efm32pg1b200f256gm48",
         "cpu_datasheet": "https://www.silabs.com/Support%20Documents/TechnicalDocs/EFM32PG1-DataSheet.pdf",  # noqa
         "board": "slstk3401a",
