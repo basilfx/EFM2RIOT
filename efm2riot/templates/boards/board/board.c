@@ -23,13 +23,13 @@
 #include "cpu.h"
 
 #include "periph/gpio.h"
-{% strip 2, ">" %}
+{% strip 2 %}
     {% if board in ["sltb001a"] %}
         #include "periph/i2c.h"
     {% endif %}
 {% endstrip %}
 
-{% strip 3, ">" %}
+{% strip 3, "<" %}
     {% if "aem" in features %}
         {% if architecture not in ["m0", "m0plus"] %}
             #include "em_dbg.h"
@@ -38,7 +38,7 @@
     {% endif %}
 {% endstrip %}
 
-{% strip 2, ">" %}
+{% strip 2, "<" %}
     {% if board in ["sltb001a"] %}
         #if BMP280_ENABLED || CCS811_ENABLED || ICM_20648_ENABLED || \
             SI1133_ENABLED || SI7021_ENABLED || SI7210A_ENABLED || \
@@ -79,45 +79,49 @@
     {% endif %}
 {% endstrip %}
 
-{% strip 2, ">" %}
+{% strip 3, "<" %}
     {% if "aem" in features %}
-        static void aem_init(void)
-        {
-            if (DBG_Connected()) {
-                /* enable GPIO clock for configuring SWO pins */
-                CMU_ClockEnable(cmuClock_HFPER, true);
-                CMU_ClockEnable(cmuClock_GPIO, true);
+        {% if architecture not in ["m0", "m0plus"] %}
+            # if AEM_ENABLED
+            static void aem_init(void)
+            {
+                if (DBG_Connected()) {
+                    /* enable GPIO clock for configuring SWO pins */
+                    CMU_ClockEnable(cmuClock_HFPER, true);
+                    CMU_ClockEnable(cmuClock_GPIO, true);
 
-                /* enable debug peripheral via SWO */
-                {% strip 2 %}
-                    {% if cpu_series == 0 %}
-                        DBG_SWOEnable(GPIO_ROUTE_SWLOCATION_LOC0);
-                    {% else %}
-                        DBG_SWOEnable(GPIO_ROUTELOC0_SWVLOC_LOC0);
-                    {% endif %}
-                {% endstrip %}
+                    /* enable debug peripheral via SWO */
+                    {% strip 2 %}
+                        {% if cpu_series == 0 %}
+                            DBG_SWOEnable(GPIO_ROUTE_SWLOCATION_LOC0);
+                        {% else %}
+                            DBG_SWOEnable(GPIO_ROUTELOC0_SWVLOC_LOC0);
+                        {% endif %}
+                    {% endstrip %}
 
-                /* enable trace in core debug */
-                CoreDebug->DHCSR |= CoreDebug_DHCSR_C_DEBUGEN_Msk;
-                CoreDebug->DEMCR |= CoreDebug_DEMCR_TRCENA_Msk;
+                    /* enable trace in core debug */
+                    CoreDebug->DHCSR |= CoreDebug_DHCSR_C_DEBUGEN_Msk;
+                    CoreDebug->DEMCR |= CoreDebug_DEMCR_TRCENA_Msk;
 
-                /* enable PC and IRQ sampling output */
-                DWT->CTRL = 0x400113FF;
+                    /* enable PC and IRQ sampling output */
+                    DWT->CTRL = 0x400113FF;
 
-                /* set TPIU prescaler to 16 */
-                TPI->ACPR = 15;
+                    /* set TPIU prescaler to 16 */
+                    TPI->ACPR = 15;
 
-                /* set protocol to NRZ */
-                TPI->SPPR = 2;
+                    /* set protocol to NRZ */
+                    TPI->SPPR = 2;
 
-                /* disable continuous formatting */
-                TPI->FFCR = 0x100;
+                    /* disable continuous formatting */
+                    TPI->FFCR = 0x100;
 
-                /* unlock ITM and output data */
-                ITM->LAR = 0xC5ACCE55;
-                ITM->TCR = 0x10009;
+                    /* unlock ITM and output data */
+                    ITM->LAR = 0xC5ACCE55;
+                    ITM->TCR = 0x10009;
+                }
             }
-        }
+            #endif
+        {% endif %}
     {% endif %}
 {% endstrip %}
 
@@ -126,7 +130,7 @@ void board_init(void)
     /* initialize the CPU */
     cpu_init();
 
-    {% strip 4, ">" %}
+    {% strip 4, "<" %}
         {% if "aem" in features %}
             {% if architecture not in ["m0", "m0plus"] %}
                     /* enable core debug output AEM */
@@ -137,7 +141,7 @@ void board_init(void)
         {% endif %}
     {% endstrip %}
 
-    {% strip 3, ">" %}
+    {% strip 3, "<" %}
         {% if "bc" in features %}
                 /* enable the board controller, to enable virtual com port */
             #if BC_ENABLED

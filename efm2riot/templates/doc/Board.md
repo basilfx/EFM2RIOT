@@ -21,7 +21,15 @@ The starter kit is equipped with an Advanced Energy Monitor. This allows you to 
 | FPU             | {{ ("yes" if fpu else "no")|align(52)             }} |
 | MPU             | {{ ("yes" if mpu else "no")|align(52)             }} |
 {% strip 2 %}
-    {% if board in ["slstk3401a"] %}
+    {% if board in ["brd4162a"] %}
+        | DMA             | 8 channels                                           |
+        | Timers          | 2 x 32-bit + 2 x 16-bit + 1x 16-bit (low power)      |
+        | ADCs            | 12-bit ADC                                           |
+        | UARTs           | 5x UART, 4x USART, 1x LEUART                         |
+        | SPIs            | 4x USART                                             |
+        | I2Cs            | 2x                                                   |
+        | Vcc             | 1.85V - 3.8V                                         |
+    {% elif board in ["slstk3401a"] %}
         | DMA             | 8 channels                                           |
         | Timers          | 2 x 16-bit + 1x 16-bit (low power)                   |
         | ADCs            | 12-bit ADC                                           |
@@ -36,6 +44,14 @@ The starter kit is equipped with an Advanced Energy Monitor. This allows you to 
         | UARTs           | 2x USART, 1x LEUART                                  |
         | SPIs            | 2x USART                                             |
         | I2Cs            | 1x                                                   |
+        | Vcc             | 1.85V - 3.8V                                         |
+    {% elif board in ["slstk3701a"] %}
+        | DMA             | 24 channels                                          |
+        | Timers          | 4 x 32-bit + 7 x 16-bit + 1x 16-bit (low power)      |
+        | ADCs            | 12-bit ADC                                           |
+        | UARTs           | 4x USART, 1x LEUART                                  |
+        | SPIs            | 4x USART                                             |
+        | I2Cs            | 3x                                                   |
         | Vcc             | 1.85V - 3.8V                                         |
     {% elif board in ["sltb001a"] %}
         | DMA             | 12 channels                                          |
@@ -455,7 +471,7 @@ In other words, these definitions must match. Refer to the data sheet for more i
 ## Flashing the device
 To flash, [SEGGER JLink](https://www.segger.com/jlink-software.html) is required.
 
-Flashing is supported by RIOT-OS by the command below:
+Flashing is supported by RIOT-OS using the command below:
 
 ```
 make flash
@@ -473,7 +489,7 @@ Or, to connect with your own debugger:
 make debug-server
 ```
 
-Some boards have (limited) support for emulation, which can be started using:
+Some boards have (limited) support for emulation, which can be started with:
 
 ```
 make emulate

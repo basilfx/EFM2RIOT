@@ -1,10 +1,20 @@
-using "platforms/cpus2/{{ cpu }}.repl"
+using "platforms/cpus/{{ cpu }}.repl"
 
 {% strip 2, "<" %}
-    {% if board in ["sltb001a"] %}
+    {% if board in ["brd4162a"] %}
         led0: Miscellaneous.LED @ gpioPort 66
         led1: Miscellaneous.LED @ gpioPort 67
     {% elif board in ["slstk3401a", "slstk3402a"] %}
+        led0: Miscellaneous.LED @ gpioPort 66
+        led1: Miscellaneous.LED @ gpioPort 67
+    {% elif board in ["slstk3701a"] %}
+        led0r: Miscellaneous.LED @ gpioPort 66
+        led0g: Miscellaneous.LED @ gpioPort 67
+        led0b: Miscellaneous.LED @ gpioPort 68
+        led1r: Miscellaneous.LED @ gpioPort 69
+        led1g: Miscellaneous.LED @ gpioPort 70
+        led1b: Miscellaneous.LED @ gpioPort 71
+    {% elif board in ["sltb001a"] %}
         led0: Miscellaneous.LED @ gpioPort 66
         led1: Miscellaneous.LED @ gpioPort 67
     {% elif board in ["slwstk6220a"] %}
@@ -20,10 +30,16 @@ using "platforms/cpus2/{{ cpu }}.repl"
 {% endstrip %}
 
 {% strip 2, "<" %}
-    {% if board in ["sltb001a"] %}
+    {% if board in ["brd4162a"] %}
         button0: Miscellaneous.Button @ gpioPort 64
         button1: Miscellaneous.Button @ gpioPort 65
     {% elif board in ["slstk3401a", "slstk3402a"] %}
+        button0: Miscellaneous.Button @ gpioPort 64
+        button1: Miscellaneous.Button @ gpioPort 65
+    {% elif board in ["slstk3701a"] %}
+        button0: Miscellaneous.Button @ gpioPort 64
+        button1: Miscellaneous.Button @ gpioPort 65
+    {% elif board in ["sltb001a"] %}
         button0: Miscellaneous.Button @ gpioPort 64
         button1: Miscellaneous.Button @ gpioPort 65
     {% elif board in ["slwstk6220a"] %}
@@ -48,6 +64,9 @@ using "platforms/cpus2/{{ cpu }}.repl"
 {% strip 2, "<" %}
     {% if board in ["slstk3401a", "slstk3402a", "sltb001a", "slwstk6220a"] %}
         si7021: Sensors.SI70xx @ i2c0 0x80
+            model: Model.SI7021
+    {% elif board in ["slstk3701a"] %}
+        si7021: Sensors.SI70xx @ i2c2 0x80
             model: Model.SI7021
     {% endif %}
 {% endstrip %}
