@@ -29,21 +29,17 @@ void dummy_handler(void)
 }
 
 /* Silicon Labs specific interrupt vector */
-{% strip 3 %}
+{% strip 2 %}
     {% for irq in irqs %}
-        {% if not irq.reserved %}
-            WEAK_DEFAULT void {{ irq.method_name }}(void);
-        {% endif %}
+        WEAK_DEFAULT void {{ irq.method_name }}(void);
     {% endfor %}
 {% endstrip %}
 
 /* interrupt vector table */
 ISR_VECTOR(1) const isr_t vector_cpu[CPU_IRQ_NUMOF] = {
-    {% strip 3 %}
+    {% strip 2 %}
         {% for irq in irqs %}
-            {% if not irq.reserved %}
-                [{{ irq.number|ralign(2) }}] = {{ (irq.method_name ~ ",")|align(23) }} /* {{ irq.name }} */
-            {% endif %}
+            [{{ irq.number|ralign(2) }}] = {{ (irq.method_name ~ ",")|align(23) }} /* {{ irq.name }} */
         {% endfor %}
     {% endstrip %}
 };

@@ -34,10 +34,54 @@ def parse_families(sdk_directory):
             "family": family.lower(),
             "family_base": family.lower().split("32", 1)[0] + "32",
             "family_display_name": family.upper(),
-            "devinfo": parse_device_info(sdk_directory, family)
+            "devinfo": parse_device_info(sdk_directory, family),
+            "irqs": parse_device_irqs(sdk_directory, family),
         })
 
     return sorted(families, key=lambda family: family["family"])
+
+
+def parse_device_irqs(sdk_directory, family):
+    """
+    Parse IRQ table for the given family. This includes additional vectors
+    used by the radio drivers for EZR32 microcontrollers.
+    """
+
+    re_irq = re.compile(
+        r"^\s+DCD\s+([a-zA-Z0-9_]+_IRQHandler)\s+;\s+(\d+):\s+(.*)$")
+
+    startup_file = os.path.join(
+        sdk_directory,
+        f"Device/SiliconLabs/{family.upper()}/Source/ARM/",
+        f"startup_{family.lower()}.s")
+
+    irq_table = []
+
+    with open(startup_file, "r") as fp:
+        for line in fp:
+            if "DCD" not in line:
+                continue
+
+            # Match the line.
+            matches = re_irq.match(line)
+
+            if matches:
+                irq_name = matches.group(1)
+                number = matches.group(2)
+                description = matches.group(3)
+
+                name = irq_name.replace("_IRQHandler", "")
+                method_name = "isr_" + name.lower()
+
+                irq_table.append({
+                    "irq_name": irq_name,
+                    "method_name": method_name,
+                    "name": name,
+                    "description": description,
+                    "number": int(number),
+                })
+
+    return sorted(irq_table, key=lambda x: x["number"])
 
 
 def parse_device_info(sdk_directory, family):
@@ -51,8 +95,10 @@ def parse_device_info(sdk_directory, family):
     re_family_id_hex = re.compile(r"(0x[a-fA-F0-9]+)UL")
     re_family_id_dec = re.compile(r"   ([0-9]+)")
 
-    header_file = os.path.join(sdk_directory,
-        f"Device/SiliconLabs/{family}/Include", f"{family.lower()}_devinfo.h")
+    header_file = os.path.join(
+        sdk_directory,
+        f"Device/SiliconLabs/{family.upper()}/Include",
+        f"{family.lower()}_devinfo.h")
 
     skip = 0
     read = False
@@ -60,6 +106,8 @@ def parse_device_info(sdk_directory, family):
     # Parse the file and find lines.
     family_id = 0
     register_lines = []
+
+    search_key = f"#define _DEVINFO_PART_DEVICE_FAMILY_{family.upper()}"
 
     with open(header_file, "r") as fp:
         for line in fp:
@@ -77,8 +125,8 @@ def parse_device_info(sdk_directory, family):
             elif read:
                 register_lines.append(line.strip())
 
-            # Family ID parsing.
-            elif f"#define _DEVINFO_PART_DEVICE_FAMILY_{family.upper()}" in line:
+            # Family ID parsing (there are two notations).
+            elif search_key in line:
                 try:
                     family_id = int(
                         re_family_id_hex.search(line).group(1), 16)
@@ -124,6 +172,9 @@ def parse_cpus(sdk_directory, svds_directory, family):
     """
     Index all available CPUs of a family. Parse the source files and for the
     information needed.
+
+    Some of the information is generic to the whole family, but cannot be
+    parsed otherwise.
     """
 
     re_hex = re.compile(r".*(0x[a-fA-F0-9]+).*")
@@ -148,15 +199,12 @@ def parse_cpus(sdk_directory, svds_directory, family):
         architecture = None
         architecture_short = None
         crypto = False
+        radio = False
         trng = False
         mpu = False
         fpu = False
-        irqs = {}
-        max_irq = None
         devinfo_base = None
         devinfo_size = None
-
-        in_irq = False
 
         with open(include, "r") as fp:
             for line in fp:
@@ -179,6 +227,8 @@ def parse_cpus(sdk_directory, svds_directory, family):
                         crypto = True
                     elif "TRNG_PRESENT" in line:
                         trng = True
+                    elif "_SILICON_LABS_EFR32_RADIO_TYPE" in line:
+                        radio = True
                     elif "__MPU_PRESENT" in line and "1" in line:
                         mpu = True
                     elif "__FPU_PRESENT" in line and "1" in line:
@@ -198,43 +248,9 @@ def parse_cpus(sdk_directory, svds_directory, family):
                 elif "Cortex-M0" in line:
                     architecture = "m0"
                     architecture_short = "m0"
-                elif "typedef enum IRQn" in line:
-                    in_irq = True
-                elif "} IRQn_Type;" in line:
-                    in_irq = False
-
-                if in_irq:
-                    irq = re_irq.match(line)
-
-                    if irq:
-                        irqs[int(irq.group(2))] = irq.group(1)
-                        max_irq = int(irq.group(2))
 
         if not flash_size or not sram_size:
             raise Exception("Missing flash/ram size in include %s" % include)
-
-        # Fix the IRQ to be a full list
-        irq_table = []
-
-        for number in range(max_irq + 1):
-            if number in irqs:
-                irq_name = irqs[number]
-
-                name = irq_name.replace("_IRQn", "")
-                method_name = "isr_" + name.lower()
-
-                irq_table.append({
-                    "irq_name": irq_name,
-                    "method_name": method_name,
-                    "name": name,
-                    "number": number,
-                    "reserved": False
-                })
-            else:
-                irq_table.append({
-                    "number": number,
-                    "reserved": True
-                })
 
         cpu_name = os.path.basename(include).split(".")[0]
 
@@ -244,8 +260,6 @@ def parse_cpus(sdk_directory, svds_directory, family):
             "flash_size": flash_size,
             "sram_base": sram_base,
             "sram_size": sram_size,
-            "fpu": fpu,
-            "mpu": mpu,
             "devinfo_base": devinfo_base,
             "devinfo_size": devinfo_size,
             "peripherals": parse_svd(
@@ -254,33 +268,24 @@ def parse_cpus(sdk_directory, svds_directory, family):
 
         # Sanity checks: CPUs in same family must have the same
         # characteristics.
-        if "architecture" in family:
-            if family["architecture"] != architecture:
-                raise Exception("Architecture changed.")
+        check = ["fpu", "mpu", "architecture", "cpu_series"]
 
-        # IRQ maps of all CPUs must be merged, since a single CPU may not
-        # have all IRQs mapped.
-        if "irqs" in family:
-            other_irq_table = {}
-
-            for irq in (irq_table + family["irqs"]):
-                if irq["number"] not in other_irq_table:
-                    other_irq_table[irq["number"]] = irq
-
-                if other_irq_table[irq["number"]]["reserved"] and not \
-                        irq["reserved"]:
-                    other_irq_table[irq["number"]] = irq
-
-            irq_table = sorted(
-                other_irq_table.values(), key=lambda irq: irq["number"])
+        for key in check:
+            if key in family:
+                if family[key] != locals()[key]:
+                    raise Exception(
+                        f"Sanity check failed: "
+                        f"{key} changed within the same family.")
 
         family.update({
+            "fpu": fpu,
+            "mpu": mpu,
             "architecture": architecture,
             "architecture_short": architecture_short,
             "cpu_series": cpu_series,
-            "irqs": irq_table,
             "crypto": crypto,
             "trng": trng,
+            "radio": radio,
         })
 
         cpu.update(family)
