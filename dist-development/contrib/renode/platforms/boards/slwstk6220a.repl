@@ -1,4 +1,4 @@
-using "platforms/cpus2/ezr32wg330f256r60.repl"
+using "platforms/cpus/ezr32wg330f256r60.repl"
 
 led0: Miscellaneous.LED @ gpioPort 66
 led1: Miscellaneous.LED @ gpioPort 67

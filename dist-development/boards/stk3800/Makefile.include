@@ -1,9 +1,6 @@
 # define the cpu used by STK3800
 export CPU = efm32
-export CPU_ARCH = cortex-m4
-export CPU_FAMILY = efm32wg
 export CPU_MODEL = efm32wg990f256
-export CPU_SERIES = 0
 
 # set default port depending on operating system
 PORT_LINUX ?= /dev/ttyACM0

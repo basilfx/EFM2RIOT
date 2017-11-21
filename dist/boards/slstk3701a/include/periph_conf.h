@@ -51,6 +51,9 @@ extern "C" {
 #ifndef CLOCK_LFB
 #define CLOCK_LFB           cmuSelect_LFXO
 #endif
+#ifndef CLOCK_LFE
+#define CLOCK_LFE           cmuSelect_LFXO
+#endif
 /** @} */
 
 /**
@@ -65,6 +68,18 @@ static const adc_conf_t adc_config[] = {
 };
 
 static const adc_chan_conf_t adc_channel_config[] = {
+    {
+        .dev = 0,
+        .input = adcPosSelTEMP,
+        .reference = adcRef1V25,
+        .acq_time = adcAcqTime8
+    },
+    {
+        .dev = 0,
+        .input = adcPosSelAVDD,
+        .reference = adcRef5V,
+        .acq_time = adcAcqTime8
+    }
 };
 
 #define ADC_DEV_NUMOF       PERIPH_NUMOF(adc_config)
@@ -76,9 +91,39 @@ static const adc_chan_conf_t adc_channel_config[] = {
  * @{
  */
 static const i2c_conf_t i2c_config[] = {
+    {
+        .dev = I2C0,
+        .sda_pin = GPIO_PIN(PC, 0),
+        .scl_pin = GPIO_PIN(PC, 1),
+        .loc = I2C_ROUTELOC0_SDALOC_LOC4 |
+               I2C_ROUTELOC0_SCLLOC_LOC4,
+        .cmu = cmuClock_I2C0,
+        .irq = I2C0_IRQn
+    },
+    {
+        .dev = I2C1,
+        .sda_pin = GPIO_PIN(PC, 7),
+        .scl_pin = GPIO_PIN(PC, 5),
+        .loc = I2C_ROUTELOC0_SDALOC_LOC0 |
+               I2C_ROUTELOC0_SCLLOC_LOC0,
+        .cmu = cmuClock_I2C1,
+        .irq = I2C1_IRQn
+    },
+    {
+        .dev = I2C2,
+        .sda_pin = GPIO_PIN(PI, 4),
+        .scl_pin = GPIO_PIN(PI, 5),
+        .loc = I2C_ROUTELOC0_SDALOC_LOC7 |
+               I2C_ROUTELOC0_SCLLOC_LOC7,
+        .cmu = cmuClock_I2C2,
+        .irq = I2C2_IRQn
+    }
 };
 
 #define I2C_NUMOF           PERIPH_NUMOF(i2c_config)
+#define I2C_0_ISR           isr_i2c0
+#define I2C_1_ISR           isr_i2c1
+#define I2C_2_ISR           isr_i2c2
 /** @} */
 
 /**
@@ -101,6 +146,16 @@ static const i2c_conf_t i2c_config[] = {
  * @{
  */
 static const spi_dev_t spi_config[] = {
+    {
+        .dev = USART1,
+        .mosi_pin = GPIO_PIN(PA, 14),
+        .miso_pin = GPIO_UNDEF,
+        .clk_pin = GPIO_PIN(PC, 15),
+        .loc = USART_ROUTELOC0_TXLOC_LOC6 |
+               USART_ROUTELOC0_CLKLOC_LOC3,
+        .cmu = cmuClock_USART1,
+        .irq = USART1_RX_IRQn
+    }
 };
 
 #define SPI_NUMOF           PERIPH_NUMOF(spi_config)
@@ -113,9 +168,21 @@ static const spi_dev_t spi_config[] = {
  * @{
  */
 static const timer_conf_t timer_config[] = {
+    {
+        {
+            .dev = TIMER0,
+            .cmu = cmuClock_TIMER0
+        },
+        {
+            .dev = TIMER1,
+            .cmu = cmuClock_TIMER1
+        },
+        .irq = TIMER1_IRQn
+    }
 };
 
 #define TIMER_NUMOF         PERIPH_NUMOF(timer_config)
+#define TIMER_0_ISR         isr_timer1
 /** @} */
 
 /**
@@ -123,9 +190,19 @@ static const timer_conf_t timer_config[] = {
  * @{
  */
 static const uart_conf_t uart_config[] = {
+    {
+        .dev = USART4,
+        .rx_pin = GPIO_PIN(PH, 5),
+        .tx_pin = GPIO_PIN(PH, 4),
+        .loc = USART_ROUTELOC0_RXLOC_LOC4 |
+               USART_ROUTELOC0_TXLOC_LOC4,
+        .cmu = cmuClock_USART4,
+        .irq = USART4_RX_IRQn
+    },
 };
 
 #define UART_NUMOF          PERIPH_NUMOF(uart_config)
+#define UART_0_ISR_RX       isr_usart4_rx
 /** @} */
 
 #ifdef __cplusplus

@@ -1,7 +1,5 @@
 # define the cpu used by SLWSTK6220A
-export CPU = ezr32wg
-export CPU_FAM = efm32
-export CPU_ARCH = cortex-m4
+export CPU = efm32
 export CPU_MODEL = ezr32wg330f256r60
 
 # set default port depending on operating system

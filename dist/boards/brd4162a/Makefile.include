@@ -1,7 +1,5 @@
 # define the cpu used by BRD4162A
-export CPU = efr32mg12p
-export CPU_FAM = efm32
-export CPU_ARCH = cortex-m4
+export CPU = efm32
 export CPU_MODEL = efr32mg12p332f1024gl125
 
 # set default port depending on operating system

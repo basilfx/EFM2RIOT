@@ -23,37 +23,6 @@
 #include "cpu.h"
 
 #include "periph/gpio.h"
-static void aem_init(void)
-{
-    if (DBG_Connected()) {
-        /* enable GPIO clock for configuring SWO pins */
-        CMU_ClockEnable(cmuClock_HFPER, true);
-        CMU_ClockEnable(cmuClock_GPIO, true);
-
-        /* enable debug peripheral via SWO */
-        DBG_SWOEnable(GPIO_ROUTE_SWLOCATION_LOC0);
-
-        /* enable trace in core debug */
-        CoreDebug->DHCSR |= CoreDebug_DHCSR_C_DEBUGEN_Msk;
-        CoreDebug->DEMCR |= CoreDebug_DEMCR_TRCENA_Msk;
-
-        /* enable PC and IRQ sampling output */
-        DWT->CTRL = 0x400113FF;
-
-        /* set TPIU prescaler to 16 */
-        TPI->ACPR = 15;
-
-        /* set protocol to NRZ */
-        TPI->SPPR = 2;
-
-        /* disable continuous formatting */
-        TPI->FFCR = 0x100;
-
-        /* unlock ITM and output data */
-        ITM->LAR = 0xC5ACCE55;
-        ITM->TCR = 0x10009;
-    }
-}
 
 void board_init(void)
 {

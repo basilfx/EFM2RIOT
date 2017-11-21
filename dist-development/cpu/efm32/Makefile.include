@@ -1,3 +1,8 @@
+include $(RIOTCPU)/efm32/efm32-info.mk
+
+export CPU_ARCH = $(EFM32_ARCHITECTURE)
+export CPU_FAM = $(EFM32_FAMILY)
+
 # the em_device.h header requires a global define with the cpu model
 export CFLAGS += -D$(shell echo $(CPU_MODEL) | tr 'a-z' 'A-Z')
 
@@ -10,7 +15,7 @@ ifeq ($(CPU_ARCH),cortex-m0plus)
 endif
 
 # include family specific module
-USEMODULE += cpu_efm32_$(CPU_FAMILY)
+USEMODULE += cpu_efm32_$(EFM32_FAMILY)
 
 # include common periph module
 USEMODULE += periph_common
@@ -19,17 +24,15 @@ USEMODULE += periph_common
 USEMODULE += pm_layered
 
 # include vendor device headers
-export INCLUDES += -I$(RIOTCPU)/efm32/families/$(CPU_FAMILY)/include/vendor
+export INCLUDES += -I$(RIOTCPU)/efm32/families/$(EFM32_FAMILY)/include/vendor
 
 # include cortexm_common
 COMMON_STARTUP = 0
-LINKER_SCRIPT = efm32.ld
+LINKER_SCRIPT = cortexm.ld
 
-CPU_INFO = $(shell $(RIOTCPU)/efm32/dist/cpu_info.sh $(RIOTCPU)/efm32/families/$(CPU_FAMILY)/include/vendor/$(CPU_MODEL).h)
-
-ROM_START_ADDR = $(word 1, $(CPU_INFO))
-ROM_LEN = $(word 2, $(CPU_INFO))
-RAM_START_ADDR = $(word 3, $(CPU_INFO))
-RAM_LEN = $(word 4, $(CPU_INFO))
+ROM_START_ADDR = $(EFM32_FLASH_START)
+ROM_LEN = $(EFM32_FLASH_SIZE)
+RAM_START_ADDR = $(EFM32_SRAM_START)
+RAM_LEN = $(EFM32_SRAM_SIZE)
 
 include $(RIOTMAKE)/arch/cortexm.inc.mk

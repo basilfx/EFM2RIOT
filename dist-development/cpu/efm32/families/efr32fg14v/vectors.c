@@ -30,8 +30,14 @@ void dummy_handler(void)
 
 /* Silicon Labs specific interrupt vector */
 WEAK_DEFAULT void isr_emu(void);
+WEAK_DEFAULT void isr_frc_pri(void);
 WEAK_DEFAULT void isr_wdog0(void);
 WEAK_DEFAULT void isr_wdog1(void);
+WEAK_DEFAULT void isr_frc(void);
+WEAK_DEFAULT void isr_modem(void);
+WEAK_DEFAULT void isr_rac_seq(void);
+WEAK_DEFAULT void isr_rac_rsm(void);
+WEAK_DEFAULT void isr_bufc(void);
 WEAK_DEFAULT void isr_ldma(void);
 WEAK_DEFAULT void isr_gpio_even(void);
 WEAK_DEFAULT void isr_timer0(void);
@@ -48,8 +54,13 @@ WEAK_DEFAULT void isr_cmu(void);
 WEAK_DEFAULT void isr_msc(void);
 WEAK_DEFAULT void isr_crypto0(void);
 WEAK_DEFAULT void isr_letimer0(void);
+WEAK_DEFAULT void isr_agc(void);
+WEAK_DEFAULT void isr_protimer(void);
+WEAK_DEFAULT void isr_prortc(void);
 WEAK_DEFAULT void isr_rtcc(void);
+WEAK_DEFAULT void isr_synth(void);
 WEAK_DEFAULT void isr_cryotimer(void);
+WEAK_DEFAULT void isr_rfsense(void);
 WEAK_DEFAULT void isr_fpueh(void);
 WEAK_DEFAULT void isr_smu(void);
 WEAK_DEFAULT void isr_wtimer0(void);
@@ -58,8 +69,14 @@ WEAK_DEFAULT void isr_trng0(void);
 /* interrupt vector table */
 ISR_VECTOR(1) const isr_t vector_cpu[CPU_IRQ_NUMOF] = {
     [ 0] = isr_emu,                /* EMU */
+    [ 1] = isr_frc_pri,            /* FRC_PRI */
     [ 2] = isr_wdog0,              /* WDOG0 */
     [ 3] = isr_wdog1,              /* WDOG1 */
+    [ 4] = isr_frc,                /* FRC */
+    [ 5] = isr_modem,              /* MODEM */
+    [ 6] = isr_rac_seq,            /* RAC_SEQ */
+    [ 7] = isr_rac_rsm,            /* RAC_RSM */
+    [ 8] = isr_bufc,               /* BUFC */
     [ 9] = isr_ldma,               /* LDMA */
     [10] = isr_gpio_even,          /* GPIO_EVEN */
     [11] = isr_timer0,             /* TIMER0 */
@@ -76,8 +93,13 @@ ISR_VECTOR(1) const isr_t vector_cpu[CPU_IRQ_NUMOF] = {
     [25] = isr_msc,                /* MSC */
     [26] = isr_crypto0,            /* CRYPTO0 */
     [27] = isr_letimer0,           /* LETIMER0 */
+    [28] = isr_agc,                /* AGC */
+    [29] = isr_protimer,           /* PROTIMER */
+    [30] = isr_prortc,             /* PRORTC */
     [31] = isr_rtcc,               /* RTCC */
+    [32] = isr_synth,              /* SYNTH */
     [33] = isr_cryotimer,          /* CRYOTIMER */
+    [34] = isr_rfsense,            /* RFSENSE */
     [35] = isr_fpueh,              /* FPUEH */
     [36] = isr_smu,                /* SMU */
     [37] = isr_wtimer0,            /* WTIMER0 */

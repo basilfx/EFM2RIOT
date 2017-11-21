@@ -1,0 +1,14 @@
+using "platforms/cpus/efm32gg11b820f2048gl192.repl"
+
+led0r: Miscellaneous.LED @ gpioPort 66
+led0g: Miscellaneous.LED @ gpioPort 67
+led0b: Miscellaneous.LED @ gpioPort 68
+led1r: Miscellaneous.LED @ gpioPort 69
+led1g: Miscellaneous.LED @ gpioPort 70
+led1b: Miscellaneous.LED @ gpioPort 71
+
+button0: Miscellaneous.Button @ gpioPort 64
+button1: Miscellaneous.Button @ gpioPort 65
+
+si7021: Sensors.SI70xx @ i2c2 0x80
+    model: Model.SI7021

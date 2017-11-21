@@ -1,6 +1,6 @@
 #!/bin/sh
 
-BOARDS="slstk3401a slstk3402a sltb001a slwstk6220a stk3200 stk3600 stk3700 stk3800"
+BOARDS="brd4162a slstk3401a slstk3402a slstk3701a sltb001a slwstk6220a stk3200 stk3600 stk3700 stk3800"
 
 SOURCE=`dirname $0`/..
 TARGET=$1

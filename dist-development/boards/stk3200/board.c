@@ -23,6 +23,7 @@
 #include "cpu.h"
 
 #include "periph/gpio.h"
+
 void board_init(void)
 {
     /* initialize the CPU */

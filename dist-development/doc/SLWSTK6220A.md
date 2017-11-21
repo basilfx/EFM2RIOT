@@ -164,14 +164,14 @@ This port makes uses of emlib by Silicon Labs to abstract peripheral registers. 
 Another advantage of emlib are the included assertions. These assertions ensure that peripherals are used properly. To enable this, pass `DEBUG_EFM` to your compiler.
 
 ### Pin locations
-The EFM32 platform supports peripheral to be mapped to different pins (predefined locations). The definitions in `periph_conf.h` mostly consist of a location number and the actual pins. The actual pins are required to configure the pins via GPIO driver, while the location is used to map the peripheral to these pins.
+The EFM32 platform supports peripherals to be mapped to different pins (predefined locations). The definitions in `periph_conf.h` mostly consist of a location number and the actual pins. The actual pins are required to configure the pins via GPIO driver, while the location is used to map the peripheral to these pins.
 
 In other words, these definitions must match. Refer to the data sheet for more information.
 
 ## Flashing the device
-To flash, the [J-Link Software](https://www.segger.com/jlink-software.html) from SEGGER is required.
+To flash, [SEGGER JLink](https://www.segger.com/jlink-software.html) is required.
 
-Flashing is supported by RIOT-OS by the command below:
+Flashing is supported by RIOT-OS using the command below:
 
 ```
 make flash
@@ -187,6 +187,12 @@ Or, to connect with your own debugger:
 
 ```
 make debug-server
+```
+
+Some boards have (limited) support for emulation, which can be started with:
+
+```
+make emulate
 ```
 
 ## Supported Toolchains

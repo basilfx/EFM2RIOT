@@ -23,9 +23,11 @@
 #include "cpu.h"
 
 #include "periph/gpio.h"
+
 #include "em_dbg.h"
 #include "em_gpio.h"
 
+# if AEM_ENABLED
 static void aem_init(void)
 {
     if (DBG_Connected()) {
@@ -57,6 +59,7 @@ static void aem_init(void)
         ITM->TCR = 0x10009;
     }
 }
+#endif
 
 void board_init(void)
 {

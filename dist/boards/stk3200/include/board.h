@@ -43,6 +43,17 @@ extern "C" {
 /** @} */
 
 /**
+ * @name    Enable Advanced Energy Monitor
+ *
+ * When enabled, additional CPU statistics are available via SWO.
+ * @{
+ */
+#ifndef AEM_ENABLED
+#define AEM_ENABLED         (1)
+#endif
+/** @} */
+
+/**
  * @name    Board controller configuration
  *
  * Define the GPIO pin to enable the BC, to allow serial communication

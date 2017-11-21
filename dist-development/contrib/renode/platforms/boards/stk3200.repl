@@ -1,4 +1,4 @@
-using "platforms/cpus2/efm32zg222f32.repl"
+using "platforms/cpus/efm32zg222f32.repl"
 
 led0: Miscellaneous.LED @ gpioPort 66
 led1: Miscellaneous.LED @ gpioPort 67

@@ -171,7 +171,7 @@ In other words, these definitions must match. Refer to the data sheet for more i
 ## Flashing the device
 To flash, [SEGGER JLink](https://www.segger.com/jlink-software.html) is required.
 
-Flashing is supported by RIOT-OS by the command below:
+Flashing is supported by RIOT-OS using the command below:
 
 ```
 make flash
@@ -189,7 +189,7 @@ Or, to connect with your own debugger:
 make debug-server
 ```
 
-Some boards have (limited) support for emulation, which can be started using:
+Some boards have (limited) support for emulation, which can be started with:
 
 ```
 make emulate

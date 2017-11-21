@@ -1,6 +1,6 @@
 mach create
 using sysbus
-machine LoadPlatformDescription @platforms/boards2/slwstk6220a.repl
+machine LoadPlatformDescription @platforms/boards/slwstk6220a.repl
 machine SetClockSource cpu
 
 # show the UART output
