@@ -282,7 +282,7 @@ The starter kit is equipped with an Advanced Energy Monitor. This allows you to 
 ## Implementation Status
 | Device                        | ID                                  | Supported | Comments                                                       |
 |-------------------------------|-------------------------------------|-----------|----------------------------------------------------------------|
-| MCU                           | {{ family|upper|align(35) }}        | yes       | Power modes supported                                          |
+| MCU                           | {{ family|upper|align(35)        }} | yes       | Power modes supported                                          |
 | Low-level driver              | ADC                                 | yes       |                                                                |
 {% strip 2 %}
     {% if board in ["stk3600", "stk3700", "stk3800", "slwstk6220a"] %}
