@@ -33,7 +33,7 @@ def parse_families(sdk_directory):
         families.append({
             "family": family.lower(),
             "family_base": family.lower().split("32", 1)[0] + "32",
-            "family_display_name": family.upper(),
+            "family|upper": family.upper(),
             "devinfo": parse_device_info(sdk_directory, family),
             "irqs": parse_device_irqs(sdk_directory, family),
         })

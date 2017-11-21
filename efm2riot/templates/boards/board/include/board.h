@@ -7,13 +7,13 @@
  */
 
 /**
- * @defgroup    boards_{{ board }} Silicon Labs {{ board_display_name }} starter kit
+ * @defgroup    boards_{{ board }} Silicon Labs {{ board|upper }} starter kit
  * @ingroup     boards
- * @brief       Support for the Silicon Labs {{ board_display_name }} starter kit
+ * @brief       Support for the Silicon Labs {{ board|upper }} starter kit
  * @{
  *
  * @file
- * @brief       Board specific definitions for the {{ board_display_name }} starter kit
+ * @brief       Board specific definitions for the {{ board|upper }} starter kit
  *
  * @author      Hauke Petersen <hauke.petersen@fu-berlin.de>
  * @author      Bas Stottelaar <basstottelaar@gmail.com>

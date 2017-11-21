@@ -1,4 +1,4 @@
-# define the cpu used by {{ board_display_name }}
+# define the cpu used by {{ board|upper }}
 export CPU = {{ family }}
 export CPU_FAM = efm32
 export CPU_ARCH = cortex-{{ architecture }}

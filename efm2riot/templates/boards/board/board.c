@@ -11,7 +11,7 @@
  * @{
  *
  * @file
- * @brief       Board specific implementations {{ board_display_name }} board
+ * @brief       Board specific implementations {{ board|upper }} board
  *
  * @author      Hauke Petersen <hauke.petersen@fu-berlin.de>
  * @author      Bas Stottelaar <basstottelaar@gmail.com>

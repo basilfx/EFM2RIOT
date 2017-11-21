@@ -1,19 +1,19 @@
-# Silicon Labs {{ board_display_name }}
+# Silicon Labs {{ board|upper }}
 
 ## Overview
-Silicon Labs {{ marketing_display_name }} is equipped with the EFM32 microcontroller. It is specifically designed for low-power applications, having energy-saving peripherals, different energy modes and short wake-up times.
+Silicon Labs {{ marketing_name }} is equipped with the EFM32 microcontroller. It is specifically designed for low-power applications, having energy-saving peripherals, different energy modes and short wake-up times.
 
 The starter kit is equipped with an Advanced Energy Monitor. This allows you to actively measure the power consumption of your hardware and code, in real-time.
 
 ## Hardware
-![{{ board_display_name }} Starter Kit](images/{{board}}.png)
+![{{ board|upper }} Starter Kit](images/{{board}}.png)
 
 ### MCU
 | MCU             | {{ cpu|upper|align(52)                            }} |
 |-----------------|------------------------------------------------------|
 | Family          | {{ ("ARM Cortex-" ~ architecture|upper)|align(52) }} |
 | Vendor          | Silicon Labs                                         |
-| Vendor Family   | {{ family_display_name_full|align(52)             }} |
+| Vendor Family   | {{ family_full_name|align(52)                     }} |
 | RAM             | {{ ((sram_size / 1024) ~ "KB")|align(52)          }} |
 | Flash           | {{ ((flash_size / 1024) ~ "KB")|align(52)         }} |
 | EEPROM          | no                                                   |
@@ -282,7 +282,7 @@ The starter kit is equipped with an Advanced Energy Monitor. This allows you to 
 ## Implementation Status
 | Device                        | ID                                  | Supported | Comments                                                       |
 |-------------------------------|-------------------------------------|-----------|----------------------------------------------------------------|
-| MCU                           | {{ family_display_name|align(35) }} | yes       | Power modes supported                                          |
+| MCU                           | {{ family|upper|align(35) }}        | yes       | Power modes supported                                          |
 | Low-level driver              | ADC                                 | yes       |                                                                |
 {% strip 2 %}
     {% if board in ["stk3600", "stk3700", "stk3800", "slwstk6220a"] %}
@@ -474,7 +474,7 @@ make debug-server
 ```
 
 ## Supported Toolchains
-For using the Silicon Labs {{ board_display_name }} starter kit we strongly recommend the usage of the [GNU Tools for ARM Embedded Processors](https://developer.arm.com/open-source/gnu-toolchain/gnu-rm) toolchain.
+For using the Silicon Labs {{ board|upper }} starter kit we strongly recommend the usage of the [GNU Tools for ARM Embedded Processors](https://developer.arm.com/open-source/gnu-toolchain/gnu-rm) toolchain.
 
 ## License information
 * Silicon Labs' emlib: zlib-style license (permits distribution of source).

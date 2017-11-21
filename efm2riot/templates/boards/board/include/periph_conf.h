@@ -11,7 +11,7 @@
  * @{
  *
  * @file
- * @brief       Configuration of CPU peripherals for the {{ board_display_name }} starter kit
+ * @brief       Configuration of CPU peripherals for the {{ board|upper }} starter kit
  *
  * @author      Hauke Petersen <hauke.petersen@fu-berlin.de>
  * @author      Bas Stottelaar <basstottelaar@gmail.com>
