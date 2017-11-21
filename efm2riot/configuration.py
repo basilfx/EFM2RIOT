@@ -160,6 +160,26 @@ BOARDS = [
         "marketing_display_name": "EFM32 Pearl Gecko PG12 Starter Kit"
     },
     {
+        "cpu": "efm32gg11b820f2048gl192",
+        "cpu_datasheet": "https://www.silabs.com/documents/public/data-sheets/efm32gg11-datasheet.pdf",  # noqa
+        "board": "slstk3701a",
+        "board_display_name": "SLSTK3701A",
+        "board_manual": "https://www.silabs.com/documents/public/user-guides/ug287-stk3701.pdf",  # noqa
+        "board_schematic": "https://www.silabs.com/documents/public/schematic-files/BRD2204A-B00-schematic.pdf",
+        "family": "efm32gg11b",
+        "family_display_name": "EFM32GG11B",
+        "family_display_name_full": "EFM32 Giant Gecko",
+        "family_manual": "https://www.silabs.com/documents/public/reference-manuals/efm32gg11-rm.pdf",  # noqa
+        "freq": {
+            "hfxo": 50000000,
+            "hfrco": 19000000,
+            "lfxo": 32768,
+            "lfrco": 32768,
+            "ulfrco": 1000
+        },
+        "marketing_display_name": "EFM32 Giant Gecko GG11 Starter Kit"
+    },
+    {
         "cpu": "efr32mg1p132f256gm48",
         "cpu_datasheet": "https://www.silabs.com/Support%20Documents/TechnicalDocs/EFR32MG1-DataSheet.pdf",  # noqa
         "board": "sltb001a",
