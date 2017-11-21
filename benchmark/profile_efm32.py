@@ -1,8 +1,10 @@
 # Boards to test.
 BOARDS = [
+    "brd4162a",
     "stk3200",
     "slstk3401a",
     "slstk3402a",
+    "slstk3701a",
     "stk3600",
     "stk3700",
     "stk3800",
