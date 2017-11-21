@@ -3,11 +3,6 @@ from efm2riot import patches, filters
 # Static copy actions (source, destination).
 STATICS = [
     {
-        "type": "file",
-        "source": "{{ root }}/static/README.md",
-        "target": "README.md"
-    },
-    {
         "type": "directory",
         "source": "{{ root }}/static/cpu/efm32",
         "target": "cpu/efm32"
