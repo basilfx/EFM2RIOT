@@ -10,6 +10,12 @@ def add_extern_c(source_file, source):
     Add 'Extern C' to a given source_file.
     """
 
+    # Patches only work with newline versions of the file.
+    if "\r\n" in source:
+        raise Exception(
+            "You need to convert all Gecko SDK sources to Linux file endings "
+            "first (use something like dos2unix).")
+
     # Don't add it if file already contains it.
     if EXTERN_FIND1 in source:
         return source
