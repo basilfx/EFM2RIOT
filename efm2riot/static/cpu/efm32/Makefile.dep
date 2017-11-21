@@ -1,5 +1,3 @@
-include $(RIOTCPU)/efm32/efm32-info.mk
-
 ifneq (,$(filter periph_rtc,$(USEMODULE)))
   USEMODULE += periph_rtc_series$(EFM32_SERIES)
 endif

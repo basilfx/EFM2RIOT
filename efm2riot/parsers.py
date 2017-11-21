@@ -278,6 +278,7 @@ def parse_cpus(sdk_directory, svds_directory, family):
                         f"{key} changed within the same family.")
 
         family.update({
+            "cpus": cpus,
             "fpu": fpu,
             "mpu": mpu,
             "architecture": architecture,

@@ -1,7 +1,5 @@
 # define the cpu used by {{ board|upper }}
-export CPU = {{ family }}
-export CPU_FAM = efm32
-export CPU_ARCH = cortex-{{ architecture }}
+export CPU = efm32
 export CPU_MODEL = {{ cpu }}
 
 # set default port depending on operating system

@@ -40,6 +40,12 @@ TEMPLATES = [
         "target": "cpu/efm32/families/{{ family }}/vectors.c"
     },
     {
+        "type": "file",
+        "when": "per_family",
+        "source": "{{ root }}/templates/cpu/efm32/families/family/cpus.txt",
+        "target": "cpu/efm32/families/{{ family }}/cpus.txt"
+    },
+    {
         "type": "glob",
         "when": "per_board",
         "source": "{{ root }}/templates/boards/board/dist/*",
