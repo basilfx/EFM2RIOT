@@ -23,7 +23,6 @@ export INCLUDES += -I$(RIOTCPU)/efm32/families/$(CPU_FAMILY)/include/vendor
 
 # include cortexm_common
 COMMON_STARTUP = 0
-LINKER_SCRIPT = efm32.ld
 
 CPU_INFO = $(shell $(RIOTCPU)/efm32/dist/cpu_info.sh $(RIOTCPU)/efm32/families/$(CPU_FAMILY)/include/vendor/$(CPU_MODEL).h)
 
