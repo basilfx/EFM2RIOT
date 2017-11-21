@@ -7,11 +7,11 @@
  */
 
 /**
- * @ingroup     boards_slstk3401a
+ * @ingroup     boards_slstk3701a
  * @{
  *
  * @file
- * @brief       Board specific implementations SLSTK3401A board
+ * @brief       Board specific implementations SLSTK3701A board
  *
  * @author      Hauke Petersen <hauke.petersen@fu-berlin.de>
  * @author      Bas Stottelaar <basstottelaar@gmail.com>
@@ -81,10 +81,4 @@ void board_init(void)
     /* initialize the push buttons */
     gpio_init(PB0_PIN, GPIO_IN);
     gpio_init(PB1_PIN, GPIO_IN);
-
-    /* initialize the Si7021 sensor */
-#if SI7021_ENABLED
-    gpio_init(SI7021_EN_PIN, GPIO_OUT);
-    gpio_set(SI7021_EN_PIN);
-#endif
 }

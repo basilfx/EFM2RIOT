@@ -13,7 +13,7 @@ The starter kit is equipped with an Advanced Energy Monitor. This allows you to 
 |-----------------|------------------------------------------------------|
 | Family          | ARM Cortex-M4                                        |
 | Vendor          | Silicon Labs                                         |
-| Vendor Family   | EFM32 Pearl Gecko                                    |
+| Vendor Family   | EFM32 Pearl Gecko 1B                                 |
 | RAM             | 32.0KB                                               |
 | Flash           | 256.0KB                                              |
 | EEPROM          | no                                                   |
@@ -171,14 +171,14 @@ This port makes uses of emlib by Silicon Labs to abstract peripheral registers. 
 Another advantage of emlib are the included assertions. These assertions ensure that peripherals are used properly. To enable this, pass `DEBUG_EFM` to your compiler.
 
 ### Pin locations
-The EFM32 platform supports peripheral to be mapped to different pins (predefined locations). The definitions in `periph_conf.h` mostly consist of a location number and the actual pins. The actual pins are required to configure the pins via GPIO driver, while the location is used to map the peripheral to these pins.
+The EFM32 platform supports peripherals to be mapped to different pins (predefined locations). The definitions in `periph_conf.h` mostly consist of a location number and the actual pins. The actual pins are required to configure the pins via GPIO driver, while the location is used to map the peripheral to these pins.
 
 In other words, these definitions must match. Refer to the data sheet for more information.
 
 This MCU has extended pin mapping support. Each pin of a peripheral can be connected separately to one of the predefined pins for that peripheral.
 
 ## Flashing the device
-To flash, the [J-Link Software](https://www.segger.com/jlink-software.html) from SEGGER is required.
+To flash, [SEGGER JLink](https://www.segger.com/jlink-software.html) is required.
 
 Flashing is supported by RIOT-OS by the command below:
 
@@ -196,6 +196,12 @@ Or, to connect with your own debugger:
 
 ```
 make debug-server
+```
+
+Some boards have (limited) support for emulation, which can be started using:
+
+```
+make emulate
 ```
 
 ## Supported Toolchains

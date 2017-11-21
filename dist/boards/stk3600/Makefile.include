@@ -1,9 +1,8 @@
 # define the cpu used by STK3600
-export CPU = efm32
+export CPU = efm32lg
+export CPU_FAM = efm32
 export CPU_ARCH = cortex-m3
-export CPU_FAMILY = efm32lg
 export CPU_MODEL = efm32lg990f256
-export CPU_SERIES = 0
 
 # set default port depending on operating system
 PORT_LINUX ?= /dev/ttyACM0
