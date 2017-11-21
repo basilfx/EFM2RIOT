@@ -50,10 +50,9 @@ static void dcdc_init(void)
  */
 static void clk_init(void)
 {
-    CMU_HFXOInit_TypeDef init_hfxo = CMU_HFXOINIT_DEFAULT;
-
     /* initialize HFXO with board-specific parameters before switching */
     if (CLOCK_HF == cmuSelect_HFXO) {
+        CMU_HFXOInit_TypeDef init_hfxo = CMU_HFXOINIT_DEFAULT;
         CMU_HFXOInit(&init_hfxo);
     }
 
@@ -66,6 +65,18 @@ static void clk_init(void)
         CMU_OscillatorEnable(cmuOsc_HFRCO, false, false);
     }
 
+    /* initialize LFXO with board-specific parameters before switching */
+    if (CLOCK_LFA == cmuSelect_LFXO || CLOCK_LFB == cmuSelect_LFXO ||
+#ifdef _SILICON_LABS_32B_SERIES_1
+        CLOCK_LFE == cmuSelect_LFXO)
+#else
+        false)
+#endif
+    {
+        CMU_LFXOInit_TypeDef init_lfxo = CLOCK_LFXO_INIT;
+        CMU_LFXOInit(&init_lfxo);
+    }
+
     /* set the LFA clock source */
     CMU_ClockSelectSet(cmuClock_LFA, CLOCK_LFA);
 
@@ -76,6 +87,17 @@ static void clk_init(void)
 #ifdef _SILICON_LABS_32B_SERIES_1
     CMU_ClockSelectSet(cmuClock_LFE, CLOCK_LFE);
 #endif
+
+    /* disable the LFRCO if external crystal is used */
+    if (CLOCK_LFA == cmuSelect_LFXO && CLOCK_LFB == cmuSelect_LFXO &&
+#ifdef _SILICON_LABS_32B_SERIES_1
+        CLOCK_LFE == cmuSelect_LFXO)
+#else
+        true)
+#endif
+    {
+        CMU_OscillatorEnable(cmuOsc_LFRCO, false, false);
+    }
 }
 
 /**
