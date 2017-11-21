@@ -165,7 +165,7 @@ The starter kit is equipped with an Advanced Energy Monitor. This allows you to 
 **Note**: not all starter kits by Silicon Labs share the same pinout!
 
 {% strip 2 %}
-    {% if board not in ["sltb001a"] %}
+    {% if "bc" in features %}
         **Note:** some pins are connected to the board controller, when enabled!
     {% endif %}
 {% endstrip %}
@@ -331,7 +331,7 @@ The starter kit is equipped with an Advanced Energy Monitor. This allows you to 
 
 ### Board controller
 {% strip 2 %}
-    {% if board not in ["sltb001a"] %}
+    {% if "bc" in features %}
         The starter kit is equipped with a Board Controller. This controller provides a virtual serial port. The board controller is enabled via a GPIO pin.
 
         By default, this pin is enabled. It can be disable by passing `BC_ENABLED=0` to the compiler.
@@ -351,12 +351,12 @@ The starter kit is equipped with an Advanced Energy Monitor. This allows you to 
 {% endstrip %}
 
 {% strip 2, ">" %}
-    {% if board in ["slstk3401a", "slstk3402a", "slwstk6220a", "stk3200", "stk3600", "stk3700", "stk3800"] %}
+    {% if "aem" in features %}
         ### Advanced Energy Monitor
         This development kit has an Advanced Energy Monitor. It can be connected to the Simplicity Studio development software.
 
         {% strip 2 %}
-            {% if board in ["slstk3401a", "slstk3402a", "slwstk6220a", "stk3600", "stk3700", "stk3800"] %}
+            {% if architecture not in ["m0", "m0plus"] %}
                 This development kit can measure energy consumption and correlate this with the code. It allows you to measure energy consumption on code-level.
 
                 The board controller is responsible for measuring energy consumption. For real-time code correlation, the CoreDebug peripheral will be configured to output MCU register data and interrupt data via the SWO port.
@@ -442,7 +442,7 @@ This port makes uses of emlib by Silicon Labs to abstract peripheral registers. 
 Another advantage of emlib are the included assertions. These assertions ensure that peripherals are used properly. To enable this, pass `DEBUG_EFM` to your compiler.
 
 ### Pin locations
-The EFM32 platform supports peripheral to be mapped to different pins (predefined locations). The definitions in `periph_conf.h` mostly consist of a location number and the actual pins. The actual pins are required to configure the pins via GPIO driver, while the location is used to map the peripheral to these pins.
+The EFM32 platform supports peripherals to be mapped to different pins (predefined locations). The definitions in `periph_conf.h` mostly consist of a location number and the actual pins. The actual pins are required to configure the pins via GPIO driver, while the location is used to map the peripheral to these pins.
 
 In other words, these definitions must match. Refer to the data sheet for more information.
 
@@ -453,7 +453,7 @@ In other words, these definitions must match. Refer to the data sheet for more i
 {% endstrip %}
 
 ## Flashing the device
-To flash, the [J-Link Software](https://www.segger.com/jlink-software.html) from SEGGER is required.
+To flash, [SEGGER JLink](https://www.segger.com/jlink-software.html) is required.
 
 Flashing is supported by RIOT-OS by the command below:
 
@@ -471,6 +471,12 @@ Or, to connect with your own debugger:
 
 ```
 make debug-server
+```
+
+Some boards have (limited) support for emulation, which can be started using:
+
+```
+make emulate
 ```
 
 ## Supported Toolchains

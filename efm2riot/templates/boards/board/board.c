@@ -30,7 +30,7 @@
 {% endstrip %}
 
 {% strip 3, ">" %}
-    {% if board not in ["sltb001a"] %}
+    {% if "aem" in features %}
         {% if architecture not in ["m0", "m0plus"] %}
             #include "em_dbg.h"
             #include "em_gpio.h"
@@ -80,7 +80,7 @@
 {% endstrip %}
 
 {% strip 2, ">" %}
-    {% if board in ["slstk3401a", "slstk3402a", "slwstk6220a", "stk3600", "stk3700", "stk3800"] %}
+    {% if "aem" in features %}
         static void aem_init(void)
         {
             if (DBG_Connected()) {
@@ -126,17 +126,19 @@ void board_init(void)
     /* initialize the CPU */
     cpu_init();
 
-    {% strip 3, ">" %}
-        {% if board in ["slstk3401a", "slstk3402a", "slwstk6220a", "stk3600", "stk3700", "stk3800"] %}
-                /* enable core debug output AEM */
-            #if AEM_ENABLED
-                aem_init();
-            #endif
+    {% strip 4, ">" %}
+        {% if "aem" in features %}
+            {% if architecture not in ["m0", "m0plus"] %}
+                    /* enable core debug output AEM */
+                #if AEM_ENABLED
+                    aem_init();
+                #endif
+            {% endif %}
         {% endif %}
     {% endstrip %}
 
     {% strip 3, ">" %}
-        {% if board in ["slstk3401a", "slstk3402a", "slwstk6220a", "stk3200", "stk3600", "stk3700", "stk3800"] %}
+        {% if "bc" in features %}
                 /* enable the board controller, to enable virtual com port */
             #if BC_ENABLED
                 gpio_init(BC_PIN, GPIO_OUT);

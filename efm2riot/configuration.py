@@ -128,6 +128,7 @@ BOARDS = [
         "family": "efr32mg12p",
         "family_full_name": "EFR32 Mighty Gecko 12P",
         "family_manual": "http://www.silabs.com/Support%20Documents/TechnicalDocs/EFR32-ReferenceManual.pdf",  # noqa
+        "features": ["aem", "bc"],
         "freq": {
             "hfxo": 38400000,
             "hfrco": 19000000,
@@ -146,6 +147,7 @@ BOARDS = [
         "family": "efm32pg1b",
         "family_full_name": "EFM32 Pearl Gecko 1B",
         "family_manual": "https://www.silabs.com/Support%20Documents/TechnicalDocs/EFM32PG1-ReferenceManual.pdf",  # noqa
+        "features": ["aem", "bc"],
         "freq": {
             "hfxo": 40000000,
             "hfrco": 19000000,
@@ -164,6 +166,7 @@ BOARDS = [
         "family": "efm32pg12b",
         "family_full_name": "EFM32 Pearl Gecko 12B",
         "family_manual": "https://www.silabs.com/documents/public/reference-manuals/efm32pg12-rm.pdf",  # noqa
+        "features": ["aem", "bc"],
         "freq": {
             "hfxo": 40000000,
             "hfrco": 19000000,
@@ -182,6 +185,7 @@ BOARDS = [
         "family": "efm32gg11b",
         "family_full_name": "EFM32 Giant Gecko 11B",
         "family_manual": "https://www.silabs.com/documents/public/reference-manuals/efm32gg11-rm.pdf",  # noqa
+        "features": ["aem", "bc"],
         "freq": {
             "hfxo": 50000000,
             "hfrco": 19000000,
@@ -200,6 +204,7 @@ BOARDS = [
         "family": "efr32mg1p",
         "family_full_name": "EFR32 Mighty Gecko 1P",
         "family_manual": "http://www.silabs.com/Support%20Documents/TechnicalDocs/EFR32-ReferenceManual.pdf",  # noqa
+        "features": [],
         "freq": {
             "hfxo": 38400000,
             "hfrco": 19000000,
@@ -218,6 +223,7 @@ BOARDS = [
         "family": "ezr32wg",
         "family_full_name": "EZR32 Wonder Gecko",
         "family_manual": "http://www.silabs.com/Support%20Documents/TechnicalDocs/EZR32LG-RM.pdf",  # noqa
+        "features": ["aem", "bc"],
         "freq": {
             "hfxo": 48000000,
             "hfrco": 14000000,
@@ -235,6 +241,7 @@ BOARDS = [
         "board_schematic": "https://www.silabs.com/Support%20Documents/TechnicalDocs/BRD2010A_B01.pdf",  # noqa
         "family_full_name": "EFM32 Zero Gecko",
         "family_manual": "https://www.silabs.com/Support%20Documents/TechnicalDocs/EFM32ZG-RM.pdf",  # noqa
+        "features": ["aem", "bc"],
         "freq": {
             "hfxo": 24000000,
             "hfrco": 14000000,
@@ -253,6 +260,7 @@ BOARDS = [
         "family": "efm32lg",
         "family_full_name": "EFM32 Leoppard Gecko",
         "family_manual": "https://www.silabs.com/Support%20Documents/TechnicalDocs/EFM32LG-RM.pdf",  # noqa
+        "features": ["aem", "bc"],
         "freq": {
             "hfxo": 48000000,
             "hfrco": 14000000,
@@ -271,6 +279,7 @@ BOARDS = [
         "family": "efm32gg",
         "family_full_name": "EFM32 Giant Gecko",
         "family_manual": "https://www.silabs.com/Support%20Documents/TechnicalDocs/EFM32GG-RM.pdf",  # noqa
+        "features": ["aem", "bc"],
         "freq": {
             "hfxo": 48000000,
             "hfrco": 14000000,
@@ -289,6 +298,7 @@ BOARDS = [
         "family": "efm32wg",
         "family_full_name": "EFM32 Wonder Gecko",
         "family_manual": "http://www.silabs.com/Support%20Documents/TechnicalDocs/EFM32WG-RM.pdf",  # noqa
+        "features": ["aem", "bc"],
         "freq": {
             "hfxo": 48000000,
             "hfrco": 14000000,
