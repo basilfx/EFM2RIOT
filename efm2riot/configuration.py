@@ -166,13 +166,13 @@ BOARDS = [
         "board_display_name": "SLTB001A",
         "board_manual": "http://www.silabs.com/Support%20Documents/TechnicalDocs/UG250.pdf",  # noqa
         "board_schematic": "http://www.silabs.com/Support%20Documents/TechnicalDocs/UG250.pdf",  # noqa
-        "family": "efm32mg",
+        "family": "efr32mg",
         "family_display_name": "EFR32MG",
-        "family_display_name_full": "EFM32 Mighty Gecko Gecko",
+        "family_display_name_full": "EFR32 Mighty Gecko",
         "family_manual": "http://www.silabs.com/Support%20Documents/TechnicalDocs/EFR32-ReferenceManual.pdf",  # noqa
         "freq": {
             "hfxo": 38400000,
-            "hfrco": 14000000,
+            "hfrco": 19000000,
             "lfxo": 32768,
             "lfrco": 32768,
             "ulfrco": 1000
