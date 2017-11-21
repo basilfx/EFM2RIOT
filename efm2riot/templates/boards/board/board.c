@@ -79,6 +79,48 @@
     {% endif %}
 {% endstrip %}
 
+{% strip 2, ">" %}
+    {% if board in ["slstk3401a", "slstk3402a", "slwstk6220a", "stk3600", "stk3700", "stk3800"] %}
+        static void aem_init(void)
+        {
+            if (DBG_Connected()) {
+                /* enable GPIO clock for configuring SWO pins */
+                CMU_ClockEnable(cmuClock_HFPER, true);
+                CMU_ClockEnable(cmuClock_GPIO, true);
+
+                /* enable debug peripheral via SWO */
+                {% strip 2 %}
+                    {% if cpu_series == 0 %}
+                        DBG_SWOEnable(GPIO_ROUTE_SWLOCATION_LOC0);
+                    {% else %}
+                        DBG_SWOEnable(GPIO_ROUTELOC0_SWVLOC_LOC0);
+                    {% endif %}
+                {% endstrip %}
+
+                /* enable trace in core debug */
+                CoreDebug->DHCSR |= CoreDebug_DHCSR_C_DEBUGEN_Msk;
+                CoreDebug->DEMCR |= CoreDebug_DEMCR_TRCENA_Msk;
+
+                /* enable PC and IRQ sampling output */
+                DWT->CTRL = 0x400113FF;
+
+                /* set TPIU prescaler to 16 */
+                TPI->ACPR = 15;
+
+                /* set protocol to NRZ */
+                TPI->SPPR = 2;
+
+                /* disable continuous formatting */
+                TPI->FFCR = 0x100;
+
+                /* unlock ITM and output data */
+                ITM->LAR = 0xC5ACCE55;
+                ITM->TCR = 0x10009;
+            }
+        }
+    {% endif %}
+{% endstrip %}
+
 void board_init(void)
 {
     /* initialize the CPU */
@@ -88,40 +130,7 @@ void board_init(void)
         {% if board in ["slstk3401a", "slstk3402a", "slwstk6220a", "stk3600", "stk3700", "stk3800"] %}
                 /* enable core debug output AEM */
             #if AEM_ENABLED
-                if (DBG_Connected()) {
-                    /* enable GPIO clock for configuring SWO pins */
-                    CMU_ClockEnable(cmuClock_HFPER, true);
-                    CMU_ClockEnable(cmuClock_GPIO, true);
-
-                    /* enable debug peripheral via SWO */
-                    {% strip 2 %}
-                        {% if cpu_series == 0 %}
-                            DBG_SWOEnable(GPIO_ROUTE_SWLOCATION_LOC0);
-                        {% else %}
-                            DBG_SWOEnable(GPIO_ROUTELOC0_SWVLOC_LOC0);
-                        {% endif %}
-                    {% endstrip %}
-
-                    /* enable trace in core debug */
-                    CoreDebug->DHCSR |= CoreDebug_DHCSR_C_DEBUGEN_Msk;
-                    CoreDebug->DEMCR |= CoreDebug_DEMCR_TRCENA_Msk;
-
-                    /* enable PC and IRQ sampling output */
-                    DWT->CTRL = 0x400113FF;
-
-                    /* set TPIU prescaler to 16 */
-                    TPI->ACPR = 15;
-
-                    /* set protocol to NRZ */
-                    TPI->SPPR = 2;
-
-                    /* disable continuous formatting */
-                    TPI->FFCR = 0x100;
-
-                    /* unlock ITM and output data */
-                    ITM->LAR = 0xC5ACCE55;
-                    ITM->TCR = 0x10009;
-                }
+                aem_init();
             #endif
         {% endif %}
     {% endstrip %}
