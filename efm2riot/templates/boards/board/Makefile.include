@@ -1,9 +1,8 @@
 # define the cpu used by {{ board_display_name }}
-export CPU = efm32
+export CPU = {{ family }}
+export CPU_FAM = efm32
 export CPU_ARCH = cortex-{{ architecture }}
-export CPU_FAMILY = {{ family }}
 export CPU_MODEL = {{ cpu }}
-export CPU_SERIES = {{ cpu_series }}
 
 # set default port depending on operating system
 PORT_LINUX ?= /dev/ttyACM0
