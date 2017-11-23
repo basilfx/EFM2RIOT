@@ -16,6 +16,11 @@ STATICS = [
         "type": "directory",
         "source": "{{ root }}/static/examples",
         "target": "examples"
+    },
+    {
+        "type": "directory",
+        "source": "{{ root }}/static/pkg/gecko_sdk",
+        "target": "pkg/gecko_sdk"
     }
 ]
 
