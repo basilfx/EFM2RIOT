@@ -5,7 +5,7 @@ ifeq (,$(EFM32_HEADER))
   $(error Header file for $(CPU_MODEL) is missing)
 endif
 
-# Lookup CPU information.
+# Lookup up CPU information using grep.
 EFM32_INFO = $(shell grep $(CPU_MODEL) $(shell dirname $(EFM32_HEADER))/../../cpus.txt)
 
 ifeq (,$(EFM32_INFO))

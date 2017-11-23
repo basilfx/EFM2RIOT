@@ -73,7 +73,7 @@ static void clk_init(void)
         false)
 #endif
     {
-        CMU_LFXOInit_TypeDef init_lfxo = CLOCK_LFXO_INIT;
+        CMU_LFXOInit_TypeDef init_lfxo = CMU_LFXOINIT_DEFAULT;
         CMU_LFXOInit(&init_lfxo);
     }
 

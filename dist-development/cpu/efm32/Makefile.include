@@ -6,8 +6,8 @@ export CPU_FAM = $(EFM32_FAMILY)
 # the em_device.h header requires a global define with the cpu model
 export CFLAGS += -D$(shell echo $(CPU_MODEL) | tr 'a-z' 'A-Z')
 
-# include emlib package
-USEPKG += emlib
+# include Gecko SDK package
+USEPKG += gecko_sdk
 
 # CMSIS-DSP is needed for arm_math.h on Cortex-M0+ architectures
 ifeq ($(CPU_ARCH),cortex-m0plus)

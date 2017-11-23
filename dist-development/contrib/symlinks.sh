@@ -13,3 +13,6 @@ done
 
 # Symlink the cpu folder into `RIOT_ROOT/cpu`.
 ln -sf `realpath "$SOURCE/cpu/efm32"` "$TARGET/cpu/"
+
+# Symlink the pkg/gecko_sdk folder into `RIOT_ROOT/pkg/gecko_sdk`.
+ln -sf `realpath "$SOURCE/pkg/gecko_sdk"` "$TARGET/pkg/"
