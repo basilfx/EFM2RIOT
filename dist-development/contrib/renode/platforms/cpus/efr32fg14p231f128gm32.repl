@@ -13,7 +13,7 @@ nvic: IRQControllers.NVIC @ sysbus 0xE000E000
 
 cpu: CPU.CortexM @ sysbus
     nvic: nvic
-    cpuType: "cortex-m4"
+    cpuType: "cortex-m4f"
 
 deviceInformation: EFR32FG14PDeviceInformation @ sysbus 0x0fe081b0
     deviceNumber: 1

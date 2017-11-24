@@ -11,7 +11,7 @@ The starter kit is equipped with an Advanced Energy Monitor. This allows you to 
 ### MCU
 | MCU             | EFM32GG11B820F2048GL192                              |
 |-----------------|------------------------------------------------------|
-| Family          | ARM Cortex-M4                                        |
+| Family          | ARM Cortex-M4F                                       |
 | Vendor          | Silicon Labs                                         |
 | Vendor Family   | EFM32 Giant Gecko 11B                                |
 | RAM             | 512.0KB                                              |

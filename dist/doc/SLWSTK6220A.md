@@ -11,7 +11,7 @@ The starter kit is equipped with an Advanced Energy Monitor. This allows you to 
 ### MCU
 | MCU             | EZR32WG330F256R60                                    |
 |-----------------|------------------------------------------------------|
-| Family          | ARM Cortex-M4                                        |
+| Family          | ARM Cortex-M4F                                       |
 | Vendor          | Silicon Labs                                         |
 | Vendor Family   | EZR32 Wonder Gecko                                   |
 | RAM             | 32.0KB                                               |

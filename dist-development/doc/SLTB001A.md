@@ -11,7 +11,7 @@ The starter kit is equipped with an Advanced Energy Monitor. This allows you to 
 ### MCU
 | MCU             | EFR32MG1P132F256GM48                                 |
 |-----------------|------------------------------------------------------|
-| Family          | ARM Cortex-M4                                        |
+| Family          | ARM Cortex-M4F                                       |
 | Vendor          | Silicon Labs                                         |
 | Vendor Family   | EFR32 Mighty Gecko 1P                                |
 | RAM             | 31.0KB                                               |

@@ -11,7 +11,7 @@ The starter kit is equipped with an Advanced Energy Monitor. This allows you to 
 ### MCU
 | MCU             | EFM32PG1B200F256GM48                                 |
 |-----------------|------------------------------------------------------|
-| Family          | ARM Cortex-M4                                        |
+| Family          | ARM Cortex-M4F                                       |
 | Vendor          | Silicon Labs                                         |
 | Vendor Family   | EFM32 Pearl Gecko 1B                                 |
 | RAM             | 32.0KB                                               |
