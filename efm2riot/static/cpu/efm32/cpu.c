@@ -60,7 +60,7 @@ static void clk_init(void)
         CMU_HFXOInit(&init_hfxo);
     }
 
-    /* set the HF clock source */
+    /* set (and enable) the HF clock source */
     CMU_ClockSelectSet(cmuClock_HF, CLOCK_HF);
     CMU_ClockDivSet(cmuClock_CORE, CLOCK_CORE_DIV);
 
@@ -82,14 +82,14 @@ static void clk_init(void)
         CMU_LFXOInit(&init_lfxo);
     }
 
-    /* set the LFA clock source */
+    /* set (and enable) the LFA clock source */
     CMU_ClockSelectSet(cmuClock_LFA, CLOCK_LFA);
 
-    /* set the LFB clock source */
+    /* set (and enable) the LFB clock source */
     CMU_ClockSelectSet(cmuClock_LFB, CLOCK_LFB);
 
-    /* set the LFE clock source */
 #ifdef _SILICON_LABS_32B_SERIES_1
+    /* set (and enable) the LFE clock source */
     CMU_ClockSelectSet(cmuClock_LFE, CLOCK_LFE);
 #endif
 
