@@ -25,7 +25,7 @@ You will need Python 3.6 and the Gecko SDK v5.3.3 (can be installed via [Simplic
 To (re)generate all files, run:
 
 ```
-python3 EFM2RIOT.py --sdk /path/to/sdk/platform --dist dist/
+python3 EFM2RIOT.py --sdk /path/to/sdk/platform --svds /path/to/svds --dist dist/
 ```
 
 To enable some features that are not yet part of RIOT-OS, pass `--development`.
@@ -104,4 +104,4 @@ As of October 2017, emlib is not included directly, but via an external package 
 ## License
 See the `LICENSE` file.
 
-The `dist/` folder contains a modified copy of emlib, copyrighted by Silicon Labs. Some of the other port files have been copied from other RIOT-OS ports.
+Some of the other port files have been copied from other RIOT-OS ports.
