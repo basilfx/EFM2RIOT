@@ -252,6 +252,10 @@ def parse_cpus(sdk_directory, svds_directory, family):
         if not flash_size or not sram_size:
             raise Exception("Missing flash/ram size in include %s" % include)
 
+        if fpu and architecture == "m4":
+            architecture = "m4f"
+            architecture_short = "m4f"
+
         cpu_name = os.path.basename(include).split(".")[0]
 
         cpu = {

@@ -21,10 +21,10 @@ FEATURES_PROVIDED += periph_uart
 # The board MPU family (used for grouping by the CI system)
 {% strip 2 %}
     {% if architecture in ["m0", "m0plus"] %}
-        FEATURES_MCU_GROUP = cortex_m0_1
+        FEATURES_MCU_GROUP = cortex_m0_2
     {% elif architecture in ["m3"] %}
         FEATURES_MCU_GROUP = cortex_m3_2
-    {% elif architecture in ["m4"] %}
+    {% elif architecture in ["m4", "m4f"] %}
         FEATURES_MCU_GROUP = cortex_m4_2
     {% endif %}
 {% endstrip %}
