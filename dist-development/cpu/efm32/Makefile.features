@@ -3,5 +3,5 @@ FEATURES_PROVIDED += periph_flashpage
 FEATURES_PROVIDED += periph_pm
 
 ifeq (1,$(EFM32_TNRG))
-    FEATURES_PROVIDED += periph_hwrng
+  FEATURES_PROVIDED += periph_hwrng
 endif

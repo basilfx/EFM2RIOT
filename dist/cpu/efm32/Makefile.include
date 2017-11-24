@@ -11,11 +11,8 @@ USEPKG += gecko_sdk
 
 # CMSIS-DSP is needed for arm_math.h on Cortex-M0+ architectures
 ifeq ($(CPU_ARCH),cortex-m0plus)
-    USEPKG += cmsis-dsp
+  USEPKG += cmsis-dsp
 endif
-
-# include family specific module
-USEMODULE += cpu_efm32_$(EFM32_FAMILY)
 
 # include common periph module
 USEMODULE += periph_common
@@ -24,10 +21,9 @@ USEMODULE += periph_common
 USEMODULE += pm_layered
 
 # include vendor device headers
-export INCLUDES += -I$(RIOTCPU)/efm32/families/$(EFM32_FAMILY)/include/vendor
+INCLUDES += -I$(RIOTCPU)/efm32/families/$(EFM32_FAMILY)/include/vendor
 
 # include cortexm_common
-COMMON_STARTUP = 0
 LINKER_SCRIPT = cortexm.ld
 
 ROM_START_ADDR = $(EFM32_FLASH_START)

@@ -33,7 +33,7 @@
  */
 static void dcdc_init(void)
 {
-    EMU_DCDCInit_TypeDef init_dcdc = EMU_DCDCINIT_DEFAULT;
+    EMU_DCDCInit_TypeDef init_dcdc = EMU_DCDCINIT;
 
     EMU_DCDCInit(&init_dcdc);
 }
@@ -47,12 +47,16 @@ static void dcdc_init(void)
  * oscillator (HFRCO, enabled by default).
  *
  * The clocks for the LFA, LFB, LFE and HFPER are also configured.
+ *
+ * When selecting the HFXO, the HFRCO is disabled. The same applies for the
+ * LFA, LFB and LFE branch, in case the LFXO is selected.
  */
 static void clk_init(void)
 {
     /* initialize HFXO with board-specific parameters before switching */
     if (CLOCK_HF == cmuSelect_HFXO) {
-        CMU_HFXOInit_TypeDef init_hfxo = CMU_HFXOINIT_DEFAULT;
+        CMU_HFXOInit_TypeDef init_hfxo = CMU_HFXOINIT;
+
         CMU_HFXOInit(&init_hfxo);
     }
 
@@ -73,7 +77,8 @@ static void clk_init(void)
         false)
 #endif
     {
-        CMU_LFXOInit_TypeDef init_lfxo = CMU_LFXOINIT_DEFAULT;
+        CMU_LFXOInit_TypeDef init_lfxo = CMU_LFXOINIT;
+
         CMU_LFXOInit(&init_lfxo);
     }
 
@@ -109,13 +114,13 @@ static void clk_init(void)
 static void pm_init(void)
 {
     /* initialize EM2 and EM3 */
-    EMU_EM23Init_TypeDef init_em23 = EMU_EM23INIT_DEFAULT;
+    EMU_EM23Init_TypeDef init_em23 = EMU_EM23INIT;
 
     EMU_EM23Init(&init_em23);
 
 #ifdef _SILICON_LABS_32B_SERIES_1
     /* initialize EM4 */
-    EMU_EM4Init_TypeDef init_em4 = EMU_EM4INIT_DEFAULT;
+    EMU_EM4Init_TypeDef init_em4 = EMU_EM4INIT;
 
     EMU_EM4Init(&init_em4);
 #endif
