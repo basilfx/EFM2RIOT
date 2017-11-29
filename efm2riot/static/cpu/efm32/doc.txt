@@ -42,6 +42,22 @@
  * specifics.
  *
  *
+ * EMU and CMU Configuration
+ * =========================
+ *
+ * The Energy Management Unit (EMU) and Clock Management Unit (CMU) are
+ * initialized using default values provided by the Gecko SDK. You can override
+ * any of the following defaults to use other values:
+ *
+ *   - `CMU_HFXOINIT`
+ *   - `CMU_LFXOINIT`
+ *   - `EMU_DCDCINIT`
+ *   - `EMU_EM23INIT`
+ *   - `EMU_EM4INIT`
+ *
+ * Refer to the Gecko SDK for more information about these values.
+ *
+ *
  * Low-power Configuration
  * =======================
  *
