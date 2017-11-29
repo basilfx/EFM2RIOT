@@ -27,6 +27,29 @@
 #include "em_cmu.h"
 #include "em_emu.h"
 
+/**
+ * @brief   Default settings for CMU initialization.
+ */
+#ifndef CMU_HFXOINIT
+#define CMU_HFXOINIT        CMU_HFXOINIT_DEFAULT
+#endif
+#ifndef CMU_LFXOINIT
+#define CMU_LFXOINIT        CMU_LFXOINIT_DEFAULT
+#endif
+
+/**
+ * @brief   Default settings for EMU initialization
+ */
+#ifndef EMU_DCDCINIT
+#define EMU_DCDCINIT        EMU_DCDCINIT_DEFAULT
+#endif
+#ifndef EMU_EM23INIT
+#define EMU_EM23INIT        EMU_EM23INIT_DEFAULT
+#endif
+#ifndef EMU_EM4INIT
+#define EMU_EM4INIT         EMU_EM4INIT_DEFAULT
+#endif
+
 #ifdef _SILICON_LABS_32B_SERIES_1
 /**
  * @brief   Initialize integrated DC-DC regulator
