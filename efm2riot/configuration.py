@@ -4,11 +4,6 @@ from efm2riot import patches, filters
 STATICS = [
     {
         "type": "directory",
-        "source": "{{ root }}/static/cpu/efm32",
-        "target": "cpu/efm32"
-    },
-    {
-        "type": "directory",
         "source": "{{ root }}/static/doc/images",
         "target": "doc/images"
     },
@@ -16,11 +11,6 @@ STATICS = [
         "type": "directory",
         "source": "{{ root }}/static/examples",
         "target": "examples"
-    },
-    {
-        "type": "directory",
-        "source": "{{ root }}/static/pkg/gecko_sdk",
-        "target": "pkg/gecko_sdk"
     }
 ]
 
