@@ -1,6 +1,7 @@
 #!/bin/sh
 
 BOARDS="{{ boards|join(" ") }}"
+FAMILIES="{{ families|join(" ") }}"
 
 SOURCE=`dirname $0`/..
 TARGET=$1
@@ -11,5 +12,11 @@ do
     ln -sf `realpath "$SOURCE/boards/$board"` "$TARGET/boards/"
 done
 
-# Symlink the cpu folder into `RIOT_ROOT/cpu`.
-ln -sf `realpath "$SOURCE/cpu/efm32"` "$TARGET/cpu/"
+# Symlink boards common into `RIOT_ROOT/boards/common/`.
+ln -sf `realpath "$SOURCE/boards/common/silabs"` "$TARGET/boards/common/"
+
+# Symlink the families folder into `RIOT_ROOT/cpu/families/`.
+for family in $FAMILIES
+do
+    ln -sf `realpath "$SOURCE/cpu/efm32/families/$family"` "$TARGET/cpu/efm32/families/"
+done

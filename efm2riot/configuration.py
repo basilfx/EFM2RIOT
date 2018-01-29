@@ -4,6 +4,11 @@ from efm2riot import patches, filters
 STATICS = [
     {
         "type": "directory",
+        "source": "{{ root }}/static/boards/common/silabs",
+        "target": "boards/common/silabs"
+    },
+    {
+        "type": "directory",
         "source": "{{ root }}/static/doc/images",
         "target": "doc/images"
     },

@@ -43,21 +43,6 @@ extern "C" {
 /** @} */
 
 {% strip 2, ">" %}
-    {% if "aem" in features %}
-        /**
-         * @name    Enable Advanced Energy Monitor
-         *
-         * When enabled, additional CPU statistics are available via SWO.
-         * @{
-         */
-        #ifndef AEM_ENABLED
-        #define AEM_ENABLED         (1)
-        #endif
-        /** @} */
-    {% endif %}
-{% endstrip %}
-
-{% strip 2, ">" %}
     {% if "bc" in features %}
         /**
          * @name    Board controller configuration
@@ -66,9 +51,6 @@ extern "C" {
          * via the USB port.
          * @{
          */
-        #ifndef BC_ENABLED
-        #define BC_ENABLED          (1)
-        #endif
         {% strip 2 %}
             {% if board in ["brd4162a"] %}
                 #define BC_PIN              GPIO_PIN(PA, 5)

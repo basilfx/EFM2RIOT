@@ -6,6 +6,9 @@ export CPU_MODEL = {{ cpu }}
 PORT_LINUX ?= /dev/ttyACM0
 PORT_DARWIN ?= $(firstword $(sort $(wildcard /dev/tty.usbmodem*)))
 
+# setup serial terminal
+include $(RIOTMAKE)/tools/serial.inc.mk
+
 # setup JLink for flashing
 {% strip 2 %}
     {% if board in ["sltb001a"] %}
@@ -16,12 +19,26 @@ PORT_DARWIN ?= $(firstword $(sort $(wildcard /dev/tty.usbmodem*)))
 {% endstrip %}
 include $(RIOTMAKE)/tools/jlink.inc.mk
 
-# setup serial terminal
-include $(RIOTMAKE)/tools/serial.inc.mk
-
 {% strip 2, "<" %}
     {% if development %}
         # setup emulator
         include $(RIOTMAKE)/tools/renode.inc.mk
     {% endif %}
 {% endstrip %}
+
+# add board common drivers
+USEMODULE += boards_common_silabs
+{% strip 2 %}
+    {% if "aem" in features %}
+        USEMODULE += aem
+    {% endif %}
+    {% if "bc" in features %}
+        USEMODULE += bc
+    {% endif %}
+    {% if board in ["sltb001a"] %}
+        USEMODULE += pic
+    {% endif %}
+{% endstrip %}
+
+# include board common
+include $(RIOTBOARD)/common/silabs/Makefile.include

@@ -23,11 +23,7 @@ ifneq (,$(filter saul_default,$(USEMODULE)))
     {% endstrip %}
 endif
 
-{% strip 2, "<" %}
-    {% if board in ["sltb001a"] %}
-        # i2c is required for environmental sensors
-        USEMODULE += periph_i2c
-    {% endif %}
-{% endstrip %}
+# include board common dependencies
+include $(RIOTBOARD)/common/silabs/Makefile.dep
 
 include $(RIOTCPU)/efm32/Makefile.dep
