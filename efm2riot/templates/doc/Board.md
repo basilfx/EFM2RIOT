@@ -166,7 +166,7 @@ The starter kit is equipped with an Advanced Energy Monitor. This allows you to 
         | VMCU | 2   | 1   | GND  |
     {% elif board in ["stk3600", "stk3700", "stk3800"] %}
         | 3V3  | 20  | 19  | RES  |
-        | 5V   | 18  | 17  | PC7  |
+        | 5V   | 18  | 17  | PD7  |
         | PD6  | 16  | 15  | PC6  |
         | PD5  | 14  | 13  | PB12 |
         | PD4  | 12  | 11  | PB11 |
