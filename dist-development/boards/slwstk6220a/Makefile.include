@@ -6,12 +6,20 @@ export CPU_MODEL = ezr32wg330f256r60
 PORT_LINUX ?= /dev/ttyACM0
 PORT_DARWIN ?= $(firstword $(sort $(wildcard /dev/tty.usbmodem*)))
 
+# setup serial terminal
+include $(RIOTMAKE)/tools/serial.inc.mk
+
 # setup JLink for flashing
 export JLINK_DEVICE := $(CPU_MODEL)
 include $(RIOTMAKE)/tools/jlink.inc.mk
 
-# setup serial terminal
-include $(RIOTMAKE)/tools/serial.inc.mk
-
 # setup emulator
 include $(RIOTMAKE)/tools/renode.inc.mk
+
+# add board common drivers
+USEMODULE += boards_common_silabs
+USEMODULE += aem
+USEMODULE += bc
+
+# include board common
+include $(RIOTBOARD)/common/silabs/Makefile.include

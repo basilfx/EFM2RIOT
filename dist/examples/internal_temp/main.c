@@ -20,7 +20,6 @@
 
 #include <stdio.h>
 
-#include "cpu.h"
 #include "board.h"
 #include "xtimer.h"
 

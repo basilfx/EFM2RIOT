@@ -20,7 +20,7 @@
  */
 
 #include "board.h"
-#include "cpu.h"
+#include "board_common.h"
 
 #include "periph/gpio.h"
 
@@ -29,17 +29,6 @@ void board_init(void)
     /* initialize the CPU */
     cpu_init();
 
-    /* enable the board controller, to enable virtual com port */
-#if BC_ENABLED
-    gpio_init(BC_PIN, GPIO_OUT);
-    gpio_set(BC_PIN);
-#endif
-
-    /* initialize the LEDs */
-    gpio_init(LED0_PIN, GPIO_OUT);
-    gpio_init(LED1_PIN, GPIO_OUT);
-
-    /* initialize the push buttons */
-    gpio_init(PB0_PIN, GPIO_IN);
-    gpio_init(PB1_PIN, GPIO_IN);
+    /* perform common board initialization */
+    board_common_init();
 }

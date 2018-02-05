@@ -182,8 +182,8 @@ static const uart_conf_t uart_config[] = {
     },
     {
         .dev = USART1,
-        .rx_pin = GPIO_PIN(PC, 6),
-        .tx_pin = GPIO_PIN(PC, 7),
+        .rx_pin = GPIO_PIN(PC, 7),
+        .tx_pin = GPIO_PIN(PC, 6),
         .loc = USART_ROUTELOC0_RXLOC_LOC11 |
                USART_ROUTELOC0_TXLOC_LOC11,
         .cmu = cmuClock_USART1,
