@@ -343,6 +343,13 @@ The starter kit is equipped with an Advanced Energy Monitor. This allows you to 
     {% endif %}
 {% endstrip %}
 
+{% strip 2 %}
+    {% if board in ["sltb001a"] %}
+        Most sensors on this board are controlled via a power and interrupt controller (PIC). By default, this module is enabled. You can disable this module by adding `DISABLE_MODULE=silabs_pic` to the `make` command.
+    {% endif %}
+{% endstrip %}
+    
+
 ## Board configuration
 
 ### Board controller
@@ -350,7 +357,7 @@ The starter kit is equipped with an Advanced Energy Monitor. This allows you to 
     {% if "bc" in features %}
         The starter kit is equipped with a Board Controller. This controller provides a virtual serial port. The board controller is enabled via a GPIO pin.
 
-        By default, this pin is enabled. It can be disable by passing `BC_ENABLED=0` to the compiler.
+        By default, this pin is enabled. You can disable the board controller module by passing `DISABLE_MODULE=silabs_bc` to the `make` command.
 
         **Note:** to use the virtual serial port, ensure you have the latest board controller firmware installed.
     {% else %}
@@ -377,9 +384,9 @@ The starter kit is equipped with an Advanced Energy Monitor. This allows you to 
 
                 The board controller is responsible for measuring energy consumption. For real-time code correlation, the CoreDebug peripheral will be configured to output MCU register data and interrupt data via the SWO port.
 
-                By default, this feature is enabled. It can be disabled by passing `AEM_ENABLED=0` to the compiler. This feature costs approximately 300 bytes (default compilation settings).
+                By default, this feature is enabled. It can be disabled by passing `DISABLE_MODULE=silabs_aem` to the `make` command.
 
-                Note that Simplicity Studio requires debug symbols to correlate code. RIOT-OS defaults to GDB debug symbols, but Simplicity Studio requires DWARF-2 debug symbols.
+                Note that Simplicity Studio requires debug symbols to correlate code. RIOT-OS defaults to GDB debug symbols, but Simplicity Studio requires DWARF-2 debug symbols (`-gdwarf-2` for GCC).
             {% else %}
                 This development kit can measure energy consumption, but it does not support real-time code correlation.
             {% endif %}
@@ -415,7 +422,7 @@ CORELEDIV2 is a source that depends on the clock source that powers the core. It
 
 The frequencies mentioned in the tables above are specific for this starter kit.
 
-It is important that the clock speeds are known to the code, for proper calculations of speeds and baud rates. If the HFXO or LFXO are different from the speeds above, ensure to pass `EFM32_HFXO_FREQ=freq_in_hz` and `EFM32_LFXO_FREQ=freq_in_hz` to your compiler defines.
+It is important that the clock speeds are known to the code, for proper calculations of speeds and baud rates. If the HFXO or LFXO are different from the speeds above, ensure to pass `EFM32_HFXO_FREQ=freq_in_hz` and `EFM32_LFXO_FREQ=freq_in_hz` to your compiler.
 
 You can override the branch's clock source by adding `CLOCK_LFA=source` to your compiler defines, e.g. `CLOCK_LFA=cmuSelect_LFRCO`.
 
