@@ -1,2 +1,0 @@
-export INCLUDES += -I$(RIOTBOARD)/common/silabs/include
-export INCLUDES += -I$(RIOTBOARD)/common/silabs/drivers/include

@@ -97,6 +97,9 @@ This is the pinout of the expansion pins on the front side of the board. PIN 1 i
 | IMU sensor                    | ICM-20648                           | no        | InvenSense 6-axis inertial sensor                              |
 | Air sensor                    | CCS811                              | no        | Cambridge CMOS Sensors Air Quality/Gas sensor                  |
 
+Most sensors on this board are controlled via a power and interrupt controller (PIC). By default, this module is enabled. You can disable this module by adding `DISABLE_MODULE=silabs_pic` to the `make` command.
+    
+
 ## Board configuration
 
 ### Board controller
@@ -128,7 +131,7 @@ CORELEDIV2 is a source that depends on the clock source that powers the core. It
 
 The frequencies mentioned in the tables above are specific for this starter kit.
 
-It is important that the clock speeds are known to the code, for proper calculations of speeds and baud rates. If the HFXO or LFXO are different from the speeds above, ensure to pass `EFM32_HFXO_FREQ=freq_in_hz` and `EFM32_LFXO_FREQ=freq_in_hz` to your compiler defines.
+It is important that the clock speeds are known to the code, for proper calculations of speeds and baud rates. If the HFXO or LFXO are different from the speeds above, ensure to pass `EFM32_HFXO_FREQ=freq_in_hz` and `EFM32_LFXO_FREQ=freq_in_hz` to your compiler.
 
 You can override the branch's clock source by adding `CLOCK_LFA=source` to your compiler defines, e.g. `CLOCK_LFA=cmuSelect_LFRCO`.
 

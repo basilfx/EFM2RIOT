@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2015-2017 Freie Universität Berlin
+ * Copyright (C) 2015-2018 Freie Universität Berlin
  *
  * This file is subject to the terms and conditions of the GNU Lesser
  * General Public License v2.1. See the file LICENSE in the top level
@@ -21,8 +21,6 @@
 
 #include "board.h"
 #include "board_common.h"
-
-#include "periph/gpio.h"
 
 void board_init(void)
 {

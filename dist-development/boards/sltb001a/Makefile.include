@@ -18,7 +18,7 @@ include $(RIOTMAKE)/tools/renode.inc.mk
 
 # add board common drivers
 USEMODULE += boards_common_silabs
-USEMODULE += pic
+USEMODULE += silabs_pic
 
 # include board common
 include $(RIOTBOARD)/common/silabs/Makefile.include

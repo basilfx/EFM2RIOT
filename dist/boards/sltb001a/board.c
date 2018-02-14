@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2015-2017 Freie Universität Berlin
+ * Copyright (C) 2015-2018 Freie Universität Berlin
  *
  * This file is subject to the terms and conditions of the GNU Lesser
  * General Public License v2.1. See the file LICENSE in the top level
@@ -32,7 +32,7 @@ void board_init(void)
     /* perform common board initialization */
     board_common_init();
 
-#ifdef MODULE_PIC
+#ifdef MODULE_SILABS_PIC
         /* enable the CCS811 air quality/gas sensor */
 #if CCS811_ENABLED
         pic_write(CCS811_PIC_ADDR, (1 << CCS811_PIC_EN_BIT) | (1 << CCS811_PIC_WAKE_BIT));

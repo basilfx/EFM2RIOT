@@ -1,3 +1,0 @@
-ifneq (,$(filter pic,$(USEMODULE)))
-  USEMODULE += periph_i2c
-endif
