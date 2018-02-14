@@ -22,7 +22,11 @@
 #include "board.h"
 #include "board_common.h"
 
-#include "periph/gpio.h"
+{% strip 2, "<" %}
+    {% if board in ["slstk3401a", "slstk3402a", "sltb001a", "slwstk6220a"]  %}
+        #include "periph/gpio.h"
+    {% endif %}
+{% endstrip %}
 
 void board_init(void)
 {
@@ -44,7 +48,7 @@ void board_init(void)
 
     {% strip 3, "<" %}
         {% if board in ["sltb001a"] %}
-            #ifdef MODULE_PIC
+            #ifdef MODULE_SILABS_PIC
                     /* enable the CCS811 air quality/gas sensor */
             #if CCS811_ENABLED
                     pic_write(CCS811_PIC_ADDR, (1 << CCS811_PIC_EN_BIT) | (1 << CCS811_PIC_WAKE_BIT));

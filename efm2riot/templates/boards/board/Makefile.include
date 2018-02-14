@@ -30,13 +30,13 @@ include $(RIOTMAKE)/tools/jlink.inc.mk
 USEMODULE += boards_common_silabs
 {% strip 2 %}
     {% if "aem" in features %}
-        USEMODULE += aem
+        USEMODULE += silabs_aem
     {% endif %}
     {% if "bc" in features %}
-        USEMODULE += bc
+        USEMODULE += silabs_bc
     {% endif %}
     {% if board in ["sltb001a"] %}
-        USEMODULE += pic
+        USEMODULE += silabs_pic
     {% endif %}
 {% endstrip %}
 
