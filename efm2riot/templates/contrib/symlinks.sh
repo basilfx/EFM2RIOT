@@ -12,9 +12,6 @@ do
     ln -sf `realpath "$SOURCE/boards/$board"` "$TARGET/boards/"
 done
 
-# Symlink boards common into `RIOT_ROOT/boards/common/`.
-ln -sf `realpath "$SOURCE/boards/common/silabs"` "$TARGET/boards/common/"
-
 # Symlink the families folder into `RIOT_ROOT/cpu/families/`.
 for family in $FAMILIES
 do
