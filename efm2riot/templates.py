@@ -19,6 +19,13 @@ class StripExtension(Extension):
         # number of space indents.
         args = [parser.parse_expression()]
 
+        # Newlines argument.
+        if parser.stream.skip_if("comma"):
+            args.append(nodes.Const(parser.parse_expression().value))
+        else:
+            args.append(nodes.Const(False))
+
+        # Width argument.
         if parser.stream.skip_if("comma"):
             args.append(nodes.Const(parser.parse_expression().value))
         else:
@@ -33,13 +40,16 @@ class StripExtension(Extension):
             self.call_method("strip", args), [], [], body
         ).set_lineno(lineno)
 
-    def strip(self, count, newlines, caller):
+    def strip(self, count, newlines, width, caller):
         """
         Helper method that reindent each line.
         """
 
+        if not width:
+            width = 4
+
         lines = []
-        to_strip = "    " * count
+        to_strip = " " * width * count
 
         for line in caller().split("\n"):
             if line[:len(to_strip)] == to_strip:
