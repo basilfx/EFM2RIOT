@@ -113,7 +113,7 @@ The starter kit is equipped with an Advanced Energy Monitor. This allows you to 
     {% if board in ["sltb001a"] %}
         This is the pinout of the expansion pins on the front side of the board. PIN 1 is the top-left contact, marked on the silkscreen.
     {% else %}
-        This is the pinout of the expansion header on the right side of the board. PIN 1 is the bottom-left contact when the header faces towards you.
+        This is the pinout of the expansion header on the right side of the board. PIN 1 is the bottom-left contact when the header faces  you horizontally.
     {% endif %}
 {% endstrip %}
 
@@ -203,7 +203,7 @@ The starter kit is equipped with an Advanced Energy Monitor. This allows you to 
         |            | 1       | USART2          | MOSI: NC, MISO: PC3, CLK: PC4   |                                                           |
         | Timer      | 0       | TIMER0 + TIMER1 |                                 | TIMER0 is used as prescaler (must be adjecent)            |
         | UART       | 0       | UART0           | RX: PE1, TX: PE0                | STDIO output                                              |
-        |            | 1       | USART1          | RX: PD1, TX: PD7                |                                                           |
+        |            | 1       | USART1          | RX: PD1, TX: PD0                |                                                           |
         |            | 2       | LEUART0         | RX: PD5, TX: PD4                | Baud rate limited (see below)                             |
     {% elif board in ["stk3200"] %}
         | ADC        | 0       | ADC0            | CHAN0: internal temperature     | Ports are fixed, 14/16-bit resolution not supported       |
