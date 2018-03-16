@@ -10,34 +10,34 @@ PORT_DARWIN ?= $(firstword $(sort $(wildcard /dev/tty.usbmodem*)))
 include $(RIOTMAKE)/tools/serial.inc.mk
 
 # setup JLink for flashing
-{% strip 2 %}
-    {% if board in ["sltb001a"] %}
-        export JLINK_DEVICE := EFR32MG1PxxxF256
-    {% else %}
-        export JLINK_DEVICE := $(CPU_MODEL)
-    {% endif %}
+{% strip 2, "", 2 %}
+  {% if board in ["sltb001a"] %}
+    export JLINK_DEVICE := EFR32MG1PxxxF256
+  {% else %}
+    export JLINK_DEVICE := $(CPU_MODEL)
+  {% endif %}
 {% endstrip %}
 include $(RIOTMAKE)/tools/jlink.inc.mk
 
-{% strip 2, "<" %}
-    {% if development %}
-        # setup emulator
-        include $(RIOTMAKE)/tools/renode.inc.mk
-    {% endif %}
+{% strip 2, "<", 2 %}
+  {% if development %}
+    # setup emulator
+    include $(RIOTMAKE)/tools/renode.inc.mk
+  {% endif %}
 {% endstrip %}
 
 # add board common drivers
 USEMODULE += boards_common_silabs
-{% strip 2 %}
-    {% if "aem" in features %}
-        USEMODULE += silabs_aem
-    {% endif %}
-    {% if "bc" in features %}
-        USEMODULE += silabs_bc
-    {% endif %}
-    {% if board in ["sltb001a"] %}
-        USEMODULE += silabs_pic
-    {% endif %}
+{% strip 2, "", 2 %}
+  {% if "aem" in features %}
+    USEMODULE += silabs_aem
+  {% endif %}
+  {% if "bc" in features %}
+    USEMODULE += silabs_bc
+  {% endif %}
+  {% if board in ["sltb001a"] %}
+    USEMODULE += silabs_pic
+  {% endif %}
 {% endstrip %}
 
 # include board common

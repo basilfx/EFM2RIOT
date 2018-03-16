@@ -1,26 +1,26 @@
 ifneq (,$(filter saul_default,$(USEMODULE)))
-    USEMODULE += saul_gpio
-    {% strip 2 %}
-        {% if board in ["slstk3401a", "slstk3402a", "slwstk6220a"] %}
-            USEMODULE += si7021
+  USEMODULE += saul_gpio
+  {% strip 2, "", 2 %}
+    {% if board in ["slstk3401a", "slstk3402a", "slwstk6220a"] %}
+      USEMODULE += si7021
+    {% endif %}
+    {% if board in ["sltb001a"] %}
+      USEMODULE += bmp280
+      {% strip 2 %}
+        {% if development %}
+          USEMODULE += ccs811
+          USEMODULE += icm_20648
+          USEMODULE += si11x3
         {% endif %}
-        {% if board in ["sltb001a"] %}
-            USEMODULE += bmp280
-            {% strip 2 %}
-                {% if development %}
-                    USEMODULE += ccs811
-                    USEMODULE += icm_20648
-                    USEMODULE += si11x3
-                {% endif %}
-            {% endstrip %}
-            USEMODULE += si7021
-            {% strip 2 %}
-                {% if development %}
-                    USEMODULE += si7210a
-                {% endif %}
-            {% endstrip %}
+      {% endstrip %}
+      USEMODULE += si7021
+      {% strip 2 %}
+        {% if development %}
+          USEMODULE += si7210a
         {% endif %}
-    {% endstrip %}
+      {% endstrip %}
+    {% endif %}
+  {% endstrip %}
 endif
 
 # include board common dependencies
