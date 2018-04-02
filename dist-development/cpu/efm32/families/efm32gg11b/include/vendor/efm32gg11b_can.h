@@ -1,10 +1,10 @@
 /**************************************************************************//**
  * @file efm32gg11b_can.h
  * @brief EFM32GG11B_CAN register and bit field definitions
- * @version 5.3.3
+ * @version 5.4.0
  ******************************************************************************
  * # License
- * <b>Copyright 2017 Silicon Laboratories, Inc. http://www.silabs.com</b>
+ * <b>Copyright 2017 Silicon Laboratories, Inc. www.silabs.com</b>
  ******************************************************************************
  *
  * Permission is granted to anyone to use this software for any purpose,
@@ -119,7 +119,7 @@ typedef struct {
 #define _CAN_CTRL_CCE_MASK                       0x40UL                        /**< Bit mask for CAN_CCE */
 #define _CAN_CTRL_CCE_DEFAULT                    0x00000000UL                  /**< Mode DEFAULT for CAN_CTRL */
 #define CAN_CTRL_CCE_DEFAULT                     (_CAN_CTRL_CCE_DEFAULT << 6)  /**< Shifted mode DEFAULT for CAN_CTRL */
-#define CAN_CTRL_TEST                            (0x1UL << 7)                  /**< Test Mode Enable Write access to the Test Register is enabled by setting bit test in the CAN Control Register */
+#define CAN_CTRL_TEST                            (0x1UL << 7)                  /**< Test Mode Enable Write Access to the Test Register is Enabled By Setting Bit Test in the CAN Control Register */
 #define _CAN_CTRL_TEST_SHIFT                     7                             /**< Shift value for CAN_TEST */
 #define _CAN_CTRL_TEST_MASK                      0x80UL                        /**< Bit mask for CAN_TEST */
 #define _CAN_CTRL_TEST_DEFAULT                   0x00000000UL                  /**< Mode DEFAULT for CAN_CTRL */
@@ -148,7 +148,7 @@ typedef struct {
 #define CAN_STATUS_LEC_BIT0                      (_CAN_STATUS_LEC_BIT0 << 0)      /**< Shifted mode BIT0 for CAN_STATUS */
 #define CAN_STATUS_LEC_CRC                       (_CAN_STATUS_LEC_CRC << 0)       /**< Shifted mode CRC for CAN_STATUS */
 #define CAN_STATUS_LEC_UNUSED                    (_CAN_STATUS_LEC_UNUSED << 0)    /**< Shifted mode UNUSED for CAN_STATUS */
-#define CAN_STATUS_TXOK                          (0x1UL << 3)                     /**< Transmitted a message successfully */
+#define CAN_STATUS_TXOK                          (0x1UL << 3)                     /**< Transmitted a Message Successfully */
 #define _CAN_STATUS_TXOK_SHIFT                   3                                /**< Shift value for CAN_TXOK */
 #define _CAN_STATUS_TXOK_MASK                    0x8UL                            /**< Bit mask for CAN_TXOK */
 #define _CAN_STATUS_TXOK_DEFAULT                 0x00000000UL                     /**< Mode DEFAULT for CAN_STATUS */
@@ -262,7 +262,7 @@ typedef struct {
 #define CAN_TEST_TX_SAMPT                        (_CAN_TEST_TX_SAMPT << 5)       /**< Shifted mode SAMPT for CAN_TEST */
 #define CAN_TEST_TX_LOW                          (_CAN_TEST_TX_LOW << 5)         /**< Shifted mode LOW for CAN_TEST */
 #define CAN_TEST_TX_HIGH                         (_CAN_TEST_TX_HIGH << 5)        /**< Shifted mode HIGH for CAN_TEST */
-#define CAN_TEST_RX                              (0x1UL << 7)                    /**< Monitors the actual value of CAN_RX pin */
+#define CAN_TEST_RX                              (0x1UL << 7)                    /**< Monitors the Actual Value of CAN_RX Pin */
 #define _CAN_TEST_RX_SHIFT                       7                               /**< Shift value for CAN_RX */
 #define _CAN_TEST_RX_MASK                        0x80UL                          /**< Bit mask for CAN_RX */
 #define _CAN_TEST_RX_DEFAULT                     0x00000000UL                    /**< Mode DEFAULT for CAN_TEST */
@@ -466,12 +466,12 @@ typedef struct {
 #define _CAN_MIR_CMDMASK_CONTROL_MASK            0x10UL                                       /**< Bit mask for CAN_CONTROL */
 #define _CAN_MIR_CMDMASK_CONTROL_DEFAULT         0x00000000UL                                 /**< Mode DEFAULT for CAN_MIR_CMDMASK */
 #define CAN_MIR_CMDMASK_CONTROL_DEFAULT          (_CAN_MIR_CMDMASK_CONTROL_DEFAULT << 4)      /**< Shifted mode DEFAULT for CAN_MIR_CMDMASK */
-#define CAN_MIR_CMDMASK_ARBACC                   (0x1UL << 5)                                 /**< Access Arbitration bits */
+#define CAN_MIR_CMDMASK_ARBACC                   (0x1UL << 5)                                 /**< Access Arbitration Bits */
 #define _CAN_MIR_CMDMASK_ARBACC_SHIFT            5                                            /**< Shift value for CAN_ARBACC */
 #define _CAN_MIR_CMDMASK_ARBACC_MASK             0x20UL                                       /**< Bit mask for CAN_ARBACC */
 #define _CAN_MIR_CMDMASK_ARBACC_DEFAULT          0x00000000UL                                 /**< Mode DEFAULT for CAN_MIR_CMDMASK */
 #define CAN_MIR_CMDMASK_ARBACC_DEFAULT           (_CAN_MIR_CMDMASK_ARBACC_DEFAULT << 5)       /**< Shifted mode DEFAULT for CAN_MIR_CMDMASK */
-#define CAN_MIR_CMDMASK_MASKACC                  (0x1UL << 6)                                 /**< Access Mask bits */
+#define CAN_MIR_CMDMASK_MASKACC                  (0x1UL << 6)                                 /**< Access Mask Bits */
 #define _CAN_MIR_CMDMASK_MASKACC_SHIFT           6                                            /**< Shift value for CAN_MASKACC */
 #define _CAN_MIR_CMDMASK_MASKACC_MASK            0x40UL                                       /**< Bit mask for CAN_MASKACC */
 #define _CAN_MIR_CMDMASK_MASKACC_DEFAULT         0x00000000UL                                 /**< Mode DEFAULT for CAN_MIR_CMDMASK */
@@ -577,7 +577,7 @@ typedef struct {
 #define _CAN_MIR_CTRL_INTPND_MASK                0x2000UL                                /**< Bit mask for CAN_INTPND */
 #define _CAN_MIR_CTRL_INTPND_DEFAULT             0x00000000UL                            /**< Mode DEFAULT for CAN_MIR_CTRL */
 #define CAN_MIR_CTRL_INTPND_DEFAULT              (_CAN_MIR_CTRL_INTPND_DEFAULT << 13)    /**< Shifted mode DEFAULT for CAN_MIR_CTRL */
-#define CAN_MIR_CTRL_MESSAGEOF                   (0x1UL << 14)                           /**< Message Lost (only valid for Message Objects with direction = receive) */
+#define CAN_MIR_CTRL_MESSAGEOF                   (0x1UL << 14)                           /**< Message Lost (only Valid for Message Objects With Direction = Receive) */
 #define _CAN_MIR_CTRL_MESSAGEOF_SHIFT            14                                      /**< Shift value for CAN_MESSAGEOF */
 #define _CAN_MIR_CTRL_MESSAGEOF_MASK             0x4000UL                                /**< Bit mask for CAN_MESSAGEOF */
 #define _CAN_MIR_CTRL_MESSAGEOF_DEFAULT          0x00000000UL                            /**< Mode DEFAULT for CAN_MIR_CTRL */

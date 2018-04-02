@@ -1,10 +1,10 @@
 /**************************************************************************//**
  * @file efm32gg11b_qspi.h
  * @brief EFM32GG11B_QSPI register and bit field definitions
- * @version 5.3.3
+ * @version 5.4.0
  ******************************************************************************
  * # License
- * <b>Copyright 2017 Silicon Laboratories, Inc. http://www.silabs.com</b>
+ * <b>Copyright 2017 Silicon Laboratories, Inc. www.silabs.com</b>
  ******************************************************************************
  *
  * Permission is granted to anyone to use this software for any purpose,
@@ -124,7 +124,7 @@ typedef struct {
 #define _QSPI_CONFIG_ENBSPI_MASK                                              0x1UL                                          /**< Bit mask for QSPI_ENBSPI */
 #define _QSPI_CONFIG_ENBSPI_DEFAULT                                           0x00000001UL                                   /**< Mode DEFAULT for QSPI_CONFIG */
 #define QSPI_CONFIG_ENBSPI_DEFAULT                                            (_QSPI_CONFIG_ENBSPI_DEFAULT << 0)             /**< Shifted mode DEFAULT for QSPI_CONFIG */
-#define QSPI_CONFIG_SELCLKPOL                                                 (0x1UL << 1)                                   /**< Clock polarity, CPOL */
+#define QSPI_CONFIG_SELCLKPOL                                                 (0x1UL << 1)                                   /**< Clock Polarity, CPOL */
 #define _QSPI_CONFIG_SELCLKPOL_SHIFT                                          1                                              /**< Shift value for QSPI_SELCLKPOL */
 #define _QSPI_CONFIG_SELCLKPOL_MASK                                           0x2UL                                          /**< Bit mask for QSPI_SELCLKPOL */
 #define _QSPI_CONFIG_SELCLKPOL_DEFAULT                                        0x00000000UL                                   /**< Mode DEFAULT for QSPI_CONFIG */
@@ -134,7 +134,7 @@ typedef struct {
 #define _QSPI_CONFIG_SELCLKPHASE_MASK                                         0x4UL                                          /**< Bit mask for QSPI_SELCLKPHASE */
 #define _QSPI_CONFIG_SELCLKPHASE_DEFAULT                                      0x00000000UL                                   /**< Mode DEFAULT for QSPI_CONFIG */
 #define QSPI_CONFIG_SELCLKPHASE_DEFAULT                                       (_QSPI_CONFIG_SELCLKPHASE_DEFAULT << 2)        /**< Shifted mode DEFAULT for QSPI_CONFIG */
-#define QSPI_CONFIG_PHYMODEENABLE                                             (0x1UL << 3)                                   /**< PHY mode enable */
+#define QSPI_CONFIG_PHYMODEENABLE                                             (0x1UL << 3)                                   /**< PHY Mode Enable */
 #define _QSPI_CONFIG_PHYMODEENABLE_SHIFT                                      3                                              /**< Shift value for QSPI_PHYMODEENABLE */
 #define _QSPI_CONFIG_PHYMODEENABLE_MASK                                       0x8UL                                          /**< Bit mask for QSPI_PHYMODEENABLE */
 #define _QSPI_CONFIG_PHYMODEENABLE_DEFAULT                                    0x00000000UL                                   /**< Mode DEFAULT for QSPI_CONFIG */
@@ -149,7 +149,7 @@ typedef struct {
 #define _QSPI_CONFIG_ENBLEGACYIPMODE_MASK                                     0x100UL                                        /**< Bit mask for QSPI_ENBLEGACYIPMODE */
 #define _QSPI_CONFIG_ENBLEGACYIPMODE_DEFAULT                                  0x00000000UL                                   /**< Mode DEFAULT for QSPI_CONFIG */
 #define QSPI_CONFIG_ENBLEGACYIPMODE_DEFAULT                                   (_QSPI_CONFIG_ENBLEGACYIPMODE_DEFAULT << 8)    /**< Shifted mode DEFAULT for QSPI_CONFIG */
-#define QSPI_CONFIG_PERIPHSELDEC                                              (0x1UL << 9)                                   /**< Peripheral select decode */
+#define QSPI_CONFIG_PERIPHSELDEC                                              (0x1UL << 9)                                   /**< Peripheral Select Decode */
 #define _QSPI_CONFIG_PERIPHSELDEC_SHIFT                                       9                                              /**< Shift value for QSPI_PERIPHSELDEC */
 #define _QSPI_CONFIG_PERIPHSELDEC_MASK                                        0x200UL                                        /**< Bit mask for QSPI_PERIPHSELDEC */
 #define _QSPI_CONFIG_PERIPHSELDEC_DEFAULT                                     0x00000000UL                                   /**< Mode DEFAULT for QSPI_CONFIG */
@@ -168,12 +168,12 @@ typedef struct {
 #define _QSPI_CONFIG_ENBAHBADDRREMAP_MASK                                     0x10000UL                                      /**< Bit mask for QSPI_ENBAHBADDRREMAP */
 #define _QSPI_CONFIG_ENBAHBADDRREMAP_DEFAULT                                  0x00000000UL                                   /**< Mode DEFAULT for QSPI_CONFIG */
 #define QSPI_CONFIG_ENBAHBADDRREMAP_DEFAULT                                   (_QSPI_CONFIG_ENBAHBADDRREMAP_DEFAULT << 16)   /**< Shifted mode DEFAULT for QSPI_CONFIG */
-#define QSPI_CONFIG_ENTERXIPMODE                                              (0x1UL << 17)                                  /**< Enter XIP Mode on next READ */
+#define QSPI_CONFIG_ENTERXIPMODE                                              (0x1UL << 17)                                  /**< Enter XIP Mode on Next READ */
 #define _QSPI_CONFIG_ENTERXIPMODE_SHIFT                                       17                                             /**< Shift value for QSPI_ENTERXIPMODE */
 #define _QSPI_CONFIG_ENTERXIPMODE_MASK                                        0x20000UL                                      /**< Bit mask for QSPI_ENTERXIPMODE */
 #define _QSPI_CONFIG_ENTERXIPMODE_DEFAULT                                     0x00000000UL                                   /**< Mode DEFAULT for QSPI_CONFIG */
 #define QSPI_CONFIG_ENTERXIPMODE_DEFAULT                                      (_QSPI_CONFIG_ENTERXIPMODE_DEFAULT << 17)      /**< Shifted mode DEFAULT for QSPI_CONFIG */
-#define QSPI_CONFIG_ENTERXIPMODEIMM                                           (0x1UL << 18)                                  /**< Enter XIP Mode immediately */
+#define QSPI_CONFIG_ENTERXIPMODEIMM                                           (0x1UL << 18)                                  /**< Enter XIP Mode Immediately */
 #define _QSPI_CONFIG_ENTERXIPMODEIMM_SHIFT                                    18                                             /**< Shift value for QSPI_ENTERXIPMODEIMM */
 #define _QSPI_CONFIG_ENTERXIPMODEIMM_MASK                                     0x40000UL                                      /**< Bit mask for QSPI_ENTERXIPMODEIMM */
 #define _QSPI_CONFIG_ENTERXIPMODEIMM_DEFAULT                                  0x00000000UL                                   /**< Mode DEFAULT for QSPI_CONFIG */
@@ -192,22 +192,22 @@ typedef struct {
 #define _QSPI_CONFIG_ENABLEDTRPROTOCOL_MASK                                   0x1000000UL                                    /**< Bit mask for QSPI_ENABLEDTRPROTOCOL */
 #define _QSPI_CONFIG_ENABLEDTRPROTOCOL_DEFAULT                                0x00000000UL                                   /**< Mode DEFAULT for QSPI_CONFIG */
 #define QSPI_CONFIG_ENABLEDTRPROTOCOL_DEFAULT                                 (_QSPI_CONFIG_ENABLEDTRPROTOCOL_DEFAULT << 24) /**< Shifted mode DEFAULT for QSPI_CONFIG */
-#define QSPI_CONFIG_PIPELINEPHY                                               (0x1UL << 25)                                  /**< Pipeline PHY Mode enable */
+#define QSPI_CONFIG_PIPELINEPHY                                               (0x1UL << 25)                                  /**< Pipeline PHY Mode Enable */
 #define _QSPI_CONFIG_PIPELINEPHY_SHIFT                                        25                                             /**< Shift value for QSPI_PIPELINEPHY */
 #define _QSPI_CONFIG_PIPELINEPHY_MASK                                         0x2000000UL                                    /**< Bit mask for QSPI_PIPELINEPHY */
 #define _QSPI_CONFIG_PIPELINEPHY_DEFAULT                                      0x00000000UL                                   /**< Mode DEFAULT for QSPI_CONFIG */
 #define QSPI_CONFIG_PIPELINEPHY_DEFAULT                                       (_QSPI_CONFIG_PIPELINEPHY_DEFAULT << 25)       /**< Shifted mode DEFAULT for QSPI_CONFIG */
-#define QSPI_CONFIG_CRCENABLE                                                 (0x1UL << 29)                                  /**< CRC enable bit */
+#define QSPI_CONFIG_CRCENABLE                                                 (0x1UL << 29)                                  /**< CRC Enable Bit */
 #define _QSPI_CONFIG_CRCENABLE_SHIFT                                          29                                             /**< Shift value for QSPI_CRCENABLE */
 #define _QSPI_CONFIG_CRCENABLE_MASK                                           0x20000000UL                                   /**< Bit mask for QSPI_CRCENABLE */
 #define _QSPI_CONFIG_CRCENABLE_DEFAULT                                        0x00000000UL                                   /**< Mode DEFAULT for QSPI_CONFIG */
 #define QSPI_CONFIG_CRCENABLE_DEFAULT                                         (_QSPI_CONFIG_CRCENABLE_DEFAULT << 29)         /**< Shifted mode DEFAULT for QSPI_CONFIG */
-#define QSPI_CONFIG_DUALBYTEOPCODEEN                                          (0x1UL << 30)                                  /**< Dual-byte Opcode Mode enable bit */
+#define QSPI_CONFIG_DUALBYTEOPCODEEN                                          (0x1UL << 30)                                  /**< Dual-byte Opcode Mode Enable Bit */
 #define _QSPI_CONFIG_DUALBYTEOPCODEEN_SHIFT                                   30                                             /**< Shift value for QSPI_DUALBYTEOPCODEEN */
 #define _QSPI_CONFIG_DUALBYTEOPCODEEN_MASK                                    0x40000000UL                                   /**< Bit mask for QSPI_DUALBYTEOPCODEEN */
 #define _QSPI_CONFIG_DUALBYTEOPCODEEN_DEFAULT                                 0x00000000UL                                   /**< Mode DEFAULT for QSPI_CONFIG */
 #define QSPI_CONFIG_DUALBYTEOPCODEEN_DEFAULT                                  (_QSPI_CONFIG_DUALBYTEOPCODEEN_DEFAULT << 30)  /**< Shifted mode DEFAULT for QSPI_CONFIG */
-#define QSPI_CONFIG_IDLE                                                      (0x1UL << 31)                                  /**< Serial interface and low level SPI pipeline is IDLE */
+#define QSPI_CONFIG_IDLE                                                      (0x1UL << 31)                                  /**< Serial Interface and Low Level SPI Pipeline is IDLE */
 #define _QSPI_CONFIG_IDLE_SHIFT                                               31                                             /**< Shift value for QSPI_IDLE */
 #define _QSPI_CONFIG_IDLE_MASK                                                0x80000000UL                                   /**< Bit mask for QSPI_IDLE */
 #define _QSPI_CONFIG_IDLE_DEFAULT                                             0x00000001UL                                   /**< Mode DEFAULT for QSPI_CONFIG */
@@ -295,7 +295,7 @@ typedef struct {
 /* Bit fields for QSPI RDDATACAPTURE */
 #define _QSPI_RDDATACAPTURE_RESETVALUE                                        0x00000001UL                                     /**< Default value for QSPI_RDDATACAPTURE */
 #define _QSPI_RDDATACAPTURE_MASK                                              0x000F011FUL                                     /**< Mask for QSPI_RDDATACAPTURE */
-#define QSPI_RDDATACAPTURE_BYPASS                                             (0x1UL << 0)                                     /**< Bypass the adapted loopback clock circuit */
+#define QSPI_RDDATACAPTURE_BYPASS                                             (0x1UL << 0)                                     /**< Bypass the Adapted Loopback Clock Circuit */
 #define _QSPI_RDDATACAPTURE_BYPASS_SHIFT                                      0                                                /**< Shift value for QSPI_BYPASS */
 #define _QSPI_RDDATACAPTURE_BYPASS_MASK                                       0x1UL                                            /**< Bit mask for QSPI_BYPASS */
 #define _QSPI_RDDATACAPTURE_BYPASS_DEFAULT                                    0x00000001UL                                     /**< Mode DEFAULT for QSPI_RDDATACAPTURE */
@@ -304,7 +304,7 @@ typedef struct {
 #define _QSPI_RDDATACAPTURE_DELAY_MASK                                        0x1EUL                                           /**< Bit mask for QSPI_DELAY */
 #define _QSPI_RDDATACAPTURE_DELAY_DEFAULT                                     0x00000000UL                                     /**< Mode DEFAULT for QSPI_RDDATACAPTURE */
 #define QSPI_RDDATACAPTURE_DELAY_DEFAULT                                      (_QSPI_RDDATACAPTURE_DELAY_DEFAULT << 1)         /**< Shifted mode DEFAULT for QSPI_RDDATACAPTURE */
-#define QSPI_RDDATACAPTURE_DQSENABLE                                          (0x1UL << 8)                                     /**< DQS enable bit */
+#define QSPI_RDDATACAPTURE_DQSENABLE                                          (0x1UL << 8)                                     /**< DQS Enable Bit */
 #define _QSPI_RDDATACAPTURE_DQSENABLE_SHIFT                                   8                                                /**< Shift value for QSPI_DQSENABLE */
 #define _QSPI_RDDATACAPTURE_DQSENABLE_MASK                                    0x100UL                                          /**< Bit mask for QSPI_DQSENABLE */
 #define _QSPI_RDDATACAPTURE_DQSENABLE_DEFAULT                                 0x00000000UL                                     /**< Mode DEFAULT for QSPI_RDDATACAPTURE */
@@ -373,7 +373,7 @@ typedef struct {
 #define _QSPI_MODEBITCONFIG_CHUNKSIZE_MASK                                    0x700UL                                          /**< Bit mask for QSPI_CHUNKSIZE */
 #define _QSPI_MODEBITCONFIG_CHUNKSIZE_DEFAULT                                 0x00000002UL                                     /**< Mode DEFAULT for QSPI_MODEBITCONFIG */
 #define QSPI_MODEBITCONFIG_CHUNKSIZE_DEFAULT                                  (_QSPI_MODEBITCONFIG_CHUNKSIZE_DEFAULT << 8)     /**< Shifted mode DEFAULT for QSPI_MODEBITCONFIG */
-#define QSPI_MODEBITCONFIG_CRCOUTENABLE                                       (0x1UL << 15)                                    /**< CRC# output enable bit */
+#define QSPI_MODEBITCONFIG_CRCOUTENABLE                                       (0x1UL << 15)                                    /**< CRC# Output Enable Bit */
 #define _QSPI_MODEBITCONFIG_CRCOUTENABLE_SHIFT                                15                                               /**< Shift value for QSPI_CRCOUTENABLE */
 #define _QSPI_MODEBITCONFIG_CRCOUTENABLE_MASK                                 0x8000UL                                         /**< Bit mask for QSPI_CRCOUTENABLE */
 #define _QSPI_MODEBITCONFIG_CRCOUTENABLE_DEFAULT                              0x00000000UL                                     /**< Mode DEFAULT for QSPI_MODEBITCONFIG */
@@ -476,17 +476,17 @@ typedef struct {
 #define _QSPI_IRQSTATUS_INDIRECTOPDONE_MASK                                   0x4UL                                                  /**< Bit mask for QSPI_INDIRECTOPDONE */
 #define _QSPI_IRQSTATUS_INDIRECTOPDONE_DEFAULT                                0x00000000UL                                           /**< Mode DEFAULT for QSPI_IRQSTATUS */
 #define QSPI_IRQSTATUS_INDIRECTOPDONE_DEFAULT                                 (_QSPI_IRQSTATUS_INDIRECTOPDONE_DEFAULT << 2)          /**< Shifted mode DEFAULT for QSPI_IRQSTATUS */
-#define QSPI_IRQSTATUS_INDIRECTREADREJECT                                     (0x1UL << 3)                                           /**< Indirect operation was requested but could not be accepted. */
+#define QSPI_IRQSTATUS_INDIRECTREADREJECT                                     (0x1UL << 3)                                           /**< Indirect Operation Was Requested but Could Not Be Accepted */
 #define _QSPI_IRQSTATUS_INDIRECTREADREJECT_SHIFT                              3                                                      /**< Shift value for QSPI_INDIRECTREADREJECT */
 #define _QSPI_IRQSTATUS_INDIRECTREADREJECT_MASK                               0x8UL                                                  /**< Bit mask for QSPI_INDIRECTREADREJECT */
 #define _QSPI_IRQSTATUS_INDIRECTREADREJECT_DEFAULT                            0x00000000UL                                           /**< Mode DEFAULT for QSPI_IRQSTATUS */
 #define QSPI_IRQSTATUS_INDIRECTREADREJECT_DEFAULT                             (_QSPI_IRQSTATUS_INDIRECTREADREJECT_DEFAULT << 3)      /**< Shifted mode DEFAULT for QSPI_IRQSTATUS */
-#define QSPI_IRQSTATUS_PROTWRATTEMPT                                          (0x1UL << 4)                                           /**< Write to protected area was attempted and rejected. */
+#define QSPI_IRQSTATUS_PROTWRATTEMPT                                          (0x1UL << 4)                                           /**< Write to Protected Area Was Attempted and Rejected */
 #define _QSPI_IRQSTATUS_PROTWRATTEMPT_SHIFT                                   4                                                      /**< Shift value for QSPI_PROTWRATTEMPT */
 #define _QSPI_IRQSTATUS_PROTWRATTEMPT_MASK                                    0x10UL                                                 /**< Bit mask for QSPI_PROTWRATTEMPT */
 #define _QSPI_IRQSTATUS_PROTWRATTEMPT_DEFAULT                                 0x00000000UL                                           /**< Mode DEFAULT for QSPI_IRQSTATUS */
 #define QSPI_IRQSTATUS_PROTWRATTEMPT_DEFAULT                                  (_QSPI_IRQSTATUS_PROTWRATTEMPT_DEFAULT << 4)           /**< Shifted mode DEFAULT for QSPI_IRQSTATUS */
-#define QSPI_IRQSTATUS_ILLEGALACCESSDET                                       (0x1UL << 5)                                           /**< Illegal memory access has been detected. */
+#define QSPI_IRQSTATUS_ILLEGALACCESSDET                                       (0x1UL << 5)                                           /**< Illegal Memory Access Has Been Detected */
 #define _QSPI_IRQSTATUS_ILLEGALACCESSDET_SHIFT                                5                                                      /**< Shift value for QSPI_ILLEGALACCESSDET */
 #define _QSPI_IRQSTATUS_ILLEGALACCESSDET_MASK                                 0x20UL                                                 /**< Bit mask for QSPI_ILLEGALACCESSDET */
 #define _QSPI_IRQSTATUS_ILLEGALACCESSDET_DEFAULT                              0x00000000UL                                           /**< Mode DEFAULT for QSPI_IRQSTATUS */
@@ -501,37 +501,37 @@ typedef struct {
 #define _QSPI_IRQSTATUS_RECVOVERFLOW_MASK                                     0x80UL                                                 /**< Bit mask for QSPI_RECVOVERFLOW */
 #define _QSPI_IRQSTATUS_RECVOVERFLOW_DEFAULT                                  0x00000000UL                                           /**< Mode DEFAULT for QSPI_IRQSTATUS */
 #define QSPI_IRQSTATUS_RECVOVERFLOW_DEFAULT                                   (_QSPI_IRQSTATUS_RECVOVERFLOW_DEFAULT << 7)            /**< Shifted mode DEFAULT for QSPI_IRQSTATUS */
-#define QSPI_IRQSTATUS_TXFIFONOTFULL                                          (0x1UL << 8)                                           /**< Small TX FIFO not full */
+#define QSPI_IRQSTATUS_TXFIFONOTFULL                                          (0x1UL << 8)                                           /**< Small TX FIFO Not Full */
 #define _QSPI_IRQSTATUS_TXFIFONOTFULL_SHIFT                                   8                                                      /**< Shift value for QSPI_TXFIFONOTFULL */
 #define _QSPI_IRQSTATUS_TXFIFONOTFULL_MASK                                    0x100UL                                                /**< Bit mask for QSPI_TXFIFONOTFULL */
 #define _QSPI_IRQSTATUS_TXFIFONOTFULL_DEFAULT                                 0x00000000UL                                           /**< Mode DEFAULT for QSPI_IRQSTATUS */
 #define QSPI_IRQSTATUS_TXFIFONOTFULL_DEFAULT                                  (_QSPI_IRQSTATUS_TXFIFONOTFULL_DEFAULT << 8)           /**< Shifted mode DEFAULT for QSPI_IRQSTATUS */
-#define QSPI_IRQSTATUS_TXFIFOFULL                                             (0x1UL << 9)                                           /**< Small TX FIFO full */
+#define QSPI_IRQSTATUS_TXFIFOFULL                                             (0x1UL << 9)                                           /**< Small TX FIFO Full */
 #define _QSPI_IRQSTATUS_TXFIFOFULL_SHIFT                                      9                                                      /**< Shift value for QSPI_TXFIFOFULL */
 #define _QSPI_IRQSTATUS_TXFIFOFULL_MASK                                       0x200UL                                                /**< Bit mask for QSPI_TXFIFOFULL */
 #define _QSPI_IRQSTATUS_TXFIFOFULL_DEFAULT                                    0x00000000UL                                           /**< Mode DEFAULT for QSPI_IRQSTATUS */
 #define QSPI_IRQSTATUS_TXFIFOFULL_DEFAULT                                     (_QSPI_IRQSTATUS_TXFIFOFULL_DEFAULT << 9)              /**< Shifted mode DEFAULT for QSPI_IRQSTATUS */
-#define QSPI_IRQSTATUS_RXFIFONOTEMPTY                                         (0x1UL << 10)                                          /**< Small RX FIFO not empty */
+#define QSPI_IRQSTATUS_RXFIFONOTEMPTY                                         (0x1UL << 10)                                          /**< Small RX FIFO Not Empty */
 #define _QSPI_IRQSTATUS_RXFIFONOTEMPTY_SHIFT                                  10                                                     /**< Shift value for QSPI_RXFIFONOTEMPTY */
 #define _QSPI_IRQSTATUS_RXFIFONOTEMPTY_MASK                                   0x400UL                                                /**< Bit mask for QSPI_RXFIFONOTEMPTY */
 #define _QSPI_IRQSTATUS_RXFIFONOTEMPTY_DEFAULT                                0x00000000UL                                           /**< Mode DEFAULT for QSPI_IRQSTATUS */
 #define QSPI_IRQSTATUS_RXFIFONOTEMPTY_DEFAULT                                 (_QSPI_IRQSTATUS_RXFIFONOTEMPTY_DEFAULT << 10)         /**< Shifted mode DEFAULT for QSPI_IRQSTATUS */
-#define QSPI_IRQSTATUS_RXFIFOFULL                                             (0x1UL << 11)                                          /**< Small RX FIFO full */
+#define QSPI_IRQSTATUS_RXFIFOFULL                                             (0x1UL << 11)                                          /**< Small RX FIFO Full */
 #define _QSPI_IRQSTATUS_RXFIFOFULL_SHIFT                                      11                                                     /**< Shift value for QSPI_RXFIFOFULL */
 #define _QSPI_IRQSTATUS_RXFIFOFULL_MASK                                       0x800UL                                                /**< Bit mask for QSPI_RXFIFOFULL */
 #define _QSPI_IRQSTATUS_RXFIFOFULL_DEFAULT                                    0x00000000UL                                           /**< Mode DEFAULT for QSPI_IRQSTATUS */
 #define QSPI_IRQSTATUS_RXFIFOFULL_DEFAULT                                     (_QSPI_IRQSTATUS_RXFIFOFULL_DEFAULT << 11)             /**< Shifted mode DEFAULT for QSPI_IRQSTATUS */
-#define QSPI_IRQSTATUS_INDRDSRAMFULL                                          (0x1UL << 12)                                          /**< Indirect Read Partition overflow */
+#define QSPI_IRQSTATUS_INDRDSRAMFULL                                          (0x1UL << 12)                                          /**< Indirect Read Partition Overflow */
 #define _QSPI_IRQSTATUS_INDRDSRAMFULL_SHIFT                                   12                                                     /**< Shift value for QSPI_INDRDSRAMFULL */
 #define _QSPI_IRQSTATUS_INDRDSRAMFULL_MASK                                    0x1000UL                                               /**< Bit mask for QSPI_INDRDSRAMFULL */
 #define _QSPI_IRQSTATUS_INDRDSRAMFULL_DEFAULT                                 0x00000000UL                                           /**< Mode DEFAULT for QSPI_IRQSTATUS */
 #define QSPI_IRQSTATUS_INDRDSRAMFULL_DEFAULT                                  (_QSPI_IRQSTATUS_INDRDSRAMFULL_DEFAULT << 12)          /**< Shifted mode DEFAULT for QSPI_IRQSTATUS */
-#define QSPI_IRQSTATUS_POLLEXPINT                                             (0x1UL << 13)                                          /**< The maximum number of programmed polls cycles is expired */
+#define QSPI_IRQSTATUS_POLLEXPINT                                             (0x1UL << 13)                                          /**< The Maximum Number of Programmed Polls Cycles is Expired */
 #define _QSPI_IRQSTATUS_POLLEXPINT_SHIFT                                      13                                                     /**< Shift value for QSPI_POLLEXPINT */
 #define _QSPI_IRQSTATUS_POLLEXPINT_MASK                                       0x2000UL                                               /**< Bit mask for QSPI_POLLEXPINT */
 #define _QSPI_IRQSTATUS_POLLEXPINT_DEFAULT                                    0x00000000UL                                           /**< Mode DEFAULT for QSPI_IRQSTATUS */
 #define QSPI_IRQSTATUS_POLLEXPINT_DEFAULT                                     (_QSPI_IRQSTATUS_POLLEXPINT_DEFAULT << 13)             /**< Shifted mode DEFAULT for QSPI_IRQSTATUS */
-#define QSPI_IRQSTATUS_STIGREQINT                                             (0x1UL << 14)                                          /**< The controller is ready for getting another STIG request. */
+#define QSPI_IRQSTATUS_STIGREQINT                                             (0x1UL << 14)                                          /**< The Controller is Ready for Getting Another STIG Request */
 #define _QSPI_IRQSTATUS_STIGREQINT_SHIFT                                      14                                                     /**< Shift value for QSPI_STIGREQINT */
 #define _QSPI_IRQSTATUS_STIGREQINT_MASK                                       0x4000UL                                               /**< Bit mask for QSPI_STIGREQINT */
 #define _QSPI_IRQSTATUS_STIGREQINT_DEFAULT                                    0x00000000UL                                           /**< Mode DEFAULT for QSPI_IRQSTATUS */
@@ -541,12 +541,12 @@ typedef struct {
 #define _QSPI_IRQSTATUS_RXCRCDATAERR_MASK                                     0x10000UL                                              /**< Bit mask for QSPI_RXCRCDATAERR */
 #define _QSPI_IRQSTATUS_RXCRCDATAERR_DEFAULT                                  0x00000000UL                                           /**< Mode DEFAULT for QSPI_IRQSTATUS */
 #define QSPI_IRQSTATUS_RXCRCDATAERR_DEFAULT                                   (_QSPI_IRQSTATUS_RXCRCDATAERR_DEFAULT << 16)           /**< Shifted mode DEFAULT for QSPI_IRQSTATUS */
-#define QSPI_IRQSTATUS_RXCRCDATAVAL                                           (0x1UL << 17)                                          /**< RX CRC data valid */
+#define QSPI_IRQSTATUS_RXCRCDATAVAL                                           (0x1UL << 17)                                          /**< RX CRC Data Valid */
 #define _QSPI_IRQSTATUS_RXCRCDATAVAL_SHIFT                                    17                                                     /**< Shift value for QSPI_RXCRCDATAVAL */
 #define _QSPI_IRQSTATUS_RXCRCDATAVAL_MASK                                     0x20000UL                                              /**< Bit mask for QSPI_RXCRCDATAVAL */
 #define _QSPI_IRQSTATUS_RXCRCDATAVAL_DEFAULT                                  0x00000000UL                                           /**< Mode DEFAULT for QSPI_IRQSTATUS */
 #define QSPI_IRQSTATUS_RXCRCDATAVAL_DEFAULT                                   (_QSPI_IRQSTATUS_RXCRCDATAVAL_DEFAULT << 17)           /**< Shifted mode DEFAULT for QSPI_IRQSTATUS */
-#define QSPI_IRQSTATUS_TXCRCCHUNKBRK                                          (0x1UL << 18)                                          /**< TX CRC chunk was broken */
+#define QSPI_IRQSTATUS_TXCRCCHUNKBRK                                          (0x1UL << 18)                                          /**< TX CRC Chunk Was Broken */
 #define _QSPI_IRQSTATUS_TXCRCCHUNKBRK_SHIFT                                   18                                                     /**< Shift value for QSPI_TXCRCCHUNKBRK */
 #define _QSPI_IRQSTATUS_TXCRCCHUNKBRK_MASK                                    0x40000UL                                              /**< Bit mask for QSPI_TXCRCCHUNKBRK */
 #define _QSPI_IRQSTATUS_TXCRCCHUNKBRK_DEFAULT                                 0x00000000UL                                           /**< Mode DEFAULT for QSPI_IRQSTATUS */
@@ -595,52 +595,52 @@ typedef struct {
 #define _QSPI_IRQMASK_RECVOVERFLOWMASK_MASK                                   0x80UL                                                   /**< Bit mask for QSPI_RECVOVERFLOWMASK */
 #define _QSPI_IRQMASK_RECVOVERFLOWMASK_DEFAULT                                0x00000000UL                                             /**< Mode DEFAULT for QSPI_IRQMASK */
 #define QSPI_IRQMASK_RECVOVERFLOWMASK_DEFAULT                                 (_QSPI_IRQMASK_RECVOVERFLOWMASK_DEFAULT << 7)            /**< Shifted mode DEFAULT for QSPI_IRQMASK */
-#define QSPI_IRQMASK_TXFIFONOTFULLMASK                                        (0x1UL << 8)                                             /**< Small TX FIFO not full Mask */
+#define QSPI_IRQMASK_TXFIFONOTFULLMASK                                        (0x1UL << 8)                                             /**< Small TX FIFO Not Full Mask */
 #define _QSPI_IRQMASK_TXFIFONOTFULLMASK_SHIFT                                 8                                                        /**< Shift value for QSPI_TXFIFONOTFULLMASK */
 #define _QSPI_IRQMASK_TXFIFONOTFULLMASK_MASK                                  0x100UL                                                  /**< Bit mask for QSPI_TXFIFONOTFULLMASK */
 #define _QSPI_IRQMASK_TXFIFONOTFULLMASK_DEFAULT                               0x00000000UL                                             /**< Mode DEFAULT for QSPI_IRQMASK */
 #define QSPI_IRQMASK_TXFIFONOTFULLMASK_DEFAULT                                (_QSPI_IRQMASK_TXFIFONOTFULLMASK_DEFAULT << 8)           /**< Shifted mode DEFAULT for QSPI_IRQMASK */
-#define QSPI_IRQMASK_TXFIFOFULLMASK                                           (0x1UL << 9)                                             /**< Small TX FIFO full Mask */
+#define QSPI_IRQMASK_TXFIFOFULLMASK                                           (0x1UL << 9)                                             /**< Small TX FIFO Full Mask */
 #define _QSPI_IRQMASK_TXFIFOFULLMASK_SHIFT                                    9                                                        /**< Shift value for QSPI_TXFIFOFULLMASK */
 #define _QSPI_IRQMASK_TXFIFOFULLMASK_MASK                                     0x200UL                                                  /**< Bit mask for QSPI_TXFIFOFULLMASK */
 #define _QSPI_IRQMASK_TXFIFOFULLMASK_DEFAULT                                  0x00000000UL                                             /**< Mode DEFAULT for QSPI_IRQMASK */
 #define QSPI_IRQMASK_TXFIFOFULLMASK_DEFAULT                                   (_QSPI_IRQMASK_TXFIFOFULLMASK_DEFAULT << 9)              /**< Shifted mode DEFAULT for QSPI_IRQMASK */
-#define QSPI_IRQMASK_RXFIFONOTEMPTYMASK                                       (0x1UL << 10)                                            /**< Small RX FIFO not empty Mask */
+#define QSPI_IRQMASK_RXFIFONOTEMPTYMASK                                       (0x1UL << 10)                                            /**< Small RX FIFO Not Empty Mask */
 #define _QSPI_IRQMASK_RXFIFONOTEMPTYMASK_SHIFT                                10                                                       /**< Shift value for QSPI_RXFIFONOTEMPTYMASK */
 #define _QSPI_IRQMASK_RXFIFONOTEMPTYMASK_MASK                                 0x400UL                                                  /**< Bit mask for QSPI_RXFIFONOTEMPTYMASK */
 #define _QSPI_IRQMASK_RXFIFONOTEMPTYMASK_DEFAULT                              0x00000000UL                                             /**< Mode DEFAULT for QSPI_IRQMASK */
 #define QSPI_IRQMASK_RXFIFONOTEMPTYMASK_DEFAULT                               (_QSPI_IRQMASK_RXFIFONOTEMPTYMASK_DEFAULT << 10)         /**< Shifted mode DEFAULT for QSPI_IRQMASK */
-#define QSPI_IRQMASK_RXFIFOFULLMASK                                           (0x1UL << 11)                                            /**< Small RX FIFO full Mask */
+#define QSPI_IRQMASK_RXFIFOFULLMASK                                           (0x1UL << 11)                                            /**< Small RX FIFO Full Mask */
 #define _QSPI_IRQMASK_RXFIFOFULLMASK_SHIFT                                    11                                                       /**< Shift value for QSPI_RXFIFOFULLMASK */
 #define _QSPI_IRQMASK_RXFIFOFULLMASK_MASK                                     0x800UL                                                  /**< Bit mask for QSPI_RXFIFOFULLMASK */
 #define _QSPI_IRQMASK_RXFIFOFULLMASK_DEFAULT                                  0x00000000UL                                             /**< Mode DEFAULT for QSPI_IRQMASK */
 #define QSPI_IRQMASK_RXFIFOFULLMASK_DEFAULT                                   (_QSPI_IRQMASK_RXFIFOFULLMASK_DEFAULT << 11)             /**< Shifted mode DEFAULT for QSPI_IRQMASK */
-#define QSPI_IRQMASK_INDRDSRAMFULLMASK                                        (0x1UL << 12)                                            /**< Indirect Read Partition overflow mask */
+#define QSPI_IRQMASK_INDRDSRAMFULLMASK                                        (0x1UL << 12)                                            /**< Indirect Read Partition Overflow Mask */
 #define _QSPI_IRQMASK_INDRDSRAMFULLMASK_SHIFT                                 12                                                       /**< Shift value for QSPI_INDRDSRAMFULLMASK */
 #define _QSPI_IRQMASK_INDRDSRAMFULLMASK_MASK                                  0x1000UL                                                 /**< Bit mask for QSPI_INDRDSRAMFULLMASK */
 #define _QSPI_IRQMASK_INDRDSRAMFULLMASK_DEFAULT                               0x00000000UL                                             /**< Mode DEFAULT for QSPI_IRQMASK */
 #define QSPI_IRQMASK_INDRDSRAMFULLMASK_DEFAULT                                (_QSPI_IRQMASK_INDRDSRAMFULLMASK_DEFAULT << 12)          /**< Shifted mode DEFAULT for QSPI_IRQMASK */
-#define QSPI_IRQMASK_POLLEXPINTMASK                                           (0x1UL << 13)                                            /**< Polling expiration detected Mask */
+#define QSPI_IRQMASK_POLLEXPINTMASK                                           (0x1UL << 13)                                            /**< Polling Expiration Detected Mask */
 #define _QSPI_IRQMASK_POLLEXPINTMASK_SHIFT                                    13                                                       /**< Shift value for QSPI_POLLEXPINTMASK */
 #define _QSPI_IRQMASK_POLLEXPINTMASK_MASK                                     0x2000UL                                                 /**< Bit mask for QSPI_POLLEXPINTMASK */
 #define _QSPI_IRQMASK_POLLEXPINTMASK_DEFAULT                                  0x00000000UL                                             /**< Mode DEFAULT for QSPI_IRQMASK */
 #define QSPI_IRQMASK_POLLEXPINTMASK_DEFAULT                                   (_QSPI_IRQMASK_POLLEXPINTMASK_DEFAULT << 13)             /**< Shifted mode DEFAULT for QSPI_IRQMASK */
-#define QSPI_IRQMASK_STIGREQMASK                                              (0x1UL << 14)                                            /**< STIG request completion Mask */
+#define QSPI_IRQMASK_STIGREQMASK                                              (0x1UL << 14)                                            /**< STIG Request Completion Mask */
 #define _QSPI_IRQMASK_STIGREQMASK_SHIFT                                       14                                                       /**< Shift value for QSPI_STIGREQMASK */
 #define _QSPI_IRQMASK_STIGREQMASK_MASK                                        0x4000UL                                                 /**< Bit mask for QSPI_STIGREQMASK */
 #define _QSPI_IRQMASK_STIGREQMASK_DEFAULT                                     0x00000000UL                                             /**< Mode DEFAULT for QSPI_IRQMASK */
 #define QSPI_IRQMASK_STIGREQMASK_DEFAULT                                      (_QSPI_IRQMASK_STIGREQMASK_DEFAULT << 14)                /**< Shifted mode DEFAULT for QSPI_IRQMASK */
-#define QSPI_IRQMASK_RXCRCDATAERRMASK                                         (0x1UL << 16)                                            /**< RX CRC data error Mask */
+#define QSPI_IRQMASK_RXCRCDATAERRMASK                                         (0x1UL << 16)                                            /**< RX CRC Data Error Mask */
 #define _QSPI_IRQMASK_RXCRCDATAERRMASK_SHIFT                                  16                                                       /**< Shift value for QSPI_RXCRCDATAERRMASK */
 #define _QSPI_IRQMASK_RXCRCDATAERRMASK_MASK                                   0x10000UL                                                /**< Bit mask for QSPI_RXCRCDATAERRMASK */
 #define _QSPI_IRQMASK_RXCRCDATAERRMASK_DEFAULT                                0x00000000UL                                             /**< Mode DEFAULT for QSPI_IRQMASK */
 #define QSPI_IRQMASK_RXCRCDATAERRMASK_DEFAULT                                 (_QSPI_IRQMASK_RXCRCDATAERRMASK_DEFAULT << 16)           /**< Shifted mode DEFAULT for QSPI_IRQMASK */
-#define QSPI_IRQMASK_RXCRCDATAVALMASK                                         (0x1UL << 17)                                            /**< RX CRC data valid Mask */
+#define QSPI_IRQMASK_RXCRCDATAVALMASK                                         (0x1UL << 17)                                            /**< RX CRC Data Valid Mask */
 #define _QSPI_IRQMASK_RXCRCDATAVALMASK_SHIFT                                  17                                                       /**< Shift value for QSPI_RXCRCDATAVALMASK */
 #define _QSPI_IRQMASK_RXCRCDATAVALMASK_MASK                                   0x20000UL                                                /**< Bit mask for QSPI_RXCRCDATAVALMASK */
 #define _QSPI_IRQMASK_RXCRCDATAVALMASK_DEFAULT                                0x00000000UL                                             /**< Mode DEFAULT for QSPI_IRQMASK */
 #define QSPI_IRQMASK_RXCRCDATAVALMASK_DEFAULT                                 (_QSPI_IRQMASK_RXCRCDATAVALMASK_DEFAULT << 17)           /**< Shifted mode DEFAULT for QSPI_IRQMASK */
-#define QSPI_IRQMASK_TXCRCCHUNKBRKMASK                                        (0x1UL << 18)                                            /**< TX CRC chunk was broken Mask */
+#define QSPI_IRQMASK_TXCRCCHUNKBRKMASK                                        (0x1UL << 18)                                            /**< TX CRC Chunk Was Broken Mask */
 #define _QSPI_IRQMASK_TXCRCCHUNKBRKMASK_SHIFT                                 18                                                       /**< Shift value for QSPI_TXCRCCHUNKBRKMASK */
 #define _QSPI_IRQMASK_TXCRCCHUNKBRKMASK_MASK                                  0x40000UL                                                /**< Bit mask for QSPI_TXCRCCHUNKBRKMASK */
 #define _QSPI_IRQMASK_TXCRCCHUNKBRKMASK_DEFAULT                               0x00000000UL                                             /**< Mode DEFAULT for QSPI_IRQMASK */
@@ -699,7 +699,7 @@ typedef struct {
 #define _QSPI_INDIRECTREADXFERCTRL_SRAMFULL_MASK                              0x8UL                                                      /**< Bit mask for QSPI_SRAMFULL */
 #define _QSPI_INDIRECTREADXFERCTRL_SRAMFULL_DEFAULT                           0x00000000UL                                               /**< Mode DEFAULT for QSPI_INDIRECTREADXFERCTRL */
 #define QSPI_INDIRECTREADXFERCTRL_SRAMFULL_DEFAULT                            (_QSPI_INDIRECTREADXFERCTRL_SRAMFULL_DEFAULT << 3)         /**< Shifted mode DEFAULT for QSPI_INDIRECTREADXFERCTRL */
-#define QSPI_INDIRECTREADXFERCTRL_RDQUEUED                                    (0x1UL << 4)                                               /**< Two indirect read operations have been queued */
+#define QSPI_INDIRECTREADXFERCTRL_RDQUEUED                                    (0x1UL << 4)                                               /**< Two Indirect Read Operations Have Been Queued */
 #define _QSPI_INDIRECTREADXFERCTRL_RDQUEUED_SHIFT                             4                                                          /**< Shift value for QSPI_RDQUEUED */
 #define _QSPI_INDIRECTREADXFERCTRL_RDQUEUED_MASK                              0x10UL                                                     /**< Bit mask for QSPI_RDQUEUED */
 #define _QSPI_INDIRECTREADXFERCTRL_RDQUEUED_DEFAULT                           0x00000000UL                                               /**< Mode DEFAULT for QSPI_INDIRECTREADXFERCTRL */
@@ -756,7 +756,7 @@ typedef struct {
 #define _QSPI_INDIRECTWRITEXFERCTRL_WRSTATUS_MASK                             0x4UL                                                       /**< Bit mask for QSPI_WRSTATUS */
 #define _QSPI_INDIRECTWRITEXFERCTRL_WRSTATUS_DEFAULT                          0x00000000UL                                                /**< Mode DEFAULT for QSPI_INDIRECTWRITEXFERCTRL */
 #define QSPI_INDIRECTWRITEXFERCTRL_WRSTATUS_DEFAULT                           (_QSPI_INDIRECTWRITEXFERCTRL_WRSTATUS_DEFAULT << 2)         /**< Shifted mode DEFAULT for QSPI_INDIRECTWRITEXFERCTRL */
-#define QSPI_INDIRECTWRITEXFERCTRL_WRQUEUED                                   (0x1UL << 4)                                                /**< Two indirect write operations have been queued */
+#define QSPI_INDIRECTWRITEXFERCTRL_WRQUEUED                                   (0x1UL << 4)                                                /**< Two Indirect Write Operations Have Been Queued */
 #define _QSPI_INDIRECTWRITEXFERCTRL_WRQUEUED_SHIFT                            4                                                           /**< Shift value for QSPI_WRQUEUED */
 #define _QSPI_INDIRECTWRITEXFERCTRL_WRQUEUED_MASK                             0x10UL                                                      /**< Bit mask for QSPI_WRQUEUED */
 #define _QSPI_INDIRECTWRITEXFERCTRL_WRQUEUED_DEFAULT                          0x00000000UL                                                /**< Mode DEFAULT for QSPI_INDIRECTWRITEXFERCTRL */
@@ -806,12 +806,12 @@ typedef struct {
 /* Bit fields for QSPI FLASHCOMMANDCTRLMEM */
 #define _QSPI_FLASHCOMMANDCTRLMEM_RESETVALUE                                  0x00000000UL                                                  /**< Default value for QSPI_FLASHCOMMANDCTRLMEM */
 #define _QSPI_FLASHCOMMANDCTRLMEM_MASK                                        0x1FF7FF03UL                                                  /**< Mask for QSPI_FLASHCOMMANDCTRLMEM */
-#define QSPI_FLASHCOMMANDCTRLMEM_TRIGGERMEMBANKREQ                            (0x1UL << 0)                                                  /**< Trigger the Memory Bank data request. */
+#define QSPI_FLASHCOMMANDCTRLMEM_TRIGGERMEMBANKREQ                            (0x1UL << 0)                                                  /**< Trigger the Memory Bank Data Request */
 #define _QSPI_FLASHCOMMANDCTRLMEM_TRIGGERMEMBANKREQ_SHIFT                     0                                                             /**< Shift value for QSPI_TRIGGERMEMBANKREQ */
 #define _QSPI_FLASHCOMMANDCTRLMEM_TRIGGERMEMBANKREQ_MASK                      0x1UL                                                         /**< Bit mask for QSPI_TRIGGERMEMBANKREQ */
 #define _QSPI_FLASHCOMMANDCTRLMEM_TRIGGERMEMBANKREQ_DEFAULT                   0x00000000UL                                                  /**< Mode DEFAULT for QSPI_FLASHCOMMANDCTRLMEM */
 #define QSPI_FLASHCOMMANDCTRLMEM_TRIGGERMEMBANKREQ_DEFAULT                    (_QSPI_FLASHCOMMANDCTRLMEM_TRIGGERMEMBANKREQ_DEFAULT << 0)    /**< Shifted mode DEFAULT for QSPI_FLASHCOMMANDCTRLMEM */
-#define QSPI_FLASHCOMMANDCTRLMEM_MEMBANKREQINPROGRESS                         (0x1UL << 1)                                                  /**< Memory Bank data request in progress. */
+#define QSPI_FLASHCOMMANDCTRLMEM_MEMBANKREQINPROGRESS                         (0x1UL << 1)                                                  /**< Memory Bank Data Request in Progress */
 #define _QSPI_FLASHCOMMANDCTRLMEM_MEMBANKREQINPROGRESS_SHIFT                  1                                                             /**< Shift value for QSPI_MEMBANKREQINPROGRESS */
 #define _QSPI_FLASHCOMMANDCTRLMEM_MEMBANKREQINPROGRESS_MASK                   0x2UL                                                         /**< Bit mask for QSPI_MEMBANKREQINPROGRESS */
 #define _QSPI_FLASHCOMMANDCTRLMEM_MEMBANKREQINPROGRESS_DEFAULT                0x00000000UL                                                  /**< Mode DEFAULT for QSPI_FLASHCOMMANDCTRLMEM */
@@ -832,17 +832,17 @@ typedef struct {
 /* Bit fields for QSPI FLASHCMDCTRL */
 #define _QSPI_FLASHCMDCTRL_RESETVALUE                                         0x00000000UL                                      /**< Default value for QSPI_FLASHCMDCTRL */
 #define _QSPI_FLASHCMDCTRL_MASK                                               0xFFFFFF87UL                                      /**< Mask for QSPI_FLASHCMDCTRL */
-#define QSPI_FLASHCMDCTRL_CMDEXEC                                             (0x1UL << 0)                                      /**< Execute the command. */
+#define QSPI_FLASHCMDCTRL_CMDEXEC                                             (0x1UL << 0)                                      /**< Execute the Command */
 #define _QSPI_FLASHCMDCTRL_CMDEXEC_SHIFT                                      0                                                 /**< Shift value for QSPI_CMDEXEC */
 #define _QSPI_FLASHCMDCTRL_CMDEXEC_MASK                                       0x1UL                                             /**< Bit mask for QSPI_CMDEXEC */
 #define _QSPI_FLASHCMDCTRL_CMDEXEC_DEFAULT                                    0x00000000UL                                      /**< Mode DEFAULT for QSPI_FLASHCMDCTRL */
 #define QSPI_FLASHCMDCTRL_CMDEXEC_DEFAULT                                     (_QSPI_FLASHCMDCTRL_CMDEXEC_DEFAULT << 0)         /**< Shifted mode DEFAULT for QSPI_FLASHCMDCTRL */
-#define QSPI_FLASHCMDCTRL_CMDEXECSTATUS                                       (0x1UL << 1)                                      /**< Command execution in progress. */
+#define QSPI_FLASHCMDCTRL_CMDEXECSTATUS                                       (0x1UL << 1)                                      /**< Command Execution in Progress */
 #define _QSPI_FLASHCMDCTRL_CMDEXECSTATUS_SHIFT                                1                                                 /**< Shift value for QSPI_CMDEXECSTATUS */
 #define _QSPI_FLASHCMDCTRL_CMDEXECSTATUS_MASK                                 0x2UL                                             /**< Bit mask for QSPI_CMDEXECSTATUS */
 #define _QSPI_FLASHCMDCTRL_CMDEXECSTATUS_DEFAULT                              0x00000000UL                                      /**< Mode DEFAULT for QSPI_FLASHCMDCTRL */
 #define QSPI_FLASHCMDCTRL_CMDEXECSTATUS_DEFAULT                               (_QSPI_FLASHCMDCTRL_CMDEXECSTATUS_DEFAULT << 1)   /**< Shifted mode DEFAULT for QSPI_FLASHCMDCTRL */
-#define QSPI_FLASHCMDCTRL_STIGMEMBANKEN                                       (0x1UL << 2)                                      /**< STIG Memory Bank enable bit. */
+#define QSPI_FLASHCMDCTRL_STIGMEMBANKEN                                       (0x1UL << 2)                                      /**< STIG Memory Bank Enable Bit */
 #define _QSPI_FLASHCMDCTRL_STIGMEMBANKEN_SHIFT                                2                                                 /**< Shift value for QSPI_STIGMEMBANKEN */
 #define _QSPI_FLASHCMDCTRL_STIGMEMBANKEN_MASK                                 0x4UL                                             /**< Bit mask for QSPI_STIGMEMBANKEN */
 #define _QSPI_FLASHCMDCTRL_STIGMEMBANKEN_DEFAULT                              0x00000000UL                                      /**< Mode DEFAULT for QSPI_FLASHCMDCTRL */
@@ -961,7 +961,7 @@ typedef struct {
 #define _QSPI_PHYCONFIGURATION_PHYCONFIGRXDLLBYPASS_MASK                      0x20000000UL                                                /**< Bit mask for QSPI_PHYCONFIGRXDLLBYPASS */
 #define _QSPI_PHYCONFIGURATION_PHYCONFIGRXDLLBYPASS_DEFAULT                   0x00000000UL                                                /**< Mode DEFAULT for QSPI_PHYCONFIGURATION */
 #define QSPI_PHYCONFIGURATION_PHYCONFIGRXDLLBYPASS_DEFAULT                    (_QSPI_PHYCONFIGURATION_PHYCONFIGRXDLLBYPASS_DEFAULT << 29) /**< Shifted mode DEFAULT for QSPI_PHYCONFIGURATION */
-#define QSPI_PHYCONFIGURATION_PHYCONFIGRESET                                  (0x1UL << 30)                                               /**< DLL Reset bit */
+#define QSPI_PHYCONFIGURATION_PHYCONFIGRESET                                  (0x1UL << 30)                                               /**< DLL Reset Bit */
 #define _QSPI_PHYCONFIGURATION_PHYCONFIGRESET_SHIFT                           30                                                          /**< Shift value for QSPI_PHYCONFIGRESET */
 #define _QSPI_PHYCONFIGURATION_PHYCONFIGRESET_MASK                            0x40000000UL                                                /**< Bit mask for QSPI_PHYCONFIGRESET */
 #define _QSPI_PHYCONFIGURATION_PHYCONFIGRESET_DEFAULT                         0x00000000UL                                                /**< Mode DEFAULT for QSPI_PHYCONFIGURATION */
@@ -1001,7 +1001,7 @@ typedef struct {
 /* Bit fields for QSPI DLLOBSERVABLELOWER */
 #define _QSPI_DLLOBSERVABLELOWER_RESETVALUE                                   0x00000000UL                                                            /**< Default value for QSPI_DLLOBSERVABLELOWER */
 #define _QSPI_DLLOBSERVABLELOWER_MASK                                         0xFFFFFFFFUL                                                            /**< Mask for QSPI_DLLOBSERVABLELOWER */
-#define QSPI_DLLOBSERVABLELOWER_DLLOBSERVABLELOWERDLLLOCK                     (0x1UL << 0)                                                            /**< Indicates status of DLL */
+#define QSPI_DLLOBSERVABLELOWER_DLLOBSERVABLELOWERDLLLOCK                     (0x1UL << 0)                                                            /**< Indicates Status of DLL */
 #define _QSPI_DLLOBSERVABLELOWER_DLLOBSERVABLELOWERDLLLOCK_SHIFT              0                                                                       /**< Shift value for QSPI_DLLOBSERVABLELOWERDLLLOCK */
 #define _QSPI_DLLOBSERVABLELOWER_DLLOBSERVABLELOWERDLLLOCK_MASK               0x1UL                                                                   /**< Bit mask for QSPI_DLLOBSERVABLELOWERDLLLOCK */
 #define _QSPI_DLLOBSERVABLELOWER_DLLOBSERVABLELOWERDLLLOCK_DEFAULT            0x00000000UL                                                            /**< Mode DEFAULT for QSPI_DLLOBSERVABLELOWER */

@@ -12,10 +12,10 @@
 
  *
  * @endverbatim
- * @version 5.3.3
+ * @version 5.4.0
  ******************************************************************************
  * # License
- * <b>Copyright 2017 Silicon Laboratories, Inc. http://www.silabs.com</b>
+ * <b>Copyright 2017 Silicon Laboratories, Inc. www.silabs.com</b>
  ******************************************************************************
  *
  * Permission is granted to anyone to use this software for any purpose,
@@ -102,6 +102,12 @@ extern "C" {
 
 #elif defined(EFR32FG1V132F64GM48)
 #include "efr32fg1v132f64gm48.h"
+
+#elif defined(EFR32FG1V232F256GM32)
+#include "efr32fg1v232f256gm32.h"
+
+#elif defined(EFR32FG1V232F256GM48)
+#include "efr32fg1v232f256gm48.h"
 
 #else
 #error "em_device.h: PART NUMBER undefined"

@@ -2,10 +2,10 @@
  * @file ezr32hg220f64r60.h
  * @brief CMSIS Cortex-M Peripheral Access Layer Header File
  *        for EZR32HG220F64R60
- * @version 5.3.3
+ * @version 5.4.0
  ******************************************************************************
  * # License
- * <b>Copyright 2017 Silicon Laboratories, Inc. http://www.silabs.com</b>
+ * <b>Copyright 2017 Silicon Laboratories, Inc. www.silabs.com</b>
  ******************************************************************************
  *
  * Permission is granted to anyone to use this software for any purpose,
@@ -164,10 +164,10 @@ typedef enum IRQn{
 #define EXT_IRQ_COUNT        20             /**< Number of External (NVIC) interrupts */
 
 /** AF channels connect the different on-chip peripherals with the af-mux */
-#define AFCHAN_MAX           42
-#define AFCHANLOC_MAX        7
+#define AFCHAN_MAX           42U
+#define AFCHANLOC_MAX        7U
 /** Analog AF channels */
-#define AFACHAN_MAX          27
+#define AFACHAN_MAX          27U
 
 /* Part number capabilities */
 

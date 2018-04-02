@@ -1,10 +1,10 @@
 /***************************************************************************//**
  * @file system_ezr32hg.c
  * @brief CMSIS Cortex-M0+ System Layer for EZR32HG devices.
- * @version 5.3.3
+ * @version 5.4.0
  ******************************************************************************
  * # License
- * <b>Copyright 2017 Silicon Laboratories, Inc. http://www.silabs.com</b>
+ * <b>Copyright 2017 Silicon Laboratories, Inc. www.silabs.com</b>
  ******************************************************************************
  *
  * Permission is granted to anyone to use this software for any purpose,
@@ -143,8 +143,11 @@ uint32_t SystemCoreClockGet(void)
  ******************************************************************************/
 uint32_t SystemMaxCoreClockGet(void)
 {
-  return (EFM32_HFRCO_MAX_FREQ > EFM32_HFXO_FREQ \
-          ? EFM32_HFRCO_MAX_FREQ : EFM32_HFXO_FREQ);
+#if (EFM32_HFRCO_MAX_FREQ > EFM32_HFXO_FREQ)
+  return EFM32_HFRCO_MAX_FREQ;
+#else
+  return EFM32_HFXO_FREQ;
+#endif
 }
 
 /***************************************************************************//**
@@ -193,30 +196,30 @@ uint32_t SystemHFClockGet(void)
 
 #if defined(CMU_STATUS_USHFRCODIV2SEL)
     case CMU_STATUS_USHFRCODIV2SEL:
-      ret = 24000000;
+      ret = 24000000U;
       break;
 #endif
 
     default: /* CMU_STATUS_HFRCOSEL */
       switch (CMU->HFRCOCTRL & _CMU_HFRCOCTRL_BAND_MASK) {
         case CMU_HFRCOCTRL_BAND_21MHZ:
-          ret = 21000000;
+          ret = 21000000U;
           break;
 
         case CMU_HFRCOCTRL_BAND_14MHZ:
-          ret = 14000000;
+          ret = 14000000U;
           break;
 
         case CMU_HFRCOCTRL_BAND_11MHZ:
-          ret = 11000000;
+          ret = 11000000U;
           break;
 
         case CMU_HFRCOCTRL_BAND_7MHZ:
-          ret = 6600000;
+          ret = 6600000U;
           break;
 
         case CMU_HFRCOCTRL_BAND_1MHZ:
-          ret = 1200000;
+          ret = 1200000U;
           break;
 
         default:
@@ -272,9 +275,9 @@ void SystemHFXOClockSet(uint32_t freq)
   SystemHFXOClock = freq;
 
   /* Update core clock frequency if HFXO is used to clock core */
-  if (CMU->STATUS & CMU_STATUS_HFXOSEL) {
+  if ((CMU->STATUS & CMU_STATUS_HFXOSEL) != 0U) {
     /* The function will update the global variable */
-    SystemCoreClockGet();
+    (void)SystemCoreClockGet();
   }
 #else
   (void)freq; /* Unused parameter */
@@ -373,9 +376,9 @@ void SystemLFXOClockSet(uint32_t freq)
   SystemLFXOClock = freq;
 
   /* Update core clock frequency if LFXO is used to clock core */
-  if (CMU->STATUS & CMU_STATUS_LFXOSEL) {
+  if ((CMU->STATUS & CMU_STATUS_LFXOSEL) != 0U) {
     /* The function will update the global variable */
-    SystemCoreClockGet();
+    (void)SystemCoreClockGet();
   }
 #else
   (void)freq; /* Unused parameter */

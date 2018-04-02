@@ -1,10 +1,10 @@
 /**************************************************************************//**
  * @file efm32gg11b_usb.h
  * @brief EFM32GG11B_USB register and bit field definitions
- * @version 5.3.3
+ * @version 5.4.0
  ******************************************************************************
  * # License
- * <b>Copyright 2017 Silicon Laboratories, Inc. http://www.silabs.com</b>
+ * <b>Copyright 2017 Silicon Laboratories, Inc. www.silabs.com</b>
  ******************************************************************************
  *
  * Permission is granted to anyone to use this software for any purpose,
@@ -65,7 +65,7 @@ typedef struct {
   __IOM uint32_t   CMD;               /**< Command Register  */
 
   uint32_t         RESERVED1[2];      /**< Reserved for future use **/
-  __IOM uint32_t   LEMCTRL;           /**< USB LEM control Register  */
+  __IOM uint32_t   LEMCTRL;           /**< USB LEM Control Register  */
 
   uint32_t         RESERVED2[227312]; /**< Reserved for future use **/
   __IOM uint32_t   GOTGCTL;           /**< OTG Control and Status Register  */
@@ -88,12 +88,12 @@ typedef struct {
 
   uint32_t         RESERVED5[40];     /**< Reserved for future use **/
   __IOM uint32_t   HPTXFSIZ;          /**< Host Periodic Transmit FIFO Size Register  */
-  __IOM uint32_t   DIEPTXF1;          /**< Device IN Endpoint Transmit FIFO Size Register 1  */
-  __IOM uint32_t   DIEPTXF2;          /**< Device IN Endpoint Transmit FIFO Size Register 2  */
-  __IOM uint32_t   DIEPTXF3;          /**< Device IN Endpoint Transmit FIFO Size Register 3  */
-  __IOM uint32_t   DIEPTXF4;          /**< Device IN Endpoint Transmit FIFO Size Register 4  */
-  __IOM uint32_t   DIEPTXF5;          /**< Device IN Endpoint Transmit FIFO Size Register 5  */
-  __IOM uint32_t   DIEPTXF6;          /**< Device IN Endpoint Transmit FIFO Size Register 6  */
+  __IOM uint32_t   DIEPTXF1;          /**< Device in Endpoint Transmit FIFO Size Register 1  */
+  __IOM uint32_t   DIEPTXF2;          /**< Device in Endpoint Transmit FIFO Size Register 2  */
+  __IOM uint32_t   DIEPTXF3;          /**< Device in Endpoint Transmit FIFO Size Register 3  */
+  __IOM uint32_t   DIEPTXF4;          /**< Device in Endpoint Transmit FIFO Size Register 4  */
+  __IOM uint32_t   DIEPTXF5;          /**< Device in Endpoint Transmit FIFO Size Register 5  */
+  __IOM uint32_t   DIEPTXF6;          /**< Device in Endpoint Transmit FIFO Size Register 6  */
 
   uint32_t         RESERVED6[185];    /**< Reserved for future use **/
   __IOM uint32_t   HCFG;              /**< Host Configuration Register  */
@@ -114,7 +114,7 @@ typedef struct {
   __IOM uint32_t   DCTL;              /**< Device Control Register  */
   __IM uint32_t    DSTS;              /**< Device Status Register  */
   uint32_t         RESERVED11[1];     /**< Reserved for future use **/
-  __IOM uint32_t   DIEPMSK;           /**< Device IN Endpoint Common Interrupt Mask Register  */
+  __IOM uint32_t   DIEPMSK;           /**< Device in Endpoint Common Interrupt Mask Register  */
   __IOM uint32_t   DOEPMSK;           /**< Device OUT Endpoint Common Interrupt Mask Register  */
   __IM uint32_t    DAINT;             /**< Device All Endpoints Interrupt Register  */
   __IOM uint32_t   DAINTMSK;          /**< Device All Endpoints Interrupt Mask Register  */
@@ -122,16 +122,16 @@ typedef struct {
   __IOM uint32_t   DVBUSDIS;          /**< Device VBUS Discharge Time Register  */
   __IOM uint32_t   DVBUSPULSE;        /**< Device VBUS Pulsing Time Register  */
   __IOM uint32_t   DTHRCTL;           /**< Device Threshold Control Register  */
-  __IOM uint32_t   DIEPEMPMSK;        /**< Device IN Endpoint FIFO Empty Interrupt Mask Register  */
+  __IOM uint32_t   DIEPEMPMSK;        /**< Device in Endpoint FIFO Empty Interrupt Mask Register  */
 
   uint32_t         RESERVED13[50];    /**< Reserved for future use **/
-  __IOM uint32_t   DIEP0CTL;          /**< Device Control IN Endpoint 0 Control Register  */
+  __IOM uint32_t   DIEP0CTL;          /**< Device Control in Endpoint 0 Control Register  */
   uint32_t         RESERVED14[1];     /**< Reserved for future use **/
-  __IOM uint32_t   DIEP0INT;          /**< Device IN Endpoint 0 Interrupt Register  */
+  __IOM uint32_t   DIEP0INT;          /**< Device in Endpoint 0 Interrupt Register  */
   uint32_t         RESERVED15[1];     /**< Reserved for future use **/
-  __IOM uint32_t   DIEP0TSIZ;         /**< Device IN Endpoint 0 Transfer Size Register  */
-  __IOM uint32_t   DIEP0DMAADDR;      /**< Device IN Endpoint 0 DMA Address Register  */
-  __IM uint32_t    DIEP0TXFSTS;       /**< Device IN Endpoint Transmit FIFO Status Register 0  */
+  __IOM uint32_t   DIEP0TSIZ;         /**< Device in Endpoint 0 Transfer Size Register  */
+  __IOM uint32_t   DIEP0DMAADDR;      /**< Device in Endpoint 0 DMA Address Register  */
+  __IM uint32_t    DIEP0TXFSTS;       /**< Device in Endpoint Transmit FIFO Status Register 0  */
 
   uint32_t         RESERVED16[1];     /**< Reserved registers */
   USB_DIEP_TypeDef DIEP[6];           /**< Device IN Endpoint n Registers */
@@ -215,7 +215,7 @@ typedef struct {
 #define USB_CTRL_VBUSENAP_DEFAULT                (_USB_CTRL_VBUSENAP_DEFAULT << 0)        /**< Shifted mode DEFAULT for USB_CTRL */
 #define USB_CTRL_VBUSENAP_HIGH                   (_USB_CTRL_VBUSENAP_HIGH << 0)           /**< Shifted mode HIGH for USB_CTRL */
 #define USB_CTRL_VBUSENAP_LOW                    (_USB_CTRL_VBUSENAP_LOW << 0)            /**< Shifted mode LOW for USB_CTRL */
-#define USB_CTRL_SELFPOWERED                     (0x1UL << 3)                             /**< PHY power */
+#define USB_CTRL_SELFPOWERED                     (0x1UL << 3)                             /**< PHY Power */
 #define _USB_CTRL_SELFPOWERED_SHIFT              3                                        /**< Shift value for USB_SELFPOWERED */
 #define _USB_CTRL_SELFPOWERED_MASK               0x8UL                                    /**< Bit mask for USB_SELFPOWERED */
 #define _USB_CTRL_SELFPOWERED_DEFAULT            0x00000000UL                             /**< Mode DEFAULT for USB_CTRL */
@@ -530,7 +530,7 @@ typedef struct {
 #define _USB_CMD_STARTCD_MASK                    0x1UL                           /**< Bit mask for USB_STARTCD */
 #define _USB_CMD_STARTCD_DEFAULT                 0x00000000UL                    /**< Mode DEFAULT for USB_CMD */
 #define USB_CMD_STARTCD_DEFAULT                  (_USB_CMD_STARTCD_DEFAULT << 0) /**< Shifted mode DEFAULT for USB_CMD */
-#define USB_CMD_STOPCD                           (0x1UL << 1)                    /**< Start Charger Detection in progress */
+#define USB_CMD_STOPCD                           (0x1UL << 1)                    /**< Start Charger Detection in Progress */
 #define _USB_CMD_STOPCD_SHIFT                    1                               /**< Shift value for USB_STOPCD */
 #define _USB_CMD_STOPCD_MASK                     0x2UL                           /**< Bit mask for USB_STOPCD */
 #define _USB_CMD_STOPCD_DEFAULT                  0x00000000UL                    /**< Mode DEFAULT for USB_CMD */
@@ -858,7 +858,7 @@ typedef struct {
 #define _USB_GINTSTS_NPTXFEMP_MASK               0x20UL                                    /**< Bit mask for USB_NPTXFEMP */
 #define _USB_GINTSTS_NPTXFEMP_DEFAULT            0x00000001UL                              /**< Mode DEFAULT for USB_GINTSTS */
 #define USB_GINTSTS_NPTXFEMP_DEFAULT             (_USB_GINTSTS_NPTXFEMP_DEFAULT << 5)      /**< Shifted mode DEFAULT for USB_GINTSTS */
-#define USB_GINTSTS_GINNAKEFF                    (0x1UL << 6)                              /**< Global IN Non-periodic NAK Effective */
+#define USB_GINTSTS_GINNAKEFF                    (0x1UL << 6)                              /**< Global in Non-periodic NAK Effective */
 #define _USB_GINTSTS_GINNAKEFF_SHIFT             6                                         /**< Shift value for USB_GINNAKEFF */
 #define _USB_GINTSTS_GINNAKEFF_MASK              0x40UL                                    /**< Bit mask for USB_GINNAKEFF */
 #define _USB_GINTSTS_GINNAKEFF_DEFAULT           0x00000000UL                              /**< Mode DEFAULT for USB_GINTSTS */
@@ -908,7 +908,7 @@ typedef struct {
 #define _USB_GINTSTS_OEPINT_MASK                 0x80000UL                                 /**< Bit mask for USB_OEPINT */
 #define _USB_GINTSTS_OEPINT_DEFAULT              0x00000000UL                              /**< Mode DEFAULT for USB_GINTSTS */
 #define USB_GINTSTS_OEPINT_DEFAULT               (_USB_GINTSTS_OEPINT_DEFAULT << 19)       /**< Shifted mode DEFAULT for USB_GINTSTS */
-#define USB_GINTSTS_INCOMPISOIN                  (0x1UL << 20)                             /**< Incomplete Isochronous IN Transfer */
+#define USB_GINTSTS_INCOMPISOIN                  (0x1UL << 20)                             /**< Incomplete Isochronous in Transfer */
 #define _USB_GINTSTS_INCOMPISOIN_SHIFT           20                                        /**< Shift value for USB_INCOMPISOIN */
 #define _USB_GINTSTS_INCOMPISOIN_MASK            0x100000UL                                /**< Bit mask for USB_INCOMPISOIN */
 #define _USB_GINTSTS_INCOMPISOIN_DEFAULT         0x00000000UL                              /**< Mode DEFAULT for USB_GINTSTS */
@@ -923,7 +923,7 @@ typedef struct {
 #define _USB_GINTSTS_FETSUSP_MASK                0x400000UL                                /**< Bit mask for USB_FETSUSP */
 #define _USB_GINTSTS_FETSUSP_DEFAULT             0x00000000UL                              /**< Mode DEFAULT for USB_GINTSTS */
 #define USB_GINTSTS_FETSUSP_DEFAULT              (_USB_GINTSTS_FETSUSP_DEFAULT << 22)      /**< Shifted mode DEFAULT for USB_GINTSTS */
-#define USB_GINTSTS_RESETDET                     (0x1UL << 23)                             /**< Reset detected Interrupt */
+#define USB_GINTSTS_RESETDET                     (0x1UL << 23)                             /**< Reset Detected Interrupt */
 #define _USB_GINTSTS_RESETDET_SHIFT              23                                        /**< Shift value for USB_RESETDET */
 #define _USB_GINTSTS_RESETDET_MASK               0x800000UL                                /**< Bit mask for USB_RESETDET */
 #define _USB_GINTSTS_RESETDET_DEFAULT            0x00000000UL                              /**< Mode DEFAULT for USB_GINTSTS */
@@ -992,7 +992,7 @@ typedef struct {
 #define _USB_GINTMSK_NPTXFEMPMSK_MASK            0x20UL                                       /**< Bit mask for USB_NPTXFEMPMSK */
 #define _USB_GINTMSK_NPTXFEMPMSK_DEFAULT         0x00000000UL                                 /**< Mode DEFAULT for USB_GINTMSK */
 #define USB_GINTMSK_NPTXFEMPMSK_DEFAULT          (_USB_GINTMSK_NPTXFEMPMSK_DEFAULT << 5)      /**< Shifted mode DEFAULT for USB_GINTMSK */
-#define USB_GINTMSK_GINNAKEFFMSK                 (0x1UL << 6)                                 /**< Global Non-periodic IN NAK Effective Mask */
+#define USB_GINTMSK_GINNAKEFFMSK                 (0x1UL << 6)                                 /**< Global Non-periodic in NAK Effective Mask */
 #define _USB_GINTMSK_GINNAKEFFMSK_SHIFT          6                                            /**< Shift value for USB_GINNAKEFFMSK */
 #define _USB_GINTMSK_GINNAKEFFMSK_MASK           0x40UL                                       /**< Bit mask for USB_GINNAKEFFMSK */
 #define _USB_GINTMSK_GINNAKEFFMSK_DEFAULT        0x00000000UL                                 /**< Mode DEFAULT for USB_GINTMSK */
@@ -1047,7 +1047,7 @@ typedef struct {
 #define _USB_GINTMSK_OEPINTMSK_MASK              0x80000UL                                    /**< Bit mask for USB_OEPINTMSK */
 #define _USB_GINTMSK_OEPINTMSK_DEFAULT           0x00000000UL                                 /**< Mode DEFAULT for USB_GINTMSK */
 #define USB_GINTMSK_OEPINTMSK_DEFAULT            (_USB_GINTMSK_OEPINTMSK_DEFAULT << 19)       /**< Shifted mode DEFAULT for USB_GINTMSK */
-#define USB_GINTMSK_INCOMPISOINMSK               (0x1UL << 20)                                /**< Incomplete Isochronous IN Transfer Mask */
+#define USB_GINTMSK_INCOMPISOINMSK               (0x1UL << 20)                                /**< Incomplete Isochronous in Transfer Mask */
 #define _USB_GINTMSK_INCOMPISOINMSK_SHIFT        20                                           /**< Shift value for USB_INCOMPISOINMSK */
 #define _USB_GINTMSK_INCOMPISOINMSK_MASK         0x100000UL                                   /**< Bit mask for USB_INCOMPISOINMSK */
 #define _USB_GINTMSK_INCOMPISOINMSK_DEFAULT      0x00000000UL                                 /**< Mode DEFAULT for USB_GINTMSK */
@@ -1062,7 +1062,7 @@ typedef struct {
 #define _USB_GINTMSK_FETSUSPMSK_MASK             0x400000UL                                   /**< Bit mask for USB_FETSUSPMSK */
 #define _USB_GINTMSK_FETSUSPMSK_DEFAULT          0x00000000UL                                 /**< Mode DEFAULT for USB_GINTMSK */
 #define USB_GINTMSK_FETSUSPMSK_DEFAULT           (_USB_GINTMSK_FETSUSPMSK_DEFAULT << 22)      /**< Shifted mode DEFAULT for USB_GINTMSK */
-#define USB_GINTMSK_RESETDETMSK                  (0x1UL << 23)                                /**< Reset detected Interrupt Mask */
+#define USB_GINTMSK_RESETDETMSK                  (0x1UL << 23)                                /**< Reset Detected Interrupt Mask */
 #define _USB_GINTMSK_RESETDETMSK_SHIFT           23                                           /**< Shift value for USB_RESETDETMSK */
 #define _USB_GINTMSK_RESETDETMSK_MASK            0x800000UL                                   /**< Bit mask for USB_RESETDETMSK */
 #define _USB_GINTMSK_RESETDETMSK_DEFAULT         0x00000000UL                                 /**< Mode DEFAULT for USB_GINTMSK */
@@ -1097,7 +1097,7 @@ typedef struct {
 #define _USB_GINTMSK_SESSREQINTMSK_MASK          0x40000000UL                                 /**< Bit mask for USB_SESSREQINTMSK */
 #define _USB_GINTMSK_SESSREQINTMSK_DEFAULT       0x00000000UL                                 /**< Mode DEFAULT for USB_GINTMSK */
 #define USB_GINTMSK_SESSREQINTMSK_DEFAULT        (_USB_GINTMSK_SESSREQINTMSK_DEFAULT << 30)   /**< Shifted mode DEFAULT for USB_GINTMSK */
-#define USB_GINTMSK_WKUPINTMSK                   (0x1UL << 31)                                /**< Resume/Remote Wakeup Detected Interrupt Mask The WakeUp bit is used for LPM state wake up in a way similar to that of wake up in suspend state. */
+#define USB_GINTMSK_WKUPINTMSK                   (0x1UL << 31)                                /**< Resume/Remote Wakeup Detected Interrupt Mask the WakeUp Bit is Used for LPM State Wake Up in a Way Similar to That of Wake Up in Suspend State */
 #define _USB_GINTMSK_WKUPINTMSK_SHIFT            31                                           /**< Shift value for USB_WKUPINTMSK */
 #define _USB_GINTMSK_WKUPINTMSK_MASK             0x80000000UL                                 /**< Bit mask for USB_WKUPINTMSK */
 #define _USB_GINTMSK_WKUPINTMSK_DEFAULT          0x00000000UL                                 /**< Mode DEFAULT for USB_GINTMSK */
@@ -1303,7 +1303,7 @@ typedef struct {
 #define _USB_HCFG_FSLSSUPP_MASK                  0x4UL                                 /**< Bit mask for USB_FSLSSUPP */
 #define _USB_HCFG_FSLSSUPP_DEFAULT               0x00000000UL                          /**< Mode DEFAULT for USB_HCFG */
 #define USB_HCFG_FSLSSUPP_DEFAULT                (_USB_HCFG_FSLSSUPP_DEFAULT << 2)     /**< Shifted mode DEFAULT for USB_HCFG */
-#define USB_HCFG_ENA32KHZS                       (0x1UL << 7)                          /**< Enable 32 KHz Suspend mode */
+#define USB_HCFG_ENA32KHZS                       (0x1UL << 7)                          /**< Enable 32 kHz Suspend Mode */
 #define _USB_HCFG_ENA32KHZS_SHIFT                7                                     /**< Shift value for USB_ENA32KHZS */
 #define _USB_HCFG_ENA32KHZS_MASK                 0x80UL                                /**< Bit mask for USB_ENA32KHZS */
 #define _USB_HCFG_ENA32KHZS_DEFAULT              0x00000000UL                          /**< Mode DEFAULT for USB_HCFG */
@@ -1660,7 +1660,7 @@ typedef struct {
 #define _USB_DCFG_NZSTSOUTHSHK_MASK              0x4UL                                   /**< Bit mask for USB_NZSTSOUTHSHK */
 #define _USB_DCFG_NZSTSOUTHSHK_DEFAULT           0x00000000UL                            /**< Mode DEFAULT for USB_DCFG */
 #define USB_DCFG_NZSTSOUTHSHK_DEFAULT            (_USB_DCFG_NZSTSOUTHSHK_DEFAULT << 2)   /**< Shifted mode DEFAULT for USB_DCFG */
-#define USB_DCFG_ENA32KHZSUSP                    (0x1UL << 3)                            /**< Enable 32 KHz Suspend mode */
+#define USB_DCFG_ENA32KHZSUSP                    (0x1UL << 3)                            /**< Enable 32 kHz Suspend Mode */
 #define _USB_DCFG_ENA32KHZSUSP_SHIFT             3                                       /**< Shift value for USB_ENA32KHZSUSP */
 #define _USB_DCFG_ENA32KHZSUSP_MASK              0x8UL                                   /**< Bit mask for USB_ENA32KHZSUSP */
 #define _USB_DCFG_ENA32KHZSUSP_DEFAULT           0x00000000UL                            /**< Mode DEFAULT for USB_DCFG */
@@ -1706,7 +1706,7 @@ typedef struct {
 #define _USB_DCTL_SFTDISCON_MASK                 0x2UL                                  /**< Bit mask for USB_SFTDISCON */
 #define _USB_DCTL_SFTDISCON_DEFAULT              0x00000001UL                           /**< Mode DEFAULT for USB_DCTL */
 #define USB_DCTL_SFTDISCON_DEFAULT               (_USB_DCTL_SFTDISCON_DEFAULT << 1)     /**< Shifted mode DEFAULT for USB_DCTL */
-#define USB_DCTL_GNPINNAKSTS                     (0x1UL << 2)                           /**< Global Non-periodic IN NAK Status */
+#define USB_DCTL_GNPINNAKSTS                     (0x1UL << 2)                           /**< Global Non-periodic in NAK Status */
 #define _USB_DCTL_GNPINNAKSTS_SHIFT              2                                      /**< Shift value for USB_GNPINNAKSTS */
 #define _USB_DCTL_GNPINNAKSTS_MASK               0x4UL                                  /**< Bit mask for USB_GNPINNAKSTS */
 #define _USB_DCTL_GNPINNAKSTS_DEFAULT            0x00000000UL                           /**< Mode DEFAULT for USB_DCTL */
@@ -1720,12 +1720,12 @@ typedef struct {
 #define _USB_DCTL_TSTCTL_MASK                    0x70UL                                 /**< Bit mask for USB_TSTCTL */
 #define _USB_DCTL_TSTCTL_DEFAULT                 0x00000000UL                           /**< Mode DEFAULT for USB_DCTL */
 #define USB_DCTL_TSTCTL_DEFAULT                  (_USB_DCTL_TSTCTL_DEFAULT << 4)        /**< Shifted mode DEFAULT for USB_DCTL */
-#define USB_DCTL_SGNPINNAK                       (0x1UL << 7)                           /**< Set Global Non-periodic IN NAK */
+#define USB_DCTL_SGNPINNAK                       (0x1UL << 7)                           /**< Set Global Non-periodic in NAK */
 #define _USB_DCTL_SGNPINNAK_SHIFT                7                                      /**< Shift value for USB_SGNPINNAK */
 #define _USB_DCTL_SGNPINNAK_MASK                 0x80UL                                 /**< Bit mask for USB_SGNPINNAK */
 #define _USB_DCTL_SGNPINNAK_DEFAULT              0x00000000UL                           /**< Mode DEFAULT for USB_DCTL */
 #define USB_DCTL_SGNPINNAK_DEFAULT               (_USB_DCTL_SGNPINNAK_DEFAULT << 7)     /**< Shifted mode DEFAULT for USB_DCTL */
-#define USB_DCTL_CGNPINNAK                       (0x1UL << 8)                           /**< Clear Global Non-periodic IN NAK */
+#define USB_DCTL_CGNPINNAK                       (0x1UL << 8)                           /**< Clear Global Non-periodic in NAK */
 #define _USB_DCTL_CGNPINNAK_SHIFT                8                                      /**< Shift value for USB_CGNPINNAK */
 #define _USB_DCTL_CGNPINNAK_MASK                 0x100UL                                /**< Bit mask for USB_CGNPINNAK */
 #define _USB_DCTL_CGNPINNAK_DEFAULT              0x00000000UL                           /**< Mode DEFAULT for USB_DCTL */
@@ -1745,7 +1745,7 @@ typedef struct {
 #define _USB_DCTL_PWRONPRGDONE_MASK              0x800UL                                /**< Bit mask for USB_PWRONPRGDONE */
 #define _USB_DCTL_PWRONPRGDONE_DEFAULT           0x00000000UL                           /**< Mode DEFAULT for USB_DCTL */
 #define USB_DCTL_PWRONPRGDONE_DEFAULT            (_USB_DCTL_PWRONPRGDONE_DEFAULT << 11) /**< Shifted mode DEFAULT for USB_DCTL */
-#define USB_DCTL_IGNRFRMNUM                      (0x1UL << 15)                          /**< Ignore Frame number For Isochronous End points */
+#define USB_DCTL_IGNRFRMNUM                      (0x1UL << 15)                          /**< Ignore Frame Number for Isochronous End Points */
 #define _USB_DCTL_IGNRFRMNUM_SHIFT               15                                     /**< Shift value for USB_IGNRFRMNUM */
 #define _USB_DCTL_IGNRFRMNUM_MASK                0x8000UL                               /**< Bit mask for USB_IGNRFRMNUM */
 #define _USB_DCTL_IGNRFRMNUM_DEFAULT             0x00000000UL                           /**< Mode DEFAULT for USB_DCTL */
@@ -1810,7 +1810,7 @@ typedef struct {
 #define _USB_DIEPMSK_INTKNTXFEMPMSK_MASK         0x10UL                                     /**< Bit mask for USB_INTKNTXFEMPMSK */
 #define _USB_DIEPMSK_INTKNTXFEMPMSK_DEFAULT      0x00000000UL                               /**< Mode DEFAULT for USB_DIEPMSK */
 #define USB_DIEPMSK_INTKNTXFEMPMSK_DEFAULT       (_USB_DIEPMSK_INTKNTXFEMPMSK_DEFAULT << 4) /**< Shifted mode DEFAULT for USB_DIEPMSK */
-#define USB_DIEPMSK_INTKNEPMISMSK                (0x1UL << 5)                               /**< IN Token received with EP Mismatch Mask */
+#define USB_DIEPMSK_INTKNEPMISMSK                (0x1UL << 5)                               /**< IN Token Received With EP Mismatch Mask */
 #define _USB_DIEPMSK_INTKNEPMISMSK_SHIFT         5                                          /**< Shift value for USB_INTKNEPMISMSK */
 #define _USB_DIEPMSK_INTKNEPMISMSK_MASK          0x20UL                                     /**< Bit mask for USB_INTKNEPMISMSK */
 #define _USB_DIEPMSK_INTKNEPMISMSK_DEFAULT       0x00000000UL                               /**< Mode DEFAULT for USB_DIEPMSK */
@@ -1825,7 +1825,7 @@ typedef struct {
 #define _USB_DIEPMSK_TXFIFOUNDRNMSK_MASK         0x100UL                                    /**< Bit mask for USB_TXFIFOUNDRNMSK */
 #define _USB_DIEPMSK_TXFIFOUNDRNMSK_DEFAULT      0x00000000UL                               /**< Mode DEFAULT for USB_DIEPMSK */
 #define USB_DIEPMSK_TXFIFOUNDRNMSK_DEFAULT       (_USB_DIEPMSK_TXFIFOUNDRNMSK_DEFAULT << 8) /**< Shifted mode DEFAULT for USB_DIEPMSK */
-#define USB_DIEPMSK_NAKMSK                       (0x1UL << 13)                              /**< NAK interrupt Mask */
+#define USB_DIEPMSK_NAKMSK                       (0x1UL << 13)                              /**< NAK Interrupt Mask */
 #define _USB_DIEPMSK_NAKMSK_SHIFT                13                                         /**< Shift value for USB_NAKMSK */
 #define _USB_DIEPMSK_NAKMSK_MASK                 0x2000UL                                   /**< Bit mask for USB_NAKMSK */
 #define _USB_DIEPMSK_NAKMSK_DEFAULT              0x00000000UL                               /**< Mode DEFAULT for USB_DIEPMSK */
@@ -1854,7 +1854,7 @@ typedef struct {
 #define _USB_DOEPMSK_SETUPMSK_MASK               0x8UL                                      /**< Bit mask for USB_SETUPMSK */
 #define _USB_DOEPMSK_SETUPMSK_DEFAULT            0x00000000UL                               /**< Mode DEFAULT for USB_DOEPMSK */
 #define USB_DOEPMSK_SETUPMSK_DEFAULT             (_USB_DOEPMSK_SETUPMSK_DEFAULT << 3)       /**< Shifted mode DEFAULT for USB_DOEPMSK */
-#define USB_DOEPMSK_OUTTKNEPDISMSK               (0x1UL << 4)                               /**< OUT Token Received when Endpoint Disabled Mask */
+#define USB_DOEPMSK_OUTTKNEPDISMSK               (0x1UL << 4)                               /**< OUT Token Received When Endpoint Disabled Mask */
 #define _USB_DOEPMSK_OUTTKNEPDISMSK_SHIFT        4                                          /**< Shift value for USB_OUTTKNEPDISMSK */
 #define _USB_DOEPMSK_OUTTKNEPDISMSK_MASK         0x10UL                                     /**< Bit mask for USB_OUTTKNEPDISMSK */
 #define _USB_DOEPMSK_OUTTKNEPDISMSK_DEFAULT      0x00000000UL                               /**< Mode DEFAULT for USB_DOEPMSK */
@@ -1874,12 +1874,12 @@ typedef struct {
 #define _USB_DOEPMSK_OUTPKTERRMSK_MASK           0x100UL                                    /**< Bit mask for USB_OUTPKTERRMSK */
 #define _USB_DOEPMSK_OUTPKTERRMSK_DEFAULT        0x00000000UL                               /**< Mode DEFAULT for USB_DOEPMSK */
 #define USB_DOEPMSK_OUTPKTERRMSK_DEFAULT         (_USB_DOEPMSK_OUTPKTERRMSK_DEFAULT << 8)   /**< Shifted mode DEFAULT for USB_DOEPMSK */
-#define USB_DOEPMSK_BBLEERRMSK                   (0x1UL << 12)                              /**< Babble Error interrupt Mask */
+#define USB_DOEPMSK_BBLEERRMSK                   (0x1UL << 12)                              /**< Babble Error Interrupt Mask */
 #define _USB_DOEPMSK_BBLEERRMSK_SHIFT            12                                         /**< Shift value for USB_BBLEERRMSK */
 #define _USB_DOEPMSK_BBLEERRMSK_MASK             0x1000UL                                   /**< Bit mask for USB_BBLEERRMSK */
 #define _USB_DOEPMSK_BBLEERRMSK_DEFAULT          0x00000000UL                               /**< Mode DEFAULT for USB_DOEPMSK */
 #define USB_DOEPMSK_BBLEERRMSK_DEFAULT           (_USB_DOEPMSK_BBLEERRMSK_DEFAULT << 12)    /**< Shifted mode DEFAULT for USB_DOEPMSK */
-#define USB_DOEPMSK_NAKMSK                       (0x1UL << 13)                              /**< NAK interrupt Mask */
+#define USB_DOEPMSK_NAKMSK                       (0x1UL << 13)                              /**< NAK Interrupt Mask */
 #define _USB_DOEPMSK_NAKMSK_SHIFT                13                                         /**< Shift value for USB_NAKMSK */
 #define _USB_DOEPMSK_NAKMSK_MASK                 0x2000UL                                   /**< Bit mask for USB_NAKMSK */
 #define _USB_DOEPMSK_NAKMSK_DEFAULT              0x00000000UL                               /**< Mode DEFAULT for USB_DOEPMSK */
@@ -2052,12 +2052,12 @@ typedef struct {
 /* Bit fields for USB DTHRCTL */
 #define _USB_DTHRCTL_RESETVALUE                  0x08100020UL                             /**< Default value for USB_DTHRCTL */
 #define _USB_DTHRCTL_MASK                        0x0BFF1FFFUL                             /**< Mask for USB_DTHRCTL */
-#define USB_DTHRCTL_NONISOTHREN                  (0x1UL << 0)                             /**< Non-ISO IN Endpoints Threshold Enable. */
+#define USB_DTHRCTL_NONISOTHREN                  (0x1UL << 0)                             /**< Non-ISO in Endpoints Threshold Enable */
 #define _USB_DTHRCTL_NONISOTHREN_SHIFT           0                                        /**< Shift value for USB_NONISOTHREN */
 #define _USB_DTHRCTL_NONISOTHREN_MASK            0x1UL                                    /**< Bit mask for USB_NONISOTHREN */
 #define _USB_DTHRCTL_NONISOTHREN_DEFAULT         0x00000000UL                             /**< Mode DEFAULT for USB_DTHRCTL */
 #define USB_DTHRCTL_NONISOTHREN_DEFAULT          (_USB_DTHRCTL_NONISOTHREN_DEFAULT << 0)  /**< Shifted mode DEFAULT for USB_DTHRCTL */
-#define USB_DTHRCTL_ISOTHREN                     (0x1UL << 1)                             /**< ISO IN Endpoints Threshold Enable. */
+#define USB_DTHRCTL_ISOTHREN                     (0x1UL << 1)                             /**< ISO in Endpoints Threshold Enable */
 #define _USB_DTHRCTL_ISOTHREN_SHIFT              1                                        /**< Shift value for USB_ISOTHREN */
 #define _USB_DTHRCTL_ISOTHREN_MASK               0x2UL                                    /**< Bit mask for USB_ISOTHREN */
 #define _USB_DTHRCTL_ISOTHREN_DEFAULT            0x00000000UL                             /**< Mode DEFAULT for USB_DTHRCTL */
@@ -2172,7 +2172,7 @@ typedef struct {
 #define _USB_DIEP0INT_INTKNTXFEMP_MASK           0x10UL                                   /**< Bit mask for USB_INTKNTXFEMP */
 #define _USB_DIEP0INT_INTKNTXFEMP_DEFAULT        0x00000000UL                             /**< Mode DEFAULT for USB_DIEP0INT */
 #define USB_DIEP0INT_INTKNTXFEMP_DEFAULT         (_USB_DIEP0INT_INTKNTXFEMP_DEFAULT << 4) /**< Shifted mode DEFAULT for USB_DIEP0INT */
-#define USB_DIEP0INT_INTKNEPMIS                  (0x1UL << 5)                             /**< IN Token Received with EP Mismatch */
+#define USB_DIEP0INT_INTKNEPMIS                  (0x1UL << 5)                             /**< IN Token Received With EP Mismatch */
 #define _USB_DIEP0INT_INTKNEPMIS_SHIFT           5                                        /**< Shift value for USB_INTKNEPMIS */
 #define _USB_DIEP0INT_INTKNEPMIS_MASK            0x20UL                                   /**< Bit mask for USB_INTKNEPMIS */
 #define _USB_DIEP0INT_INTKNEPMIS_DEFAULT         0x00000000UL                             /**< Mode DEFAULT for USB_DIEP0INT */
@@ -2330,7 +2330,7 @@ typedef struct {
 #define _USB_DIEP_INT_INTKNTXFEMP_MASK           0x10UL                                   /**< Bit mask for USB_INTKNTXFEMP */
 #define _USB_DIEP_INT_INTKNTXFEMP_DEFAULT        0x00000000UL                             /**< Mode DEFAULT for USB_DIEP_INT */
 #define USB_DIEP_INT_INTKNTXFEMP_DEFAULT         (_USB_DIEP_INT_INTKNTXFEMP_DEFAULT << 4) /**< Shifted mode DEFAULT for USB_DIEP_INT */
-#define USB_DIEP_INT_INTKNEPMIS                  (0x1UL << 5)                             /**< IN Token Received with EP Mismatch */
+#define USB_DIEP_INT_INTKNEPMIS                  (0x1UL << 5)                             /**< IN Token Received With EP Mismatch */
 #define _USB_DIEP_INT_INTKNEPMIS_SHIFT           5                                        /**< Shift value for USB_INTKNEPMIS */
 #define _USB_DIEP_INT_INTKNEPMIS_MASK            0x20UL                                   /**< Bit mask for USB_INTKNEPMIS */
 #define _USB_DIEP_INT_INTKNEPMIS_DEFAULT         0x00000000UL                             /**< Mode DEFAULT for USB_DIEP_INT */
@@ -2478,7 +2478,7 @@ typedef struct {
 #define _USB_DOEP0INT_OUTTKNEPDIS_MASK           0x10UL                                      /**< Bit mask for USB_OUTTKNEPDIS */
 #define _USB_DOEP0INT_OUTTKNEPDIS_DEFAULT        0x00000000UL                                /**< Mode DEFAULT for USB_DOEP0INT */
 #define USB_DOEP0INT_OUTTKNEPDIS_DEFAULT         (_USB_DOEP0INT_OUTTKNEPDIS_DEFAULT << 4)    /**< Shifted mode DEFAULT for USB_DOEP0INT */
-#define USB_DOEP0INT_STSPHSERCVD                 (0x1UL << 5)                                /**< Status Phase Received For Control Write */
+#define USB_DOEP0INT_STSPHSERCVD                 (0x1UL << 5)                                /**< Status Phase Received for Control Write */
 #define _USB_DOEP0INT_STSPHSERCVD_SHIFT          5                                           /**< Shift value for USB_STSPHSERCVD */
 #define _USB_DOEP0INT_STSPHSERCVD_MASK           0x20UL                                      /**< Bit mask for USB_STSPHSERCVD */
 #define _USB_DOEP0INT_STSPHSERCVD_DEFAULT        0x00000000UL                                /**< Mode DEFAULT for USB_DOEP0INT */
@@ -2634,7 +2634,7 @@ typedef struct {
 #define _USB_DOEP_INT_OUTTKNEPDIS_MASK           0x10UL                                      /**< Bit mask for USB_OUTTKNEPDIS */
 #define _USB_DOEP_INT_OUTTKNEPDIS_DEFAULT        0x00000000UL                                /**< Mode DEFAULT for USB_DOEP_INT */
 #define USB_DOEP_INT_OUTTKNEPDIS_DEFAULT         (_USB_DOEP_INT_OUTTKNEPDIS_DEFAULT << 4)    /**< Shifted mode DEFAULT for USB_DOEP_INT */
-#define USB_DOEP_INT_STSPHSERCVD                 (0x1UL << 5)                                /**< Status Phase Received For Control Write */
+#define USB_DOEP_INT_STSPHSERCVD                 (0x1UL << 5)                                /**< Status Phase Received for Control Write */
 #define _USB_DOEP_INT_STSPHSERCVD_SHIFT          5                                           /**< Shift value for USB_STSPHSERCVD */
 #define _USB_DOEP_INT_STSPHSERCVD_MASK           0x20UL                                      /**< Bit mask for USB_STSPHSERCVD */
 #define _USB_DOEP_INT_STSPHSERCVD_DEFAULT        0x00000000UL                                /**< Mode DEFAULT for USB_DOEP_INT */

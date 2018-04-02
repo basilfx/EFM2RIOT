@@ -1,10 +1,10 @@
 /**************************************************************************//**
  * @file efm32gg11b_can_mir.h
  * @brief EFM32GG11B_CAN_MIR register and bit field definitions
- * @version 5.3.3
+ * @version 5.4.0
  ******************************************************************************
  * # License
- * <b>Copyright 2017 Silicon Laboratories, Inc. http://www.silabs.com</b>
+ * <b>Copyright 2017 Silicon Laboratories, Inc. www.silabs.com</b>
  ******************************************************************************
  *
  * Permission is granted to anyone to use this software for any purpose,
@@ -50,11 +50,11 @@ extern "C" {
  * @ingroup EFM32GG11B_CAN
  *****************************************************************************/
 typedef struct {
-  __IOM uint32_t CMDMASK;      /**< Interface Command Mask Register   */
+  __IOM uint32_t CMDMASK;      /**< Interface Command Mask Register  */
   __IOM uint32_t MASK;         /**< Interface Mask Register  */
   __IOM uint32_t ARB;          /**< Interface Arbitration Register  */
   __IOM uint32_t CTRL;         /**< Interface Message Control Register  */
-  __IOM uint32_t DATAL;        /**< Interface Data A Register  */
+  __IOM uint32_t DATAL;        /**< Interface Data a Register  */
   __IOM uint32_t DATAH;        /**< Interface Data B Register  */
   __IOM uint32_t CMDREQ;       /**< Interface Command Request Register  */
   uint32_t       RESERVED0[1]; /**< Reserved future */

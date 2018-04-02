@@ -1,10 +1,10 @@
 /**************************************************************************//**
  * @file efr32mg12p_lesense_st.h
  * @brief EFR32MG12P_LESENSE_ST register and bit field definitions
- * @version 5.3.3
+ * @version 5.4.0
  ******************************************************************************
  * # License
- * <b>Copyright 2017 Silicon Laboratories, Inc. http://www.silabs.com</b>
+ * <b>Copyright 2017 Silicon Laboratories, Inc. www.silabs.com</b>
  ******************************************************************************
  *
  * Permission is granted to anyone to use this software for any purpose,
@@ -50,8 +50,8 @@ extern "C" {
  * @ingroup EFR32MG12P_LESENSE
  *****************************************************************************/
 typedef struct {
-  __IOM uint32_t TCONFA; /**< State transition configuration A  */
-  __IOM uint32_t TCONFB; /**< State transition configuration B  */
+  __IOM uint32_t TCONFA; /**< State Transition Configuration a  */
+  __IOM uint32_t TCONFB; /**< State Transition Configuration B  */
 } LESENSE_ST_TypeDef;
 
 /** @} End of group Parts */

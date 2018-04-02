@@ -1,10 +1,10 @@
 /**************************************************************************//**
  * @file efm32gg11b_usb_diep.h
  * @brief EFM32GG11B_USB_DIEP register and bit field definitions
- * @version 5.3.3
+ * @version 5.4.0
  ******************************************************************************
  * # License
- * <b>Copyright 2017 Silicon Laboratories, Inc. http://www.silabs.com</b>
+ * <b>Copyright 2017 Silicon Laboratories, Inc. www.silabs.com</b>
  ******************************************************************************
  *
  * Permission is granted to anyone to use this software for any purpose,
@@ -50,13 +50,13 @@ extern "C" {
  * @ingroup EFM32GG11B_USB
  *****************************************************************************/
 typedef struct {
-  __IOM uint32_t CTL;          /**< Device Control IN Endpoint 1 Control Register  */
+  __IOM uint32_t CTL;          /**< Device Control in Endpoint 1 Control Register  */
   uint32_t       RESERVED0[1]; /**< Reserved for future use **/
-  __IOM uint32_t INT;          /**< Device IN Endpoint 1 Interrupt Register  */
+  __IOM uint32_t INT;          /**< Device in Endpoint 1 Interrupt Register  */
   uint32_t       RESERVED1[1]; /**< Reserved for future use **/
-  __IOM uint32_t TSIZ;         /**< Device IN Endpoint 1 Transfer Size Register  */
-  __IOM uint32_t DMAADDR;      /**< Device IN Endpoint 1 DMA Address Register  */
-  __IM uint32_t  DTXFSTS;      /**< Device IN Endpoint Transmit FIFO Status Register 1  */
+  __IOM uint32_t TSIZ;         /**< Device in Endpoint 1 Transfer Size Register  */
+  __IOM uint32_t DMAADDR;      /**< Device in Endpoint 1 DMA Address Register  */
+  __IM uint32_t  DTXFSTS;      /**< Device in Endpoint Transmit FIFO Status Register 1  */
   uint32_t       RESERVED2[1]; /**< Reserved future */
 } USB_DIEP_TypeDef;
 

@@ -1,10 +1,10 @@
 /**************************************************************************//**
  * @file efr32mg12p_trng.h
  * @brief EFR32MG12P_TRNG register and bit field definitions
- * @version 5.3.3
+ * @version 5.4.0
  ******************************************************************************
  * # License
- * <b>Copyright 2017 Silicon Laboratories, Inc. http://www.silabs.com</b>
+ * <b>Copyright 2017 Silicon Laboratories, Inc. www.silabs.com</b>
  ******************************************************************************
  *
  * Permission is granted to anyone to use this software for any purpose,
@@ -106,22 +106,22 @@ typedef struct {
 #define TRNG_CONTROL_CONDBYPASS_DEFAULT      (_TRNG_CONTROL_CONDBYPASS_DEFAULT << 3)  /**< Shifted mode DEFAULT for TRNG_CONTROL */
 #define TRNG_CONTROL_CONDBYPASS_NORMAL       (_TRNG_CONTROL_CONDBYPASS_NORMAL << 3)   /**< Shifted mode NORMAL for TRNG_CONTROL */
 #define TRNG_CONTROL_CONDBYPASS_BYPASS       (_TRNG_CONTROL_CONDBYPASS_BYPASS << 3)   /**< Shifted mode BYPASS for TRNG_CONTROL */
-#define TRNG_CONTROL_REPCOUNTIEN             (0x1UL << 4)                             /**< Interrupt enable for Repetition Count Test failure */
+#define TRNG_CONTROL_REPCOUNTIEN             (0x1UL << 4)                             /**< Interrupt Enable for Repetition Count Test Failure */
 #define _TRNG_CONTROL_REPCOUNTIEN_SHIFT      4                                        /**< Shift value for TRNG_REPCOUNTIEN */
 #define _TRNG_CONTROL_REPCOUNTIEN_MASK       0x10UL                                   /**< Bit mask for TRNG_REPCOUNTIEN */
 #define _TRNG_CONTROL_REPCOUNTIEN_DEFAULT    0x00000000UL                             /**< Mode DEFAULT for TRNG_CONTROL */
 #define TRNG_CONTROL_REPCOUNTIEN_DEFAULT     (_TRNG_CONTROL_REPCOUNTIEN_DEFAULT << 4) /**< Shifted mode DEFAULT for TRNG_CONTROL */
-#define TRNG_CONTROL_APT64IEN                (0x1UL << 5)                             /**< Interrupt enable for Adaptive Proportion Test failure (64-sample window) */
+#define TRNG_CONTROL_APT64IEN                (0x1UL << 5)                             /**< Interrupt Enable for Adaptive Proportion Test Failure (64-sample Window) */
 #define _TRNG_CONTROL_APT64IEN_SHIFT         5                                        /**< Shift value for TRNG_APT64IEN */
 #define _TRNG_CONTROL_APT64IEN_MASK          0x20UL                                   /**< Bit mask for TRNG_APT64IEN */
 #define _TRNG_CONTROL_APT64IEN_DEFAULT       0x00000000UL                             /**< Mode DEFAULT for TRNG_CONTROL */
 #define TRNG_CONTROL_APT64IEN_DEFAULT        (_TRNG_CONTROL_APT64IEN_DEFAULT << 5)    /**< Shifted mode DEFAULT for TRNG_CONTROL */
-#define TRNG_CONTROL_APT4096IEN              (0x1UL << 6)                             /**< Interrupt enable for Adaptive Proportion Test failure (4096-sample window) */
+#define TRNG_CONTROL_APT4096IEN              (0x1UL << 6)                             /**< Interrupt Enable for Adaptive Proportion Test Failure (4096-sample Window) */
 #define _TRNG_CONTROL_APT4096IEN_SHIFT       6                                        /**< Shift value for TRNG_APT4096IEN */
 #define _TRNG_CONTROL_APT4096IEN_MASK        0x40UL                                   /**< Bit mask for TRNG_APT4096IEN */
 #define _TRNG_CONTROL_APT4096IEN_DEFAULT     0x00000000UL                             /**< Mode DEFAULT for TRNG_CONTROL */
 #define TRNG_CONTROL_APT4096IEN_DEFAULT      (_TRNG_CONTROL_APT4096IEN_DEFAULT << 6)  /**< Shifted mode DEFAULT for TRNG_CONTROL */
-#define TRNG_CONTROL_FULLIEN                 (0x1UL << 7)                             /**< Interrupt enable for FIFO full */
+#define TRNG_CONTROL_FULLIEN                 (0x1UL << 7)                             /**< Interrupt Enable for FIFO Full */
 #define _TRNG_CONTROL_FULLIEN_SHIFT          7                                        /**< Shift value for TRNG_FULLIEN */
 #define _TRNG_CONTROL_FULLIEN_MASK           0x80UL                                   /**< Bit mask for TRNG_FULLIEN */
 #define _TRNG_CONTROL_FULLIEN_DEFAULT        0x00000000UL                             /**< Mode DEFAULT for TRNG_CONTROL */
@@ -241,7 +241,7 @@ typedef struct {
 #define TRNG_STATUS_TESTDATABUSY_DEFAULT     (_TRNG_STATUS_TESTDATABUSY_DEFAULT << 0) /**< Shifted mode DEFAULT for TRNG_STATUS */
 #define TRNG_STATUS_TESTDATABUSY_IDLE        (_TRNG_STATUS_TESTDATABUSY_IDLE << 0)    /**< Shifted mode IDLE for TRNG_STATUS */
 #define TRNG_STATUS_TESTDATABUSY_BUSY        (_TRNG_STATUS_TESTDATABUSY_BUSY << 0)    /**< Shifted mode BUSY for TRNG_STATUS */
-#define TRNG_STATUS_REPCOUNTIF               (0x1UL << 4)                             /**< Repetition Count Test interrupt status */
+#define TRNG_STATUS_REPCOUNTIF               (0x1UL << 4)                             /**< Repetition Count Test Interrupt Status */
 #define _TRNG_STATUS_REPCOUNTIF_SHIFT        4                                        /**< Shift value for TRNG_REPCOUNTIF */
 #define _TRNG_STATUS_REPCOUNTIF_MASK         0x10UL                                   /**< Bit mask for TRNG_REPCOUNTIF */
 #define _TRNG_STATUS_REPCOUNTIF_DEFAULT      0x00000000UL                             /**< Mode DEFAULT for TRNG_STATUS */
@@ -256,7 +256,7 @@ typedef struct {
 #define _TRNG_STATUS_APT4096IF_MASK          0x40UL                                   /**< Bit mask for TRNG_APT4096IF */
 #define _TRNG_STATUS_APT4096IF_DEFAULT       0x00000000UL                             /**< Mode DEFAULT for TRNG_STATUS */
 #define TRNG_STATUS_APT4096IF_DEFAULT        (_TRNG_STATUS_APT4096IF_DEFAULT << 6)    /**< Shifted mode DEFAULT for TRNG_STATUS */
-#define TRNG_STATUS_FULLIF                   (0x1UL << 7)                             /**< FIFO full interrupt status */
+#define TRNG_STATUS_FULLIF                   (0x1UL << 7)                             /**< FIFO Full Interrupt Status */
 #define _TRNG_STATUS_FULLIF_SHIFT            7                                        /**< Shift value for TRNG_FULLIF */
 #define _TRNG_STATUS_FULLIF_MASK             0x80UL                                   /**< Bit mask for TRNG_FULLIF */
 #define _TRNG_STATUS_FULLIF_DEFAULT          0x00000000UL                             /**< Mode DEFAULT for TRNG_STATUS */

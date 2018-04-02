@@ -2,10 +2,10 @@
  * @file efm32g842f64.h
  * @brief CMSIS Cortex-M3 Peripheral Access Layer Header File
  *        for EFM EFM32G842F64
- * @version 5.3.3
+ * @version 5.4.0
  ******************************************************************************
  * # License
- * <b>Copyright 2017 Silicon Laboratories, Inc. http://www.silabs.com</b>
+ * <b>Copyright 2017 Silicon Laboratories, Inc. www.silabs.com</b>
  ******************************************************************************
  *
  * Permission is granted to anyone to use this software for any purpose,
@@ -175,10 +175,10 @@ typedef enum IRQn{
 #define EXT_IRQ_COUNT        31             /**< Number of External (NVIC) interrupts */
 
 /** AF channels connect the different on-chip peripherals with the af-mux */
-#define AFCHAN_MAX           79
-#define AFCHANLOC_MAX        4
+#define AFCHAN_MAX           79U
+#define AFCHANLOC_MAX        4U
 /** Analog AF channels */
-#define AFACHAN_MAX          37
+#define AFACHAN_MAX          37U
 
 /* Part number capabilities */
 

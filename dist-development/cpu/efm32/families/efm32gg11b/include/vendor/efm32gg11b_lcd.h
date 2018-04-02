@@ -1,10 +1,10 @@
 /**************************************************************************//**
  * @file efm32gg11b_lcd.h
  * @brief EFM32GG11B_LCD register and bit field definitions
- * @version 5.3.3
+ * @version 5.4.0
  ******************************************************************************
  * # License
- * <b>Copyright 2017 Silicon Laboratories, Inc. http://www.silabs.com</b>
+ * <b>Copyright 2017 Silicon Laboratories, Inc. www.silabs.com</b>
  ******************************************************************************
  *
  * Permission is granted to anyone to use this software for any purpose,
@@ -57,7 +57,7 @@ typedef struct {
   __IOM uint32_t SEGEN;         /**< Segment Enable Register  */
   __IOM uint32_t BACTRL;        /**< Blink and Animation Control Register  */
   __IM uint32_t  STATUS;        /**< Status Register  */
-  __IOM uint32_t AREGA;         /**< Animation Register A  */
+  __IOM uint32_t AREGA;         /**< Animation Register a  */
   __IOM uint32_t AREGB;         /**< Animation Register B  */
   __IM uint32_t  IF;            /**< Interrupt Flag Register  */
   __IOM uint32_t IFS;           /**< Interrupt Flag Set Register  */
@@ -89,7 +89,7 @@ typedef struct {
   __IM uint32_t  SYNCBUSY;      /**< Synchronization Busy Register  */
   uint32_t       RESERVED3[10]; /**< Reserved for future use **/
   __IOM uint32_t FRAMERATE;     /**< Frame Rate  */
-  __IOM uint32_t SEGEN2;        /**< Segment enable (32 to 39)  */
+  __IOM uint32_t SEGEN2;        /**< Segment Enable (32 to 39)  */
 } LCD_TypeDef;                  /** @} */
 
 /**************************************************************************//**

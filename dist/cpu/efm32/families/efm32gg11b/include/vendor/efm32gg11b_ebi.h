@@ -1,10 +1,10 @@
 /**************************************************************************//**
  * @file efm32gg11b_ebi.h
  * @brief EFM32GG11B_EBI register and bit field definitions
- * @version 5.3.3
+ * @version 5.4.0
  ******************************************************************************
  * # License
- * <b>Copyright 2017 Silicon Laboratories, Inc. http://www.silabs.com</b>
+ * <b>Copyright 2017 Silicon Laboratories, Inc. www.silabs.com</b>
  ******************************************************************************
  *
  * Permission is granted to anyone to use this software for any purpose,
@@ -74,7 +74,7 @@ typedef struct {
   __IOM uint32_t NANDCTRL;       /**< NAND Control Register  */
   __IOM uint32_t CMD;            /**< Command Register  */
   __IM uint32_t  STATUS;         /**< Status Register  */
-  __IM uint32_t  ECCPARITY;      /**< ECC Parity register  */
+  __IM uint32_t  ECCPARITY;      /**< ECC Parity Register  */
   __IOM uint32_t TFTCTRL;        /**< TFT Control Register  */
   __IM uint32_t  TFTSTATUS;      /**< TFT Status Register  */
   __IOM uint32_t TFTCOLORFORMAT; /**< Color Format Register  */
@@ -179,22 +179,22 @@ typedef struct {
 #define _EBI_CTRL_BANK3EN_MASK                       0x800UL                              /**< Bit mask for EBI_BANK3EN */
 #define _EBI_CTRL_BANK3EN_DEFAULT                    0x00000000UL                         /**< Mode DEFAULT for EBI_CTRL */
 #define EBI_CTRL_BANK3EN_DEFAULT                     (_EBI_CTRL_BANK3EN_DEFAULT << 11)    /**< Shifted mode DEFAULT for EBI_CTRL */
-#define EBI_CTRL_NOIDLE                              (0x1UL << 12)                        /**< No idle cycle insertion on bank 0. */
+#define EBI_CTRL_NOIDLE                              (0x1UL << 12)                        /**< No Idle Cycle Insertion on Bank 0 */
 #define _EBI_CTRL_NOIDLE_SHIFT                       12                                   /**< Shift value for EBI_NOIDLE */
 #define _EBI_CTRL_NOIDLE_MASK                        0x1000UL                             /**< Bit mask for EBI_NOIDLE */
 #define _EBI_CTRL_NOIDLE_DEFAULT                     0x00000000UL                         /**< Mode DEFAULT for EBI_CTRL */
 #define EBI_CTRL_NOIDLE_DEFAULT                      (_EBI_CTRL_NOIDLE_DEFAULT << 12)     /**< Shifted mode DEFAULT for EBI_CTRL */
-#define EBI_CTRL_NOIDLE1                             (0x1UL << 13)                        /**< No idle cycle insertion on bank 1. */
+#define EBI_CTRL_NOIDLE1                             (0x1UL << 13)                        /**< No Idle Cycle Insertion on Bank 1 */
 #define _EBI_CTRL_NOIDLE1_SHIFT                      13                                   /**< Shift value for EBI_NOIDLE1 */
 #define _EBI_CTRL_NOIDLE1_MASK                       0x2000UL                             /**< Bit mask for EBI_NOIDLE1 */
 #define _EBI_CTRL_NOIDLE1_DEFAULT                    0x00000000UL                         /**< Mode DEFAULT for EBI_CTRL */
 #define EBI_CTRL_NOIDLE1_DEFAULT                     (_EBI_CTRL_NOIDLE1_DEFAULT << 13)    /**< Shifted mode DEFAULT for EBI_CTRL */
-#define EBI_CTRL_NOIDLE2                             (0x1UL << 14)                        /**< No idle cycle insertion on bank 2. */
+#define EBI_CTRL_NOIDLE2                             (0x1UL << 14)                        /**< No Idle Cycle Insertion on Bank 2 */
 #define _EBI_CTRL_NOIDLE2_SHIFT                      14                                   /**< Shift value for EBI_NOIDLE2 */
 #define _EBI_CTRL_NOIDLE2_MASK                       0x4000UL                             /**< Bit mask for EBI_NOIDLE2 */
 #define _EBI_CTRL_NOIDLE2_DEFAULT                    0x00000000UL                         /**< Mode DEFAULT for EBI_CTRL */
 #define EBI_CTRL_NOIDLE2_DEFAULT                     (_EBI_CTRL_NOIDLE2_DEFAULT << 14)    /**< Shifted mode DEFAULT for EBI_CTRL */
-#define EBI_CTRL_NOIDLE3                             (0x1UL << 15)                        /**< No idle cycle insertion on bank 3. */
+#define EBI_CTRL_NOIDLE3                             (0x1UL << 15)                        /**< No Idle Cycle Insertion on Bank 3 */
 #define _EBI_CTRL_NOIDLE3_SHIFT                      15                                   /**< Shift value for EBI_NOIDLE3 */
 #define _EBI_CTRL_NOIDLE3_MASK                       0x8000UL                             /**< Bit mask for EBI_NOIDLE3 */
 #define _EBI_CTRL_NOIDLE3_DEFAULT                    0x00000000UL                         /**< Mode DEFAULT for EBI_CTRL */
@@ -209,52 +209,52 @@ typedef struct {
 #define _EBI_CTRL_ARDYTODIS_MASK                     0x20000UL                            /**< Bit mask for EBI_ARDYTODIS */
 #define _EBI_CTRL_ARDYTODIS_DEFAULT                  0x00000000UL                         /**< Mode DEFAULT for EBI_CTRL */
 #define EBI_CTRL_ARDYTODIS_DEFAULT                   (_EBI_CTRL_ARDYTODIS_DEFAULT << 17)  /**< Shifted mode DEFAULT for EBI_CTRL */
-#define EBI_CTRL_ARDY1EN                             (0x1UL << 18)                        /**< ARDY Enable for bank 1 */
+#define EBI_CTRL_ARDY1EN                             (0x1UL << 18)                        /**< ARDY Enable for Bank 1 */
 #define _EBI_CTRL_ARDY1EN_SHIFT                      18                                   /**< Shift value for EBI_ARDY1EN */
 #define _EBI_CTRL_ARDY1EN_MASK                       0x40000UL                            /**< Bit mask for EBI_ARDY1EN */
 #define _EBI_CTRL_ARDY1EN_DEFAULT                    0x00000000UL                         /**< Mode DEFAULT for EBI_CTRL */
 #define EBI_CTRL_ARDY1EN_DEFAULT                     (_EBI_CTRL_ARDY1EN_DEFAULT << 18)    /**< Shifted mode DEFAULT for EBI_CTRL */
-#define EBI_CTRL_ARDYTO1DIS                          (0x1UL << 19)                        /**< ARDY Timeout Disable for bank 1 */
+#define EBI_CTRL_ARDYTO1DIS                          (0x1UL << 19)                        /**< ARDY Timeout Disable for Bank 1 */
 #define _EBI_CTRL_ARDYTO1DIS_SHIFT                   19                                   /**< Shift value for EBI_ARDYTO1DIS */
 #define _EBI_CTRL_ARDYTO1DIS_MASK                    0x80000UL                            /**< Bit mask for EBI_ARDYTO1DIS */
 #define _EBI_CTRL_ARDYTO1DIS_DEFAULT                 0x00000000UL                         /**< Mode DEFAULT for EBI_CTRL */
 #define EBI_CTRL_ARDYTO1DIS_DEFAULT                  (_EBI_CTRL_ARDYTO1DIS_DEFAULT << 19) /**< Shifted mode DEFAULT for EBI_CTRL */
-#define EBI_CTRL_ARDY2EN                             (0x1UL << 20)                        /**< ARDY Enable for bank 2 */
+#define EBI_CTRL_ARDY2EN                             (0x1UL << 20)                        /**< ARDY Enable for Bank 2 */
 #define _EBI_CTRL_ARDY2EN_SHIFT                      20                                   /**< Shift value for EBI_ARDY2EN */
 #define _EBI_CTRL_ARDY2EN_MASK                       0x100000UL                           /**< Bit mask for EBI_ARDY2EN */
 #define _EBI_CTRL_ARDY2EN_DEFAULT                    0x00000000UL                         /**< Mode DEFAULT for EBI_CTRL */
 #define EBI_CTRL_ARDY2EN_DEFAULT                     (_EBI_CTRL_ARDY2EN_DEFAULT << 20)    /**< Shifted mode DEFAULT for EBI_CTRL */
-#define EBI_CTRL_ARDYTO2DIS                          (0x1UL << 21)                        /**< ARDY Timeout Disable for bank 2 */
+#define EBI_CTRL_ARDYTO2DIS                          (0x1UL << 21)                        /**< ARDY Timeout Disable for Bank 2 */
 #define _EBI_CTRL_ARDYTO2DIS_SHIFT                   21                                   /**< Shift value for EBI_ARDYTO2DIS */
 #define _EBI_CTRL_ARDYTO2DIS_MASK                    0x200000UL                           /**< Bit mask for EBI_ARDYTO2DIS */
 #define _EBI_CTRL_ARDYTO2DIS_DEFAULT                 0x00000000UL                         /**< Mode DEFAULT for EBI_CTRL */
 #define EBI_CTRL_ARDYTO2DIS_DEFAULT                  (_EBI_CTRL_ARDYTO2DIS_DEFAULT << 21) /**< Shifted mode DEFAULT for EBI_CTRL */
-#define EBI_CTRL_ARDY3EN                             (0x1UL << 22)                        /**< ARDY Enable for bank 3 */
+#define EBI_CTRL_ARDY3EN                             (0x1UL << 22)                        /**< ARDY Enable for Bank 3 */
 #define _EBI_CTRL_ARDY3EN_SHIFT                      22                                   /**< Shift value for EBI_ARDY3EN */
 #define _EBI_CTRL_ARDY3EN_MASK                       0x400000UL                           /**< Bit mask for EBI_ARDY3EN */
 #define _EBI_CTRL_ARDY3EN_DEFAULT                    0x00000000UL                         /**< Mode DEFAULT for EBI_CTRL */
 #define EBI_CTRL_ARDY3EN_DEFAULT                     (_EBI_CTRL_ARDY3EN_DEFAULT << 22)    /**< Shifted mode DEFAULT for EBI_CTRL */
-#define EBI_CTRL_ARDYTO3DIS                          (0x1UL << 23)                        /**< ARDY Timeout Disable for bank 3 */
+#define EBI_CTRL_ARDYTO3DIS                          (0x1UL << 23)                        /**< ARDY Timeout Disable for Bank 3 */
 #define _EBI_CTRL_ARDYTO3DIS_SHIFT                   23                                   /**< Shift value for EBI_ARDYTO3DIS */
 #define _EBI_CTRL_ARDYTO3DIS_MASK                    0x800000UL                           /**< Bit mask for EBI_ARDYTO3DIS */
 #define _EBI_CTRL_ARDYTO3DIS_DEFAULT                 0x00000000UL                         /**< Mode DEFAULT for EBI_CTRL */
 #define EBI_CTRL_ARDYTO3DIS_DEFAULT                  (_EBI_CTRL_ARDYTO3DIS_DEFAULT << 23) /**< Shifted mode DEFAULT for EBI_CTRL */
-#define EBI_CTRL_BL                                  (0x1UL << 24)                        /**< Byte Lane Enable for bank 0 */
+#define EBI_CTRL_BL                                  (0x1UL << 24)                        /**< Byte Lane Enable for Bank 0 */
 #define _EBI_CTRL_BL_SHIFT                           24                                   /**< Shift value for EBI_BL */
 #define _EBI_CTRL_BL_MASK                            0x1000000UL                          /**< Bit mask for EBI_BL */
 #define _EBI_CTRL_BL_DEFAULT                         0x00000000UL                         /**< Mode DEFAULT for EBI_CTRL */
 #define EBI_CTRL_BL_DEFAULT                          (_EBI_CTRL_BL_DEFAULT << 24)         /**< Shifted mode DEFAULT for EBI_CTRL */
-#define EBI_CTRL_BL1                                 (0x1UL << 25)                        /**< Byte Lane Enable for bank 1 */
+#define EBI_CTRL_BL1                                 (0x1UL << 25)                        /**< Byte Lane Enable for Bank 1 */
 #define _EBI_CTRL_BL1_SHIFT                          25                                   /**< Shift value for EBI_BL1 */
 #define _EBI_CTRL_BL1_MASK                           0x2000000UL                          /**< Bit mask for EBI_BL1 */
 #define _EBI_CTRL_BL1_DEFAULT                        0x00000000UL                         /**< Mode DEFAULT for EBI_CTRL */
 #define EBI_CTRL_BL1_DEFAULT                         (_EBI_CTRL_BL1_DEFAULT << 25)        /**< Shifted mode DEFAULT for EBI_CTRL */
-#define EBI_CTRL_BL2                                 (0x1UL << 26)                        /**< Byte Lane Enable for bank 2 */
+#define EBI_CTRL_BL2                                 (0x1UL << 26)                        /**< Byte Lane Enable for Bank 2 */
 #define _EBI_CTRL_BL2_SHIFT                          26                                   /**< Shift value for EBI_BL2 */
 #define _EBI_CTRL_BL2_MASK                           0x4000000UL                          /**< Bit mask for EBI_BL2 */
 #define _EBI_CTRL_BL2_DEFAULT                        0x00000000UL                         /**< Mode DEFAULT for EBI_CTRL */
 #define EBI_CTRL_BL2_DEFAULT                         (_EBI_CTRL_BL2_DEFAULT << 26)        /**< Shifted mode DEFAULT for EBI_CTRL */
-#define EBI_CTRL_BL3                                 (0x1UL << 27)                        /**< Byte Lane Enable for bank 3 */
+#define EBI_CTRL_BL3                                 (0x1UL << 27)                        /**< Byte Lane Enable for Bank 3 */
 #define _EBI_CTRL_BL3_SHIFT                          27                                   /**< Shift value for EBI_BL3 */
 #define _EBI_CTRL_BL3_MASK                           0x8000000UL                          /**< Bit mask for EBI_BL3 */
 #define _EBI_CTRL_BL3_DEFAULT                        0x00000000UL                         /**< Mode DEFAULT for EBI_CTRL */
@@ -813,7 +813,7 @@ typedef struct {
 #define EBI_PAGECTRL_PAGELEN_MEMBER8                 (_EBI_PAGECTRL_PAGELEN_MEMBER8 << 0)   /**< Shifted mode MEMBER8 for EBI_PAGECTRL */
 #define EBI_PAGECTRL_PAGELEN_MEMBER16                (_EBI_PAGECTRL_PAGELEN_MEMBER16 << 0)  /**< Shifted mode MEMBER16 for EBI_PAGECTRL */
 #define EBI_PAGECTRL_PAGELEN_MEMBER32                (_EBI_PAGECTRL_PAGELEN_MEMBER32 << 0)  /**< Shifted mode MEMBER32 for EBI_PAGECTRL */
-#define EBI_PAGECTRL_INCHIT                          (0x1UL << 4)                           /**< Intrapage hit only on incremental addresses */
+#define EBI_PAGECTRL_INCHIT                          (0x1UL << 4)                           /**< Intrapage Hit Only on Incremental Addresses */
 #define _EBI_PAGECTRL_INCHIT_SHIFT                   4                                      /**< Shift value for EBI_INCHIT */
 #define _EBI_PAGECTRL_INCHIT_MASK                    0x10UL                                 /**< Bit mask for EBI_INCHIT */
 #define _EBI_PAGECTRL_INCHIT_DEFAULT                 0x00000000UL                           /**< Mode DEFAULT for EBI_PAGECTRL */
@@ -830,7 +830,7 @@ typedef struct {
 /* Bit fields for EBI NANDCTRL */
 #define _EBI_NANDCTRL_RESETVALUE                     0x00000000UL                         /**< Default value for EBI_NANDCTRL */
 #define _EBI_NANDCTRL_MASK                           0x00000031UL                         /**< Mask for EBI_NANDCTRL */
-#define EBI_NANDCTRL_EN                              (0x1UL << 0)                         /**< NAND Flash control enable */
+#define EBI_NANDCTRL_EN                              (0x1UL << 0)                         /**< NAND Flash Control Enable */
 #define _EBI_NANDCTRL_EN_SHIFT                       0                                    /**< Shift value for EBI_EN */
 #define _EBI_NANDCTRL_EN_MASK                        0x1UL                                /**< Bit mask for EBI_EN */
 #define _EBI_NANDCTRL_EN_DEFAULT                     0x00000000UL                         /**< Mode DEFAULT for EBI_NANDCTRL */
@@ -870,37 +870,37 @@ typedef struct {
 /* Bit fields for EBI STATUS */
 #define _EBI_STATUS_RESETVALUE                       0x00000000UL                              /**< Default value for EBI_STATUS */
 #define _EBI_STATUS_MASK                             0x00003711UL                              /**< Mask for EBI_STATUS */
-#define EBI_STATUS_AHBACT                            (0x1UL << 0)                              /**< EBI Busy with AHB Transaction. */
+#define EBI_STATUS_AHBACT                            (0x1UL << 0)                              /**< EBI Busy With AHB Transaction */
 #define _EBI_STATUS_AHBACT_SHIFT                     0                                         /**< Shift value for EBI_AHBACT */
 #define _EBI_STATUS_AHBACT_MASK                      0x1UL                                     /**< Bit mask for EBI_AHBACT */
 #define _EBI_STATUS_AHBACT_DEFAULT                   0x00000000UL                              /**< Mode DEFAULT for EBI_STATUS */
 #define EBI_STATUS_AHBACT_DEFAULT                    (_EBI_STATUS_AHBACT_DEFAULT << 0)         /**< Shifted mode DEFAULT for EBI_STATUS */
-#define EBI_STATUS_ECCACT                            (0x1UL << 4)                              /**< EBI ECC Generation Active. */
+#define EBI_STATUS_ECCACT                            (0x1UL << 4)                              /**< EBI ECC Generation Active */
 #define _EBI_STATUS_ECCACT_SHIFT                     4                                         /**< Shift value for EBI_ECCACT */
 #define _EBI_STATUS_ECCACT_MASK                      0x10UL                                    /**< Bit mask for EBI_ECCACT */
 #define _EBI_STATUS_ECCACT_DEFAULT                   0x00000000UL                              /**< Mode DEFAULT for EBI_STATUS */
 #define EBI_STATUS_ECCACT_DEFAULT                    (_EBI_STATUS_ECCACT_DEFAULT << 4)         /**< Shifted mode DEFAULT for EBI_STATUS */
-#define EBI_STATUS_TFTPIXEL0EMPTY                    (0x1UL << 8)                              /**< EBI_TFTPIXEL0 is empty. */
+#define EBI_STATUS_TFTPIXEL0EMPTY                    (0x1UL << 8)                              /**< EBI_TFTPIXEL0 is Empty */
 #define _EBI_STATUS_TFTPIXEL0EMPTY_SHIFT             8                                         /**< Shift value for EBI_TFTPIXEL0EMPTY */
 #define _EBI_STATUS_TFTPIXEL0EMPTY_MASK              0x100UL                                   /**< Bit mask for EBI_TFTPIXEL0EMPTY */
 #define _EBI_STATUS_TFTPIXEL0EMPTY_DEFAULT           0x00000000UL                              /**< Mode DEFAULT for EBI_STATUS */
 #define EBI_STATUS_TFTPIXEL0EMPTY_DEFAULT            (_EBI_STATUS_TFTPIXEL0EMPTY_DEFAULT << 8) /**< Shifted mode DEFAULT for EBI_STATUS */
-#define EBI_STATUS_TFTPIXEL1EMPTY                    (0x1UL << 9)                              /**< EBI_TFTPIXEL1 is empty. */
+#define EBI_STATUS_TFTPIXEL1EMPTY                    (0x1UL << 9)                              /**< EBI_TFTPIXEL1 is Empty */
 #define _EBI_STATUS_TFTPIXEL1EMPTY_SHIFT             9                                         /**< Shift value for EBI_TFTPIXEL1EMPTY */
 #define _EBI_STATUS_TFTPIXEL1EMPTY_MASK              0x200UL                                   /**< Bit mask for EBI_TFTPIXEL1EMPTY */
 #define _EBI_STATUS_TFTPIXEL1EMPTY_DEFAULT           0x00000000UL                              /**< Mode DEFAULT for EBI_STATUS */
 #define EBI_STATUS_TFTPIXEL1EMPTY_DEFAULT            (_EBI_STATUS_TFTPIXEL1EMPTY_DEFAULT << 9) /**< Shifted mode DEFAULT for EBI_STATUS */
-#define EBI_STATUS_TFTPIXELFULL                      (0x1UL << 10)                             /**< EBI_TFTPIXEL0 is full. */
+#define EBI_STATUS_TFTPIXELFULL                      (0x1UL << 10)                             /**< EBI_TFTPIXEL0 is Full */
 #define _EBI_STATUS_TFTPIXELFULL_SHIFT               10                                        /**< Shift value for EBI_TFTPIXELFULL */
 #define _EBI_STATUS_TFTPIXELFULL_MASK                0x400UL                                   /**< Bit mask for EBI_TFTPIXELFULL */
 #define _EBI_STATUS_TFTPIXELFULL_DEFAULT             0x00000000UL                              /**< Mode DEFAULT for EBI_STATUS */
 #define EBI_STATUS_TFTPIXELFULL_DEFAULT              (_EBI_STATUS_TFTPIXELFULL_DEFAULT << 10)  /**< Shifted mode DEFAULT for EBI_STATUS */
-#define EBI_STATUS_DDACT                             (0x1UL << 12)                             /**< EBI Busy with Direct Drive Transactions. */
+#define EBI_STATUS_DDACT                             (0x1UL << 12)                             /**< EBI Busy With Direct Drive Transactions */
 #define _EBI_STATUS_DDACT_SHIFT                      12                                        /**< Shift value for EBI_DDACT */
 #define _EBI_STATUS_DDACT_MASK                       0x1000UL                                  /**< Bit mask for EBI_DDACT */
 #define _EBI_STATUS_DDACT_DEFAULT                    0x00000000UL                              /**< Mode DEFAULT for EBI_STATUS */
 #define EBI_STATUS_DDACT_DEFAULT                     (_EBI_STATUS_DDACT_DEFAULT << 12)         /**< Shifted mode DEFAULT for EBI_STATUS */
-#define EBI_STATUS_TFTDDEMPTY                        (0x1UL << 13)                             /**< EBI_TFTDD register is empty. */
+#define EBI_STATUS_TFTDDEMPTY                        (0x1UL << 13)                             /**< EBI_TFTDD Register is Empty */
 #define _EBI_STATUS_TFTDDEMPTY_SHIFT                 13                                        /**< Shift value for EBI_TFTDDEMPTY */
 #define _EBI_STATUS_TFTDDEMPTY_MASK                  0x2000UL                                  /**< Bit mask for EBI_TFTDDEMPTY */
 #define _EBI_STATUS_TFTDDEMPTY_DEFAULT               0x00000000UL                              /**< Mode DEFAULT for EBI_STATUS */
@@ -992,7 +992,7 @@ typedef struct {
 #define EBI_TFTCTRL_WIDTH_DEFAULT                    (_EBI_TFTCTRL_WIDTH_DEFAULT << 16)         /**< Shifted mode DEFAULT for EBI_TFTCTRL */
 #define EBI_TFTCTRL_WIDTH_BYTE                       (_EBI_TFTCTRL_WIDTH_BYTE << 16)            /**< Shifted mode BYTE for EBI_TFTCTRL */
 #define EBI_TFTCTRL_WIDTH_HALFWORD                   (_EBI_TFTCTRL_WIDTH_HALFWORD << 16)        /**< Shifted mode HALFWORD for EBI_TFTCTRL */
-#define EBI_TFTCTRL_ALIASBANKEN                      (0x1UL << 19)                              /**< Alias to Graphics Bank enable */
+#define EBI_TFTCTRL_ALIASBANKEN                      (0x1UL << 19)                              /**< Alias to Graphics Bank Enable */
 #define _EBI_TFTCTRL_ALIASBANKEN_SHIFT               19                                         /**< Shift value for EBI_ALIASBANKEN */
 #define _EBI_TFTCTRL_ALIASBANKEN_MASK                0x80000UL                                  /**< Bit mask for EBI_ALIASBANKEN */
 #define _EBI_TFTCTRL_ALIASBANKEN_DEFAULT             0x00000000UL                               /**< Mode DEFAULT for EBI_TFTCTRL */
@@ -1288,22 +1288,22 @@ typedef struct {
 #define _EBI_IF_DDJIT_MASK                           0x20UL                                /**< Bit mask for EBI_DDJIT */
 #define _EBI_IF_DDJIT_DEFAULT                        0x00000000UL                          /**< Mode DEFAULT for EBI_IF */
 #define EBI_IF_DDJIT_DEFAULT                         (_EBI_IF_DDJIT_DEFAULT << 5)          /**< Shifted mode DEFAULT for EBI_IF */
-#define EBI_IF_TFTPIXEL0EMPTY                        (0x1UL << 6)                          /**< EBI_TFTPIXEL0 is empty Interrupt Flag */
+#define EBI_IF_TFTPIXEL0EMPTY                        (0x1UL << 6)                          /**< EBI_TFTPIXEL0 is Empty Interrupt Flag */
 #define _EBI_IF_TFTPIXEL0EMPTY_SHIFT                 6                                     /**< Shift value for EBI_TFTPIXEL0EMPTY */
 #define _EBI_IF_TFTPIXEL0EMPTY_MASK                  0x40UL                                /**< Bit mask for EBI_TFTPIXEL0EMPTY */
 #define _EBI_IF_TFTPIXEL0EMPTY_DEFAULT               0x00000000UL                          /**< Mode DEFAULT for EBI_IF */
 #define EBI_IF_TFTPIXEL0EMPTY_DEFAULT                (_EBI_IF_TFTPIXEL0EMPTY_DEFAULT << 6) /**< Shifted mode DEFAULT for EBI_IF */
-#define EBI_IF_TFTPIXEL1EMPTY                        (0x1UL << 7)                          /**< EBI_TFTPIXEL1 is empty Interrupt Flag */
+#define EBI_IF_TFTPIXEL1EMPTY                        (0x1UL << 7)                          /**< EBI_TFTPIXEL1 is Empty Interrupt Flag */
 #define _EBI_IF_TFTPIXEL1EMPTY_SHIFT                 7                                     /**< Shift value for EBI_TFTPIXEL1EMPTY */
 #define _EBI_IF_TFTPIXEL1EMPTY_MASK                  0x80UL                                /**< Bit mask for EBI_TFTPIXEL1EMPTY */
 #define _EBI_IF_TFTPIXEL1EMPTY_DEFAULT               0x00000000UL                          /**< Mode DEFAULT for EBI_IF */
 #define EBI_IF_TFTPIXEL1EMPTY_DEFAULT                (_EBI_IF_TFTPIXEL1EMPTY_DEFAULT << 7) /**< Shifted mode DEFAULT for EBI_IF */
-#define EBI_IF_TFTPIXELFULL                          (0x1UL << 8)                          /**< EBI_TFTPIXEL is full Interrupt Flag */
+#define EBI_IF_TFTPIXELFULL                          (0x1UL << 8)                          /**< EBI_TFTPIXEL is Full Interrupt Flag */
 #define _EBI_IF_TFTPIXELFULL_SHIFT                   8                                     /**< Shift value for EBI_TFTPIXELFULL */
 #define _EBI_IF_TFTPIXELFULL_MASK                    0x100UL                               /**< Bit mask for EBI_TFTPIXELFULL */
 #define _EBI_IF_TFTPIXELFULL_DEFAULT                 0x00000000UL                          /**< Mode DEFAULT for EBI_IF */
 #define EBI_IF_TFTPIXELFULL_DEFAULT                  (_EBI_IF_TFTPIXELFULL_DEFAULT << 8)   /**< Shifted mode DEFAULT for EBI_IF */
-#define EBI_IF_TFTPIXELOF                            (0x1UL << 9)                          /**< EBI_TFTPIXEL register Overflow Interrupt Flag */
+#define EBI_IF_TFTPIXELOF                            (0x1UL << 9)                          /**< EBI_TFTPIXEL Register Overflow Interrupt Flag */
 #define _EBI_IF_TFTPIXELOF_SHIFT                     9                                     /**< Shift value for EBI_TFTPIXELOF */
 #define _EBI_IF_TFTPIXELOF_MASK                      0x200UL                               /**< Bit mask for EBI_TFTPIXELOF */
 #define _EBI_IF_TFTPIXELOF_DEFAULT                   0x00000000UL                          /**< Mode DEFAULT for EBI_IF */
