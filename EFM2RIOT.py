@@ -57,7 +57,7 @@ def main(argv):
                 family))
 
     sys.stdout.write(
-        "Found %d CPUs in %d families (filtered).\n" % (
+        "Found %d CPUs in %d families.\n" % (
             len(cpus), len(families)))
 
     # Extend boards with families and CPUs.
