@@ -237,7 +237,7 @@ BOARDS = [
         "board_schematic": "https://www.silabs.com/Support%20Documents/TechnicalDocs/BRD2010A_B01.pdf",  # noqa
         "family_full_name": "EFM32 Zero Gecko",
         "family_manual": "https://www.silabs.com/Support%20Documents/TechnicalDocs/EFM32ZG-RM.pdf",  # noqa
-        "features": ["aem", "bc"],
+        "features": ["bc"],
         "freq": {
             "hfxo": 24000000,
             "hfrco": 14000000,
