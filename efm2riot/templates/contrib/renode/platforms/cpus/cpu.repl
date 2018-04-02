@@ -18,7 +18,11 @@
     {%- for peripheral in peripherals|select(name='^UART\d+$') %}
         uart{{ getIndex(peripheral) }}: UART.EFM32_UART @ sysbus <{{ peripheral.base_address|hex(8) }}, +{{ peripheral.address_block.size|hex }}>
             ReceiveIRQ -> nvic@{{ peripheral.interrupts.0.value }}
-            TransmitIRQ -> nvic@{{ peripheral.interrupts.1.value }}
+            {% strip 2 %}
+                {% if peripheral.interrupts|length > 1 %}
+                    TransmitIRQ -> nvic@{{ peripheral.interrupts.1.value }}
+                {% endif %}
+            {% endstrip %}
     {% endfor %}
 {% endstrip %}
 
@@ -26,7 +30,11 @@
     {%- for peripheral in peripherals|select(name='^USART\d+$') %}
         usart{{ getIndex(peripheral) }}: UART.EFM32_UART @ sysbus <{{ peripheral.base_address|hex(8) }}, +{{ peripheral.address_block.size|hex }}>
             ReceiveIRQ -> nvic@{{ peripheral.interrupts.0.value }}
-            TransmitIRQ -> nvic@{{ peripheral.interrupts.1.value }}
+            {% strip 2 %}
+                {% if peripheral.interrupts|length > 1 %}
+                    TransmitIRQ -> nvic@{{ peripheral.interrupts.1.value }}
+                {% endif %}
+            {% endstrip %}    
     {% endfor %}
 {% endstrip %}
 
