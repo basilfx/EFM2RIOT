@@ -1,15 +1,16 @@
 # Boards to test.
 BOARDS = [
-    "brd4162a",
-    "stk3200",
+    "slstk3301a",
     "slstk3401a",
     "slstk3402a",
     "slstk3701a",
+    "sltb001a",
+    "slwstk6000b",
+    "slwstk6220a",
+    "stk3200",
     "stk3600",
     "stk3700",
     "stk3800",
-    "slwstk6220a",
-    "sltb001a",
 ]
 
 # Applications to compile (relative to RIOT-OS root).
