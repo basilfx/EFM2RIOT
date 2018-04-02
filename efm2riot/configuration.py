@@ -11,6 +11,11 @@ STATICS = [
         "type": "directory",
         "source": "{{ root }}/static/examples",
         "target": "examples"
+    },
+    {
+        "type": "directory",
+        "source": "{{ root }}/static/boards/slwstk6000b",
+        "target": "boards/slwstk6000b"
     }
 ]
 
@@ -118,9 +123,9 @@ BOARDS = [
     {
         "cpu": "efr32mg12p332f1024gl125",
         "cpu_datasheet": "https://www.silabs.com/documents/public/data-sheets/efr32mg12-datasheet.pdf",  # noqa
-        "board": "brd4162a",
-        "board_manual": "https://www.silabs.com/documents/public/reference-manuals/brd4162a-rm.pdf",  # noqa
-        "board_schematic": "https://www.silabs.com/documents/public/reference-manuals/brd4162a-rm.pdf",  # noqa
+        "board": "slwstk6000b",
+        "board_manual": "https://www.silabs.com/documents/public/reference-manuals/slwstk6000b-rm.pdf",  # noqa
+        "board_schematic": "https://www.silabs.com/documents/public/reference-manuals/slwstk6000b-rm.pdf",  # noqa
         "family": "efr32mg12p",
         "family_full_name": "EFR32 Mighty Gecko 12P",
         "family_manual": "http://www.silabs.com/Support%20Documents/TechnicalDocs/EFR32-ReferenceManual.pdf",  # noqa

@@ -17,6 +17,11 @@
  *
  * @author      Hauke Petersen <hauke.petersen@fu-berlin.de>
  * @author      Bas Stottelaar <basstottelaar@gmail.com>
+{% strip 2, "", 2 %}
+  {% if board in ["slwstk6000b"] %}
+     * @author      Kai Beckmann <kai.beckmann@hs-rm.de>
+  {% endif %}
+{% endstrip %}
  */
 
 #ifndef BOARD_H
@@ -51,12 +56,12 @@ extern "C" {
          * @{
          */
         {% strip 2 %}
-            {% if board in ["brd4162a"] %}
-                #define BC_PIN              GPIO_PIN(PA, 5)
-            {% elif board in ["slstk3401a", "slstk3402a"] %}
+            {% if board in ["slstk3401a", "slstk3402a"] %}
                 #define BC_PIN              GPIO_PIN(PA, 5)
             {% elif board in ["slstk3701a"] %}
                 #define BC_PIN              GPIO_PIN(PE, 1)
+            {% elif board in ["slwstk6000b"] %}
+                #define BC_PIN              F5
             {% elif board in ["slwstk6220a"] %}
                 #define BC_PIN              GPIO_PIN(PA, 12)
             {% elif board in ["stk3200"] %}
@@ -74,18 +79,18 @@ extern "C" {
  * @{
  */
 {% strip 2 %}
-    {% if board in ["brd4162a"] %}
-        #define PB0_PIN             GPIO_PIN(PF, 6)
-        #define PB1_PIN             GPIO_PIN(PF, 6)
-    {% elif board in ["sltb001a"] %}
-        #define PB0_PIN             GPIO_PIN(PD, 14)
-        #define PB1_PIN             GPIO_PIN(PD, 15)
-    {% elif board in ["slstk3401a", "slstk3402a"] %}
+    {% if board in ["slstk3401a", "slstk3402a"] %}
         #define PB0_PIN             GPIO_PIN(PF, 6)
         #define PB1_PIN             GPIO_PIN(PF, 7)
     {% elif board in ["slstk3701a"] %}
         #define PB0_PIN             GPIO_PIN(PC, 8)
         #define PB1_PIN             GPIO_PIN(PC, 9)
+    {% elif board in ["sltb001a"] %}
+        #define PB0_PIN             GPIO_PIN(PD, 14)
+        #define PB1_PIN             GPIO_PIN(PD, 15)
+    {% elif board in ["slwstk6000b"] %}
+        #define PB0_PIN             F12
+        #define PB1_PIN             F13
     {% elif board in ["slwstk6220a"] %}
         #define PB0_PIN             GPIO_PIN(PE, 3)
         #define PB1_PIN             GPIO_PIN(PE, 2)
@@ -104,13 +109,7 @@ extern "C" {
  * @{
  */
 {% strip 2 %}
-    {% if board in ["brd4162a"] %}
-        #define LED0_PIN            GPIO_PIN(PF, 4)
-        #define LED1_PIN            GPIO_PIN(PF, 5)
-    {% elif board in ["sltb001a"] %}
-        #define LED0_PIN            GPIO_PIN(PD, 12)
-        #define LED1_PIN            GPIO_PIN(PD, 11)
-    {% elif board in ["slstk3401a", "slstk3402a"] %}
+    {% if board in ["slstk3401a", "slstk3402a"] %}
         #define LED0_PIN            GPIO_PIN(PF, 4)
         #define LED1_PIN            GPIO_PIN(PF, 5)
     {% elif board in ["slstk3701a"] %}
@@ -123,6 +122,12 @@ extern "C" {
 
         #define LED0_PIN            LED0R_PIN
         #define LED1_PIN            LED1R_PIN
+    {% elif board in ["sltb001a"] %}
+        #define LED0_PIN            GPIO_PIN(PD, 12)
+        #define LED1_PIN            GPIO_PIN(PD, 11)
+    {% elif board in ["slwstk6000b"] %}
+        #define LED0_PIN            F10
+        #define LED1_PIN            F11
     {% elif board in ["slwstk6220a"] %}
         #define LED0_PIN            GPIO_PIN(PF, 6)
         #define LED1_PIN            GPIO_PIN(PF, 7)
@@ -172,6 +177,18 @@ extern "C" {
         #define DISP_COM_PIN        GPIO_PIN(PA, 11)
         #define DISP_CS_PIN         GPIO_PIN(PC, 14)
         #define DISP_EN_PIN         GPIO_PIN(PA, 9)
+        /** @} */
+    {% elif board in ["slwstk6000b"] %}
+        /**
+         * @name    Display configuration
+         *
+         * Connection to the on-board Sharp Memory LCD (LS013B7DH03).
+         * @{
+         */
+        #define DISP_SPI            SPI_DEV(0)
+        #define DISP_COM_PIN        F18
+        #define DISP_CS_PIN         F17
+        #define DISP_EN_PIN         F14
         /** @} */
     {% elif board in ["slwstk6220a"] %}
         /**
@@ -367,6 +384,18 @@ extern "C" {
         #define SI7210A_ENABLED     (0)
         #endif
         #define SI7210A_I2C         I2C_DEV(0)
+        /** @} */
+    {% elif board in ["slwstk6000b"] %}
+        /**
+         * @name    Temperature sensor configuration
+         *
+         * Connection to the on-board temperature/humidity sensor (Si7021).
+         * @{
+         */
+        #define SI7021_I2C              I2C_DEV(0)
+        #define SI7021_EN_PIN           P37
+
+        #define SI70XX_PARAM_I2C_DEV    SI7021_I2C
         /** @} */
     {% elif board in ["slwstk6220a"] %}
         /**

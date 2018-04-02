@@ -22,7 +22,7 @@
 #include "board.h"
 #include "board_common.h"
 {% strip 2 %}
-    {% if board in ["slstk3401a", "slstk3402a", "sltb001a", "slwstk6220a"]  %}
+    {% if board in ["slstk3401a", "slstk3402a", "sltb001a", "slwstk6000b", "slwstk6220a"]  %}
         #include "periph/gpio.h"
     {% endif %}
 {% endstrip %}
@@ -44,7 +44,7 @@ void board_init(void)
     board_common_init();
 
     {% strip 3, "<" %}
-        {% if board in ["slstk3401a", "slstk3402a", "slwstk6220a"] %}
+        {% if board in ["slstk3401a", "slstk3402a", "slwstk6000b", "slwstk6220a"] %}
             #ifdef MODULE_SI7021
                 /* initialize the Si7021 sensor */
                 gpio_init(SI7021_EN_PIN, GPIO_OUT);

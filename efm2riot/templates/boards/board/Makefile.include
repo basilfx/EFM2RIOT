@@ -1,6 +1,21 @@
+{% strip 2, "<", 2 %}
+  {% if board in ['slwstk6000b'] %}
+    include $(RIOTBOARD)/slwstk6000b/module-info.mk
+
+    # add module specific includes
+    export INCLUDES += -I$(RIOTBOARD)/{{ board }}/modules/$(BOARD_MODULE)/include
+  {% endif %}
+{% endstrip %}
+
 # define the cpu used by {{ board|upper }}
 export CPU = efm32
-export CPU_MODEL = {{ cpu }}
+{% strip 2, "", 2 %}
+  {% if board in ['slwstk6000b'] %}
+    export CPU_MODEL = $(MODULE_CPU)
+  {% else %}
+    export CPU_MODEL = {{ cpu }}
+  {% endif %}
+{% endstrip %}
 
 # set default port depending on operating system
 PORT_LINUX ?= /dev/ttyACM0

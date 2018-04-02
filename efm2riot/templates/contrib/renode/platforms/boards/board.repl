@@ -1,7 +1,7 @@
 using "platforms/cpus/{{ cpu }}.repl"
 
 {% strip 2, "<" %}
-    {% if board in ["brd4162a"] %}
+    {% if board in ["slwstk6000b"] %}
         led0: Miscellaneous.LED @ gpioPort 66
         led1: Miscellaneous.LED @ gpioPort 67
     {% elif board in ["slstk3401a", "slstk3402a"] %}
@@ -30,7 +30,7 @@ using "platforms/cpus/{{ cpu }}.repl"
 {% endstrip %}
 
 {% strip 2, "<" %}
-    {% if board in ["brd4162a"] %}
+    {% if board in ["slwstk6000b"] %}
         button0: Miscellaneous.Button @ gpioPort 64
         button1: Miscellaneous.Button @ gpioPort 65
     {% elif board in ["slstk3401a", "slstk3402a"] %}

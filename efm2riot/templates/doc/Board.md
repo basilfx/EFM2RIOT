@@ -21,15 +21,7 @@ The starter kit is equipped with an Advanced Energy Monitor. This allows you to 
 | FPU             | {{ ("yes" if fpu else "no")|align(52)             }} |
 | MPU             | {{ ("yes" if mpu else "no")|align(52)             }} |
 {% strip 2 %}
-    {% if board in ["brd4162a"] %}
-        | DMA             | 8 channels                                           |
-        | Timers          | 2 x 32-bit + 2 x 16-bit + 1x 16-bit (low power)      |
-        | ADCs            | 12-bit ADC                                           |
-        | UARTs           | 5x UART, 4x USART, 1x LEUART                         |
-        | SPIs            | 4x USART                                             |
-        | I2Cs            | 2x                                                   |
-        | Vcc             | 1.85V - 3.8V                                         |
-    {% elif board in ["slstk3401a"] %}
+    {% if board in ["slstk3401a"] %}
         | DMA             | 8 channels                                           |
         | Timers          | 2 x 16-bit + 1x 16-bit (low power)                   |
         | ADCs            | 12-bit ADC                                           |
@@ -348,7 +340,7 @@ The starter kit is equipped with an Advanced Energy Monitor. This allows you to 
         Most sensors on this board are controlled via a power and interrupt controller (PIC). By default, this module is enabled. You can disable this module by adding `DISABLE_MODULE=silabs_pic` to the `make` command.
     {% endif %}
 {% endstrip %}
-    
+
 
 ## Board configuration
 
