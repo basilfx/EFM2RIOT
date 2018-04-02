@@ -12,9 +12,11 @@ timer2: Timers.Efm32Timer @ sysbus <0x40010800, +0x400>
 usart0: UART.EFM32_UART @ sysbus <0x4000c000, +0x400>
     ReceiveIRQ -> nvic@17
     TransmitIRQ -> nvic@18
+    
 usart1: UART.EFM32_UART @ sysbus <0x4000c400, +0x400>
     ReceiveIRQ -> nvic@8
     TransmitIRQ -> nvic@9
+    
 
 leUart0: UART.LEUART @ sysbus <0x40084000, +0x400>
     -> nvic@10

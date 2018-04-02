@@ -1,3 +1,4 @@
+
 # define the cpu used by SLWSTK6220A
 export CPU = efm32
 export CPU_MODEL = ezr32wg330f256r60

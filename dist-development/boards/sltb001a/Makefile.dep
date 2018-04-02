@@ -1,11 +1,11 @@
 ifneq (,$(filter saul_default,$(USEMODULE)))
-    USEMODULE += saul_gpio
-    USEMODULE += bmp280
-    USEMODULE += ccs811
-    USEMODULE += icm_20648
-    USEMODULE += si11x3
-    USEMODULE += si7021
-    USEMODULE += si7210a
+  USEMODULE += saul_gpio
+  USEMODULE += bmp280
+  USEMODULE += ccs811
+  USEMODULE += icm_20648
+  USEMODULE += si11x3
+  USEMODULE += si7021
+  USEMODULE += si7210
 endif
 
 # include board common dependencies

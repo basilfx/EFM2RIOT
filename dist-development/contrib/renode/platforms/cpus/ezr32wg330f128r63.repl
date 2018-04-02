@@ -23,9 +23,11 @@ uart1: UART.EFM32_UART @ sysbus <0x4000e400, +0x400>
 usart1: UART.EFM32_UART @ sysbus <0x4000c400, +0x400>
     ReceiveIRQ -> nvic@15
     TransmitIRQ -> nvic@16
+    
 usart2: UART.EFM32_UART @ sysbus <0x4000c800, +0x400>
     ReceiveIRQ -> nvic@18
     TransmitIRQ -> nvic@19
+    
 
 leUart0: UART.LEUART @ sysbus <0x40084000, +0x400>
     -> nvic@24

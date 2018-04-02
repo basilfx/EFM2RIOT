@@ -21,9 +21,7 @@
 #define PERIPH_CONF_H
 
 #include "cpu.h"
-
 #include "periph_cpu.h"
-
 #include "em_cmu.h"
 
 #ifdef __cplusplus
@@ -172,20 +170,11 @@ static const uart_conf_t uart_config[] = {
         .loc = LEUART_ROUTE_LOCATION_LOC0,
         .cmu = cmuClock_LEUART0,
         .irq = LEUART0_IRQn
-    },
-    {
-        .dev = USART1,
-        .rx_pin = GPIO_PIN(PD, 6),
-        .tx_pin = GPIO_PIN(PD, 7),
-        .loc = USART_ROUTE_LOCATION_LOC2,
-        .cmu = cmuClock_USART1,
-        .irq = USART1_RX_IRQn
     }
 };
 
 #define UART_NUMOF          PERIPH_NUMOF(uart_config)
 #define UART_0_ISR_RX       isr_leuart0
-#define UART_1_ISR_RX       isr_usart1_rx
 /** @} */
 
 #ifdef __cplusplus

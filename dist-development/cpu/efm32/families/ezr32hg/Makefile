@@ -1,4 +1,4 @@
-MODULE = cpu
+MODULE = cpu_ezr32hg
 
 # (file triggers compiler bug. see #5775)
 SRC_NOLTO += vectors.c

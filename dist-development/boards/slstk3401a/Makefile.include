@@ -1,3 +1,4 @@
+
 # define the cpu used by SLSTK3401A
 export CPU = efm32
 export CPU_MODEL = efm32pg1b200f256gm48

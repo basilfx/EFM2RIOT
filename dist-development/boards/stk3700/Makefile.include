@@ -1,3 +1,4 @@
+
 # define the cpu used by STK3700
 export CPU = efm32
 export CPU_MODEL = efm32gg990f1024

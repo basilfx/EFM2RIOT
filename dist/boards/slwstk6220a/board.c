@@ -21,7 +21,6 @@
 
 #include "board.h"
 #include "board_common.h"
-
 #include "periph/gpio.h"
 
 void board_init(void)
@@ -32,8 +31,8 @@ void board_init(void)
     /* perform common board initialization */
     board_common_init();
 
+#ifdef MODULE_SI7021
     /* initialize the Si7021 sensor */
-#if SI7021_ENABLED
     gpio_init(SI7021_EN_PIN, GPIO_OUT);
     gpio_set(SI7021_EN_PIN);
 #endif

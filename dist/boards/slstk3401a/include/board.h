@@ -23,7 +23,6 @@
 #define BOARD_H
 
 #include "cpu.h"
-
 #include "periph_conf.h"
 #include "periph/gpio.h"
 #include "periph/spi.h"
@@ -98,9 +97,6 @@ extern "C" {
  * Connection to the on-board temperature/humidity sensor (Si7021).
  * @{
  */
-#ifndef SI7021_ENABLED
-#define SI7021_ENABLED          (1)
-#endif
 #define SI7021_I2C              I2C_DEV(0)
 #define SI7021_EN_PIN           GPIO_PIN(PD, 9)
 

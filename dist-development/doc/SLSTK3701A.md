@@ -21,7 +21,7 @@ The starter kit is equipped with an Advanced Energy Monitor. This allows you to 
 | FPU             | yes                                                  |
 | MPU             | yes                                                  |
 | DMA             | 24 channels                                          |
-| Timers          | 4 x 32-bit + 7 x 16-bit + 1x 16-bit (low power)      |
+| Timers          | 4x 32-bit + 7x 16-bit + 1x 16-bit (low power)        |
 | ADCs            | 12-bit ADC                                           |
 | UARTs           | 4x USART, 1x LEUART                                  |
 | SPIs            | 4x USART                                             |
@@ -33,7 +33,7 @@ The starter kit is equipped with an Advanced Energy Monitor. This allows you to 
 | Board Schematic | [Board Schematic](https://www.silabs.com/documents/public/schematic-files/BRD2204A-B00-schematic.pdf)                    |
 
 ### Pinout
-This is the pinout of the expansion header on the right side of the board. PIN 1 is the bottom-left contact when the header faces towards you.
+This is the pinout of the expansion header on the right side of the board. PIN 1 is the bottom-left contact when the header faces  you horizontally.
 
 |      | PIN | PIN |      |
 |------|-----|-----|------|
@@ -46,10 +46,13 @@ This is the pinout of the expansion header on the right side of the board. PIN 1
 | Peripheral | Number  | Hardware        | Pins                            | Comments                                                  |
 |------------|---------|-----------------|---------------------------------|-----------------------------------------------------------|
 
-
 ### User interface
 | Peripheral | Mapped to | Hardware | Pin  | Comments   |
 |------------|-----------|----------|------|------------|
+| Button     | PB0      | PF6  |            |
+|            | PB1      | PF7  |            |
+| LED        | LED0     | PF4  | Yellow LED |
+|            | LED1     | PF5  | Yellow LED |
 
 ## Implementation Status
 | Device                        | ID                                  | Supported | Comments                                                       |
@@ -67,7 +70,7 @@ This is the pinout of the expansion header on the right side of the board. PIN 1
 |                               | UART                                | yes       | USART is shared with SPI. LEUART baud rate limited (see below) |
 |                               | USB                                 | no        |                                                                |
 
-    
+
 
 ## Board configuration
 

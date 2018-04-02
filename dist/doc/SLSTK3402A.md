@@ -21,7 +21,7 @@ The starter kit is equipped with an Advanced Energy Monitor. This allows you to 
 | FPU             | yes                                                  |
 | MPU             | yes                                                  |
 | DMA             | 8 channels                                           |
-| Timers          | 2 x 16-bit + 1x 16-bit (low power)                   |
+| Timers          | 2x 16-bit + 1x 16-bit (low power)                    |
 | ADCs            | 12-bit ADC                                           |
 | UARTs           | 2x USART, 1x LEUART                                  |
 | SPIs            | 2x USART                                             |
@@ -33,7 +33,7 @@ The starter kit is equipped with an Advanced Energy Monitor. This allows you to 
 | Board Schematic | [Board Schematic]()                                                                                                      |
 
 ### Pinout
-This is the pinout of the expansion header on the right side of the board. PIN 1 is the bottom-left contact when the header faces towards you.
+This is the pinout of the expansion header on the right side of the board. PIN 1 is the bottom-left contact when the header faces  you horizontally.
 
 |      | PIN | PIN |      |
 |------|-----|-----|------|
@@ -67,14 +67,13 @@ This is the pinout of the expansion header on the right side of the board. PIN 1
 |            | 1       | USART1          | RX: PC6, TX: PC7                |                                                           |
 |            | 2       | LEUART0         | RX: PD11, TX: PD10              | Baud rate limited (see below)                             |
 
-
 ### User interface
 | Peripheral | Mapped to | Hardware | Pin  | Comments   |
 |------------|-----------|----------|------|------------|
-| Button     |           | PB0      | PF6  |            |
-|            |           | PB1      | PF7  |            |
-| LED        | LED_RED   | LED0     | PF4  | Yellow LED |
-|            | LED_GREEN | LED1     | PF5  | Yellow LED |
+| Button     | PB0      | PF6  |            |
+|            | PB1      | PF7  |            |
+| LED        | LED0     | PF4  | Yellow LED |
+|            | LED1     | PF5  | Yellow LED |
 
 ## Implementation Status
 | Device                        | ID                                  | Supported | Comments                                                       |
@@ -95,7 +94,7 @@ This is the pinout of the expansion header on the right side of the board. PIN 1
 | LCD driver                    | LS013B7DH03                         | yes       | Sharp Low Power Memory LCD                                     |
 | Temperature + humidity sensor | Si7021                              | yes       | Silicon Labs Temperature + Humidity sensor                     |
 
-    
+
 
 ## Board configuration
 

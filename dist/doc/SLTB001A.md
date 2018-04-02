@@ -21,7 +21,7 @@ The starter kit is equipped with an Advanced Energy Monitor. This allows you to 
 | FPU             | yes                                                  |
 | MPU             | yes                                                  |
 | DMA             | 12 channels                                          |
-| Timers          | 2 x 16-bit + 1x 16-bit (low power)                   |
+| Timers          | 2x 16-bit + 1x 16-bit (low power)                    |
 | ADCs            | 12-bit ADC                                           |
 | UARTs           | 3x UART, 2x USART, 1x LEUART                         |
 | SPIs            | 2x USART                                             |
@@ -65,14 +65,13 @@ This is the pinout of the expansion pins on the front side of the board. PIN 1 i
 |            | 1       | USART1          | RX: PC6, TX: PC7                |                                                           |
 |            | 2       | LEUART0         | RX: PD11, TX: PD10              | Baud rate limited (see below)                             |
 
-
 ### User interface
 | Peripheral | Mapped to | Hardware | Pin  | Comments   |
 |------------|-----------|----------|------|------------|
-| Button     |           | PB0      | PD14 |            |
-|            |           | PB1      | PD15 |            |
-| LED        | LED_RED   | LED0     | PD11 | Red LED    |
-|            | LED_GREEN | LED1     | PD12 | Green LED  |
+| Button     | PB0      | PD14 |            |
+|            | PB1      | PD15 |            |
+| LED        | LED0     | PD11 | Red LED    |
+|            | LED1     | PD12 | Green LED  |
 
 ## Implementation Status
 | Device                        | ID                                  | Supported | Comments                                                       |
@@ -93,12 +92,12 @@ This is the pinout of the expansion pins on the front side of the board. PIN 1 i
 | Microphone                    |                                     | no        |                                                                |
 | Pressure + temperature sensor | BMP280                              | yes       | Bosch pressure and temperature sensor                          |
 | Light sensor                  | Si1133                              | no        | Silicon Labs UV/Ambient Light sensor                           |
-| Hall-effect sensor            | Si7210A                             | no        | Silicon Labs Hall-effect sensor (Rev. A02 boards only)         |
+| Hall-effect sensor            | Si7210                             | no        | Silicon Labs Hall-effect sensor (Rev. A02 boards only)         |
 | IMU sensor                    | ICM-20648                           | no        | InvenSense 6-axis inertial sensor                              |
 | Air sensor                    | CCS811                              | no        | Cambridge CMOS Sensors Air Quality/Gas sensor                  |
 
 Most sensors on this board are controlled via a power and interrupt controller (PIC). By default, this module is enabled. You can disable this module by adding `DISABLE_MODULE=silabs_pic` to the `make` command.
-    
+
 
 ## Board configuration
 

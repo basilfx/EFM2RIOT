@@ -1,0 +1,19 @@
+mach create
+using sysbus
+machine LoadPlatformDescription @platforms/boards/slstk3301a.repl
+machine SetClockSource cpu
+
+# show the UART output
+showAnalyzer usart1
+
+# generate a unique device id
+$unique_id = `next_value 1`
+
+macro reset
+"""
+    sysbus LoadELF $image_file
+    deviceInformation Unique $unique_id
+"""
+
+runMacro $reset
+start

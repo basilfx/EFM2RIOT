@@ -1,3 +1,4 @@
+
 # define the cpu used by SLTB001A
 export CPU = efm32
 export CPU_MODEL = efr32mg1p132f256gm48

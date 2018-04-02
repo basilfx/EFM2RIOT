@@ -23,7 +23,6 @@
 #define BOARD_H
 
 #include "cpu.h"
-
 #include "periph_conf.h"
 #include "periph/gpio.h"
 #include "periph/spi.h"
@@ -73,11 +72,11 @@ extern "C" {
 /**
  * @name    Environmental sensors configuration
  *
- * Pin for enabling environmental sensors (BMP280, Si1133, Si7021, Si7210A).
+ * Pin for enabling environmental sensors (BMP280, Si1133, Si7021, Si7210).
  * @{
  */
-#define ENV_SENSE_PIC_ADDR  (0x01)
-#define ENV_SENSE_PIC_BIT   (0)
+#define ENV_SENSE_PIC_ADDR      (0x01)
+#define ENV_SENSE_PIC_BIT       (0)
 /** @} */
 
 /**
@@ -86,9 +85,6 @@ extern "C" {
  * Connection to the on-board pressure sensor (BMP280).
  * @{
  */
-#ifndef BMP280_ENABLED
-#define BMP280_ENABLED          (1)
-#endif
 #define BMP280_I2C              I2C_DEV(0)
 
 #define BMX280_PARAM_I2C_DEV    BMP280_I2C
@@ -101,12 +97,12 @@ extern "C" {
  * @{
  */
 #ifndef CCS811_ENABLED
-#define CCS811_ENABLED      (0)
+#define CCS811_ENABLED          (0)
 #endif
-#define CCS811_I2C          I2C_DEV(0)
-#define CCS811_PIC_ADDR     (0x03)
-#define CCS811_PIC_EN_BIT   (0x00)
-#define CCS811_PIC_WAKE_BIT (0x01)
+#define CCS811_I2C              I2C_DEV(0)
+#define CCS811_PIC_ADDR         (0x03)
+#define CCS811_PIC_EN_BIT       (0x00)
+#define CCS811_PIC_WAKE_BIT     (0x01)
 /** @} */
 
 /**
@@ -116,11 +112,11 @@ extern "C" {
  * @{
  */
 #ifndef ICM20648_ENABLED
-#define ICM20648_ENABLED    (0)
+#define ICM20648_ENABLED        (0)
 #endif
-#define ICM20648_SPI        SPI_DEV(0)
-#define ICM20648_PIC_ADDR   (0x00)
-#define ICM20648_PIC_EN_BIT (0x00)
+#define ICM20648_SPI            SPI_DEV(0)
+#define ICM20648_PIC_ADDR       (0x00)
+#define ICM20648_PIC_EN_BIT     (0x00)
 /** @} */
 
 /**
@@ -129,9 +125,9 @@ extern "C" {
  * Pin for communication with the Power and Interrupt Controller.
  * @{
  */
-#define PIC_INT_WAKE_PIN    GPIO_PIN(PD, 10)
-#define PIC_I2C             I2C_DEV(0)
-#define PIC_I2C_ADDR        (0x48)
+#define PIC_INT_WAKE_PIN        GPIO_PIN(PD, 10)
+#define PIC_I2C                 I2C_DEV(0)
+#define PIC_I2C_ADDR            (0x48)
 /** @} */
 
 /**
@@ -141,23 +137,23 @@ extern "C" {
  * @{
  */
 #ifndef RGB_LED1_ENABLED
-#define RGB_LED1_ENABLED    (1)
+#define RGB_LED1_ENABLED        (1)
 #endif
 #ifndef RGB_LED2_ENABLED
-#define RGB_LED2_ENABLED    (1)
+#define RGB_LED2_ENABLED        (1)
 #endif
 #ifndef RGB_LED3_ENABLED
-#define RGB_LED3_ENABLED    (1)
+#define RGB_LED3_ENABLED        (1)
 #endif
 #ifndef RGB_LED4_ENABLED
-#define RGB_LED4_ENABLED    (1)
+#define RGB_LED4_ENABLED        (1)
 #endif
-#define RGB_LED_ADDR        (0x04)
-#define RGB_LED_EN_BIT      (0x00)
-#define RGB_LED1_EN_BIT     (0x07)
-#define RGB_LED2_EN_BIT     (0x06)
-#define RGB_LED3_EN_BIT     (0x05)
-#define RGB_LED4_EN_BIT     (0x04)
+#define RGB_LED_ADDR            (0x04)
+#define RGB_LED_EN_BIT          (0x00)
+#define RGB_LED1_EN_BIT         (0x07)
+#define RGB_LED2_EN_BIT         (0x06)
+#define RGB_LED3_EN_BIT         (0x05)
+#define RGB_LED4_EN_BIT         (0x04)
 /** @} */
 
 /**
@@ -167,9 +163,9 @@ extern "C" {
  * @{
  */
 #ifndef SI1133_ENABLED
-#define SI1133_ENABLED      (0)
+#define SI1133_ENABLED          (0)
 #endif
-#define SI1133_I2C          I2C_DEV(0)
+#define SI1133_I2C              I2C_DEV(0)
 /** @} */
 
 /**
@@ -178,9 +174,6 @@ extern "C" {
  * Connection to the on-board temperature/humidity sensor (Si7021).
  * @{
  */
-#ifndef SI7021_ENABLED
-#define SI7021_ENABLED          (1)
-#endif
 #define SI7021_I2C              I2C_DEV(0)
 
 #define SI70XX_PARAM_I2C_DEV    SI7021_I2C
@@ -189,14 +182,14 @@ extern "C" {
 /**
  * @name    Hall-effect sensor configuration
  *
- * Connection to the on-board hall-effect sensor (Si7210A). Available on Rev. A02
+ * Connection to the on-board hall-effect sensor (Si7210). Available on Rev. A02
  * boards only.
  * @{
  */
-#ifndef SI7210A_ENABLED
-#define SI7210A_ENABLED     (0)
+#ifndef SI7210_ENABLED
+#define SI7210_ENABLED          (0)
 #endif
-#define SI7210A_I2C         I2C_DEV(0)
+#define SI7210_I2C              I2C_DEV(0)
 /** @} */
 
 /**

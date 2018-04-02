@@ -21,7 +21,7 @@ The starter kit is equipped with an Advanced Energy Monitor. This allows you to 
 | FPU             | yes                                                  |
 | MPU             | yes                                                  |
 | DMA             | 12 channels                                          |
-| Timers          | 3 x 16-bit + 1x 16-bit (low power)                   |
+| Timers          | 3x 16-bit + 1x 16-bit (low power)                    |
 | ADCs, DACs      | 12-bit ADC, 12-bit DAC                               |
 | UARTs           | 2x UART, 3x USART, 2x LEUART                         |
 | SPIs            | 3x USART                                             |
@@ -33,7 +33,7 @@ The starter kit is equipped with an Advanced Energy Monitor. This allows you to 
 | Board Schematic | [Board Schematic](http://www.silabs.com/Support%20Documents/TechnicalDocs/BRD2400A_A00.pdf)                              |
 
 ### Pinout
-This is the pinout of the expansion header on the right side of the board. PIN 1 is the bottom-left contact when the header faces towards you.
+This is the pinout of the expansion header on the right side of the board. PIN 1 is the bottom-left contact when the header faces  you horizontally.
 
 |      | PIN | PIN |      |
 |------|-----|-----|------|
@@ -60,14 +60,13 @@ This is the pinout of the expansion header on the right side of the board. PIN 1
 | HWCRYPTO   | &mdash; | &mdash;         |                                 | AES128/AES256 only                                        |
 | PWM        | 0       | TIMER0          | CHAN0: PF6, CHAN1: PF7          | Mapped to LED0 and LED1                                   |
 
-
 ### User interface
 | Peripheral | Mapped to | Hardware | Pin  | Comments   |
 |------------|-----------|----------|------|------------|
-| Button     |           | PB0      | PE3  |            |
-|            |           | PB1      | PE2  |            |
-| LED        | LED_RED   | LED0     | PF6  | Yellow LED |
-|            | LED_GREEN | LED1     | PF7  | Yellow LED |
+| Button     | PB0      | PE3  |            |
+|            | PB1      | PE2  |            |
+| LED        | LED0     | PF6  | Yellow LED |
+|            | LED1     | PF7  | Yellow LED |
 
 ## Implementation Status
 | Device                        | ID                                  | Supported | Comments                                                       |
@@ -88,7 +87,7 @@ This is the pinout of the expansion header on the right side of the board. PIN 1
 | LCD driver                    | LS013B7DH03                         | yes       | Sharp Low Power Memory LCD                                     |
 | Temperature + humidity sensor | Si7021                              | yes       | Silicon Labs Temperature + Humidity sensor                     |
 
-    
+
 
 ## Board configuration
 
@@ -156,7 +155,7 @@ However, this board MCU family has support for a 24-bit *Real-Time Counter* only
 Configured at 1 Hz interval, the RTC will overflow each 194 days. When using the ticker-to-calendar mode, this interval is extended artificially.
 
 ### Hardware crypto
-This MCUs has support for hardware accelerated AES128 and AES256.
+    This MCUs has support for hardware accelerated AES128 and AES256.
 
 A peripheral driver interface for RIOT-OS is proposed, but not yet implemented.
 

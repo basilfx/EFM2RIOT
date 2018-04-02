@@ -1,3 +1,4 @@
+
 # define the cpu used by STK3200
 export CPU = efm32
 export CPU_MODEL = efm32zg222f32
@@ -18,7 +19,6 @@ include $(RIOTMAKE)/tools/renode.inc.mk
 
 # add board common drivers
 USEMODULE += boards_common_silabs
-USEMODULE += silabs_aem
 USEMODULE += silabs_bc
 
 # include board common
