@@ -28,6 +28,8 @@ include $(RIOTMAKE)/tools/serial.inc.mk
 {% strip 2, "", 2 %}
   {% if board in ["sltb001a"] %}
     export JLINK_DEVICE := EFR32MG1PxxxF256
+  {% elif board in ["slwstk6000b"] %}
+    export JLINK_DEVICE := $(MODULE_JLINK_DEVICE)
   {% else %}
     export JLINK_DEVICE := $(CPU_MODEL)
   {% endif %}

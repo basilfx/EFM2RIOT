@@ -17,3 +17,4 @@ endif
 
 # Export variables to use in this build.
 export MODULE_CPU = $(word 2, $(MODULE_INFO))
+export MODULE_JLINK_DEVICE = $(word 3, $(MODULE_INFO))

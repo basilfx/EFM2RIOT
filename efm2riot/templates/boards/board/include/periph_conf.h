@@ -229,8 +229,8 @@ static const i2c_conf_t i2c_config[] = {
         {% elif board in ["slwstk6000b"] %}
             {
                 .dev = I2C0,
-                .sda_pin = P13,
-                .scl_pin = P12,
+                .sda_pin = MODULE_PIN_P13,
+                .scl_pin = MODULE_PIN_P12,
                 .loc = I2C_ROUTELOC0_SDALOC_LOC16 |
                        I2C_ROUTELOC0_SCLLOC_LOC14,
                 .cmu = cmuClock_I2C0,
@@ -286,7 +286,7 @@ static const i2c_conf_t i2c_config[] = {
     {% elif board in ["sltb001a"] %}
         #define I2C_0_ISR           isr_i2c0
     {% elif board in ["slwstk6000b"] %}
-        #define I2C_0_ISR           isr_i2c1
+        #define I2C_0_ISR           isr_i2c0
     {% elif board in ["slwstk6220a"] %}
         #define I2C_0_ISR           isr_i2c1
     {% elif board in ["stk3200"] %}
@@ -421,9 +421,9 @@ static const spi_dev_t spi_config[] = {
         {% elif board in ["slwstk6000b"] %}
             {
                 .dev = USART1,
-                .mosi_pin = F16,
-                .miso_pin = P3,
-                .clk_pin = F15,
+                .mosi_pin = MODULE_PIN_F16,
+                .miso_pin = MODULE_PIN_P3,
+                .clk_pin = MODULE_PIN_F15,
                 .loc = USART_ROUTELOC0_RXLOC_LOC11 |
                        USART_ROUTELOC0_TXLOC_LOC11 |
                        USART_ROUTELOC0_CLKLOC_LOC11,
@@ -667,8 +667,8 @@ static const uart_conf_t uart_config[] = {
         {% elif board in ["slwstk6000b"] %}
             {
                 .dev = USART0,
-                .rx_pin = F6,
-                .tx_pin = F7,
+                .rx_pin = MODULE_PIN_F7,
+                .tx_pin = MODULE_PIN_F6,
                 .loc = USART_ROUTELOC0_RXLOC_LOC0 |
                        USART_ROUTELOC0_TXLOC_LOC0,
                 .cmu = cmuClock_USART0,
@@ -707,14 +707,6 @@ static const uart_conf_t uart_config[] = {
                 .loc = LEUART_ROUTE_LOCATION_LOC0,
                 .cmu = cmuClock_LEUART0,
                 .irq = LEUART0_IRQn
-            },
-            {
-                .dev = USART1,
-                .rx_pin = GPIO_PIN(PD, 6),
-                .tx_pin = GPIO_PIN(PD, 7),
-                .loc = USART_ROUTE_LOCATION_LOC2,
-                .cmu = cmuClock_USART1,
-                .irq = USART1_RX_IRQn
             }
         {% elif board in ["stk3600", "stk3700", "stk3800"] %}
             {
@@ -765,7 +757,6 @@ static const uart_conf_t uart_config[] = {
         #define UART_2_ISR_RX       isr_leuart0
     {% elif board in ["stk3200"] %}
         #define UART_0_ISR_RX       isr_leuart0
-        #define UART_1_ISR_RX       isr_usart1_rx
     {% elif board in ["stk3600", "stk3700", "stk3800"] %}
         #define UART_0_ISR_RX       isr_uart0_rx
         #define UART_1_ISR_RX       isr_usart1_rx

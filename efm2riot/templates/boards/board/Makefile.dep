@@ -23,6 +23,13 @@ ifneq (,$(filter saul_default,$(USEMODULE)))
   {% endstrip %}
 endif
 
+{% strip 2, "<", 2 %}
+    {% if board in ["stk3200"] %}
+        # limit the stack size so most tests and examples compile
+        CFLAGS += -DTHREAD_STACKSIZE_DEFAULT=512
+    {% endif %}
+{% endstrip %}
+
 # include board common dependencies
 include $(RIOTBOARD)/common/silabs/Makefile.dep
 

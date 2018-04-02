@@ -61,7 +61,7 @@ extern "C" {
             {% elif board in ["slstk3701a"] %}
                 #define BC_PIN              GPIO_PIN(PE, 1)
             {% elif board in ["slwstk6000b"] %}
-                #define BC_PIN              F5
+                #define BC_PIN              MODULE_PIN_F5
             {% elif board in ["slwstk6220a"] %}
                 #define BC_PIN              GPIO_PIN(PA, 12)
             {% elif board in ["stk3200"] %}
@@ -89,8 +89,8 @@ extern "C" {
         #define PB0_PIN             GPIO_PIN(PD, 14)
         #define PB1_PIN             GPIO_PIN(PD, 15)
     {% elif board in ["slwstk6000b"] %}
-        #define PB0_PIN             F12
-        #define PB1_PIN             F13
+        #define PB0_PIN             MODULE_PIN_F12
+        #define PB1_PIN             MODULE_PIN_F13
     {% elif board in ["slwstk6220a"] %}
         #define PB0_PIN             GPIO_PIN(PE, 3)
         #define PB1_PIN             GPIO_PIN(PE, 2)
@@ -126,8 +126,8 @@ extern "C" {
         #define LED0_PIN            GPIO_PIN(PD, 12)
         #define LED1_PIN            GPIO_PIN(PD, 11)
     {% elif board in ["slwstk6000b"] %}
-        #define LED0_PIN            F10
-        #define LED1_PIN            F11
+        #define LED0_PIN            MODULE_PIN_F10
+        #define LED1_PIN            MODULE_PIN_F11
     {% elif board in ["slwstk6220a"] %}
         #define LED0_PIN            GPIO_PIN(PF, 6)
         #define LED1_PIN            GPIO_PIN(PF, 7)
@@ -186,9 +186,9 @@ extern "C" {
          * @{
          */
         #define DISP_SPI            SPI_DEV(0)
-        #define DISP_COM_PIN        F18
-        #define DISP_CS_PIN         F17
-        #define DISP_EN_PIN         F14
+        #define DISP_COM_PIN        MODULE_PIN_F18
+        #define DISP_CS_PIN         MODULE_PIN_F17
+        #define DISP_EN_PIN         MODULE_PIN_F14
         /** @} */
     {% elif board in ["slwstk6220a"] %}
         /**
@@ -239,9 +239,6 @@ extern "C" {
          * Connection to the on-board temperature/humidity sensor (Si7021).
          * @{
          */
-        #ifndef SI7021_ENABLED
-        #define SI7021_ENABLED          (1)
-        #endif
         #define SI7021_I2C              I2C_DEV(0)
         #define SI7021_EN_PIN           GPIO_PIN(PB, 10)
 
@@ -254,9 +251,6 @@ extern "C" {
          * Connection to the on-board temperature/humidity sensor (Si7021).
          * @{
          */
-        #ifndef SI7021_ENABLED
-        #define SI7021_ENABLED          (1)
-        #endif
         #define SI7021_I2C              I2C_DEV(2)
         #define SI7021_EN_PIN           GPIO_PIN(PB, 3)
 
@@ -393,7 +387,7 @@ extern "C" {
          * @{
          */
         #define SI7021_I2C              I2C_DEV(0)
-        #define SI7021_EN_PIN           P37
+        #define SI7021_EN_PIN           MODULE_PIN_P37
 
         #define SI70XX_PARAM_I2C_DEV    SI7021_I2C
         /** @} */
