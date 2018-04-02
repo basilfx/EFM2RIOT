@@ -121,23 +121,23 @@ PATCHES = [
 # Board definitions.
 BOARDS = [
     {
-        "cpu": "efr32mg12p332f1024gl125",
-        "cpu_datasheet": "https://www.silabs.com/documents/public/data-sheets/efr32mg12-datasheet.pdf",  # noqa
-        "board": "slwstk6000b",
-        "board_manual": "https://www.silabs.com/documents/public/reference-manuals/slwstk6000b-rm.pdf",  # noqa
-        "board_schematic": "https://www.silabs.com/documents/public/reference-manuals/slwstk6000b-rm.pdf",  # noqa
-        "family": "efr32mg12p",
-        "family_full_name": "EFR32 Mighty Gecko 12P",
-        "family_manual": "http://www.silabs.com/Support%20Documents/TechnicalDocs/EFR32-ReferenceManual.pdf",  # noqa
-        "features": ["aem", "bc"],
+        "cpu": "efm32tg11b520f128gm80",
+        "cpu_datasheet": "https://www.silabs.com/documents/public/data-sheets/efm32tg11-datasheet.pdf",  # noqa
+        "board": "slstk3301a",
+        "board_manual": "https://www.silabs.com/documents/public/user-guides/ug303-stk3301.pdf",  # noqa
+        "board_schematic": "https://www.silabs.com/documents/public/schematic-files/BRD2102A-A04-schematic.pdf",
+        "family": "efm32tg11b",
+        "family_full_name": "EFM32 Tiny Gecko 11B",
+        "family_manual": "https://www.silabs.com/documents/public/reference-manuals/efm32tg11-rm.pdf",  # noqa
+        "features": ["bc"],
         "freq": {
-            "hfxo": 38400000,
+            "hfxo": 48000000,
             "hfrco": 19000000,
             "lfxo": 32768,
             "lfrco": 32768,
             "ulfrco": 1000
         },
-        "marketing_name": "Mighty Gecko Radio Board"
+        "marketing_name": "EFM32 Tiny Gecko 11 Starter Kit"
     },
     {
         "cpu": "efm32pg1b200f256gm48",
@@ -214,6 +214,25 @@ BOARDS = [
             "ulfrco": 1000
         },
         "marketing_name": "Thunderboard Sense"
+    },
+    {
+        "cpu": "efr32mg12p332f1024gl125",
+        "cpu_datasheet": "https://www.silabs.com/documents/public/data-sheets/efr32mg12-datasheet.pdf",  # noqa
+        "board": "slwstk6000b",
+        "board_manual": "https://www.silabs.com/documents/public/reference-manuals/slwstk6000b-rm.pdf",  # noqa
+        "board_schematic": "https://www.silabs.com/documents/public/reference-manuals/slwstk6000b-rm.pdf",  # noqa
+        "family": "efr32mg12p",
+        "family_full_name": "EFR32 Mighty Gecko 12P",
+        "family_manual": "http://www.silabs.com/Support%20Documents/TechnicalDocs/EFR32-ReferenceManual.pdf",  # noqa
+        "features": ["aem", "bc"],
+        "freq": {
+            "hfxo": 38400000,
+            "hfrco": 19000000,
+            "lfxo": 32768,
+            "lfrco": 32768,
+            "ulfrco": 1000
+        },
+        "marketing_name": "Mighty Gecko Wireless Starter Kit"
     },
     {
         "cpu": "ezr32wg330f256r60",

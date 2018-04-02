@@ -22,7 +22,7 @@
 #include "board.h"
 #include "board_common.h"
 {% strip 2 %}
-    {% if board in ["slstk3401a", "slstk3402a", "sltb001a", "slwstk6000b", "slwstk6220a"]  %}
+    {% if board in ["slstk3301a", "slstk3401a", "slstk3402a", "sltb001a", "slwstk6000b", "slwstk6220a"]  %}
         #include "periph/gpio.h"
     {% endif %}
 {% endstrip %}
@@ -44,7 +44,7 @@ void board_init(void)
     board_common_init();
 
     {% strip 3, "<" %}
-        {% if board in ["slstk3401a", "slstk3402a", "slwstk6000b", "slwstk6220a"] %}
+        {% if board in ["slstk3301a", "slstk3401a", "slstk3402a", "slwstk6000b", "slwstk6220a"] %}
             #ifdef MODULE_SI7021
                 /* initialize the Si7021 sensor */
                 gpio_init(SI7021_EN_PIN, GPIO_OUT);
@@ -66,7 +66,7 @@ void board_init(void)
                 pic_write(ICM20648_PIC_ADDR, 1 << ICM20648_PIC_EN_BIT);
             #endif
 
-            #if defined(MODULE_BMP280) || defined(MODULE_SI7021) || SI1133_ENABLED || SI7210A_ENABLED
+            #if defined(MODULE_BMP280) || defined(MODULE_SI7021) || SI1133_ENABLED || SI7210_ENABLED
                 /* enable the environmental sensors */
                 pic_write(ENV_SENSE_PIC_ADDR, 1 << ENV_SENSE_PIC_BIT);
             #endif

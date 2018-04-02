@@ -56,7 +56,9 @@ extern "C" {
          * @{
          */
         {% strip 2 %}
-            {% if board in ["slstk3401a", "slstk3402a"] %}
+            {% if board in ["slstk3301a"] %}
+                #define BC_PIN              GPIO_PIN(PA, 8)
+            {% elif board in ["slstk3401a", "slstk3402a"] %}
                 #define BC_PIN              GPIO_PIN(PA, 5)
             {% elif board in ["slstk3701a"] %}
                 #define BC_PIN              GPIO_PIN(PE, 1)
@@ -79,7 +81,10 @@ extern "C" {
  * @{
  */
 {% strip 2 %}
-    {% if board in ["slstk3401a", "slstk3402a"] %}
+    {% if board in ["slstk3301a"] %}
+        #define PB0_PIN             GPIO_PIN(PD, 5)
+        #define PB1_PIN             GPIO_PIN(PC, 9)
+    {% elif board in ["slstk3401a", "slstk3402a"] %}
         #define PB0_PIN             GPIO_PIN(PF, 6)
         #define PB1_PIN             GPIO_PIN(PF, 7)
     {% elif board in ["slstk3701a"] %}
@@ -109,7 +114,10 @@ extern "C" {
  * @{
  */
 {% strip 2 %}
-    {% if board in ["slstk3401a", "slstk3402a"] %}
+    {% if board in ["slstk3301a"] %}
+        #define LED0_PIN            GPIO_PIN(PD, 2)
+        #define LED1_PIN            GPIO_PIN(PC, 2)
+    {% elif board in ["slstk3401a", "slstk3402a"] %}
         #define LED0_PIN            GPIO_PIN(PF, 4)
         #define LED1_PIN            GPIO_PIN(PF, 5)
     {% elif board in ["slstk3701a"] %}
@@ -220,7 +228,29 @@ extern "C" {
 {% endstrip %}
 
 {% strip 2, ">" %}
-    {% if board in ["slstk3401a"] %}
+    {% if board in ["slstk3301a"] %}
+        /**
+         * @name    Temperature sensor configuration
+         *
+         * Connection to the on-board temperature/humidity sensor (Si7021).
+         * @{
+         */
+        #define SI7021_I2C              I2C_DEV(0)
+        #define SI7021_EN_PIN           GPIO_PIN(PC, 12)
+
+        #define SI70XX_PARAM_I2C_DEV    SI7021_I2C
+        /** @} */
+
+        /**
+         * @name    Hall-effect sensor configuration
+         *
+         * Connection to the on-board hall-effect sensor (Si7210    ).
+         * @{
+         */
+        #define SI7210_I2C              I2C_DEV(0)
+        #define SI7210_EN_PIN           GPIO_PIN(PC, 12)
+        /** @} */
+    {% elif board in ["slstk3401a"] %}
         /**
          * @name    Temperature sensor configuration
          *
@@ -260,11 +290,11 @@ extern "C" {
         /**
          * @name    Environmental sensors configuration
          *
-         * Pin for enabling environmental sensors (BMP280, Si1133, Si7021, Si7210A).
+         * Pin for enabling environmental sensors (BMP280, Si1133, Si7021, Si7210).
          * @{
          */
-        #define ENV_SENSE_PIC_ADDR  (0x01)
-        #define ENV_SENSE_PIC_BIT   (0)
+        #define ENV_SENSE_PIC_ADDR      (0x01)
+        #define ENV_SENSE_PIC_BIT       (0)
         /** @} */
 
         /**
@@ -285,12 +315,12 @@ extern "C" {
          * @{
          */
         #ifndef CCS811_ENABLED
-        #define CCS811_ENABLED      (0)
+        #define CCS811_ENABLED          (0)
         #endif
-        #define CCS811_I2C          I2C_DEV(0)
-        #define CCS811_PIC_ADDR     (0x03)
-        #define CCS811_PIC_EN_BIT   (0x00)
-        #define CCS811_PIC_WAKE_BIT (0x01)
+        #define CCS811_I2C              I2C_DEV(0)
+        #define CCS811_PIC_ADDR         (0x03)
+        #define CCS811_PIC_EN_BIT       (0x00)
+        #define CCS811_PIC_WAKE_BIT     (0x01)
         /** @} */
 
         /**
@@ -300,11 +330,11 @@ extern "C" {
          * @{
          */
         #ifndef ICM20648_ENABLED
-        #define ICM20648_ENABLED    (0)
+        #define ICM20648_ENABLED        (0)
         #endif
-        #define ICM20648_SPI        SPI_DEV(0)
-        #define ICM20648_PIC_ADDR   (0x00)
-        #define ICM20648_PIC_EN_BIT (0x00)
+        #define ICM20648_SPI            SPI_DEV(0)
+        #define ICM20648_PIC_ADDR       (0x00)
+        #define ICM20648_PIC_EN_BIT     (0x00)
         /** @} */
 
         /**
@@ -313,9 +343,9 @@ extern "C" {
          * Pin for communication with the Power and Interrupt Controller.
          * @{
          */
-        #define PIC_INT_WAKE_PIN    GPIO_PIN(PD, 10)
-        #define PIC_I2C             I2C_DEV(0)
-        #define PIC_I2C_ADDR        (0x48)
+        #define PIC_INT_WAKE_PIN        GPIO_PIN(PD, 10)
+        #define PIC_I2C                 I2C_DEV(0)
+        #define PIC_I2C_ADDR            (0x48)
         /** @} */
 
         /**
@@ -325,23 +355,23 @@ extern "C" {
          * @{
          */
         #ifndef RGB_LED1_ENABLED
-        #define RGB_LED1_ENABLED    (1)
+        #define RGB_LED1_ENABLED        (1)
         #endif
         #ifndef RGB_LED2_ENABLED
-        #define RGB_LED2_ENABLED    (1)
+        #define RGB_LED2_ENABLED        (1)
         #endif
         #ifndef RGB_LED3_ENABLED
-        #define RGB_LED3_ENABLED    (1)
+        #define RGB_LED3_ENABLED        (1)
         #endif
         #ifndef RGB_LED4_ENABLED
-        #define RGB_LED4_ENABLED    (1)
+        #define RGB_LED4_ENABLED        (1)
         #endif
-        #define RGB_LED_ADDR        (0x04)
-        #define RGB_LED_EN_BIT      (0x00)
-        #define RGB_LED1_EN_BIT     (0x07)
-        #define RGB_LED2_EN_BIT     (0x06)
-        #define RGB_LED3_EN_BIT     (0x05)
-        #define RGB_LED4_EN_BIT     (0x04)
+        #define RGB_LED_ADDR            (0x04)
+        #define RGB_LED_EN_BIT          (0x00)
+        #define RGB_LED1_EN_BIT         (0x07)
+        #define RGB_LED2_EN_BIT         (0x06)
+        #define RGB_LED3_EN_BIT         (0x05)
+        #define RGB_LED4_EN_BIT         (0x04)
         /** @} */
 
         /**
@@ -351,9 +381,9 @@ extern "C" {
          * @{
          */
         #ifndef SI1133_ENABLED
-        #define SI1133_ENABLED      (0)
+        #define SI1133_ENABLED          (0)
         #endif
-        #define SI1133_I2C          I2C_DEV(0)
+        #define SI1133_I2C              I2C_DEV(0)
         /** @} */
 
         /**
@@ -370,14 +400,14 @@ extern "C" {
         /**
          * @name    Hall-effect sensor configuration
          *
-         * Connection to the on-board hall-effect sensor (Si7210A). Available on Rev. A02
+         * Connection to the on-board hall-effect sensor (Si7210). Available on Rev. A02
          * boards only.
          * @{
          */
-        #ifndef SI7210A_ENABLED
-        #define SI7210A_ENABLED     (0)
+        #ifndef SI7210_ENABLED
+        #define SI7210_ENABLED          (0)
         #endif
-        #define SI7210A_I2C         I2C_DEV(0)
+        #define SI7210_I2C              I2C_DEV(0)
         /** @} */
     {% elif board in ["slwstk6000b"] %}
         /**

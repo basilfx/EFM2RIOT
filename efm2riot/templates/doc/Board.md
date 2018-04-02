@@ -23,7 +23,15 @@ The starter kit is equipped with an Advanced Energy Monitor. This allows you to 
 {% strip 2 %}
     {% if board in ["slstk3401a"] %}
         | DMA             | 8 channels                                           |
-        | Timers          | 2 x 16-bit + 1x 16-bit (low power)                   |
+        | Timers          | 2x 32-bit + 2x 16-bit + 1x 16-bit (low power)        |
+        | ADCs            | 12-bit ADC                                           |
+        | UARTs           | 4x USART, 1x UART, 1x LEUART                         |
+        | SPIs            | 4x USART                                             |
+        | I2Cs            | 2x                                                   |
+        | Vcc             | 1.85V - 3.8V                                         |
+    {% elif board in ["slstk3401a"] %}
+        | DMA             | 8 channels                                           |
+        | Timers          | 2x 16-bit + 1x 16-bit (low power)                    |
         | ADCs            | 12-bit ADC                                           |
         | UARTs           | 2x USART, 1x LEUART                                  |
         | SPIs            | 2x USART                                             |
@@ -31,7 +39,7 @@ The starter kit is equipped with an Advanced Energy Monitor. This allows you to 
         | Vcc             | 1.85V - 3.8V                                         |
     {% elif board in ["slstk3402a"] %}
         | DMA             | 8 channels                                           |
-        | Timers          | 2 x 16-bit + 1x 16-bit (low power)                   |
+        | Timers          | 2x 16-bit + 1x 16-bit (low power)                    |
         | ADCs            | 12-bit ADC                                           |
         | UARTs           | 2x USART, 1x LEUART                                  |
         | SPIs            | 2x USART                                             |
@@ -39,7 +47,7 @@ The starter kit is equipped with an Advanced Energy Monitor. This allows you to 
         | Vcc             | 1.85V - 3.8V                                         |
     {% elif board in ["slstk3701a"] %}
         | DMA             | 24 channels                                          |
-        | Timers          | 4 x 32-bit + 7 x 16-bit + 1x 16-bit (low power)      |
+        | Timers          | 4x 32-bit + 7x 16-bit + 1x 16-bit (low power)        |
         | ADCs            | 12-bit ADC                                           |
         | UARTs           | 4x USART, 1x LEUART                                  |
         | SPIs            | 4x USART                                             |
@@ -47,7 +55,7 @@ The starter kit is equipped with an Advanced Energy Monitor. This allows you to 
         | Vcc             | 1.85V - 3.8V                                         |
     {% elif board in ["sltb001a"] %}
         | DMA             | 12 channels                                          |
-        | Timers          | 2 x 16-bit + 1x 16-bit (low power)                   |
+        | Timers          | 2x 16-bit + 1x 16-bit (low power)                    |
         | ADCs            | 12-bit ADC                                           |
         | UARTs           | 3x UART, 2x USART, 1x LEUART                         |
         | SPIs            | 2x USART                                             |
@@ -55,7 +63,7 @@ The starter kit is equipped with an Advanced Energy Monitor. This allows you to 
         | Vcc             | 1.85V - 3.8V                                         |
     {% elif board in ["slwstk6220a"] %}
         | DMA             | 12 channels                                          |
-        | Timers          | 3 x 16-bit + 1x 16-bit (low power)                   |
+        | Timers          | 3x 16-bit + 1x 16-bit (low power)                    |
         | ADCs, DACs      | 12-bit ADC, 12-bit DAC                               |
         | UARTs           | 2x UART, 3x USART, 2x LEUART                         |
         | SPIs            | 3x USART                                             |
@@ -63,7 +71,7 @@ The starter kit is equipped with an Advanced Energy Monitor. This allows you to 
         | Vcc             | 1.98V - 3.8V                                         |
     {% elif board in ["stk3200"] %}
         | DMA             | 12 channels                                          |
-        | Timers          | 2 x 16-bit + 1x 16-bit (low power)                   |
+        | Timers          | 2x 16-bit + 1x 16-bit (low power)                    |
         | ADCs            | 12-bit ADC                                           |
         | UARTs           | 2x USART, 1x LEUART                                  |
         | SPIs            | 2x USART                                             |
@@ -71,7 +79,7 @@ The starter kit is equipped with an Advanced Energy Monitor. This allows you to 
         | Vcc             | 1.98V - 3.8V                                         |
     {% elif board in ["stk3600"] %}
         | DMA             | 12 channels                                          |
-        | Timers          | 3 x 16-bit + 1x 16-bit (low power)                   |
+        | Timers          | 3x 16-bit + 1x 16-bit (low power)                    |
         | ADCs, DACs      | 12-bit ADC, 12-bit DAC                               |
         | UARTs           | 2x UART, 3x USART, 2x LEUART                         |
         | SPIs            | 3x USART                                             |
@@ -79,7 +87,7 @@ The starter kit is equipped with an Advanced Energy Monitor. This allows you to 
         | Vcc             | 1.98V - 3.8V                                         |
     {% elif board in ["stk3700"] %}
         | DMA             | 12 channels                                          |
-        | Timers          | 3 x 16-bit + 1x 16-bit (low power)                   |
+        | Timers          | 3x 16-bit + 1x 16-bit (low power)                    |
         | ADCs, DACs      | 12-bit ADC, 12-bit DAC                               |
         | UARTs           | 2x UART, 3x USART, 2x LEUART                         |
         | SPIs            | 3x USART                                             |
@@ -87,7 +95,7 @@ The starter kit is equipped with an Advanced Energy Monitor. This allows you to 
         | Vcc             | 1.98V - 3.8V                                         |
     {% elif board in ["stk3800"] %}
         | DMA             | 12 channels                                          |
-        | Timers          | 3 x 16-bit + 1x 16-bit (low power)                   |
+        | Timers          | 3x 16-bit + 1x 16-bit (low power)                    |
         | ADCs, DACs      | 12-bit ADC, 12-bit DAC                               |
         | UARTs           | 2x UART, 3x USART, 2x LEUART                         |
         | SPIs            | 3x USART                                             |
@@ -112,7 +120,18 @@ The starter kit is equipped with an Advanced Energy Monitor. This allows you to 
 |      | PIN | PIN |      |
 |------|-----|-----|------|
 {% strip 2 %}
-    {% if board in ["slstk3401a", "slstk3402a"] %}
+    {% if board in ["slstk3301a"] %}
+        | 3V3  | 20  | 19  | RES  |
+        | 5V   | 18  | 17  | RES  |
+        | PCD6 | 16  | 15  | PD7  |
+        | PC15 | 14  | 13  | PC9  |
+        | PC14 | 12  | 11  | PD5  |
+        | PC8  | 10  | 9   | PC13 |
+        | PC12 | 8   | 7   | PD2  |
+        | PC10 | 6   | 5   | PC1  |
+        | PC11 | 4   | 3   | PC0  |
+        | VMCU | 2   | 1   | GND  |
+    {% elif board in ["slstk3401a", "slstk3402a"] %}
         | 3V3  | 20  | 19  | RES  |
         | 5V   | 18  | 17  | RES  |
         | PC10 | 16  | 15  | PC11 |
@@ -182,31 +201,7 @@ The starter kit is equipped with an Advanced Energy Monitor. This allows you to 
 | Peripheral | Number  | Hardware        | Pins                            | Comments                                                  |
 |------------|---------|-----------------|---------------------------------|-----------------------------------------------------------|
 {% strip 2 %}
-    {% if board in ["stk3600", "stk3700", "stk3800"] %}
-        | ADC        | 0       | ADC0            | CHAN0: internal temperature     | Ports are fixed, 14/16-bit resolution not supported       |
-        | DAC        | 0       | DAC0            | CHAN0: PB11                     | Ports are fixed, shared with I2C                          |
-        | HWCRYPTO   | &mdash; | &mdash;         |                                 | AES128/AES256 only                                        |
-        | I2C        | 0       | I2C0            | SDA: PD6, SCL: PD7              | `I2C_SPEED_LOW` and `I2C_SPEED_HIGH` clock speed deviate  |
-        |            | 1       | I2C1            | SDA: PC4, SCL: PC5              | `I2C_SPEED_LOW` and `I2C_SPEED_HIGH` clock speed deviate  |
-        | PWM        | 0       | TIMER3          | CHAN0: PE2                      | Mapped to LED0                                            |
-        | RTT        | &mdash; | RTC             |                                 | Either RTT or RTC (see below)                             |
-        | RTC        | &mdash; | RTC             |                                 | Either RTC or RTT (see below)                             |
-        | SPI        | 0       | USART1          | MOSI: PD0, MISO: PD1, CLK: PD2  |                                                           |
-        |            | 1       | USART2          | MOSI: NC, MISO: PC3, CLK: PC4   |                                                           |
-        | Timer      | 0       | TIMER0 + TIMER1 |                                 | TIMER0 is used as prescaler (must be adjecent)            |
-        | UART       | 0       | UART0           | RX: PE1, TX: PE0                | STDIO output                                              |
-        |            | 1       | USART1          | RX: PD1, TX: PD0                |                                                           |
-        |            | 2       | LEUART0         | RX: PD5, TX: PD4                | Baud rate limited (see below)                             |
-    {% elif board in ["stk3200"] %}
-        | ADC        | 0       | ADC0            | CHAN0: internal temperature     | Ports are fixed, 14/16-bit resolution not supported       |
-        | I2C        | 0       | I2C0            | SDA: PE12, SCL: PE13            | `I2C_SPEED_LOW` and `I2C_SPEED_HIGH` clock speed deviate  |
-        | HWCRYPTO   | &mdash; | &mdash;         |                                 | AES128/AES256 only                                        |
-        | RTT        | &mdash; | RTC             |                                 | Either RTT or RTC (see below)                             |
-        | RTC        | &mdash; | RTC             |                                 | Either RTC or RTT (see below)                             |
-        | SPI        | 0       | USART1          | MOSI: PD7, MISO: PD6, CLK: PC15 |                                                           |
-        | Timer      | 0       | TIMER0 + TIMER1 |                                 | TIMER0 is used as prescaler (must be adjecent)            |
-        | UART       | 0       | LEUART0         | RX: PD5, TX: PD4                | STDIO Output, Baud rate limited (see below)               |
-        |            | 1       | USART1          | RX: PD6, TX: PD7                |                                                           |
+    {% if board in ["slstk3301a"] %}
     {% elif board in ["slstk3401a"] %}
         | ADC        | 0       | ADC0            | CHAN0: internal temperature     | Ports are fixed, 14/16-bit resolution not supported       |
         | I2C        | 0       | I2C0            | SDA: PC10, CLK: PC11            | `I2C_SPEED_LOW` and `I2C_SPEED_HIGH` clock speed deviate  |
@@ -230,11 +225,6 @@ The starter kit is equipped with an Advanced Energy Monitor. This allows you to 
         | UART       | 0       | USART0          | RX: PA1, TX: PA0                | Default STDIO output                                      |
         |            | 1       | USART1          | RX: PC6, TX: PC7                |                                                           |
         |            | 2       | LEUART0         | RX: PD11, TX: PD10              | Baud rate limited (see below)                             |
-    {% elif board in ["slwstk6220a"] %}
-        | ADC        | 0       | ADC0            | CHAN0: internal temperature     | Ports are fixed, 14/16-bit resolution not supported       |
-        | DAC        | 0       | DAC0            | CHAN0: PB11                     | Ports are fixed, shared with I2C                          |
-        | HWCRYPTO   | &mdash; | &mdash;         |                                 | AES128/AES256 only                                        |
-        | PWM        | 0       | TIMER0          | CHAN0: PF6, CHAN1: PF7          | Mapped to LED0 and LED1                                   |
     {% elif board in ["sltb001a"] %}
         | ADC        | 0       | ADC0            | CHAN0: internal temperature     | Ports are fixed, 14/16-bit resolution not supported       |
         | I2C        | 0       | I2C0            | SDA: PC10, CLK: PC11            | `I2C_SPEED_LOW` and `I2C_SPEED_HIGH` clock speed deviate  |
@@ -246,12 +236,37 @@ The starter kit is equipped with an Advanced Energy Monitor. This allows you to 
         | UART       | 0       | USART0          | RX: PA1, TX: PA0                | Default STDIO output                                      |
         |            | 1       | USART1          | RX: PC6, TX: PC7                |                                                           |
         |            | 2       | LEUART0         | RX: PD11, TX: PD10              | Baud rate limited (see below)                             |
-    {% endif %}
-{% endstrip %}
-
-{% strip 2 %}
-    {% if board in ["stk3200", "slstk3401a"] %}
-        Board has support for PWM, but there are no timers left to use.
+    {% elif board in ["slwstk6000b"] %}
+    {% elif board in ["slwstk6220a"] %}
+        | ADC        | 0       | ADC0            | CHAN0: internal temperature     | Ports are fixed, 14/16-bit resolution not supported       |
+        | DAC        | 0       | DAC0            | CHAN0: PB11                     | Ports are fixed, shared with I2C                          |
+        | HWCRYPTO   | &mdash; | &mdash;         |                                 | AES128/AES256 only                                        |
+        | PWM        | 0       | TIMER0          | CHAN0: PF6, CHAN1: PF7          | Mapped to LED0 and LED1                                   |
+    {% elif board in ["stk3200"] %}
+        | ADC        | 0       | ADC0            | CHAN0: internal temperature     | Ports are fixed, 14/16-bit resolution not supported       |
+        | I2C        | 0       | I2C0            | SDA: PE12, SCL: PE13            | `I2C_SPEED_LOW` and `I2C_SPEED_HIGH` clock speed deviate  |
+        | HWCRYPTO   | &mdash; | &mdash;         |                                 | AES128/AES256 only                                        |
+        | RTT        | &mdash; | RTC             |                                 | Either RTT or RTC (see below)                             |
+        | RTC        | &mdash; | RTC             |                                 | Either RTC or RTT (see below)                             |
+        | SPI        | 0       | USART1          | MOSI: PD7, MISO: PD6, CLK: PC15 |                                                           |
+        | Timer      | 0       | TIMER0 + TIMER1 |                                 | TIMER0 is used as prescaler (must be adjecent)            |
+        | UART       | 0       | LEUART0         | RX: PD5, TX: PD4                | STDIO Output, Baud rate limited (see below)               |
+        |            | 1       | USART1          | RX: PD6, TX: PD7                |                                                           |
+    {% elif board in ["stk3600", "stk3700", "stk3800"] %}
+        | ADC        | 0       | ADC0            | CHAN0: internal temperature     | Ports are fixed, 14/16-bit resolution not supported       |
+        | DAC        | 0       | DAC0            | CHAN0: PB11                     | Ports are fixed, shared with I2C                          |
+        | HWCRYPTO   | &mdash; | &mdash;         |                                 | AES128/AES256 only                                        |
+        | I2C        | 0       | I2C0            | SDA: PD6, SCL: PD7              | `I2C_SPEED_LOW` and `I2C_SPEED_HIGH` clock speed deviate  |
+        |            | 1       | I2C1            | SDA: PC4, SCL: PC5              | `I2C_SPEED_LOW` and `I2C_SPEED_HIGH` clock speed deviate  |
+        | PWM        | 0       | TIMER3          | CHAN0: PE2                      | Mapped to LED0                                            |
+        | RTT        | &mdash; | RTC             |                                 | Either RTT or RTC (see below)                             |
+        | RTC        | &mdash; | RTC             |                                 | Either RTC or RTT (see below)                             |
+        | SPI        | 0       | USART1          | MOSI: PD0, MISO: PD1, CLK: PD2  |                                                           |
+        |            | 1       | USART2          | MOSI: NC, MISO: PC3, CLK: PC4   |                                                           |
+        | Timer      | 0       | TIMER0 + TIMER1 |                                 | TIMER0 is used as prescaler (must be adjecent)            |
+        | UART       | 0       | UART0           | RX: PE1, TX: PE0                | STDIO output                                              |
+        |            | 1       | USART1          | RX: PD1, TX: PD0                |                                                           |
+        |            | 2       | LEUART0         | RX: PD5, TX: PD4                | Baud rate limited (see below)                             |
     {% endif %}
 {% endstrip %}
 
@@ -259,31 +274,46 @@ The starter kit is equipped with an Advanced Energy Monitor. This allows you to 
 | Peripheral | Mapped to | Hardware | Pin  | Comments   |
 |------------|-----------|----------|------|------------|
 {% strip 2 %}
-    {% if board in ["stk3600", "stk3700", "stk3800"] %}
-        | Button     |           | PB0      | PB9  |            |
-        |            |           | PB1      | PB10 |            |
-        | LED        | LED_RED   | LED0     | PE2  | Yellow LED |
-        |            | LED_GREEN | LED1     | PE3  | Yellow LED |
-    {% elif board in ["stk3200"] %}
-        | Button     |           | PB0      | PC8  |            |
-        |            |           | PB1      | PC9  |            |
-        | LED        | LED_RED   | LED0     | PC10 | Yellow LED |
-        |            | LED_GREEN | LED1     | PC11 | Yellow LED |
+    {% if board in ["slstk3301a"] %}
+        | Button     | PB0      | PD5  |            |
+        |            | PB1      | PC9  |            |
+        | LED        | LED0     | PD2  | Yellow LED |
+        |            | LED1     | PC2  | Yellow LED |
     {% elif board in ["slstk3401a", "slstk3402a"] %}
-        | Button     |           | PB0      | PF6  |            |
-        |            |           | PB1      | PF7  |            |
-        | LED        | LED_RED   | LED0     | PF4  | Yellow LED |
-        |            | LED_GREEN | LED1     | PF5  | Yellow LED |
-    {% elif board in ["slwstk6220a"] %}
-        | Button     |           | PB0      | PE3  |            |
-        |            |           | PB1      | PE2  |            |
-        | LED        | LED_RED   | LED0     | PF6  | Yellow LED |
-        |            | LED_GREEN | LED1     | PF7  | Yellow LED |
+        | Button     | PB0      | PF6  |            |
+        |            | PB1      | PF7  |            |
+        | LED        | LED0     | PF4  | Yellow LED |
+        |            | LED1     | PF5  | Yellow LED |
+    {% elif board in ["slstk3701a"] %}
+        | Button     | PB0      | PF6  |            |
+        |            | PB1      | PF7  |            |
+        | LED        | LED0     | PF4  | Yellow LED |
+        |            | LED1     | PF5  | Yellow LED |
     {% elif board in ["sltb001a"] %}
-        | Button     |           | PB0      | PD14 |            |
-        |            |           | PB1      | PD15 |            |
-        | LED        | LED_RED   | LED0     | PD11 | Red LED    |
-        |            | LED_GREEN | LED1     | PD12 | Green LED  |
+        | Button     | PB0      | PD14 |            |
+        |            | PB1      | PD15 |            |
+        | LED        | LED0     | PD11 | Red LED    |
+        |            | LED1     | PD12 | Green LED  |
+    {% elif board in ["slwstk6000b"] %}
+        | Button     | PB0      | F12  |            |
+        |            | PB1      | F13  |            |
+        | LED        | LED0     | F10  | Yellow LED |
+        |            | LED1     | F11  | Yellow LED |
+    {% elif board in ["slwstk6220a"] %}
+        | Button     | PB0      | PE3  |            |
+        |            | PB1      | PE2  |            |
+        | LED        | LED0     | PF6  | Yellow LED |
+        |            | LED1     | PF7  | Yellow LED |
+    {% elif board in ["stk3200"] %}
+        | Button     | PB0      | PC8  |            |
+        |            | PB1      | PC9  |            |
+        | LED        | LED0     | PC10 | Yellow LED |
+        |            | LED1     | PC11 | Yellow LED |
+    {% elif board in ["stk3600", "stk3700", "stk3800"] %}
+        | Button     | PB0      | PB9  |            |
+        |            | PB1      | PB10 |            |
+        | LED        | LED0     | PE2  | Yellow LED |
+        |            | LED1     | PE3  | Yellow LED |
     {% endif %}
 {% endstrip %}
 
@@ -329,7 +359,7 @@ The starter kit is equipped with an Advanced Energy Monitor. This allows you to 
         | Microphone                    |                                     | no        |                                                                |
         | Pressure + temperature sensor | BMP280                              | yes       | Bosch pressure and temperature sensor                          |
         | Light sensor                  | Si1133                              | no        | Silicon Labs UV/Ambient Light sensor                           |
-        | Hall-effect sensor            | Si7210A                             | no        | Silicon Labs Hall-effect sensor (Rev. A02 boards only)         |
+        | Hall-effect sensor            | Si7210                             | no        | Silicon Labs Hall-effect sensor (Rev. A02 boards only)         |
         | IMU sensor                    | ICM-20648                           | no        | InvenSense 6-axis inertial sensor                              |
         | Air sensor                    | CCS811                              | no        | Cambridge CMOS Sensors Air Quality/Gas sensor                  |
     {% endif %}
@@ -443,7 +473,11 @@ RIOT-OS has support for *Real-Time Tickers* and *Real-Time Clocks*.
 ### Hardware crypto
 {% strip 2 %}
     {% if cpu_series == 0 %}
-        This MCUs has support for hardware accelerated AES128 and AES256.
+        {% if family in ["efm32zg"] %}
+            This MCUs has support for hardware accelerated AES128.
+        {% else %}
+            This MCUs has support for hardware accelerated AES128 and AES256.
+        {% endif %}
     {% else %}
         This MCU is equipped with a hardware accelerated crypto peripheral that can speed up AES128, AES256, SHA1, SHA256 and several other cryptographic computations.
     {% endif %}

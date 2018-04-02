@@ -5,13 +5,15 @@ machine SetClockSource cpu
 
 # show the UART output
 {% strip 2 %}
-    {% if board in ["slwstk6000b"] %}
-        showAnalyzer usart0
+    {% if board in ["slstk3301a"] %}
+        showAnalyzer usart1
     {% elif board in ["slstk3401a", "slstk3402a"] %}
         showAnalyzer usart0
     {% elif board in ["slstk3701a"] %}
         showAnalyzer usart4
     {% elif board in ["sltb001a"] %}
+        showAnalyzer usart0
+    {% elif board in ["slwstk6000b"] %}
         showAnalyzer usart0
     {% elif board in ["slwstk6220a"] %}
         showAnalyzer usart2

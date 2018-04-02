@@ -101,7 +101,7 @@ static const adc_conf_t adc_config[] = {
 
 static const adc_chan_conf_t adc_channel_config[] = {
     {% strip 2 %}
-        {% if board in ["slwstk6000b", "slstk3401a", "slstk3402a", "slstk3701a", "sltb001a"] %}
+        {% if board in ["slstk3301a", "slstk3401a", "slstk3402a", "slstk3701a", "sltb001a", "slwstk6000b"] %}
             {
                 .dev = 0,
                 .input = adcPosSelTEMP,
@@ -177,7 +177,17 @@ static const adc_chan_conf_t adc_channel_config[] = {
  */
 static const i2c_conf_t i2c_config[] = {
     {% strip 2 %}
-        {% if board in ["slstk3401a", "slstk3402a"] %}
+        {% if board in ["slstk3301a"] %}
+            {
+                .dev = I2C0,
+                .sda_pin = GPIO_PIN(PD, 6),
+                .scl_pin = GPIO_PIN(PD, 7),
+                .loc = I2C_ROUTELOC0_SDALOC_LOC1 |
+                       I2C_ROUTELOC0_SCLLOC_LOC1,
+                .cmu = cmuClock_I2C0,
+                .irq = I2C0_IRQn
+            }
+        {% elif board in ["slstk3401a", "slstk3402a"] %}
             {
                 .dev = I2C0,
                 .sda_pin = GPIO_PIN(PC, 10),
@@ -277,7 +287,9 @@ static const i2c_conf_t i2c_config[] = {
 
 #define I2C_NUMOF           PERIPH_NUMOF(i2c_config)
 {% strip 2 %}
-    {% if board in ["slstk3401a", "slstk3402a"] %}
+    {% if board in ["slstk3301a"] %}
+        #define I2C_0_ISR           isr_i2c0
+    {% elif board in ["slstk3401a", "slstk3402a"] %}
         #define I2C_0_ISR           isr_i2c0
     {% elif board in ["slstk3701a"] %}
         #define I2C_0_ISR           isr_i2c0
@@ -383,7 +395,19 @@ static const i2c_conf_t i2c_config[] = {
  */
 static const spi_dev_t spi_config[] = {
     {% strip 2 %}
-        {% if board in ["slstk3401a", "slstk3402a"] %}
+        {% if board in ["slstk3301a"] %}
+            {
+                .dev = USART0,
+                .mosi_pin = GPIO_PIN(PC, 11),
+                .miso_pin = GPIO_PIN(PC, 10),
+                .clk_pin = GPIO_PIN(PA, 12),
+                .loc = USART_ROUTELOC0_RXLOC_LOC2 |
+                       USART_ROUTELOC0_TXLOC_LOC2 |
+                       USART_ROUTELOC0_CLKLOC_LOC5,
+                .cmu = cmuClock_USART0,
+                .irq = USART0_RX_IRQn
+            }
+        {% elif board in ["slstk3401a", "slstk3402a"] %}
             {
                 .dev = USART1,
                 .mosi_pin = GPIO_PIN(PC, 6),
@@ -484,7 +508,7 @@ static const spi_dev_t spi_config[] = {
  */
 static const timer_conf_t timer_config[] = {
     {% strip 2 %}
-        {% if board in ["slwstk6000b"] %}
+        {% if board in ["slstk3301a"] %}
             {
                 {
                     .dev = TIMER0,
@@ -521,6 +545,18 @@ static const timer_conf_t timer_config[] = {
                 .irq = TIMER1_IRQn
             }
         {% elif board in ["sltb001a"] %}
+            {
+                {
+                    .dev = TIMER0,
+                    .cmu = cmuClock_TIMER0
+                },
+                {
+                    .dev = TIMER1,
+                    .cmu = cmuClock_TIMER1
+                },
+                .irq = TIMER1_IRQn
+            }
+        {% elif board in ["slwstk6000b"] %}
             {
                 {
                     .dev = TIMER0,
@@ -574,13 +610,15 @@ static const timer_conf_t timer_config[] = {
 
 #define TIMER_NUMOF         PERIPH_NUMOF(timer_config)
 {% strip 2 %}
-    {% if board in ["slwstk6000b"] %}
+    {% if board in ["slstk3301a"] %}
         #define TIMER_0_ISR         isr_timer1
     {% elif board in ["slstk3401a", "slstk3402a"] %}
         #define TIMER_0_ISR         isr_timer1
     {% elif board in ["slstk3701a"] %}
         #define TIMER_0_ISR         isr_timer1
     {% elif board in ["sltb001a"] %}
+        #define TIMER_0_ISR         isr_timer1
+    {% elif board in ["slwstk6000b"] %}
         #define TIMER_0_ISR         isr_timer1
     {% elif board in ["slwstk6220a"] %}
         #define TIMER_0_ISR         isr_timer2
@@ -598,7 +636,17 @@ static const timer_conf_t timer_config[] = {
  */
 static const uart_conf_t uart_config[] = {
     {% strip 2 %}
-        {% if board in ["slstk3401a", "slstk3402a"] %}
+        {% if board in ["slstk3301a"] %}
+            {
+                .dev = USART1,
+                .rx_pin = GPIO_PIN(PD, 1),
+                .tx_pin = GPIO_PIN(PD, 0),
+                .loc = USART_ROUTELOC0_RXLOC_LOC1 |
+                       USART_ROUTELOC0_TXLOC_LOC1,
+                .cmu = cmuClock_USART1,
+                .irq = USART1_RX_IRQn
+            }
+        {% elif board in ["slstk3401a", "slstk3402a"] %}
             {
                 .dev = USART0,
                 .rx_pin = GPIO_PIN(PA, 1),
@@ -739,7 +787,9 @@ static const uart_conf_t uart_config[] = {
 
 #define UART_NUMOF          PERIPH_NUMOF(uart_config)
 {% strip 2 %}
-    {% if board in ["slstk3401a", "slstk3402a"] %}
+    {% if board in ["slstk3301a"] %}
+        #define UART_0_ISR_RX       isr_usart1_rx
+    {% elif board in ["slstk3401a", "slstk3402a"] %}
         #define UART_0_ISR_RX       isr_usart0_rx
         #define UART_1_ISR_RX       isr_usart1_rx
         #define UART_2_ISR_RX       isr_leuart0

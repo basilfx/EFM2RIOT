@@ -55,11 +55,12 @@ Most of the 32-bit families that are supported by emlib are supported by EFM2RIO
 ## Supported boards
 Currently, the following boards (development kits) are supported:
 
-* [BRD4162A](dist/doc/BRD4162A.md) &mdash; EFR32 Mighty Gecko 12P (untested)
+* [SLSTK3301A](dist/doc/SLSTK3301A.md) &mdash; EFM32 Tiny  Gecko 11B
 * [SLSTK3401A](dist/doc/SLSTK3401A.md) &mdash; EFM32 Pearl Gecko 1B
 * [SLSTK3402A](dist/doc/SLSTK3402A.md) &mdash; EFM32 Pearl Gecko 12B
 * [SLSTK3701A](dist/doc/SLSTK3701A.md) &mdash; EFM32 Giant Gecko 11B (untested)
 * [SLTB001A](dist/doc/SLTB001A.md) &mdash; EFR32 Mighty Gecko 1P
+* [SLWSTK6000B](dist/doc/SLWSTK6000B.md) &mdash; EFR32 Mighty Gecko (untested)
 * [SLWSTK6220A](dist/doc/SLWSTK6220A.md) &mdash; EZR32 Wonder Gecko (untested)
 * [STK3200](dist/doc/STK3200.md) &mdash; EFM32 Zero Gecko
 * [STK3600](dist/doc/STK3600.md) &mdash; EFM32 Leopard Gecko
