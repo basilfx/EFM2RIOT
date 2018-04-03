@@ -405,7 +405,7 @@ static const spi_dev_t spi_config[] = {
                        USART_ROUTELOC0_TXLOC_LOC2 |
                        USART_ROUTELOC0_CLKLOC_LOC5,
                 .cmu = cmuClock_USART0,
-                .irq = USART0_RX_IRQn
+                .irq = USART0_IRQn
             }
         {% elif board in ["slstk3401a", "slstk3402a"] %}
             {
@@ -644,7 +644,7 @@ static const uart_conf_t uart_config[] = {
                 .loc = USART_ROUTELOC0_RXLOC_LOC1 |
                        USART_ROUTELOC0_TXLOC_LOC1,
                 .cmu = cmuClock_USART1,
-                .irq = USART1_RX_IRQn
+                .irq = USART1_IRQn
             }
         {% elif board in ["slstk3401a", "slstk3402a"] %}
             {
@@ -788,7 +788,7 @@ static const uart_conf_t uart_config[] = {
 #define UART_NUMOF          PERIPH_NUMOF(uart_config)
 {% strip 2 %}
     {% if board in ["slstk3301a"] %}
-        #define UART_0_ISR_RX       isr_usart1_rx
+        #define UART_0_ISR_RX       isr_usart1
     {% elif board in ["slstk3401a", "slstk3402a"] %}
         #define UART_0_ISR_RX       isr_usart0_rx
         #define UART_1_ISR_RX       isr_usart1_rx
