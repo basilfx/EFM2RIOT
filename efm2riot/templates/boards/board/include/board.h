@@ -7,9 +7,7 @@
  */
 
 /**
- * @defgroup    boards_{{ board }} Silicon Labs {{ board|upper }} starter kit
- * @ingroup     boards
- * @brief       Support for the Silicon Labs {{ board|upper }} starter kit
+ * @ingroup     boards_{{ board }}
  * @{
  *
  * @file
