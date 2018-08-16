@@ -1,4 +1,7 @@
-# Silicon Labs STK3700 starter kit
+/**
+@defgroup    boards_stk3700 Silicon Labs STK3700 starter kit
+@ingroup     boards
+@brief       Support for Silicon Labs STK3700 starter kit
 
 ## Overview
 Silicon Labs EFM32 Giant Gecko Starter Kit is equipped with the EFM32 microcontroller. It is specifically designed for low-power applications, having energy-saving peripherals, different energy modes and short wake-up times.
@@ -6,7 +9,6 @@ Silicon Labs EFM32 Giant Gecko Starter Kit is equipped with the EFM32 microcontr
 The starter kit is equipped with an Advanced Energy Monitor. This allows you to actively measure the power consumption of your hardware and code, in real-time.
 
 ## Hardware
-![STK3700 Starter Kit](images/stk3700.png)
 
 ### MCU
 | MCU             | EFM32GG990F1024                                      |
@@ -207,4 +209,4 @@ For using the Silicon Labs STK3700 starter kit we strongly recommend the usage o
 
 ## License information
 * Silicon Labs' emlib: zlib-style license (permits distribution of source).
-* Images: taken from starter kit user manual.
+ */

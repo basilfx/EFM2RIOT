@@ -1,4 +1,4 @@
-# Silicon Labs SLTB001A
+# Silicon Labs SLTB001A starter kit
 
 ## Overview
 Silicon Labs Thunderboard Sense is equipped with the EFM32 microcontroller. It is specifically designed for low-power applications, having energy-saving peripherals, different energy modes and short wake-up times.
@@ -66,12 +66,12 @@ This is the pinout of the expansion pins on the front side of the board. PIN 1 i
 |            | 2       | LEUART0         | RX: PD11, TX: PD10              | Baud rate limited (see below)                             |
 
 ### User interface
-| Peripheral | Mapped to | Hardware | Pin  | Comments   |
-|------------|-----------|----------|------|------------|
-| Button     | PB0      | PD14 |            |
-|            | PB1      | PD15 |            |
-| LED        | LED0     | PD11 | Red LED    |
-|            | LED1     | PD12 | Green LED  |
+| Peripheral | Mapped to | Pin  | Comments   |
+|------------|-----------|------|------------|
+| Button      | PB0      | PD14 |            |
+|             | PB1      | PD15 |            |
+| LED         | LED0     | PD11 | Red LED    |
+|             | LED1     | PD12 | Green LED  |
 
 ## Implementation Status
 | Device                        | ID                                  | Supported | Comments                                                       |

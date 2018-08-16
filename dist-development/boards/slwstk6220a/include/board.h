@@ -7,9 +7,7 @@
  */
 
 /**
- * @defgroup    boards_slwstk6220a Silicon Labs SLWSTK6220A starter kit
- * @ingroup     boards
- * @brief       Support for the Silicon Labs SLWSTK6220A starter kit
+ * @ingroup     boards_slwstk6220a
  * @{
  *
  * @file

@@ -7,9 +7,7 @@
  */
 
 /**
- * @defgroup    boards_slwstk6000b Silicon Labs SLWSTK6000B starter kit
- * @ingroup     boards
- * @brief       Support for the Silicon Labs SLWSTK6000B starter kit
+ * @ingroup     boards_slwstk6000b
  * @{
  *
  * @file

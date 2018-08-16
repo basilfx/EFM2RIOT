@@ -1,4 +1,4 @@
-# Silicon Labs SLSTK3701A
+# Silicon Labs SLSTK3701A starter kit
 
 ## Overview
 Silicon Labs EFM32 Giant Gecko GG11 Starter Kit is equipped with the EFM32 microcontroller. It is specifically designed for low-power applications, having energy-saving peripherals, different energy modes and short wake-up times.
@@ -47,12 +47,12 @@ This is the pinout of the expansion header on the right side of the board. PIN 1
 |------------|---------|-----------------|---------------------------------|-----------------------------------------------------------|
 
 ### User interface
-| Peripheral | Mapped to | Hardware | Pin  | Comments   |
-|------------|-----------|----------|------|------------|
-| Button     | PB0      | PF6  |            |
-|            | PB1      | PF7  |            |
-| LED        | LED0     | PF4  | Yellow LED |
-|            | LED1     | PF5  | Yellow LED |
+| Peripheral | Mapped to | Pin  | Comments   |
+|------------|-----------|------|------------|
+| Button      | PB0      | PF6  |            |
+|             | PB1      | PF7  |            |
+| LED         | LED0     | PF4  | Yellow LED |
+|             | LED1     | PF5  | Yellow LED |
 
 ## Implementation Status
 | Device                        | ID                                  | Supported | Comments                                                       |

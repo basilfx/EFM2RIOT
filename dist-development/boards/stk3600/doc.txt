@@ -1,21 +1,23 @@
-# Silicon Labs STK3700 starter kit
+/**
+@defgroup    boards_stk3600 Silicon Labs STK3600 starter kit
+@ingroup     boards
+@brief       Support for Silicon Labs STK3600 starter kit
 
 ## Overview
-Silicon Labs EFM32 Giant Gecko Starter Kit is equipped with the EFM32 microcontroller. It is specifically designed for low-power applications, having energy-saving peripherals, different energy modes and short wake-up times.
+Silicon Labs EFM32 Leopard Gecko Starter Kit is equipped with the EFM32 microcontroller. It is specifically designed for low-power applications, having energy-saving peripherals, different energy modes and short wake-up times.
 
 The starter kit is equipped with an Advanced Energy Monitor. This allows you to actively measure the power consumption of your hardware and code, in real-time.
 
 ## Hardware
-![STK3700 Starter Kit](images/stk3700.png)
 
 ### MCU
-| MCU             | EFM32GG990F1024                                      |
+| MCU             | EFM32LG990F256                                       |
 |-----------------|------------------------------------------------------|
 | Family          | ARM Cortex-M3                                        |
 | Vendor          | Silicon Labs                                         |
-| Vendor Family   | EFM32 Giant Gecko                                    |
-| RAM             | 128.0KB                                              |
-| Flash           | 1024.0KB                                             |
+| Vendor Family   | EFM32 Leoppard Gecko                                 |
+| RAM             | 32.0KB                                               |
+| Flash           | 256.0KB                                              |
 | EEPROM          | no                                                   |
 | Frequency       | up to 48 MHz                                         |
 | FPU             | no                                                   |
@@ -27,10 +29,10 @@ The starter kit is equipped with an Advanced Energy Monitor. This allows you to 
 | SPIs            | 3x USART                                             |
 | I2Cs            | 2x                                                   |
 | Vcc             | 1.98V - 3.8V                                         |
-| Datasheet       | [Datasheet](https://www.silabs.com/Support%20Documents/TechnicalDocs/EFM32GG990.pdf)                                     |
-| Manual          | [Manual](https://www.silabs.com/Support%20Documents/TechnicalDocs/EFM32GG-RM.pdf)                                        |
-| Board Manual    | [Board Manual](https://www.silabs.com/Support%20Documents/TechnicalDocs/efm32gg-stk3700-ug.pdf)                          |
-| Board Schematic | [Board Schematic](https://www.silabs.com/Support%20Documents/TechnicalDocs/BRD2200A_A03.pdf)                             |
+| Datasheet       | [Datasheet](https://www.silabs.com/Support%20Documents/TechnicalDocs/EFM32LG990.pdf)                                     |
+| Manual          | [Manual](https://www.silabs.com/Support%20Documents/TechnicalDocs/EFM32LG-RM.pdf)                                        |
+| Board Manual    | [Board Manual](https://www.silabs.com/Support%20Documents/TechnicalDocs/efm32lg-stk3600-ug.pdf)                          |
+| Board Schematic | [Board Schematic](https://www.silabs.com/Support%20Documents/TechnicalDocs/BRD2201A_A02.pdf)                             |
 
 ### Pinout
 This is the pinout of the expansion header on the right side of the board. PIN 1 is the bottom-left contact when the header faces  you horizontally.
@@ -81,7 +83,7 @@ This is the pinout of the expansion header on the right side of the board. PIN 1
 ## Implementation Status
 | Device                        | ID                                  | Supported | Comments                                                       |
 |-------------------------------|-------------------------------------|-----------|----------------------------------------------------------------|
-| MCU                           | EFM32GG                             | yes       | Power modes supported                                          |
+| MCU                           | EFM32LG                             | yes       | Power modes supported                                          |
 | Low-level driver              | ADC                                 | yes       |                                                                |
 |                               | DAC                                 | yes       |                                                                |
 |                               | Flash                               | yes       |                                                                |
@@ -203,8 +205,8 @@ make emulate
 ```
 
 ## Supported Toolchains
-For using the Silicon Labs STK3700 starter kit we strongly recommend the usage of the [GNU Tools for ARM Embedded Processors](https://developer.arm.com/open-source/gnu-toolchain/gnu-rm) toolchain.
+For using the Silicon Labs STK3600 starter kit we strongly recommend the usage of the [GNU Tools for ARM Embedded Processors](https://developer.arm.com/open-source/gnu-toolchain/gnu-rm) toolchain.
 
 ## License information
 * Silicon Labs' emlib: zlib-style license (permits distribution of source).
-* Images: taken from starter kit user manual.
+ */

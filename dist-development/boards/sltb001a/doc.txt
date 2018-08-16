@@ -1,131 +1,120 @@
-# Silicon Labs STK3700 starter kit
+/**
+@defgroup    boards_sltb001a Silicon Labs SLTB001A starter kit
+@ingroup     boards
+@brief       Support for Silicon Labs SLTB001A starter kit
 
 ## Overview
-Silicon Labs EFM32 Giant Gecko Starter Kit is equipped with the EFM32 microcontroller. It is specifically designed for low-power applications, having energy-saving peripherals, different energy modes and short wake-up times.
+Silicon Labs Thunderboard Sense is equipped with the EFM32 microcontroller. It is specifically designed for low-power applications, having energy-saving peripherals, different energy modes and short wake-up times.
 
 The starter kit is equipped with an Advanced Energy Monitor. This allows you to actively measure the power consumption of your hardware and code, in real-time.
 
 ## Hardware
-![STK3700 Starter Kit](images/stk3700.png)
 
 ### MCU
-| MCU             | EFM32GG990F1024                                      |
+| MCU             | EFR32MG1P132F256GM48                                 |
 |-----------------|------------------------------------------------------|
-| Family          | ARM Cortex-M3                                        |
+| Family          | ARM Cortex-M4F                                       |
 | Vendor          | Silicon Labs                                         |
-| Vendor Family   | EFM32 Giant Gecko                                    |
-| RAM             | 128.0KB                                              |
-| Flash           | 1024.0KB                                             |
+| Vendor Family   | EFR32 Mighty Gecko 1P                                |
+| RAM             | 31.0KB                                               |
+| Flash           | 256.0KB                                              |
 | EEPROM          | no                                                   |
-| Frequency       | up to 48 MHz                                         |
-| FPU             | no                                                   |
+| Frequency       | up to 38.4 MHz                                       |
+| FPU             | yes                                                  |
 | MPU             | yes                                                  |
 | DMA             | 12 channels                                          |
-| Timers          | 3x 16-bit + 1x 16-bit (low power)                    |
-| ADCs, DACs      | 12-bit ADC, 12-bit DAC                               |
-| UARTs           | 2x UART, 3x USART, 2x LEUART                         |
-| SPIs            | 3x USART                                             |
-| I2Cs            | 2x                                                   |
-| Vcc             | 1.98V - 3.8V                                         |
-| Datasheet       | [Datasheet](https://www.silabs.com/Support%20Documents/TechnicalDocs/EFM32GG990.pdf)                                     |
-| Manual          | [Manual](https://www.silabs.com/Support%20Documents/TechnicalDocs/EFM32GG-RM.pdf)                                        |
-| Board Manual    | [Board Manual](https://www.silabs.com/Support%20Documents/TechnicalDocs/efm32gg-stk3700-ug.pdf)                          |
-| Board Schematic | [Board Schematic](https://www.silabs.com/Support%20Documents/TechnicalDocs/BRD2200A_A03.pdf)                             |
+| Timers          | 2x 16-bit + 1x 16-bit (low power)                    |
+| ADCs            | 12-bit ADC                                           |
+| UARTs           | 3x UART, 2x USART, 1x LEUART                         |
+| SPIs            | 2x USART                                             |
+| I2Cs            | 1x                                                   |
+| Vcc             | 1.85V - 3.8V                                         |
+| Datasheet       | [Datasheet](https://www.silabs.com/Support%20Documents/TechnicalDocs/EFR32MG1-DataSheet.pdf)                             |
+| Manual          | [Manual](http://www.silabs.com/Support%20Documents/TechnicalDocs/EFR32-ReferenceManual.pdf)                              |
+| Board Manual    | [Board Manual](http://www.silabs.com/Support%20Documents/TechnicalDocs/UG250.pdf)                                        |
+| Board Schematic | [Board Schematic](http://www.silabs.com/Support%20Documents/TechnicalDocs/UG250.pdf)                                     |
 
 ### Pinout
-This is the pinout of the expansion header on the right side of the board. PIN 1 is the bottom-left contact when the header faces  you horizontally.
+This is the pinout of the expansion pins on the front side of the board. PIN 1 is the top-left contact, marked on the silkscreen.
 
 |      | PIN | PIN |      |
 |------|-----|-----|------|
-| 3V3  | 20  | 19  | RES  |
-| 5V   | 18  | 17  | PD7  |
-| PD6  | 16  | 15  | PC6  |
-| PD5  | 14  | 13  | PB12 |
-| PD4  | 12  | 11  | PB11 |
-| PD3  | 10  | 9   | PC5  |
-| PD2  | 8   | 7   | PC4  |
-| PD1  | 6   | 5   | PC3  |
-| PD0  | 4   | 3   | PC0  |
-| VMCU | 2   | 1   | GND  |
+| GND  | 1   | 2   | VMCU |
+| PA2  | 3   | 4   | PC6  |
+| PA3  | 5   | 6   | PC7  |
+| PF3  | 7   | 8   | PC8  |
+| PF4  | 9   | 10  | PC9  |
+| PF5  | 11  | 12  | PC0  |
+| PF6  | 13  | 14  | PC1  |
+| PC11 | 15  | 16  | PC10 |
+| RES  | 17  | 18  | 5V   |
+| RES  | 19  | 20  | 3V3  |
 
 **Note**: not all starter kits by Silicon Labs share the same pinout!
 
-**Note:** some pins are connected to the board controller, when enabled!
 
 ### Peripheral mapping
 | Peripheral | Number  | Hardware        | Pins                            | Comments                                                  |
 |------------|---------|-----------------|---------------------------------|-----------------------------------------------------------|
 | ADC        | 0       | ADC0            | CHAN0: internal temperature     | Ports are fixed, 14/16-bit resolution not supported       |
-| DAC        | 0       | DAC0            | CHAN0: PB11                     | Ports are fixed, shared with I2C                          |
-| HWCRYPTO   | &mdash; | &mdash;         |                                 | AES128/AES256 only                                        |
-| I2C        | 0       | I2C0            | SDA: PD6, SCL: PD7              | `I2C_SPEED_LOW` and `I2C_SPEED_HIGH` clock speed deviate  |
-|            | 1       | I2C1            | SDA: PC4, SCL: PC5              | `I2C_SPEED_LOW` and `I2C_SPEED_HIGH` clock speed deviate  |
-| PWM        | 0       | TIMER3          | CHAN0: PE2                      | Mapped to LED0                                            |
-| RTT        | &mdash; | RTC             |                                 | Either RTT or RTC (see below)                             |
-| RTC        | &mdash; | RTC             |                                 | Either RTC or RTT (see below)                             |
-| SPI        | 0       | USART1          | MOSI: PD0, MISO: PD1, CLK: PD2  |                                                           |
-|            | 1       | USART2          | MOSI: NC, MISO: PC3, CLK: PC4   |                                                           |
+| I2C        | 0       | I2C0            | SDA: PC10, CLK: PC11            | `I2C_SPEED_LOW` and `I2C_SPEED_HIGH` clock speed deviate  |
+| HWCRYPTO   | &mdash; | &mdash;         |                                 | AES128/AES256, SHA1, SHA256                               |
+| RTT        | &mdash; | RTCC            |                                 | 1 Hz interval. Either RTT or RTC (see below)              |
+| RTC        | &mdash; | RTCC            |                                 | 1 Hz interval. Either RTC or RTT (see below)              |
+| SPI        | 0       | USART1          | MOSI: PC6, MISO: PC7, CLK: PC8  |                                                           |
 | Timer      | 0       | TIMER0 + TIMER1 |                                 | TIMER0 is used as prescaler (must be adjecent)            |
-| UART       | 0       | UART0           | RX: PE1, TX: PE0                | STDIO output                                              |
-|            | 1       | USART1          | RX: PD1, TX: PD0                |                                                           |
-|            | 2       | LEUART0         | RX: PD5, TX: PD4                | Baud rate limited (see below)                             |
+| UART       | 0       | USART0          | RX: PA1, TX: PA0                | Default STDIO output                                      |
+|            | 1       | USART1          | RX: PC6, TX: PC7                |                                                           |
+|            | 2       | LEUART0         | RX: PD11, TX: PD10              | Baud rate limited (see below)                             |
 
 ### User interface
 | Peripheral | Mapped to | Pin  | Comments   |
 |------------|-----------|------|------------|
-| Button      | PB0      | PB9  |            |
-|             | PB1      | PB10 |            |
-| LED         | LED0     | PE2  | Yellow LED |
-|             | LED1     | PE3  | Yellow LED |
+| Button      | PB0      | PD14 |            |
+|             | PB1      | PD15 |            |
+| LED         | LED0     | PD11 | Red LED    |
+|             | LED1     | PD12 | Green LED  |
 
 ## Implementation Status
 | Device                        | ID                                  | Supported | Comments                                                       |
 |-------------------------------|-------------------------------------|-----------|----------------------------------------------------------------|
-| MCU                           | EFM32GG                             | yes       | Power modes supported                                          |
+| MCU                           | EFR32MG1P                           | yes       | Power modes supported                                          |
 | Low-level driver              | ADC                                 | yes       |                                                                |
-|                               | DAC                                 | yes       |                                                                |
 |                               | Flash                               | yes       |                                                                |
 |                               | GPIO                                | yes       | Interrupts are shared across pins (see reference manual)       |
 |                               | HW Crypto                           | yes       |                                                                |
 |                               | I2C                                 | yes       |                                                                |
 |                               | PWM                                 | yes       |                                                                |
-|                               | RTC                                 | yes       | As RTT or RTC                                                  |
+|                               | RTCC                                | yes       | As RTT or RTC                                                  |
 |                               | SPI                                 | partially | Only master mode                                               |
 |                               | Timer                               | yes       |                                                                |
 |                               | UART                                | yes       | USART is shared with SPI. LEUART baud rate limited (see below) |
 |                               | USB                                 | no        |                                                                |
+| Temperature + humidity sensor | Si7021                              | yes       | Silicon Labs Temperature + Humidity sensor                     |
+| Microphone                    |                                     | no        |                                                                |
+| Pressure + temperature sensor | BMP280                              | yes       | Bosch pressure and temperature sensor                          |
+| Light sensor                  | Si1133                              | no        | Silicon Labs UV/Ambient Light sensor                           |
+| Hall-effect sensor            | Si7210                             | no        | Silicon Labs Hall-effect sensor (Rev. A02 boards only)         |
+| IMU sensor                    | ICM-20648                           | no        | InvenSense 6-axis inertial sensor                              |
+| Air sensor                    | CCS811                              | no        | Cambridge CMOS Sensors Air Quality/Gas sensor                  |
 
+Most sensors on this board are controlled via a power and interrupt controller (PIC). By default, this module is enabled. You can disable this module by adding `DISABLE_MODULE=silabs_pic` to the `make` command.
 
 
 ## Board configuration
 
 ### Board controller
-The starter kit is equipped with a Board Controller. This controller provides a virtual serial port. The board controller is enabled via a GPIO pin.
-
-By default, this pin is enabled. You can disable the board controller module by passing `DISABLE_MODULE=silabs_bc` to the `make` command.
-
-**Note:** to use the virtual serial port, ensure you have the latest board controller firmware installed.
+The starter kit is equipped with a Board Controller. This controller provides a virtual serial port.
 
 **Note:** the board controller *always* configures the virtual serial port at 115200 baud with 8 bits, no parity and one stop bit. This also means that it expects data from the MCU with the same settings.
-
-### Advanced Energy Monitor
-This development kit has an Advanced Energy Monitor. It can be connected to the Simplicity Studio development software.
-
-This development kit can measure energy consumption and correlate this with the code. It allows you to measure energy consumption on code-level.
-
-The board controller is responsible for measuring energy consumption. For real-time code correlation, the CoreDebug peripheral will be configured to output MCU register data and interrupt data via the SWO port.
-
-By default, this feature is enabled. It can be disabled by passing `DISABLE_MODULE=silabs_aem` to the `make` command.
-
-Note that Simplicity Studio requires debug symbols to correlate code. RIOT-OS defaults to GDB debug symbols, but Simplicity Studio requires DWARF-2 debug symbols (`-gdwarf-2` for GCC).
 
 ### Clock selection
 There are several clock sources that are available for the different peripherals. You are advised to read [AN0004](https://www.silabs.com/Support%20Documents/TechnicalDocs/AN0004.pdf) to get familiar with the different clocks.
 
 | Source  | Internal | Speed                            | Comments                           |
 |---------|----------|----------------------------------|------------------------------------|
-| HFRCO   | Yes      | 14 MHz                           | Enabled during startup, changeable |
-| HFXO    | No       | 48 MHz                           |                                    |
+| HFRCO   | Yes      | 19 MHz                           | Enabled during startup, changeable |
+| HFXO    | No       | 38.4 MHz                         |                                    |
 | LFRCO   | Yes      | 32.768 kHz                       |                                    |
 | LFXO    | No       | 32.768 kHz                       |                                    |
 | ULFRCO  | No       | 1.000 kHz                        | Not very reliable as a time source |
@@ -137,6 +126,7 @@ The sources can be used to clock following branches:
 | HF     | HFRCO, HFXO             | Core, peripherals            |
 | LFA    | LFRCO, LFXO             | Low-power timers             |
 | LFB    | LFRCO, LFXO, CORELEDIV2 | Low-power UART               |
+| LFE    | LFRCO, LFXO             | Real-time Clock and Calendar |
 
 CORELEDIV2 is a source that depends on the clock source that powers the core. It is divided by 2 or 4 to not exceed maximum clock frequencies (emlib takes care of this).
 
@@ -156,12 +146,12 @@ If you don't need low-power peripheral support, passing `LOW_POWER_ENABLED=0` to
 ### RTC or RTT
 RIOT-OS has support for *Real-Time Tickers* and *Real-Time Clocks*.
 
-However, this board MCU family has support for a 24-bit *Real-Time Counter* only, which is a ticker only. A compatibility layer for ticker-to-calendar is available, but this includes extra code size to convert from timestamps to time structures and visa versa.
+However, this board MCU family has support for a 32-bit *Real-Time Clock and Calendar*, which can be configured in ticker mode **or** calendar mode. Therefore, only one of both peripherals can be enabled at the same time.
 
-Configured at 1 Hz interval, the RTC will overflow each 194 days. When using the ticker-to-calendar mode, this interval is extended artificially.
+Configured at 1 Hz interval, the RTCC will overflow each 136 years.
 
 ### Hardware crypto
-    This MCUs has support for hardware accelerated AES128 and AES256.
+This MCU is equipped with a hardware accelerated crypto peripheral that can speed up AES128, AES256, SHA1, SHA256 and several other cryptographic computations.
 
 A peripheral driver interface for RIOT-OS is proposed, but not yet implemented.
 
@@ -174,6 +164,8 @@ Another advantage of emlib are the included assertions. These assertions ensure 
 The EFM32 platform supports peripherals to be mapped to different pins (predefined locations). The definitions in `periph_conf.h` mostly consist of a location number and the actual pins. The actual pins are required to configure the pins via GPIO driver, while the location is used to map the peripheral to these pins.
 
 In other words, these definitions must match. Refer to the data sheet for more information.
+
+This MCU has extended pin mapping support. Each pin of a peripheral can be connected separately to one of the predefined pins for that peripheral.
 
 ## Flashing the device
 To flash, [SEGGER JLink](https://www.segger.com/jlink-software.html) is required.
@@ -203,8 +195,8 @@ make emulate
 ```
 
 ## Supported Toolchains
-For using the Silicon Labs STK3700 starter kit we strongly recommend the usage of the [GNU Tools for ARM Embedded Processors](https://developer.arm.com/open-source/gnu-toolchain/gnu-rm) toolchain.
+For using the Silicon Labs SLTB001A starter kit we strongly recommend the usage of the [GNU Tools for ARM Embedded Processors](https://developer.arm.com/open-source/gnu-toolchain/gnu-rm) toolchain.
 
 ## License information
 * Silicon Labs' emlib: zlib-style license (permits distribution of source).
-* Images: taken from starter kit user manual.
+ */
