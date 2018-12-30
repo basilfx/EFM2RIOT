@@ -1,35 +1,34 @@
-/**************************************************************************//**
- * @file efm32g890f64.h
+/***************************************************************************//**
+ * @file
  * @brief CMSIS Cortex-M3 Peripheral Access Layer Header File
  *        for EFM EFM32G890F64
- * @version 5.4.0
- ******************************************************************************
+ * @version 5.7.0
+ *******************************************************************************
  * # License
- * <b>Copyright 2017 Silicon Laboratories, Inc. www.silabs.com</b>
- ******************************************************************************
+ * <b>Copyright 2018 Silicon Laboratories Inc. www.silabs.com</b>
+ *******************************************************************************
+ *
+ * SPDX-License-Identifier: Zlib
+ *
+ * The licensor of this software is Silicon Laboratories Inc.
+ *
+ * This software is provided 'as-is', without any express or implied
+ * warranty. In no event will the authors be held liable for any damages
+ * arising from the use of this software.
  *
  * Permission is granted to anyone to use this software for any purpose,
  * including commercial applications, and to alter it and redistribute it
  * freely, subject to the following restrictions:
  *
  * 1. The origin of this software must not be misrepresented; you must not
- *    claim that you wrote the original software.@n
+ *    claim that you wrote the original software. If you use this software
+ *    in a product, an acknowledgment in the product documentation would be
+ *    appreciated but is not required.
  * 2. Altered source versions must be plainly marked as such, and must not be
- *    misrepresented as being the original software.@n
+ *    misrepresented as being the original software.
  * 3. This notice may not be removed or altered from any source distribution.
  *
- * DISCLAIMER OF WARRANTY/LIMITATION OF REMEDIES: Silicon Laboratories, Inc.
- * has no obligation to support this Software. Silicon Laboratories, Inc. is
- * providing the Software "AS IS", with no express or implied warranties of any
- * kind, including, but not limited to, any implied warranties of
- * merchantability or fitness for any particular purpose or warranties against
- * infringement of any proprietary rights of a third party.
- *
- * Silicon Laboratories, Inc. will not be liable for any consequential,
- * incidental, or special damages, or any other relief, or for any claim by
- * any third party, arising from your use of this Software.
- *
- *****************************************************************************/
+ ******************************************************************************/
 
 #if defined(__ICCARM__)
 #pragma system_include       /* Treat file as system include file. */
@@ -44,15 +43,15 @@
 extern "C" {
 #endif
 
-/**************************************************************************//**
+/***************************************************************************//**
  * @addtogroup Parts
  * @{
- *****************************************************************************/
+ ******************************************************************************/
 
-/**************************************************************************//**
+/***************************************************************************//**
  * @defgroup EFM32G890F64 EFM32G890F64
  * @{
- *****************************************************************************/
+ ******************************************************************************/
 
 /** Interrupt Number Definition */
 typedef enum IRQn{
@@ -100,22 +99,22 @@ typedef enum IRQn{
   AES_IRQn              = 29, /*!< 29 EFM32 AES Interrupt */
 } IRQn_Type;
 
-/**************************************************************************//**
+/***************************************************************************//**
  * @defgroup EFM32G890F64_Core EFM32G890F64 Core
  * @{
  * @brief Processor and Core Peripheral Section
- *****************************************************************************/
-#define __MPU_PRESENT             1 /**< Presence of MPU  */
-#define __VTOR_PRESENT            1 /**< Presence of VTOR register in SCB */
-#define __NVIC_PRIO_BITS          3 /**< NVIC interrupt priority bits */
-#define __Vendor_SysTickConfig    0 /**< Is 1 if different SysTick counter is used */
+ ******************************************************************************/
+#define __MPU_PRESENT             1U /**< Presence of MPU  */
+#define __VTOR_PRESENT            1U /**< Presence of VTOR register in SCB */
+#define __NVIC_PRIO_BITS          3U /**< NVIC interrupt priority bits */
+#define __Vendor_SysTickConfig    0U /**< Is 1 if different SysTick counter is used */
 
 /** @} End of group EFM32G890F64_Core */
 
-/**************************************************************************//**
+/***************************************************************************//**
 * @defgroup EFM32G890F64_Part EFM32G890F64 Part
 * @{
-******************************************************************************/
+*******************************************************************************/
 
 /** Part family */
 #define _EFM32_GECKO_FAMILY                     1  /**< Gecko EFM32G MCU Family */
@@ -171,7 +170,7 @@ typedef enum IRQn{
 #define FLASH_PAGE_SIZE      512U           /**< Flash Memory page size */
 #define SRAM_BASE            (0x20000000UL) /**< SRAM Base Address */
 #define SRAM_SIZE            (0x00004000UL) /**< Available SRAM Memory */
-#define __CM3_REV            0x200          /**< Cortex-M3 Core revision r2p0 */
+#define __CM3_REV            0x0200U        /**< Cortex-M3 Core revision r2p0 */
 #define PRS_CHAN_COUNT       8              /**< Number of PRS channels */
 #define DMA_CHAN_COUNT       8              /**< Number of DMA channels */
 #define EXT_IRQ_COUNT        31             /**< Number of External (NVIC) interrupts */
@@ -248,11 +247,11 @@ typedef enum IRQn{
 
 /** @} End of group EFM32G890F64_Part */
 
-/**************************************************************************//**
+/***************************************************************************//**
  * @defgroup EFM32G890F64_Peripheral_TypeDefs EFM32G890F64 Peripheral TypeDefs
  * @{
  * @brief Device Specific Peripheral Register Structures
- *****************************************************************************/
+ ******************************************************************************/
 
 #include "efm32g_aes.h"
 #include "efm32g_dma_ch.h"
@@ -287,10 +286,10 @@ typedef enum IRQn{
 
 /** @} End of group EFM32G890F64_Peripheral_TypeDefs */
 
-/**************************************************************************//**
+/***************************************************************************//**
  * @defgroup EFM32G890F64_Peripheral_Base EFM32G890F64 Peripheral Memory Map
  * @{
- *****************************************************************************/
+ ******************************************************************************/
 
 #define AES_BASE          (0x400E0000UL) /**< AES base address  */
 #define DMA_BASE          (0x400C2000UL) /**< DMA base address  */
@@ -331,10 +330,10 @@ typedef enum IRQn{
 
 /** @} End of group EFM32G890F64_Peripheral_Base */
 
-/**************************************************************************//**
+/***************************************************************************//**
  * @defgroup EFM32G890F64_Peripheral_Declaration  EFM32G890F64 Peripheral Declarations
  * @{
- *****************************************************************************/
+ ******************************************************************************/
 
 #define AES          ((AES_TypeDef *) AES_BASE)             /**< AES base pointer */
 #define DMA          ((DMA_TypeDef *) DMA_BASE)             /**< DMA base pointer */
@@ -373,20 +372,20 @@ typedef enum IRQn{
 
 /** @} End of group EFM32G890F64_Peripheral_Declaration */
 
-/**************************************************************************//**
+/***************************************************************************//**
  * @defgroup EFM32G890F64_BitFields EFM32G890F64 Bit Fields
  * @{
- *****************************************************************************/
+ ******************************************************************************/
 
 #include "efm32g_prs_signals.h"
 #include "efm32g_dmareq.h"
 #include "efm32g_dmactrl.h"
 #include "efm32g_uart.h"
 
-/**************************************************************************//**
+/***************************************************************************//**
  * @defgroup EFM32G890F64_UNLOCK EFM32G890F64 Unlock Codes
  * @{
- *****************************************************************************/
+ ******************************************************************************/
 #define MSC_UNLOCK_CODE      0x1B71 /**< MSC unlock code */
 #define EMU_UNLOCK_CODE      0xADE8 /**< EMU unlock code */
 #define CMU_UNLOCK_CODE      0x580E /**< CMU unlock code */
@@ -397,17 +396,17 @@ typedef enum IRQn{
 
 /** @} End of group EFM32G890F64_BitFields */
 
-/**************************************************************************//**
+/***************************************************************************//**
  * @defgroup EFM32G890F64_Alternate_Function EFM32G890F64 Alternate Function
  * @{
- *****************************************************************************/
+ ******************************************************************************/
 
 #include "efm32g_af_ports.h"
 #include "efm32g_af_pins.h"
 
 /** @} End of group EFM32G890F64_Alternate_Function */
 
-/**************************************************************************//**
+/***************************************************************************//**
  *  @brief Set the value of a bit field within a register.
  *
  *  @param REG
@@ -419,7 +418,7 @@ typedef enum IRQn{
  *  @param OFFSET
  *       The number of bits that the field is offset within the register.
  *       0 (zero) means LSB.
- *****************************************************************************/
+ ******************************************************************************/
 #define SET_BIT_FIELD(REG, MASK, VALUE, OFFSET) \
   REG = ((REG) &~(MASK)) | (((VALUE) << (OFFSET)) & (MASK));
 

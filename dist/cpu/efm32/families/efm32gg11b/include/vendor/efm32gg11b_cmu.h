@@ -1,34 +1,33 @@
-/**************************************************************************//**
- * @file efm32gg11b_cmu.h
+/***************************************************************************//**
+ * @file
  * @brief EFM32GG11B_CMU register and bit field definitions
- * @version 5.4.0
- ******************************************************************************
+ * @version 5.7.0
+ *******************************************************************************
  * # License
- * <b>Copyright 2017 Silicon Laboratories, Inc. www.silabs.com</b>
- ******************************************************************************
+ * <b>Copyright 2018 Silicon Laboratories Inc. www.silabs.com</b>
+ *******************************************************************************
+ *
+ * SPDX-License-Identifier: Zlib
+ *
+ * The licensor of this software is Silicon Laboratories Inc.
+ *
+ * This software is provided 'as-is', without any express or implied
+ * warranty. In no event will the authors be held liable for any damages
+ * arising from the use of this software.
  *
  * Permission is granted to anyone to use this software for any purpose,
  * including commercial applications, and to alter it and redistribute it
  * freely, subject to the following restrictions:
  *
  * 1. The origin of this software must not be misrepresented; you must not
- *    claim that you wrote the original software.@n
+ *    claim that you wrote the original software. If you use this software
+ *    in a product, an acknowledgment in the product documentation would be
+ *    appreciated but is not required.
  * 2. Altered source versions must be plainly marked as such, and must not be
- *    misrepresented as being the original software.@n
+ *    misrepresented as being the original software.
  * 3. This notice may not be removed or altered from any source distribution.
  *
- * DISCLAIMER OF WARRANTY/LIMITATION OF REMEDIES: Silicon Laboratories, Inc.
- * has no obligation to support this Software. Silicon Laboratories, Inc. is
- * providing the Software "AS IS", with no express or implied warranties of any
- * kind, including, but not limited to, any implied warranties of
- * merchantability or fitness for any particular purpose or warranties against
- * infringement of any proprietary rights of a third party.
- *
- * Silicon Laboratories, Inc. will not be liable for any consequential,
- * incidental, or special damages, or any other relief, or for any claim by
- * any third party, arising from your use of this Software.
- *
- *****************************************************************************/
+ ******************************************************************************/
 
 #ifdef __cplusplus
 extern "C" {
@@ -41,57 +40,56 @@ extern "C" {
 #pragma clang system_header  /* Treat file as system include file. */
 #endif
 
-/**************************************************************************//**
-* @addtogroup Parts
-* @{
-******************************************************************************/
-/**************************************************************************//**
+/***************************************************************************//**
+ * @addtogroup Parts
+ * @{
+ ******************************************************************************/
+/***************************************************************************//**
  * @defgroup EFM32GG11B_CMU CMU
  * @{
  * @brief EFM32GG11B_CMU Register Declaration
- *****************************************************************************/
+ ******************************************************************************/
 /** CMU Register Declaration */
 typedef struct {
   __IOM uint32_t CTRL;                /**< CMU Control Register  */
-  uint32_t       RESERVED0[1];        /**< Reserved for future use **/
+  uint32_t       RESERVED0[1U];       /**< Reserved for future use **/
   __IOM uint32_t USHFRCOCTRL;         /**< USHFRCO Control Register  */
 
-  uint32_t       RESERVED1[1];        /**< Reserved for future use **/
+  uint32_t       RESERVED1[1U];       /**< Reserved for future use **/
   __IOM uint32_t HFRCOCTRL;           /**< HFRCO Control Register  */
 
-  uint32_t       RESERVED2[1];        /**< Reserved for future use **/
+  uint32_t       RESERVED2[1U];       /**< Reserved for future use **/
   __IOM uint32_t AUXHFRCOCTRL;        /**< AUXHFRCO Control Register  */
 
-  uint32_t       RESERVED3[1];        /**< Reserved for future use **/
+  uint32_t       RESERVED3[1U];       /**< Reserved for future use **/
   __IOM uint32_t LFRCOCTRL;           /**< LFRCO Control Register  */
   __IOM uint32_t HFXOCTRL;            /**< HFXO Control Register  */
-
-  uint32_t       RESERVED4[1];        /**< Reserved for future use **/
+  __IOM uint32_t HFXOCTRL1;           /**< HFXO Control 1  */
   __IOM uint32_t HFXOSTARTUPCTRL;     /**< HFXO Startup Control  */
   __IOM uint32_t HFXOSTEADYSTATECTRL; /**< HFXO Steady State Control  */
   __IOM uint32_t HFXOTIMEOUTCTRL;     /**< HFXO Timeout Control  */
   __IOM uint32_t LFXOCTRL;            /**< LFXO Control Register  */
 
-  uint32_t       RESERVED5[1];        /**< Reserved for future use **/
+  uint32_t       RESERVED4[1U];       /**< Reserved for future use **/
   __IOM uint32_t DPLLCTRL;            /**< DPLL Control Register  */
   __IOM uint32_t DPLLCTRL1;           /**< DPLL Control Register  */
-  uint32_t       RESERVED6[2];        /**< Reserved for future use **/
+  uint32_t       RESERVED5[2U];       /**< Reserved for future use **/
   __IOM uint32_t CALCTRL;             /**< Calibration Control Register  */
   __IOM uint32_t CALCNT;              /**< Calibration Counter Register  */
-  uint32_t       RESERVED7[2];        /**< Reserved for future use **/
+  uint32_t       RESERVED6[2U];       /**< Reserved for future use **/
   __IOM uint32_t OSCENCMD;            /**< Oscillator Enable/Disable Command Register  */
   __IOM uint32_t CMD;                 /**< Command Register  */
-  uint32_t       RESERVED8[2];        /**< Reserved for future use **/
+  uint32_t       RESERVED7[2U];       /**< Reserved for future use **/
   __IOM uint32_t DBGCLKSEL;           /**< Debug Trace Clock Select  */
   __IOM uint32_t HFCLKSEL;            /**< High Frequency Clock Select Command Register  */
-  uint32_t       RESERVED9[2];        /**< Reserved for future use **/
+  uint32_t       RESERVED8[2U];       /**< Reserved for future use **/
   __IOM uint32_t LFACLKSEL;           /**< Low Frequency A Clock Select Register  */
   __IOM uint32_t LFBCLKSEL;           /**< Low Frequency B Clock Select Register  */
   __IOM uint32_t LFECLKSEL;           /**< Low Frequency E Clock Select Register  */
   __IOM uint32_t LFCCLKSEL;           /**< Low Frequency C Clock Select Register  */
   __IM uint32_t  STATUS;              /**< Status Register  */
   __IM uint32_t  HFCLKSTATUS;         /**< HFCLK Status Register  */
-  uint32_t       RESERVED10[1];       /**< Reserved for future use **/
+  uint32_t       RESERVED9[1U];       /**< Reserved for future use **/
   __IM uint32_t  HFXOTRIMSTATUS;      /**< HFXO Trim Status  */
   __IM uint32_t  IF;                  /**< Interrupt Flag Register  */
   __IOM uint32_t IFS;                 /**< Interrupt Flag Set Register  */
@@ -99,62 +97,62 @@ typedef struct {
   __IOM uint32_t IEN;                 /**< Interrupt Enable Register  */
   __IOM uint32_t HFBUSCLKEN0;         /**< High Frequency Bus Clock Enable Register 0  */
 
-  uint32_t       RESERVED11[3];       /**< Reserved for future use **/
+  uint32_t       RESERVED10[3U];      /**< Reserved for future use **/
   __IOM uint32_t HFPERCLKEN0;         /**< High Frequency Peripheral Clock Enable Register 0  */
   __IOM uint32_t HFPERCLKEN1;         /**< High Frequency Peripheral Clock Enable Register 1  */
 
-  uint32_t       RESERVED12[6];       /**< Reserved for future use **/
+  uint32_t       RESERVED11[6U];      /**< Reserved for future use **/
   __IOM uint32_t LFACLKEN0;           /**< Low Frequency a Clock Enable Register 0  (Async Reg)  */
-  uint32_t       RESERVED13[1];       /**< Reserved for future use **/
+  uint32_t       RESERVED12[1U];      /**< Reserved for future use **/
   __IOM uint32_t LFBCLKEN0;           /**< Low Frequency B Clock Enable Register 0 (Async Reg)  */
   __IOM uint32_t LFCCLKEN0;           /**< Low Frequency C Clock Enable Register 0 (Async Reg)  */
   __IOM uint32_t LFECLKEN0;           /**< Low Frequency E Clock Enable Register 0 (Async Reg)  */
-  uint32_t       RESERVED14[3];       /**< Reserved for future use **/
+  uint32_t       RESERVED13[3U];      /**< Reserved for future use **/
   __IOM uint32_t HFPRESC;             /**< High Frequency Clock Prescaler Register  */
   __IOM uint32_t HFBUSPRESC;          /**< High Frequency Bus Clock Prescaler Register  */
   __IOM uint32_t HFCOREPRESC;         /**< High Frequency Core Clock Prescaler Register  */
   __IOM uint32_t HFPERPRESC;          /**< High Frequency Peripheral Clock Prescaler Register  */
 
-  uint32_t       RESERVED15[1];       /**< Reserved for future use **/
+  uint32_t       RESERVED14[1U];      /**< Reserved for future use **/
   __IOM uint32_t HFEXPPRESC;          /**< High Frequency Export Clock Prescaler Register  */
   __IOM uint32_t HFPERPRESCB;         /**< High Frequency Peripheral Clock Prescaler B Register  */
   __IOM uint32_t HFPERPRESCC;         /**< High Frequency Peripheral Clock Prescaler C Register  */
   __IOM uint32_t LFAPRESC0;           /**< Low Frequency a Prescaler Register 0 (Async Reg)  */
-  uint32_t       RESERVED16[1];       /**< Reserved for future use **/
+  uint32_t       RESERVED15[1U];      /**< Reserved for future use **/
   __IOM uint32_t LFBPRESC0;           /**< Low Frequency B Prescaler Register 0  (Async Reg)  */
-  uint32_t       RESERVED17[1];       /**< Reserved for future use **/
+  uint32_t       RESERVED16[1U];      /**< Reserved for future use **/
   __IOM uint32_t LFEPRESC0;           /**< Low Frequency E Prescaler Register 0  (Async Reg)  */
 
-  uint32_t       RESERVED18[3];       /**< Reserved for future use **/
+  uint32_t       RESERVED17[3U];      /**< Reserved for future use **/
   __IM uint32_t  SYNCBUSY;            /**< Synchronization Busy Register  */
   __IOM uint32_t FREEZE;              /**< Freeze Register  */
-  uint32_t       RESERVED19[2];       /**< Reserved for future use **/
+  uint32_t       RESERVED18[2U];      /**< Reserved for future use **/
   __IOM uint32_t PCNTCTRL;            /**< PCNT Control Register  */
 
-  uint32_t       RESERVED20[2];       /**< Reserved for future use **/
+  uint32_t       RESERVED19[2U];      /**< Reserved for future use **/
   __IOM uint32_t ADCCTRL;             /**< ADC Control Register  */
   __IOM uint32_t SDIOCTRL;            /**< SDIO Control Register  */
   __IOM uint32_t QSPICTRL;            /**< QSPI Control Register  */
 
-  uint32_t       RESERVED21[2];       /**< Reserved for future use **/
+  uint32_t       RESERVED20[2U];      /**< Reserved for future use **/
   __IOM uint32_t ROUTEPEN;            /**< I/O Routing Pin Enable Register  */
   __IOM uint32_t ROUTELOC0;           /**< I/O Routing Location Register  */
   __IOM uint32_t ROUTELOC1;           /**< I/O Routing Location Register  */
-  uint32_t       RESERVED22[1];       /**< Reserved for future use **/
+  uint32_t       RESERVED21[1U];      /**< Reserved for future use **/
   __IOM uint32_t LOCK;                /**< Configuration Lock Register  */
   __IOM uint32_t HFRCOSS;             /**< HFRCO Spread Spectrum Register  */
 
-  uint32_t       RESERVED23[26];      /**< Reserved for future use **/
+  uint32_t       RESERVED22[26U];     /**< Reserved for future use **/
   __IOM uint32_t USBCTRL;             /**< USB Control Register  */
   __IOM uint32_t USBCRCTRL;           /**< USB Clock Recovery Control  */
 } CMU_TypeDef;                        /** @} */
 
-/**************************************************************************//**
+/***************************************************************************//**
  * @addtogroup EFM32GG11B_CMU
  * @{
  * @defgroup EFM32GG11B_CMU_BitFields  CMU Bit Fields
  * @{
- *****************************************************************************/
+ ******************************************************************************/
 
 /* Bit fields for CMU CTRL */
 #define _CMU_CTRL_RESETVALUE                              0x00100000UL                           /**< Default value for CMU_CTRL */
@@ -514,6 +512,30 @@ typedef struct {
 #define _CMU_HFXOCTRL_AUTOSTARTSELEM0EM1_DEFAULT          0x00000000UL                                     /**< Mode DEFAULT for CMU_HFXOCTRL */
 #define CMU_HFXOCTRL_AUTOSTARTSELEM0EM1_DEFAULT           (_CMU_HFXOCTRL_AUTOSTARTSELEM0EM1_DEFAULT << 29) /**< Shifted mode DEFAULT for CMU_HFXOCTRL */
 
+/* Bit fields for CMU HFXOCTRL1 */
+#define _CMU_HFXOCTRL1_RESETVALUE                         0x00002000UL                              /**< Default value for CMU_HFXOCTRL1 */
+#define _CMU_HFXOCTRL1_MASK                               0x00007000UL                              /**< Mask for CMU_HFXOCTRL1 */
+#define _CMU_HFXOCTRL1_PEAKDETTHR_SHIFT                   12                                        /**< Shift value for CMU_PEAKDETTHR */
+#define _CMU_HFXOCTRL1_PEAKDETTHR_MASK                    0x7000UL                                  /**< Bit mask for CMU_PEAKDETTHR */
+#define _CMU_HFXOCTRL1_PEAKDETTHR_THR0                    0x00000000UL                              /**< Mode THR0 for CMU_HFXOCTRL1 */
+#define _CMU_HFXOCTRL1_PEAKDETTHR_THR1                    0x00000001UL                              /**< Mode THR1 for CMU_HFXOCTRL1 */
+#define _CMU_HFXOCTRL1_PEAKDETTHR_DEFAULT                 0x00000002UL                              /**< Mode DEFAULT for CMU_HFXOCTRL1 */
+#define _CMU_HFXOCTRL1_PEAKDETTHR_THR2                    0x00000002UL                              /**< Mode THR2 for CMU_HFXOCTRL1 */
+#define _CMU_HFXOCTRL1_PEAKDETTHR_THR3                    0x00000003UL                              /**< Mode THR3 for CMU_HFXOCTRL1 */
+#define _CMU_HFXOCTRL1_PEAKDETTHR_THR4                    0x00000004UL                              /**< Mode THR4 for CMU_HFXOCTRL1 */
+#define _CMU_HFXOCTRL1_PEAKDETTHR_THR5                    0x00000005UL                              /**< Mode THR5 for CMU_HFXOCTRL1 */
+#define _CMU_HFXOCTRL1_PEAKDETTHR_THR6                    0x00000006UL                              /**< Mode THR6 for CMU_HFXOCTRL1 */
+#define _CMU_HFXOCTRL1_PEAKDETTHR_THR7                    0x00000007UL                              /**< Mode THR7 for CMU_HFXOCTRL1 */
+#define CMU_HFXOCTRL1_PEAKDETTHR_THR0                     (_CMU_HFXOCTRL1_PEAKDETTHR_THR0 << 12)    /**< Shifted mode THR0 for CMU_HFXOCTRL1 */
+#define CMU_HFXOCTRL1_PEAKDETTHR_THR1                     (_CMU_HFXOCTRL1_PEAKDETTHR_THR1 << 12)    /**< Shifted mode THR1 for CMU_HFXOCTRL1 */
+#define CMU_HFXOCTRL1_PEAKDETTHR_DEFAULT                  (_CMU_HFXOCTRL1_PEAKDETTHR_DEFAULT << 12) /**< Shifted mode DEFAULT for CMU_HFXOCTRL1 */
+#define CMU_HFXOCTRL1_PEAKDETTHR_THR2                     (_CMU_HFXOCTRL1_PEAKDETTHR_THR2 << 12)    /**< Shifted mode THR2 for CMU_HFXOCTRL1 */
+#define CMU_HFXOCTRL1_PEAKDETTHR_THR3                     (_CMU_HFXOCTRL1_PEAKDETTHR_THR3 << 12)    /**< Shifted mode THR3 for CMU_HFXOCTRL1 */
+#define CMU_HFXOCTRL1_PEAKDETTHR_THR4                     (_CMU_HFXOCTRL1_PEAKDETTHR_THR4 << 12)    /**< Shifted mode THR4 for CMU_HFXOCTRL1 */
+#define CMU_HFXOCTRL1_PEAKDETTHR_THR5                     (_CMU_HFXOCTRL1_PEAKDETTHR_THR5 << 12)    /**< Shifted mode THR5 for CMU_HFXOCTRL1 */
+#define CMU_HFXOCTRL1_PEAKDETTHR_THR6                     (_CMU_HFXOCTRL1_PEAKDETTHR_THR6 << 12)    /**< Shifted mode THR6 for CMU_HFXOCTRL1 */
+#define CMU_HFXOCTRL1_PEAKDETTHR_THR7                     (_CMU_HFXOCTRL1_PEAKDETTHR_THR7 << 12)    /**< Shifted mode THR7 for CMU_HFXOCTRL1 */
+
 /* Bit fields for CMU HFXOSTARTUPCTRL */
 #define _CMU_HFXOSTARTUPCTRL_RESETVALUE                   0x00000600UL                                     /**< Default value for CMU_HFXOSTARTUPCTRL */
 #define _CMU_HFXOSTARTUPCTRL_MASK                         0x000FFFFFUL                                     /**< Mask for CMU_HFXOSTARTUPCTRL */
@@ -549,7 +571,7 @@ typedef struct {
 #define CMU_HFXOSTEADYSTATECTRL_PEAKMONEN_DEFAULT         (_CMU_HFXOSTEADYSTATECTRL_PEAKMONEN_DEFAULT << 27)   /**< Shifted mode DEFAULT for CMU_HFXOSTEADYSTATECTRL */
 
 /* Bit fields for CMU HFXOTIMEOUTCTRL */
-#define _CMU_HFXOTIMEOUTCTRL_RESETVALUE                   0x0000D04EUL                                           /**< Default value for CMU_HFXOTIMEOUTCTRL */
+#define _CMU_HFXOTIMEOUTCTRL_RESETVALUE                   0x0000D08EUL                                           /**< Default value for CMU_HFXOTIMEOUTCTRL */
 #define _CMU_HFXOTIMEOUTCTRL_MASK                         0x0000F0FFUL                                           /**< Mask for CMU_HFXOTIMEOUTCTRL */
 #define _CMU_HFXOTIMEOUTCTRL_STARTUPTIMEOUT_SHIFT         0                                                      /**< Shift value for CMU_STARTUPTIMEOUT */
 #define _CMU_HFXOTIMEOUTCTRL_STARTUPTIMEOUT_MASK          0xFUL                                                  /**< Bit mask for CMU_STARTUPTIMEOUT */
@@ -591,11 +613,11 @@ typedef struct {
 #define _CMU_HFXOTIMEOUTCTRL_STEADYTIMEOUT_4CYCLES        0x00000001UL                                           /**< Mode 4CYCLES for CMU_HFXOTIMEOUTCTRL */
 #define _CMU_HFXOTIMEOUTCTRL_STEADYTIMEOUT_16CYCLES       0x00000002UL                                           /**< Mode 16CYCLES for CMU_HFXOTIMEOUTCTRL */
 #define _CMU_HFXOTIMEOUTCTRL_STEADYTIMEOUT_32CYCLES       0x00000003UL                                           /**< Mode 32CYCLES for CMU_HFXOTIMEOUTCTRL */
-#define _CMU_HFXOTIMEOUTCTRL_STEADYTIMEOUT_DEFAULT        0x00000004UL                                           /**< Mode DEFAULT for CMU_HFXOTIMEOUTCTRL */
 #define _CMU_HFXOTIMEOUTCTRL_STEADYTIMEOUT_64CYCLES       0x00000004UL                                           /**< Mode 64CYCLES for CMU_HFXOTIMEOUTCTRL */
 #define _CMU_HFXOTIMEOUTCTRL_STEADYTIMEOUT_128CYCLES      0x00000005UL                                           /**< Mode 128CYCLES for CMU_HFXOTIMEOUTCTRL */
 #define _CMU_HFXOTIMEOUTCTRL_STEADYTIMEOUT_256CYCLES      0x00000006UL                                           /**< Mode 256CYCLES for CMU_HFXOTIMEOUTCTRL */
 #define _CMU_HFXOTIMEOUTCTRL_STEADYTIMEOUT_1KCYCLES       0x00000007UL                                           /**< Mode 1KCYCLES for CMU_HFXOTIMEOUTCTRL */
+#define _CMU_HFXOTIMEOUTCTRL_STEADYTIMEOUT_DEFAULT        0x00000008UL                                           /**< Mode DEFAULT for CMU_HFXOTIMEOUTCTRL */
 #define _CMU_HFXOTIMEOUTCTRL_STEADYTIMEOUT_2KCYCLES       0x00000008UL                                           /**< Mode 2KCYCLES for CMU_HFXOTIMEOUTCTRL */
 #define _CMU_HFXOTIMEOUTCTRL_STEADYTIMEOUT_4KCYCLES       0x00000009UL                                           /**< Mode 4KCYCLES for CMU_HFXOTIMEOUTCTRL */
 #define _CMU_HFXOTIMEOUTCTRL_STEADYTIMEOUT_8KCYCLES       0x0000000AUL                                           /**< Mode 8KCYCLES for CMU_HFXOTIMEOUTCTRL */
@@ -607,11 +629,11 @@ typedef struct {
 #define CMU_HFXOTIMEOUTCTRL_STEADYTIMEOUT_4CYCLES         (_CMU_HFXOTIMEOUTCTRL_STEADYTIMEOUT_4CYCLES << 4)      /**< Shifted mode 4CYCLES for CMU_HFXOTIMEOUTCTRL */
 #define CMU_HFXOTIMEOUTCTRL_STEADYTIMEOUT_16CYCLES        (_CMU_HFXOTIMEOUTCTRL_STEADYTIMEOUT_16CYCLES << 4)     /**< Shifted mode 16CYCLES for CMU_HFXOTIMEOUTCTRL */
 #define CMU_HFXOTIMEOUTCTRL_STEADYTIMEOUT_32CYCLES        (_CMU_HFXOTIMEOUTCTRL_STEADYTIMEOUT_32CYCLES << 4)     /**< Shifted mode 32CYCLES for CMU_HFXOTIMEOUTCTRL */
-#define CMU_HFXOTIMEOUTCTRL_STEADYTIMEOUT_DEFAULT         (_CMU_HFXOTIMEOUTCTRL_STEADYTIMEOUT_DEFAULT << 4)      /**< Shifted mode DEFAULT for CMU_HFXOTIMEOUTCTRL */
 #define CMU_HFXOTIMEOUTCTRL_STEADYTIMEOUT_64CYCLES        (_CMU_HFXOTIMEOUTCTRL_STEADYTIMEOUT_64CYCLES << 4)     /**< Shifted mode 64CYCLES for CMU_HFXOTIMEOUTCTRL */
 #define CMU_HFXOTIMEOUTCTRL_STEADYTIMEOUT_128CYCLES       (_CMU_HFXOTIMEOUTCTRL_STEADYTIMEOUT_128CYCLES << 4)    /**< Shifted mode 128CYCLES for CMU_HFXOTIMEOUTCTRL */
 #define CMU_HFXOTIMEOUTCTRL_STEADYTIMEOUT_256CYCLES       (_CMU_HFXOTIMEOUTCTRL_STEADYTIMEOUT_256CYCLES << 4)    /**< Shifted mode 256CYCLES for CMU_HFXOTIMEOUTCTRL */
 #define CMU_HFXOTIMEOUTCTRL_STEADYTIMEOUT_1KCYCLES        (_CMU_HFXOTIMEOUTCTRL_STEADYTIMEOUT_1KCYCLES << 4)     /**< Shifted mode 1KCYCLES for CMU_HFXOTIMEOUTCTRL */
+#define CMU_HFXOTIMEOUTCTRL_STEADYTIMEOUT_DEFAULT         (_CMU_HFXOTIMEOUTCTRL_STEADYTIMEOUT_DEFAULT << 4)      /**< Shifted mode DEFAULT for CMU_HFXOTIMEOUTCTRL */
 #define CMU_HFXOTIMEOUTCTRL_STEADYTIMEOUT_2KCYCLES        (_CMU_HFXOTIMEOUTCTRL_STEADYTIMEOUT_2KCYCLES << 4)     /**< Shifted mode 2KCYCLES for CMU_HFXOTIMEOUTCTRL */
 #define CMU_HFXOTIMEOUTCTRL_STEADYTIMEOUT_4KCYCLES        (_CMU_HFXOTIMEOUTCTRL_STEADYTIMEOUT_4KCYCLES << 4)     /**< Shifted mode 4KCYCLES for CMU_HFXOTIMEOUTCTRL */
 #define CMU_HFXOTIMEOUTCTRL_STEADYTIMEOUT_8KCYCLES        (_CMU_HFXOTIMEOUTCTRL_STEADYTIMEOUT_8KCYCLES << 4)     /**< Shifted mode 8KCYCLES for CMU_HFXOTIMEOUTCTRL */

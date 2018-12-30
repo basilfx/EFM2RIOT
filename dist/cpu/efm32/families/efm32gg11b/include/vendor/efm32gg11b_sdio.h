@@ -1,34 +1,33 @@
-/**************************************************************************//**
- * @file efm32gg11b_sdio.h
+/***************************************************************************//**
+ * @file
  * @brief EFM32GG11B_SDIO register and bit field definitions
- * @version 5.4.0
- ******************************************************************************
+ * @version 5.7.0
+ *******************************************************************************
  * # License
- * <b>Copyright 2017 Silicon Laboratories, Inc. www.silabs.com</b>
- ******************************************************************************
+ * <b>Copyright 2018 Silicon Laboratories Inc. www.silabs.com</b>
+ *******************************************************************************
+ *
+ * SPDX-License-Identifier: Zlib
+ *
+ * The licensor of this software is Silicon Laboratories Inc.
+ *
+ * This software is provided 'as-is', without any express or implied
+ * warranty. In no event will the authors be held liable for any damages
+ * arising from the use of this software.
  *
  * Permission is granted to anyone to use this software for any purpose,
  * including commercial applications, and to alter it and redistribute it
  * freely, subject to the following restrictions:
  *
  * 1. The origin of this software must not be misrepresented; you must not
- *    claim that you wrote the original software.@n
+ *    claim that you wrote the original software. If you use this software
+ *    in a product, an acknowledgment in the product documentation would be
+ *    appreciated but is not required.
  * 2. Altered source versions must be plainly marked as such, and must not be
- *    misrepresented as being the original software.@n
+ *    misrepresented as being the original software.
  * 3. This notice may not be removed or altered from any source distribution.
  *
- * DISCLAIMER OF WARRANTY/LIMITATION OF REMEDIES: Silicon Laboratories, Inc.
- * has no obligation to support this Software. Silicon Laboratories, Inc. is
- * providing the Software "AS IS", with no express or implied warranties of any
- * kind, including, but not limited to, any implied warranties of
- * merchantability or fitness for any particular purpose or warranties against
- * infringement of any proprietary rights of a third party.
- *
- * Silicon Laboratories, Inc. will not be liable for any consequential,
- * incidental, or special damages, or any other relief, or for any claim by
- * any third party, arising from your use of this Software.
- *
- *****************************************************************************/
+ ******************************************************************************/
 
 #ifdef __cplusplus
 extern "C" {
@@ -41,68 +40,68 @@ extern "C" {
 #pragma clang system_header  /* Treat file as system include file. */
 #endif
 
-/**************************************************************************//**
-* @addtogroup Parts
-* @{
-******************************************************************************/
-/**************************************************************************//**
+/***************************************************************************//**
+ * @addtogroup Parts
+ * @{
+ ******************************************************************************/
+/***************************************************************************//**
  * @defgroup EFM32GG11B_SDIO SDIO
  * @{
  * @brief EFM32GG11B_SDIO Register Declaration
- *****************************************************************************/
+ ******************************************************************************/
 /** SDIO Register Declaration */
 typedef struct {
-  __IOM uint32_t SDMASYSADDR;    /**< SDMA System Address Register  */
-  __IOM uint32_t BLKSIZE;        /**< Block Size and Block Count Register  */
-  __IOM uint32_t CMDARG1;        /**< SD Command Argument Register  */
-  __IOM uint32_t TFRMODE;        /**< Transfer Mode and Command Register  */
-  __IM uint32_t  RESP0;          /**< Response0 and Response1 Register  */
-  __IM uint32_t  RESP2;          /**< Response2 and Response3 Register  */
-  __IM uint32_t  RESP4;          /**< Response4 and Response5 Register  */
-  __IM uint32_t  RESP6;          /**< Response6 and Response7 Register  */
-  __IOM uint32_t BUFDATPORT;     /**< Buffer Data Register  */
-  __IM uint32_t  PRSSTAT;        /**< Present State Register  */
-  __IOM uint32_t HOSTCTRL1;      /**< Host Control1, Power, Block Gap and Wakeup-up Control Register  */
-  __IOM uint32_t CLOCKCTRL;      /**< Clock Control, Timeout Control and Software Register  */
-  __IOM uint32_t IFCR;           /**< Normal and Error Interrupt Status Register  */
-  __IOM uint32_t IFENC;          /**< Normal and Error Interrupt Status Enable Register  */
-  __IOM uint32_t IEN;            /**< Normal and Error Interrupt Signal Enable Register  */
-  __IOM uint32_t AC12ERRSTAT;    /**< AUTO CMD12 Error Status and Host Control2 Register  */
-  __IM uint32_t  CAPAB0;         /**< Capabilities Register to Hold Bits 31~0  */
-  __IM uint32_t  CAPAB2;         /**< Capabilities Register to Hold Bits 63~32  */
-  __IM uint32_t  MAXCURCAPAB;    /**< Maximum Current Capabilities Register  */
-  uint32_t       RESERVED0[1];   /**< Reserved for future use **/
-  __IOM uint32_t FEVTERRSTAT;    /**< Force Event Register for Auto CMD Error Status  */
-  __IM uint32_t  ADMAES;         /**< ADMA Error Status Register  */
-  __IOM uint32_t ADSADDR;        /**< ADMA System Address Register  */
-  uint32_t       RESERVED1[1];   /**< Reserved for future use **/
-  __IM uint32_t  PRSTVAL0;       /**< Preset Value for Initialization and Default Speed Mode  */
-  __IM uint32_t  PRSTVAL2;       /**< Preset Value for High Speed and SDR12 Modes  */
-  __IM uint32_t  PRSTVAL4;       /**< Preset Value for SDR25 and SDR50 Modes  */
-  __IM uint32_t  PRSTVAL6;       /**< Preset Value for SDR104 and DDR50 Modes  */
-  __IOM uint32_t BOOTTOCTRL;     /**< Boot Timeout Control Register  */
-  uint32_t       RESERVED2[34];  /**< Reserved for future use **/
-  __IM uint32_t  SLOTINTSTAT;    /**< Slot Interrupt Status Register  */
+  __IOM uint32_t SDMASYSADDR;     /**< SDMA System Address Register  */
+  __IOM uint32_t BLKSIZE;         /**< Block Size and Block Count Register  */
+  __IOM uint32_t CMDARG1;         /**< SD Command Argument Register  */
+  __IOM uint32_t TFRMODE;         /**< Transfer Mode and Command Register  */
+  __IM uint32_t  RESP0;           /**< Response0 and Response1 Register  */
+  __IM uint32_t  RESP2;           /**< Response2 and Response3 Register  */
+  __IM uint32_t  RESP4;           /**< Response4 and Response5 Register  */
+  __IM uint32_t  RESP6;           /**< Response6 and Response7 Register  */
+  __IOM uint32_t BUFDATPORT;      /**< Buffer Data Register  */
+  __IM uint32_t  PRSSTAT;         /**< Present State Register  */
+  __IOM uint32_t HOSTCTRL1;       /**< Host Control1, Power, Block Gap and Wakeup-up Control Register  */
+  __IOM uint32_t CLOCKCTRL;       /**< Clock Control, Timeout Control and Software Register  */
+  __IOM uint32_t IFCR;            /**< Normal and Error Interrupt Status Register  */
+  __IOM uint32_t IFENC;           /**< Normal and Error Interrupt Status Enable Register  */
+  __IOM uint32_t IEN;             /**< Normal and Error Interrupt Signal Enable Register  */
+  __IOM uint32_t AC12ERRSTAT;     /**< AUTO CMD12 Error Status and Host Control2 Register  */
+  __IM uint32_t  CAPAB0;          /**< Capabilities Register to Hold Bits 31~0  */
+  __IM uint32_t  CAPAB2;          /**< Capabilities Register to Hold Bits 63~32  */
+  __IM uint32_t  MAXCURCAPAB;     /**< Maximum Current Capabilities Register  */
+  uint32_t       RESERVED0[1U];   /**< Reserved for future use **/
+  __IOM uint32_t FEVTERRSTAT;     /**< Force Event Register for Auto CMD Error Status  */
+  __IM uint32_t  ADMAES;          /**< ADMA Error Status Register  */
+  __IOM uint32_t ADSADDR;         /**< ADMA System Address Register  */
+  uint32_t       RESERVED1[1U];   /**< Reserved for future use **/
+  __IM uint32_t  PRSTVAL0;        /**< Preset Value for Initialization and Default Speed Mode  */
+  __IM uint32_t  PRSTVAL2;        /**< Preset Value for High Speed and SDR12 Modes  */
+  __IM uint32_t  PRSTVAL4;        /**< Preset Value for SDR25 and SDR50 Modes  */
+  __IM uint32_t  PRSTVAL6;        /**< Preset Value for SDR104 and DDR50 Modes  */
+  __IOM uint32_t BOOTTOCTRL;      /**< Boot Timeout Control Register  */
+  uint32_t       RESERVED2[34U];  /**< Reserved for future use **/
+  __IM uint32_t  SLOTINTSTAT;     /**< Slot Interrupt Status Register  */
 
-  uint32_t       RESERVED3[448]; /**< Reserved for future use **/
-  __IOM uint32_t CTRL;           /**< Core Control Signals  */
-  __IOM uint32_t CFG0;           /**< Core Configuration 0  */
-  __IOM uint32_t CFG1;           /**< Core Configuration 1  */
-  __IOM uint32_t CFGPRESETVAL0;  /**< Core Configuration Preset Value 0  */
-  __IOM uint32_t CFGPRESETVAL1;  /**< Core Configuration Preset Value 1  */
-  __IOM uint32_t CFGPRESETVAL2;  /**< Core Configuration Preset Value 2  */
-  __IOM uint32_t CFGPRESETVAL3;  /**< Core Configuration Preset Value 3  */
-  __IOM uint32_t ROUTELOC0;      /**< I/O LOCATION Register  */
-  __IOM uint32_t ROUTELOC1;      /**< I/O LOCATION Register  */
-  __IOM uint32_t ROUTEPEN;       /**< I/O LOCATION Enable Register  */
-} SDIO_TypeDef;                  /** @} */
+  uint32_t       RESERVED3[448U]; /**< Reserved for future use **/
+  __IOM uint32_t CTRL;            /**< Core Control Signals  */
+  __IOM uint32_t CFG0;            /**< Core Configuration 0  */
+  __IOM uint32_t CFG1;            /**< Core Configuration 1  */
+  __IOM uint32_t CFGPRESETVAL0;   /**< Core Configuration Preset Value 0  */
+  __IOM uint32_t CFGPRESETVAL1;   /**< Core Configuration Preset Value 1  */
+  __IOM uint32_t CFGPRESETVAL2;   /**< Core Configuration Preset Value 2  */
+  __IOM uint32_t CFGPRESETVAL3;   /**< Core Configuration Preset Value 3  */
+  __IOM uint32_t ROUTELOC0;       /**< I/O LOCATION Register  */
+  __IOM uint32_t ROUTELOC1;       /**< I/O LOCATION Register  */
+  __IOM uint32_t ROUTEPEN;        /**< I/O LOCATION Enable Register  */
+} SDIO_TypeDef;                   /** @} */
 
-/**************************************************************************//**
+/***************************************************************************//**
  * @addtogroup EFM32GG11B_SDIO
  * @{
  * @defgroup EFM32GG11B_SDIO_BitFields  SDIO Bit Fields
  * @{
- *****************************************************************************/
+ ******************************************************************************/
 
 /* Bit fields for SDIO SDMASYSADDR */
 #define _SDIO_SDMASYSADDR_RESETVALUE                   0x00000000UL                                    /**< Default value for SDIO_SDMASYSADDR */

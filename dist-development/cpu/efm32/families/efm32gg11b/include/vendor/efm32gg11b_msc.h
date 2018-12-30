@@ -1,34 +1,33 @@
-/**************************************************************************//**
- * @file efm32gg11b_msc.h
+/***************************************************************************//**
+ * @file
  * @brief EFM32GG11B_MSC register and bit field definitions
- * @version 5.4.0
- ******************************************************************************
+ * @version 5.7.0
+ *******************************************************************************
  * # License
- * <b>Copyright 2017 Silicon Laboratories, Inc. www.silabs.com</b>
- ******************************************************************************
+ * <b>Copyright 2018 Silicon Laboratories Inc. www.silabs.com</b>
+ *******************************************************************************
+ *
+ * SPDX-License-Identifier: Zlib
+ *
+ * The licensor of this software is Silicon Laboratories Inc.
+ *
+ * This software is provided 'as-is', without any express or implied
+ * warranty. In no event will the authors be held liable for any damages
+ * arising from the use of this software.
  *
  * Permission is granted to anyone to use this software for any purpose,
  * including commercial applications, and to alter it and redistribute it
  * freely, subject to the following restrictions:
  *
  * 1. The origin of this software must not be misrepresented; you must not
- *    claim that you wrote the original software.@n
+ *    claim that you wrote the original software. If you use this software
+ *    in a product, an acknowledgment in the product documentation would be
+ *    appreciated but is not required.
  * 2. Altered source versions must be plainly marked as such, and must not be
- *    misrepresented as being the original software.@n
+ *    misrepresented as being the original software.
  * 3. This notice may not be removed or altered from any source distribution.
  *
- * DISCLAIMER OF WARRANTY/LIMITATION OF REMEDIES: Silicon Laboratories, Inc.
- * has no obligation to support this Software. Silicon Laboratories, Inc. is
- * providing the Software "AS IS", with no express or implied warranties of any
- * kind, including, but not limited to, any implied warranties of
- * merchantability or fitness for any particular purpose or warranties against
- * infringement of any proprietary rights of a third party.
- *
- * Silicon Laboratories, Inc. will not be liable for any consequential,
- * incidental, or special damages, or any other relief, or for any claim by
- * any third party, arising from your use of this Software.
- *
- *****************************************************************************/
+ ******************************************************************************/
 
 #ifdef __cplusplus
 extern "C" {
@@ -41,15 +40,15 @@ extern "C" {
 #pragma clang system_header  /* Treat file as system include file. */
 #endif
 
-/**************************************************************************//**
-* @addtogroup Parts
-* @{
-******************************************************************************/
-/**************************************************************************//**
+/***************************************************************************//**
+ * @addtogroup Parts
+ * @{
+ ******************************************************************************/
+/***************************************************************************//**
  * @defgroup EFM32GG11B_MSC MSC
  * @{
  * @brief EFM32GG11B_MSC Register Declaration
- *****************************************************************************/
+ ******************************************************************************/
 /** MSC Register Declaration */
 typedef struct {
   __IOM uint32_t CTRL;           /**< Memory System Control Register  */
@@ -57,11 +56,11 @@ typedef struct {
   __IOM uint32_t WRITECTRL;      /**< Write Control Register  */
   __IOM uint32_t WRITECMD;       /**< Write Command Register  */
   __IOM uint32_t ADDRB;          /**< Page Erase/Write Address Buffer  */
-  uint32_t       RESERVED0[1];   /**< Reserved for future use **/
+  uint32_t       RESERVED0[1U];  /**< Reserved for future use **/
   __IOM uint32_t WDATA;          /**< Write Data Register  */
   __IM uint32_t  STATUS;         /**< Status Register  */
 
-  uint32_t       RESERVED1[4];   /**< Reserved for future use **/
+  uint32_t       RESERVED1[4U];  /**< Reserved for future use **/
   __IM uint32_t  IF;             /**< Interrupt Flag Register  */
   __IOM uint32_t IFS;            /**< Interrupt Flag Set Register  */
   __IOM uint32_t IFC;            /**< Interrupt Flag Clear Register  */
@@ -71,34 +70,34 @@ typedef struct {
   __IM uint32_t  CACHEHITS;      /**< Cache Hits Performance Counter  */
   __IM uint32_t  CACHEMISSES;    /**< Cache Misses Performance Counter  */
 
-  uint32_t       RESERVED2[1];   /**< Reserved for future use **/
+  uint32_t       RESERVED2[1U];  /**< Reserved for future use **/
   __IOM uint32_t MASSLOCK;       /**< Mass Erase Lock Register  */
 
-  uint32_t       RESERVED3[1];   /**< Reserved for future use **/
+  uint32_t       RESERVED3[1U];  /**< Reserved for future use **/
   __IOM uint32_t STARTUP;        /**< Startup Control  */
 
-  uint32_t       RESERVED4[4];   /**< Reserved for future use **/
+  uint32_t       RESERVED4[4U];  /**< Reserved for future use **/
   __IOM uint32_t BANKSWITCHLOCK; /**< Bank Switching Lock Register  */
   __IOM uint32_t CMD;            /**< Command Register  */
 
-  uint32_t       RESERVED5[6];   /**< Reserved for future use **/
+  uint32_t       RESERVED5[6U];  /**< Reserved for future use **/
   __IOM uint32_t BOOTLOADERCTRL; /**< Bootloader Read and Write Enable, Write Once Register  */
   __IOM uint32_t AAPUNLOCKCMD;   /**< Software Unlock AAP Command Register  */
   __IOM uint32_t CACHECONFIG0;   /**< Cache Configuration Register 0  */
 
-  uint32_t       RESERVED6[25];  /**< Reserved for future use **/
+  uint32_t       RESERVED6[25U]; /**< Reserved for future use **/
   __IOM uint32_t RAMCTRL;        /**< RAM Control Enable Register  */
   __IOM uint32_t ECCCTRL;        /**< RAM ECC Control Register  */
   __IM uint32_t  RAMECCADDR;     /**< RAM ECC Error Address Register  */
   __IM uint32_t  RAM1ECCADDR;    /**< RAM1 ECC Error Address Register  */
 } MSC_TypeDef;                   /** @} */
 
-/**************************************************************************//**
+/***************************************************************************//**
  * @addtogroup EFM32GG11B_MSC
  * @{
  * @defgroup EFM32GG11B_MSC_BitFields  MSC Bit Fields
  * @{
- *****************************************************************************/
+ ******************************************************************************/
 
 /* Bit fields for MSC CTRL */
 #define _MSC_CTRL_RESETVALUE                              0x00000021UL                              /**< Default value for MSC_CTRL */
@@ -763,33 +762,23 @@ typedef struct {
 
 /* Bit fields for MSC RAMCTRL */
 #define _MSC_RAMCTRL_RESETVALUE                           0x00000000UL                                /**< Default value for MSC_RAMCTRL */
-#define _MSC_RAMCTRL_MASK                                 0x00070707UL                                /**< Mask for MSC_RAMCTRL */
-#define MSC_RAMCTRL_RAMCACHEEN                            (0x1UL << 0)                                /**< RAM CACHE Enable */
-#define _MSC_RAMCTRL_RAMCACHEEN_SHIFT                     0                                           /**< Shift value for MSC_RAMCACHEEN */
-#define _MSC_RAMCTRL_RAMCACHEEN_MASK                      0x1UL                                       /**< Bit mask for MSC_RAMCACHEEN */
-#define _MSC_RAMCTRL_RAMCACHEEN_DEFAULT                   0x00000000UL                                /**< Mode DEFAULT for MSC_RAMCTRL */
-#define MSC_RAMCTRL_RAMCACHEEN_DEFAULT                    (_MSC_RAMCTRL_RAMCACHEEN_DEFAULT << 0)      /**< Shifted mode DEFAULT for MSC_RAMCTRL */
+#define _MSC_RAMCTRL_MASK                                 0x00070606UL                                /**< Mask for MSC_RAMCTRL */
 #define MSC_RAMCTRL_RAMWSEN                               (0x1UL << 1)                                /**< RAM WAIT STATE Enable */
 #define _MSC_RAMCTRL_RAMWSEN_SHIFT                        1                                           /**< Shift value for MSC_RAMWSEN */
 #define _MSC_RAMCTRL_RAMWSEN_MASK                         0x2UL                                       /**< Bit mask for MSC_RAMWSEN */
 #define _MSC_RAMCTRL_RAMWSEN_DEFAULT                      0x00000000UL                                /**< Mode DEFAULT for MSC_RAMCTRL */
 #define MSC_RAMCTRL_RAMWSEN_DEFAULT                       (_MSC_RAMCTRL_RAMWSEN_DEFAULT << 1)         /**< Shifted mode DEFAULT for MSC_RAMCTRL */
-#define MSC_RAMCTRL_RAMPREFETCHEN                         (0x1UL << 2)                                /**< RAM Prfetch Enable */
+#define MSC_RAMCTRL_RAMPREFETCHEN                         (0x1UL << 2)                                /**< RAM Prefetch Enable */
 #define _MSC_RAMCTRL_RAMPREFETCHEN_SHIFT                  2                                           /**< Shift value for MSC_RAMPREFETCHEN */
 #define _MSC_RAMCTRL_RAMPREFETCHEN_MASK                   0x4UL                                       /**< Bit mask for MSC_RAMPREFETCHEN */
 #define _MSC_RAMCTRL_RAMPREFETCHEN_DEFAULT                0x00000000UL                                /**< Mode DEFAULT for MSC_RAMCTRL */
 #define MSC_RAMCTRL_RAMPREFETCHEN_DEFAULT                 (_MSC_RAMCTRL_RAMPREFETCHEN_DEFAULT << 2)   /**< Shifted mode DEFAULT for MSC_RAMCTRL */
-#define MSC_RAMCTRL_RAM1CACHEEN                           (0x1UL << 8)                                /**< RAM1 CACHE Enable */
-#define _MSC_RAMCTRL_RAM1CACHEEN_SHIFT                    8                                           /**< Shift value for MSC_RAM1CACHEEN */
-#define _MSC_RAMCTRL_RAM1CACHEEN_MASK                     0x100UL                                     /**< Bit mask for MSC_RAM1CACHEEN */
-#define _MSC_RAMCTRL_RAM1CACHEEN_DEFAULT                  0x00000000UL                                /**< Mode DEFAULT for MSC_RAMCTRL */
-#define MSC_RAMCTRL_RAM1CACHEEN_DEFAULT                   (_MSC_RAMCTRL_RAM1CACHEEN_DEFAULT << 8)     /**< Shifted mode DEFAULT for MSC_RAMCTRL */
 #define MSC_RAMCTRL_RAM1WSEN                              (0x1UL << 9)                                /**< RAM1 WAIT STATE Enable */
 #define _MSC_RAMCTRL_RAM1WSEN_SHIFT                       9                                           /**< Shift value for MSC_RAM1WSEN */
 #define _MSC_RAMCTRL_RAM1WSEN_MASK                        0x200UL                                     /**< Bit mask for MSC_RAM1WSEN */
 #define _MSC_RAMCTRL_RAM1WSEN_DEFAULT                     0x00000000UL                                /**< Mode DEFAULT for MSC_RAMCTRL */
 #define MSC_RAMCTRL_RAM1WSEN_DEFAULT                      (_MSC_RAMCTRL_RAM1WSEN_DEFAULT << 9)        /**< Shifted mode DEFAULT for MSC_RAMCTRL */
-#define MSC_RAMCTRL_RAM1PREFETCHEN                        (0x1UL << 10)                               /**< RAM1 Prfetch Enable */
+#define MSC_RAMCTRL_RAM1PREFETCHEN                        (0x1UL << 10)                               /**< RAM1 Prefetch Enable */
 #define _MSC_RAMCTRL_RAM1PREFETCHEN_SHIFT                 10                                          /**< Shift value for MSC_RAM1PREFETCHEN */
 #define _MSC_RAMCTRL_RAM1PREFETCHEN_MASK                  0x400UL                                     /**< Bit mask for MSC_RAM1PREFETCHEN */
 #define _MSC_RAMCTRL_RAM1PREFETCHEN_DEFAULT               0x00000000UL                                /**< Mode DEFAULT for MSC_RAMCTRL */
@@ -804,7 +793,7 @@ typedef struct {
 #define _MSC_RAMCTRL_RAM2WSEN_MASK                        0x20000UL                                   /**< Bit mask for MSC_RAM2WSEN */
 #define _MSC_RAMCTRL_RAM2WSEN_DEFAULT                     0x00000000UL                                /**< Mode DEFAULT for MSC_RAMCTRL */
 #define MSC_RAMCTRL_RAM2WSEN_DEFAULT                      (_MSC_RAMCTRL_RAM2WSEN_DEFAULT << 17)       /**< Shifted mode DEFAULT for MSC_RAMCTRL */
-#define MSC_RAMCTRL_RAM2PREFETCHEN                        (0x1UL << 18)                               /**< RAM2 Prfetch Enable */
+#define MSC_RAMCTRL_RAM2PREFETCHEN                        (0x1UL << 18)                               /**< RAM2 Prefetch Enable */
 #define _MSC_RAMCTRL_RAM2PREFETCHEN_SHIFT                 18                                          /**< Shift value for MSC_RAM2PREFETCHEN */
 #define _MSC_RAMCTRL_RAM2PREFETCHEN_MASK                  0x40000UL                                   /**< Bit mask for MSC_RAM2PREFETCHEN */
 #define _MSC_RAMCTRL_RAM2PREFETCHEN_DEFAULT               0x00000000UL                                /**< Mode DEFAULT for MSC_RAMCTRL */

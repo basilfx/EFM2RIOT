@@ -1,35 +1,34 @@
-/**************************************************************************//**
- * @file efr32fg1v232f256gm48.h
+/***************************************************************************//**
+ * @file
  * @brief CMSIS Cortex-M Peripheral Access Layer Header File
  *        for EFR32FG1V232F256GM48
- * @version 5.4.0
- ******************************************************************************
+ * @version 5.7.0
+ *******************************************************************************
  * # License
- * <b>Copyright 2017 Silicon Laboratories, Inc. www.silabs.com</b>
- ******************************************************************************
+ * <b>Copyright 2018 Silicon Laboratories Inc. www.silabs.com</b>
+ *******************************************************************************
+ *
+ * SPDX-License-Identifier: Zlib
+ *
+ * The licensor of this software is Silicon Laboratories Inc.
+ *
+ * This software is provided 'as-is', without any express or implied
+ * warranty. In no event will the authors be held liable for any damages
+ * arising from the use of this software.
  *
  * Permission is granted to anyone to use this software for any purpose,
  * including commercial applications, and to alter it and redistribute it
  * freely, subject to the following restrictions:
  *
  * 1. The origin of this software must not be misrepresented; you must not
- *    claim that you wrote the original software.@n
+ *    claim that you wrote the original software. If you use this software
+ *    in a product, an acknowledgment in the product documentation would be
+ *    appreciated but is not required.
  * 2. Altered source versions must be plainly marked as such, and must not be
- *    misrepresented as being the original software.@n
+ *    misrepresented as being the original software.
  * 3. This notice may not be removed or altered from any source distribution.
  *
- * DISCLAIMER OF WARRANTY/LIMITATION OF REMEDIES: Silicon Laboratories, Inc.
- * has no obligation to support this Software. Silicon Laboratories, Inc. is
- * providing the Software "AS IS", with no express or implied warranties of any
- * kind, including, but not limited to, any implied warranties of
- * merchantability or fitness for any particular purpose or warranties against
- * infringement of any proprietary rights of a third party.
- *
- * Silicon Laboratories, Inc. will not be liable for any consequential,
- * incidental, or special damages, or any other relief, or for any claim by
- * any third party, arising from your use of this Software.
- *
- *****************************************************************************/
+ ******************************************************************************/
 
 #if defined(__ICCARM__)
 #pragma system_include       /* Treat file as system include file. */
@@ -44,15 +43,15 @@
 extern "C" {
 #endif
 
-/**************************************************************************//**
+/***************************************************************************//**
  * @addtogroup Parts
  * @{
- *****************************************************************************/
+ ******************************************************************************/
 
-/**************************************************************************//**
+/***************************************************************************//**
  * @defgroup EFR32FG1V232F256GM48 EFR32FG1V232F256GM48
  * @{
- *****************************************************************************/
+ ******************************************************************************/
 
 /** Interrupt Number Definition */
 typedef enum IRQn{
@@ -70,7 +69,13 @@ typedef enum IRQn{
 /******  EFR32FG1V Peripheral Interrupt Numbers ********************************************/
 
   EMU_IRQn              = 0,  /*!< 16+0 EFR32 EMU Interrupt */
+  FRC_PRI_IRQn          = 1,  /*!< 16+1 EFR32 FRC_PRI Interrupt */
   WDOG0_IRQn            = 2,  /*!< 16+2 EFR32 WDOG0 Interrupt */
+  FRC_IRQn              = 3,  /*!< 16+3 EFR32 FRC Interrupt */
+  MODEM_IRQn            = 4,  /*!< 16+4 EFR32 MODEM Interrupt */
+  RAC_SEQ_IRQn          = 5,  /*!< 16+5 EFR32 RAC_SEQ Interrupt */
+  RAC_RSM_IRQn          = 6,  /*!< 16+6 EFR32 RAC_RSM Interrupt */
+  BUFC_IRQn             = 7,  /*!< 16+7 EFR32 BUFC Interrupt */
   LDMA_IRQn             = 8,  /*!< 16+8 EFR32 LDMA Interrupt */
   GPIO_EVEN_IRQn        = 9,  /*!< 16+9 EFR32 GPIO_EVEN Interrupt */
   TIMER0_IRQn           = 10, /*!< 16+10 EFR32 TIMER0 Interrupt */
@@ -87,28 +92,32 @@ typedef enum IRQn{
   MSC_IRQn              = 24, /*!< 16+24 EFR32 MSC Interrupt */
   CRYPTO_IRQn           = 25, /*!< 16+25 EFR32 CRYPTO Interrupt */
   LETIMER0_IRQn         = 26, /*!< 16+26 EFR32 LETIMER0 Interrupt */
+  AGC_IRQn              = 27, /*!< 16+27 EFR32 AGC Interrupt */
+  PROTIMER_IRQn         = 28, /*!< 16+28 EFR32 PROTIMER Interrupt */
   RTCC_IRQn             = 29, /*!< 16+29 EFR32 RTCC Interrupt */
+  SYNTH_IRQn            = 30, /*!< 16+30 EFR32 SYNTH Interrupt */
   CRYOTIMER_IRQn        = 31, /*!< 16+31 EFR32 CRYOTIMER Interrupt */
+  RFSENSE_IRQn          = 32, /*!< 16+32 EFR32 RFSENSE Interrupt */
   FPUEH_IRQn            = 33, /*!< 16+33 EFR32 FPUEH Interrupt */
 } IRQn_Type;
 
-/**************************************************************************//**
+/***************************************************************************//**
  * @defgroup EFR32FG1V232F256GM48_Core Core
  * @{
  * @brief Processor and Core Peripheral Section
- *****************************************************************************/
-#define __MPU_PRESENT             1 /**< Presence of MPU  */
-#define __FPU_PRESENT             1 /**< Presence of FPU  */
-#define __VTOR_PRESENT            1 /**< Presence of VTOR register in SCB */
-#define __NVIC_PRIO_BITS          3 /**< NVIC interrupt priority bits */
-#define __Vendor_SysTickConfig    0 /**< Is 1 if different SysTick counter is used */
+ ******************************************************************************/
+#define __MPU_PRESENT             1U /**< Presence of MPU  */
+#define __FPU_PRESENT             1U /**< Presence of FPU  */
+#define __VTOR_PRESENT            1U /**< Presence of VTOR register in SCB */
+#define __NVIC_PRIO_BITS          3U /**< NVIC interrupt priority bits */
+#define __Vendor_SysTickConfig    0U /**< Is 1 if different SysTick counter is used */
 
 /** @} End of group EFR32FG1V232F256GM48_Core */
 
-/**************************************************************************//**
-* @defgroup EFR32FG1V232F256GM48_Part Part
-* @{
-******************************************************************************/
+/***************************************************************************//**
+ * @defgroup EFR32FG1V232F256GM48_Part Part
+ * @{
+ ******************************************************************************/
 
 /** Part family */
 #define _EFR32_FLEX_FAMILY                      1                               /**< FLEX Gecko RF SoC Family  */
@@ -184,7 +193,7 @@ typedef enum IRQn{
 #define FLASH_PAGE_SIZE           2048U          /**< Flash Memory page size */
 #define SRAM_BASE                 (0x20000000UL) /**< SRAM Base Address */
 #define SRAM_SIZE                 (0x00007C00UL) /**< Available SRAM Memory */
-#define __CM4_REV                 0x001          /**< Cortex-M4 Core revision r0p1 */
+#define __CM4_REV                 0x0001U        /**< Cortex-M4 Core revision r0p1 */
 #define PRS_CHAN_COUNT            12             /**< Number of PRS channels */
 #define DMA_CHAN_COUNT            8              /**< Number of DMA channels */
 #define EXT_IRQ_COUNT             34             /**< Number of External (NVIC) interrupts */
@@ -246,32 +255,32 @@ typedef enum IRQn{
 
 /** @} End of group EFR32FG1V232F256GM48_Part */
 
-/**************************************************************************//**
+/***************************************************************************//**
  * @defgroup EFR32FG1V232F256GM48_Peripheral_TypeDefs Peripheral TypeDefs
  * @{
  * @brief Device Specific Peripheral Register Structures
- *****************************************************************************/
+ ******************************************************************************/
 
 #include "efr32fg1v_msc.h"
 #include "efr32fg1v_emu.h"
 #include "efr32fg1v_rmu.h"
 
-/**************************************************************************//**
+/***************************************************************************//**
  * @defgroup EFR32FG1V232F256GM48_CMU CMU
  * @{
  * @brief EFR32FG1V232F256GM48_CMU Register Declaration
- *****************************************************************************/
+ ******************************************************************************/
 /** CMU Register Declaration */
 typedef struct {
   __IOM uint32_t CTRL;                /**< CMU Control Register  */
 
-  uint32_t       RESERVED0[3];        /**< Reserved for future use **/
+  uint32_t       RESERVED0[3U];       /**< Reserved for future use **/
   __IOM uint32_t HFRCOCTRL;           /**< HFRCO Control Register  */
 
-  uint32_t       RESERVED1[1];        /**< Reserved for future use **/
+  uint32_t       RESERVED1[1U];       /**< Reserved for future use **/
   __IOM uint32_t AUXHFRCOCTRL;        /**< AUXHFRCO Control Register  */
 
-  uint32_t       RESERVED2[1];        /**< Reserved for future use **/
+  uint32_t       RESERVED2[1U];       /**< Reserved for future use **/
   __IOM uint32_t LFRCOCTRL;           /**< LFRCO Control Register  */
   __IOM uint32_t HFXOCTRL;            /**< HFXO Control Register  */
   __IOM uint32_t HFXOCTRL1;           /**< HFXO Control 1  */
@@ -281,24 +290,24 @@ typedef struct {
   __IOM uint32_t LFXOCTRL;            /**< LFXO Control Register  */
   __IOM uint32_t ULFRCOCTRL;          /**< ULFRCO Control Register  */
 
-  uint32_t       RESERVED3[4];        /**< Reserved for future use **/
+  uint32_t       RESERVED3[4U];       /**< Reserved for future use **/
   __IOM uint32_t CALCTRL;             /**< Calibration Control Register  */
   __IOM uint32_t CALCNT;              /**< Calibration Counter Register  */
-  uint32_t       RESERVED4[2];        /**< Reserved for future use **/
+  uint32_t       RESERVED4[2U];       /**< Reserved for future use **/
   __IOM uint32_t OSCENCMD;            /**< Oscillator Enable/Disable Command Register  */
   __IOM uint32_t CMD;                 /**< Command Register  */
-  uint32_t       RESERVED5[2];        /**< Reserved for future use **/
+  uint32_t       RESERVED5[2U];       /**< Reserved for future use **/
   __IOM uint32_t DBGCLKSEL;           /**< Debug Trace Clock Select  */
   __IOM uint32_t HFCLKSEL;            /**< High Frequency Clock Select Command Register  */
-  uint32_t       RESERVED6[2];        /**< Reserved for future use **/
+  uint32_t       RESERVED6[2U];       /**< Reserved for future use **/
   __IOM uint32_t LFACLKSEL;           /**< Low Frequency A Clock Select Register  */
   __IOM uint32_t LFBCLKSEL;           /**< Low Frequency B Clock Select Register  */
   __IOM uint32_t LFECLKSEL;           /**< Low Frequency E Clock Select Register  */
 
-  uint32_t       RESERVED7[1];        /**< Reserved for future use **/
+  uint32_t       RESERVED7[1U];       /**< Reserved for future use **/
   __IM uint32_t  STATUS;              /**< Status Register  */
   __IM uint32_t  HFCLKSTATUS;         /**< HFCLK Status Register  */
-  uint32_t       RESERVED8[1];        /**< Reserved for future use **/
+  uint32_t       RESERVED8[1U];       /**< Reserved for future use **/
   __IM uint32_t  HFXOTRIMSTATUS;      /**< HFXO Trim Status  */
   __IM uint32_t  IF;                  /**< Interrupt Flag Register  */
   __IOM uint32_t IFS;                 /**< Interrupt Flag Set Register  */
@@ -306,47 +315,47 @@ typedef struct {
   __IOM uint32_t IEN;                 /**< Interrupt Enable Register  */
   __IOM uint32_t HFBUSCLKEN0;         /**< High Frequency Bus Clock Enable Register 0  */
 
-  uint32_t       RESERVED9[3];        /**< Reserved for future use **/
+  uint32_t       RESERVED9[3U];       /**< Reserved for future use **/
   __IOM uint32_t HFPERCLKEN0;         /**< High Frequency Peripheral Clock Enable Register 0  */
 
-  uint32_t       RESERVED10[7];       /**< Reserved for future use **/
+  uint32_t       RESERVED10[7U];      /**< Reserved for future use **/
   __IOM uint32_t LFACLKEN0;           /**< Low Frequency a Clock Enable Register 0  (Async Reg)  */
-  uint32_t       RESERVED11[1];       /**< Reserved for future use **/
+  uint32_t       RESERVED11[1U];      /**< Reserved for future use **/
   __IOM uint32_t LFBCLKEN0;           /**< Low Frequency B Clock Enable Register 0 (Async Reg)  */
 
-  uint32_t       RESERVED12[1];       /**< Reserved for future use **/
+  uint32_t       RESERVED12[1U];      /**< Reserved for future use **/
   __IOM uint32_t LFECLKEN0;           /**< Low Frequency E Clock Enable Register 0 (Async Reg)  */
-  uint32_t       RESERVED13[3];       /**< Reserved for future use **/
+  uint32_t       RESERVED13[3U];      /**< Reserved for future use **/
   __IOM uint32_t HFPRESC;             /**< High Frequency Clock Prescaler Register  */
 
-  uint32_t       RESERVED14[1];       /**< Reserved for future use **/
+  uint32_t       RESERVED14[1U];      /**< Reserved for future use **/
   __IOM uint32_t HFCOREPRESC;         /**< High Frequency Core Clock Prescaler Register  */
   __IOM uint32_t HFPERPRESC;          /**< High Frequency Peripheral Clock Prescaler Register  */
 
-  uint32_t       RESERVED15[1];       /**< Reserved for future use **/
+  uint32_t       RESERVED15[1U];      /**< Reserved for future use **/
   __IOM uint32_t HFEXPPRESC;          /**< High Frequency Export Clock Prescaler Register  */
 
-  uint32_t       RESERVED16[2];       /**< Reserved for future use **/
+  uint32_t       RESERVED16[2U];      /**< Reserved for future use **/
   __IOM uint32_t LFAPRESC0;           /**< Low Frequency a Prescaler Register 0 (Async Reg)  */
-  uint32_t       RESERVED17[1];       /**< Reserved for future use **/
+  uint32_t       RESERVED17[1U];      /**< Reserved for future use **/
   __IOM uint32_t LFBPRESC0;           /**< Low Frequency B Prescaler Register 0  (Async Reg)  */
-  uint32_t       RESERVED18[1];       /**< Reserved for future use **/
+  uint32_t       RESERVED18[1U];      /**< Reserved for future use **/
   __IOM uint32_t LFEPRESC0;           /**< Low Frequency E Prescaler Register 0  (Async Reg)  */
 
-  uint32_t       RESERVED19[3];       /**< Reserved for future use **/
+  uint32_t       RESERVED19[3U];      /**< Reserved for future use **/
   __IM uint32_t  SYNCBUSY;            /**< Synchronization Busy Register  */
   __IOM uint32_t FREEZE;              /**< Freeze Register  */
-  uint32_t       RESERVED20[2];       /**< Reserved for future use **/
+  uint32_t       RESERVED20[2U];      /**< Reserved for future use **/
   __IOM uint32_t PCNTCTRL;            /**< PCNT Control Register  */
 
-  uint32_t       RESERVED21[2];       /**< Reserved for future use **/
+  uint32_t       RESERVED21[2U];      /**< Reserved for future use **/
   __IOM uint32_t ADCCTRL;             /**< ADC Control Register  */
 
-  uint32_t       RESERVED22[4];       /**< Reserved for future use **/
+  uint32_t       RESERVED22[4U];      /**< Reserved for future use **/
   __IOM uint32_t ROUTEPEN;            /**< I/O Routing Pin Enable Register  */
   __IOM uint32_t ROUTELOC0;           /**< I/O Routing Location Register  */
 
-  uint32_t       RESERVED23[2];       /**< Reserved for future use **/
+  uint32_t       RESERVED23[2U];      /**< Reserved for future use **/
   __IOM uint32_t LOCK;                /**< Configuration Lock Register  */
 } CMU_TypeDef;                        /** @} */
 
@@ -355,31 +364,31 @@ typedef struct {
 #include "efr32fg1v_gpio.h"
 #include "efr32fg1v_prs_ch.h"
 
-/**************************************************************************//**
+/***************************************************************************//**
  * @defgroup EFR32FG1V232F256GM48_PRS PRS
  * @{
  * @brief EFR32FG1V232F256GM48_PRS Register Declaration
- *****************************************************************************/
+ ******************************************************************************/
 /** PRS Register Declaration */
 typedef struct {
-  __IOM uint32_t SWPULSE;      /**< Software Pulse Register  */
-  __IOM uint32_t SWLEVEL;      /**< Software Level Register  */
-  __IOM uint32_t ROUTEPEN;     /**< I/O Routing Pin Enable Register  */
-  uint32_t       RESERVED0[1]; /**< Reserved for future use **/
-  __IOM uint32_t ROUTELOC0;    /**< I/O Routing Location Register  */
-  __IOM uint32_t ROUTELOC1;    /**< I/O Routing Location Register  */
-  __IOM uint32_t ROUTELOC2;    /**< I/O Routing Location Register  */
+  __IOM uint32_t SWPULSE;       /**< Software Pulse Register  */
+  __IOM uint32_t SWLEVEL;       /**< Software Level Register  */
+  __IOM uint32_t ROUTEPEN;      /**< I/O Routing Pin Enable Register  */
+  uint32_t       RESERVED0[1U]; /**< Reserved for future use **/
+  __IOM uint32_t ROUTELOC0;     /**< I/O Routing Location Register  */
+  __IOM uint32_t ROUTELOC1;     /**< I/O Routing Location Register  */
+  __IOM uint32_t ROUTELOC2;     /**< I/O Routing Location Register  */
 
-  uint32_t       RESERVED1[1]; /**< Reserved for future use **/
-  __IOM uint32_t CTRL;         /**< Control Register  */
-  __IOM uint32_t DMAREQ0;      /**< DMA Request 0 Register  */
-  __IOM uint32_t DMAREQ1;      /**< DMA Request 1 Register  */
-  uint32_t       RESERVED2[1]; /**< Reserved for future use **/
-  __IM uint32_t  PEEK;         /**< PRS Channel Values  */
+  uint32_t       RESERVED1[1U]; /**< Reserved for future use **/
+  __IOM uint32_t CTRL;          /**< Control Register  */
+  __IOM uint32_t DMAREQ0;       /**< DMA Request 0 Register  */
+  __IOM uint32_t DMAREQ1;       /**< DMA Request 1 Register  */
+  uint32_t       RESERVED2[1U]; /**< Reserved for future use **/
+  __IM uint32_t  PEEK;          /**< PRS Channel Values  */
 
-  uint32_t       RESERVED3[3]; /**< Reserved registers */
-  PRS_CH_TypeDef CH[12];       /**< Channel registers */
-} PRS_TypeDef;                 /** @} */
+  uint32_t       RESERVED3[3U]; /**< Reserved registers */
+  PRS_CH_TypeDef CH[12U];       /**< Channel registers */
+} PRS_TypeDef;                  /** @} */
 
 #include "efr32fg1v_ldma_ch.h"
 #include "efr32fg1v_ldma.h"
@@ -404,10 +413,10 @@ typedef struct {
 
 /** @} End of group EFR32FG1V232F256GM48_Peripheral_TypeDefs  */
 
-/**************************************************************************//**
+/***************************************************************************//**
  * @defgroup EFR32FG1V232F256GM48_Peripheral_Base Peripheral Memory Map
  * @{
- *****************************************************************************/
+ ******************************************************************************/
 
 #define MSC_BASE          (0x400E0000UL) /**< MSC base address  */
 #define EMU_BASE          (0x400E3000UL) /**< EMU base address  */
@@ -437,10 +446,10 @@ typedef struct {
 
 /** @} End of group EFR32FG1V232F256GM48_Peripheral_Base */
 
-/**************************************************************************//**
+/***************************************************************************//**
  * @defgroup EFR32FG1V232F256GM48_Peripheral_Declaration Peripheral Declarations
  * @{
- *****************************************************************************/
+ ******************************************************************************/
 
 #define MSC          ((MSC_TypeDef *) MSC_BASE)             /**< MSC base pointer */
 #define EMU          ((EMU_TypeDef *) EMU_BASE)             /**< EMU base pointer */
@@ -468,10 +477,10 @@ typedef struct {
 
 /** @} End of group EFR32FG1V232F256GM48_Peripheral_Declaration */
 
-/**************************************************************************//**
+/***************************************************************************//**
  * @defgroup EFR32FG1V232F256GM48_Peripheral_Offsets Peripheral Offsets
  * @{
- *****************************************************************************/
+ ******************************************************************************/
 
 #define TIMER_OFFSET      0x400 /**< Offset in bytes between TIMER instances */
 #define USART_OFFSET      0x400 /**< Offset in bytes between USART instances */
@@ -483,18 +492,18 @@ typedef struct {
 
 /** @} End of group EFR32FG1V232F256GM48_Peripheral_Offsets */
 
-/**************************************************************************//**
+/***************************************************************************//**
  * @defgroup EFR32FG1V232F256GM48_BitFields Bit Fields
  * @{
- *****************************************************************************/
+ ******************************************************************************/
 
-/**************************************************************************//**
+/***************************************************************************//**
  * @addtogroup EFR32FG1V232F256GM48_PRS
  * @{
  * @addtogroup EFR32FG1V232F256GM48_PRS_Signals PRS Signals
  * @{
  * @brief PRS Signal names
- *****************************************************************************/
+ ******************************************************************************/
 #define PRS_PRS_CH0             ((1 << 8) + 0)  /**< PRS PRS channel 0 */
 #define PRS_PRS_CH1             ((1 << 8) + 1)  /**< PRS PRS channel 1 */
 #define PRS_PRS_CH2             ((1 << 8) + 2)  /**< PRS PRS channel 2 */
@@ -545,6 +554,8 @@ typedef struct {
 #define PRS_MODEM_FRAMESENT     ((38 << 8) + 3) /**< PRS Entire frame transmitted */
 #define PRS_MODEM_SYNCSENT      ((38 << 8) + 4) /**< PRS Syncword transmitted */
 #define PRS_MODEM_PRESENT       ((38 << 8) + 5) /**< PRS Preamble transmitted */
+#define PRS_MODEM_ANT0          ((39 << 8) + 5) /**< PRS Antenna 0 select */
+#define PRS_MODEM_ANT1          ((39 << 8) + 6) /**< PRS Antenna 1 select */
 #define PRS_RTCC_CCV0           ((41 << 8) + 1) /**< PRS RTCC Compare 0 */
 #define PRS_RTCC_CCV1           ((41 << 8) + 2) /**< PRS RTCC Compare 1 */
 #define PRS_RTCC_CCV2           ((41 << 8) + 3) /**< PRS RTCC Compare 2 */
@@ -577,12 +588,12 @@ typedef struct {
 
 #include "efr32fg1v_dmareq.h"
 
-/**************************************************************************//**
+/***************************************************************************//**
  * @addtogroup EFR32FG1V232F256GM48_CMU
  * @{
  * @defgroup EFR32FG1V232F256GM48_CMU_BitFields  CMU Bit Fields
  * @{
- *****************************************************************************/
+ ******************************************************************************/
 
 /* Bit fields for CMU CTRL */
 #define _CMU_CTRL_RESETVALUE                              0x00300000UL                          /**< Default value for CMU_CTRL */
@@ -2197,12 +2208,12 @@ typedef struct {
 /** @} */
 /** @} End of group EFR32FG1V232F256GM48_CMU */
 
-/**************************************************************************//**
+/***************************************************************************//**
  * @addtogroup EFR32FG1V232F256GM48_PRS
  * @{
  * @defgroup EFR32FG1V232F256GM48_PRS_BitFields  PRS Bit Fields
  * @{
- *****************************************************************************/
+ ******************************************************************************/
 
 /* Bit fields for PRS SWPULSE */
 #define _PRS_SWPULSE_RESETVALUE                0x00000000UL                           /**< Default value for PRS_SWPULSE */
@@ -3077,10 +3088,10 @@ typedef struct {
 /** @} */
 /** @} End of group EFR32FG1V232F256GM48_PRS */
 
-/**************************************************************************//**
+/***************************************************************************//**
  * @defgroup EFR32FG1V232F256GM48_UNLOCK Unlock Codes
  * @{
- *****************************************************************************/
+ ******************************************************************************/
 #define MSC_UNLOCK_CODE      0x1B71 /**< MSC unlock code */
 #define EMU_UNLOCK_CODE      0xADE8 /**< EMU unlock code */
 #define RMU_UNLOCK_CODE      0xE084 /**< RMU unlock code */
@@ -3093,12 +3104,12 @@ typedef struct {
 
 /** @} End of group EFR32FG1V232F256GM48_BitFields */
 
-/**************************************************************************//**
+/***************************************************************************//**
  * @addtogroup EFR32FG1V232F256GM48_Alternate_Function Alternate Function
  * @{
  * @defgroup EFR32FG1V232F256GM48_AF_Ports Alternate Function Ports
  * @{
- *****************************************************************************/
+ ******************************************************************************/
 
 #define AF_CMU_CLK0_PORT(i)         ((i) == 0 ? 0 : (i) == 1 ? 1 : (i) == 2 ? 2 : (i) == 3 ? 2 : (i) == 4 ? 3 : (i) == 5 ? 3 : (i) == 6 ? 5 : (i) == 7 ? 5 :  -1)                                                                                                                                                                                                                                                                                                                                                                                               /**< Port number for AF_CMU_CLK0 location number i */
 #define AF_CMU_CLK1_PORT(i)         ((i) == 0 ? 0 : (i) == 1 ? 1 : (i) == 2 ? 2 : (i) == 3 ? 2 : (i) == 4 ? 3 : (i) == 5 ? 3 : (i) == 6 ? 5 : (i) == 7 ? 5 :  -1)                                                                                                                                                                                                                                                                                                                                                                                               /**< Port number for AF_CMU_CLK1 location number i */
@@ -3157,12 +3168,12 @@ typedef struct {
 /** @} */
 /** @} End of group EFR32FG1V232F256GM48_AF_Ports */
 
-/**************************************************************************//**
+/***************************************************************************//**
  * @addtogroup EFR32FG1V232F256GM48_Alternate_Function Alternate Function
  * @{
  * @defgroup EFR32FG1V232F256GM48_AF_Pins Alternate Function Pins
  * @{
- *****************************************************************************/
+ ******************************************************************************/
 
 #define AF_CMU_CLK0_PIN(i)         ((i) == 0 ? 1 : (i) == 1 ? 15 : (i) == 2 ? 6 : (i) == 3 ? 11 : (i) == 4 ? 9 : (i) == 5 ? 14 : (i) == 6 ? 2 : (i) == 7 ? 7 :  -1)                                                                                                                                                                                                                                                                                                                                                                                                         /**< Pin number for AF_CMU_CLK0 location number i */
 #define AF_CMU_CLK1_PIN(i)         ((i) == 0 ? 0 : (i) == 1 ? 14 : (i) == 2 ? 7 : (i) == 3 ? 10 : (i) == 4 ? 10 : (i) == 5 ? 15 : (i) == 6 ? 3 : (i) == 7 ? 6 :  -1)                                                                                                                                                                                                                                                                                                                                                                                                        /**< Pin number for AF_CMU_CLK1 location number i */
@@ -3221,7 +3232,7 @@ typedef struct {
 /** @} */
 /** @} End of group EFR32FG1V232F256GM48_AF_Pins */
 
-/**************************************************************************//**
+/***************************************************************************//**
  *  @brief Set the value of a bit field within a register.
  *
  *  @param REG
@@ -3233,7 +3244,7 @@ typedef struct {
  *  @param OFFSET
  *       The number of bits that the field is offset within the register.
  *       0 (zero) means LSB.
- *****************************************************************************/
+ ******************************************************************************/
 #define SET_BIT_FIELD(REG, MASK, VALUE, OFFSET) \
   REG = ((REG) &~(MASK)) | (((VALUE) << (OFFSET)) & (MASK));
 

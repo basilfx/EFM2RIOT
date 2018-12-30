@@ -1,34 +1,33 @@
-/**************************************************************************//**
- * @file efm32tg11b_can.h
+/***************************************************************************//**
+ * @file
  * @brief EFM32TG11B_CAN register and bit field definitions
- * @version 5.4.0
- ******************************************************************************
+ * @version 5.7.0
+ *******************************************************************************
  * # License
- * <b>Copyright 2017 Silicon Laboratories, Inc. www.silabs.com</b>
- ******************************************************************************
+ * <b>Copyright 2018 Silicon Laboratories Inc. www.silabs.com</b>
+ *******************************************************************************
+ *
+ * SPDX-License-Identifier: Zlib
+ *
+ * The licensor of this software is Silicon Laboratories Inc.
+ *
+ * This software is provided 'as-is', without any express or implied
+ * warranty. In no event will the authors be held liable for any damages
+ * arising from the use of this software.
  *
  * Permission is granted to anyone to use this software for any purpose,
  * including commercial applications, and to alter it and redistribute it
  * freely, subject to the following restrictions:
  *
  * 1. The origin of this software must not be misrepresented; you must not
- *    claim that you wrote the original software.@n
+ *    claim that you wrote the original software. If you use this software
+ *    in a product, an acknowledgment in the product documentation would be
+ *    appreciated but is not required.
  * 2. Altered source versions must be plainly marked as such, and must not be
- *    misrepresented as being the original software.@n
+ *    misrepresented as being the original software.
  * 3. This notice may not be removed or altered from any source distribution.
  *
- * DISCLAIMER OF WARRANTY/LIMITATION OF REMEDIES: Silicon Laboratories, Inc.
- * has no obligation to support this Software. Silicon Laboratories, Inc. is
- * providing the Software "AS IS", with no express or implied warranties of any
- * kind, including, but not limited to, any implied warranties of
- * merchantability or fitness for any particular purpose or warranties against
- * infringement of any proprietary rights of a third party.
- *
- * Silicon Laboratories, Inc. will not be liable for any consequential,
- * incidental, or special damages, or any other relief, or for any claim by
- * any third party, arising from your use of this Software.
- *
- *****************************************************************************/
+ ******************************************************************************/
 
 #ifdef __cplusplus
 extern "C" {
@@ -41,50 +40,50 @@ extern "C" {
 #pragma clang system_header  /* Treat file as system include file. */
 #endif
 
-/**************************************************************************//**
-* @addtogroup Parts
-* @{
-******************************************************************************/
-/**************************************************************************//**
+/***************************************************************************//**
+ * @addtogroup Parts
+ * @{
+ ******************************************************************************/
+/***************************************************************************//**
  * @defgroup EFM32TG11B_CAN CAN
  * @{
  * @brief EFM32TG11B_CAN Register Declaration
- *****************************************************************************/
+ ******************************************************************************/
 /** CAN Register Declaration */
 typedef struct {
-  __IOM uint32_t  CTRL;         /**< Control Register  */
-  __IOM uint32_t  STATUS;       /**< Status Register  */
-  __IM uint32_t   ERRCNT;       /**< Error Count Register  */
-  __IOM uint32_t  BITTIMING;    /**< Bit Timing Register  */
-  __IM uint32_t   INTID;        /**< Interrupt Identification Register  */
-  __IOM uint32_t  TEST;         /**< Test Register  */
-  __IOM uint32_t  BRPE;         /**< BRP Extension Register  */
-  __IM uint32_t   TRANSREQ;     /**< Transmission Request Register  */
-  __IM uint32_t   MESSAGEDATA;  /**< New Data Register  */
+  __IOM uint32_t  CTRL;          /**< Control Register  */
+  __IOM uint32_t  STATUS;        /**< Status Register  */
+  __IM uint32_t   ERRCNT;        /**< Error Count Register  */
+  __IOM uint32_t  BITTIMING;     /**< Bit Timing Register  */
+  __IM uint32_t   INTID;         /**< Interrupt Identification Register  */
+  __IOM uint32_t  TEST;          /**< Test Register  */
+  __IOM uint32_t  BRPE;          /**< BRP Extension Register  */
+  __IM uint32_t   TRANSREQ;      /**< Transmission Request Register  */
+  __IM uint32_t   MESSAGEDATA;   /**< New Data Register  */
 
-  uint32_t        RESERVED0[1]; /**< Reserved for future use **/
-  __IM uint32_t   MESSAGESTATE; /**< Message Valid Register  */
-  __IOM uint32_t  CONFIG;       /**< Configuration Register  */
-  __IM uint32_t   IF0IF;        /**< Message Object Interrupt Flag Register  */
-  __IOM uint32_t  IF0IFS;       /**< Message Object Interrupt Flag Set Register  */
-  __IOM uint32_t  IF0IFC;       /**< Message Object Interrupt Flag Clear Register  */
-  __IOM uint32_t  IF0IEN;       /**< Message Object Interrupt Enable Register  */
-  __IM uint32_t   IF1IF;        /**< Status Interrupt Flag Register  */
-  __IOM uint32_t  IF1IFS;       /**< Message Object Interrupt Flag Set Register  */
-  __IOM uint32_t  IF1IFC;       /**< Message Object Interrupt Flag Clear Register  */
-  __IOM uint32_t  IF1IEN;       /**< Status Interrupt Enable Register  */
-  __IOM uint32_t  ROUTE;        /**< I/O Routing Register  */
+  uint32_t        RESERVED0[1U]; /**< Reserved for future use **/
+  __IM uint32_t   MESSAGESTATE;  /**< Message Valid Register  */
+  __IOM uint32_t  CONFIG;        /**< Configuration Register  */
+  __IM uint32_t   IF0IF;         /**< Message Object Interrupt Flag Register  */
+  __IOM uint32_t  IF0IFS;        /**< Message Object Interrupt Flag Set Register  */
+  __IOM uint32_t  IF0IFC;        /**< Message Object Interrupt Flag Clear Register  */
+  __IOM uint32_t  IF0IEN;        /**< Message Object Interrupt Enable Register  */
+  __IM uint32_t   IF1IF;         /**< Status Interrupt Flag Register  */
+  __IOM uint32_t  IF1IFS;        /**< Message Object Interrupt Flag Set Register  */
+  __IOM uint32_t  IF1IFC;        /**< Message Object Interrupt Flag Clear Register  */
+  __IOM uint32_t  IF1IEN;        /**< Status Interrupt Enable Register  */
+  __IOM uint32_t  ROUTE;         /**< I/O Routing Register  */
 
-  uint32_t        RESERVED1[3]; /**< Reserved registers */
-  CAN_MIR_TypeDef MIR[2];       /**< Interface Registers */
-} CAN_TypeDef;                  /** @} */
+  uint32_t        RESERVED1[3U]; /**< Reserved registers */
+  CAN_MIR_TypeDef MIR[2U];       /**< Interface Registers */
+} CAN_TypeDef;                   /** @} */
 
-/**************************************************************************//**
+/***************************************************************************//**
  * @addtogroup EFM32TG11B_CAN
  * @{
  * @defgroup EFM32TG11B_CAN_BitFields CAN Bit Fields
  * @{
- *****************************************************************************/
+ ******************************************************************************/
 
 /* Bit fields for CAN CTRL */
 #define _CAN_CTRL_RESETVALUE                     0x00000001UL                  /**< Default value for CAN_CTRL */

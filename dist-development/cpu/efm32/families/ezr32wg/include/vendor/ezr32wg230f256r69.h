@@ -1,35 +1,34 @@
-/**************************************************************************//**
- * @file ezr32wg230f256r69.h
+/***************************************************************************//**
+ * @file
  * @brief CMSIS Cortex-M Peripheral Access Layer Header File
  *        for EZR32WG230F256R69
- * @version 5.4.0
- ******************************************************************************
+ * @version 5.7.0
+ *******************************************************************************
  * # License
- * <b>Copyright 2017 Silicon Laboratories, Inc. www.silabs.com</b>
- ******************************************************************************
+ * <b>Copyright 2018 Silicon Laboratories Inc. www.silabs.com</b>
+ *******************************************************************************
+ *
+ * SPDX-License-Identifier: Zlib
+ *
+ * The licensor of this software is Silicon Laboratories Inc.
+ *
+ * This software is provided 'as-is', without any express or implied
+ * warranty. In no event will the authors be held liable for any damages
+ * arising from the use of this software.
  *
  * Permission is granted to anyone to use this software for any purpose,
  * including commercial applications, and to alter it and redistribute it
  * freely, subject to the following restrictions:
  *
  * 1. The origin of this software must not be misrepresented; you must not
- *    claim that you wrote the original software.@n
+ *    claim that you wrote the original software. If you use this software
+ *    in a product, an acknowledgment in the product documentation would be
+ *    appreciated but is not required.
  * 2. Altered source versions must be plainly marked as such, and must not be
- *    misrepresented as being the original software.@n
+ *    misrepresented as being the original software.
  * 3. This notice may not be removed or altered from any source distribution.
  *
- * DISCLAIMER OF WARRANTY/LIMITATION OF REMEDIES: Silicon Laboratories, Inc.
- * has no obligation to support this Software. Silicon Laboratories, Inc. is
- * providing the Software "AS IS", with no express or implied warranties of any
- * kind, including, but not limited to, any implied warranties of
- * merchantability or fitness for any particular purpose or warranties against
- * infringement of any proprietary rights of a third party.
- *
- * Silicon Laboratories, Inc. will not be liable for any consequential,
- * incidental, or special damages, or any other relief, or for any claim by
- * any third party, arising from your use of this Software.
- *
- *****************************************************************************/
+ ******************************************************************************/
 
 #if defined(__ICCARM__)
 #pragma system_include       /* Treat file as system include file. */
@@ -44,15 +43,15 @@
 extern "C" {
 #endif
 
-/**************************************************************************//**
+/***************************************************************************//**
  * @addtogroup Parts
  * @{
- *****************************************************************************/
+ ******************************************************************************/
 
-/**************************************************************************//**
+/***************************************************************************//**
  * @defgroup EZR32WG230F256R69 EZR32WG230F256R69
  * @{
- *****************************************************************************/
+ ******************************************************************************/
 
 /** Interrupt Number Definition */
 typedef enum IRQn{
@@ -107,23 +106,23 @@ typedef enum IRQn{
   FPUEH_IRQn            = 39, /*!< 39 EZR32 FPUEH Interrupt */
 } IRQn_Type;
 
-/**************************************************************************//**
+/***************************************************************************//**
  * @defgroup EZR32WG230F256R69_Core EZR32WG230F256R69 Core
  * @{
  * @brief Processor and Core Peripheral Section
- *****************************************************************************/
-#define __MPU_PRESENT             1 /**< Presence of MPU  */
-#define __FPU_PRESENT             1 /**< Presence of FPU  */
-#define __VTOR_PRESENT            1 /**< Presence of VTOR register in SCB */
-#define __NVIC_PRIO_BITS          3 /**< NVIC interrupt priority bits */
-#define __Vendor_SysTickConfig    0 /**< Is 1 if different SysTick counter is used */
+ ******************************************************************************/
+#define __MPU_PRESENT             1U /**< Presence of MPU  */
+#define __FPU_PRESENT             1U /**< Presence of FPU  */
+#define __VTOR_PRESENT            1U /**< Presence of VTOR register in SCB */
+#define __NVIC_PRIO_BITS          3U /**< NVIC interrupt priority bits */
+#define __Vendor_SysTickConfig    0U /**< Is 1 if different SysTick counter is used */
 
 /** @} End of group EZR32WG230F256R69_Core */
 
-/**************************************************************************//**
-* @defgroup EZR32WG230F256R69_Part EZR32WG230F256R69 Part
-* @{
-******************************************************************************/
+/***************************************************************************//**
+ * @defgroup EZR32WG230F256R69_Part EZR32WG230F256R69 Part
+ * @{
+ ******************************************************************************/
 
 /** Part family */
 #define _EFM32_WONDER_FAMILY                    1  /**< Wonder Gecko EFM32WG MCU Family */
@@ -181,7 +180,7 @@ typedef enum IRQn{
 #define FLASH_PAGE_SIZE      2048U          /**< Flash Memory page size */
 #define SRAM_BASE            (0x20000000UL) /**< SRAM Base Address */
 #define SRAM_SIZE            (0x00008000UL) /**< Available SRAM Memory */
-#define __CM4_REV            0x001          /**< Cortex-M4 Core revision r0p1 */
+#define __CM4_REV            0x0001U        /**< Cortex-M4 Core revision r0p1 */
 #define PRS_CHAN_COUNT       12             /**< Number of PRS channels */
 #define DMA_CHAN_COUNT       12             /**< Number of DMA channels */
 #define EXT_IRQ_COUNT        39             /**< Number of External (NVIC) interrupts */
@@ -265,11 +264,11 @@ typedef enum IRQn{
 #define RF_PRESENT                /**< RF is available in this part */
 #define RF_COUNT                1 /**< 1 RF available */
 
-/**************************************************************************//**
+/***************************************************************************//**
  * @defgroup EZR32WG230F256R69_RF_Interface EZR32WG230F256R69 RF_Interface
  * @brief MCU port/pins used for RF interface.
  * @{
- *****************************************************************************/
+ ******************************************************************************/
 #define RF_USARTRF_LOCATION     0     /**< RF SPI-port (USART) location number. */
 #define RF_USARTRF_CS_PORT      4     /**< Bit banged RF SPI CS GPIO port no.   */
 #define RF_USARTRF_CS_PIN       9     /**< Bit banged RF SPI CS GPIO pin number.*/
@@ -295,11 +294,11 @@ typedef enum IRQn{
 
 /** @} End of group EZR32WG230F256R69_Part */
 
-/**************************************************************************//**
+/***************************************************************************//**
  * @defgroup EZR32WG230F256R69_Peripheral_TypeDefs EZR32WG230F256R69 Peripheral TypeDefs
  * @{
  * @brief Device Specific Peripheral Register Structures
- *****************************************************************************/
+ ******************************************************************************/
 
 #include "ezr32wg_dma_ch.h"
 #include "ezr32wg_dma.h"
@@ -308,48 +307,48 @@ typedef enum IRQn{
 #include "ezr32wg_emu.h"
 #include "ezr32wg_rmu.h"
 
-/**************************************************************************//**
+/***************************************************************************//**
  * @defgroup EZR32WG230F256R69_CMU EZR32WG230F256R69 CMU
  * @{
  * @brief EZR32WG230F256R69_CMU Register Declaration
- *****************************************************************************/
+ ******************************************************************************/
 typedef struct {
-  __IOM uint32_t CTRL;         /**< CMU Control Register  */
-  __IOM uint32_t HFCORECLKDIV; /**< High Frequency Core Clock Division Register  */
-  __IOM uint32_t HFPERCLKDIV;  /**< High Frequency Peripheral Clock Division Register  */
-  __IOM uint32_t HFRCOCTRL;    /**< HFRCO Control Register  */
-  __IOM uint32_t LFRCOCTRL;    /**< LFRCO Control Register  */
-  __IOM uint32_t AUXHFRCOCTRL; /**< AUXHFRCO Control Register  */
-  __IOM uint32_t CALCTRL;      /**< Calibration Control Register  */
-  __IOM uint32_t CALCNT;       /**< Calibration Counter Register  */
-  __IOM uint32_t OSCENCMD;     /**< Oscillator Enable/Disable Command Register  */
-  __IOM uint32_t CMD;          /**< Command Register  */
-  __IOM uint32_t LFCLKSEL;     /**< Low Frequency Clock Select Register  */
-  __IM uint32_t  STATUS;       /**< Status Register  */
-  __IM uint32_t  IF;           /**< Interrupt Flag Register  */
-  __IOM uint32_t IFS;          /**< Interrupt Flag Set Register  */
-  __IOM uint32_t IFC;          /**< Interrupt Flag Clear Register  */
-  __IOM uint32_t IEN;          /**< Interrupt Enable Register  */
-  __IOM uint32_t HFCORECLKEN0; /**< High Frequency Core Clock Enable Register 0  */
-  __IOM uint32_t HFPERCLKEN0;  /**< High Frequency Peripheral Clock Enable Register 0  */
-  uint32_t       RESERVED0[2]; /**< Reserved for future use **/
-  __IM uint32_t  SYNCBUSY;     /**< Synchronization Busy Register  */
-  __IOM uint32_t FREEZE;       /**< Freeze Register  */
-  __IOM uint32_t LFACLKEN0;    /**< Low Frequency A Clock Enable Register 0  (Async Reg)  */
-  uint32_t       RESERVED1[1]; /**< Reserved for future use **/
-  __IOM uint32_t LFBCLKEN0;    /**< Low Frequency B Clock Enable Register 0 (Async Reg)  */
+  __IOM uint32_t CTRL;          /**< CMU Control Register  */
+  __IOM uint32_t HFCORECLKDIV;  /**< High Frequency Core Clock Division Register  */
+  __IOM uint32_t HFPERCLKDIV;   /**< High Frequency Peripheral Clock Division Register  */
+  __IOM uint32_t HFRCOCTRL;     /**< HFRCO Control Register  */
+  __IOM uint32_t LFRCOCTRL;     /**< LFRCO Control Register  */
+  __IOM uint32_t AUXHFRCOCTRL;  /**< AUXHFRCO Control Register  */
+  __IOM uint32_t CALCTRL;       /**< Calibration Control Register  */
+  __IOM uint32_t CALCNT;        /**< Calibration Counter Register  */
+  __IOM uint32_t OSCENCMD;      /**< Oscillator Enable/Disable Command Register  */
+  __IOM uint32_t CMD;           /**< Command Register  */
+  __IOM uint32_t LFCLKSEL;      /**< Low Frequency Clock Select Register  */
+  __IM uint32_t  STATUS;        /**< Status Register  */
+  __IM uint32_t  IF;            /**< Interrupt Flag Register  */
+  __IOM uint32_t IFS;           /**< Interrupt Flag Set Register  */
+  __IOM uint32_t IFC;           /**< Interrupt Flag Clear Register  */
+  __IOM uint32_t IEN;           /**< Interrupt Enable Register  */
+  __IOM uint32_t HFCORECLKEN0;  /**< High Frequency Core Clock Enable Register 0  */
+  __IOM uint32_t HFPERCLKEN0;   /**< High Frequency Peripheral Clock Enable Register 0  */
+  uint32_t       RESERVED0[2U]; /**< Reserved for future use **/
+  __IM uint32_t  SYNCBUSY;      /**< Synchronization Busy Register  */
+  __IOM uint32_t FREEZE;        /**< Freeze Register  */
+  __IOM uint32_t LFACLKEN0;     /**< Low Frequency A Clock Enable Register 0  (Async Reg)  */
+  uint32_t       RESERVED1[1U]; /**< Reserved for future use **/
+  __IOM uint32_t LFBCLKEN0;     /**< Low Frequency B Clock Enable Register 0 (Async Reg)  */
 
-  uint32_t       RESERVED2[1]; /**< Reserved for future use **/
-  __IOM uint32_t LFAPRESC0;    /**< Low Frequency A Prescaler Register 0 (Async Reg)  */
-  uint32_t       RESERVED3[1]; /**< Reserved for future use **/
-  __IOM uint32_t LFBPRESC0;    /**< Low Frequency B Prescaler Register 0  (Async Reg)  */
-  uint32_t       RESERVED4[1]; /**< Reserved for future use **/
-  __IOM uint32_t PCNTCTRL;     /**< PCNT Control Register  */
+  uint32_t       RESERVED2[1U]; /**< Reserved for future use **/
+  __IOM uint32_t LFAPRESC0;     /**< Low Frequency A Prescaler Register 0 (Async Reg)  */
+  uint32_t       RESERVED3[1U]; /**< Reserved for future use **/
+  __IOM uint32_t LFBPRESC0;     /**< Low Frequency B Prescaler Register 0  (Async Reg)  */
+  uint32_t       RESERVED4[1U]; /**< Reserved for future use **/
+  __IOM uint32_t PCNTCTRL;      /**< PCNT Control Register  */
 
-  uint32_t       RESERVED5[1]; /**< Reserved for future use **/
-  __IOM uint32_t ROUTE;        /**< I/O Routing Register  */
-  __IOM uint32_t LOCK;         /**< Configuration Lock Register  */
-} CMU_TypeDef;                 /**< CMU Register Declaration *//** @} */
+  uint32_t       RESERVED5[1U]; /**< Reserved for future use **/
+  __IOM uint32_t ROUTE;         /**< I/O Routing Register  */
+  __IOM uint32_t LOCK;          /**< Configuration Lock Register  */
+} CMU_TypeDef;                  /**< CMU Register Declaration *//** @} */
 
 #include "ezr32wg_lesense_st.h"
 #include "ezr32wg_lesense_buf.h"
@@ -370,19 +369,19 @@ typedef struct {
 #include "ezr32wg_vcmp.h"
 #include "ezr32wg_prs_ch.h"
 
-/**************************************************************************//**
+/***************************************************************************//**
  * @defgroup EZR32WG230F256R69_PRS EZR32WG230F256R69 PRS
  * @{
  * @brief EZR32WG230F256R69_PRS Register Declaration
- *****************************************************************************/
+ ******************************************************************************/
 typedef struct {
-  __IOM uint32_t SWPULSE;      /**< Software Pulse Register  */
-  __IOM uint32_t SWLEVEL;      /**< Software Level Register  */
-  __IOM uint32_t ROUTE;        /**< I/O Routing Register  */
+  __IOM uint32_t SWPULSE;       /**< Software Pulse Register  */
+  __IOM uint32_t SWLEVEL;       /**< Software Level Register  */
+  __IOM uint32_t ROUTE;         /**< I/O Routing Register  */
 
-  uint32_t       RESERVED0[1]; /**< Reserved registers */
-  PRS_CH_TypeDef CH[12];       /**< Channel registers */
-} PRS_TypeDef;                 /**< PRS Register Declaration *//** @} */
+  uint32_t       RESERVED0[1U]; /**< Reserved registers */
+  PRS_CH_TypeDef CH[12U];       /**< Channel registers */
+} PRS_TypeDef;                  /**< PRS Register Declaration *//** @} */
 
 #include "ezr32wg_adc.h"
 #include "ezr32wg_dac.h"
@@ -397,10 +396,10 @@ typedef struct {
 
 /** @} End of group EZR32WG230F256R69_Peripheral_TypeDefs */
 
-/**************************************************************************//**
+/***************************************************************************//**
  * @defgroup EZR32WG230F256R69_Peripheral_Base EZR32WG230F256R69 Peripheral Memory Map
  * @{
- *****************************************************************************/
+ ******************************************************************************/
 
 #define DMA_BASE          (0x400C2000UL) /**< DMA base address  */
 #define AES_BASE          (0x400E0000UL) /**< AES base address  */
@@ -446,10 +445,10 @@ typedef struct {
 
 /** @} End of group EZR32WG230F256R69_Peripheral_Base */
 
-/**************************************************************************//**
+/***************************************************************************//**
  * @defgroup EZR32WG230F256R69_Peripheral_Declaration  EZR32WG230F256R69 Peripheral Declarations
  * @{
- *****************************************************************************/
+ ******************************************************************************/
 
 #define DMA          ((DMA_TypeDef *) DMA_BASE)             /**< DMA base pointer */
 #define AES          ((AES_TypeDef *) AES_BASE)             /**< AES base pointer */
@@ -493,16 +492,16 @@ typedef struct {
 
 /** @} End of group EZR32WG230F256R69_Peripheral_Declaration */
 
-/**************************************************************************//**
+/***************************************************************************//**
  * @defgroup EZR32WG230F256R69_BitFields EZR32WG230F256R69 Bit Fields
  * @{
- *****************************************************************************/
+ ******************************************************************************/
 
-/**************************************************************************//**
+/***************************************************************************//**
  * @addtogroup EZR32WG230F256R69_PRS_Signals
  * @{
  * @brief PRS Signal names
- *****************************************************************************/
+ ******************************************************************************/
 #define PRS_VCMP_OUT             ((1 << 16) + 0)  /**< PRS Voltage comparator output */
 #define PRS_ACMP0_OUT            ((2 << 16) + 0)  /**< PRS Analog comparator output */
 #define PRS_ACMP1_OUT            ((3 << 16) + 0)  /**< PRS Analog comparator output */
@@ -591,10 +590,10 @@ typedef struct {
 #include "ezr32wg_usartrf.h"
 #include "ezr32wg_uart.h"
 
-/**************************************************************************//**
+/***************************************************************************//**
  * @defgroup EZR32WG230F256R69_CMU_BitFields  EZR32WG230F256R69_CMU Bit Fields
  * @{
- *****************************************************************************/
+ ******************************************************************************/
 
 /* Bit fields for CMU CTRL */
 #define _CMU_CTRL_RESETVALUE                        0x000C262CUL                                /**< Default value for CMU_CTRL */
@@ -1656,10 +1655,10 @@ typedef struct {
 
 /** @} End of group EZR32WG230F256R69_CMU */
 
-/**************************************************************************//**
+/***************************************************************************//**
  * @defgroup EZR32WG230F256R69_PRS_BitFields  EZR32WG230F256R69_PRS Bit Fields
  * @{
- *****************************************************************************/
+ ******************************************************************************/
 
 /* Bit fields for PRS SWPULSE */
 #define _PRS_SWPULSE_RESETVALUE                 0x00000000UL                           /**< Default value for PRS_SWPULSE */
@@ -2054,10 +2053,10 @@ typedef struct {
 
 /** @} End of group EZR32WG230F256R69_PRS */
 
-/**************************************************************************//**
+/***************************************************************************//**
  * @defgroup EZR32WG230F256R69_UNLOCK EZR32WG230F256R69 Unlock Codes
  * @{
- *****************************************************************************/
+ ******************************************************************************/
 #define MSC_UNLOCK_CODE      0x1B71 /**< MSC unlock code */
 #define EMU_UNLOCK_CODE      0xADE8 /**< EMU unlock code */
 #define CMU_UNLOCK_CODE      0x580E /**< CMU unlock code */
@@ -2069,17 +2068,17 @@ typedef struct {
 
 /** @} End of group EZR32WG230F256R69_BitFields */
 
-/**************************************************************************//**
+/***************************************************************************//**
  * @defgroup EZR32WG230F256R69_Alternate_Function EZR32WG230F256R69 Alternate Function
  * @{
- *****************************************************************************/
+ ******************************************************************************/
 
 #include "ezr32wg_af_ports.h"
 #include "ezr32wg_af_pins.h"
 
 /** @} End of group EZR32WG230F256R69_Alternate_Function */
 
-/**************************************************************************//**
+/***************************************************************************//**
  *  @brief Set the value of a bit field within a register.
  *
  *  @param REG
@@ -2091,7 +2090,7 @@ typedef struct {
  *  @param OFFSET
  *       The number of bits that the field is offset within the register.
  *       0 (zero) means LSB.
- *****************************************************************************/
+ ******************************************************************************/
 #define SET_BIT_FIELD(REG, MASK, VALUE, OFFSET) \
   REG = ((REG) &~(MASK)) | (((VALUE) << (OFFSET)) & (MASK));
 

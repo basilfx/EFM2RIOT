@@ -75,6 +75,7 @@ namespace Emul8.Peripherals
         // This structure should resemble the structure of efr32mg14p_devinfo.h.
         private enum DeviceInformationOffset : long
         {
+            MODULEINFO       = 0x000, // Module trace information 
             EXTINFO          = 0x01c, // External Component description 
             EUI48L           = 0x024, // EUI48 OUI and Unique identifier 
             EUI48H           = 0x028, // OUI 

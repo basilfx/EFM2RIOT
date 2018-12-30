@@ -75,6 +75,9 @@ namespace Emul8.Peripherals
         // This structure should resemble the structure of efm32gg11b_devinfo.h.
         private enum DeviceInformationOffset : long
         {
+            MODULEINFO       = 0x000, // Module trace information 
+            MODXOCAL         = 0x004, // Module Crystal Oscillator Calibration 
+            EXTINFO          = 0x01c, // External Component description 
             EUI48L           = 0x024, // EUI48 OUI and Unique identifier 
             EUI48H           = 0x028, // OUI 
             CUSTOMINFO       = 0x02c, // Custom information 
