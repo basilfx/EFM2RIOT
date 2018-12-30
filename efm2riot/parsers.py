@@ -52,7 +52,7 @@ def parse_device_irqs(sdk_directory, family):
 
     startup_file = os.path.join(
         sdk_directory,
-        f"Device/SiliconLabs/{family.upper()}/Source/ARM/",
+        f"Device/SiliconLabs/{family.upper()}/Source/GCC/",
         f"startup_{family.lower()}.s")
 
     irq_table = []
@@ -90,7 +90,7 @@ def parse_device_info(sdk_directory, family):
     needed for Renode.
     """
 
-    re_reserved = re.compile(r"\[(\d+)\]")
+    re_reserved = re.compile(r"\[(\d+)U?\]")
     re_comment = re.compile(r"\/\*\*< (.+) \*\/")
     re_family_id_hex = re.compile(r"(0x[a-fA-F0-9]+)UL")
     re_family_id_dec = re.compile(r"   ([0-9]+)")
@@ -120,7 +120,7 @@ def parse_device_info(sdk_directory, family):
             elif "typedef struct" in line:
                 skip = 1
                 read = True
-            elif "} DEVINFO_TypeDef" in line:
+            elif "}" in line and "_TypeDef" in line:
                 read = False
             elif read:
                 register_lines.append(line.strip())
@@ -142,7 +142,7 @@ def parse_device_info(sdk_directory, family):
         if not register_line:
             continue
 
-        if "uint32_t" not in register_line:
+        if "uint32_t" not in register_line and "DEVINFO_HFRCO" not in register_line:
             raise Exception("Missing size (expected uint32_t).")
 
         if "RESERVED" in register_line:

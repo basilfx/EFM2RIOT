@@ -2,7 +2,8 @@ EXTERN_START = "\n#ifdef __cplusplus\nextern \"C\" {\n#endif\n\n"
 EXTERN_STOP = "#ifdef __cplusplus\n}\n#endif\n\n"
 
 EXTERN_FIND1 = "extern \"C\" {\n"
-EXTERN_FIND2 = " *****************************************************************************/\n"  # noqa
+EXTERN_FIND2A = " ******************************************************************************/\n"  # noqa
+EXTERN_FIND2B = " *****************************************************************************/\n"  # noqa
 
 
 def add_extern_c(source_file, source):
@@ -21,7 +22,12 @@ def add_extern_c(source_file, source):
         return source
 
     # Dirty hack by looking for a string, but it works.
-    offset = source.index(EXTERN_FIND2) + len(EXTERN_FIND2)
+    if EXTERN_FIND2A in source:
+        offset = source.index(EXTERN_FIND2A) + len(EXTERN_FIND2A)
+    elif EXTERN_FIND2B in source:
+        offset = source.index(EXTERN_FIND2B) + len(EXTERN_FIND2B)
+    else:
+        raise Exception("Unable to find the marker in '%s'." % source_file)
 
     part_one = source[:offset]
     part_two = source[offset:]
