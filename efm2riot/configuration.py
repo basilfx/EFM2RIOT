@@ -30,20 +30,32 @@ TEMPLATES = [
     {
         "type": "file",
         "when": "per_family",
+        "source": "{{ root }}/templates/cpu/efm32/families/family/efm32-info.mk",
+        "target": "cpu/efm32/families/{{ family }}/efm32-info.mk"
+    },
+    {
+        "type": "file",
+        "when": "per_family",
+        "source": "{{ root }}/templates/cpu/efm32/families/family/Kconfig",
+        "target": "cpu/efm32/families/{{ family }}/Kconfig"
+    },
+    {
+        "type": "file",
+        "when": "per_family",
         "source": "{{ root }}/templates/cpu/efm32/families/family/Makefile",
         "target": "cpu/efm32/families/{{ family }}/Makefile"
     },
     {
         "type": "file",
         "when": "per_family",
-        "source": "{{ root }}/templates/cpu/efm32/families/family/vectors.c",
-        "target": "cpu/efm32/families/{{ family }}/vectors.c"
+        "source": "{{ root }}/templates/cpu/efm32/families/family/Makefile.include",
+        "target": "cpu/efm32/families/{{ family }}/Makefile.include"
     },
     {
         "type": "file",
         "when": "per_family",
-        "source": "{{ root }}/templates/cpu/efm32/families/family/cpus.txt",
-        "target": "cpu/efm32/families/{{ family }}/cpus.txt"
+        "source": "{{ root }}/templates/cpu/efm32/families/family/vectors.c",
+        "target": "cpu/efm32/families/{{ family }}/vectors.c"
     },
     {
         "type": "glob",

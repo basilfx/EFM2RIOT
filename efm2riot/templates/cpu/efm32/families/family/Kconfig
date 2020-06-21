@@ -1,0 +1,38 @@
+# Copyright (c) 2020 HAW Hamburg
+#
+# This file is subject to the terms and conditions of the GNU Lesser
+# General Public License v2.1. See the file LICENSE in the top level
+# directory for more details.
+
+config CPU_FAM_{{ family|upper }}
+    bool
+    select CPU_CORE_CORTEX_{{ architecture|upper }}
+    select CPU_COMMON_EFM32
+    {% strip 2 %}
+        {% if trng %}
+            select HAS_PERIPH_HWRNG
+        {% endif %}
+    {% endstrip %}
+
+## CPU Models
+{% strip 2 %}
+    {% for cpu in cpus %}
+        config CPU_MODEL_{{ cpu.cpu|upper }}
+            bool
+            select CPU_FAM_{{ family|upper }}
+
+    {% endfor %}
+{% endstrip -%}
+
+## Common CPU symbols
+config CPU_FAM
+    default "{{ family }}" if CPU_FAM_{{ family|upper }}
+
+config CPU_MODEL
+    {% strip 3 %}
+        {% align_with "if" %}
+            {% for cpu in cpus %}
+                default "{{ cpu.cpu }}" if CPU_MODEL_{{ cpu.cpu|upper }}
+            {% endfor %}
+        {% endalign_with %}
+    {% endstrip %}

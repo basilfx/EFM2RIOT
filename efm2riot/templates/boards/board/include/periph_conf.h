@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2015-2018 Freie Universität Berlin
+ * Copyright (C) 2015-2020 Freie Universität Berlin
  *
  * This file is subject to the terms and conditions of the GNU Lesser
  * General Public License v2.1. See the file LICENSE in the top level
@@ -37,11 +37,6 @@
 #ifdef __cplusplus
 extern "C" {
 #endif
-
-/**
- * @brief   Internal macro to calculate *_NUMOF based on config.
- */
-#define PERIPH_NUMOF(config)    (sizeof(config) / sizeof(config[0]))
 
 /**
  * @name    Clock configuration
@@ -88,6 +83,19 @@ extern "C" {
 {% endstrip %}
 /** @} */
 
+{% strip 2, ">" %}
+    {% if board in ["slstk3401a", "sltb001a"] %}
+        /**
+         * @name    DC-DC configuration
+         * @{
+         */
+        #ifdef EMU_DCDCINIT_OFF
+        #error "This option will soft-brick your board. Please remove it."
+        #endif
+        /** @} */
+    {% endif %}
+{% endstrip %}
+
 /**
  * @name    ADC configuration
  * @{
@@ -131,8 +139,8 @@ static const adc_chan_conf_t adc_channel_config[] = {
     {% endstrip %}
 };
 
-#define ADC_DEV_NUMOF       PERIPH_NUMOF(adc_config)
-#define ADC_NUMOF           PERIPH_NUMOF(adc_channel_config)
+#define ADC_DEV_NUMOF       ARRAY_SIZE(adc_config)
+#define ADC_NUMOF           ARRAY_SIZE(adc_channel_config)
 /** @} */
 
 {% strip 2, ">" %}
@@ -165,8 +173,8 @@ static const adc_chan_conf_t adc_channel_config[] = {
             }
         };
 
-        #define DAC_DEV_NUMOF       PERIPH_NUMOF(dac_config)
-        #define DAC_NUMOF           PERIPH_NUMOF(dac_channel_config)
+        #define DAC_DEV_NUMOF       ARRAY_SIZE(dac_config)
+        #define DAC_NUMOF           ARRAY_SIZE(dac_channel_config)
         /** @} */
     {% endif %}
 {% endstrip %}
@@ -185,7 +193,8 @@ static const i2c_conf_t i2c_config[] = {
                 .loc = I2C_ROUTELOC0_SDALOC_LOC1 |
                        I2C_ROUTELOC0_SCLLOC_LOC1,
                 .cmu = cmuClock_I2C0,
-                .irq = I2C0_IRQn
+                .irq = I2C0_IRQn,
+                .speed = I2C_SPEED_NORMAL
             }
         {% elif board in ["slstk3401a", "slstk3402a"] %}
             {
@@ -195,7 +204,8 @@ static const i2c_conf_t i2c_config[] = {
                 .loc = I2C_ROUTELOC0_SDALOC_LOC15 |
                        I2C_ROUTELOC0_SCLLOC_LOC15,
                 .cmu = cmuClock_I2C0,
-                .irq = I2C0_IRQn
+                .irq = I2C0_IRQn,
+                .speed = I2C_SPEED_NORMAL
             }
         {% elif board in ["slstk3701a"] %}
             {
@@ -205,7 +215,8 @@ static const i2c_conf_t i2c_config[] = {
                 .loc = I2C_ROUTELOC0_SDALOC_LOC4 |
                        I2C_ROUTELOC0_SCLLOC_LOC4,
                 .cmu = cmuClock_I2C0,
-                .irq = I2C0_IRQn
+                .irq = I2C0_IRQn,
+                .speed = I2C_SPEED_NORMAL
             },
             {
                 .dev = I2C1,
@@ -214,7 +225,8 @@ static const i2c_conf_t i2c_config[] = {
                 .loc = I2C_ROUTELOC0_SDALOC_LOC0 |
                        I2C_ROUTELOC0_SCLLOC_LOC0,
                 .cmu = cmuClock_I2C1,
-                .irq = I2C1_IRQn
+                .irq = I2C1_IRQn,
+                .speed = I2C_SPEED_NORMAL
             },
             {
                 .dev = I2C2,
@@ -223,7 +235,8 @@ static const i2c_conf_t i2c_config[] = {
                 .loc = I2C_ROUTELOC0_SDALOC_LOC7 |
                        I2C_ROUTELOC0_SCLLOC_LOC7,
                 .cmu = cmuClock_I2C2,
-                .irq = I2C2_IRQn
+                .irq = I2C2_IRQn,
+                .speed = I2C_SPEED_NORMAL
             }
         {% elif board in ["sltb001a"] %}
             {
@@ -233,8 +246,8 @@ static const i2c_conf_t i2c_config[] = {
                 .loc = I2C_ROUTELOC0_SDALOC_LOC15 |
                        I2C_ROUTELOC0_SCLLOC_LOC15,
                 .cmu = cmuClock_I2C0,
-                .irq = I2C0_IRQn
-
+                .irq = I2C0_IRQn,
+                .speed = I2C_SPEED_NORMAL
             }
         {% elif board in ["slwstk6000b"] %}
             {
@@ -244,7 +257,8 @@ static const i2c_conf_t i2c_config[] = {
                 .loc = I2C_ROUTELOC0_SDALOC_LOC16 |
                        I2C_ROUTELOC0_SCLLOC_LOC14,
                 .cmu = cmuClock_I2C0,
-                .irq = I2C0_IRQn
+                .irq = I2C0_IRQn,
+                .speed = I2C_SPEED_NORMAL
             }
         {% elif board in ["slwstk6220a"] %}
             {
@@ -253,7 +267,8 @@ static const i2c_conf_t i2c_config[] = {
                 .scl_pin = GPIO_PIN(PE, 1),
                 .loc = I2C_ROUTE_LOCATION_LOC2,
                 .cmu = cmuClock_I2C1,
-                .irq = I2C1_IRQn
+                .irq = I2C1_IRQn,
+                .speed = I2C_SPEED_NORMAL
             }
         {% elif board in ["stk3200"] %}
             {
@@ -262,7 +277,8 @@ static const i2c_conf_t i2c_config[] = {
                 .scl_pin = GPIO_PIN(PE, 13),
                 .loc = I2C_ROUTE_LOCATION_LOC6,
                 .cmu = cmuClock_I2C0,
-                .irq = I2C0_IRQn
+                .irq = I2C0_IRQn,
+                .speed = I2C_SPEED_NORMAL
             }
         {% elif board in ["stk3600", "stk3700", "stk3800"] %}
             {
@@ -271,7 +287,8 @@ static const i2c_conf_t i2c_config[] = {
                 .scl_pin = GPIO_PIN(PD, 7),
                 .loc = I2C_ROUTE_LOCATION_LOC1,
                 .cmu = cmuClock_I2C0,
-                .irq = I2C0_IRQn
+                .irq = I2C0_IRQn,
+                .speed = I2C_SPEED_NORMAL
             },
             {
                 .dev = I2C1,
@@ -279,13 +296,14 @@ static const i2c_conf_t i2c_config[] = {
                 .scl_pin = GPIO_PIN(PC, 5),
                 .loc = I2C_ROUTE_LOCATION_LOC0,
                 .cmu = cmuClock_I2C1,
-                .irq = I2C1_IRQn
+                .irq = I2C1_IRQn,
+                .speed = I2C_SPEED_NORMAL
             }
         {% endif %}
     {% endstrip %}
 };
 
-#define I2C_NUMOF           PERIPH_NUMOF(i2c_config)
+#define I2C_NUMOF           ARRAY_SIZE(i2c_config)
 {% strip 2 %}
     {% if board in ["slstk3301a"] %}
         #define I2C_0_ISR           isr_i2c0
@@ -361,23 +379,16 @@ static const i2c_conf_t i2c_config[] = {
             {% endstrip %}
         };
 
-        #define PWM_DEV_NUMOF       PERIPH_NUMOF(pwm_config)
-        #define PWM_NUMOF           PERIPH_NUMOF(pwm_channel_config)
+        #define PWM_DEV_NUMOF       ARRAY_SIZE(pwm_config)
+        #define PWM_NUMOF           ARRAY_SIZE(pwm_channel_config)
         /** @} */
     {% endif %}
 {% endstrip %}
 
 /**
- * @brief   RTC configuration
- */
-#define RTC_NUMOF           (1U)
-
-/**
  * @name    RTT configuration
  * @{
  */
-#define RTT_NUMOF           (1U)
-
 {% strip 2 %}
     {% if cpu_series == 0 %}
         #define RTT_MAX_VALUE       (0xFFFFFF)
@@ -497,7 +508,7 @@ static const spi_dev_t spi_config[] = {
     {% endstrip %}
 };
 
-#define SPI_NUMOF           PERIPH_NUMOF(spi_config)
+#define SPI_NUMOF           ARRAY_SIZE(spi_config)
 /** @} */
 
 /**
@@ -608,7 +619,7 @@ static const timer_conf_t timer_config[] = {
     {% endstrip %}
 };
 
-#define TIMER_NUMOF         PERIPH_NUMOF(timer_config)
+#define TIMER_NUMOF         ARRAY_SIZE(timer_config)
 {% strip 2 %}
     {% if board in ["slstk3301a"] %}
         #define TIMER_0_ISR         isr_timer1
@@ -785,7 +796,7 @@ static const uart_conf_t uart_config[] = {
     {% endstrip %}
 };
 
-#define UART_NUMOF          PERIPH_NUMOF(uart_config)
+#define UART_NUMOF          ARRAY_SIZE(uart_config)
 {% strip 2 %}
     {% if board in ["slstk3301a"] %}
         #define UART_0_ISR_RX       isr_usart1

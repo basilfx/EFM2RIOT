@@ -5,7 +5,7 @@ ifneq (,$(filter saul_default,$(USEMODULE)))
       USEMODULE += si7021
     {% endif %}
     {% if board in ["sltb001a"] %}
-      USEMODULE += bmp280
+      USEMODULE += bmp280_i2c
       {% strip 2 %}
         {% if development %}
           USEMODULE += ccs811
@@ -24,13 +24,25 @@ ifneq (,$(filter saul_default,$(USEMODULE)))
 endif
 
 {% strip 2, "<", 2 %}
-    {% if board in ["stk3200"] %}
-        # limit the stack size so most tests and examples compile
-        CFLAGS += -DTHREAD_STACKSIZE_DEFAULT=512
-    {% endif %}
+  {% if board in ["stk3200"] %}
+    # limit the stack size so most tests and examples compile
+    CFLAGS += -DTHREAD_STACKSIZE_DEFAULT=512
+  {% endif %}
+{% endstrip %}
+
+# add board common drivers
+USEMODULE += boards_common_silabs
+{% strip 2, "", 2 %}
+  {% if "aem" in features %}
+    USEMODULE += silabs_aem
+  {% endif %}
+  {% if "bc" in features %}
+    USEMODULE += silabs_bc
+  {% endif %}
+  {% if board in ["sltb001a"] %}
+    USEMODULE += silabs_pic
+  {% endif %}
 {% endstrip %}
 
 # include board common dependencies
 include $(RIOTBOARD)/common/silabs/Makefile.dep
-
-include $(RIOTCPU)/efm32/Makefile.dep

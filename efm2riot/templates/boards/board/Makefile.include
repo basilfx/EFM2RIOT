@@ -1,19 +1,9 @@
-{% strip 2, "<", 2 %}
+{% strip 2, ">", 2 %}
   {% if board in ["slwstk6000b"] %}
     include $(RIOTBOARD)/slwstk6000b/module-info.mk
 
     # add module specific includes
     export INCLUDES += -I$(RIOTBOARD)/{{ board }}/modules/$(BOARD_MODULE)/include
-  {% endif %}
-{% endstrip %}
-
-# define the cpu used by {{ board|upper }}
-export CPU = efm32
-{% strip 2, "", 2 %}
-  {% if board in ["slwstk6000b"] %}
-    export CPU_MODEL = $(MODULE_CPU)
-  {% else %}
-    export CPU_MODEL = {{ cpu }}
   {% endif %}
 {% endstrip %}
 
@@ -27,33 +17,19 @@ include $(RIOTMAKE)/tools/serial.inc.mk
 # setup JLink for flashing
 {% strip 2, "", 2 %}
   {% if board in ["sltb001a"] %}
-    export JLINK_DEVICE := EFR32MG1PxxxF256
+    JLINK_DEVICE = EFR32MG1PxxxF256
   {% elif board in ["slwstk6000b"] %}
-    export JLINK_DEVICE := $(MODULE_JLINK_DEVICE)
+    JLINK_DEVICE = $(MODULE_JLINK_DEVICE)
   {% else %}
-    export JLINK_DEVICE := $(CPU_MODEL)
+    JLINK_DEVICE = $(CPU_MODEL)
   {% endif %}
 {% endstrip %}
-include $(RIOTMAKE)/tools/jlink.inc.mk
+JLINK_PRE_FLASH = r
 
 {% strip 2, "<", 2 %}
   {% if development %}
     # setup emulator
     include $(RIOTMAKE)/tools/renode.inc.mk
-  {% endif %}
-{% endstrip %}
-
-# add board common drivers
-USEMODULE += boards_common_silabs
-{% strip 2, "", 2 %}
-  {% if "aem" in features %}
-    USEMODULE += silabs_aem
-  {% endif %}
-  {% if "bc" in features %}
-    USEMODULE += silabs_bc
-  {% endif %}
-  {% if board in ["sltb001a"] %}
-    USEMODULE += silabs_pic
   {% endif %}
 {% endstrip %}
 

@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2015-2018 Freie Universität Berlin
+ * Copyright (C) 2015-2020 Freie Universität Berlin
  *
  * This file is subject to the terms and conditions of the GNU Lesser
  * General Public License v2.1. See the file LICENSE in the top level
@@ -40,6 +40,7 @@ void board_init(void)
     /* initialize the CPU */
     cpu_init();
 
+#ifndef RIOTBOOT
     /* perform common board initialization */
     board_common_init();
 
@@ -83,4 +84,5 @@ void board_init(void)
             #endif
         {% endif %}
     {% endstrip %}
+#endif
 }
