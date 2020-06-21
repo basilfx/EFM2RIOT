@@ -5,12 +5,68 @@ import os
 import re
 
 
+class AlignWithExtension(Extension):
+    tags = ["align_with"]
+
+    def parse(self, parser):
+        """
+        Parse an `align_with` block.
+        """
+
+        lineno = next(parser.stream).lineno
+
+        # Parse arguments. First argument is the character to align with.
+        args = [parser.parse_expression()]
+
+        # Parse until end of block.
+        body = parser.parse_statements(
+            ["name:end" + self.tags[0]], drop_needle=True)
+
+        # Return a `CallBlock` that will call the reindent method.
+        return nodes.CallBlock(
+            self.call_method("align_with", args), [], [], body
+        ).set_lineno(lineno)
+
+    def align_with(self, character, caller):
+        """
+        Helper method that aligns each line.
+        """
+
+        lines = []
+        longest = 0
+
+        for line in caller().split("\n"):
+            if not line:
+                continue
+
+            parts = line.split(character, 1)
+
+            if len(parts) != 2:
+                print(parts)
+                raise Exception(
+                    f"Line does not contain split character '{character}'.")
+
+            longest = max(longest, len(parts[0]))
+
+            lines.append(parts)
+
+        # Align all lines.
+        data = ""
+
+        for line in lines:
+            extended = line[0] + (" " * (longest - len(line[0])))
+
+            data += extended + character + line[1] + "\n"
+
+        return data
+
+
 class StripExtension(Extension):
     tags = ["strip"]
 
     def parse(self, parser):
         """
-        Parse the strip block.
+        Parse a `strip` block.
         """
 
         lineno = next(parser.stream).lineno
@@ -132,7 +188,7 @@ def create_environment():
     environment = Environment(
         loader=FileSystemLoader([root_dir, file_dir, "/"]),
         undefined=StrictUndefined,
-        extensions=[StripExtension],
+        extensions=[AlignWithExtension, StripExtension],
         lstrip_blocks=True,
         trim_blocks=True,
         keep_trailing_newline=True)
