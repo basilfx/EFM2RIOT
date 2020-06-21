@@ -140,6 +140,24 @@ BOARDS = [
         "marketing_name": "EFM32 Tiny Gecko 11 Starter Kit"
     },
     {
+        "cpu": "efm32hg322f64",
+        "cpu_datasheet": "https://www.silabs.com/documents/public/data-sheets/efm32hg-datasheet.pdf",  # noqa
+        "board": "slstk3400a",
+        "board_manual": "https://www.silabs.com/documents/public/user-guides/ug255-stk3400-user-guide.pdf",  # noqa
+        "family": "efm32hg",
+        "family_full_name": "EFM32 Happy Gecko",
+        "family_manual": "https://www.silabs.com/documents/public/reference-manuals/efm32hg-rm.pdf",  # noqa
+        "features": ["bc"],
+        "freq": {
+            "hfxo": 24000000,
+            "hfrco": 14000000,
+            "lfxo": 32768,
+            "lfrco": 32768,
+            "ulfrco": 1000
+        },
+        "marketing_name": "EFM32 Happy Gecko Starter Kit"
+    },
+    {
         "cpu": "efm32pg1b200f256gm48",
         "cpu_datasheet": "https://www.silabs.com/documents/public/data-sheets/efm32pg1-datasheet.pdf",  # noqa
         "board": "slstk3401a",
@@ -210,6 +228,60 @@ BOARDS = [
             "ulfrco": 1000
         },
         "marketing_name": "Thunderboard Sense"
+    },
+    {
+        "cpu": "efr32mg12p332f1024gl125",
+        "cpu_datasheet": "https://www.silabs.com/documents/public/data-sheets/efr32mg12-datasheet.pdf",  # noqa
+        "board": "sltb004a",
+        "board_manual": "https://www.silabs.com/documents/public/user-guides/ug309-sltb004a-user-guide.pdf",  # noqa
+        "family": "efr32mg12p",
+        "family_full_name": "EFR32 Mighty Gecko 12P",
+        "family_manual": "https://www.silabs.com/documents/public/reference-manuals/efr32xg12-rm.pdf",  # noqa
+        "features": [],
+        "freq": {
+            "hfxo": 38400000,
+            "hfrco": 19000000,
+            "lfxo": 32768,
+            "lfrco": 32768,
+            "ulfrco": 1000
+        },
+        "marketing_name": "Thunderboard Sense 2"
+    },
+    {
+        "cpu": "efm32gg12b810f1024gm64",
+        "cpu_datasheet": "https://www.silabs.com/documents/public/data-sheets/efm32gg12-datasheet.pdf",  # noqa
+        "board": "sltb009a",
+        "board_manual": "https://www.silabs.com/documents/public/user-guides/ug371-sltb009a-user-guide.pdf",  # noqa
+        "family": "efm32gg12b",
+        "family_full_name": "EFM32 Giant Gecko 12B",
+        "family_manual": "https://www.silabs.com/documents/public/reference-manuals/efm32gg12-rm.pdf",  # noqa
+        "features": [],
+        "freq": {
+            "hfxo": 50000000,
+            "hfrco": 19000000,
+            "lfxo": 32768,
+            "lfrco": 32768,
+            "ulfrco": 1000
+        },
+        "marketing_name": "Thunderboard GG12"
+    },
+    {
+        "cpu": "efr32bg22c224f512im40",
+        "cpu_datasheet": "https://www.silabs.com/documents/public/data-sheets/efr32bg22-datasheet.pdf",  # noqa
+        "board": "sltb010a",
+        "board_manual": "https://www.silabs.com/documents/public/user-guides/ug415-sltb010a-user-guide.pdf",  # noqa
+        "family": "efr32bg22",
+        "family_full_name": "EFR32 BG22",
+        "family_manual": "https://www.silabs.com/documents/public/reference-manuals/efr32xg22-rm.pdf",  # noqa
+        "features": [],
+        "freq": {
+            "hfxo": 38400000,
+            "hfrco": 19000000,
+            "lfxo": 32768,
+            "lfrco": 32768,
+            "ulfrco": 1000
+        },
+        "marketing_name": "Thunderboard BG22 Kit"
     },
     {
         "cpu": "efr32mg12p332f1024gl125",
