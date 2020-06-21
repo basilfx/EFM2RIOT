@@ -4,11 +4,6 @@ from efm2riot import patches, filters
 STATICS = [
     {
         "type": "directory",
-        "source": "{{ root }}/static/doc/images",
-        "target": "doc/images"
-    },
-    {
-        "type": "directory",
         "source": "{{ root }}/static/examples",
         "target": "examples"
     },
@@ -77,12 +72,6 @@ TEMPLATES = [
         "when": "per_board",
         "source": "{{ root }}/templates/boards/board/*",
         "target": "boards/{{ board }}",
-    },
-    {
-        "type": "file",
-        "when": "per_board",
-        "source": "{{ root }}/templates/doc/Board.md",
-        "target": "doc/{{ board|upper }}.md",
     },
     {
         "type": "glob",
