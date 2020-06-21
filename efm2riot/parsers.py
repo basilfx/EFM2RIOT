@@ -48,7 +48,7 @@ def parse_device_irqs(sdk_directory, family):
     """
 
     re_irq = re.compile(
-        r"^\s+DCD\s+([a-zA-Z0-9_]+_IRQHandler)\s+;\s+(\d+):\s+(.*)$")
+        r"^\s+\.long\s+([a-zA-Z0-9_]+_IRQHandler)\s+\/\* (\d+) - (.+) \*\/$")
 
     startup_file = os.path.join(
         sdk_directory,
@@ -59,7 +59,7 @@ def parse_device_irqs(sdk_directory, family):
 
     with open(startup_file, "r") as fp:
         for line in fp:
-            if "DCD" not in line:
+            if ".long" not in line:
                 continue
 
             # Match the line.
