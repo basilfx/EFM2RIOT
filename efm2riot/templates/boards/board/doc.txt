@@ -108,7 +108,7 @@ The starter kit is equipped with an Advanced Energy Monitor. This allows you to 
 | Datasheet       | {{ ("[Datasheet](" ~ cpu_datasheet ~ ")")|align(120)         }} |
 | Manual          | {{ ("[Manual](" ~ family_manual ~ ")")|align(120)            }} |
 | Board Manual    | {{ ("[Board Manual](" ~ board_manual ~ ")")|align(120)       }} |
-| Board Schematic | {{ ("[Board Schematic](" ~ board_schematic ~ ")")|align(120) }} |
+| Board Schematic | Can be downloaded using Silicon Labs' Simplicity Studio         |
 
 ### Pinout
 {% strip 2 %}
