@@ -1,10 +1,9 @@
 /**************************************************************************//**
  * @file
  * @brief EFR32BG21 LDMA XBAR channel request soruce definitions
- * @version 5.7.0
  ******************************************************************************
  * # License
- * <b>Copyright 2018 Silicon Laboratories, Inc. www.silabs.com</b>
+ * <b>Copyright 2020 Silicon Laboratories, Inc. www.silabs.com</b>
  ******************************************************************************
  *
  * SPDX-License-Identifier: Zlib

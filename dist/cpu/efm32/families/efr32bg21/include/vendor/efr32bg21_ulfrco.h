@@ -1,10 +1,9 @@
 /**************************************************************************//**
  * @file
  * @brief EFR32BG21 ULFRCO register and bit field definitions
- * @version 5.7.0
  ******************************************************************************
  * # License
- * <b>Copyright 2018 Silicon Laboratories, Inc. www.silabs.com</b>
+ * <b>Copyright 2020 Silicon Laboratories, Inc. www.silabs.com</b>
  ******************************************************************************
  *
  * SPDX-License-Identifier: Zlib
@@ -50,30 +49,30 @@ extern "C" {
 /** ULFRCO Register Declaration. */
 typedef struct {
   __IM uint32_t  IPVERSION;                     /**< IP version                                         */
-  uint32_t       RESERVED0[1U];                 /**< Reserved for future use                      */
+  uint32_t       RESERVED0[1U];                 /**< Reserved for future use                            */
   __IM uint32_t  STATUS;                        /**< Status Register                                    */
-  uint32_t       RESERVED1[2U];                 /**< Reserved for future use                      */
+  uint32_t       RESERVED1[2U];                 /**< Reserved for future use                            */
   __IOM uint32_t IF;                            /**< Interrupt Flag Register                            */
   __IOM uint32_t IEN;                           /**< Interrupt Enable Register                          */
-  uint32_t       RESERVED2[1017U];              /**< Reserved for future use*/
+  uint32_t       RESERVED2[1017U];              /**< Reserved for future use                            */
   __IM uint32_t  IPVERSION_SET;                 /**< IP version                                         */
-  uint32_t       RESERVED3[1U];                 /**< Reserved for future use                      */
+  uint32_t       RESERVED3[1U];                 /**< Reserved for future use                            */
   __IM uint32_t  STATUS_SET;                    /**< Status Register                                    */
-  uint32_t       RESERVED4[2U];                 /**< Reserved for future use                      */
+  uint32_t       RESERVED4[2U];                 /**< Reserved for future use                            */
   __IOM uint32_t IF_SET;                        /**< Interrupt Flag Register                            */
   __IOM uint32_t IEN_SET;                       /**< Interrupt Enable Register                          */
-  uint32_t       RESERVED5[1017U];              /**< Reserved for future use*/
+  uint32_t       RESERVED5[1017U];              /**< Reserved for future use                            */
   __IM uint32_t  IPVERSION_CLR;                 /**< IP version                                         */
-  uint32_t       RESERVED6[1U];                 /**< Reserved for future use                      */
+  uint32_t       RESERVED6[1U];                 /**< Reserved for future use                            */
   __IM uint32_t  STATUS_CLR;                    /**< Status Register                                    */
-  uint32_t       RESERVED7[2U];                 /**< Reserved for future use                      */
+  uint32_t       RESERVED7[2U];                 /**< Reserved for future use                            */
   __IOM uint32_t IF_CLR;                        /**< Interrupt Flag Register                            */
   __IOM uint32_t IEN_CLR;                       /**< Interrupt Enable Register                          */
-  uint32_t       RESERVED8[1017U];              /**< Reserved for future use*/
+  uint32_t       RESERVED8[1017U];              /**< Reserved for future use                            */
   __IM uint32_t  IPVERSION_TGL;                 /**< IP version                                         */
-  uint32_t       RESERVED9[1U];                 /**< Reserved for future use                      */
+  uint32_t       RESERVED9[1U];                 /**< Reserved for future use                            */
   __IM uint32_t  STATUS_TGL;                    /**< Status Register                                    */
-  uint32_t       RESERVED10[2U];                /**< Reserved for future use                      */
+  uint32_t       RESERVED10[2U];                /**< Reserved for future use                            */
   __IOM uint32_t IF_TGL;                        /**< Interrupt Flag Register                            */
   __IOM uint32_t IEN_TGL;                       /**< Interrupt Enable Register                          */
 } ULFRCO_TypeDef;

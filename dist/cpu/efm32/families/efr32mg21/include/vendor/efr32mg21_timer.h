@@ -1,10 +1,9 @@
 /**************************************************************************//**
  * @file
  * @brief EFR32MG21 TIMER register and bit field definitions
- * @version 5.7.0
  ******************************************************************************
  * # License
- * <b>Copyright 2018 Silicon Laboratories, Inc. www.silabs.com</b>
+ * <b>Copyright 2020 Silicon Laboratories, Inc. www.silabs.com</b>
  ******************************************************************************
  *
  * SPDX-License-Identifier: Zlib
@@ -52,11 +51,11 @@ typedef struct {
   __IOM uint32_t CFG;                                /**< CC Channel Configuration Register                  */
   __IOM uint32_t CTRL;                               /**< CC Channel Control Register                        */
   __IOM uint32_t OC;                                 /**< OC Channel Value Register                          */
-  uint32_t       RESERVED0[1U];                      /**< Reserved for future use                      */
+  uint32_t       RESERVED0[1U];                      /**< Reserved for future use                            */
   __IOM uint32_t OCB;                                /**< OC Channel Value Buffer Register                   */
   __IM uint32_t  ICF;                                /**< IC Channel Value Register                          */
   __IM uint32_t  ICOF;                               /**< IC Channel Value Overflow Register                 */
-  uint32_t       RESERVED1[1U];                      /**< Reserved for future use                      */
+  uint32_t       RESERVED1[1U];                      /**< Reserved for future use                            */
 } TIMER_CC_TypeDef;
 
 /** TIMER Register Declaration. */
@@ -71,12 +70,12 @@ typedef struct {
   __IOM uint32_t   TOP;                         /**< Counter Top Value Register                         */
   __IOM uint32_t   TOPB;                        /**< Counter Top Value Buffer Register                  */
   __IOM uint32_t   CNT;                         /**< Counter Value Register                             */
-  uint32_t         RESERVED0[1U];               /**< Reserved for future use                      */
+  uint32_t         RESERVED0[1U];               /**< Reserved for future use                            */
   __IOM uint32_t   LOCK;                        /**< TIMER Configuration Lock Register                  */
   __IOM uint32_t   EN;                          /**< module en                                          */
-  uint32_t         RESERVED1[11U];              /**< Reserved for future use*/
-  TIMER_CC_TypeDef CC[3U];                      /**< Compare/Capture Channel                           */
-  uint32_t         RESERVED2[8U];               /**< Reserved for future use*/
+  uint32_t         RESERVED1[11U];              /**< Reserved for future use                            */
+  TIMER_CC_TypeDef CC[3U];                      /**< Compare/Capture Channel                            */
+  uint32_t         RESERVED2[8U];               /**< Reserved for future use                            */
   __IOM uint32_t   DTCFG;                       /**< DTI Configuration Register                         */
   __IOM uint32_t   DTTIMECFG;                   /**< DTI Time Configuration Register                    */
   __IOM uint32_t   DTFCFG;                      /**< DTI Fault Configuration Register                   */
@@ -85,7 +84,7 @@ typedef struct {
   __IM uint32_t    DTFAULT;                     /**< DTI Fault Register                                 */
   __IOM uint32_t   DTFAULTC;                    /**< DTI Fault Clear Register                           */
   __IOM uint32_t   DTLOCK;                      /**< DTI Configuration Lock Register                    */
-  uint32_t         RESERVED3[960U];             /**< Reserved for future use*/
+  uint32_t         RESERVED3[960U];             /**< Reserved for future use                            */
   __IM uint32_t    IPVERSION_SET;               /**< IP version ID                                      */
   __IOM uint32_t   CFG_SET;                     /**< Configuration Register                             */
   __IOM uint32_t   CTRL_SET;                    /**< Control Register                                   */
@@ -96,12 +95,12 @@ typedef struct {
   __IOM uint32_t   TOP_SET;                     /**< Counter Top Value Register                         */
   __IOM uint32_t   TOPB_SET;                    /**< Counter Top Value Buffer Register                  */
   __IOM uint32_t   CNT_SET;                     /**< Counter Value Register                             */
-  uint32_t         RESERVED4[1U];               /**< Reserved for future use                      */
+  uint32_t         RESERVED4[1U];               /**< Reserved for future use                            */
   __IOM uint32_t   LOCK_SET;                    /**< TIMER Configuration Lock Register                  */
   __IOM uint32_t   EN_SET;                      /**< module en                                          */
-  uint32_t         RESERVED5[11U];              /**< Reserved for future use*/
-  TIMER_CC_TypeDef CC_SET[3U];                  /**< Compare/Capture Channel                           */
-  uint32_t         RESERVED6[8U];               /**< Reserved for future use*/
+  uint32_t         RESERVED5[11U];              /**< Reserved for future use                            */
+  TIMER_CC_TypeDef CC_SET[3U];                  /**< Compare/Capture Channel                            */
+  uint32_t         RESERVED6[8U];               /**< Reserved for future use                            */
   __IOM uint32_t   DTCFG_SET;                   /**< DTI Configuration Register                         */
   __IOM uint32_t   DTTIMECFG_SET;               /**< DTI Time Configuration Register                    */
   __IOM uint32_t   DTFCFG_SET;                  /**< DTI Fault Configuration Register                   */
@@ -110,7 +109,7 @@ typedef struct {
   __IM uint32_t    DTFAULT_SET;                 /**< DTI Fault Register                                 */
   __IOM uint32_t   DTFAULTC_SET;                /**< DTI Fault Clear Register                           */
   __IOM uint32_t   DTLOCK_SET;                  /**< DTI Configuration Lock Register                    */
-  uint32_t         RESERVED7[960U];             /**< Reserved for future use*/
+  uint32_t         RESERVED7[960U];             /**< Reserved for future use                            */
   __IM uint32_t    IPVERSION_CLR;               /**< IP version ID                                      */
   __IOM uint32_t   CFG_CLR;                     /**< Configuration Register                             */
   __IOM uint32_t   CTRL_CLR;                    /**< Control Register                                   */
@@ -121,12 +120,12 @@ typedef struct {
   __IOM uint32_t   TOP_CLR;                     /**< Counter Top Value Register                         */
   __IOM uint32_t   TOPB_CLR;                    /**< Counter Top Value Buffer Register                  */
   __IOM uint32_t   CNT_CLR;                     /**< Counter Value Register                             */
-  uint32_t         RESERVED8[1U];               /**< Reserved for future use                      */
+  uint32_t         RESERVED8[1U];               /**< Reserved for future use                            */
   __IOM uint32_t   LOCK_CLR;                    /**< TIMER Configuration Lock Register                  */
   __IOM uint32_t   EN_CLR;                      /**< module en                                          */
-  uint32_t         RESERVED9[11U];              /**< Reserved for future use*/
-  TIMER_CC_TypeDef CC_CLR[3U];                  /**< Compare/Capture Channel                           */
-  uint32_t         RESERVED10[8U];              /**< Reserved for future use*/
+  uint32_t         RESERVED9[11U];              /**< Reserved for future use                            */
+  TIMER_CC_TypeDef CC_CLR[3U];                  /**< Compare/Capture Channel                            */
+  uint32_t         RESERVED10[8U];              /**< Reserved for future use                            */
   __IOM uint32_t   DTCFG_CLR;                   /**< DTI Configuration Register                         */
   __IOM uint32_t   DTTIMECFG_CLR;               /**< DTI Time Configuration Register                    */
   __IOM uint32_t   DTFCFG_CLR;                  /**< DTI Fault Configuration Register                   */
@@ -135,7 +134,7 @@ typedef struct {
   __IM uint32_t    DTFAULT_CLR;                 /**< DTI Fault Register                                 */
   __IOM uint32_t   DTFAULTC_CLR;                /**< DTI Fault Clear Register                           */
   __IOM uint32_t   DTLOCK_CLR;                  /**< DTI Configuration Lock Register                    */
-  uint32_t         RESERVED11[960U];            /**< Reserved for future use*/
+  uint32_t         RESERVED11[960U];            /**< Reserved for future use                            */
   __IM uint32_t    IPVERSION_TGL;               /**< IP version ID                                      */
   __IOM uint32_t   CFG_TGL;                     /**< Configuration Register                             */
   __IOM uint32_t   CTRL_TGL;                    /**< Control Register                                   */
@@ -146,12 +145,12 @@ typedef struct {
   __IOM uint32_t   TOP_TGL;                     /**< Counter Top Value Register                         */
   __IOM uint32_t   TOPB_TGL;                    /**< Counter Top Value Buffer Register                  */
   __IOM uint32_t   CNT_TGL;                     /**< Counter Value Register                             */
-  uint32_t         RESERVED12[1U];              /**< Reserved for future use                      */
+  uint32_t         RESERVED12[1U];              /**< Reserved for future use                            */
   __IOM uint32_t   LOCK_TGL;                    /**< TIMER Configuration Lock Register                  */
   __IOM uint32_t   EN_TGL;                      /**< module en                                          */
-  uint32_t         RESERVED13[11U];             /**< Reserved for future use*/
-  TIMER_CC_TypeDef CC_TGL[3U];                  /**< Compare/Capture Channel                           */
-  uint32_t         RESERVED14[8U];              /**< Reserved for future use*/
+  uint32_t         RESERVED13[11U];             /**< Reserved for future use                            */
+  TIMER_CC_TypeDef CC_TGL[3U];                  /**< Compare/Capture Channel                            */
+  uint32_t         RESERVED14[8U];              /**< Reserved for future use                            */
   __IOM uint32_t   DTCFG_TGL;                   /**< DTI Configuration Register                         */
   __IOM uint32_t   DTTIMECFG_TGL;               /**< DTI Time Configuration Register                    */
   __IOM uint32_t   DTFCFG_TGL;                  /**< DTI Fault Configuration Register                   */
@@ -184,24 +183,24 @@ typedef struct {
 #define _TIMER_CFG_MODE_SHIFT                      0                                         /**< Shift value for TIMER_MODE                  */
 #define _TIMER_CFG_MODE_MASK                       0x3UL                                     /**< Bit mask for TIMER_MODE                     */
 #define _TIMER_CFG_MODE_DEFAULT                    0x00000000UL                              /**< Mode DEFAULT for TIMER_CFG                  */
-#define _TIMER_CFG_MODE_UP                         0x00000000UL                              /**< Mode UP for TIMER_CFG                        */
-#define _TIMER_CFG_MODE_DOWN                       0x00000001UL                              /**< Mode DOWN for TIMER_CFG                      */
-#define _TIMER_CFG_MODE_UPDOWN                     0x00000002UL                              /**< Mode UPDOWN for TIMER_CFG                    */
-#define _TIMER_CFG_MODE_QDEC                       0x00000003UL                              /**< Mode QDEC for TIMER_CFG                      */
+#define _TIMER_CFG_MODE_UP                         0x00000000UL                              /**< Mode UP for TIMER_CFG                       */
+#define _TIMER_CFG_MODE_DOWN                       0x00000001UL                              /**< Mode DOWN for TIMER_CFG                     */
+#define _TIMER_CFG_MODE_UPDOWN                     0x00000002UL                              /**< Mode UPDOWN for TIMER_CFG                   */
+#define _TIMER_CFG_MODE_QDEC                       0x00000003UL                              /**< Mode QDEC for TIMER_CFG                     */
 #define TIMER_CFG_MODE_DEFAULT                     (_TIMER_CFG_MODE_DEFAULT << 0)            /**< Shifted mode DEFAULT for TIMER_CFG          */
-#define TIMER_CFG_MODE_UP                          (_TIMER_CFG_MODE_UP << 0)                 /**< Shifted mode UP for TIMER_CFG                */
-#define TIMER_CFG_MODE_DOWN                        (_TIMER_CFG_MODE_DOWN << 0)               /**< Shifted mode DOWN for TIMER_CFG              */
-#define TIMER_CFG_MODE_UPDOWN                      (_TIMER_CFG_MODE_UPDOWN << 0)             /**< Shifted mode UPDOWN for TIMER_CFG            */
-#define TIMER_CFG_MODE_QDEC                        (_TIMER_CFG_MODE_QDEC << 0)               /**< Shifted mode QDEC for TIMER_CFG              */
+#define TIMER_CFG_MODE_UP                          (_TIMER_CFG_MODE_UP << 0)                 /**< Shifted mode UP for TIMER_CFG               */
+#define TIMER_CFG_MODE_DOWN                        (_TIMER_CFG_MODE_DOWN << 0)               /**< Shifted mode DOWN for TIMER_CFG             */
+#define TIMER_CFG_MODE_UPDOWN                      (_TIMER_CFG_MODE_UPDOWN << 0)             /**< Shifted mode UPDOWN for TIMER_CFG           */
+#define TIMER_CFG_MODE_QDEC                        (_TIMER_CFG_MODE_QDEC << 0)               /**< Shifted mode QDEC for TIMER_CFG             */
 #define TIMER_CFG_SYNC                             (0x1UL << 3)                              /**< Timer Start/Stop/Reload Synchronization     */
 #define _TIMER_CFG_SYNC_SHIFT                      3                                         /**< Shift value for TIMER_SYNC                  */
 #define _TIMER_CFG_SYNC_MASK                       0x8UL                                     /**< Bit mask for TIMER_SYNC                     */
 #define _TIMER_CFG_SYNC_DEFAULT                    0x00000000UL                              /**< Mode DEFAULT for TIMER_CFG                  */
-#define _TIMER_CFG_SYNC_DISABLE                    0x00000000UL                              /**< Mode DISABLE for TIMER_CFG                   */
-#define _TIMER_CFG_SYNC_ENABLE                     0x00000001UL                              /**< Mode ENABLE for TIMER_CFG                    */
+#define _TIMER_CFG_SYNC_DISABLE                    0x00000000UL                              /**< Mode DISABLE for TIMER_CFG                  */
+#define _TIMER_CFG_SYNC_ENABLE                     0x00000001UL                              /**< Mode ENABLE for TIMER_CFG                   */
 #define TIMER_CFG_SYNC_DEFAULT                     (_TIMER_CFG_SYNC_DEFAULT << 3)            /**< Shifted mode DEFAULT for TIMER_CFG          */
-#define TIMER_CFG_SYNC_DISABLE                     (_TIMER_CFG_SYNC_DISABLE << 3)            /**< Shifted mode DISABLE for TIMER_CFG           */
-#define TIMER_CFG_SYNC_ENABLE                      (_TIMER_CFG_SYNC_ENABLE << 3)             /**< Shifted mode ENABLE for TIMER_CFG            */
+#define TIMER_CFG_SYNC_DISABLE                     (_TIMER_CFG_SYNC_DISABLE << 3)            /**< Shifted mode DISABLE for TIMER_CFG          */
+#define TIMER_CFG_SYNC_ENABLE                      (_TIMER_CFG_SYNC_ENABLE << 3)             /**< Shifted mode ENABLE for TIMER_CFG           */
 #define TIMER_CFG_OSMEN                            (0x1UL << 4)                              /**< One-shot Mode Enable                        */
 #define _TIMER_CFG_OSMEN_SHIFT                     4                                         /**< Shift value for TIMER_OSMEN                 */
 #define _TIMER_CFG_OSMEN_MASK                      0x10UL                                    /**< Bit mask for TIMER_OSMEN                    */
@@ -211,20 +210,20 @@ typedef struct {
 #define _TIMER_CFG_QDM_SHIFT                       5                                         /**< Shift value for TIMER_QDM                   */
 #define _TIMER_CFG_QDM_MASK                        0x20UL                                    /**< Bit mask for TIMER_QDM                      */
 #define _TIMER_CFG_QDM_DEFAULT                     0x00000000UL                              /**< Mode DEFAULT for TIMER_CFG                  */
-#define _TIMER_CFG_QDM_X2                          0x00000000UL                              /**< Mode X2 for TIMER_CFG                        */
-#define _TIMER_CFG_QDM_X4                          0x00000001UL                              /**< Mode X4 for TIMER_CFG                        */
+#define _TIMER_CFG_QDM_X2                          0x00000000UL                              /**< Mode X2 for TIMER_CFG                       */
+#define _TIMER_CFG_QDM_X4                          0x00000001UL                              /**< Mode X4 for TIMER_CFG                       */
 #define TIMER_CFG_QDM_DEFAULT                      (_TIMER_CFG_QDM_DEFAULT << 5)             /**< Shifted mode DEFAULT for TIMER_CFG          */
-#define TIMER_CFG_QDM_X2                           (_TIMER_CFG_QDM_X2 << 5)                  /**< Shifted mode X2 for TIMER_CFG                */
-#define TIMER_CFG_QDM_X4                           (_TIMER_CFG_QDM_X4 << 5)                  /**< Shifted mode X4 for TIMER_CFG                */
+#define TIMER_CFG_QDM_X2                           (_TIMER_CFG_QDM_X2 << 5)                  /**< Shifted mode X2 for TIMER_CFG               */
+#define TIMER_CFG_QDM_X4                           (_TIMER_CFG_QDM_X4 << 5)                  /**< Shifted mode X4 for TIMER_CFG               */
 #define TIMER_CFG_DEBUGRUN                         (0x1UL << 6)                              /**< Debug Mode Run Enable                       */
 #define _TIMER_CFG_DEBUGRUN_SHIFT                  6                                         /**< Shift value for TIMER_DEBUGRUN              */
 #define _TIMER_CFG_DEBUGRUN_MASK                   0x40UL                                    /**< Bit mask for TIMER_DEBUGRUN                 */
 #define _TIMER_CFG_DEBUGRUN_DEFAULT                0x00000000UL                              /**< Mode DEFAULT for TIMER_CFG                  */
-#define _TIMER_CFG_DEBUGRUN_HALT                   0x00000000UL                              /**< Mode HALT for TIMER_CFG                      */
-#define _TIMER_CFG_DEBUGRUN_RUN                    0x00000001UL                              /**< Mode RUN for TIMER_CFG                       */
+#define _TIMER_CFG_DEBUGRUN_HALT                   0x00000000UL                              /**< Mode HALT for TIMER_CFG                     */
+#define _TIMER_CFG_DEBUGRUN_RUN                    0x00000001UL                              /**< Mode RUN for TIMER_CFG                      */
 #define TIMER_CFG_DEBUGRUN_DEFAULT                 (_TIMER_CFG_DEBUGRUN_DEFAULT << 6)        /**< Shifted mode DEFAULT for TIMER_CFG          */
-#define TIMER_CFG_DEBUGRUN_HALT                    (_TIMER_CFG_DEBUGRUN_HALT << 6)           /**< Shifted mode HALT for TIMER_CFG              */
-#define TIMER_CFG_DEBUGRUN_RUN                     (_TIMER_CFG_DEBUGRUN_RUN << 6)            /**< Shifted mode RUN for TIMER_CFG               */
+#define TIMER_CFG_DEBUGRUN_HALT                    (_TIMER_CFG_DEBUGRUN_HALT << 6)           /**< Shifted mode HALT for TIMER_CFG             */
+#define TIMER_CFG_DEBUGRUN_RUN                     (_TIMER_CFG_DEBUGRUN_RUN << 6)            /**< Shifted mode RUN for TIMER_CFG              */
 #define TIMER_CFG_DMACLRACT                        (0x1UL << 7)                              /**< DMA Request Clear on Active                 */
 #define _TIMER_CFG_DMACLRACT_SHIFT                 7                                         /**< Shift value for TIMER_DMACLRACT             */
 #define _TIMER_CFG_DMACLRACT_MASK                  0x80UL                                    /**< Bit mask for TIMER_DMACLRACT                */
@@ -233,31 +232,31 @@ typedef struct {
 #define _TIMER_CFG_CLKSEL_SHIFT                    8                                         /**< Shift value for TIMER_CLKSEL                */
 #define _TIMER_CFG_CLKSEL_MASK                     0x300UL                                   /**< Bit mask for TIMER_CLKSEL                   */
 #define _TIMER_CFG_CLKSEL_DEFAULT                  0x00000000UL                              /**< Mode DEFAULT for TIMER_CFG                  */
-#define _TIMER_CFG_CLKSEL_PRESCEM01GRPACLK         0x00000000UL                              /**< Mode PRESCEM01GRPACLK for TIMER_CFG          */
-#define _TIMER_CFG_CLKSEL_CC1                      0x00000001UL                              /**< Mode CC1 for TIMER_CFG                       */
-#define _TIMER_CFG_CLKSEL_TIMEROUF                 0x00000002UL                              /**< Mode TIMEROUF for TIMER_CFG                  */
+#define _TIMER_CFG_CLKSEL_PRESCEM01GRPACLK         0x00000000UL                              /**< Mode PRESCEM01GRPACLK for TIMER_CFG         */
+#define _TIMER_CFG_CLKSEL_CC1                      0x00000001UL                              /**< Mode CC1 for TIMER_CFG                      */
+#define _TIMER_CFG_CLKSEL_TIMEROUF                 0x00000002UL                              /**< Mode TIMEROUF for TIMER_CFG                 */
 #define TIMER_CFG_CLKSEL_DEFAULT                   (_TIMER_CFG_CLKSEL_DEFAULT << 8)          /**< Shifted mode DEFAULT for TIMER_CFG          */
-#define TIMER_CFG_CLKSEL_PRESCEM01GRPACLK          (_TIMER_CFG_CLKSEL_PRESCEM01GRPACLK << 8) /**< Shifted mode PRESCEM01GRPACLK for TIMER_CFG  */
-#define TIMER_CFG_CLKSEL_CC1                       (_TIMER_CFG_CLKSEL_CC1 << 8)              /**< Shifted mode CC1 for TIMER_CFG               */
-#define TIMER_CFG_CLKSEL_TIMEROUF                  (_TIMER_CFG_CLKSEL_TIMEROUF << 8)         /**< Shifted mode TIMEROUF for TIMER_CFG          */
+#define TIMER_CFG_CLKSEL_PRESCEM01GRPACLK          (_TIMER_CFG_CLKSEL_PRESCEM01GRPACLK << 8) /**< Shifted mode PRESCEM01GRPACLK for TIMER_CFG */
+#define TIMER_CFG_CLKSEL_CC1                       (_TIMER_CFG_CLKSEL_CC1 << 8)              /**< Shifted mode CC1 for TIMER_CFG              */
+#define TIMER_CFG_CLKSEL_TIMEROUF                  (_TIMER_CFG_CLKSEL_TIMEROUF << 8)         /**< Shifted mode TIMEROUF for TIMER_CFG         */
 #define TIMER_CFG_RETIMEEN                         (0x1UL << 10)                             /**< PWM output retimed enable                   */
 #define _TIMER_CFG_RETIMEEN_SHIFT                  10                                        /**< Shift value for TIMER_RETIMEEN              */
 #define _TIMER_CFG_RETIMEEN_MASK                   0x400UL                                   /**< Bit mask for TIMER_RETIMEEN                 */
 #define _TIMER_CFG_RETIMEEN_DEFAULT                0x00000000UL                              /**< Mode DEFAULT for TIMER_CFG                  */
-#define _TIMER_CFG_RETIMEEN_DISABLE                0x00000000UL                              /**< Mode DISABLE for TIMER_CFG                   */
-#define _TIMER_CFG_RETIMEEN_ENABLE                 0x00000001UL                              /**< Mode ENABLE for TIMER_CFG                    */
+#define _TIMER_CFG_RETIMEEN_DISABLE                0x00000000UL                              /**< Mode DISABLE for TIMER_CFG                  */
+#define _TIMER_CFG_RETIMEEN_ENABLE                 0x00000001UL                              /**< Mode ENABLE for TIMER_CFG                   */
 #define TIMER_CFG_RETIMEEN_DEFAULT                 (_TIMER_CFG_RETIMEEN_DEFAULT << 10)       /**< Shifted mode DEFAULT for TIMER_CFG          */
-#define TIMER_CFG_RETIMEEN_DISABLE                 (_TIMER_CFG_RETIMEEN_DISABLE << 10)       /**< Shifted mode DISABLE for TIMER_CFG           */
-#define TIMER_CFG_RETIMEEN_ENABLE                  (_TIMER_CFG_RETIMEEN_ENABLE << 10)        /**< Shifted mode ENABLE for TIMER_CFG            */
+#define TIMER_CFG_RETIMEEN_DISABLE                 (_TIMER_CFG_RETIMEEN_DISABLE << 10)       /**< Shifted mode DISABLE for TIMER_CFG          */
+#define TIMER_CFG_RETIMEEN_ENABLE                  (_TIMER_CFG_RETIMEEN_ENABLE << 10)        /**< Shifted mode ENABLE for TIMER_CFG           */
 #define TIMER_CFG_DISSYNCOUT                       (0x1UL << 11)                             /**< Disable Timer Start/Stop/Reload output      */
 #define _TIMER_CFG_DISSYNCOUT_SHIFT                11                                        /**< Shift value for TIMER_DISSYNCOUT            */
 #define _TIMER_CFG_DISSYNCOUT_MASK                 0x800UL                                   /**< Bit mask for TIMER_DISSYNCOUT               */
 #define _TIMER_CFG_DISSYNCOUT_DEFAULT              0x00000000UL                              /**< Mode DEFAULT for TIMER_CFG                  */
-#define _TIMER_CFG_DISSYNCOUT_EN                   0x00000000UL                              /**< Mode EN for TIMER_CFG                        */
-#define _TIMER_CFG_DISSYNCOUT_DIS                  0x00000001UL                              /**< Mode DIS for TIMER_CFG                       */
+#define _TIMER_CFG_DISSYNCOUT_EN                   0x00000000UL                              /**< Mode EN for TIMER_CFG                       */
+#define _TIMER_CFG_DISSYNCOUT_DIS                  0x00000001UL                              /**< Mode DIS for TIMER_CFG                      */
 #define TIMER_CFG_DISSYNCOUT_DEFAULT               (_TIMER_CFG_DISSYNCOUT_DEFAULT << 11)     /**< Shifted mode DEFAULT for TIMER_CFG          */
-#define TIMER_CFG_DISSYNCOUT_EN                    (_TIMER_CFG_DISSYNCOUT_EN << 11)          /**< Shifted mode EN for TIMER_CFG                */
-#define TIMER_CFG_DISSYNCOUT_DIS                   (_TIMER_CFG_DISSYNCOUT_DIS << 11)         /**< Shifted mode DIS for TIMER_CFG               */
+#define TIMER_CFG_DISSYNCOUT_EN                    (_TIMER_CFG_DISSYNCOUT_EN << 11)          /**< Shifted mode EN for TIMER_CFG               */
+#define TIMER_CFG_DISSYNCOUT_DIS                   (_TIMER_CFG_DISSYNCOUT_DIS << 11)         /**< Shifted mode DIS for TIMER_CFG              */
 #define TIMER_CFG_RETIMESEL                        (0x1UL << 12)                             /**< PWM output retime select                    */
 #define _TIMER_CFG_RETIMESEL_SHIFT                 12                                        /**< Shift value for TIMER_RETIMESEL             */
 #define _TIMER_CFG_RETIMESEL_MASK                  0x1000UL                                  /**< Bit mask for TIMER_RETIMESEL                */
@@ -276,29 +275,29 @@ typedef struct {
 #define _TIMER_CFG_PRESC_SHIFT                     18                                        /**< Shift value for TIMER_PRESC                 */
 #define _TIMER_CFG_PRESC_MASK                      0xFFC0000UL                               /**< Bit mask for TIMER_PRESC                    */
 #define _TIMER_CFG_PRESC_DEFAULT                   0x00000000UL                              /**< Mode DEFAULT for TIMER_CFG                  */
-#define _TIMER_CFG_PRESC_DIV1                      0x00000000UL                              /**< Mode DIV1 for TIMER_CFG                      */
-#define _TIMER_CFG_PRESC_DIV2                      0x00000001UL                              /**< Mode DIV2 for TIMER_CFG                      */
-#define _TIMER_CFG_PRESC_DIV4                      0x00000003UL                              /**< Mode DIV4 for TIMER_CFG                      */
-#define _TIMER_CFG_PRESC_DIV8                      0x00000007UL                              /**< Mode DIV8 for TIMER_CFG                      */
-#define _TIMER_CFG_PRESC_DIV16                     0x0000000FUL                              /**< Mode DIV16 for TIMER_CFG                     */
-#define _TIMER_CFG_PRESC_DIV32                     0x0000001FUL                              /**< Mode DIV32 for TIMER_CFG                     */
-#define _TIMER_CFG_PRESC_DIV64                     0x0000003FUL                              /**< Mode DIV64 for TIMER_CFG                     */
-#define _TIMER_CFG_PRESC_DIV128                    0x0000007FUL                              /**< Mode DIV128 for TIMER_CFG                    */
-#define _TIMER_CFG_PRESC_DIV256                    0x000000FFUL                              /**< Mode DIV256 for TIMER_CFG                    */
-#define _TIMER_CFG_PRESC_DIV512                    0x000001FFUL                              /**< Mode DIV512 for TIMER_CFG                    */
-#define _TIMER_CFG_PRESC_DIV1024                   0x000003FFUL                              /**< Mode DIV1024 for TIMER_CFG                   */
+#define _TIMER_CFG_PRESC_DIV1                      0x00000000UL                              /**< Mode DIV1 for TIMER_CFG                     */
+#define _TIMER_CFG_PRESC_DIV2                      0x00000001UL                              /**< Mode DIV2 for TIMER_CFG                     */
+#define _TIMER_CFG_PRESC_DIV4                      0x00000003UL                              /**< Mode DIV4 for TIMER_CFG                     */
+#define _TIMER_CFG_PRESC_DIV8                      0x00000007UL                              /**< Mode DIV8 for TIMER_CFG                     */
+#define _TIMER_CFG_PRESC_DIV16                     0x0000000FUL                              /**< Mode DIV16 for TIMER_CFG                    */
+#define _TIMER_CFG_PRESC_DIV32                     0x0000001FUL                              /**< Mode DIV32 for TIMER_CFG                    */
+#define _TIMER_CFG_PRESC_DIV64                     0x0000003FUL                              /**< Mode DIV64 for TIMER_CFG                    */
+#define _TIMER_CFG_PRESC_DIV128                    0x0000007FUL                              /**< Mode DIV128 for TIMER_CFG                   */
+#define _TIMER_CFG_PRESC_DIV256                    0x000000FFUL                              /**< Mode DIV256 for TIMER_CFG                   */
+#define _TIMER_CFG_PRESC_DIV512                    0x000001FFUL                              /**< Mode DIV512 for TIMER_CFG                   */
+#define _TIMER_CFG_PRESC_DIV1024                   0x000003FFUL                              /**< Mode DIV1024 for TIMER_CFG                  */
 #define TIMER_CFG_PRESC_DEFAULT                    (_TIMER_CFG_PRESC_DEFAULT << 18)          /**< Shifted mode DEFAULT for TIMER_CFG          */
-#define TIMER_CFG_PRESC_DIV1                       (_TIMER_CFG_PRESC_DIV1 << 18)             /**< Shifted mode DIV1 for TIMER_CFG              */
-#define TIMER_CFG_PRESC_DIV2                       (_TIMER_CFG_PRESC_DIV2 << 18)             /**< Shifted mode DIV2 for TIMER_CFG              */
-#define TIMER_CFG_PRESC_DIV4                       (_TIMER_CFG_PRESC_DIV4 << 18)             /**< Shifted mode DIV4 for TIMER_CFG              */
-#define TIMER_CFG_PRESC_DIV8                       (_TIMER_CFG_PRESC_DIV8 << 18)             /**< Shifted mode DIV8 for TIMER_CFG              */
-#define TIMER_CFG_PRESC_DIV16                      (_TIMER_CFG_PRESC_DIV16 << 18)            /**< Shifted mode DIV16 for TIMER_CFG             */
-#define TIMER_CFG_PRESC_DIV32                      (_TIMER_CFG_PRESC_DIV32 << 18)            /**< Shifted mode DIV32 for TIMER_CFG             */
-#define TIMER_CFG_PRESC_DIV64                      (_TIMER_CFG_PRESC_DIV64 << 18)            /**< Shifted mode DIV64 for TIMER_CFG             */
-#define TIMER_CFG_PRESC_DIV128                     (_TIMER_CFG_PRESC_DIV128 << 18)           /**< Shifted mode DIV128 for TIMER_CFG            */
-#define TIMER_CFG_PRESC_DIV256                     (_TIMER_CFG_PRESC_DIV256 << 18)           /**< Shifted mode DIV256 for TIMER_CFG            */
-#define TIMER_CFG_PRESC_DIV512                     (_TIMER_CFG_PRESC_DIV512 << 18)           /**< Shifted mode DIV512 for TIMER_CFG            */
-#define TIMER_CFG_PRESC_DIV1024                    (_TIMER_CFG_PRESC_DIV1024 << 18)          /**< Shifted mode DIV1024 for TIMER_CFG           */
+#define TIMER_CFG_PRESC_DIV1                       (_TIMER_CFG_PRESC_DIV1 << 18)             /**< Shifted mode DIV1 for TIMER_CFG             */
+#define TIMER_CFG_PRESC_DIV2                       (_TIMER_CFG_PRESC_DIV2 << 18)             /**< Shifted mode DIV2 for TIMER_CFG             */
+#define TIMER_CFG_PRESC_DIV4                       (_TIMER_CFG_PRESC_DIV4 << 18)             /**< Shifted mode DIV4 for TIMER_CFG             */
+#define TIMER_CFG_PRESC_DIV8                       (_TIMER_CFG_PRESC_DIV8 << 18)             /**< Shifted mode DIV8 for TIMER_CFG             */
+#define TIMER_CFG_PRESC_DIV16                      (_TIMER_CFG_PRESC_DIV16 << 18)            /**< Shifted mode DIV16 for TIMER_CFG            */
+#define TIMER_CFG_PRESC_DIV32                      (_TIMER_CFG_PRESC_DIV32 << 18)            /**< Shifted mode DIV32 for TIMER_CFG            */
+#define TIMER_CFG_PRESC_DIV64                      (_TIMER_CFG_PRESC_DIV64 << 18)            /**< Shifted mode DIV64 for TIMER_CFG            */
+#define TIMER_CFG_PRESC_DIV128                     (_TIMER_CFG_PRESC_DIV128 << 18)           /**< Shifted mode DIV128 for TIMER_CFG           */
+#define TIMER_CFG_PRESC_DIV256                     (_TIMER_CFG_PRESC_DIV256 << 18)           /**< Shifted mode DIV256 for TIMER_CFG           */
+#define TIMER_CFG_PRESC_DIV512                     (_TIMER_CFG_PRESC_DIV512 << 18)           /**< Shifted mode DIV512 for TIMER_CFG           */
+#define TIMER_CFG_PRESC_DIV1024                    (_TIMER_CFG_PRESC_DIV1024 << 18)          /**< Shifted mode DIV1024 for TIMER_CFG          */
 
 /* Bit fields for TIMER CTRL */
 #define _TIMER_CTRL_RESETVALUE                     0x00000000UL                         /**< Default value for TIMER_CTRL                */
@@ -306,27 +305,27 @@ typedef struct {
 #define _TIMER_CTRL_RISEA_SHIFT                    0                                    /**< Shift value for TIMER_RISEA                 */
 #define _TIMER_CTRL_RISEA_MASK                     0x3UL                                /**< Bit mask for TIMER_RISEA                    */
 #define _TIMER_CTRL_RISEA_DEFAULT                  0x00000000UL                         /**< Mode DEFAULT for TIMER_CTRL                 */
-#define _TIMER_CTRL_RISEA_NONE                     0x00000000UL                         /**< Mode NONE for TIMER_CTRL                     */
-#define _TIMER_CTRL_RISEA_START                    0x00000001UL                         /**< Mode START for TIMER_CTRL                    */
-#define _TIMER_CTRL_RISEA_STOP                     0x00000002UL                         /**< Mode STOP for TIMER_CTRL                     */
-#define _TIMER_CTRL_RISEA_RELOADSTART              0x00000003UL                         /**< Mode RELOADSTART for TIMER_CTRL              */
+#define _TIMER_CTRL_RISEA_NONE                     0x00000000UL                         /**< Mode NONE for TIMER_CTRL                    */
+#define _TIMER_CTRL_RISEA_START                    0x00000001UL                         /**< Mode START for TIMER_CTRL                   */
+#define _TIMER_CTRL_RISEA_STOP                     0x00000002UL                         /**< Mode STOP for TIMER_CTRL                    */
+#define _TIMER_CTRL_RISEA_RELOADSTART              0x00000003UL                         /**< Mode RELOADSTART for TIMER_CTRL             */
 #define TIMER_CTRL_RISEA_DEFAULT                   (_TIMER_CTRL_RISEA_DEFAULT << 0)     /**< Shifted mode DEFAULT for TIMER_CTRL         */
-#define TIMER_CTRL_RISEA_NONE                      (_TIMER_CTRL_RISEA_NONE << 0)        /**< Shifted mode NONE for TIMER_CTRL             */
-#define TIMER_CTRL_RISEA_START                     (_TIMER_CTRL_RISEA_START << 0)       /**< Shifted mode START for TIMER_CTRL            */
-#define TIMER_CTRL_RISEA_STOP                      (_TIMER_CTRL_RISEA_STOP << 0)        /**< Shifted mode STOP for TIMER_CTRL             */
-#define TIMER_CTRL_RISEA_RELOADSTART               (_TIMER_CTRL_RISEA_RELOADSTART << 0) /**< Shifted mode RELOADSTART for TIMER_CTRL      */
+#define TIMER_CTRL_RISEA_NONE                      (_TIMER_CTRL_RISEA_NONE << 0)        /**< Shifted mode NONE for TIMER_CTRL            */
+#define TIMER_CTRL_RISEA_START                     (_TIMER_CTRL_RISEA_START << 0)       /**< Shifted mode START for TIMER_CTRL           */
+#define TIMER_CTRL_RISEA_STOP                      (_TIMER_CTRL_RISEA_STOP << 0)        /**< Shifted mode STOP for TIMER_CTRL            */
+#define TIMER_CTRL_RISEA_RELOADSTART               (_TIMER_CTRL_RISEA_RELOADSTART << 0) /**< Shifted mode RELOADSTART for TIMER_CTRL     */
 #define _TIMER_CTRL_FALLA_SHIFT                    2                                    /**< Shift value for TIMER_FALLA                 */
 #define _TIMER_CTRL_FALLA_MASK                     0xCUL                                /**< Bit mask for TIMER_FALLA                    */
 #define _TIMER_CTRL_FALLA_DEFAULT                  0x00000000UL                         /**< Mode DEFAULT for TIMER_CTRL                 */
-#define _TIMER_CTRL_FALLA_NONE                     0x00000000UL                         /**< Mode NONE for TIMER_CTRL                     */
-#define _TIMER_CTRL_FALLA_START                    0x00000001UL                         /**< Mode START for TIMER_CTRL                    */
-#define _TIMER_CTRL_FALLA_STOP                     0x00000002UL                         /**< Mode STOP for TIMER_CTRL                     */
-#define _TIMER_CTRL_FALLA_RELOADSTART              0x00000003UL                         /**< Mode RELOADSTART for TIMER_CTRL              */
+#define _TIMER_CTRL_FALLA_NONE                     0x00000000UL                         /**< Mode NONE for TIMER_CTRL                    */
+#define _TIMER_CTRL_FALLA_START                    0x00000001UL                         /**< Mode START for TIMER_CTRL                   */
+#define _TIMER_CTRL_FALLA_STOP                     0x00000002UL                         /**< Mode STOP for TIMER_CTRL                    */
+#define _TIMER_CTRL_FALLA_RELOADSTART              0x00000003UL                         /**< Mode RELOADSTART for TIMER_CTRL             */
 #define TIMER_CTRL_FALLA_DEFAULT                   (_TIMER_CTRL_FALLA_DEFAULT << 2)     /**< Shifted mode DEFAULT for TIMER_CTRL         */
-#define TIMER_CTRL_FALLA_NONE                      (_TIMER_CTRL_FALLA_NONE << 2)        /**< Shifted mode NONE for TIMER_CTRL             */
-#define TIMER_CTRL_FALLA_START                     (_TIMER_CTRL_FALLA_START << 2)       /**< Shifted mode START for TIMER_CTRL            */
-#define TIMER_CTRL_FALLA_STOP                      (_TIMER_CTRL_FALLA_STOP << 2)        /**< Shifted mode STOP for TIMER_CTRL             */
-#define TIMER_CTRL_FALLA_RELOADSTART               (_TIMER_CTRL_FALLA_RELOADSTART << 2) /**< Shifted mode RELOADSTART for TIMER_CTRL      */
+#define TIMER_CTRL_FALLA_NONE                      (_TIMER_CTRL_FALLA_NONE << 2)        /**< Shifted mode NONE for TIMER_CTRL            */
+#define TIMER_CTRL_FALLA_START                     (_TIMER_CTRL_FALLA_START << 2)       /**< Shifted mode START for TIMER_CTRL           */
+#define TIMER_CTRL_FALLA_STOP                      (_TIMER_CTRL_FALLA_STOP << 2)        /**< Shifted mode STOP for TIMER_CTRL            */
+#define TIMER_CTRL_FALLA_RELOADSTART               (_TIMER_CTRL_FALLA_RELOADSTART << 2) /**< Shifted mode RELOADSTART for TIMER_CTRL     */
 #define TIMER_CTRL_X2CNT                           (0x1UL << 4)                         /**< 2x Count Mode                               */
 #define _TIMER_CTRL_X2CNT_SHIFT                    4                                    /**< Shift value for TIMER_X2CNT                 */
 #define _TIMER_CTRL_X2CNT_MASK                     0x10UL                               /**< Bit mask for TIMER_X2CNT                    */
@@ -359,11 +358,11 @@ typedef struct {
 #define _TIMER_STATUS_DIR_SHIFT                    1                                             /**< Shift value for TIMER_DIR                   */
 #define _TIMER_STATUS_DIR_MASK                     0x2UL                                         /**< Bit mask for TIMER_DIR                      */
 #define _TIMER_STATUS_DIR_DEFAULT                  0x00000000UL                                  /**< Mode DEFAULT for TIMER_STATUS               */
-#define _TIMER_STATUS_DIR_UP                       0x00000000UL                                  /**< Mode UP for TIMER_STATUS                     */
-#define _TIMER_STATUS_DIR_DOWN                     0x00000001UL                                  /**< Mode DOWN for TIMER_STATUS                   */
+#define _TIMER_STATUS_DIR_UP                       0x00000000UL                                  /**< Mode UP for TIMER_STATUS                    */
+#define _TIMER_STATUS_DIR_DOWN                     0x00000001UL                                  /**< Mode DOWN for TIMER_STATUS                  */
 #define TIMER_STATUS_DIR_DEFAULT                   (_TIMER_STATUS_DIR_DEFAULT << 1)              /**< Shifted mode DEFAULT for TIMER_STATUS       */
-#define TIMER_STATUS_DIR_UP                        (_TIMER_STATUS_DIR_UP << 1)                   /**< Shifted mode UP for TIMER_STATUS             */
-#define TIMER_STATUS_DIR_DOWN                      (_TIMER_STATUS_DIR_DOWN << 1)                 /**< Shifted mode DOWN for TIMER_STATUS           */
+#define TIMER_STATUS_DIR_UP                        (_TIMER_STATUS_DIR_UP << 1)                   /**< Shifted mode UP for TIMER_STATUS            */
+#define TIMER_STATUS_DIR_DOWN                      (_TIMER_STATUS_DIR_DOWN << 1)                 /**< Shifted mode DOWN for TIMER_STATUS          */
 #define TIMER_STATUS_TOPBV                         (0x1UL << 2)                                  /**< TOP Buffer Valid                            */
 #define _TIMER_STATUS_TOPBV_SHIFT                  2                                             /**< Shift value for TIMER_TOPBV                 */
 #define _TIMER_STATUS_TOPBV_MASK                   0x4UL                                         /**< Bit mask for TIMER_TOPBV                    */
@@ -373,20 +372,20 @@ typedef struct {
 #define _TIMER_STATUS_TIMERLOCKSTATUS_SHIFT        4                                             /**< Shift value for TIMER_TIMERLOCKSTATUS       */
 #define _TIMER_STATUS_TIMERLOCKSTATUS_MASK         0x10UL                                        /**< Bit mask for TIMER_TIMERLOCKSTATUS          */
 #define _TIMER_STATUS_TIMERLOCKSTATUS_DEFAULT      0x00000000UL                                  /**< Mode DEFAULT for TIMER_STATUS               */
-#define _TIMER_STATUS_TIMERLOCKSTATUS_UNLOCKED     0x00000000UL                                  /**< Mode UNLOCKED for TIMER_STATUS               */
-#define _TIMER_STATUS_TIMERLOCKSTATUS_LOCKED       0x00000001UL                                  /**< Mode LOCKED for TIMER_STATUS                 */
+#define _TIMER_STATUS_TIMERLOCKSTATUS_UNLOCKED     0x00000000UL                                  /**< Mode UNLOCKED for TIMER_STATUS              */
+#define _TIMER_STATUS_TIMERLOCKSTATUS_LOCKED       0x00000001UL                                  /**< Mode LOCKED for TIMER_STATUS                */
 #define TIMER_STATUS_TIMERLOCKSTATUS_DEFAULT       (_TIMER_STATUS_TIMERLOCKSTATUS_DEFAULT << 4)  /**< Shifted mode DEFAULT for TIMER_STATUS       */
-#define TIMER_STATUS_TIMERLOCKSTATUS_UNLOCKED      (_TIMER_STATUS_TIMERLOCKSTATUS_UNLOCKED << 4) /**< Shifted mode UNLOCKED for TIMER_STATUS       */
-#define TIMER_STATUS_TIMERLOCKSTATUS_LOCKED        (_TIMER_STATUS_TIMERLOCKSTATUS_LOCKED << 4)   /**< Shifted mode LOCKED for TIMER_STATUS         */
+#define TIMER_STATUS_TIMERLOCKSTATUS_UNLOCKED      (_TIMER_STATUS_TIMERLOCKSTATUS_UNLOCKED << 4) /**< Shifted mode UNLOCKED for TIMER_STATUS      */
+#define TIMER_STATUS_TIMERLOCKSTATUS_LOCKED        (_TIMER_STATUS_TIMERLOCKSTATUS_LOCKED << 4)   /**< Shifted mode LOCKED for TIMER_STATUS        */
 #define TIMER_STATUS_DTILOCKSTATUS                 (0x1UL << 5)                                  /**< DTI lock status                             */
 #define _TIMER_STATUS_DTILOCKSTATUS_SHIFT          5                                             /**< Shift value for TIMER_DTILOCKSTATUS         */
 #define _TIMER_STATUS_DTILOCKSTATUS_MASK           0x20UL                                        /**< Bit mask for TIMER_DTILOCKSTATUS            */
 #define _TIMER_STATUS_DTILOCKSTATUS_DEFAULT        0x00000000UL                                  /**< Mode DEFAULT for TIMER_STATUS               */
-#define _TIMER_STATUS_DTILOCKSTATUS_UNLOCKED       0x00000000UL                                  /**< Mode UNLOCKED for TIMER_STATUS               */
-#define _TIMER_STATUS_DTILOCKSTATUS_LOCKED         0x00000001UL                                  /**< Mode LOCKED for TIMER_STATUS                 */
+#define _TIMER_STATUS_DTILOCKSTATUS_UNLOCKED       0x00000000UL                                  /**< Mode UNLOCKED for TIMER_STATUS              */
+#define _TIMER_STATUS_DTILOCKSTATUS_LOCKED         0x00000001UL                                  /**< Mode LOCKED for TIMER_STATUS                */
 #define TIMER_STATUS_DTILOCKSTATUS_DEFAULT         (_TIMER_STATUS_DTILOCKSTATUS_DEFAULT << 5)    /**< Shifted mode DEFAULT for TIMER_STATUS       */
-#define TIMER_STATUS_DTILOCKSTATUS_UNLOCKED        (_TIMER_STATUS_DTILOCKSTATUS_UNLOCKED << 5)   /**< Shifted mode UNLOCKED for TIMER_STATUS       */
-#define TIMER_STATUS_DTILOCKSTATUS_LOCKED          (_TIMER_STATUS_DTILOCKSTATUS_LOCKED << 5)     /**< Shifted mode LOCKED for TIMER_STATUS         */
+#define TIMER_STATUS_DTILOCKSTATUS_UNLOCKED        (_TIMER_STATUS_DTILOCKSTATUS_UNLOCKED << 5)   /**< Shifted mode UNLOCKED for TIMER_STATUS      */
+#define TIMER_STATUS_DTILOCKSTATUS_LOCKED          (_TIMER_STATUS_DTILOCKSTATUS_LOCKED << 5)     /**< Shifted mode LOCKED for TIMER_STATUS        */
 #define TIMER_STATUS_SYNCBUSY                      (0x1UL << 6)                                  /**< Sync Busy                                   */
 #define _TIMER_STATUS_SYNCBUSY_SHIFT               6                                             /**< Shift value for TIMER_SYNCBUSY              */
 #define _TIMER_STATUS_SYNCBUSY_MASK                0x40UL                                        /**< Bit mask for TIMER_SYNCBUSY                 */
@@ -426,29 +425,29 @@ typedef struct {
 #define _TIMER_STATUS_CCPOL0_SHIFT                 24                                            /**< Shift value for TIMER_CCPOL0                */
 #define _TIMER_STATUS_CCPOL0_MASK                  0x1000000UL                                   /**< Bit mask for TIMER_CCPOL0                   */
 #define _TIMER_STATUS_CCPOL0_DEFAULT               0x00000000UL                                  /**< Mode DEFAULT for TIMER_STATUS               */
-#define _TIMER_STATUS_CCPOL0_LOWRISE               0x00000000UL                                  /**< Mode LOWRISE for TIMER_STATUS                */
-#define _TIMER_STATUS_CCPOL0_HIGHFALL              0x00000001UL                                  /**< Mode HIGHFALL for TIMER_STATUS               */
+#define _TIMER_STATUS_CCPOL0_LOWRISE               0x00000000UL                                  /**< Mode LOWRISE for TIMER_STATUS               */
+#define _TIMER_STATUS_CCPOL0_HIGHFALL              0x00000001UL                                  /**< Mode HIGHFALL for TIMER_STATUS              */
 #define TIMER_STATUS_CCPOL0_DEFAULT                (_TIMER_STATUS_CCPOL0_DEFAULT << 24)          /**< Shifted mode DEFAULT for TIMER_STATUS       */
-#define TIMER_STATUS_CCPOL0_LOWRISE                (_TIMER_STATUS_CCPOL0_LOWRISE << 24)          /**< Shifted mode LOWRISE for TIMER_STATUS        */
-#define TIMER_STATUS_CCPOL0_HIGHFALL               (_TIMER_STATUS_CCPOL0_HIGHFALL << 24)         /**< Shifted mode HIGHFALL for TIMER_STATUS       */
+#define TIMER_STATUS_CCPOL0_LOWRISE                (_TIMER_STATUS_CCPOL0_LOWRISE << 24)          /**< Shifted mode LOWRISE for TIMER_STATUS       */
+#define TIMER_STATUS_CCPOL0_HIGHFALL               (_TIMER_STATUS_CCPOL0_HIGHFALL << 24)         /**< Shifted mode HIGHFALL for TIMER_STATUS      */
 #define TIMER_STATUS_CCPOL1                        (0x1UL << 25)                                 /**< CCn Polarity                                */
 #define _TIMER_STATUS_CCPOL1_SHIFT                 25                                            /**< Shift value for TIMER_CCPOL1                */
 #define _TIMER_STATUS_CCPOL1_MASK                  0x2000000UL                                   /**< Bit mask for TIMER_CCPOL1                   */
 #define _TIMER_STATUS_CCPOL1_DEFAULT               0x00000000UL                                  /**< Mode DEFAULT for TIMER_STATUS               */
-#define _TIMER_STATUS_CCPOL1_LOWRISE               0x00000000UL                                  /**< Mode LOWRISE for TIMER_STATUS                */
-#define _TIMER_STATUS_CCPOL1_HIGHFALL              0x00000001UL                                  /**< Mode HIGHFALL for TIMER_STATUS               */
+#define _TIMER_STATUS_CCPOL1_LOWRISE               0x00000000UL                                  /**< Mode LOWRISE for TIMER_STATUS               */
+#define _TIMER_STATUS_CCPOL1_HIGHFALL              0x00000001UL                                  /**< Mode HIGHFALL for TIMER_STATUS              */
 #define TIMER_STATUS_CCPOL1_DEFAULT                (_TIMER_STATUS_CCPOL1_DEFAULT << 25)          /**< Shifted mode DEFAULT for TIMER_STATUS       */
-#define TIMER_STATUS_CCPOL1_LOWRISE                (_TIMER_STATUS_CCPOL1_LOWRISE << 25)          /**< Shifted mode LOWRISE for TIMER_STATUS        */
-#define TIMER_STATUS_CCPOL1_HIGHFALL               (_TIMER_STATUS_CCPOL1_HIGHFALL << 25)         /**< Shifted mode HIGHFALL for TIMER_STATUS       */
+#define TIMER_STATUS_CCPOL1_LOWRISE                (_TIMER_STATUS_CCPOL1_LOWRISE << 25)          /**< Shifted mode LOWRISE for TIMER_STATUS       */
+#define TIMER_STATUS_CCPOL1_HIGHFALL               (_TIMER_STATUS_CCPOL1_HIGHFALL << 25)         /**< Shifted mode HIGHFALL for TIMER_STATUS      */
 #define TIMER_STATUS_CCPOL2                        (0x1UL << 26)                                 /**< CCn Polarity                                */
 #define _TIMER_STATUS_CCPOL2_SHIFT                 26                                            /**< Shift value for TIMER_CCPOL2                */
 #define _TIMER_STATUS_CCPOL2_MASK                  0x4000000UL                                   /**< Bit mask for TIMER_CCPOL2                   */
 #define _TIMER_STATUS_CCPOL2_DEFAULT               0x00000000UL                                  /**< Mode DEFAULT for TIMER_STATUS               */
-#define _TIMER_STATUS_CCPOL2_LOWRISE               0x00000000UL                                  /**< Mode LOWRISE for TIMER_STATUS                */
-#define _TIMER_STATUS_CCPOL2_HIGHFALL              0x00000001UL                                  /**< Mode HIGHFALL for TIMER_STATUS               */
+#define _TIMER_STATUS_CCPOL2_LOWRISE               0x00000000UL                                  /**< Mode LOWRISE for TIMER_STATUS               */
+#define _TIMER_STATUS_CCPOL2_HIGHFALL              0x00000001UL                                  /**< Mode HIGHFALL for TIMER_STATUS              */
 #define TIMER_STATUS_CCPOL2_DEFAULT                (_TIMER_STATUS_CCPOL2_DEFAULT << 26)          /**< Shifted mode DEFAULT for TIMER_STATUS       */
-#define TIMER_STATUS_CCPOL2_LOWRISE                (_TIMER_STATUS_CCPOL2_LOWRISE << 26)          /**< Shifted mode LOWRISE for TIMER_STATUS        */
-#define TIMER_STATUS_CCPOL2_HIGHFALL               (_TIMER_STATUS_CCPOL2_HIGHFALL << 26)         /**< Shifted mode HIGHFALL for TIMER_STATUS       */
+#define TIMER_STATUS_CCPOL2_LOWRISE                (_TIMER_STATUS_CCPOL2_LOWRISE << 26)          /**< Shifted mode LOWRISE for TIMER_STATUS       */
+#define TIMER_STATUS_CCPOL2_HIGHFALL               (_TIMER_STATUS_CCPOL2_HIGHFALL << 26)         /**< Shifted mode HIGHFALL for TIMER_STATUS      */
 
 /* Bit fields for TIMER IF */
 #define _TIMER_IF_RESETVALUE                       0x00000000UL                         /**< Default value for TIMER_IF                  */
@@ -638,9 +637,9 @@ typedef struct {
 #define _TIMER_LOCK_LOCKKEY_SHIFT                  0                                    /**< Shift value for TIMER_LOCKKEY               */
 #define _TIMER_LOCK_LOCKKEY_MASK                   0xFFFFUL                             /**< Bit mask for TIMER_LOCKKEY                  */
 #define _TIMER_LOCK_LOCKKEY_DEFAULT                0x00000000UL                         /**< Mode DEFAULT for TIMER_LOCK                 */
-#define _TIMER_LOCK_LOCKKEY_UNLOCK                 0x0000CE80UL                         /**< Mode UNLOCK for TIMER_LOCK                   */
+#define _TIMER_LOCK_LOCKKEY_UNLOCK                 0x0000CE80UL                         /**< Mode UNLOCK for TIMER_LOCK                  */
 #define TIMER_LOCK_LOCKKEY_DEFAULT                 (_TIMER_LOCK_LOCKKEY_DEFAULT << 0)   /**< Shifted mode DEFAULT for TIMER_LOCK         */
-#define TIMER_LOCK_LOCKKEY_UNLOCK                  (_TIMER_LOCK_LOCKKEY_UNLOCK << 0)    /**< Shifted mode UNLOCK for TIMER_LOCK           */
+#define TIMER_LOCK_LOCKKEY_UNLOCK                  (_TIMER_LOCK_LOCKKEY_UNLOCK << 0)    /**< Shifted mode UNLOCK for TIMER_LOCK          */
 
 /* Bit fields for TIMER EN */
 #define _TIMER_EN_RESETVALUE                       0x00000000UL                         /**< Default value for TIMER_EN                  */
@@ -657,15 +656,15 @@ typedef struct {
 #define _TIMER_CC_CFG_MODE_SHIFT                   0                                         /**< Shift value for TIMER_MODE                  */
 #define _TIMER_CC_CFG_MODE_MASK                    0x3UL                                     /**< Bit mask for TIMER_MODE                     */
 #define _TIMER_CC_CFG_MODE_DEFAULT                 0x00000000UL                              /**< Mode DEFAULT for TIMER_CC_CFG               */
-#define _TIMER_CC_CFG_MODE_OFF                     0x00000000UL                              /**< Mode OFF for TIMER_CC_CFG                    */
-#define _TIMER_CC_CFG_MODE_INPUTCAPTURE            0x00000001UL                              /**< Mode INPUTCAPTURE for TIMER_CC_CFG           */
-#define _TIMER_CC_CFG_MODE_OUTPUTCOMPARE           0x00000002UL                              /**< Mode OUTPUTCOMPARE for TIMER_CC_CFG          */
-#define _TIMER_CC_CFG_MODE_PWM                     0x00000003UL                              /**< Mode PWM for TIMER_CC_CFG                    */
+#define _TIMER_CC_CFG_MODE_OFF                     0x00000000UL                              /**< Mode OFF for TIMER_CC_CFG                   */
+#define _TIMER_CC_CFG_MODE_INPUTCAPTURE            0x00000001UL                              /**< Mode INPUTCAPTURE for TIMER_CC_CFG          */
+#define _TIMER_CC_CFG_MODE_OUTPUTCOMPARE           0x00000002UL                              /**< Mode OUTPUTCOMPARE for TIMER_CC_CFG         */
+#define _TIMER_CC_CFG_MODE_PWM                     0x00000003UL                              /**< Mode PWM for TIMER_CC_CFG                   */
 #define TIMER_CC_CFG_MODE_DEFAULT                  (_TIMER_CC_CFG_MODE_DEFAULT << 0)         /**< Shifted mode DEFAULT for TIMER_CC_CFG       */
-#define TIMER_CC_CFG_MODE_OFF                      (_TIMER_CC_CFG_MODE_OFF << 0)             /**< Shifted mode OFF for TIMER_CC_CFG            */
-#define TIMER_CC_CFG_MODE_INPUTCAPTURE             (_TIMER_CC_CFG_MODE_INPUTCAPTURE << 0)    /**< Shifted mode INPUTCAPTURE for TIMER_CC_CFG   */
-#define TIMER_CC_CFG_MODE_OUTPUTCOMPARE            (_TIMER_CC_CFG_MODE_OUTPUTCOMPARE << 0)   /**< Shifted mode OUTPUTCOMPARE for TIMER_CC_CFG  */
-#define TIMER_CC_CFG_MODE_PWM                      (_TIMER_CC_CFG_MODE_PWM << 0)             /**< Shifted mode PWM for TIMER_CC_CFG            */
+#define TIMER_CC_CFG_MODE_OFF                      (_TIMER_CC_CFG_MODE_OFF << 0)             /**< Shifted mode OFF for TIMER_CC_CFG           */
+#define TIMER_CC_CFG_MODE_INPUTCAPTURE             (_TIMER_CC_CFG_MODE_INPUTCAPTURE << 0)    /**< Shifted mode INPUTCAPTURE for TIMER_CC_CFG  */
+#define TIMER_CC_CFG_MODE_OUTPUTCOMPARE            (_TIMER_CC_CFG_MODE_OUTPUTCOMPARE << 0)   /**< Shifted mode OUTPUTCOMPARE for TIMER_CC_CFG */
+#define TIMER_CC_CFG_MODE_PWM                      (_TIMER_CC_CFG_MODE_PWM << 0)             /**< Shifted mode PWM for TIMER_CC_CFG           */
 #define TIMER_CC_CFG_COIST                         (0x1UL << 4)                              /**< Compare Output Initial State                */
 #define _TIMER_CC_CFG_COIST_SHIFT                  4                                         /**< Shift value for TIMER_COIST                 */
 #define _TIMER_CC_CFG_COIST_MASK                   0x10UL                                    /**< Bit mask for TIMER_COIST                    */
@@ -674,33 +673,33 @@ typedef struct {
 #define _TIMER_CC_CFG_INSEL_SHIFT                  17                                        /**< Shift value for TIMER_INSEL                 */
 #define _TIMER_CC_CFG_INSEL_MASK                   0x60000UL                                 /**< Bit mask for TIMER_INSEL                    */
 #define _TIMER_CC_CFG_INSEL_DEFAULT                0x00000000UL                              /**< Mode DEFAULT for TIMER_CC_CFG               */
-#define _TIMER_CC_CFG_INSEL_PIN                    0x00000000UL                              /**< Mode PIN for TIMER_CC_CFG                    */
-#define _TIMER_CC_CFG_INSEL_PRSSYNC                0x00000001UL                              /**< Mode PRSSYNC for TIMER_CC_CFG                */
-#define _TIMER_CC_CFG_INSEL_PRSASYNCLEVEL          0x00000002UL                              /**< Mode PRSASYNCLEVEL for TIMER_CC_CFG          */
-#define _TIMER_CC_CFG_INSEL_PRSASYNCPULSE          0x00000003UL                              /**< Mode PRSASYNCPULSE for TIMER_CC_CFG          */
+#define _TIMER_CC_CFG_INSEL_PIN                    0x00000000UL                              /**< Mode PIN for TIMER_CC_CFG                   */
+#define _TIMER_CC_CFG_INSEL_PRSSYNC                0x00000001UL                              /**< Mode PRSSYNC for TIMER_CC_CFG               */
+#define _TIMER_CC_CFG_INSEL_PRSASYNCLEVEL          0x00000002UL                              /**< Mode PRSASYNCLEVEL for TIMER_CC_CFG         */
+#define _TIMER_CC_CFG_INSEL_PRSASYNCPULSE          0x00000003UL                              /**< Mode PRSASYNCPULSE for TIMER_CC_CFG         */
 #define TIMER_CC_CFG_INSEL_DEFAULT                 (_TIMER_CC_CFG_INSEL_DEFAULT << 17)       /**< Shifted mode DEFAULT for TIMER_CC_CFG       */
-#define TIMER_CC_CFG_INSEL_PIN                     (_TIMER_CC_CFG_INSEL_PIN << 17)           /**< Shifted mode PIN for TIMER_CC_CFG            */
-#define TIMER_CC_CFG_INSEL_PRSSYNC                 (_TIMER_CC_CFG_INSEL_PRSSYNC << 17)       /**< Shifted mode PRSSYNC for TIMER_CC_CFG        */
-#define TIMER_CC_CFG_INSEL_PRSASYNCLEVEL           (_TIMER_CC_CFG_INSEL_PRSASYNCLEVEL << 17) /**< Shifted mode PRSASYNCLEVEL for TIMER_CC_CFG  */
-#define TIMER_CC_CFG_INSEL_PRSASYNCPULSE           (_TIMER_CC_CFG_INSEL_PRSASYNCPULSE << 17) /**< Shifted mode PRSASYNCPULSE for TIMER_CC_CFG  */
+#define TIMER_CC_CFG_INSEL_PIN                     (_TIMER_CC_CFG_INSEL_PIN << 17)           /**< Shifted mode PIN for TIMER_CC_CFG           */
+#define TIMER_CC_CFG_INSEL_PRSSYNC                 (_TIMER_CC_CFG_INSEL_PRSSYNC << 17)       /**< Shifted mode PRSSYNC for TIMER_CC_CFG       */
+#define TIMER_CC_CFG_INSEL_PRSASYNCLEVEL           (_TIMER_CC_CFG_INSEL_PRSASYNCLEVEL << 17) /**< Shifted mode PRSASYNCLEVEL for TIMER_CC_CFG */
+#define TIMER_CC_CFG_INSEL_PRSASYNCPULSE           (_TIMER_CC_CFG_INSEL_PRSASYNCPULSE << 17) /**< Shifted mode PRSASYNCPULSE for TIMER_CC_CFG */
 #define TIMER_CC_CFG_PRSCONF                       (0x1UL << 19)                             /**< PRS Configuration                           */
 #define _TIMER_CC_CFG_PRSCONF_SHIFT                19                                        /**< Shift value for TIMER_PRSCONF               */
 #define _TIMER_CC_CFG_PRSCONF_MASK                 0x80000UL                                 /**< Bit mask for TIMER_PRSCONF                  */
 #define _TIMER_CC_CFG_PRSCONF_DEFAULT              0x00000000UL                              /**< Mode DEFAULT for TIMER_CC_CFG               */
-#define _TIMER_CC_CFG_PRSCONF_PULSE                0x00000000UL                              /**< Mode PULSE for TIMER_CC_CFG                  */
-#define _TIMER_CC_CFG_PRSCONF_LEVEL                0x00000001UL                              /**< Mode LEVEL for TIMER_CC_CFG                  */
+#define _TIMER_CC_CFG_PRSCONF_PULSE                0x00000000UL                              /**< Mode PULSE for TIMER_CC_CFG                 */
+#define _TIMER_CC_CFG_PRSCONF_LEVEL                0x00000001UL                              /**< Mode LEVEL for TIMER_CC_CFG                 */
 #define TIMER_CC_CFG_PRSCONF_DEFAULT               (_TIMER_CC_CFG_PRSCONF_DEFAULT << 19)     /**< Shifted mode DEFAULT for TIMER_CC_CFG       */
-#define TIMER_CC_CFG_PRSCONF_PULSE                 (_TIMER_CC_CFG_PRSCONF_PULSE << 19)       /**< Shifted mode PULSE for TIMER_CC_CFG          */
-#define TIMER_CC_CFG_PRSCONF_LEVEL                 (_TIMER_CC_CFG_PRSCONF_LEVEL << 19)       /**< Shifted mode LEVEL for TIMER_CC_CFG          */
+#define TIMER_CC_CFG_PRSCONF_PULSE                 (_TIMER_CC_CFG_PRSCONF_PULSE << 19)       /**< Shifted mode PULSE for TIMER_CC_CFG         */
+#define TIMER_CC_CFG_PRSCONF_LEVEL                 (_TIMER_CC_CFG_PRSCONF_LEVEL << 19)       /**< Shifted mode LEVEL for TIMER_CC_CFG         */
 #define TIMER_CC_CFG_FILT                          (0x1UL << 20)                             /**< Digital Filter                              */
 #define _TIMER_CC_CFG_FILT_SHIFT                   20                                        /**< Shift value for TIMER_FILT                  */
 #define _TIMER_CC_CFG_FILT_MASK                    0x100000UL                                /**< Bit mask for TIMER_FILT                     */
 #define _TIMER_CC_CFG_FILT_DEFAULT                 0x00000000UL                              /**< Mode DEFAULT for TIMER_CC_CFG               */
-#define _TIMER_CC_CFG_FILT_DISABLE                 0x00000000UL                              /**< Mode DISABLE for TIMER_CC_CFG                */
-#define _TIMER_CC_CFG_FILT_ENABLE                  0x00000001UL                              /**< Mode ENABLE for TIMER_CC_CFG                 */
+#define _TIMER_CC_CFG_FILT_DISABLE                 0x00000000UL                              /**< Mode DISABLE for TIMER_CC_CFG               */
+#define _TIMER_CC_CFG_FILT_ENABLE                  0x00000001UL                              /**< Mode ENABLE for TIMER_CC_CFG                */
 #define TIMER_CC_CFG_FILT_DEFAULT                  (_TIMER_CC_CFG_FILT_DEFAULT << 20)        /**< Shifted mode DEFAULT for TIMER_CC_CFG       */
-#define TIMER_CC_CFG_FILT_DISABLE                  (_TIMER_CC_CFG_FILT_DISABLE << 20)        /**< Shifted mode DISABLE for TIMER_CC_CFG        */
-#define TIMER_CC_CFG_FILT_ENABLE                   (_TIMER_CC_CFG_FILT_ENABLE << 20)         /**< Shifted mode ENABLE for TIMER_CC_CFG         */
+#define TIMER_CC_CFG_FILT_DISABLE                  (_TIMER_CC_CFG_FILT_DISABLE << 20)        /**< Shifted mode DISABLE for TIMER_CC_CFG       */
+#define TIMER_CC_CFG_FILT_ENABLE                   (_TIMER_CC_CFG_FILT_ENABLE << 20)         /**< Shifted mode ENABLE for TIMER_CC_CFG        */
 #define TIMER_CC_CFG_ICFWL                         (0x1UL << 21)                             /**< Input Capture FIFO watermark level          */
 #define _TIMER_CC_CFG_ICFWL_SHIFT                  21                                        /**< Shift value for TIMER_ICFWL                 */
 #define _TIMER_CC_CFG_ICFWL_MASK                   0x200000UL                                /**< Bit mask for TIMER_ICFWL                    */
@@ -718,63 +717,63 @@ typedef struct {
 #define _TIMER_CC_CTRL_CMOA_SHIFT                  8                                               /**< Shift value for TIMER_CMOA                  */
 #define _TIMER_CC_CTRL_CMOA_MASK                   0x300UL                                         /**< Bit mask for TIMER_CMOA                     */
 #define _TIMER_CC_CTRL_CMOA_DEFAULT                0x00000000UL                                    /**< Mode DEFAULT for TIMER_CC_CTRL              */
-#define _TIMER_CC_CTRL_CMOA_NONE                   0x00000000UL                                    /**< Mode NONE for TIMER_CC_CTRL                  */
-#define _TIMER_CC_CTRL_CMOA_TOGGLE                 0x00000001UL                                    /**< Mode TOGGLE for TIMER_CC_CTRL                */
-#define _TIMER_CC_CTRL_CMOA_CLEAR                  0x00000002UL                                    /**< Mode CLEAR for TIMER_CC_CTRL                 */
-#define _TIMER_CC_CTRL_CMOA_SET                    0x00000003UL                                    /**< Mode SET for TIMER_CC_CTRL                   */
+#define _TIMER_CC_CTRL_CMOA_NONE                   0x00000000UL                                    /**< Mode NONE for TIMER_CC_CTRL                 */
+#define _TIMER_CC_CTRL_CMOA_TOGGLE                 0x00000001UL                                    /**< Mode TOGGLE for TIMER_CC_CTRL               */
+#define _TIMER_CC_CTRL_CMOA_CLEAR                  0x00000002UL                                    /**< Mode CLEAR for TIMER_CC_CTRL                */
+#define _TIMER_CC_CTRL_CMOA_SET                    0x00000003UL                                    /**< Mode SET for TIMER_CC_CTRL                  */
 #define TIMER_CC_CTRL_CMOA_DEFAULT                 (_TIMER_CC_CTRL_CMOA_DEFAULT << 8)              /**< Shifted mode DEFAULT for TIMER_CC_CTRL      */
-#define TIMER_CC_CTRL_CMOA_NONE                    (_TIMER_CC_CTRL_CMOA_NONE << 8)                 /**< Shifted mode NONE for TIMER_CC_CTRL          */
-#define TIMER_CC_CTRL_CMOA_TOGGLE                  (_TIMER_CC_CTRL_CMOA_TOGGLE << 8)               /**< Shifted mode TOGGLE for TIMER_CC_CTRL        */
-#define TIMER_CC_CTRL_CMOA_CLEAR                   (_TIMER_CC_CTRL_CMOA_CLEAR << 8)                /**< Shifted mode CLEAR for TIMER_CC_CTRL         */
-#define TIMER_CC_CTRL_CMOA_SET                     (_TIMER_CC_CTRL_CMOA_SET << 8)                  /**< Shifted mode SET for TIMER_CC_CTRL           */
+#define TIMER_CC_CTRL_CMOA_NONE                    (_TIMER_CC_CTRL_CMOA_NONE << 8)                 /**< Shifted mode NONE for TIMER_CC_CTRL         */
+#define TIMER_CC_CTRL_CMOA_TOGGLE                  (_TIMER_CC_CTRL_CMOA_TOGGLE << 8)               /**< Shifted mode TOGGLE for TIMER_CC_CTRL       */
+#define TIMER_CC_CTRL_CMOA_CLEAR                   (_TIMER_CC_CTRL_CMOA_CLEAR << 8)                /**< Shifted mode CLEAR for TIMER_CC_CTRL        */
+#define TIMER_CC_CTRL_CMOA_SET                     (_TIMER_CC_CTRL_CMOA_SET << 8)                  /**< Shifted mode SET for TIMER_CC_CTRL          */
 #define _TIMER_CC_CTRL_COFOA_SHIFT                 10                                              /**< Shift value for TIMER_COFOA                 */
 #define _TIMER_CC_CTRL_COFOA_MASK                  0xC00UL                                         /**< Bit mask for TIMER_COFOA                    */
 #define _TIMER_CC_CTRL_COFOA_DEFAULT               0x00000000UL                                    /**< Mode DEFAULT for TIMER_CC_CTRL              */
-#define _TIMER_CC_CTRL_COFOA_NONE                  0x00000000UL                                    /**< Mode NONE for TIMER_CC_CTRL                  */
-#define _TIMER_CC_CTRL_COFOA_TOGGLE                0x00000001UL                                    /**< Mode TOGGLE for TIMER_CC_CTRL                */
-#define _TIMER_CC_CTRL_COFOA_CLEAR                 0x00000002UL                                    /**< Mode CLEAR for TIMER_CC_CTRL                 */
-#define _TIMER_CC_CTRL_COFOA_SET                   0x00000003UL                                    /**< Mode SET for TIMER_CC_CTRL                   */
+#define _TIMER_CC_CTRL_COFOA_NONE                  0x00000000UL                                    /**< Mode NONE for TIMER_CC_CTRL                 */
+#define _TIMER_CC_CTRL_COFOA_TOGGLE                0x00000001UL                                    /**< Mode TOGGLE for TIMER_CC_CTRL               */
+#define _TIMER_CC_CTRL_COFOA_CLEAR                 0x00000002UL                                    /**< Mode CLEAR for TIMER_CC_CTRL                */
+#define _TIMER_CC_CTRL_COFOA_SET                   0x00000003UL                                    /**< Mode SET for TIMER_CC_CTRL                  */
 #define TIMER_CC_CTRL_COFOA_DEFAULT                (_TIMER_CC_CTRL_COFOA_DEFAULT << 10)            /**< Shifted mode DEFAULT for TIMER_CC_CTRL      */
-#define TIMER_CC_CTRL_COFOA_NONE                   (_TIMER_CC_CTRL_COFOA_NONE << 10)               /**< Shifted mode NONE for TIMER_CC_CTRL          */
-#define TIMER_CC_CTRL_COFOA_TOGGLE                 (_TIMER_CC_CTRL_COFOA_TOGGLE << 10)             /**< Shifted mode TOGGLE for TIMER_CC_CTRL        */
-#define TIMER_CC_CTRL_COFOA_CLEAR                  (_TIMER_CC_CTRL_COFOA_CLEAR << 10)              /**< Shifted mode CLEAR for TIMER_CC_CTRL         */
-#define TIMER_CC_CTRL_COFOA_SET                    (_TIMER_CC_CTRL_COFOA_SET << 10)                /**< Shifted mode SET for TIMER_CC_CTRL           */
+#define TIMER_CC_CTRL_COFOA_NONE                   (_TIMER_CC_CTRL_COFOA_NONE << 10)               /**< Shifted mode NONE for TIMER_CC_CTRL         */
+#define TIMER_CC_CTRL_COFOA_TOGGLE                 (_TIMER_CC_CTRL_COFOA_TOGGLE << 10)             /**< Shifted mode TOGGLE for TIMER_CC_CTRL       */
+#define TIMER_CC_CTRL_COFOA_CLEAR                  (_TIMER_CC_CTRL_COFOA_CLEAR << 10)              /**< Shifted mode CLEAR for TIMER_CC_CTRL        */
+#define TIMER_CC_CTRL_COFOA_SET                    (_TIMER_CC_CTRL_COFOA_SET << 10)                /**< Shifted mode SET for TIMER_CC_CTRL          */
 #define _TIMER_CC_CTRL_CUFOA_SHIFT                 12                                              /**< Shift value for TIMER_CUFOA                 */
 #define _TIMER_CC_CTRL_CUFOA_MASK                  0x3000UL                                        /**< Bit mask for TIMER_CUFOA                    */
 #define _TIMER_CC_CTRL_CUFOA_DEFAULT               0x00000000UL                                    /**< Mode DEFAULT for TIMER_CC_CTRL              */
-#define _TIMER_CC_CTRL_CUFOA_NONE                  0x00000000UL                                    /**< Mode NONE for TIMER_CC_CTRL                  */
-#define _TIMER_CC_CTRL_CUFOA_TOGGLE                0x00000001UL                                    /**< Mode TOGGLE for TIMER_CC_CTRL                */
-#define _TIMER_CC_CTRL_CUFOA_CLEAR                 0x00000002UL                                    /**< Mode CLEAR for TIMER_CC_CTRL                 */
-#define _TIMER_CC_CTRL_CUFOA_SET                   0x00000003UL                                    /**< Mode SET for TIMER_CC_CTRL                   */
+#define _TIMER_CC_CTRL_CUFOA_NONE                  0x00000000UL                                    /**< Mode NONE for TIMER_CC_CTRL                 */
+#define _TIMER_CC_CTRL_CUFOA_TOGGLE                0x00000001UL                                    /**< Mode TOGGLE for TIMER_CC_CTRL               */
+#define _TIMER_CC_CTRL_CUFOA_CLEAR                 0x00000002UL                                    /**< Mode CLEAR for TIMER_CC_CTRL                */
+#define _TIMER_CC_CTRL_CUFOA_SET                   0x00000003UL                                    /**< Mode SET for TIMER_CC_CTRL                  */
 #define TIMER_CC_CTRL_CUFOA_DEFAULT                (_TIMER_CC_CTRL_CUFOA_DEFAULT << 12)            /**< Shifted mode DEFAULT for TIMER_CC_CTRL      */
-#define TIMER_CC_CTRL_CUFOA_NONE                   (_TIMER_CC_CTRL_CUFOA_NONE << 12)               /**< Shifted mode NONE for TIMER_CC_CTRL          */
-#define TIMER_CC_CTRL_CUFOA_TOGGLE                 (_TIMER_CC_CTRL_CUFOA_TOGGLE << 12)             /**< Shifted mode TOGGLE for TIMER_CC_CTRL        */
-#define TIMER_CC_CTRL_CUFOA_CLEAR                  (_TIMER_CC_CTRL_CUFOA_CLEAR << 12)              /**< Shifted mode CLEAR for TIMER_CC_CTRL         */
-#define TIMER_CC_CTRL_CUFOA_SET                    (_TIMER_CC_CTRL_CUFOA_SET << 12)                /**< Shifted mode SET for TIMER_CC_CTRL           */
+#define TIMER_CC_CTRL_CUFOA_NONE                   (_TIMER_CC_CTRL_CUFOA_NONE << 12)               /**< Shifted mode NONE for TIMER_CC_CTRL         */
+#define TIMER_CC_CTRL_CUFOA_TOGGLE                 (_TIMER_CC_CTRL_CUFOA_TOGGLE << 12)             /**< Shifted mode TOGGLE for TIMER_CC_CTRL       */
+#define TIMER_CC_CTRL_CUFOA_CLEAR                  (_TIMER_CC_CTRL_CUFOA_CLEAR << 12)              /**< Shifted mode CLEAR for TIMER_CC_CTRL        */
+#define TIMER_CC_CTRL_CUFOA_SET                    (_TIMER_CC_CTRL_CUFOA_SET << 12)                /**< Shifted mode SET for TIMER_CC_CTRL          */
 #define _TIMER_CC_CTRL_ICEDGE_SHIFT                24                                              /**< Shift value for TIMER_ICEDGE                */
 #define _TIMER_CC_CTRL_ICEDGE_MASK                 0x3000000UL                                     /**< Bit mask for TIMER_ICEDGE                   */
 #define _TIMER_CC_CTRL_ICEDGE_DEFAULT              0x00000000UL                                    /**< Mode DEFAULT for TIMER_CC_CTRL              */
-#define _TIMER_CC_CTRL_ICEDGE_RISING               0x00000000UL                                    /**< Mode RISING for TIMER_CC_CTRL                */
-#define _TIMER_CC_CTRL_ICEDGE_FALLING              0x00000001UL                                    /**< Mode FALLING for TIMER_CC_CTRL               */
-#define _TIMER_CC_CTRL_ICEDGE_BOTH                 0x00000002UL                                    /**< Mode BOTH for TIMER_CC_CTRL                  */
-#define _TIMER_CC_CTRL_ICEDGE_NONE                 0x00000003UL                                    /**< Mode NONE for TIMER_CC_CTRL                  */
+#define _TIMER_CC_CTRL_ICEDGE_RISING               0x00000000UL                                    /**< Mode RISING for TIMER_CC_CTRL               */
+#define _TIMER_CC_CTRL_ICEDGE_FALLING              0x00000001UL                                    /**< Mode FALLING for TIMER_CC_CTRL              */
+#define _TIMER_CC_CTRL_ICEDGE_BOTH                 0x00000002UL                                    /**< Mode BOTH for TIMER_CC_CTRL                 */
+#define _TIMER_CC_CTRL_ICEDGE_NONE                 0x00000003UL                                    /**< Mode NONE for TIMER_CC_CTRL                 */
 #define TIMER_CC_CTRL_ICEDGE_DEFAULT               (_TIMER_CC_CTRL_ICEDGE_DEFAULT << 24)           /**< Shifted mode DEFAULT for TIMER_CC_CTRL      */
-#define TIMER_CC_CTRL_ICEDGE_RISING                (_TIMER_CC_CTRL_ICEDGE_RISING << 24)            /**< Shifted mode RISING for TIMER_CC_CTRL        */
-#define TIMER_CC_CTRL_ICEDGE_FALLING               (_TIMER_CC_CTRL_ICEDGE_FALLING << 24)           /**< Shifted mode FALLING for TIMER_CC_CTRL       */
-#define TIMER_CC_CTRL_ICEDGE_BOTH                  (_TIMER_CC_CTRL_ICEDGE_BOTH << 24)              /**< Shifted mode BOTH for TIMER_CC_CTRL          */
-#define TIMER_CC_CTRL_ICEDGE_NONE                  (_TIMER_CC_CTRL_ICEDGE_NONE << 24)              /**< Shifted mode NONE for TIMER_CC_CTRL          */
+#define TIMER_CC_CTRL_ICEDGE_RISING                (_TIMER_CC_CTRL_ICEDGE_RISING << 24)            /**< Shifted mode RISING for TIMER_CC_CTRL       */
+#define TIMER_CC_CTRL_ICEDGE_FALLING               (_TIMER_CC_CTRL_ICEDGE_FALLING << 24)           /**< Shifted mode FALLING for TIMER_CC_CTRL      */
+#define TIMER_CC_CTRL_ICEDGE_BOTH                  (_TIMER_CC_CTRL_ICEDGE_BOTH << 24)              /**< Shifted mode BOTH for TIMER_CC_CTRL         */
+#define TIMER_CC_CTRL_ICEDGE_NONE                  (_TIMER_CC_CTRL_ICEDGE_NONE << 24)              /**< Shifted mode NONE for TIMER_CC_CTRL         */
 #define _TIMER_CC_CTRL_ICEVCTRL_SHIFT              26                                              /**< Shift value for TIMER_ICEVCTRL              */
 #define _TIMER_CC_CTRL_ICEVCTRL_MASK               0xC000000UL                                     /**< Bit mask for TIMER_ICEVCTRL                 */
 #define _TIMER_CC_CTRL_ICEVCTRL_DEFAULT            0x00000000UL                                    /**< Mode DEFAULT for TIMER_CC_CTRL              */
-#define _TIMER_CC_CTRL_ICEVCTRL_EVERYEDGE          0x00000000UL                                    /**< Mode EVERYEDGE for TIMER_CC_CTRL             */
-#define _TIMER_CC_CTRL_ICEVCTRL_EVERYSECONDEDGE    0x00000001UL                                    /**< Mode EVERYSECONDEDGE for TIMER_CC_CTRL       */
-#define _TIMER_CC_CTRL_ICEVCTRL_RISING             0x00000002UL                                    /**< Mode RISING for TIMER_CC_CTRL                */
-#define _TIMER_CC_CTRL_ICEVCTRL_FALLING            0x00000003UL                                    /**< Mode FALLING for TIMER_CC_CTRL               */
+#define _TIMER_CC_CTRL_ICEVCTRL_EVERYEDGE          0x00000000UL                                    /**< Mode EVERYEDGE for TIMER_CC_CTRL            */
+#define _TIMER_CC_CTRL_ICEVCTRL_EVERYSECONDEDGE    0x00000001UL                                    /**< Mode EVERYSECONDEDGE for TIMER_CC_CTRL      */
+#define _TIMER_CC_CTRL_ICEVCTRL_RISING             0x00000002UL                                    /**< Mode RISING for TIMER_CC_CTRL               */
+#define _TIMER_CC_CTRL_ICEVCTRL_FALLING            0x00000003UL                                    /**< Mode FALLING for TIMER_CC_CTRL              */
 #define TIMER_CC_CTRL_ICEVCTRL_DEFAULT             (_TIMER_CC_CTRL_ICEVCTRL_DEFAULT << 26)         /**< Shifted mode DEFAULT for TIMER_CC_CTRL      */
-#define TIMER_CC_CTRL_ICEVCTRL_EVERYEDGE           (_TIMER_CC_CTRL_ICEVCTRL_EVERYEDGE << 26)       /**< Shifted mode EVERYEDGE for TIMER_CC_CTRL     */
+#define TIMER_CC_CTRL_ICEVCTRL_EVERYEDGE           (_TIMER_CC_CTRL_ICEVCTRL_EVERYEDGE << 26)       /**< Shifted mode EVERYEDGE for TIMER_CC_CTRL    */
 #define TIMER_CC_CTRL_ICEVCTRL_EVERYSECONDEDGE     (_TIMER_CC_CTRL_ICEVCTRL_EVERYSECONDEDGE << 26) /**< Shifted mode EVERYSECONDEDGE for TIMER_CC_CTRL*/
-#define TIMER_CC_CTRL_ICEVCTRL_RISING              (_TIMER_CC_CTRL_ICEVCTRL_RISING << 26)          /**< Shifted mode RISING for TIMER_CC_CTRL        */
-#define TIMER_CC_CTRL_ICEVCTRL_FALLING             (_TIMER_CC_CTRL_ICEVCTRL_FALLING << 26)         /**< Shifted mode FALLING for TIMER_CC_CTRL       */
+#define TIMER_CC_CTRL_ICEVCTRL_RISING              (_TIMER_CC_CTRL_ICEVCTRL_RISING << 26)          /**< Shifted mode RISING for TIMER_CC_CTRL       */
+#define TIMER_CC_CTRL_ICEVCTRL_FALLING             (_TIMER_CC_CTRL_ICEVCTRL_FALLING << 26)         /**< Shifted mode FALLING for TIMER_CC_CTRL      */
 
 /* Bit fields for TIMER CC_OC */
 #define _TIMER_CC_OC_RESETVALUE                    0x00000000UL                         /**< Default value for TIMER_CC_OC               */
@@ -820,11 +819,11 @@ typedef struct {
 #define _TIMER_DTCFG_DTDAS_SHIFT                   1                                    /**< Shift value for TIMER_DTDAS                 */
 #define _TIMER_DTCFG_DTDAS_MASK                    0x2UL                                /**< Bit mask for TIMER_DTDAS                    */
 #define _TIMER_DTCFG_DTDAS_DEFAULT                 0x00000000UL                         /**< Mode DEFAULT for TIMER_DTCFG                */
-#define _TIMER_DTCFG_DTDAS_NORESTART               0x00000000UL                         /**< Mode NORESTART for TIMER_DTCFG               */
-#define _TIMER_DTCFG_DTDAS_RESTART                 0x00000001UL                         /**< Mode RESTART for TIMER_DTCFG                 */
+#define _TIMER_DTCFG_DTDAS_NORESTART               0x00000000UL                         /**< Mode NORESTART for TIMER_DTCFG              */
+#define _TIMER_DTCFG_DTDAS_RESTART                 0x00000001UL                         /**< Mode RESTART for TIMER_DTCFG                */
 #define TIMER_DTCFG_DTDAS_DEFAULT                  (_TIMER_DTCFG_DTDAS_DEFAULT << 1)    /**< Shifted mode DEFAULT for TIMER_DTCFG        */
-#define TIMER_DTCFG_DTDAS_NORESTART                (_TIMER_DTCFG_DTDAS_NORESTART << 1)  /**< Shifted mode NORESTART for TIMER_DTCFG       */
-#define TIMER_DTCFG_DTDAS_RESTART                  (_TIMER_DTCFG_DTDAS_RESTART << 1)    /**< Shifted mode RESTART for TIMER_DTCFG         */
+#define TIMER_DTCFG_DTDAS_NORESTART                (_TIMER_DTCFG_DTDAS_NORESTART << 1)  /**< Shifted mode NORESTART for TIMER_DTCFG      */
+#define TIMER_DTCFG_DTDAS_RESTART                  (_TIMER_DTCFG_DTDAS_RESTART << 1)    /**< Shifted mode RESTART for TIMER_DTCFG        */
 #define TIMER_DTCFG_DTAR                           (0x1UL << 9)                         /**< DTI Always Run                              */
 #define _TIMER_DTCFG_DTAR_SHIFT                    9                                    /**< Shift value for TIMER_DTAR                  */
 #define _TIMER_DTCFG_DTAR_MASK                     0x200UL                              /**< Bit mask for TIMER_DTAR                     */
@@ -863,15 +862,15 @@ typedef struct {
 #define _TIMER_DTFCFG_DTFA_SHIFT                   16                                        /**< Shift value for TIMER_DTFA                  */
 #define _TIMER_DTFCFG_DTFA_MASK                    0x30000UL                                 /**< Bit mask for TIMER_DTFA                     */
 #define _TIMER_DTFCFG_DTFA_DEFAULT                 0x00000000UL                              /**< Mode DEFAULT for TIMER_DTFCFG               */
-#define _TIMER_DTFCFG_DTFA_NONE                    0x00000000UL                              /**< Mode NONE for TIMER_DTFCFG                   */
-#define _TIMER_DTFCFG_DTFA_INACTIVE                0x00000001UL                              /**< Mode INACTIVE for TIMER_DTFCFG               */
-#define _TIMER_DTFCFG_DTFA_CLEAR                   0x00000002UL                              /**< Mode CLEAR for TIMER_DTFCFG                  */
-#define _TIMER_DTFCFG_DTFA_TRISTATE                0x00000003UL                              /**< Mode TRISTATE for TIMER_DTFCFG               */
+#define _TIMER_DTFCFG_DTFA_NONE                    0x00000000UL                              /**< Mode NONE for TIMER_DTFCFG                  */
+#define _TIMER_DTFCFG_DTFA_INACTIVE                0x00000001UL                              /**< Mode INACTIVE for TIMER_DTFCFG              */
+#define _TIMER_DTFCFG_DTFA_CLEAR                   0x00000002UL                              /**< Mode CLEAR for TIMER_DTFCFG                 */
+#define _TIMER_DTFCFG_DTFA_TRISTATE                0x00000003UL                              /**< Mode TRISTATE for TIMER_DTFCFG              */
 #define TIMER_DTFCFG_DTFA_DEFAULT                  (_TIMER_DTFCFG_DTFA_DEFAULT << 16)        /**< Shifted mode DEFAULT for TIMER_DTFCFG       */
-#define TIMER_DTFCFG_DTFA_NONE                     (_TIMER_DTFCFG_DTFA_NONE << 16)           /**< Shifted mode NONE for TIMER_DTFCFG           */
-#define TIMER_DTFCFG_DTFA_INACTIVE                 (_TIMER_DTFCFG_DTFA_INACTIVE << 16)       /**< Shifted mode INACTIVE for TIMER_DTFCFG       */
-#define TIMER_DTFCFG_DTFA_CLEAR                    (_TIMER_DTFCFG_DTFA_CLEAR << 16)          /**< Shifted mode CLEAR for TIMER_DTFCFG          */
-#define TIMER_DTFCFG_DTFA_TRISTATE                 (_TIMER_DTFCFG_DTFA_TRISTATE << 16)       /**< Shifted mode TRISTATE for TIMER_DTFCFG       */
+#define TIMER_DTFCFG_DTFA_NONE                     (_TIMER_DTFCFG_DTFA_NONE << 16)           /**< Shifted mode NONE for TIMER_DTFCFG          */
+#define TIMER_DTFCFG_DTFA_INACTIVE                 (_TIMER_DTFCFG_DTFA_INACTIVE << 16)       /**< Shifted mode INACTIVE for TIMER_DTFCFG      */
+#define TIMER_DTFCFG_DTFA_CLEAR                    (_TIMER_DTFCFG_DTFA_CLEAR << 16)          /**< Shifted mode CLEAR for TIMER_DTFCFG         */
+#define TIMER_DTFCFG_DTFA_TRISTATE                 (_TIMER_DTFCFG_DTFA_TRISTATE << 16)       /**< Shifted mode TRISTATE for TIMER_DTFCFG      */
 #define TIMER_DTFCFG_DTPRS0FEN                     (0x1UL << 24)                             /**< DTI PRS 0 Fault Enable                      */
 #define _TIMER_DTFCFG_DTPRS0FEN_SHIFT              24                                        /**< Shift value for TIMER_DTPRS0FEN             */
 #define _TIMER_DTFCFG_DTPRS0FEN_MASK               0x1000000UL                               /**< Bit mask for TIMER_DTPRS0FEN                */
@@ -1010,9 +1009,9 @@ typedef struct {
 #define _TIMER_DTLOCK_DTILOCKKEY_SHIFT             0                                       /**< Shift value for TIMER_DTILOCKKEY            */
 #define _TIMER_DTLOCK_DTILOCKKEY_MASK              0xFFFFUL                                /**< Bit mask for TIMER_DTILOCKKEY               */
 #define _TIMER_DTLOCK_DTILOCKKEY_DEFAULT           0x00000000UL                            /**< Mode DEFAULT for TIMER_DTLOCK               */
-#define _TIMER_DTLOCK_DTILOCKKEY_UNLOCK            0x0000CE80UL                            /**< Mode UNLOCK for TIMER_DTLOCK                 */
+#define _TIMER_DTLOCK_DTILOCKKEY_UNLOCK            0x0000CE80UL                            /**< Mode UNLOCK for TIMER_DTLOCK                */
 #define TIMER_DTLOCK_DTILOCKKEY_DEFAULT            (_TIMER_DTLOCK_DTILOCKKEY_DEFAULT << 0) /**< Shifted mode DEFAULT for TIMER_DTLOCK       */
-#define TIMER_DTLOCK_DTILOCKKEY_UNLOCK             (_TIMER_DTLOCK_DTILOCKKEY_UNLOCK << 0)  /**< Shifted mode UNLOCK for TIMER_DTLOCK         */
+#define TIMER_DTLOCK_DTILOCKKEY_UNLOCK             (_TIMER_DTLOCK_DTILOCKKEY_UNLOCK << 0)  /**< Shifted mode UNLOCK for TIMER_DTLOCK        */
 
 /** @} End of group EFR32MG21_TIMER_BitFields */
 /** @} End of group EFR32MG21_TIMER */

@@ -1,10 +1,9 @@
 /***************************************************************************//**
  * @file
  * @brief EFM32GG11B_CMU register and bit field definitions
- * @version 5.7.0
  *******************************************************************************
  * # License
- * <b>Copyright 2018 Silicon Laboratories Inc. www.silabs.com</b>
+ * <b>Copyright 2020 Silicon Laboratories Inc. www.silabs.com</b>
  *******************************************************************************
  *
  * SPDX-License-Identifier: Zlib
@@ -1893,7 +1892,7 @@ typedef struct {
 #define _CMU_HFPERCLKEN0_ADC1_MASK                        0x200000UL                                 /**< Bit mask for CMU_ADC1 */
 #define _CMU_HFPERCLKEN0_ADC1_DEFAULT                     0x00000000UL                               /**< Mode DEFAULT for CMU_HFPERCLKEN0 */
 #define CMU_HFPERCLKEN0_ADC1_DEFAULT                      (_CMU_HFPERCLKEN0_ADC1_DEFAULT << 21)      /**< Shifted mode DEFAULT for CMU_HFPERCLKEN0 */
-#define CMU_HFPERCLKEN0_CRYOTIMER                         (0x1UL << 22)                              /**< CryoTimer Clock Enable */
+#define CMU_HFPERCLKEN0_CRYOTIMER                         (0x1UL << 22)                              /**< CRYOTIMER Clock Enable */
 #define _CMU_HFPERCLKEN0_CRYOTIMER_SHIFT                  22                                         /**< Shift value for CMU_CRYOTIMER */
 #define _CMU_HFPERCLKEN0_CRYOTIMER_MASK                   0x400000UL                                 /**< Bit mask for CMU_CRYOTIMER */
 #define _CMU_HFPERCLKEN0_CRYOTIMER_DEFAULT                0x00000000UL                               /**< Mode DEFAULT for CMU_HFPERCLKEN0 */
@@ -2629,13 +2628,13 @@ typedef struct {
 #define _CMU_LOCK_LOCKKEY_SHIFT                           0                                 /**< Shift value for CMU_LOCKKEY */
 #define _CMU_LOCK_LOCKKEY_MASK                            0xFFFFUL                          /**< Bit mask for CMU_LOCKKEY */
 #define _CMU_LOCK_LOCKKEY_DEFAULT                         0x00000000UL                      /**< Mode DEFAULT for CMU_LOCK */
-#define _CMU_LOCK_LOCKKEY_LOCK                            0x00000000UL                      /**< Mode LOCK for CMU_LOCK */
 #define _CMU_LOCK_LOCKKEY_UNLOCKED                        0x00000000UL                      /**< Mode UNLOCKED for CMU_LOCK */
+#define _CMU_LOCK_LOCKKEY_LOCK                            0x00000000UL                      /**< Mode LOCK for CMU_LOCK */
 #define _CMU_LOCK_LOCKKEY_LOCKED                          0x00000001UL                      /**< Mode LOCKED for CMU_LOCK */
 #define _CMU_LOCK_LOCKKEY_UNLOCK                          0x0000580EUL                      /**< Mode UNLOCK for CMU_LOCK */
 #define CMU_LOCK_LOCKKEY_DEFAULT                          (_CMU_LOCK_LOCKKEY_DEFAULT << 0)  /**< Shifted mode DEFAULT for CMU_LOCK */
-#define CMU_LOCK_LOCKKEY_LOCK                             (_CMU_LOCK_LOCKKEY_LOCK << 0)     /**< Shifted mode LOCK for CMU_LOCK */
 #define CMU_LOCK_LOCKKEY_UNLOCKED                         (_CMU_LOCK_LOCKKEY_UNLOCKED << 0) /**< Shifted mode UNLOCKED for CMU_LOCK */
+#define CMU_LOCK_LOCKKEY_LOCK                             (_CMU_LOCK_LOCKKEY_LOCK << 0)     /**< Shifted mode LOCK for CMU_LOCK */
 #define CMU_LOCK_LOCKKEY_LOCKED                           (_CMU_LOCK_LOCKKEY_LOCKED << 0)   /**< Shifted mode LOCKED for CMU_LOCK */
 #define CMU_LOCK_LOCKKEY_UNLOCK                           (_CMU_LOCK_LOCKKEY_UNLOCK << 0)   /**< Shifted mode UNLOCK for CMU_LOCK */
 

@@ -1,10 +1,9 @@
 /**************************************************************************//**
  * @file
  * @brief EFR32BG21 BURAM register and bit field definitions
- * @version 5.7.0
  ******************************************************************************
  * # License
- * <b>Copyright 2018 Silicon Laboratories, Inc. www.silabs.com</b>
+ * <b>Copyright 2020 Silicon Laboratories, Inc. www.silabs.com</b>
  ******************************************************************************
  *
  * SPDX-License-Identifier: Zlib
@@ -54,13 +53,13 @@ typedef struct {
 
 /** BURAM Register Declaration. */
 typedef struct {
-  BURAM_RET_TypeDef RET[32U];                   /**< RetentionReg                                      */
-  uint32_t          RESERVED0[992U];            /**< Reserved for future use*/
-  BURAM_RET_TypeDef RET_SET[32U];               /**< RetentionReg                                      */
-  uint32_t          RESERVED1[992U];            /**< Reserved for future use*/
-  BURAM_RET_TypeDef RET_CLR[32U];               /**< RetentionReg                                      */
-  uint32_t          RESERVED2[992U];            /**< Reserved for future use*/
-  BURAM_RET_TypeDef RET_TGL[32U];               /**< RetentionReg                                      */
+  BURAM_RET_TypeDef RET[32U];                   /**< RetentionReg                                       */
+  uint32_t          RESERVED0[992U];            /**< Reserved for future use                            */
+  BURAM_RET_TypeDef RET_SET[32U];               /**< RetentionReg                                       */
+  uint32_t          RESERVED1[992U];            /**< Reserved for future use                            */
+  BURAM_RET_TypeDef RET_CLR[32U];               /**< RetentionReg                                       */
+  uint32_t          RESERVED2[992U];            /**< Reserved for future use                            */
+  BURAM_RET_TypeDef RET_TGL[32U];               /**< RetentionReg                                       */
 } BURAM_TypeDef;
 /** @} End of group EFR32BG21_BURAM */
 

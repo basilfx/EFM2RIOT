@@ -1,0 +1,192 @@
+# Copyright (c) 2020 HAW Hamburg
+#
+# This file is subject to the terms and conditions of the GNU Lesser
+# General Public License v2.1. See the file LICENSE in the top level
+# directory for more details.
+
+config CPU_FAM_EFM32TG
+    bool
+    select CPU_CORE_CORTEX_M3
+    select CPU_COMMON_EFM32
+
+## CPU Models
+config CPU_MODEL_EFM32TG108F4
+    bool
+    select CPU_FAM_EFM32TG
+
+config CPU_MODEL_EFM32TG222F32
+    bool
+    select CPU_FAM_EFM32TG
+
+config CPU_MODEL_EFM32TG822F8
+    bool
+    select CPU_FAM_EFM32TG
+
+config CPU_MODEL_EFM32TG210F8
+    bool
+    select CPU_FAM_EFM32TG
+
+config CPU_MODEL_EFM32TG110F32
+    bool
+    select CPU_FAM_EFM32TG
+
+config CPU_MODEL_EFM32TG825F8
+    bool
+    select CPU_FAM_EFM32TG
+
+config CPU_MODEL_EFM32TG825F32
+    bool
+    select CPU_FAM_EFM32TG
+
+config CPU_MODEL_EFM32TG108F16
+    bool
+    select CPU_FAM_EFM32TG
+
+config CPU_MODEL_EFM32TG842F8
+    bool
+    select CPU_FAM_EFM32TG
+
+config CPU_MODEL_EFM32TG210F16
+    bool
+    select CPU_FAM_EFM32TG
+
+config CPU_MODEL_EFM32TG232F32
+    bool
+    select CPU_FAM_EFM32TG
+
+config CPU_MODEL_EFM32TG230F16
+    bool
+    select CPU_FAM_EFM32TG
+
+config CPU_MODEL_EFM32TG840F8
+    bool
+    select CPU_FAM_EFM32TG
+
+config CPU_MODEL_EFM32TG822F32
+    bool
+    select CPU_FAM_EFM32TG
+
+config CPU_MODEL_EFM32TG110F8
+    bool
+    select CPU_FAM_EFM32TG
+
+config CPU_MODEL_EFM32TG225F32
+    bool
+    select CPU_FAM_EFM32TG
+
+config CPU_MODEL_EFM32TG842F32
+    bool
+    select CPU_FAM_EFM32TG
+
+config CPU_MODEL_EFM32TG840F16
+    bool
+    select CPU_FAM_EFM32TG
+
+config CPU_MODEL_EFM32TG210F32
+    bool
+    select CPU_FAM_EFM32TG
+
+config CPU_MODEL_EFM32TG108F8
+    bool
+    select CPU_FAM_EFM32TG
+
+config CPU_MODEL_EFM32TG822F16
+    bool
+    select CPU_FAM_EFM32TG
+
+config CPU_MODEL_EFM32TG232F16
+    bool
+    select CPU_FAM_EFM32TG
+
+config CPU_MODEL_EFM32TG230F32
+    bool
+    select CPU_FAM_EFM32TG
+
+config CPU_MODEL_EFM32TG225F16
+    bool
+    select CPU_FAM_EFM32TG
+
+config CPU_MODEL_EFM32TG842F16
+    bool
+    select CPU_FAM_EFM32TG
+
+config CPU_MODEL_EFM32TG840F32
+    bool
+    select CPU_FAM_EFM32TG
+
+config CPU_MODEL_EFM32TG222F8
+    bool
+    select CPU_FAM_EFM32TG
+
+config CPU_MODEL_EFM32TG222F16
+    bool
+    select CPU_FAM_EFM32TG
+
+config CPU_MODEL_EFM32TG110F16
+    bool
+    select CPU_FAM_EFM32TG
+
+config CPU_MODEL_EFM32TG230F8
+    bool
+    select CPU_FAM_EFM32TG
+
+config CPU_MODEL_EFM32TG225F8
+    bool
+    select CPU_FAM_EFM32TG
+
+config CPU_MODEL_EFM32TG110F4
+    bool
+    select CPU_FAM_EFM32TG
+
+config CPU_MODEL_EFM32TG108F32
+    bool
+    select CPU_FAM_EFM32TG
+
+config CPU_MODEL_EFM32TG232F8
+    bool
+    select CPU_FAM_EFM32TG
+
+config CPU_MODEL_EFM32TG825F16
+    bool
+    select CPU_FAM_EFM32TG
+
+## Common CPU symbols
+config CPU_FAM
+    default "efm32tg" if CPU_FAM_EFM32TG
+
+config CPU_MODEL
+    default "efm32tg108f4"  if CPU_MODEL_EFM32TG108F4
+    default "efm32tg222f32" if CPU_MODEL_EFM32TG222F32
+    default "efm32tg822f8"  if CPU_MODEL_EFM32TG822F8
+    default "efm32tg210f8"  if CPU_MODEL_EFM32TG210F8
+    default "efm32tg110f32" if CPU_MODEL_EFM32TG110F32
+    default "efm32tg825f8"  if CPU_MODEL_EFM32TG825F8
+    default "efm32tg825f32" if CPU_MODEL_EFM32TG825F32
+    default "efm32tg108f16" if CPU_MODEL_EFM32TG108F16
+    default "efm32tg842f8"  if CPU_MODEL_EFM32TG842F8
+    default "efm32tg210f16" if CPU_MODEL_EFM32TG210F16
+    default "efm32tg232f32" if CPU_MODEL_EFM32TG232F32
+    default "efm32tg230f16" if CPU_MODEL_EFM32TG230F16
+    default "efm32tg840f8"  if CPU_MODEL_EFM32TG840F8
+    default "efm32tg822f32" if CPU_MODEL_EFM32TG822F32
+    default "efm32tg110f8"  if CPU_MODEL_EFM32TG110F8
+    default "efm32tg225f32" if CPU_MODEL_EFM32TG225F32
+    default "efm32tg842f32" if CPU_MODEL_EFM32TG842F32
+    default "efm32tg840f16" if CPU_MODEL_EFM32TG840F16
+    default "efm32tg210f32" if CPU_MODEL_EFM32TG210F32
+    default "efm32tg108f8"  if CPU_MODEL_EFM32TG108F8
+    default "efm32tg822f16" if CPU_MODEL_EFM32TG822F16
+    default "efm32tg232f16" if CPU_MODEL_EFM32TG232F16
+    default "efm32tg230f32" if CPU_MODEL_EFM32TG230F32
+    default "efm32tg225f16" if CPU_MODEL_EFM32TG225F16
+    default "efm32tg842f16" if CPU_MODEL_EFM32TG842F16
+    default "efm32tg840f32" if CPU_MODEL_EFM32TG840F32
+    default "efm32tg222f8"  if CPU_MODEL_EFM32TG222F8
+    default "efm32tg222f16" if CPU_MODEL_EFM32TG222F16
+    default "efm32tg110f16" if CPU_MODEL_EFM32TG110F16
+    default "efm32tg230f8"  if CPU_MODEL_EFM32TG230F8
+    default "efm32tg225f8"  if CPU_MODEL_EFM32TG225F8
+    default "efm32tg110f4"  if CPU_MODEL_EFM32TG110F4
+    default "efm32tg108f32" if CPU_MODEL_EFM32TG108F32
+    default "efm32tg232f8"  if CPU_MODEL_EFM32TG232F8
+    default "efm32tg825f16" if CPU_MODEL_EFM32TG825F16

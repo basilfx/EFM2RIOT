@@ -1,0 +1,337 @@
+# Copyright (c) 2020 HAW Hamburg
+#
+# This file is subject to the terms and conditions of the GNU Lesser
+# General Public License v2.1. See the file LICENSE in the top level
+# directory for more details.
+
+config CPU_FAM_EFM32WG
+    bool
+    select CPU_CORE_CORTEX_M4F
+    select CPU_COMMON_EFM32
+
+## CPU Models
+config CPU_MODEL_EFM32WG330F64
+    bool
+    select CPU_FAM_EFM32WG
+
+config CPU_MODEL_EFM32WG380F256
+    bool
+    select CPU_FAM_EFM32WG
+
+config CPU_MODEL_EFM32WG230F128
+    bool
+    select CPU_FAM_EFM32WG
+
+config CPU_MODEL_EFM32WG395F128
+    bool
+    select CPU_FAM_EFM32WG
+
+config CPU_MODEL_EFM32WG280F64
+    bool
+    select CPU_FAM_EFM32WG
+
+config CPU_MODEL_EFM32WG232F128
+    bool
+    select CPU_FAM_EFM32WG
+
+config CPU_MODEL_EFM32WG890F128
+    bool
+    select CPU_FAM_EFM32WG
+
+config CPU_MODEL_EFM32WG890F64
+    bool
+    select CPU_FAM_EFM32WG
+
+config CPU_MODEL_EFM32WG995F64
+    bool
+    select CPU_FAM_EFM32WG
+
+config CPU_MODEL_EFM32WG990F128
+    bool
+    select CPU_FAM_EFM32WG
+
+config CPU_MODEL_EFM32WG332F128
+    bool
+    select CPU_FAM_EFM32WG
+
+config CPU_MODEL_EFM32WG940F64
+    bool
+    select CPU_FAM_EFM32WG
+
+config CPU_MODEL_EFM32WG900F256
+    bool
+    select CPU_FAM_EFM32WG
+
+config CPU_MODEL_EFM32WG280F256
+    bool
+    select CPU_FAM_EFM32WG
+
+config CPU_MODEL_EFM32WG360F256
+    bool
+    select CPU_FAM_EFM32WG
+
+config CPU_MODEL_EFM32WG295F128
+    bool
+    select CPU_FAM_EFM32WG
+
+config CPU_MODEL_EFM32WG330F128
+    bool
+    select CPU_FAM_EFM32WG
+
+config CPU_MODEL_EFM32WG940F256
+    bool
+    select CPU_FAM_EFM32WG
+
+config CPU_MODEL_EFM32WG290F64
+    bool
+    select CPU_FAM_EFM32WG
+
+config CPU_MODEL_EFM32WG980F256
+    bool
+    select CPU_FAM_EFM32WG
+
+config CPU_MODEL_EFM32WG995F128
+    bool
+    select CPU_FAM_EFM32WG
+
+config CPU_MODEL_EFM32WG880F64
+    bool
+    select CPU_FAM_EFM32WG
+
+config CPU_MODEL_EFM32WG232F64
+    bool
+    select CPU_FAM_EFM32WG
+
+config CPU_MODEL_EFM32WG290F128
+    bool
+    select CPU_FAM_EFM32WG
+
+config CPU_MODEL_EFM32WG942F256
+    bool
+    select CPU_FAM_EFM32WG
+
+config CPU_MODEL_EFM32WG390F128
+    bool
+    select CPU_FAM_EFM32WG
+
+config CPU_MODEL_EFM32WG360F64
+    bool
+    select CPU_FAM_EFM32WG
+
+config CPU_MODEL_EFM32WG842F256
+    bool
+    select CPU_FAM_EFM32WG
+
+config CPU_MODEL_EFM32WG840F256
+    bool
+    select CPU_FAM_EFM32WG
+
+config CPU_MODEL_EFM32WG880F256
+    bool
+    select CPU_FAM_EFM32WG
+
+config CPU_MODEL_EFM32WG895F128
+    bool
+    select CPU_FAM_EFM32WG
+
+config CPU_MODEL_EFM32WG842F64
+    bool
+    select CPU_FAM_EFM32WG
+
+config CPU_MODEL_EFM32WG395F64
+    bool
+    select CPU_FAM_EFM32WG
+
+config CPU_MODEL_EFM32WG895F256
+    bool
+    select CPU_FAM_EFM32WG
+
+config CPU_MODEL_EFM32WG990F64
+    bool
+    select CPU_FAM_EFM32WG
+
+config CPU_MODEL_EFM32WG380F64
+    bool
+    select CPU_FAM_EFM32WG
+
+config CPU_MODEL_EFM32WG840F128
+    bool
+    select CPU_FAM_EFM32WG
+
+config CPU_MODEL_EFM32WG880F128
+    bool
+    select CPU_FAM_EFM32WG
+
+config CPU_MODEL_EFM32WG842F128
+    bool
+    select CPU_FAM_EFM32WG
+
+config CPU_MODEL_EFM32WG390F256
+    bool
+    select CPU_FAM_EFM32WG
+
+config CPU_MODEL_EFM32WG230F64
+    bool
+    select CPU_FAM_EFM32WG
+
+config CPU_MODEL_EFM32WG942F128
+    bool
+    select CPU_FAM_EFM32WG
+
+config CPU_MODEL_EFM32WG290F256
+    bool
+    select CPU_FAM_EFM32WG
+
+config CPU_MODEL_EFM32WG995F256
+    bool
+    select CPU_FAM_EFM32WG
+
+config CPU_MODEL_EFM32WG840F64
+    bool
+    select CPU_FAM_EFM32WG
+
+config CPU_MODEL_EFM32WG940F128
+    bool
+    select CPU_FAM_EFM32WG
+
+config CPU_MODEL_EFM32WG895F64
+    bool
+    select CPU_FAM_EFM32WG
+
+config CPU_MODEL_EFM32WG980F128
+    bool
+    select CPU_FAM_EFM32WG
+
+config CPU_MODEL_EFM32WG330F256
+    bool
+    select CPU_FAM_EFM32WG
+
+config CPU_MODEL_EFM32WG295F256
+    bool
+    select CPU_FAM_EFM32WG
+
+config CPU_MODEL_EFM32WG332F64
+    bool
+    select CPU_FAM_EFM32WG
+
+config CPU_MODEL_EFM32WG360F128
+    bool
+    select CPU_FAM_EFM32WG
+
+config CPU_MODEL_EFM32WG280F128
+    bool
+    select CPU_FAM_EFM32WG
+
+config CPU_MODEL_EFM32WG980F64
+    bool
+    select CPU_FAM_EFM32WG
+
+config CPU_MODEL_EFM32WG332F256
+    bool
+    select CPU_FAM_EFM32WG
+
+config CPU_MODEL_EFM32WG990F256
+    bool
+    select CPU_FAM_EFM32WG
+
+config CPU_MODEL_EFM32WG390F64
+    bool
+    select CPU_FAM_EFM32WG
+
+config CPU_MODEL_EFM32WG295F64
+    bool
+    select CPU_FAM_EFM32WG
+
+config CPU_MODEL_EFM32WG942F64
+    bool
+    select CPU_FAM_EFM32WG
+
+config CPU_MODEL_EFM32WG890F256
+    bool
+    select CPU_FAM_EFM32WG
+
+config CPU_MODEL_EFM32WG232F256
+    bool
+    select CPU_FAM_EFM32WG
+
+config CPU_MODEL_EFM32WG395F256
+    bool
+    select CPU_FAM_EFM32WG
+
+config CPU_MODEL_EFM32WG230F256
+    bool
+    select CPU_FAM_EFM32WG
+
+config CPU_MODEL_EFM32WG380F128
+    bool
+    select CPU_FAM_EFM32WG
+
+## Common CPU symbols
+config CPU_FAM
+    default "efm32wg" if CPU_FAM_EFM32WG
+
+config CPU_MODEL
+    default "efm32wg330f64"  if CPU_MODEL_EFM32WG330F64
+    default "efm32wg380f256" if CPU_MODEL_EFM32WG380F256
+    default "efm32wg230f128" if CPU_MODEL_EFM32WG230F128
+    default "efm32wg395f128" if CPU_MODEL_EFM32WG395F128
+    default "efm32wg280f64"  if CPU_MODEL_EFM32WG280F64
+    default "efm32wg232f128" if CPU_MODEL_EFM32WG232F128
+    default "efm32wg890f128" if CPU_MODEL_EFM32WG890F128
+    default "efm32wg890f64"  if CPU_MODEL_EFM32WG890F64
+    default "efm32wg995f64"  if CPU_MODEL_EFM32WG995F64
+    default "efm32wg990f128" if CPU_MODEL_EFM32WG990F128
+    default "efm32wg332f128" if CPU_MODEL_EFM32WG332F128
+    default "efm32wg940f64"  if CPU_MODEL_EFM32WG940F64
+    default "efm32wg900f256" if CPU_MODEL_EFM32WG900F256
+    default "efm32wg280f256" if CPU_MODEL_EFM32WG280F256
+    default "efm32wg360f256" if CPU_MODEL_EFM32WG360F256
+    default "efm32wg295f128" if CPU_MODEL_EFM32WG295F128
+    default "efm32wg330f128" if CPU_MODEL_EFM32WG330F128
+    default "efm32wg940f256" if CPU_MODEL_EFM32WG940F256
+    default "efm32wg290f64"  if CPU_MODEL_EFM32WG290F64
+    default "efm32wg980f256" if CPU_MODEL_EFM32WG980F256
+    default "efm32wg995f128" if CPU_MODEL_EFM32WG995F128
+    default "efm32wg880f64"  if CPU_MODEL_EFM32WG880F64
+    default "efm32wg232f64"  if CPU_MODEL_EFM32WG232F64
+    default "efm32wg290f128" if CPU_MODEL_EFM32WG290F128
+    default "efm32wg942f256" if CPU_MODEL_EFM32WG942F256
+    default "efm32wg390f128" if CPU_MODEL_EFM32WG390F128
+    default "efm32wg360f64"  if CPU_MODEL_EFM32WG360F64
+    default "efm32wg842f256" if CPU_MODEL_EFM32WG842F256
+    default "efm32wg840f256" if CPU_MODEL_EFM32WG840F256
+    default "efm32wg880f256" if CPU_MODEL_EFM32WG880F256
+    default "efm32wg895f128" if CPU_MODEL_EFM32WG895F128
+    default "efm32wg842f64"  if CPU_MODEL_EFM32WG842F64
+    default "efm32wg395f64"  if CPU_MODEL_EFM32WG395F64
+    default "efm32wg895f256" if CPU_MODEL_EFM32WG895F256
+    default "efm32wg990f64"  if CPU_MODEL_EFM32WG990F64
+    default "efm32wg380f64"  if CPU_MODEL_EFM32WG380F64
+    default "efm32wg840f128" if CPU_MODEL_EFM32WG840F128
+    default "efm32wg880f128" if CPU_MODEL_EFM32WG880F128
+    default "efm32wg842f128" if CPU_MODEL_EFM32WG842F128
+    default "efm32wg390f256" if CPU_MODEL_EFM32WG390F256
+    default "efm32wg230f64"  if CPU_MODEL_EFM32WG230F64
+    default "efm32wg942f128" if CPU_MODEL_EFM32WG942F128
+    default "efm32wg290f256" if CPU_MODEL_EFM32WG290F256
+    default "efm32wg995f256" if CPU_MODEL_EFM32WG995F256
+    default "efm32wg840f64"  if CPU_MODEL_EFM32WG840F64
+    default "efm32wg940f128" if CPU_MODEL_EFM32WG940F128
+    default "efm32wg895f64"  if CPU_MODEL_EFM32WG895F64
+    default "efm32wg980f128" if CPU_MODEL_EFM32WG980F128
+    default "efm32wg330f256" if CPU_MODEL_EFM32WG330F256
+    default "efm32wg295f256" if CPU_MODEL_EFM32WG295F256
+    default "efm32wg332f64"  if CPU_MODEL_EFM32WG332F64
+    default "efm32wg360f128" if CPU_MODEL_EFM32WG360F128
+    default "efm32wg280f128" if CPU_MODEL_EFM32WG280F128
+    default "efm32wg980f64"  if CPU_MODEL_EFM32WG980F64
+    default "efm32wg332f256" if CPU_MODEL_EFM32WG332F256
+    default "efm32wg990f256" if CPU_MODEL_EFM32WG990F256
+    default "efm32wg390f64"  if CPU_MODEL_EFM32WG390F64
+    default "efm32wg295f64"  if CPU_MODEL_EFM32WG295F64
+    default "efm32wg942f64"  if CPU_MODEL_EFM32WG942F64
+    default "efm32wg890f256" if CPU_MODEL_EFM32WG890F256
+    default "efm32wg232f256" if CPU_MODEL_EFM32WG232F256
+    default "efm32wg395f256" if CPU_MODEL_EFM32WG395F256
+    default "efm32wg230f256" if CPU_MODEL_EFM32WG230F256
+    default "efm32wg380f128" if CPU_MODEL_EFM32WG380F128

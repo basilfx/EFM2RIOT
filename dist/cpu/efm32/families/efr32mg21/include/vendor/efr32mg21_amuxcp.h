@@ -1,10 +1,9 @@
 /**************************************************************************//**
  * @file
  * @brief EFR32MG21 AMUXCP register and bit field definitions
- * @version 5.7.0
  ******************************************************************************
  * # License
- * <b>Copyright 2018 Silicon Laboratories, Inc. www.silabs.com</b>
+ * <b>Copyright 2020 Silicon Laboratories, Inc. www.silabs.com</b>
  ******************************************************************************
  *
  * SPDX-License-Identifier: Zlib
@@ -50,28 +49,28 @@ extern "C" {
 /** AMUXCP Register Declaration. */
 typedef struct {
   __IM uint32_t  IPVERSION;                     /**< IPVERSION                                          */
-  uint32_t       RESERVED0[1U];                 /**< Reserved for future use                      */
+  uint32_t       RESERVED0[1U];                 /**< Reserved for future use                            */
   __IOM uint32_t CTRL;                          /**< Control                                            */
   __IM uint32_t  STATUS;                        /**< Status                                             */
   __IOM uint32_t TEST;                          /**< Test                                               */
   __IOM uint32_t TRIM;                          /**< New Register                                       */
-  uint32_t       RESERVED1[1018U];              /**< Reserved for future use*/
+  uint32_t       RESERVED1[1018U];              /**< Reserved for future use                            */
   __IM uint32_t  IPVERSION_SET;                 /**< IPVERSION                                          */
-  uint32_t       RESERVED2[1U];                 /**< Reserved for future use                      */
+  uint32_t       RESERVED2[1U];                 /**< Reserved for future use                            */
   __IOM uint32_t CTRL_SET;                      /**< Control                                            */
   __IM uint32_t  STATUS_SET;                    /**< Status                                             */
   __IOM uint32_t TEST_SET;                      /**< Test                                               */
   __IOM uint32_t TRIM_SET;                      /**< New Register                                       */
-  uint32_t       RESERVED3[1018U];              /**< Reserved for future use*/
+  uint32_t       RESERVED3[1018U];              /**< Reserved for future use                            */
   __IM uint32_t  IPVERSION_CLR;                 /**< IPVERSION                                          */
-  uint32_t       RESERVED4[1U];                 /**< Reserved for future use                      */
+  uint32_t       RESERVED4[1U];                 /**< Reserved for future use                            */
   __IOM uint32_t CTRL_CLR;                      /**< Control                                            */
   __IM uint32_t  STATUS_CLR;                    /**< Status                                             */
   __IOM uint32_t TEST_CLR;                      /**< Test                                               */
   __IOM uint32_t TRIM_CLR;                      /**< New Register                                       */
-  uint32_t       RESERVED5[1018U];              /**< Reserved for future use*/
+  uint32_t       RESERVED5[1018U];              /**< Reserved for future use                            */
   __IM uint32_t  IPVERSION_TGL;                 /**< IPVERSION                                          */
-  uint32_t       RESERVED6[1U];                 /**< Reserved for future use                      */
+  uint32_t       RESERVED6[1U];                 /**< Reserved for future use                            */
   __IOM uint32_t CTRL_TGL;                      /**< Control                                            */
   __IM uint32_t  STATUS_TGL;                    /**< Status                                             */
   __IOM uint32_t TEST_TGL;                      /**< Test                                               */
@@ -177,15 +176,15 @@ typedef struct {
 #define _AMUXCP_TRIM_WARMUPTIME_SHIFT          0                                          /**< Shift value for AMUXCP_WARMUPTIME           */
 #define _AMUXCP_TRIM_WARMUPTIME_MASK           0x3UL                                      /**< Bit mask for AMUXCP_WARMUPTIME              */
 #define _AMUXCP_TRIM_WARMUPTIME_DEFAULT        0x00000001UL                               /**< Mode DEFAULT for AMUXCP_TRIM                */
-#define _AMUXCP_TRIM_WARMUPTIME_WUCYCLES72     0x00000000UL                               /**< Mode WUCYCLES72 for AMUXCP_TRIM              */
-#define _AMUXCP_TRIM_WARMUPTIME_WUCYCLES96     0x00000001UL                               /**< Mode WUCYCLES96 for AMUXCP_TRIM              */
-#define _AMUXCP_TRIM_WARMUPTIME_WUCYCLES128    0x00000002UL                               /**< Mode WUCYCLES128 for AMUXCP_TRIM             */
-#define _AMUXCP_TRIM_WARMUPTIME_WUCYCLES160    0x00000003UL                               /**< Mode WUCYCLES160 for AMUXCP_TRIM             */
+#define _AMUXCP_TRIM_WARMUPTIME_WUCYCLES72     0x00000000UL                               /**< Mode WUCYCLES72 for AMUXCP_TRIM             */
+#define _AMUXCP_TRIM_WARMUPTIME_WUCYCLES96     0x00000001UL                               /**< Mode WUCYCLES96 for AMUXCP_TRIM             */
+#define _AMUXCP_TRIM_WARMUPTIME_WUCYCLES128    0x00000002UL                               /**< Mode WUCYCLES128 for AMUXCP_TRIM            */
+#define _AMUXCP_TRIM_WARMUPTIME_WUCYCLES160    0x00000003UL                               /**< Mode WUCYCLES160 for AMUXCP_TRIM            */
 #define AMUXCP_TRIM_WARMUPTIME_DEFAULT         (_AMUXCP_TRIM_WARMUPTIME_DEFAULT << 0)     /**< Shifted mode DEFAULT for AMUXCP_TRIM        */
-#define AMUXCP_TRIM_WARMUPTIME_WUCYCLES72      (_AMUXCP_TRIM_WARMUPTIME_WUCYCLES72 << 0)  /**< Shifted mode WUCYCLES72 for AMUXCP_TRIM      */
-#define AMUXCP_TRIM_WARMUPTIME_WUCYCLES96      (_AMUXCP_TRIM_WARMUPTIME_WUCYCLES96 << 0)  /**< Shifted mode WUCYCLES96 for AMUXCP_TRIM      */
-#define AMUXCP_TRIM_WARMUPTIME_WUCYCLES128     (_AMUXCP_TRIM_WARMUPTIME_WUCYCLES128 << 0) /**< Shifted mode WUCYCLES128 for AMUXCP_TRIM     */
-#define AMUXCP_TRIM_WARMUPTIME_WUCYCLES160     (_AMUXCP_TRIM_WARMUPTIME_WUCYCLES160 << 0) /**< Shifted mode WUCYCLES160 for AMUXCP_TRIM     */
+#define AMUXCP_TRIM_WARMUPTIME_WUCYCLES72      (_AMUXCP_TRIM_WARMUPTIME_WUCYCLES72 << 0)  /**< Shifted mode WUCYCLES72 for AMUXCP_TRIM     */
+#define AMUXCP_TRIM_WARMUPTIME_WUCYCLES96      (_AMUXCP_TRIM_WARMUPTIME_WUCYCLES96 << 0)  /**< Shifted mode WUCYCLES96 for AMUXCP_TRIM     */
+#define AMUXCP_TRIM_WARMUPTIME_WUCYCLES128     (_AMUXCP_TRIM_WARMUPTIME_WUCYCLES128 << 0) /**< Shifted mode WUCYCLES128 for AMUXCP_TRIM    */
+#define AMUXCP_TRIM_WARMUPTIME_WUCYCLES160     (_AMUXCP_TRIM_WARMUPTIME_WUCYCLES160 << 0) /**< Shifted mode WUCYCLES160 for AMUXCP_TRIM    */
 #define AMUXCP_TRIM_FLOATVDDCPLO               (0x1UL << 2)                               /**< Float VDDCP Low Power                       */
 #define _AMUXCP_TRIM_FLOATVDDCPLO_SHIFT        2                                          /**< Shift value for AMUXCP_FLOATVDDCPLO         */
 #define _AMUXCP_TRIM_FLOATVDDCPLO_MASK         0x4UL                                      /**< Bit mask for AMUXCP_FLOATVDDCPLO            */

@@ -1,10 +1,9 @@
 /**************************************************************************//**
  * @file
  * @brief EFR32MG21 MODEM register and bit field definitions
- * @version 5.7.0
  ******************************************************************************
  * # License
- * <b>Copyright 2018 Silicon Laboratories, Inc. www.silabs.com</b>
+ * <b>Copyright 2020 Silicon Laboratories, Inc. www.silabs.com</b>
  ******************************************************************************
  *
  * SPDX-License-Identifier: Zlib
@@ -69,14 +68,14 @@ typedef struct {
   __IOM uint32_t            CTRL4;               /**< Control Register 4                                 */
   __IOM uint32_t            CTRL5;               /**< Control Register 5                                 */
   __IOM uint32_t            CTRL6;               /**< Control Register 6                                 */
-  uint32_t                  RESERVED0[7U];       /**< Reserved for future use                      */
+  uint32_t                  RESERVED0[7U];       /**< Reserved for future use                            */
   __IOM uint32_t            TXBR;                /**< Transmit baudrate                                  */
   __IOM uint32_t            RXBR;                /**< Receive Baudrate                                   */
   __IOM uint32_t            CF;                  /**< Channel Filter                                     */
   __IOM uint32_t            PRE;                 /**< Preamble Register                                  */
   __IOM uint32_t            SYNC0;               /**< Sync word 0                                        */
   __IOM uint32_t            SYNC1;               /**< Sync word 1                                        */
-  uint32_t                  RESERVED1[4U];       /**< Reserved for future use                      */
+  uint32_t                  RESERVED1[4U];       /**< Reserved for future use                            */
   __IOM uint32_t            TIMING;              /**< Timing Register                                    */
   __IOM uint32_t            DSSS0;               /**< DSSS symbol 0 Register                             */
   __IOM uint32_t            MODINDEX;            /**< Modulation Index                                   */
@@ -89,10 +88,10 @@ typedef struct {
   __IOM uint32_t            SHAPING4;            /**< Shaping Coefficients                               */
   __IOM uint32_t            SHAPING5;            /**< Shaping Coefficients                               */
   __IOM uint32_t            SHAPING6;            /**< Shaping Coefficients                               */
-  uint32_t                  RESERVED2[4U];       /**< Reserved for future use                      */
+  uint32_t                  RESERVED2[4U];       /**< Reserved for future use                            */
   __IOM uint32_t            RAMPCTRL;            /**< Ramping Register                                   */
   __IOM uint32_t            RAMPLEV;             /**< Ramping Register                                   */
-  uint32_t                  RESERVED3[6U];       /**< Reserved for future use                      */
+  uint32_t                  RESERVED3[6U];       /**< Reserved for future use                            */
   __IOM uint32_t            DCCOMP;              /**< DC Offset Compensation Filter Settings             */
   __IOM uint32_t            DCCOMPFILTINIT;      /**< DC Offset compensation Filter                      */
   __IM uint32_t             DCESTI;              /**< DC Offset Estimated value                          */
@@ -103,12 +102,12 @@ typedef struct {
   __IOM uint32_t            DSACTRL;             /**< DSA mode                                           */
   __IOM uint32_t            VITERBIDEMOD;        /**< Viterbi demodulator                                */
   __IOM uint32_t            VTCORRCFG0;          /**< Viterbi demodulator                                */
-  uint32_t                  RESERVED4[1U];       /**< Reserved for future use                      */
+  uint32_t                  RESERVED4[1U];       /**< Reserved for future use                            */
   __IOM uint32_t            DIGMIXCTRL;          /**< Digital mixer control register                     */
   __IOM uint32_t            VTCORRCFG1;          /**< Viterbi demodulator                                */
   __IOM uint32_t            VTTRACK;             /**< Viterbi demodulator tracking loop                  */
   __IM uint32_t             BREST;               /**< Baudrate Estimate                                  */
-  uint32_t                  RESERVED5[2U];       /**< Reserved for future use                      */
+  uint32_t                  RESERVED5[2U];       /**< Reserved for future use                            */
   __IOM uint32_t            AUTOCG;              /**< Automatic clock gating                             */
   __IOM uint32_t            CGCLKSTOP;           /**< Automatic clock gating                             */
   __IM uint32_t             POE;                 /**< Phase Offset Estimate                              */
@@ -129,10 +128,10 @@ typedef struct {
   __IOM uint32_t            DSATHD3;             /**< DSA detector threshold 3                           */
   __IOM uint32_t            DSATHD4;             /**< DSA detector threshold 4                           */
   __IOM uint32_t            VTBLETIMING;         /**< Viterbi BLE timing stamp control                   */
-  uint32_t                  RESERVED6[37U];      /**< Reserved for future use                      */
+  uint32_t                  RESERVED6[37U];      /**< Reserved for future use                            */
   __IOM uint32_t            IF;                  /**< Interrupt Flags                                    */
   __IOM uint32_t            IEN;                 /**< Interrupt Enable                                   */
-  uint32_t                  RESERVED7[2U];       /**< Reserved for future use                      */
+  uint32_t                  RESERVED7[2U];       /**< Reserved for future use                            */
   __IOM uint32_t            CMD;                 /**< Command register                                   */
   __IM uint32_t             FSMSTATUS;           /**< Demod FSM Status Register                          */
   __IM uint32_t             STATUS2;             /**< Status Register 2                                  */
@@ -144,9 +143,9 @@ typedef struct {
   __IOM uint32_t            SYNCPROPERTIES;      /**< Sync word properties                               */
   __IOM uint32_t            DIGIGAINCTRL;        /**< Digital Gain Control                               */
   __IOM uint32_t            PRSCTRL;             /**< Mux control for PRS outputs                        */
-  uint32_t                  RESERVED8[3U];       /**< Reserved for future use*/
-  MODEM_IRCALCOEFWR_TypeDef IRCALCOEFWR[2U];     /**< IRCAL COEFS WR per antenna                        */
-  uint32_t                  RESERVED9[874U];     /**< Reserved for future use*/
+  uint32_t                  RESERVED8[3U];       /**< Reserved for future use                            */
+  MODEM_IRCALCOEFWR_TypeDef IRCALCOEFWR[2U];     /**< IRCAL COEFS WR per antenna                         */
+  uint32_t                  RESERVED9[874U];     /**< Reserved for future use                            */
   __IM uint32_t             IPVERSION_SET;       /**< IP Version                                         */
   __IOM uint32_t            EN_SET;              /**< Enable peripheral clock to this module             */
   __IM uint32_t             STATUS_SET;          /**< Status Register                                    */
@@ -162,14 +161,14 @@ typedef struct {
   __IOM uint32_t            CTRL4_SET;           /**< Control Register 4                                 */
   __IOM uint32_t            CTRL5_SET;           /**< Control Register 5                                 */
   __IOM uint32_t            CTRL6_SET;           /**< Control Register 6                                 */
-  uint32_t                  RESERVED10[7U];      /**< Reserved for future use                      */
+  uint32_t                  RESERVED10[7U];      /**< Reserved for future use                            */
   __IOM uint32_t            TXBR_SET;            /**< Transmit baudrate                                  */
   __IOM uint32_t            RXBR_SET;            /**< Receive Baudrate                                   */
   __IOM uint32_t            CF_SET;              /**< Channel Filter                                     */
   __IOM uint32_t            PRE_SET;             /**< Preamble Register                                  */
   __IOM uint32_t            SYNC0_SET;           /**< Sync word 0                                        */
   __IOM uint32_t            SYNC1_SET;           /**< Sync word 1                                        */
-  uint32_t                  RESERVED11[4U];      /**< Reserved for future use                      */
+  uint32_t                  RESERVED11[4U];      /**< Reserved for future use                            */
   __IOM uint32_t            TIMING_SET;          /**< Timing Register                                    */
   __IOM uint32_t            DSSS0_SET;           /**< DSSS symbol 0 Register                             */
   __IOM uint32_t            MODINDEX_SET;        /**< Modulation Index                                   */
@@ -182,10 +181,10 @@ typedef struct {
   __IOM uint32_t            SHAPING4_SET;        /**< Shaping Coefficients                               */
   __IOM uint32_t            SHAPING5_SET;        /**< Shaping Coefficients                               */
   __IOM uint32_t            SHAPING6_SET;        /**< Shaping Coefficients                               */
-  uint32_t                  RESERVED12[4U];      /**< Reserved for future use                      */
+  uint32_t                  RESERVED12[4U];      /**< Reserved for future use                            */
   __IOM uint32_t            RAMPCTRL_SET;        /**< Ramping Register                                   */
   __IOM uint32_t            RAMPLEV_SET;         /**< Ramping Register                                   */
-  uint32_t                  RESERVED13[6U];      /**< Reserved for future use                      */
+  uint32_t                  RESERVED13[6U];      /**< Reserved for future use                            */
   __IOM uint32_t            DCCOMP_SET;          /**< DC Offset Compensation Filter Settings             */
   __IOM uint32_t            DCCOMPFILTINIT_SET;  /**< DC Offset compensation Filter                      */
   __IM uint32_t             DCESTI_SET;          /**< DC Offset Estimated value                          */
@@ -196,12 +195,12 @@ typedef struct {
   __IOM uint32_t            DSACTRL_SET;         /**< DSA mode                                           */
   __IOM uint32_t            VITERBIDEMOD_SET;    /**< Viterbi demodulator                                */
   __IOM uint32_t            VTCORRCFG0_SET;      /**< Viterbi demodulator                                */
-  uint32_t                  RESERVED14[1U];      /**< Reserved for future use                      */
+  uint32_t                  RESERVED14[1U];      /**< Reserved for future use                            */
   __IOM uint32_t            DIGMIXCTRL_SET;      /**< Digital mixer control register                     */
   __IOM uint32_t            VTCORRCFG1_SET;      /**< Viterbi demodulator                                */
   __IOM uint32_t            VTTRACK_SET;         /**< Viterbi demodulator tracking loop                  */
   __IM uint32_t             BREST_SET;           /**< Baudrate Estimate                                  */
-  uint32_t                  RESERVED15[2U];      /**< Reserved for future use                      */
+  uint32_t                  RESERVED15[2U];      /**< Reserved for future use                            */
   __IOM uint32_t            AUTOCG_SET;          /**< Automatic clock gating                             */
   __IOM uint32_t            CGCLKSTOP_SET;       /**< Automatic clock gating                             */
   __IM uint32_t             POE_SET;             /**< Phase Offset Estimate                              */
@@ -222,10 +221,10 @@ typedef struct {
   __IOM uint32_t            DSATHD3_SET;         /**< DSA detector threshold 3                           */
   __IOM uint32_t            DSATHD4_SET;         /**< DSA detector threshold 4                           */
   __IOM uint32_t            VTBLETIMING_SET;     /**< Viterbi BLE timing stamp control                   */
-  uint32_t                  RESERVED16[37U];     /**< Reserved for future use                      */
+  uint32_t                  RESERVED16[37U];     /**< Reserved for future use                            */
   __IOM uint32_t            IF_SET;              /**< Interrupt Flags                                    */
   __IOM uint32_t            IEN_SET;             /**< Interrupt Enable                                   */
-  uint32_t                  RESERVED17[2U];      /**< Reserved for future use                      */
+  uint32_t                  RESERVED17[2U];      /**< Reserved for future use                            */
   __IOM uint32_t            CMD_SET;             /**< Command register                                   */
   __IM uint32_t             FSMSTATUS_SET;       /**< Demod FSM Status Register                          */
   __IM uint32_t             STATUS2_SET;         /**< Status Register 2                                  */
@@ -237,9 +236,9 @@ typedef struct {
   __IOM uint32_t            SYNCPROPERTIES_SET;  /**< Sync word properties                               */
   __IOM uint32_t            DIGIGAINCTRL_SET;    /**< Digital Gain Control                               */
   __IOM uint32_t            PRSCTRL_SET;         /**< Mux control for PRS outputs                        */
-  uint32_t                  RESERVED18[3U];      /**< Reserved for future use*/
-  MODEM_IRCALCOEFWR_TypeDef IRCALCOEFWR_SET[2U]; /**< IRCAL COEFS WR per antenna                        */
-  uint32_t                  RESERVED19[874U];    /**< Reserved for future use*/
+  uint32_t                  RESERVED18[3U];      /**< Reserved for future use                            */
+  MODEM_IRCALCOEFWR_TypeDef IRCALCOEFWR_SET[2U]; /**< IRCAL COEFS WR per antenna                         */
+  uint32_t                  RESERVED19[874U];    /**< Reserved for future use                            */
   __IM uint32_t             IPVERSION_CLR;       /**< IP Version                                         */
   __IOM uint32_t            EN_CLR;              /**< Enable peripheral clock to this module             */
   __IM uint32_t             STATUS_CLR;          /**< Status Register                                    */
@@ -255,14 +254,14 @@ typedef struct {
   __IOM uint32_t            CTRL4_CLR;           /**< Control Register 4                                 */
   __IOM uint32_t            CTRL5_CLR;           /**< Control Register 5                                 */
   __IOM uint32_t            CTRL6_CLR;           /**< Control Register 6                                 */
-  uint32_t                  RESERVED20[7U];      /**< Reserved for future use                      */
+  uint32_t                  RESERVED20[7U];      /**< Reserved for future use                            */
   __IOM uint32_t            TXBR_CLR;            /**< Transmit baudrate                                  */
   __IOM uint32_t            RXBR_CLR;            /**< Receive Baudrate                                   */
   __IOM uint32_t            CF_CLR;              /**< Channel Filter                                     */
   __IOM uint32_t            PRE_CLR;             /**< Preamble Register                                  */
   __IOM uint32_t            SYNC0_CLR;           /**< Sync word 0                                        */
   __IOM uint32_t            SYNC1_CLR;           /**< Sync word 1                                        */
-  uint32_t                  RESERVED21[4U];      /**< Reserved for future use                      */
+  uint32_t                  RESERVED21[4U];      /**< Reserved for future use                            */
   __IOM uint32_t            TIMING_CLR;          /**< Timing Register                                    */
   __IOM uint32_t            DSSS0_CLR;           /**< DSSS symbol 0 Register                             */
   __IOM uint32_t            MODINDEX_CLR;        /**< Modulation Index                                   */
@@ -275,10 +274,10 @@ typedef struct {
   __IOM uint32_t            SHAPING4_CLR;        /**< Shaping Coefficients                               */
   __IOM uint32_t            SHAPING5_CLR;        /**< Shaping Coefficients                               */
   __IOM uint32_t            SHAPING6_CLR;        /**< Shaping Coefficients                               */
-  uint32_t                  RESERVED22[4U];      /**< Reserved for future use                      */
+  uint32_t                  RESERVED22[4U];      /**< Reserved for future use                            */
   __IOM uint32_t            RAMPCTRL_CLR;        /**< Ramping Register                                   */
   __IOM uint32_t            RAMPLEV_CLR;         /**< Ramping Register                                   */
-  uint32_t                  RESERVED23[6U];      /**< Reserved for future use                      */
+  uint32_t                  RESERVED23[6U];      /**< Reserved for future use                            */
   __IOM uint32_t            DCCOMP_CLR;          /**< DC Offset Compensation Filter Settings             */
   __IOM uint32_t            DCCOMPFILTINIT_CLR;  /**< DC Offset compensation Filter                      */
   __IM uint32_t             DCESTI_CLR;          /**< DC Offset Estimated value                          */
@@ -289,12 +288,12 @@ typedef struct {
   __IOM uint32_t            DSACTRL_CLR;         /**< DSA mode                                           */
   __IOM uint32_t            VITERBIDEMOD_CLR;    /**< Viterbi demodulator                                */
   __IOM uint32_t            VTCORRCFG0_CLR;      /**< Viterbi demodulator                                */
-  uint32_t                  RESERVED24[1U];      /**< Reserved for future use                      */
+  uint32_t                  RESERVED24[1U];      /**< Reserved for future use                            */
   __IOM uint32_t            DIGMIXCTRL_CLR;      /**< Digital mixer control register                     */
   __IOM uint32_t            VTCORRCFG1_CLR;      /**< Viterbi demodulator                                */
   __IOM uint32_t            VTTRACK_CLR;         /**< Viterbi demodulator tracking loop                  */
   __IM uint32_t             BREST_CLR;           /**< Baudrate Estimate                                  */
-  uint32_t                  RESERVED25[2U];      /**< Reserved for future use                      */
+  uint32_t                  RESERVED25[2U];      /**< Reserved for future use                            */
   __IOM uint32_t            AUTOCG_CLR;          /**< Automatic clock gating                             */
   __IOM uint32_t            CGCLKSTOP_CLR;       /**< Automatic clock gating                             */
   __IM uint32_t             POE_CLR;             /**< Phase Offset Estimate                              */
@@ -315,10 +314,10 @@ typedef struct {
   __IOM uint32_t            DSATHD3_CLR;         /**< DSA detector threshold 3                           */
   __IOM uint32_t            DSATHD4_CLR;         /**< DSA detector threshold 4                           */
   __IOM uint32_t            VTBLETIMING_CLR;     /**< Viterbi BLE timing stamp control                   */
-  uint32_t                  RESERVED26[37U];     /**< Reserved for future use                      */
+  uint32_t                  RESERVED26[37U];     /**< Reserved for future use                            */
   __IOM uint32_t            IF_CLR;              /**< Interrupt Flags                                    */
   __IOM uint32_t            IEN_CLR;             /**< Interrupt Enable                                   */
-  uint32_t                  RESERVED27[2U];      /**< Reserved for future use                      */
+  uint32_t                  RESERVED27[2U];      /**< Reserved for future use                            */
   __IOM uint32_t            CMD_CLR;             /**< Command register                                   */
   __IM uint32_t             FSMSTATUS_CLR;       /**< Demod FSM Status Register                          */
   __IM uint32_t             STATUS2_CLR;         /**< Status Register 2                                  */
@@ -330,9 +329,9 @@ typedef struct {
   __IOM uint32_t            SYNCPROPERTIES_CLR;  /**< Sync word properties                               */
   __IOM uint32_t            DIGIGAINCTRL_CLR;    /**< Digital Gain Control                               */
   __IOM uint32_t            PRSCTRL_CLR;         /**< Mux control for PRS outputs                        */
-  uint32_t                  RESERVED28[3U];      /**< Reserved for future use*/
-  MODEM_IRCALCOEFWR_TypeDef IRCALCOEFWR_CLR[2U]; /**< IRCAL COEFS WR per antenna                        */
-  uint32_t                  RESERVED29[874U];    /**< Reserved for future use*/
+  uint32_t                  RESERVED28[3U];      /**< Reserved for future use                            */
+  MODEM_IRCALCOEFWR_TypeDef IRCALCOEFWR_CLR[2U]; /**< IRCAL COEFS WR per antenna                         */
+  uint32_t                  RESERVED29[874U];    /**< Reserved for future use                            */
   __IM uint32_t             IPVERSION_TGL;       /**< IP Version                                         */
   __IOM uint32_t            EN_TGL;              /**< Enable peripheral clock to this module             */
   __IM uint32_t             STATUS_TGL;          /**< Status Register                                    */
@@ -348,14 +347,14 @@ typedef struct {
   __IOM uint32_t            CTRL4_TGL;           /**< Control Register 4                                 */
   __IOM uint32_t            CTRL5_TGL;           /**< Control Register 5                                 */
   __IOM uint32_t            CTRL6_TGL;           /**< Control Register 6                                 */
-  uint32_t                  RESERVED30[7U];      /**< Reserved for future use                      */
+  uint32_t                  RESERVED30[7U];      /**< Reserved for future use                            */
   __IOM uint32_t            TXBR_TGL;            /**< Transmit baudrate                                  */
   __IOM uint32_t            RXBR_TGL;            /**< Receive Baudrate                                   */
   __IOM uint32_t            CF_TGL;              /**< Channel Filter                                     */
   __IOM uint32_t            PRE_TGL;             /**< Preamble Register                                  */
   __IOM uint32_t            SYNC0_TGL;           /**< Sync word 0                                        */
   __IOM uint32_t            SYNC1_TGL;           /**< Sync word 1                                        */
-  uint32_t                  RESERVED31[4U];      /**< Reserved for future use                      */
+  uint32_t                  RESERVED31[4U];      /**< Reserved for future use                            */
   __IOM uint32_t            TIMING_TGL;          /**< Timing Register                                    */
   __IOM uint32_t            DSSS0_TGL;           /**< DSSS symbol 0 Register                             */
   __IOM uint32_t            MODINDEX_TGL;        /**< Modulation Index                                   */
@@ -368,10 +367,10 @@ typedef struct {
   __IOM uint32_t            SHAPING4_TGL;        /**< Shaping Coefficients                               */
   __IOM uint32_t            SHAPING5_TGL;        /**< Shaping Coefficients                               */
   __IOM uint32_t            SHAPING6_TGL;        /**< Shaping Coefficients                               */
-  uint32_t                  RESERVED32[4U];      /**< Reserved for future use                      */
+  uint32_t                  RESERVED32[4U];      /**< Reserved for future use                            */
   __IOM uint32_t            RAMPCTRL_TGL;        /**< Ramping Register                                   */
   __IOM uint32_t            RAMPLEV_TGL;         /**< Ramping Register                                   */
-  uint32_t                  RESERVED33[6U];      /**< Reserved for future use                      */
+  uint32_t                  RESERVED33[6U];      /**< Reserved for future use                            */
   __IOM uint32_t            DCCOMP_TGL;          /**< DC Offset Compensation Filter Settings             */
   __IOM uint32_t            DCCOMPFILTINIT_TGL;  /**< DC Offset compensation Filter                      */
   __IM uint32_t             DCESTI_TGL;          /**< DC Offset Estimated value                          */
@@ -382,12 +381,12 @@ typedef struct {
   __IOM uint32_t            DSACTRL_TGL;         /**< DSA mode                                           */
   __IOM uint32_t            VITERBIDEMOD_TGL;    /**< Viterbi demodulator                                */
   __IOM uint32_t            VTCORRCFG0_TGL;      /**< Viterbi demodulator                                */
-  uint32_t                  RESERVED34[1U];      /**< Reserved for future use                      */
+  uint32_t                  RESERVED34[1U];      /**< Reserved for future use                            */
   __IOM uint32_t            DIGMIXCTRL_TGL;      /**< Digital mixer control register                     */
   __IOM uint32_t            VTCORRCFG1_TGL;      /**< Viterbi demodulator                                */
   __IOM uint32_t            VTTRACK_TGL;         /**< Viterbi demodulator tracking loop                  */
   __IM uint32_t             BREST_TGL;           /**< Baudrate Estimate                                  */
-  uint32_t                  RESERVED35[2U];      /**< Reserved for future use                      */
+  uint32_t                  RESERVED35[2U];      /**< Reserved for future use                            */
   __IOM uint32_t            AUTOCG_TGL;          /**< Automatic clock gating                             */
   __IOM uint32_t            CGCLKSTOP_TGL;       /**< Automatic clock gating                             */
   __IM uint32_t             POE_TGL;             /**< Phase Offset Estimate                              */
@@ -408,10 +407,10 @@ typedef struct {
   __IOM uint32_t            DSATHD3_TGL;         /**< DSA detector threshold 3                           */
   __IOM uint32_t            DSATHD4_TGL;         /**< DSA detector threshold 4                           */
   __IOM uint32_t            VTBLETIMING_TGL;     /**< Viterbi BLE timing stamp control                   */
-  uint32_t                  RESERVED36[37U];     /**< Reserved for future use                      */
+  uint32_t                  RESERVED36[37U];     /**< Reserved for future use                            */
   __IOM uint32_t            IF_TGL;              /**< Interrupt Flags                                    */
   __IOM uint32_t            IEN_TGL;             /**< Interrupt Enable                                   */
-  uint32_t                  RESERVED37[2U];      /**< Reserved for future use                      */
+  uint32_t                  RESERVED37[2U];      /**< Reserved for future use                            */
   __IOM uint32_t            CMD_TGL;             /**< Command register                                   */
   __IM uint32_t             FSMSTATUS_TGL;       /**< Demod FSM Status Register                          */
   __IM uint32_t             STATUS2_TGL;         /**< Status Register 2                                  */
@@ -423,8 +422,8 @@ typedef struct {
   __IOM uint32_t            SYNCPROPERTIES_TGL;  /**< Sync word properties                               */
   __IOM uint32_t            DIGIGAINCTRL_TGL;    /**< Digital Gain Control                               */
   __IOM uint32_t            PRSCTRL_TGL;         /**< Mux control for PRS outputs                        */
-  uint32_t                  RESERVED38[3U];      /**< Reserved for future use*/
-  MODEM_IRCALCOEFWR_TypeDef IRCALCOEFWR_TGL[2U]; /**< IRCAL COEFS WR per antenna                        */
+  uint32_t                  RESERVED38[3U];      /**< Reserved for future use                            */
+  MODEM_IRCALCOEFWR_TypeDef IRCALCOEFWR_TGL[2U]; /**< IRCAL COEFS WR per antenna                         */
 } MODEM_TypeDef;
 /** @} End of group EFR32MG21_MODEM */
 
@@ -458,37 +457,37 @@ typedef struct {
 #define _MODEM_STATUS_DEMODSTATE_SHIFT                       0                                                  /**< Shift value for MODEM_DEMODSTATE            */
 #define _MODEM_STATUS_DEMODSTATE_MASK                        0x7UL                                              /**< Bit mask for MODEM_DEMODSTATE               */
 #define _MODEM_STATUS_DEMODSTATE_DEFAULT                     0x00000000UL                                       /**< Mode DEFAULT for MODEM_STATUS               */
-#define _MODEM_STATUS_DEMODSTATE_OFF                         0x00000000UL                                       /**< Mode OFF for MODEM_STATUS                    */
-#define _MODEM_STATUS_DEMODSTATE_TIMINGSEARCH                0x00000001UL                                       /**< Mode TIMINGSEARCH for MODEM_STATUS           */
-#define _MODEM_STATUS_DEMODSTATE_PRESEARCH                   0x00000002UL                                       /**< Mode PRESEARCH for MODEM_STATUS              */
-#define _MODEM_STATUS_DEMODSTATE_FRAMESEARCH                 0x00000003UL                                       /**< Mode FRAMESEARCH for MODEM_STATUS            */
-#define _MODEM_STATUS_DEMODSTATE_RXFRAME                     0x00000004UL                                       /**< Mode RXFRAME for MODEM_STATUS                */
-#define _MODEM_STATUS_DEMODSTATE_FRAMEDETMODE0               0x00000005UL                                       /**< Mode FRAMEDETMODE0 for MODEM_STATUS          */
+#define _MODEM_STATUS_DEMODSTATE_OFF                         0x00000000UL                                       /**< Mode OFF for MODEM_STATUS                   */
+#define _MODEM_STATUS_DEMODSTATE_TIMINGSEARCH                0x00000001UL                                       /**< Mode TIMINGSEARCH for MODEM_STATUS          */
+#define _MODEM_STATUS_DEMODSTATE_PRESEARCH                   0x00000002UL                                       /**< Mode PRESEARCH for MODEM_STATUS             */
+#define _MODEM_STATUS_DEMODSTATE_FRAMESEARCH                 0x00000003UL                                       /**< Mode FRAMESEARCH for MODEM_STATUS           */
+#define _MODEM_STATUS_DEMODSTATE_RXFRAME                     0x00000004UL                                       /**< Mode RXFRAME for MODEM_STATUS               */
+#define _MODEM_STATUS_DEMODSTATE_FRAMEDETMODE0               0x00000005UL                                       /**< Mode FRAMEDETMODE0 for MODEM_STATUS         */
 #define MODEM_STATUS_DEMODSTATE_DEFAULT                      (_MODEM_STATUS_DEMODSTATE_DEFAULT << 0)            /**< Shifted mode DEFAULT for MODEM_STATUS       */
-#define MODEM_STATUS_DEMODSTATE_OFF                          (_MODEM_STATUS_DEMODSTATE_OFF << 0)                /**< Shifted mode OFF for MODEM_STATUS            */
-#define MODEM_STATUS_DEMODSTATE_TIMINGSEARCH                 (_MODEM_STATUS_DEMODSTATE_TIMINGSEARCH << 0)       /**< Shifted mode TIMINGSEARCH for MODEM_STATUS   */
-#define MODEM_STATUS_DEMODSTATE_PRESEARCH                    (_MODEM_STATUS_DEMODSTATE_PRESEARCH << 0)          /**< Shifted mode PRESEARCH for MODEM_STATUS      */
-#define MODEM_STATUS_DEMODSTATE_FRAMESEARCH                  (_MODEM_STATUS_DEMODSTATE_FRAMESEARCH << 0)        /**< Shifted mode FRAMESEARCH for MODEM_STATUS    */
-#define MODEM_STATUS_DEMODSTATE_RXFRAME                      (_MODEM_STATUS_DEMODSTATE_RXFRAME << 0)            /**< Shifted mode RXFRAME for MODEM_STATUS        */
-#define MODEM_STATUS_DEMODSTATE_FRAMEDETMODE0                (_MODEM_STATUS_DEMODSTATE_FRAMEDETMODE0 << 0)      /**< Shifted mode FRAMEDETMODE0 for MODEM_STATUS  */
+#define MODEM_STATUS_DEMODSTATE_OFF                          (_MODEM_STATUS_DEMODSTATE_OFF << 0)                /**< Shifted mode OFF for MODEM_STATUS           */
+#define MODEM_STATUS_DEMODSTATE_TIMINGSEARCH                 (_MODEM_STATUS_DEMODSTATE_TIMINGSEARCH << 0)       /**< Shifted mode TIMINGSEARCH for MODEM_STATUS  */
+#define MODEM_STATUS_DEMODSTATE_PRESEARCH                    (_MODEM_STATUS_DEMODSTATE_PRESEARCH << 0)          /**< Shifted mode PRESEARCH for MODEM_STATUS     */
+#define MODEM_STATUS_DEMODSTATE_FRAMESEARCH                  (_MODEM_STATUS_DEMODSTATE_FRAMESEARCH << 0)        /**< Shifted mode FRAMESEARCH for MODEM_STATUS   */
+#define MODEM_STATUS_DEMODSTATE_RXFRAME                      (_MODEM_STATUS_DEMODSTATE_RXFRAME << 0)            /**< Shifted mode RXFRAME for MODEM_STATUS       */
+#define MODEM_STATUS_DEMODSTATE_FRAMEDETMODE0                (_MODEM_STATUS_DEMODSTATE_FRAMEDETMODE0 << 0)      /**< Shifted mode FRAMEDETMODE0 for MODEM_STATUS */
 #define MODEM_STATUS_FRAMEDETID                              (0x1UL << 4)                                       /**< Frame Detected ID                           */
 #define _MODEM_STATUS_FRAMEDETID_SHIFT                       4                                                  /**< Shift value for MODEM_FRAMEDETID            */
 #define _MODEM_STATUS_FRAMEDETID_MASK                        0x10UL                                             /**< Bit mask for MODEM_FRAMEDETID               */
 #define _MODEM_STATUS_FRAMEDETID_DEFAULT                     0x00000000UL                                       /**< Mode DEFAULT for MODEM_STATUS               */
-#define _MODEM_STATUS_FRAMEDETID_FRAMEDET0                   0x00000000UL                                       /**< Mode FRAMEDET0 for MODEM_STATUS              */
-#define _MODEM_STATUS_FRAMEDETID_FRAMEDET1                   0x00000001UL                                       /**< Mode FRAMEDET1 for MODEM_STATUS              */
+#define _MODEM_STATUS_FRAMEDETID_FRAMEDET0                   0x00000000UL                                       /**< Mode FRAMEDET0 for MODEM_STATUS             */
+#define _MODEM_STATUS_FRAMEDETID_FRAMEDET1                   0x00000001UL                                       /**< Mode FRAMEDET1 for MODEM_STATUS             */
 #define MODEM_STATUS_FRAMEDETID_DEFAULT                      (_MODEM_STATUS_FRAMEDETID_DEFAULT << 4)            /**< Shifted mode DEFAULT for MODEM_STATUS       */
-#define MODEM_STATUS_FRAMEDETID_FRAMEDET0                    (_MODEM_STATUS_FRAMEDETID_FRAMEDET0 << 4)          /**< Shifted mode FRAMEDET0 for MODEM_STATUS      */
-#define MODEM_STATUS_FRAMEDETID_FRAMEDET1                    (_MODEM_STATUS_FRAMEDETID_FRAMEDET1 << 4)          /**< Shifted mode FRAMEDET1 for MODEM_STATUS      */
+#define MODEM_STATUS_FRAMEDETID_FRAMEDET0                    (_MODEM_STATUS_FRAMEDETID_FRAMEDET0 << 4)          /**< Shifted mode FRAMEDET0 for MODEM_STATUS     */
+#define MODEM_STATUS_FRAMEDETID_FRAMEDET1                    (_MODEM_STATUS_FRAMEDETID_FRAMEDET1 << 4)          /**< Shifted mode FRAMEDET1 for MODEM_STATUS     */
 #define MODEM_STATUS_ANTSEL                                  (0x1UL << 5)                                       /**< Selected Antenna                            */
 #define _MODEM_STATUS_ANTSEL_SHIFT                           5                                                  /**< Shift value for MODEM_ANTSEL                */
 #define _MODEM_STATUS_ANTSEL_MASK                            0x20UL                                             /**< Bit mask for MODEM_ANTSEL                   */
 #define _MODEM_STATUS_ANTSEL_DEFAULT                         0x00000000UL                                       /**< Mode DEFAULT for MODEM_STATUS               */
-#define _MODEM_STATUS_ANTSEL_ANTENNA0                        0x00000000UL                                       /**< Mode ANTENNA0 for MODEM_STATUS               */
-#define _MODEM_STATUS_ANTSEL_ANTENNA1                        0x00000001UL                                       /**< Mode ANTENNA1 for MODEM_STATUS               */
+#define _MODEM_STATUS_ANTSEL_ANTENNA0                        0x00000000UL                                       /**< Mode ANTENNA0 for MODEM_STATUS              */
+#define _MODEM_STATUS_ANTSEL_ANTENNA1                        0x00000001UL                                       /**< Mode ANTENNA1 for MODEM_STATUS              */
 #define MODEM_STATUS_ANTSEL_DEFAULT                          (_MODEM_STATUS_ANTSEL_DEFAULT << 5)                /**< Shifted mode DEFAULT for MODEM_STATUS       */
-#define MODEM_STATUS_ANTSEL_ANTENNA0                         (_MODEM_STATUS_ANTSEL_ANTENNA0 << 5)               /**< Shifted mode ANTENNA0 for MODEM_STATUS       */
-#define MODEM_STATUS_ANTSEL_ANTENNA1                         (_MODEM_STATUS_ANTSEL_ANTENNA1 << 5)               /**< Shifted mode ANTENNA1 for MODEM_STATUS       */
+#define MODEM_STATUS_ANTSEL_ANTENNA0                         (_MODEM_STATUS_ANTSEL_ANTENNA0 << 5)               /**< Shifted mode ANTENNA0 for MODEM_STATUS      */
+#define MODEM_STATUS_ANTSEL_ANTENNA1                         (_MODEM_STATUS_ANTSEL_ANTENNA1 << 5)               /**< Shifted mode ANTENNA1 for MODEM_STATUS      */
 #define MODEM_STATUS_TIMSEQINV                               (0x1UL << 6)                                       /**< Timing Sequence Inverted                    */
 #define _MODEM_STATUS_TIMSEQINV_SHIFT                        6                                                  /**< Shift value for MODEM_TIMSEQINV             */
 #define _MODEM_STATUS_TIMSEQINV_MASK                         0x40UL                                             /**< Bit mask for MODEM_TIMSEQINV                */
@@ -498,11 +497,11 @@ typedef struct {
 #define _MODEM_STATUS_TIMLOSTCAUSE_SHIFT                     7                                                  /**< Shift value for MODEM_TIMLOSTCAUSE          */
 #define _MODEM_STATUS_TIMLOSTCAUSE_MASK                      0x80UL                                             /**< Bit mask for MODEM_TIMLOSTCAUSE             */
 #define _MODEM_STATUS_TIMLOSTCAUSE_DEFAULT                   0x00000000UL                                       /**< Mode DEFAULT for MODEM_STATUS               */
-#define _MODEM_STATUS_TIMLOSTCAUSE_LOWCORR                   0x00000000UL                                       /**< Mode LOWCORR for MODEM_STATUS                */
-#define _MODEM_STATUS_TIMLOSTCAUSE_TIMEOUT                   0x00000001UL                                       /**< Mode TIMEOUT for MODEM_STATUS                */
+#define _MODEM_STATUS_TIMLOSTCAUSE_LOWCORR                   0x00000000UL                                       /**< Mode LOWCORR for MODEM_STATUS               */
+#define _MODEM_STATUS_TIMLOSTCAUSE_TIMEOUT                   0x00000001UL                                       /**< Mode TIMEOUT for MODEM_STATUS               */
 #define MODEM_STATUS_TIMLOSTCAUSE_DEFAULT                    (_MODEM_STATUS_TIMLOSTCAUSE_DEFAULT << 7)          /**< Shifted mode DEFAULT for MODEM_STATUS       */
-#define MODEM_STATUS_TIMLOSTCAUSE_LOWCORR                    (_MODEM_STATUS_TIMLOSTCAUSE_LOWCORR << 7)          /**< Shifted mode LOWCORR for MODEM_STATUS        */
-#define MODEM_STATUS_TIMLOSTCAUSE_TIMEOUT                    (_MODEM_STATUS_TIMLOSTCAUSE_TIMEOUT << 7)          /**< Shifted mode TIMEOUT for MODEM_STATUS        */
+#define MODEM_STATUS_TIMLOSTCAUSE_LOWCORR                    (_MODEM_STATUS_TIMLOSTCAUSE_LOWCORR << 7)          /**< Shifted mode LOWCORR for MODEM_STATUS       */
+#define MODEM_STATUS_TIMLOSTCAUSE_TIMEOUT                    (_MODEM_STATUS_TIMLOSTCAUSE_TIMEOUT << 7)          /**< Shifted mode TIMEOUT for MODEM_STATUS       */
 #define MODEM_STATUS_DSADETECTED                             (0x1UL << 8)                                       /**< DSA detected                                */
 #define _MODEM_STATUS_DSADETECTED_SHIFT                      8                                                  /**< Shift value for MODEM_DSADETECTED           */
 #define _MODEM_STATUS_DSADETECTED_MASK                       0x100UL                                            /**< Bit mask for MODEM_DSADETECTED              */
@@ -599,27 +598,27 @@ typedef struct {
 #define _MODEM_MIXCTRL_ANAMIXMODE_SHIFT                      0                                            /**< Shift value for MODEM_ANAMIXMODE            */
 #define _MODEM_MIXCTRL_ANAMIXMODE_MASK                       0xFUL                                        /**< Bit mask for MODEM_ANAMIXMODE               */
 #define _MODEM_MIXCTRL_ANAMIXMODE_DEFAULT                    0x00000000UL                                 /**< Mode DEFAULT for MODEM_MIXCTRL              */
-#define _MODEM_MIXCTRL_ANAMIXMODE_NORMAL                     0x00000000UL                                 /**< Mode NORMAL for MODEM_MIXCTRL                */
-#define _MODEM_MIXCTRL_ANAMIXMODE_IPQPIQSWAP                 0x00000001UL                                 /**< Mode IPQPIQSWAP for MODEM_MIXCTRL            */
-#define _MODEM_MIXCTRL_ANAMIXMODE_IPQN                       0x00000002UL                                 /**< Mode IPQN for MODEM_MIXCTRL                  */
-#define _MODEM_MIXCTRL_ANAMIXMODE_IPQNIQSWAP                 0x00000003UL                                 /**< Mode IPQNIQSWAP for MODEM_MIXCTRL            */
-#define _MODEM_MIXCTRL_ANAMIXMODE_INQP                       0x00000004UL                                 /**< Mode INQP for MODEM_MIXCTRL                  */
-#define _MODEM_MIXCTRL_ANAMIXMODE_INQPIQSWAP                 0x00000005UL                                 /**< Mode INQPIQSWAP for MODEM_MIXCTRL            */
-#define _MODEM_MIXCTRL_ANAMIXMODE_INQN                       0x00000006UL                                 /**< Mode INQN for MODEM_MIXCTRL                  */
-#define _MODEM_MIXCTRL_ANAMIXMODE_INQNIQSWAP                 0x00000007UL                                 /**< Mode INQNIQSWAP for MODEM_MIXCTRL            */
-#define _MODEM_MIXCTRL_ANAMIXMODE_UPCONVERT                  0x00000008UL                                 /**< Mode UPCONVERT for MODEM_MIXCTRL             */
-#define _MODEM_MIXCTRL_ANAMIXMODE_DOWNCONVERT                0x00000009UL                                 /**< Mode DOWNCONVERT for MODEM_MIXCTRL           */
+#define _MODEM_MIXCTRL_ANAMIXMODE_NORMAL                     0x00000000UL                                 /**< Mode NORMAL for MODEM_MIXCTRL               */
+#define _MODEM_MIXCTRL_ANAMIXMODE_IPQPIQSWAP                 0x00000001UL                                 /**< Mode IPQPIQSWAP for MODEM_MIXCTRL           */
+#define _MODEM_MIXCTRL_ANAMIXMODE_IPQN                       0x00000002UL                                 /**< Mode IPQN for MODEM_MIXCTRL                 */
+#define _MODEM_MIXCTRL_ANAMIXMODE_IPQNIQSWAP                 0x00000003UL                                 /**< Mode IPQNIQSWAP for MODEM_MIXCTRL           */
+#define _MODEM_MIXCTRL_ANAMIXMODE_INQP                       0x00000004UL                                 /**< Mode INQP for MODEM_MIXCTRL                 */
+#define _MODEM_MIXCTRL_ANAMIXMODE_INQPIQSWAP                 0x00000005UL                                 /**< Mode INQPIQSWAP for MODEM_MIXCTRL           */
+#define _MODEM_MIXCTRL_ANAMIXMODE_INQN                       0x00000006UL                                 /**< Mode INQN for MODEM_MIXCTRL                 */
+#define _MODEM_MIXCTRL_ANAMIXMODE_INQNIQSWAP                 0x00000007UL                                 /**< Mode INQNIQSWAP for MODEM_MIXCTRL           */
+#define _MODEM_MIXCTRL_ANAMIXMODE_UPCONVERT                  0x00000008UL                                 /**< Mode UPCONVERT for MODEM_MIXCTRL            */
+#define _MODEM_MIXCTRL_ANAMIXMODE_DOWNCONVERT                0x00000009UL                                 /**< Mode DOWNCONVERT for MODEM_MIXCTRL          */
 #define MODEM_MIXCTRL_ANAMIXMODE_DEFAULT                     (_MODEM_MIXCTRL_ANAMIXMODE_DEFAULT << 0)     /**< Shifted mode DEFAULT for MODEM_MIXCTRL      */
-#define MODEM_MIXCTRL_ANAMIXMODE_NORMAL                      (_MODEM_MIXCTRL_ANAMIXMODE_NORMAL << 0)      /**< Shifted mode NORMAL for MODEM_MIXCTRL        */
-#define MODEM_MIXCTRL_ANAMIXMODE_IPQPIQSWAP                  (_MODEM_MIXCTRL_ANAMIXMODE_IPQPIQSWAP << 0)  /**< Shifted mode IPQPIQSWAP for MODEM_MIXCTRL    */
-#define MODEM_MIXCTRL_ANAMIXMODE_IPQN                        (_MODEM_MIXCTRL_ANAMIXMODE_IPQN << 0)        /**< Shifted mode IPQN for MODEM_MIXCTRL          */
-#define MODEM_MIXCTRL_ANAMIXMODE_IPQNIQSWAP                  (_MODEM_MIXCTRL_ANAMIXMODE_IPQNIQSWAP << 0)  /**< Shifted mode IPQNIQSWAP for MODEM_MIXCTRL    */
-#define MODEM_MIXCTRL_ANAMIXMODE_INQP                        (_MODEM_MIXCTRL_ANAMIXMODE_INQP << 0)        /**< Shifted mode INQP for MODEM_MIXCTRL          */
-#define MODEM_MIXCTRL_ANAMIXMODE_INQPIQSWAP                  (_MODEM_MIXCTRL_ANAMIXMODE_INQPIQSWAP << 0)  /**< Shifted mode INQPIQSWAP for MODEM_MIXCTRL    */
-#define MODEM_MIXCTRL_ANAMIXMODE_INQN                        (_MODEM_MIXCTRL_ANAMIXMODE_INQN << 0)        /**< Shifted mode INQN for MODEM_MIXCTRL          */
-#define MODEM_MIXCTRL_ANAMIXMODE_INQNIQSWAP                  (_MODEM_MIXCTRL_ANAMIXMODE_INQNIQSWAP << 0)  /**< Shifted mode INQNIQSWAP for MODEM_MIXCTRL    */
-#define MODEM_MIXCTRL_ANAMIXMODE_UPCONVERT                   (_MODEM_MIXCTRL_ANAMIXMODE_UPCONVERT << 0)   /**< Shifted mode UPCONVERT for MODEM_MIXCTRL     */
-#define MODEM_MIXCTRL_ANAMIXMODE_DOWNCONVERT                 (_MODEM_MIXCTRL_ANAMIXMODE_DOWNCONVERT << 0) /**< Shifted mode DOWNCONVERT for MODEM_MIXCTRL   */
+#define MODEM_MIXCTRL_ANAMIXMODE_NORMAL                      (_MODEM_MIXCTRL_ANAMIXMODE_NORMAL << 0)      /**< Shifted mode NORMAL for MODEM_MIXCTRL       */
+#define MODEM_MIXCTRL_ANAMIXMODE_IPQPIQSWAP                  (_MODEM_MIXCTRL_ANAMIXMODE_IPQPIQSWAP << 0)  /**< Shifted mode IPQPIQSWAP for MODEM_MIXCTRL   */
+#define MODEM_MIXCTRL_ANAMIXMODE_IPQN                        (_MODEM_MIXCTRL_ANAMIXMODE_IPQN << 0)        /**< Shifted mode IPQN for MODEM_MIXCTRL         */
+#define MODEM_MIXCTRL_ANAMIXMODE_IPQNIQSWAP                  (_MODEM_MIXCTRL_ANAMIXMODE_IPQNIQSWAP << 0)  /**< Shifted mode IPQNIQSWAP for MODEM_MIXCTRL   */
+#define MODEM_MIXCTRL_ANAMIXMODE_INQP                        (_MODEM_MIXCTRL_ANAMIXMODE_INQP << 0)        /**< Shifted mode INQP for MODEM_MIXCTRL         */
+#define MODEM_MIXCTRL_ANAMIXMODE_INQPIQSWAP                  (_MODEM_MIXCTRL_ANAMIXMODE_INQPIQSWAP << 0)  /**< Shifted mode INQPIQSWAP for MODEM_MIXCTRL   */
+#define MODEM_MIXCTRL_ANAMIXMODE_INQN                        (_MODEM_MIXCTRL_ANAMIXMODE_INQN << 0)        /**< Shifted mode INQN for MODEM_MIXCTRL         */
+#define MODEM_MIXCTRL_ANAMIXMODE_INQNIQSWAP                  (_MODEM_MIXCTRL_ANAMIXMODE_INQNIQSWAP << 0)  /**< Shifted mode INQNIQSWAP for MODEM_MIXCTRL   */
+#define MODEM_MIXCTRL_ANAMIXMODE_UPCONVERT                   (_MODEM_MIXCTRL_ANAMIXMODE_UPCONVERT << 0)   /**< Shifted mode UPCONVERT for MODEM_MIXCTRL    */
+#define MODEM_MIXCTRL_ANAMIXMODE_DOWNCONVERT                 (_MODEM_MIXCTRL_ANAMIXMODE_DOWNCONVERT << 0) /**< Shifted mode DOWNCONVERT for MODEM_MIXCTRL  */
 #define MODEM_MIXCTRL_DIGIQSWAPEN                            (0x1UL << 4)                                 /**< Digital I/Q swap enable                     */
 #define _MODEM_MIXCTRL_DIGIQSWAPEN_SHIFT                     4                                            /**< Shift value for MODEM_DIGIQSWAPEN           */
 #define _MODEM_MIXCTRL_DIGIQSWAPEN_MASK                      0x10UL                                       /**< Bit mask for MODEM_DIGIQSWAPEN              */
@@ -637,53 +636,53 @@ typedef struct {
 #define _MODEM_CTRL0_MAPFSK_SHIFT                            1                                             /**< Shift value for MODEM_MAPFSK                */
 #define _MODEM_CTRL0_MAPFSK_MASK                             0xEUL                                         /**< Bit mask for MODEM_MAPFSK                   */
 #define _MODEM_CTRL0_MAPFSK_DEFAULT                          0x00000000UL                                  /**< Mode DEFAULT for MODEM_CTRL0                */
-#define _MODEM_CTRL0_MAPFSK_MAP0                             0x00000000UL                                  /**< Mode MAP0 for MODEM_CTRL0                    */
-#define _MODEM_CTRL0_MAPFSK_MAP1                             0x00000001UL                                  /**< Mode MAP1 for MODEM_CTRL0                    */
-#define _MODEM_CTRL0_MAPFSK_MAP2                             0x00000002UL                                  /**< Mode MAP2 for MODEM_CTRL0                    */
-#define _MODEM_CTRL0_MAPFSK_MAP3                             0x00000003UL                                  /**< Mode MAP3 for MODEM_CTRL0                    */
-#define _MODEM_CTRL0_MAPFSK_MAP4                             0x00000004UL                                  /**< Mode MAP4 for MODEM_CTRL0                    */
-#define _MODEM_CTRL0_MAPFSK_MAP5                             0x00000005UL                                  /**< Mode MAP5 for MODEM_CTRL0                    */
-#define _MODEM_CTRL0_MAPFSK_MAP6                             0x00000006UL                                  /**< Mode MAP6 for MODEM_CTRL0                    */
-#define _MODEM_CTRL0_MAPFSK_MAP7                             0x00000007UL                                  /**< Mode MAP7 for MODEM_CTRL0                    */
+#define _MODEM_CTRL0_MAPFSK_MAP0                             0x00000000UL                                  /**< Mode MAP0 for MODEM_CTRL0                   */
+#define _MODEM_CTRL0_MAPFSK_MAP1                             0x00000001UL                                  /**< Mode MAP1 for MODEM_CTRL0                   */
+#define _MODEM_CTRL0_MAPFSK_MAP2                             0x00000002UL                                  /**< Mode MAP2 for MODEM_CTRL0                   */
+#define _MODEM_CTRL0_MAPFSK_MAP3                             0x00000003UL                                  /**< Mode MAP3 for MODEM_CTRL0                   */
+#define _MODEM_CTRL0_MAPFSK_MAP4                             0x00000004UL                                  /**< Mode MAP4 for MODEM_CTRL0                   */
+#define _MODEM_CTRL0_MAPFSK_MAP5                             0x00000005UL                                  /**< Mode MAP5 for MODEM_CTRL0                   */
+#define _MODEM_CTRL0_MAPFSK_MAP6                             0x00000006UL                                  /**< Mode MAP6 for MODEM_CTRL0                   */
+#define _MODEM_CTRL0_MAPFSK_MAP7                             0x00000007UL                                  /**< Mode MAP7 for MODEM_CTRL0                   */
 #define MODEM_CTRL0_MAPFSK_DEFAULT                           (_MODEM_CTRL0_MAPFSK_DEFAULT << 1)            /**< Shifted mode DEFAULT for MODEM_CTRL0        */
-#define MODEM_CTRL0_MAPFSK_MAP0                              (_MODEM_CTRL0_MAPFSK_MAP0 << 1)               /**< Shifted mode MAP0 for MODEM_CTRL0            */
-#define MODEM_CTRL0_MAPFSK_MAP1                              (_MODEM_CTRL0_MAPFSK_MAP1 << 1)               /**< Shifted mode MAP1 for MODEM_CTRL0            */
-#define MODEM_CTRL0_MAPFSK_MAP2                              (_MODEM_CTRL0_MAPFSK_MAP2 << 1)               /**< Shifted mode MAP2 for MODEM_CTRL0            */
-#define MODEM_CTRL0_MAPFSK_MAP3                              (_MODEM_CTRL0_MAPFSK_MAP3 << 1)               /**< Shifted mode MAP3 for MODEM_CTRL0            */
-#define MODEM_CTRL0_MAPFSK_MAP4                              (_MODEM_CTRL0_MAPFSK_MAP4 << 1)               /**< Shifted mode MAP4 for MODEM_CTRL0            */
-#define MODEM_CTRL0_MAPFSK_MAP5                              (_MODEM_CTRL0_MAPFSK_MAP5 << 1)               /**< Shifted mode MAP5 for MODEM_CTRL0            */
-#define MODEM_CTRL0_MAPFSK_MAP6                              (_MODEM_CTRL0_MAPFSK_MAP6 << 1)               /**< Shifted mode MAP6 for MODEM_CTRL0            */
-#define MODEM_CTRL0_MAPFSK_MAP7                              (_MODEM_CTRL0_MAPFSK_MAP7 << 1)               /**< Shifted mode MAP7 for MODEM_CTRL0            */
+#define MODEM_CTRL0_MAPFSK_MAP0                              (_MODEM_CTRL0_MAPFSK_MAP0 << 1)               /**< Shifted mode MAP0 for MODEM_CTRL0           */
+#define MODEM_CTRL0_MAPFSK_MAP1                              (_MODEM_CTRL0_MAPFSK_MAP1 << 1)               /**< Shifted mode MAP1 for MODEM_CTRL0           */
+#define MODEM_CTRL0_MAPFSK_MAP2                              (_MODEM_CTRL0_MAPFSK_MAP2 << 1)               /**< Shifted mode MAP2 for MODEM_CTRL0           */
+#define MODEM_CTRL0_MAPFSK_MAP3                              (_MODEM_CTRL0_MAPFSK_MAP3 << 1)               /**< Shifted mode MAP3 for MODEM_CTRL0           */
+#define MODEM_CTRL0_MAPFSK_MAP4                              (_MODEM_CTRL0_MAPFSK_MAP4 << 1)               /**< Shifted mode MAP4 for MODEM_CTRL0           */
+#define MODEM_CTRL0_MAPFSK_MAP5                              (_MODEM_CTRL0_MAPFSK_MAP5 << 1)               /**< Shifted mode MAP5 for MODEM_CTRL0           */
+#define MODEM_CTRL0_MAPFSK_MAP6                              (_MODEM_CTRL0_MAPFSK_MAP6 << 1)               /**< Shifted mode MAP6 for MODEM_CTRL0           */
+#define MODEM_CTRL0_MAPFSK_MAP7                              (_MODEM_CTRL0_MAPFSK_MAP7 << 1)               /**< Shifted mode MAP7 for MODEM_CTRL0           */
 #define _MODEM_CTRL0_CODING_SHIFT                            4                                             /**< Shift value for MODEM_CODING                */
 #define _MODEM_CTRL0_CODING_MASK                             0x30UL                                        /**< Bit mask for MODEM_CODING                   */
 #define _MODEM_CTRL0_CODING_DEFAULT                          0x00000000UL                                  /**< Mode DEFAULT for MODEM_CTRL0                */
-#define _MODEM_CTRL0_CODING_NRZ                              0x00000000UL                                  /**< Mode NRZ for MODEM_CTRL0                     */
-#define _MODEM_CTRL0_CODING_MANCHESTER                       0x00000001UL                                  /**< Mode MANCHESTER for MODEM_CTRL0              */
-#define _MODEM_CTRL0_CODING_DSSS                             0x00000002UL                                  /**< Mode DSSS for MODEM_CTRL0                    */
-#define _MODEM_CTRL0_CODING_LINECODE                         0x00000003UL                                  /**< Mode LINECODE for MODEM_CTRL0                */
+#define _MODEM_CTRL0_CODING_NRZ                              0x00000000UL                                  /**< Mode NRZ for MODEM_CTRL0                    */
+#define _MODEM_CTRL0_CODING_MANCHESTER                       0x00000001UL                                  /**< Mode MANCHESTER for MODEM_CTRL0             */
+#define _MODEM_CTRL0_CODING_DSSS                             0x00000002UL                                  /**< Mode DSSS for MODEM_CTRL0                   */
+#define _MODEM_CTRL0_CODING_LINECODE                         0x00000003UL                                  /**< Mode LINECODE for MODEM_CTRL0               */
 #define MODEM_CTRL0_CODING_DEFAULT                           (_MODEM_CTRL0_CODING_DEFAULT << 4)            /**< Shifted mode DEFAULT for MODEM_CTRL0        */
-#define MODEM_CTRL0_CODING_NRZ                               (_MODEM_CTRL0_CODING_NRZ << 4)                /**< Shifted mode NRZ for MODEM_CTRL0             */
-#define MODEM_CTRL0_CODING_MANCHESTER                        (_MODEM_CTRL0_CODING_MANCHESTER << 4)         /**< Shifted mode MANCHESTER for MODEM_CTRL0      */
-#define MODEM_CTRL0_CODING_DSSS                              (_MODEM_CTRL0_CODING_DSSS << 4)               /**< Shifted mode DSSS for MODEM_CTRL0            */
-#define MODEM_CTRL0_CODING_LINECODE                          (_MODEM_CTRL0_CODING_LINECODE << 4)           /**< Shifted mode LINECODE for MODEM_CTRL0        */
+#define MODEM_CTRL0_CODING_NRZ                               (_MODEM_CTRL0_CODING_NRZ << 4)                /**< Shifted mode NRZ for MODEM_CTRL0            */
+#define MODEM_CTRL0_CODING_MANCHESTER                        (_MODEM_CTRL0_CODING_MANCHESTER << 4)         /**< Shifted mode MANCHESTER for MODEM_CTRL0     */
+#define MODEM_CTRL0_CODING_DSSS                              (_MODEM_CTRL0_CODING_DSSS << 4)               /**< Shifted mode DSSS for MODEM_CTRL0           */
+#define MODEM_CTRL0_CODING_LINECODE                          (_MODEM_CTRL0_CODING_LINECODE << 4)           /**< Shifted mode LINECODE for MODEM_CTRL0       */
 #define _MODEM_CTRL0_MODFORMAT_SHIFT                         6                                             /**< Shift value for MODEM_MODFORMAT             */
 #define _MODEM_CTRL0_MODFORMAT_MASK                          0x1C0UL                                       /**< Bit mask for MODEM_MODFORMAT                */
 #define _MODEM_CTRL0_MODFORMAT_DEFAULT                       0x00000000UL                                  /**< Mode DEFAULT for MODEM_CTRL0                */
-#define _MODEM_CTRL0_MODFORMAT_FSK2                          0x00000000UL                                  /**< Mode FSK2 for MODEM_CTRL0                    */
-#define _MODEM_CTRL0_MODFORMAT_FSK4                          0x00000001UL                                  /**< Mode FSK4 for MODEM_CTRL0                    */
-#define _MODEM_CTRL0_MODFORMAT_BPSK                          0x00000002UL                                  /**< Mode BPSK for MODEM_CTRL0                    */
-#define _MODEM_CTRL0_MODFORMAT_DBPSK                         0x00000003UL                                  /**< Mode DBPSK for MODEM_CTRL0                   */
-#define _MODEM_CTRL0_MODFORMAT_OQPSK                         0x00000004UL                                  /**< Mode OQPSK for MODEM_CTRL0                   */
-#define _MODEM_CTRL0_MODFORMAT_MSK                           0x00000005UL                                  /**< Mode MSK for MODEM_CTRL0                     */
-#define _MODEM_CTRL0_MODFORMAT_OOKASK                        0x00000006UL                                  /**< Mode OOKASK for MODEM_CTRL0                  */
+#define _MODEM_CTRL0_MODFORMAT_FSK2                          0x00000000UL                                  /**< Mode FSK2 for MODEM_CTRL0                   */
+#define _MODEM_CTRL0_MODFORMAT_FSK4                          0x00000001UL                                  /**< Mode FSK4 for MODEM_CTRL0                   */
+#define _MODEM_CTRL0_MODFORMAT_BPSK                          0x00000002UL                                  /**< Mode BPSK for MODEM_CTRL0                   */
+#define _MODEM_CTRL0_MODFORMAT_DBPSK                         0x00000003UL                                  /**< Mode DBPSK for MODEM_CTRL0                  */
+#define _MODEM_CTRL0_MODFORMAT_OQPSK                         0x00000004UL                                  /**< Mode OQPSK for MODEM_CTRL0                  */
+#define _MODEM_CTRL0_MODFORMAT_MSK                           0x00000005UL                                  /**< Mode MSK for MODEM_CTRL0                    */
+#define _MODEM_CTRL0_MODFORMAT_OOKASK                        0x00000006UL                                  /**< Mode OOKASK for MODEM_CTRL0                 */
 #define MODEM_CTRL0_MODFORMAT_DEFAULT                        (_MODEM_CTRL0_MODFORMAT_DEFAULT << 6)         /**< Shifted mode DEFAULT for MODEM_CTRL0        */
-#define MODEM_CTRL0_MODFORMAT_FSK2                           (_MODEM_CTRL0_MODFORMAT_FSK2 << 6)            /**< Shifted mode FSK2 for MODEM_CTRL0            */
-#define MODEM_CTRL0_MODFORMAT_FSK4                           (_MODEM_CTRL0_MODFORMAT_FSK4 << 6)            /**< Shifted mode FSK4 for MODEM_CTRL0            */
-#define MODEM_CTRL0_MODFORMAT_BPSK                           (_MODEM_CTRL0_MODFORMAT_BPSK << 6)            /**< Shifted mode BPSK for MODEM_CTRL0            */
-#define MODEM_CTRL0_MODFORMAT_DBPSK                          (_MODEM_CTRL0_MODFORMAT_DBPSK << 6)           /**< Shifted mode DBPSK for MODEM_CTRL0           */
-#define MODEM_CTRL0_MODFORMAT_OQPSK                          (_MODEM_CTRL0_MODFORMAT_OQPSK << 6)           /**< Shifted mode OQPSK for MODEM_CTRL0           */
-#define MODEM_CTRL0_MODFORMAT_MSK                            (_MODEM_CTRL0_MODFORMAT_MSK << 6)             /**< Shifted mode MSK for MODEM_CTRL0             */
-#define MODEM_CTRL0_MODFORMAT_OOKASK                         (_MODEM_CTRL0_MODFORMAT_OOKASK << 6)          /**< Shifted mode OOKASK for MODEM_CTRL0          */
+#define MODEM_CTRL0_MODFORMAT_FSK2                           (_MODEM_CTRL0_MODFORMAT_FSK2 << 6)            /**< Shifted mode FSK2 for MODEM_CTRL0           */
+#define MODEM_CTRL0_MODFORMAT_FSK4                           (_MODEM_CTRL0_MODFORMAT_FSK4 << 6)            /**< Shifted mode FSK4 for MODEM_CTRL0           */
+#define MODEM_CTRL0_MODFORMAT_BPSK                           (_MODEM_CTRL0_MODFORMAT_BPSK << 6)            /**< Shifted mode BPSK for MODEM_CTRL0           */
+#define MODEM_CTRL0_MODFORMAT_DBPSK                          (_MODEM_CTRL0_MODFORMAT_DBPSK << 6)           /**< Shifted mode DBPSK for MODEM_CTRL0          */
+#define MODEM_CTRL0_MODFORMAT_OQPSK                          (_MODEM_CTRL0_MODFORMAT_OQPSK << 6)           /**< Shifted mode OQPSK for MODEM_CTRL0          */
+#define MODEM_CTRL0_MODFORMAT_MSK                            (_MODEM_CTRL0_MODFORMAT_MSK << 6)             /**< Shifted mode MSK for MODEM_CTRL0            */
+#define MODEM_CTRL0_MODFORMAT_OOKASK                         (_MODEM_CTRL0_MODFORMAT_OOKASK << 6)          /**< Shifted mode OOKASK for MODEM_CTRL0         */
 #define MODEM_CTRL0_DUALCORROPTDIS                           (0x1UL << 9)                                  /**< Dual Correlation Optimization Disable       */
 #define _MODEM_CTRL0_DUALCORROPTDIS_SHIFT                    9                                             /**< Shift value for MODEM_DUALCORROPTDIS        */
 #define _MODEM_CTRL0_DUALCORROPTDIS_MASK                     0x200UL                                       /**< Bit mask for MODEM_DUALCORROPTDIS           */
@@ -701,29 +700,29 @@ typedef struct {
 #define _MODEM_CTRL0_DSSSSHIFTS_SHIFT                        16                                            /**< Shift value for MODEM_DSSSSHIFTS            */
 #define _MODEM_CTRL0_DSSSSHIFTS_MASK                         0x70000UL                                     /**< Bit mask for MODEM_DSSSSHIFTS               */
 #define _MODEM_CTRL0_DSSSSHIFTS_DEFAULT                      0x00000000UL                                  /**< Mode DEFAULT for MODEM_CTRL0                */
-#define _MODEM_CTRL0_DSSSSHIFTS_NOSHIFT                      0x00000000UL                                  /**< Mode NOSHIFT for MODEM_CTRL0                 */
-#define _MODEM_CTRL0_DSSSSHIFTS_SHIFT1                       0x00000001UL                                  /**< Mode SHIFT1 for MODEM_CTRL0                  */
-#define _MODEM_CTRL0_DSSSSHIFTS_SHIFT2                       0x00000002UL                                  /**< Mode SHIFT2 for MODEM_CTRL0                  */
-#define _MODEM_CTRL0_DSSSSHIFTS_SHIFT4                       0x00000003UL                                  /**< Mode SHIFT4 for MODEM_CTRL0                  */
-#define _MODEM_CTRL0_DSSSSHIFTS_SHIFT8                       0x00000004UL                                  /**< Mode SHIFT8 for MODEM_CTRL0                  */
-#define _MODEM_CTRL0_DSSSSHIFTS_SHIFT16                      0x00000005UL                                  /**< Mode SHIFT16 for MODEM_CTRL0                 */
+#define _MODEM_CTRL0_DSSSSHIFTS_NOSHIFT                      0x00000000UL                                  /**< Mode NOSHIFT for MODEM_CTRL0                */
+#define _MODEM_CTRL0_DSSSSHIFTS_SHIFT1                       0x00000001UL                                  /**< Mode SHIFT1 for MODEM_CTRL0                 */
+#define _MODEM_CTRL0_DSSSSHIFTS_SHIFT2                       0x00000002UL                                  /**< Mode SHIFT2 for MODEM_CTRL0                 */
+#define _MODEM_CTRL0_DSSSSHIFTS_SHIFT4                       0x00000003UL                                  /**< Mode SHIFT4 for MODEM_CTRL0                 */
+#define _MODEM_CTRL0_DSSSSHIFTS_SHIFT8                       0x00000004UL                                  /**< Mode SHIFT8 for MODEM_CTRL0                 */
+#define _MODEM_CTRL0_DSSSSHIFTS_SHIFT16                      0x00000005UL                                  /**< Mode SHIFT16 for MODEM_CTRL0                */
 #define MODEM_CTRL0_DSSSSHIFTS_DEFAULT                       (_MODEM_CTRL0_DSSSSHIFTS_DEFAULT << 16)       /**< Shifted mode DEFAULT for MODEM_CTRL0        */
-#define MODEM_CTRL0_DSSSSHIFTS_NOSHIFT                       (_MODEM_CTRL0_DSSSSHIFTS_NOSHIFT << 16)       /**< Shifted mode NOSHIFT for MODEM_CTRL0         */
-#define MODEM_CTRL0_DSSSSHIFTS_SHIFT1                        (_MODEM_CTRL0_DSSSSHIFTS_SHIFT1 << 16)        /**< Shifted mode SHIFT1 for MODEM_CTRL0          */
-#define MODEM_CTRL0_DSSSSHIFTS_SHIFT2                        (_MODEM_CTRL0_DSSSSHIFTS_SHIFT2 << 16)        /**< Shifted mode SHIFT2 for MODEM_CTRL0          */
-#define MODEM_CTRL0_DSSSSHIFTS_SHIFT4                        (_MODEM_CTRL0_DSSSSHIFTS_SHIFT4 << 16)        /**< Shifted mode SHIFT4 for MODEM_CTRL0          */
-#define MODEM_CTRL0_DSSSSHIFTS_SHIFT8                        (_MODEM_CTRL0_DSSSSHIFTS_SHIFT8 << 16)        /**< Shifted mode SHIFT8 for MODEM_CTRL0          */
-#define MODEM_CTRL0_DSSSSHIFTS_SHIFT16                       (_MODEM_CTRL0_DSSSSHIFTS_SHIFT16 << 16)       /**< Shifted mode SHIFT16 for MODEM_CTRL0         */
+#define MODEM_CTRL0_DSSSSHIFTS_NOSHIFT                       (_MODEM_CTRL0_DSSSSHIFTS_NOSHIFT << 16)       /**< Shifted mode NOSHIFT for MODEM_CTRL0        */
+#define MODEM_CTRL0_DSSSSHIFTS_SHIFT1                        (_MODEM_CTRL0_DSSSSHIFTS_SHIFT1 << 16)        /**< Shifted mode SHIFT1 for MODEM_CTRL0         */
+#define MODEM_CTRL0_DSSSSHIFTS_SHIFT2                        (_MODEM_CTRL0_DSSSSHIFTS_SHIFT2 << 16)        /**< Shifted mode SHIFT2 for MODEM_CTRL0         */
+#define MODEM_CTRL0_DSSSSHIFTS_SHIFT4                        (_MODEM_CTRL0_DSSSSHIFTS_SHIFT4 << 16)        /**< Shifted mode SHIFT4 for MODEM_CTRL0         */
+#define MODEM_CTRL0_DSSSSHIFTS_SHIFT8                        (_MODEM_CTRL0_DSSSSHIFTS_SHIFT8 << 16)        /**< Shifted mode SHIFT8 for MODEM_CTRL0         */
+#define MODEM_CTRL0_DSSSSHIFTS_SHIFT16                       (_MODEM_CTRL0_DSSSSHIFTS_SHIFT16 << 16)       /**< Shifted mode SHIFT16 for MODEM_CTRL0        */
 #define _MODEM_CTRL0_DSSSDOUBLE_SHIFT                        19                                            /**< Shift value for MODEM_DSSSDOUBLE            */
 #define _MODEM_CTRL0_DSSSDOUBLE_MASK                         0x180000UL                                    /**< Bit mask for MODEM_DSSSDOUBLE               */
 #define _MODEM_CTRL0_DSSSDOUBLE_DEFAULT                      0x00000000UL                                  /**< Mode DEFAULT for MODEM_CTRL0                */
-#define _MODEM_CTRL0_DSSSDOUBLE_DIS                          0x00000000UL                                  /**< Mode DIS for MODEM_CTRL0                     */
-#define _MODEM_CTRL0_DSSSDOUBLE_INV                          0x00000001UL                                  /**< Mode INV for MODEM_CTRL0                     */
-#define _MODEM_CTRL0_DSSSDOUBLE_CONJ                         0x00000002UL                                  /**< Mode CONJ for MODEM_CTRL0                    */
+#define _MODEM_CTRL0_DSSSDOUBLE_DIS                          0x00000000UL                                  /**< Mode DIS for MODEM_CTRL0                    */
+#define _MODEM_CTRL0_DSSSDOUBLE_INV                          0x00000001UL                                  /**< Mode INV for MODEM_CTRL0                    */
+#define _MODEM_CTRL0_DSSSDOUBLE_CONJ                         0x00000002UL                                  /**< Mode CONJ for MODEM_CTRL0                   */
 #define MODEM_CTRL0_DSSSDOUBLE_DEFAULT                       (_MODEM_CTRL0_DSSSDOUBLE_DEFAULT << 19)       /**< Shifted mode DEFAULT for MODEM_CTRL0        */
-#define MODEM_CTRL0_DSSSDOUBLE_DIS                           (_MODEM_CTRL0_DSSSDOUBLE_DIS << 19)           /**< Shifted mode DIS for MODEM_CTRL0             */
-#define MODEM_CTRL0_DSSSDOUBLE_INV                           (_MODEM_CTRL0_DSSSDOUBLE_INV << 19)           /**< Shifted mode INV for MODEM_CTRL0             */
-#define MODEM_CTRL0_DSSSDOUBLE_CONJ                          (_MODEM_CTRL0_DSSSDOUBLE_CONJ << 19)          /**< Shifted mode CONJ for MODEM_CTRL0            */
+#define MODEM_CTRL0_DSSSDOUBLE_DIS                           (_MODEM_CTRL0_DSSSDOUBLE_DIS << 19)           /**< Shifted mode DIS for MODEM_CTRL0            */
+#define MODEM_CTRL0_DSSSDOUBLE_INV                           (_MODEM_CTRL0_DSSSDOUBLE_INV << 19)           /**< Shifted mode INV for MODEM_CTRL0            */
+#define MODEM_CTRL0_DSSSDOUBLE_CONJ                          (_MODEM_CTRL0_DSSSDOUBLE_CONJ << 19)          /**< Shifted mode CONJ for MODEM_CTRL0           */
 #define MODEM_CTRL0_DETDIS                                   (0x1UL << 21)                                 /**< Detection disable                           */
 #define _MODEM_CTRL0_DETDIS_SHIFT                            21                                            /**< Shift value for MODEM_DETDIS                */
 #define _MODEM_CTRL0_DETDIS_MASK                             0x200000UL                                    /**< Bit mask for MODEM_DETDIS                   */
@@ -732,61 +731,61 @@ typedef struct {
 #define _MODEM_CTRL0_DIFFENCMODE_SHIFT                       22                                            /**< Shift value for MODEM_DIFFENCMODE           */
 #define _MODEM_CTRL0_DIFFENCMODE_MASK                        0x1C00000UL                                   /**< Bit mask for MODEM_DIFFENCMODE              */
 #define _MODEM_CTRL0_DIFFENCMODE_DEFAULT                     0x00000000UL                                  /**< Mode DEFAULT for MODEM_CTRL0                */
-#define _MODEM_CTRL0_DIFFENCMODE_DIS                         0x00000000UL                                  /**< Mode DIS for MODEM_CTRL0                     */
-#define _MODEM_CTRL0_DIFFENCMODE_RR0                         0x00000001UL                                  /**< Mode RR0 for MODEM_CTRL0                     */
-#define _MODEM_CTRL0_DIFFENCMODE_RE0                         0x00000002UL                                  /**< Mode RE0 for MODEM_CTRL0                     */
-#define _MODEM_CTRL0_DIFFENCMODE_RR1                         0x00000003UL                                  /**< Mode RR1 for MODEM_CTRL0                     */
-#define _MODEM_CTRL0_DIFFENCMODE_RE1                         0x00000004UL                                  /**< Mode RE1 for MODEM_CTRL0                     */
+#define _MODEM_CTRL0_DIFFENCMODE_DIS                         0x00000000UL                                  /**< Mode DIS for MODEM_CTRL0                    */
+#define _MODEM_CTRL0_DIFFENCMODE_RR0                         0x00000001UL                                  /**< Mode RR0 for MODEM_CTRL0                    */
+#define _MODEM_CTRL0_DIFFENCMODE_RE0                         0x00000002UL                                  /**< Mode RE0 for MODEM_CTRL0                    */
+#define _MODEM_CTRL0_DIFFENCMODE_RR1                         0x00000003UL                                  /**< Mode RR1 for MODEM_CTRL0                    */
+#define _MODEM_CTRL0_DIFFENCMODE_RE1                         0x00000004UL                                  /**< Mode RE1 for MODEM_CTRL0                    */
 #define MODEM_CTRL0_DIFFENCMODE_DEFAULT                      (_MODEM_CTRL0_DIFFENCMODE_DEFAULT << 22)      /**< Shifted mode DEFAULT for MODEM_CTRL0        */
-#define MODEM_CTRL0_DIFFENCMODE_DIS                          (_MODEM_CTRL0_DIFFENCMODE_DIS << 22)          /**< Shifted mode DIS for MODEM_CTRL0             */
-#define MODEM_CTRL0_DIFFENCMODE_RR0                          (_MODEM_CTRL0_DIFFENCMODE_RR0 << 22)          /**< Shifted mode RR0 for MODEM_CTRL0             */
-#define MODEM_CTRL0_DIFFENCMODE_RE0                          (_MODEM_CTRL0_DIFFENCMODE_RE0 << 22)          /**< Shifted mode RE0 for MODEM_CTRL0             */
-#define MODEM_CTRL0_DIFFENCMODE_RR1                          (_MODEM_CTRL0_DIFFENCMODE_RR1 << 22)          /**< Shifted mode RR1 for MODEM_CTRL0             */
-#define MODEM_CTRL0_DIFFENCMODE_RE1                          (_MODEM_CTRL0_DIFFENCMODE_RE1 << 22)          /**< Shifted mode RE1 for MODEM_CTRL0             */
+#define MODEM_CTRL0_DIFFENCMODE_DIS                          (_MODEM_CTRL0_DIFFENCMODE_DIS << 22)          /**< Shifted mode DIS for MODEM_CTRL0            */
+#define MODEM_CTRL0_DIFFENCMODE_RR0                          (_MODEM_CTRL0_DIFFENCMODE_RR0 << 22)          /**< Shifted mode RR0 for MODEM_CTRL0            */
+#define MODEM_CTRL0_DIFFENCMODE_RE0                          (_MODEM_CTRL0_DIFFENCMODE_RE0 << 22)          /**< Shifted mode RE0 for MODEM_CTRL0            */
+#define MODEM_CTRL0_DIFFENCMODE_RR1                          (_MODEM_CTRL0_DIFFENCMODE_RR1 << 22)          /**< Shifted mode RR1 for MODEM_CTRL0            */
+#define MODEM_CTRL0_DIFFENCMODE_RE1                          (_MODEM_CTRL0_DIFFENCMODE_RE1 << 22)          /**< Shifted mode RE1 for MODEM_CTRL0            */
 #define _MODEM_CTRL0_SHAPING_SHIFT                           25                                            /**< Shift value for MODEM_SHAPING               */
 #define _MODEM_CTRL0_SHAPING_MASK                            0x6000000UL                                   /**< Bit mask for MODEM_SHAPING                  */
 #define _MODEM_CTRL0_SHAPING_DEFAULT                         0x00000000UL                                  /**< Mode DEFAULT for MODEM_CTRL0                */
-#define _MODEM_CTRL0_SHAPING_DISABLED                        0x00000000UL                                  /**< Mode DISABLED for MODEM_CTRL0                */
-#define _MODEM_CTRL0_SHAPING_ODDLENGTH                       0x00000001UL                                  /**< Mode ODDLENGTH for MODEM_CTRL0               */
-#define _MODEM_CTRL0_SHAPING_EVENLENGTH                      0x00000002UL                                  /**< Mode EVENLENGTH for MODEM_CTRL0              */
-#define _MODEM_CTRL0_SHAPING_ASYMMETRIC                      0x00000003UL                                  /**< Mode ASYMMETRIC for MODEM_CTRL0              */
+#define _MODEM_CTRL0_SHAPING_DISABLED                        0x00000000UL                                  /**< Mode DISABLED for MODEM_CTRL0               */
+#define _MODEM_CTRL0_SHAPING_ODDLENGTH                       0x00000001UL                                  /**< Mode ODDLENGTH for MODEM_CTRL0              */
+#define _MODEM_CTRL0_SHAPING_EVENLENGTH                      0x00000002UL                                  /**< Mode EVENLENGTH for MODEM_CTRL0             */
+#define _MODEM_CTRL0_SHAPING_ASYMMETRIC                      0x00000003UL                                  /**< Mode ASYMMETRIC for MODEM_CTRL0             */
 #define MODEM_CTRL0_SHAPING_DEFAULT                          (_MODEM_CTRL0_SHAPING_DEFAULT << 25)          /**< Shifted mode DEFAULT for MODEM_CTRL0        */
-#define MODEM_CTRL0_SHAPING_DISABLED                         (_MODEM_CTRL0_SHAPING_DISABLED << 25)         /**< Shifted mode DISABLED for MODEM_CTRL0        */
-#define MODEM_CTRL0_SHAPING_ODDLENGTH                        (_MODEM_CTRL0_SHAPING_ODDLENGTH << 25)        /**< Shifted mode ODDLENGTH for MODEM_CTRL0       */
-#define MODEM_CTRL0_SHAPING_EVENLENGTH                       (_MODEM_CTRL0_SHAPING_EVENLENGTH << 25)       /**< Shifted mode EVENLENGTH for MODEM_CTRL0      */
-#define MODEM_CTRL0_SHAPING_ASYMMETRIC                       (_MODEM_CTRL0_SHAPING_ASYMMETRIC << 25)       /**< Shifted mode ASYMMETRIC for MODEM_CTRL0      */
+#define MODEM_CTRL0_SHAPING_DISABLED                         (_MODEM_CTRL0_SHAPING_DISABLED << 25)         /**< Shifted mode DISABLED for MODEM_CTRL0       */
+#define MODEM_CTRL0_SHAPING_ODDLENGTH                        (_MODEM_CTRL0_SHAPING_ODDLENGTH << 25)        /**< Shifted mode ODDLENGTH for MODEM_CTRL0      */
+#define MODEM_CTRL0_SHAPING_EVENLENGTH                       (_MODEM_CTRL0_SHAPING_EVENLENGTH << 25)       /**< Shifted mode EVENLENGTH for MODEM_CTRL0     */
+#define MODEM_CTRL0_SHAPING_ASYMMETRIC                       (_MODEM_CTRL0_SHAPING_ASYMMETRIC << 25)       /**< Shifted mode ASYMMETRIC for MODEM_CTRL0     */
 #define _MODEM_CTRL0_DEMODRAWDATASEL_SHIFT                   27                                            /**< Shift value for MODEM_DEMODRAWDATASEL       */
 #define _MODEM_CTRL0_DEMODRAWDATASEL_MASK                    0x38000000UL                                  /**< Bit mask for MODEM_DEMODRAWDATASEL          */
 #define _MODEM_CTRL0_DEMODRAWDATASEL_DEFAULT                 0x00000000UL                                  /**< Mode DEFAULT for MODEM_CTRL0                */
-#define _MODEM_CTRL0_DEMODRAWDATASEL_DIS                     0x00000000UL                                  /**< Mode DIS for MODEM_CTRL0                     */
-#define _MODEM_CTRL0_DEMODRAWDATASEL_ENTROPY                 0x00000001UL                                  /**< Mode ENTROPY for MODEM_CTRL0                 */
-#define _MODEM_CTRL0_DEMODRAWDATASEL_ADC                     0x00000002UL                                  /**< Mode ADC for MODEM_CTRL0                     */
-#define _MODEM_CTRL0_DEMODRAWDATASEL_FILTLSB                 0x00000003UL                                  /**< Mode FILTLSB for MODEM_CTRL0                 */
-#define _MODEM_CTRL0_DEMODRAWDATASEL_FILTMSB                 0x00000004UL                                  /**< Mode FILTMSB for MODEM_CTRL0                 */
-#define _MODEM_CTRL0_DEMODRAWDATASEL_FILTFULL                0x00000005UL                                  /**< Mode FILTFULL for MODEM_CTRL0                */
-#define _MODEM_CTRL0_DEMODRAWDATASEL_FREQ                    0x00000006UL                                  /**< Mode FREQ for MODEM_CTRL0                    */
-#define _MODEM_CTRL0_DEMODRAWDATASEL_DEMOD                   0x00000007UL                                  /**< Mode DEMOD for MODEM_CTRL0                   */
+#define _MODEM_CTRL0_DEMODRAWDATASEL_DIS                     0x00000000UL                                  /**< Mode DIS for MODEM_CTRL0                    */
+#define _MODEM_CTRL0_DEMODRAWDATASEL_ENTROPY                 0x00000001UL                                  /**< Mode ENTROPY for MODEM_CTRL0                */
+#define _MODEM_CTRL0_DEMODRAWDATASEL_ADC                     0x00000002UL                                  /**< Mode ADC for MODEM_CTRL0                    */
+#define _MODEM_CTRL0_DEMODRAWDATASEL_FILTLSB                 0x00000003UL                                  /**< Mode FILTLSB for MODEM_CTRL0                */
+#define _MODEM_CTRL0_DEMODRAWDATASEL_FILTMSB                 0x00000004UL                                  /**< Mode FILTMSB for MODEM_CTRL0                */
+#define _MODEM_CTRL0_DEMODRAWDATASEL_FILTFULL                0x00000005UL                                  /**< Mode FILTFULL for MODEM_CTRL0               */
+#define _MODEM_CTRL0_DEMODRAWDATASEL_FREQ                    0x00000006UL                                  /**< Mode FREQ for MODEM_CTRL0                   */
+#define _MODEM_CTRL0_DEMODRAWDATASEL_DEMOD                   0x00000007UL                                  /**< Mode DEMOD for MODEM_CTRL0                  */
 #define MODEM_CTRL0_DEMODRAWDATASEL_DEFAULT                  (_MODEM_CTRL0_DEMODRAWDATASEL_DEFAULT << 27)  /**< Shifted mode DEFAULT for MODEM_CTRL0        */
-#define MODEM_CTRL0_DEMODRAWDATASEL_DIS                      (_MODEM_CTRL0_DEMODRAWDATASEL_DIS << 27)      /**< Shifted mode DIS for MODEM_CTRL0             */
-#define MODEM_CTRL0_DEMODRAWDATASEL_ENTROPY                  (_MODEM_CTRL0_DEMODRAWDATASEL_ENTROPY << 27)  /**< Shifted mode ENTROPY for MODEM_CTRL0         */
-#define MODEM_CTRL0_DEMODRAWDATASEL_ADC                      (_MODEM_CTRL0_DEMODRAWDATASEL_ADC << 27)      /**< Shifted mode ADC for MODEM_CTRL0             */
-#define MODEM_CTRL0_DEMODRAWDATASEL_FILTLSB                  (_MODEM_CTRL0_DEMODRAWDATASEL_FILTLSB << 27)  /**< Shifted mode FILTLSB for MODEM_CTRL0         */
-#define MODEM_CTRL0_DEMODRAWDATASEL_FILTMSB                  (_MODEM_CTRL0_DEMODRAWDATASEL_FILTMSB << 27)  /**< Shifted mode FILTMSB for MODEM_CTRL0         */
-#define MODEM_CTRL0_DEMODRAWDATASEL_FILTFULL                 (_MODEM_CTRL0_DEMODRAWDATASEL_FILTFULL << 27) /**< Shifted mode FILTFULL for MODEM_CTRL0        */
-#define MODEM_CTRL0_DEMODRAWDATASEL_FREQ                     (_MODEM_CTRL0_DEMODRAWDATASEL_FREQ << 27)     /**< Shifted mode FREQ for MODEM_CTRL0            */
-#define MODEM_CTRL0_DEMODRAWDATASEL_DEMOD                    (_MODEM_CTRL0_DEMODRAWDATASEL_DEMOD << 27)    /**< Shifted mode DEMOD for MODEM_CTRL0           */
+#define MODEM_CTRL0_DEMODRAWDATASEL_DIS                      (_MODEM_CTRL0_DEMODRAWDATASEL_DIS << 27)      /**< Shifted mode DIS for MODEM_CTRL0            */
+#define MODEM_CTRL0_DEMODRAWDATASEL_ENTROPY                  (_MODEM_CTRL0_DEMODRAWDATASEL_ENTROPY << 27)  /**< Shifted mode ENTROPY for MODEM_CTRL0        */
+#define MODEM_CTRL0_DEMODRAWDATASEL_ADC                      (_MODEM_CTRL0_DEMODRAWDATASEL_ADC << 27)      /**< Shifted mode ADC for MODEM_CTRL0            */
+#define MODEM_CTRL0_DEMODRAWDATASEL_FILTLSB                  (_MODEM_CTRL0_DEMODRAWDATASEL_FILTLSB << 27)  /**< Shifted mode FILTLSB for MODEM_CTRL0        */
+#define MODEM_CTRL0_DEMODRAWDATASEL_FILTMSB                  (_MODEM_CTRL0_DEMODRAWDATASEL_FILTMSB << 27)  /**< Shifted mode FILTMSB for MODEM_CTRL0        */
+#define MODEM_CTRL0_DEMODRAWDATASEL_FILTFULL                 (_MODEM_CTRL0_DEMODRAWDATASEL_FILTFULL << 27) /**< Shifted mode FILTFULL for MODEM_CTRL0       */
+#define MODEM_CTRL0_DEMODRAWDATASEL_FREQ                     (_MODEM_CTRL0_DEMODRAWDATASEL_FREQ << 27)     /**< Shifted mode FREQ for MODEM_CTRL0           */
+#define MODEM_CTRL0_DEMODRAWDATASEL_DEMOD                    (_MODEM_CTRL0_DEMODRAWDATASEL_DEMOD << 27)    /**< Shifted mode DEMOD for MODEM_CTRL0          */
 #define _MODEM_CTRL0_FRAMEDETDEL_SHIFT                       30                                            /**< Shift value for MODEM_FRAMEDETDEL           */
 #define _MODEM_CTRL0_FRAMEDETDEL_MASK                        0xC0000000UL                                  /**< Bit mask for MODEM_FRAMEDETDEL              */
 #define _MODEM_CTRL0_FRAMEDETDEL_DEFAULT                     0x00000000UL                                  /**< Mode DEFAULT for MODEM_CTRL0                */
-#define _MODEM_CTRL0_FRAMEDETDEL_DEL0                        0x00000000UL                                  /**< Mode DEL0 for MODEM_CTRL0                    */
-#define _MODEM_CTRL0_FRAMEDETDEL_DEL8                        0x00000001UL                                  /**< Mode DEL8 for MODEM_CTRL0                    */
-#define _MODEM_CTRL0_FRAMEDETDEL_DEL16                       0x00000002UL                                  /**< Mode DEL16 for MODEM_CTRL0                   */
-#define _MODEM_CTRL0_FRAMEDETDEL_DEL32                       0x00000003UL                                  /**< Mode DEL32 for MODEM_CTRL0                   */
+#define _MODEM_CTRL0_FRAMEDETDEL_DEL0                        0x00000000UL                                  /**< Mode DEL0 for MODEM_CTRL0                   */
+#define _MODEM_CTRL0_FRAMEDETDEL_DEL8                        0x00000001UL                                  /**< Mode DEL8 for MODEM_CTRL0                   */
+#define _MODEM_CTRL0_FRAMEDETDEL_DEL16                       0x00000002UL                                  /**< Mode DEL16 for MODEM_CTRL0                  */
+#define _MODEM_CTRL0_FRAMEDETDEL_DEL32                       0x00000003UL                                  /**< Mode DEL32 for MODEM_CTRL0                  */
 #define MODEM_CTRL0_FRAMEDETDEL_DEFAULT                      (_MODEM_CTRL0_FRAMEDETDEL_DEFAULT << 30)      /**< Shifted mode DEFAULT for MODEM_CTRL0        */
-#define MODEM_CTRL0_FRAMEDETDEL_DEL0                         (_MODEM_CTRL0_FRAMEDETDEL_DEL0 << 30)         /**< Shifted mode DEL0 for MODEM_CTRL0            */
-#define MODEM_CTRL0_FRAMEDETDEL_DEL8                         (_MODEM_CTRL0_FRAMEDETDEL_DEL8 << 30)         /**< Shifted mode DEL8 for MODEM_CTRL0            */
-#define MODEM_CTRL0_FRAMEDETDEL_DEL16                        (_MODEM_CTRL0_FRAMEDETDEL_DEL16 << 30)        /**< Shifted mode DEL16 for MODEM_CTRL0           */
-#define MODEM_CTRL0_FRAMEDETDEL_DEL32                        (_MODEM_CTRL0_FRAMEDETDEL_DEL32 << 30)        /**< Shifted mode DEL32 for MODEM_CTRL0           */
+#define MODEM_CTRL0_FRAMEDETDEL_DEL0                         (_MODEM_CTRL0_FRAMEDETDEL_DEL0 << 30)         /**< Shifted mode DEL0 for MODEM_CTRL0           */
+#define MODEM_CTRL0_FRAMEDETDEL_DEL8                         (_MODEM_CTRL0_FRAMEDETDEL_DEL8 << 30)         /**< Shifted mode DEL8 for MODEM_CTRL0           */
+#define MODEM_CTRL0_FRAMEDETDEL_DEL16                        (_MODEM_CTRL0_FRAMEDETDEL_DEL16 << 30)        /**< Shifted mode DEL16 for MODEM_CTRL0          */
+#define MODEM_CTRL0_FRAMEDETDEL_DEL32                        (_MODEM_CTRL0_FRAMEDETDEL_DEL32 << 30)        /**< Shifted mode DEL32 for MODEM_CTRL0          */
 
 /* Bit fields for MODEM CTRL1 */
 #define _MODEM_CTRL1_RESETVALUE                              0x00000000UL                               /**< Default value for MODEM_CTRL1               */
@@ -803,29 +802,29 @@ typedef struct {
 #define _MODEM_CTRL1_DUALSYNC_SHIFT                          9                                          /**< Shift value for MODEM_DUALSYNC              */
 #define _MODEM_CTRL1_DUALSYNC_MASK                           0x200UL                                    /**< Bit mask for MODEM_DUALSYNC                 */
 #define _MODEM_CTRL1_DUALSYNC_DEFAULT                        0x00000000UL                               /**< Mode DEFAULT for MODEM_CTRL1                */
-#define _MODEM_CTRL1_DUALSYNC_DISABLED                       0x00000000UL                               /**< Mode DISABLED for MODEM_CTRL1                */
-#define _MODEM_CTRL1_DUALSYNC_ENABLED                        0x00000001UL                               /**< Mode ENABLED for MODEM_CTRL1                 */
+#define _MODEM_CTRL1_DUALSYNC_DISABLED                       0x00000000UL                               /**< Mode DISABLED for MODEM_CTRL1               */
+#define _MODEM_CTRL1_DUALSYNC_ENABLED                        0x00000001UL                               /**< Mode ENABLED for MODEM_CTRL1                */
 #define MODEM_CTRL1_DUALSYNC_DEFAULT                         (_MODEM_CTRL1_DUALSYNC_DEFAULT << 9)       /**< Shifted mode DEFAULT for MODEM_CTRL1        */
-#define MODEM_CTRL1_DUALSYNC_DISABLED                        (_MODEM_CTRL1_DUALSYNC_DISABLED << 9)      /**< Shifted mode DISABLED for MODEM_CTRL1        */
-#define MODEM_CTRL1_DUALSYNC_ENABLED                         (_MODEM_CTRL1_DUALSYNC_ENABLED << 9)       /**< Shifted mode ENABLED for MODEM_CTRL1         */
+#define MODEM_CTRL1_DUALSYNC_DISABLED                        (_MODEM_CTRL1_DUALSYNC_DISABLED << 9)      /**< Shifted mode DISABLED for MODEM_CTRL1       */
+#define MODEM_CTRL1_DUALSYNC_ENABLED                         (_MODEM_CTRL1_DUALSYNC_ENABLED << 9)       /**< Shifted mode ENABLED for MODEM_CTRL1        */
 #define MODEM_CTRL1_TXSYNC                                   (0x1UL << 10)                              /**< Transmit sync word.                         */
 #define _MODEM_CTRL1_TXSYNC_SHIFT                            10                                         /**< Shift value for MODEM_TXSYNC                */
 #define _MODEM_CTRL1_TXSYNC_MASK                             0x400UL                                    /**< Bit mask for MODEM_TXSYNC                   */
 #define _MODEM_CTRL1_TXSYNC_DEFAULT                          0x00000000UL                               /**< Mode DEFAULT for MODEM_CTRL1                */
-#define _MODEM_CTRL1_TXSYNC_SYNC0                            0x00000000UL                               /**< Mode SYNC0 for MODEM_CTRL1                   */
-#define _MODEM_CTRL1_TXSYNC_SYNC1                            0x00000001UL                               /**< Mode SYNC1 for MODEM_CTRL1                   */
+#define _MODEM_CTRL1_TXSYNC_SYNC0                            0x00000000UL                               /**< Mode SYNC0 for MODEM_CTRL1                  */
+#define _MODEM_CTRL1_TXSYNC_SYNC1                            0x00000001UL                               /**< Mode SYNC1 for MODEM_CTRL1                  */
 #define MODEM_CTRL1_TXSYNC_DEFAULT                           (_MODEM_CTRL1_TXSYNC_DEFAULT << 10)        /**< Shifted mode DEFAULT for MODEM_CTRL1        */
-#define MODEM_CTRL1_TXSYNC_SYNC0                             (_MODEM_CTRL1_TXSYNC_SYNC0 << 10)          /**< Shifted mode SYNC0 for MODEM_CTRL1           */
-#define MODEM_CTRL1_TXSYNC_SYNC1                             (_MODEM_CTRL1_TXSYNC_SYNC1 << 10)          /**< Shifted mode SYNC1 for MODEM_CTRL1           */
+#define MODEM_CTRL1_TXSYNC_SYNC0                             (_MODEM_CTRL1_TXSYNC_SYNC0 << 10)          /**< Shifted mode SYNC0 for MODEM_CTRL1          */
+#define MODEM_CTRL1_TXSYNC_SYNC1                             (_MODEM_CTRL1_TXSYNC_SYNC1 << 10)          /**< Shifted mode SYNC1 for MODEM_CTRL1          */
 #define MODEM_CTRL1_SYNCDATA                                 (0x1UL << 11)                              /**< Sync data.                                  */
 #define _MODEM_CTRL1_SYNCDATA_SHIFT                          11                                         /**< Shift value for MODEM_SYNCDATA              */
 #define _MODEM_CTRL1_SYNCDATA_MASK                           0x800UL                                    /**< Bit mask for MODEM_SYNCDATA                 */
 #define _MODEM_CTRL1_SYNCDATA_DEFAULT                        0x00000000UL                               /**< Mode DEFAULT for MODEM_CTRL1                */
-#define _MODEM_CTRL1_SYNCDATA_DISABLED                       0x00000000UL                               /**< Mode DISABLED for MODEM_CTRL1                */
-#define _MODEM_CTRL1_SYNCDATA_ENABLED                        0x00000001UL                               /**< Mode ENABLED for MODEM_CTRL1                 */
+#define _MODEM_CTRL1_SYNCDATA_DISABLED                       0x00000000UL                               /**< Mode DISABLED for MODEM_CTRL1               */
+#define _MODEM_CTRL1_SYNCDATA_ENABLED                        0x00000001UL                               /**< Mode ENABLED for MODEM_CTRL1                */
 #define MODEM_CTRL1_SYNCDATA_DEFAULT                         (_MODEM_CTRL1_SYNCDATA_DEFAULT << 11)      /**< Shifted mode DEFAULT for MODEM_CTRL1        */
-#define MODEM_CTRL1_SYNCDATA_DISABLED                        (_MODEM_CTRL1_SYNCDATA_DISABLED << 11)     /**< Shifted mode DISABLED for MODEM_CTRL1        */
-#define MODEM_CTRL1_SYNCDATA_ENABLED                         (_MODEM_CTRL1_SYNCDATA_ENABLED << 11)      /**< Shifted mode ENABLED for MODEM_CTRL1         */
+#define MODEM_CTRL1_SYNCDATA_DISABLED                        (_MODEM_CTRL1_SYNCDATA_DISABLED << 11)     /**< Shifted mode DISABLED for MODEM_CTRL1       */
+#define MODEM_CTRL1_SYNCDATA_ENABLED                         (_MODEM_CTRL1_SYNCDATA_ENABLED << 11)      /**< Shifted mode ENABLED for MODEM_CTRL1        */
 #define MODEM_CTRL1_SYNC1INV                                 (0x1UL << 12)                              /**< SYNC1 invert.                               */
 #define _MODEM_CTRL1_SYNC1INV_SHIFT                          12                                         /**< Shift value for MODEM_SYNC1INV              */
 #define _MODEM_CTRL1_SYNC1INV_MASK                           0x1000UL                                   /**< Bit mask for MODEM_SYNC1INV                 */
@@ -834,15 +833,15 @@ typedef struct {
 #define _MODEM_CTRL1_COMPMODE_SHIFT                          14                                         /**< Shift value for MODEM_COMPMODE              */
 #define _MODEM_CTRL1_COMPMODE_MASK                           0xC000UL                                   /**< Bit mask for MODEM_COMPMODE                 */
 #define _MODEM_CTRL1_COMPMODE_DEFAULT                        0x00000000UL                               /**< Mode DEFAULT for MODEM_CTRL1                */
-#define _MODEM_CTRL1_COMPMODE_DIS                            0x00000000UL                               /**< Mode DIS for MODEM_CTRL1                     */
-#define _MODEM_CTRL1_COMPMODE_PRELOCK                        0x00000001UL                               /**< Mode PRELOCK for MODEM_CTRL1                 */
-#define _MODEM_CTRL1_COMPMODE_FRAMELOCK                      0x00000002UL                               /**< Mode FRAMELOCK for MODEM_CTRL1               */
-#define _MODEM_CTRL1_COMPMODE_NOLOCK                         0x00000003UL                               /**< Mode NOLOCK for MODEM_CTRL1                  */
+#define _MODEM_CTRL1_COMPMODE_DIS                            0x00000000UL                               /**< Mode DIS for MODEM_CTRL1                    */
+#define _MODEM_CTRL1_COMPMODE_PRELOCK                        0x00000001UL                               /**< Mode PRELOCK for MODEM_CTRL1                */
+#define _MODEM_CTRL1_COMPMODE_FRAMELOCK                      0x00000002UL                               /**< Mode FRAMELOCK for MODEM_CTRL1              */
+#define _MODEM_CTRL1_COMPMODE_NOLOCK                         0x00000003UL                               /**< Mode NOLOCK for MODEM_CTRL1                 */
 #define MODEM_CTRL1_COMPMODE_DEFAULT                         (_MODEM_CTRL1_COMPMODE_DEFAULT << 14)      /**< Shifted mode DEFAULT for MODEM_CTRL1        */
-#define MODEM_CTRL1_COMPMODE_DIS                             (_MODEM_CTRL1_COMPMODE_DIS << 14)          /**< Shifted mode DIS for MODEM_CTRL1             */
-#define MODEM_CTRL1_COMPMODE_PRELOCK                         (_MODEM_CTRL1_COMPMODE_PRELOCK << 14)      /**< Shifted mode PRELOCK for MODEM_CTRL1         */
-#define MODEM_CTRL1_COMPMODE_FRAMELOCK                       (_MODEM_CTRL1_COMPMODE_FRAMELOCK << 14)    /**< Shifted mode FRAMELOCK for MODEM_CTRL1       */
-#define MODEM_CTRL1_COMPMODE_NOLOCK                          (_MODEM_CTRL1_COMPMODE_NOLOCK << 14)       /**< Shifted mode NOLOCK for MODEM_CTRL1          */
+#define MODEM_CTRL1_COMPMODE_DIS                             (_MODEM_CTRL1_COMPMODE_DIS << 14)          /**< Shifted mode DIS for MODEM_CTRL1            */
+#define MODEM_CTRL1_COMPMODE_PRELOCK                         (_MODEM_CTRL1_COMPMODE_PRELOCK << 14)      /**< Shifted mode PRELOCK for MODEM_CTRL1        */
+#define MODEM_CTRL1_COMPMODE_FRAMELOCK                       (_MODEM_CTRL1_COMPMODE_FRAMELOCK << 14)    /**< Shifted mode FRAMELOCK for MODEM_CTRL1      */
+#define MODEM_CTRL1_COMPMODE_NOLOCK                          (_MODEM_CTRL1_COMPMODE_NOLOCK << 14)       /**< Shifted mode NOLOCK for MODEM_CTRL1         */
 #define _MODEM_CTRL1_RESYNCPER_SHIFT                         16                                         /**< Shift value for MODEM_RESYNCPER             */
 #define _MODEM_CTRL1_RESYNCPER_MASK                          0xF0000UL                                  /**< Bit mask for MODEM_RESYNCPER                */
 #define _MODEM_CTRL1_RESYNCPER_DEFAULT                       0x00000000UL                               /**< Mode DEFAULT for MODEM_CTRL1                */
@@ -850,13 +849,13 @@ typedef struct {
 #define _MODEM_CTRL1_PHASEDEMOD_SHIFT                        20                                         /**< Shift value for MODEM_PHASEDEMOD            */
 #define _MODEM_CTRL1_PHASEDEMOD_MASK                         0x300000UL                                 /**< Bit mask for MODEM_PHASEDEMOD               */
 #define _MODEM_CTRL1_PHASEDEMOD_DEFAULT                      0x00000000UL                               /**< Mode DEFAULT for MODEM_CTRL1                */
-#define _MODEM_CTRL1_PHASEDEMOD_BDD                          0x00000000UL                               /**< Mode BDD for MODEM_CTRL1                     */
-#define _MODEM_CTRL1_PHASEDEMOD_MBDD                         0x00000001UL                               /**< Mode MBDD for MODEM_CTRL1                    */
-#define _MODEM_CTRL1_PHASEDEMOD_COH                          0x00000002UL                               /**< Mode COH for MODEM_CTRL1                     */
+#define _MODEM_CTRL1_PHASEDEMOD_BDD                          0x00000000UL                               /**< Mode BDD for MODEM_CTRL1                    */
+#define _MODEM_CTRL1_PHASEDEMOD_MBDD                         0x00000001UL                               /**< Mode MBDD for MODEM_CTRL1                   */
+#define _MODEM_CTRL1_PHASEDEMOD_COH                          0x00000002UL                               /**< Mode COH for MODEM_CTRL1                    */
 #define MODEM_CTRL1_PHASEDEMOD_DEFAULT                       (_MODEM_CTRL1_PHASEDEMOD_DEFAULT << 20)    /**< Shifted mode DEFAULT for MODEM_CTRL1        */
-#define MODEM_CTRL1_PHASEDEMOD_BDD                           (_MODEM_CTRL1_PHASEDEMOD_BDD << 20)        /**< Shifted mode BDD for MODEM_CTRL1             */
-#define MODEM_CTRL1_PHASEDEMOD_MBDD                          (_MODEM_CTRL1_PHASEDEMOD_MBDD << 20)       /**< Shifted mode MBDD for MODEM_CTRL1            */
-#define MODEM_CTRL1_PHASEDEMOD_COH                           (_MODEM_CTRL1_PHASEDEMOD_COH << 20)        /**< Shifted mode COH for MODEM_CTRL1             */
+#define MODEM_CTRL1_PHASEDEMOD_BDD                           (_MODEM_CTRL1_PHASEDEMOD_BDD << 20)        /**< Shifted mode BDD for MODEM_CTRL1            */
+#define MODEM_CTRL1_PHASEDEMOD_MBDD                          (_MODEM_CTRL1_PHASEDEMOD_MBDD << 20)       /**< Shifted mode MBDD for MODEM_CTRL1           */
+#define MODEM_CTRL1_PHASEDEMOD_COH                           (_MODEM_CTRL1_PHASEDEMOD_COH << 20)        /**< Shifted mode COH for MODEM_CTRL1            */
 #define _MODEM_CTRL1_FREQOFFESTPER_SHIFT                     22                                         /**< Shift value for MODEM_FREQOFFESTPER         */
 #define _MODEM_CTRL1_FREQOFFESTPER_MASK                      0x1C00000UL                                /**< Bit mask for MODEM_FREQOFFESTPER            */
 #define _MODEM_CTRL1_FREQOFFESTPER_DEFAULT                   0x00000000UL                               /**< Mode DEFAULT for MODEM_CTRL1                */
@@ -882,43 +881,43 @@ typedef struct {
 #define _MODEM_CTRL2_RXPINMODE_SHIFT                         9                                           /**< Shift value for MODEM_RXPINMODE             */
 #define _MODEM_CTRL2_RXPINMODE_MASK                          0x200UL                                     /**< Bit mask for MODEM_RXPINMODE                */
 #define _MODEM_CTRL2_RXPINMODE_DEFAULT                       0x00000000UL                                /**< Mode DEFAULT for MODEM_CTRL2                */
-#define _MODEM_CTRL2_RXPINMODE_SYNCHRONOUS                   0x00000000UL                                /**< Mode SYNCHRONOUS for MODEM_CTRL2             */
-#define _MODEM_CTRL2_RXPINMODE_ASYNCHRONOUS                  0x00000001UL                                /**< Mode ASYNCHRONOUS for MODEM_CTRL2            */
+#define _MODEM_CTRL2_RXPINMODE_SYNCHRONOUS                   0x00000000UL                                /**< Mode SYNCHRONOUS for MODEM_CTRL2            */
+#define _MODEM_CTRL2_RXPINMODE_ASYNCHRONOUS                  0x00000001UL                                /**< Mode ASYNCHRONOUS for MODEM_CTRL2           */
 #define MODEM_CTRL2_RXPINMODE_DEFAULT                        (_MODEM_CTRL2_RXPINMODE_DEFAULT << 9)       /**< Shifted mode DEFAULT for MODEM_CTRL2        */
-#define MODEM_CTRL2_RXPINMODE_SYNCHRONOUS                    (_MODEM_CTRL2_RXPINMODE_SYNCHRONOUS << 9)   /**< Shifted mode SYNCHRONOUS for MODEM_CTRL2     */
-#define MODEM_CTRL2_RXPINMODE_ASYNCHRONOUS                   (_MODEM_CTRL2_RXPINMODE_ASYNCHRONOUS << 9)  /**< Shifted mode ASYNCHRONOUS for MODEM_CTRL2    */
+#define MODEM_CTRL2_RXPINMODE_SYNCHRONOUS                    (_MODEM_CTRL2_RXPINMODE_SYNCHRONOUS << 9)   /**< Shifted mode SYNCHRONOUS for MODEM_CTRL2    */
+#define MODEM_CTRL2_RXPINMODE_ASYNCHRONOUS                   (_MODEM_CTRL2_RXPINMODE_ASYNCHRONOUS << 9)  /**< Shifted mode ASYNCHRONOUS for MODEM_CTRL2   */
 #define _MODEM_CTRL2_TXPINMODE_SHIFT                         10                                          /**< Shift value for MODEM_TXPINMODE             */
 #define _MODEM_CTRL2_TXPINMODE_MASK                          0xC00UL                                     /**< Bit mask for MODEM_TXPINMODE                */
 #define _MODEM_CTRL2_TXPINMODE_DEFAULT                       0x00000000UL                                /**< Mode DEFAULT for MODEM_CTRL2                */
-#define _MODEM_CTRL2_TXPINMODE_OFF                           0x00000000UL                                /**< Mode OFF for MODEM_CTRL2                     */
-#define _MODEM_CTRL2_TXPINMODE_UNUSED                        0x00000001UL                                /**< Mode UNUSED for MODEM_CTRL2                  */
-#define _MODEM_CTRL2_TXPINMODE_ASYNCHRONOUS                  0x00000002UL                                /**< Mode ASYNCHRONOUS for MODEM_CTRL2            */
-#define _MODEM_CTRL2_TXPINMODE_SYNCHRONOUS                   0x00000003UL                                /**< Mode SYNCHRONOUS for MODEM_CTRL2             */
+#define _MODEM_CTRL2_TXPINMODE_OFF                           0x00000000UL                                /**< Mode OFF for MODEM_CTRL2                    */
+#define _MODEM_CTRL2_TXPINMODE_UNUSED                        0x00000001UL                                /**< Mode UNUSED for MODEM_CTRL2                 */
+#define _MODEM_CTRL2_TXPINMODE_ASYNCHRONOUS                  0x00000002UL                                /**< Mode ASYNCHRONOUS for MODEM_CTRL2           */
+#define _MODEM_CTRL2_TXPINMODE_SYNCHRONOUS                   0x00000003UL                                /**< Mode SYNCHRONOUS for MODEM_CTRL2            */
 #define MODEM_CTRL2_TXPINMODE_DEFAULT                        (_MODEM_CTRL2_TXPINMODE_DEFAULT << 10)      /**< Shifted mode DEFAULT for MODEM_CTRL2        */
-#define MODEM_CTRL2_TXPINMODE_OFF                            (_MODEM_CTRL2_TXPINMODE_OFF << 10)          /**< Shifted mode OFF for MODEM_CTRL2             */
-#define MODEM_CTRL2_TXPINMODE_UNUSED                         (_MODEM_CTRL2_TXPINMODE_UNUSED << 10)       /**< Shifted mode UNUSED for MODEM_CTRL2          */
-#define MODEM_CTRL2_TXPINMODE_ASYNCHRONOUS                   (_MODEM_CTRL2_TXPINMODE_ASYNCHRONOUS << 10) /**< Shifted mode ASYNCHRONOUS for MODEM_CTRL2    */
-#define MODEM_CTRL2_TXPINMODE_SYNCHRONOUS                    (_MODEM_CTRL2_TXPINMODE_SYNCHRONOUS << 10)  /**< Shifted mode SYNCHRONOUS for MODEM_CTRL2     */
+#define MODEM_CTRL2_TXPINMODE_OFF                            (_MODEM_CTRL2_TXPINMODE_OFF << 10)          /**< Shifted mode OFF for MODEM_CTRL2            */
+#define MODEM_CTRL2_TXPINMODE_UNUSED                         (_MODEM_CTRL2_TXPINMODE_UNUSED << 10)       /**< Shifted mode UNUSED for MODEM_CTRL2         */
+#define MODEM_CTRL2_TXPINMODE_ASYNCHRONOUS                   (_MODEM_CTRL2_TXPINMODE_ASYNCHRONOUS << 10) /**< Shifted mode ASYNCHRONOUS for MODEM_CTRL2   */
+#define MODEM_CTRL2_TXPINMODE_SYNCHRONOUS                    (_MODEM_CTRL2_TXPINMODE_SYNCHRONOUS << 10)  /**< Shifted mode SYNCHRONOUS for MODEM_CTRL2    */
 #define _MODEM_CTRL2_DATAFILTER_SHIFT                        12                                          /**< Shift value for MODEM_DATAFILTER            */
 #define _MODEM_CTRL2_DATAFILTER_MASK                         0x7000UL                                    /**< Bit mask for MODEM_DATAFILTER               */
 #define _MODEM_CTRL2_DATAFILTER_DEFAULT                      0x00000001UL                                /**< Mode DEFAULT for MODEM_CTRL2                */
-#define _MODEM_CTRL2_DATAFILTER_DISABLED                     0x00000000UL                                /**< Mode DISABLED for MODEM_CTRL2                */
-#define _MODEM_CTRL2_DATAFILTER_SHORT                        0x00000001UL                                /**< Mode SHORT for MODEM_CTRL2                   */
-#define _MODEM_CTRL2_DATAFILTER_MEDIUM                       0x00000002UL                                /**< Mode MEDIUM for MODEM_CTRL2                  */
-#define _MODEM_CTRL2_DATAFILTER_LONG                         0x00000003UL                                /**< Mode LONG for MODEM_CTRL2                    */
-#define _MODEM_CTRL2_DATAFILTER_LEN6                         0x00000004UL                                /**< Mode LEN6 for MODEM_CTRL2                    */
-#define _MODEM_CTRL2_DATAFILTER_LEN7                         0x00000005UL                                /**< Mode LEN7 for MODEM_CTRL2                    */
-#define _MODEM_CTRL2_DATAFILTER_LEN8                         0x00000006UL                                /**< Mode LEN8 for MODEM_CTRL2                    */
-#define _MODEM_CTRL2_DATAFILTER_LEN9                         0x00000007UL                                /**< Mode LEN9 for MODEM_CTRL2                    */
+#define _MODEM_CTRL2_DATAFILTER_DISABLED                     0x00000000UL                                /**< Mode DISABLED for MODEM_CTRL2               */
+#define _MODEM_CTRL2_DATAFILTER_SHORT                        0x00000001UL                                /**< Mode SHORT for MODEM_CTRL2                  */
+#define _MODEM_CTRL2_DATAFILTER_MEDIUM                       0x00000002UL                                /**< Mode MEDIUM for MODEM_CTRL2                 */
+#define _MODEM_CTRL2_DATAFILTER_LONG                         0x00000003UL                                /**< Mode LONG for MODEM_CTRL2                   */
+#define _MODEM_CTRL2_DATAFILTER_LEN6                         0x00000004UL                                /**< Mode LEN6 for MODEM_CTRL2                   */
+#define _MODEM_CTRL2_DATAFILTER_LEN7                         0x00000005UL                                /**< Mode LEN7 for MODEM_CTRL2                   */
+#define _MODEM_CTRL2_DATAFILTER_LEN8                         0x00000006UL                                /**< Mode LEN8 for MODEM_CTRL2                   */
+#define _MODEM_CTRL2_DATAFILTER_LEN9                         0x00000007UL                                /**< Mode LEN9 for MODEM_CTRL2                   */
 #define MODEM_CTRL2_DATAFILTER_DEFAULT                       (_MODEM_CTRL2_DATAFILTER_DEFAULT << 12)     /**< Shifted mode DEFAULT for MODEM_CTRL2        */
-#define MODEM_CTRL2_DATAFILTER_DISABLED                      (_MODEM_CTRL2_DATAFILTER_DISABLED << 12)    /**< Shifted mode DISABLED for MODEM_CTRL2        */
-#define MODEM_CTRL2_DATAFILTER_SHORT                         (_MODEM_CTRL2_DATAFILTER_SHORT << 12)       /**< Shifted mode SHORT for MODEM_CTRL2           */
-#define MODEM_CTRL2_DATAFILTER_MEDIUM                        (_MODEM_CTRL2_DATAFILTER_MEDIUM << 12)      /**< Shifted mode MEDIUM for MODEM_CTRL2          */
-#define MODEM_CTRL2_DATAFILTER_LONG                          (_MODEM_CTRL2_DATAFILTER_LONG << 12)        /**< Shifted mode LONG for MODEM_CTRL2            */
-#define MODEM_CTRL2_DATAFILTER_LEN6                          (_MODEM_CTRL2_DATAFILTER_LEN6 << 12)        /**< Shifted mode LEN6 for MODEM_CTRL2            */
-#define MODEM_CTRL2_DATAFILTER_LEN7                          (_MODEM_CTRL2_DATAFILTER_LEN7 << 12)        /**< Shifted mode LEN7 for MODEM_CTRL2            */
-#define MODEM_CTRL2_DATAFILTER_LEN8                          (_MODEM_CTRL2_DATAFILTER_LEN8 << 12)        /**< Shifted mode LEN8 for MODEM_CTRL2            */
-#define MODEM_CTRL2_DATAFILTER_LEN9                          (_MODEM_CTRL2_DATAFILTER_LEN9 << 12)        /**< Shifted mode LEN9 for MODEM_CTRL2            */
+#define MODEM_CTRL2_DATAFILTER_DISABLED                      (_MODEM_CTRL2_DATAFILTER_DISABLED << 12)    /**< Shifted mode DISABLED for MODEM_CTRL2       */
+#define MODEM_CTRL2_DATAFILTER_SHORT                         (_MODEM_CTRL2_DATAFILTER_SHORT << 12)       /**< Shifted mode SHORT for MODEM_CTRL2          */
+#define MODEM_CTRL2_DATAFILTER_MEDIUM                        (_MODEM_CTRL2_DATAFILTER_MEDIUM << 12)      /**< Shifted mode MEDIUM for MODEM_CTRL2         */
+#define MODEM_CTRL2_DATAFILTER_LONG                          (_MODEM_CTRL2_DATAFILTER_LONG << 12)        /**< Shifted mode LONG for MODEM_CTRL2           */
+#define MODEM_CTRL2_DATAFILTER_LEN6                          (_MODEM_CTRL2_DATAFILTER_LEN6 << 12)        /**< Shifted mode LEN6 for MODEM_CTRL2           */
+#define MODEM_CTRL2_DATAFILTER_LEN7                          (_MODEM_CTRL2_DATAFILTER_LEN7 << 12)        /**< Shifted mode LEN7 for MODEM_CTRL2           */
+#define MODEM_CTRL2_DATAFILTER_LEN8                          (_MODEM_CTRL2_DATAFILTER_LEN8 << 12)        /**< Shifted mode LEN8 for MODEM_CTRL2           */
+#define MODEM_CTRL2_DATAFILTER_LEN9                          (_MODEM_CTRL2_DATAFILTER_LEN9 << 12)        /**< Shifted mode LEN9 for MODEM_CTRL2           */
 #define _MODEM_CTRL2_BRDIVA_SHIFT                            15                                          /**< Shift value for MODEM_BRDIVA                */
 #define _MODEM_CTRL2_BRDIVA_MASK                             0x78000UL                                   /**< Bit mask for MODEM_BRDIVA                   */
 #define _MODEM_CTRL2_BRDIVA_DEFAULT                          0x00000000UL                                /**< Mode DEFAULT for MODEM_CTRL2                */
@@ -938,15 +937,15 @@ typedef struct {
 #define _MODEM_CTRL2_RATESELMODE_SHIFT                       27                                          /**< Shift value for MODEM_RATESELMODE           */
 #define _MODEM_CTRL2_RATESELMODE_MASK                        0x18000000UL                                /**< Bit mask for MODEM_RATESELMODE              */
 #define _MODEM_CTRL2_RATESELMODE_DEFAULT                     0x00000000UL                                /**< Mode DEFAULT for MODEM_CTRL2                */
-#define _MODEM_CTRL2_RATESELMODE_NOCHANGE                    0x00000000UL                                /**< Mode NOCHANGE for MODEM_CTRL2                */
-#define _MODEM_CTRL2_RATESELMODE_PAYLOAD                     0x00000001UL                                /**< Mode PAYLOAD for MODEM_CTRL2                 */
-#define _MODEM_CTRL2_RATESELMODE_FRC                         0x00000002UL                                /**< Mode FRC for MODEM_CTRL2                     */
-#define _MODEM_CTRL2_RATESELMODE_SYNC                        0x00000003UL                                /**< Mode SYNC for MODEM_CTRL2                    */
+#define _MODEM_CTRL2_RATESELMODE_NOCHANGE                    0x00000000UL                                /**< Mode NOCHANGE for MODEM_CTRL2               */
+#define _MODEM_CTRL2_RATESELMODE_PAYLOAD                     0x00000001UL                                /**< Mode PAYLOAD for MODEM_CTRL2                */
+#define _MODEM_CTRL2_RATESELMODE_FRC                         0x00000002UL                                /**< Mode FRC for MODEM_CTRL2                    */
+#define _MODEM_CTRL2_RATESELMODE_SYNC                        0x00000003UL                                /**< Mode SYNC for MODEM_CTRL2                   */
 #define MODEM_CTRL2_RATESELMODE_DEFAULT                      (_MODEM_CTRL2_RATESELMODE_DEFAULT << 27)    /**< Shifted mode DEFAULT for MODEM_CTRL2        */
-#define MODEM_CTRL2_RATESELMODE_NOCHANGE                     (_MODEM_CTRL2_RATESELMODE_NOCHANGE << 27)   /**< Shifted mode NOCHANGE for MODEM_CTRL2        */
-#define MODEM_CTRL2_RATESELMODE_PAYLOAD                      (_MODEM_CTRL2_RATESELMODE_PAYLOAD << 27)    /**< Shifted mode PAYLOAD for MODEM_CTRL2         */
-#define MODEM_CTRL2_RATESELMODE_FRC                          (_MODEM_CTRL2_RATESELMODE_FRC << 27)        /**< Shifted mode FRC for MODEM_CTRL2             */
-#define MODEM_CTRL2_RATESELMODE_SYNC                         (_MODEM_CTRL2_RATESELMODE_SYNC << 27)       /**< Shifted mode SYNC for MODEM_CTRL2            */
+#define MODEM_CTRL2_RATESELMODE_NOCHANGE                     (_MODEM_CTRL2_RATESELMODE_NOCHANGE << 27)   /**< Shifted mode NOCHANGE for MODEM_CTRL2       */
+#define MODEM_CTRL2_RATESELMODE_PAYLOAD                      (_MODEM_CTRL2_RATESELMODE_PAYLOAD << 27)    /**< Shifted mode PAYLOAD for MODEM_CTRL2        */
+#define MODEM_CTRL2_RATESELMODE_FRC                          (_MODEM_CTRL2_RATESELMODE_FRC << 27)        /**< Shifted mode FRC for MODEM_CTRL2            */
+#define MODEM_CTRL2_RATESELMODE_SYNC                         (_MODEM_CTRL2_RATESELMODE_SYNC << 27)       /**< Shifted mode SYNC for MODEM_CTRL2           */
 #define MODEM_CTRL2_DEVWEIGHTDIS                             (0x1UL << 29)                               /**< Deviation weighting disable.                */
 #define _MODEM_CTRL2_DEVWEIGHTDIS_SHIFT                      29                                          /**< Shift value for MODEM_DEVWEIGHTDIS          */
 #define _MODEM_CTRL2_DEVWEIGHTDIS_MASK                       0x20000000UL                                /**< Bit mask for MODEM_DEVWEIGHTDIS             */
@@ -955,15 +954,15 @@ typedef struct {
 #define _MODEM_CTRL2_DMASEL_SHIFT                            30                                          /**< Shift value for MODEM_DMASEL                */
 #define _MODEM_CTRL2_DMASEL_MASK                             0xC0000000UL                                /**< Bit mask for MODEM_DMASEL                   */
 #define _MODEM_CTRL2_DMASEL_DEFAULT                          0x00000000UL                                /**< Mode DEFAULT for MODEM_CTRL2                */
-#define _MODEM_CTRL2_DMASEL_SOFT                             0x00000000UL                                /**< Mode SOFT for MODEM_CTRL2                    */
-#define _MODEM_CTRL2_DMASEL_CORR                             0x00000001UL                                /**< Mode CORR for MODEM_CTRL2                    */
-#define _MODEM_CTRL2_DMASEL_FREQOFFEST                       0x00000002UL                                /**< Mode FREQOFFEST for MODEM_CTRL2              */
-#define _MODEM_CTRL2_DMASEL_POE                              0x00000003UL                                /**< Mode POE for MODEM_CTRL2                     */
+#define _MODEM_CTRL2_DMASEL_SOFT                             0x00000000UL                                /**< Mode SOFT for MODEM_CTRL2                   */
+#define _MODEM_CTRL2_DMASEL_CORR                             0x00000001UL                                /**< Mode CORR for MODEM_CTRL2                   */
+#define _MODEM_CTRL2_DMASEL_FREQOFFEST                       0x00000002UL                                /**< Mode FREQOFFEST for MODEM_CTRL2             */
+#define _MODEM_CTRL2_DMASEL_POE                              0x00000003UL                                /**< Mode POE for MODEM_CTRL2                    */
 #define MODEM_CTRL2_DMASEL_DEFAULT                           (_MODEM_CTRL2_DMASEL_DEFAULT << 30)         /**< Shifted mode DEFAULT for MODEM_CTRL2        */
-#define MODEM_CTRL2_DMASEL_SOFT                              (_MODEM_CTRL2_DMASEL_SOFT << 30)            /**< Shifted mode SOFT for MODEM_CTRL2            */
-#define MODEM_CTRL2_DMASEL_CORR                              (_MODEM_CTRL2_DMASEL_CORR << 30)            /**< Shifted mode CORR for MODEM_CTRL2            */
-#define MODEM_CTRL2_DMASEL_FREQOFFEST                        (_MODEM_CTRL2_DMASEL_FREQOFFEST << 30)      /**< Shifted mode FREQOFFEST for MODEM_CTRL2      */
-#define MODEM_CTRL2_DMASEL_POE                               (_MODEM_CTRL2_DMASEL_POE << 30)             /**< Shifted mode POE for MODEM_CTRL2             */
+#define MODEM_CTRL2_DMASEL_SOFT                              (_MODEM_CTRL2_DMASEL_SOFT << 30)            /**< Shifted mode SOFT for MODEM_CTRL2           */
+#define MODEM_CTRL2_DMASEL_CORR                              (_MODEM_CTRL2_DMASEL_CORR << 30)            /**< Shifted mode CORR for MODEM_CTRL2           */
+#define MODEM_CTRL2_DMASEL_FREQOFFEST                        (_MODEM_CTRL2_DMASEL_FREQOFFEST << 30)      /**< Shifted mode FREQOFFEST for MODEM_CTRL2     */
+#define MODEM_CTRL2_DMASEL_POE                               (_MODEM_CTRL2_DMASEL_POE << 30)             /**< Shifted mode POE for MODEM_CTRL2            */
 
 /* Bit fields for MODEM CTRL3 */
 #define _MODEM_CTRL3_RESETVALUE                              0x00008000UL                                 /**< Default value for MODEM_CTRL3               */
@@ -976,17 +975,17 @@ typedef struct {
 #define _MODEM_CTRL3_ANTDIVMODE_SHIFT                        8                                            /**< Shift value for MODEM_ANTDIVMODE            */
 #define _MODEM_CTRL3_ANTDIVMODE_MASK                         0x700UL                                      /**< Bit mask for MODEM_ANTDIVMODE               */
 #define _MODEM_CTRL3_ANTDIVMODE_DEFAULT                      0x00000000UL                                 /**< Mode DEFAULT for MODEM_CTRL3                */
-#define _MODEM_CTRL3_ANTDIVMODE_ANTENNA0                     0x00000000UL                                 /**< Mode ANTENNA0 for MODEM_CTRL3                */
-#define _MODEM_CTRL3_ANTDIVMODE_ANTENNA1                     0x00000001UL                                 /**< Mode ANTENNA1 for MODEM_CTRL3                */
-#define _MODEM_CTRL3_ANTDIVMODE_ANTSELFIRST                  0x00000002UL                                 /**< Mode ANTSELFIRST for MODEM_CTRL3             */
-#define _MODEM_CTRL3_ANTDIVMODE_ANTSELCORR                   0x00000003UL                                 /**< Mode ANTSELCORR for MODEM_CTRL3              */
-#define _MODEM_CTRL3_ANTDIVMODE_ANTSELRSSI                   0x00000004UL                                 /**< Mode ANTSELRSSI for MODEM_CTRL3              */
+#define _MODEM_CTRL3_ANTDIVMODE_ANTENNA0                     0x00000000UL                                 /**< Mode ANTENNA0 for MODEM_CTRL3               */
+#define _MODEM_CTRL3_ANTDIVMODE_ANTENNA1                     0x00000001UL                                 /**< Mode ANTENNA1 for MODEM_CTRL3               */
+#define _MODEM_CTRL3_ANTDIVMODE_ANTSELFIRST                  0x00000002UL                                 /**< Mode ANTSELFIRST for MODEM_CTRL3            */
+#define _MODEM_CTRL3_ANTDIVMODE_ANTSELCORR                   0x00000003UL                                 /**< Mode ANTSELCORR for MODEM_CTRL3             */
+#define _MODEM_CTRL3_ANTDIVMODE_ANTSELRSSI                   0x00000004UL                                 /**< Mode ANTSELRSSI for MODEM_CTRL3             */
 #define MODEM_CTRL3_ANTDIVMODE_DEFAULT                       (_MODEM_CTRL3_ANTDIVMODE_DEFAULT << 8)       /**< Shifted mode DEFAULT for MODEM_CTRL3        */
-#define MODEM_CTRL3_ANTDIVMODE_ANTENNA0                      (_MODEM_CTRL3_ANTDIVMODE_ANTENNA0 << 8)      /**< Shifted mode ANTENNA0 for MODEM_CTRL3        */
-#define MODEM_CTRL3_ANTDIVMODE_ANTENNA1                      (_MODEM_CTRL3_ANTDIVMODE_ANTENNA1 << 8)      /**< Shifted mode ANTENNA1 for MODEM_CTRL3        */
-#define MODEM_CTRL3_ANTDIVMODE_ANTSELFIRST                   (_MODEM_CTRL3_ANTDIVMODE_ANTSELFIRST << 8)   /**< Shifted mode ANTSELFIRST for MODEM_CTRL3     */
-#define MODEM_CTRL3_ANTDIVMODE_ANTSELCORR                    (_MODEM_CTRL3_ANTDIVMODE_ANTSELCORR << 8)    /**< Shifted mode ANTSELCORR for MODEM_CTRL3      */
-#define MODEM_CTRL3_ANTDIVMODE_ANTSELRSSI                    (_MODEM_CTRL3_ANTDIVMODE_ANTSELRSSI << 8)    /**< Shifted mode ANTSELRSSI for MODEM_CTRL3      */
+#define MODEM_CTRL3_ANTDIVMODE_ANTENNA0                      (_MODEM_CTRL3_ANTDIVMODE_ANTENNA0 << 8)      /**< Shifted mode ANTENNA0 for MODEM_CTRL3       */
+#define MODEM_CTRL3_ANTDIVMODE_ANTENNA1                      (_MODEM_CTRL3_ANTDIVMODE_ANTENNA1 << 8)      /**< Shifted mode ANTENNA1 for MODEM_CTRL3       */
+#define MODEM_CTRL3_ANTDIVMODE_ANTSELFIRST                   (_MODEM_CTRL3_ANTDIVMODE_ANTSELFIRST << 8)   /**< Shifted mode ANTSELFIRST for MODEM_CTRL3    */
+#define MODEM_CTRL3_ANTDIVMODE_ANTSELCORR                    (_MODEM_CTRL3_ANTDIVMODE_ANTSELCORR << 8)    /**< Shifted mode ANTSELCORR for MODEM_CTRL3     */
+#define MODEM_CTRL3_ANTDIVMODE_ANTSELRSSI                    (_MODEM_CTRL3_ANTDIVMODE_ANTSELRSSI << 8)    /**< Shifted mode ANTSELRSSI for MODEM_CTRL3     */
 #define MODEM_CTRL3_ANTDIVREPEATDIS                          (0x1UL << 11)                                /**< Antenna diversity repeat disable            */
 #define _MODEM_CTRL3_ANTDIVREPEATDIS_SHIFT                   11                                           /**< Shift value for MODEM_ANTDIVREPEATDIS       */
 #define _MODEM_CTRL3_ANTDIVREPEATDIS_MASK                    0x800UL                                      /**< Bit mask for MODEM_ANTDIVREPEATDIS          */
@@ -995,13 +994,13 @@ typedef struct {
 #define _MODEM_CTRL3_TSAMPMODE_SHIFT                         12                                           /**< Shift value for MODEM_TSAMPMODE             */
 #define _MODEM_CTRL3_TSAMPMODE_MASK                          0x3000UL                                     /**< Bit mask for MODEM_TSAMPMODE                */
 #define _MODEM_CTRL3_TSAMPMODE_DEFAULT                       0x00000000UL                                 /**< Mode DEFAULT for MODEM_CTRL3                */
-#define _MODEM_CTRL3_TSAMPMODE_OFF                           0x00000000UL                                 /**< Mode OFF for MODEM_CTRL3                     */
-#define _MODEM_CTRL3_TSAMPMODE_ON                            0x00000001UL                                 /**< Mode ON for MODEM_CTRL3                      */
-#define _MODEM_CTRL3_TSAMPMODE_DIFF                          0x00000002UL                                 /**< Mode DIFF for MODEM_CTRL3                    */
+#define _MODEM_CTRL3_TSAMPMODE_OFF                           0x00000000UL                                 /**< Mode OFF for MODEM_CTRL3                    */
+#define _MODEM_CTRL3_TSAMPMODE_ON                            0x00000001UL                                 /**< Mode ON for MODEM_CTRL3                     */
+#define _MODEM_CTRL3_TSAMPMODE_DIFF                          0x00000002UL                                 /**< Mode DIFF for MODEM_CTRL3                   */
 #define MODEM_CTRL3_TSAMPMODE_DEFAULT                        (_MODEM_CTRL3_TSAMPMODE_DEFAULT << 12)       /**< Shifted mode DEFAULT for MODEM_CTRL3        */
-#define MODEM_CTRL3_TSAMPMODE_OFF                            (_MODEM_CTRL3_TSAMPMODE_OFF << 12)           /**< Shifted mode OFF for MODEM_CTRL3             */
-#define MODEM_CTRL3_TSAMPMODE_ON                             (_MODEM_CTRL3_TSAMPMODE_ON << 12)            /**< Shifted mode ON for MODEM_CTRL3              */
-#define MODEM_CTRL3_TSAMPMODE_DIFF                           (_MODEM_CTRL3_TSAMPMODE_DIFF << 12)          /**< Shifted mode DIFF for MODEM_CTRL3            */
+#define MODEM_CTRL3_TSAMPMODE_OFF                            (_MODEM_CTRL3_TSAMPMODE_OFF << 12)           /**< Shifted mode OFF for MODEM_CTRL3            */
+#define MODEM_CTRL3_TSAMPMODE_ON                             (_MODEM_CTRL3_TSAMPMODE_ON << 12)            /**< Shifted mode ON for MODEM_CTRL3             */
+#define MODEM_CTRL3_TSAMPMODE_DIFF                           (_MODEM_CTRL3_TSAMPMODE_DIFF << 12)          /**< Shifted mode DIFF for MODEM_CTRL3           */
 #define _MODEM_CTRL3_TSAMPDEL_SHIFT                          14                                           /**< Shift value for MODEM_TSAMPDEL              */
 #define _MODEM_CTRL3_TSAMPDEL_MASK                           0xC000UL                                     /**< Bit mask for MODEM_TSAMPDEL                 */
 #define _MODEM_CTRL3_TSAMPDEL_DEFAULT                        0x00000002UL                                 /**< Mode DEFAULT for MODEM_CTRL3                */
@@ -1035,11 +1034,11 @@ typedef struct {
 #define _MODEM_CTRL4_PREDISTAVG_SHIFT                        13                                              /**< Shift value for MODEM_PREDISTAVG            */
 #define _MODEM_CTRL4_PREDISTAVG_MASK                         0x2000UL                                        /**< Bit mask for MODEM_PREDISTAVG               */
 #define _MODEM_CTRL4_PREDISTAVG_DEFAULT                      0x00000000UL                                    /**< Mode DEFAULT for MODEM_CTRL4                */
-#define _MODEM_CTRL4_PREDISTAVG_AVG8                         0x00000000UL                                    /**< Mode AVG8 for MODEM_CTRL4                    */
-#define _MODEM_CTRL4_PREDISTAVG_AVG16                        0x00000001UL                                    /**< Mode AVG16 for MODEM_CTRL4                   */
+#define _MODEM_CTRL4_PREDISTAVG_AVG8                         0x00000000UL                                    /**< Mode AVG8 for MODEM_CTRL4                   */
+#define _MODEM_CTRL4_PREDISTAVG_AVG16                        0x00000001UL                                    /**< Mode AVG16 for MODEM_CTRL4                  */
 #define MODEM_CTRL4_PREDISTAVG_DEFAULT                       (_MODEM_CTRL4_PREDISTAVG_DEFAULT << 13)         /**< Shifted mode DEFAULT for MODEM_CTRL4        */
-#define MODEM_CTRL4_PREDISTAVG_AVG8                          (_MODEM_CTRL4_PREDISTAVG_AVG8 << 13)            /**< Shifted mode AVG8 for MODEM_CTRL4            */
-#define MODEM_CTRL4_PREDISTAVG_AVG16                         (_MODEM_CTRL4_PREDISTAVG_AVG16 << 13)           /**< Shifted mode AVG16 for MODEM_CTRL4           */
+#define MODEM_CTRL4_PREDISTAVG_AVG8                          (_MODEM_CTRL4_PREDISTAVG_AVG8 << 13)            /**< Shifted mode AVG8 for MODEM_CTRL4           */
+#define MODEM_CTRL4_PREDISTAVG_AVG16                         (_MODEM_CTRL4_PREDISTAVG_AVG16 << 13)           /**< Shifted mode AVG16 for MODEM_CTRL4          */
 #define MODEM_CTRL4_PREDISTRST                               (0x1UL << 14)                                   /**< Predistortion Reset                         */
 #define _MODEM_CTRL4_PREDISTRST_SHIFT                        14                                              /**< Shift value for MODEM_PREDISTRST            */
 #define _MODEM_CTRL4_PREDISTRST_MASK                         0x4000UL                                        /**< Bit mask for MODEM_PREDISTRST               */
@@ -1053,29 +1052,29 @@ typedef struct {
 #define _MODEM_CTRL4_SOFTDSSSMODE_SHIFT                      22                                              /**< Shift value for MODEM_SOFTDSSSMODE          */
 #define _MODEM_CTRL4_SOFTDSSSMODE_MASK                       0x400000UL                                      /**< Bit mask for MODEM_SOFTDSSSMODE             */
 #define _MODEM_CTRL4_SOFTDSSSMODE_DEFAULT                    0x00000000UL                                    /**< Mode DEFAULT for MODEM_CTRL4                */
-#define _MODEM_CTRL4_SOFTDSSSMODE_CORR0INV                   0x00000000UL                                    /**< Mode CORR0INV for MODEM_CTRL4                */
-#define _MODEM_CTRL4_SOFTDSSSMODE_CORRDIFF                   0x00000001UL                                    /**< Mode CORRDIFF for MODEM_CTRL4                */
+#define _MODEM_CTRL4_SOFTDSSSMODE_CORR0INV                   0x00000000UL                                    /**< Mode CORR0INV for MODEM_CTRL4               */
+#define _MODEM_CTRL4_SOFTDSSSMODE_CORRDIFF                   0x00000001UL                                    /**< Mode CORRDIFF for MODEM_CTRL4               */
 #define MODEM_CTRL4_SOFTDSSSMODE_DEFAULT                     (_MODEM_CTRL4_SOFTDSSSMODE_DEFAULT << 22)       /**< Shifted mode DEFAULT for MODEM_CTRL4        */
-#define MODEM_CTRL4_SOFTDSSSMODE_CORR0INV                    (_MODEM_CTRL4_SOFTDSSSMODE_CORR0INV << 22)      /**< Shifted mode CORR0INV for MODEM_CTRL4        */
-#define MODEM_CTRL4_SOFTDSSSMODE_CORRDIFF                    (_MODEM_CTRL4_SOFTDSSSMODE_CORRDIFF << 22)      /**< Shifted mode CORRDIFF for MODEM_CTRL4        */
+#define MODEM_CTRL4_SOFTDSSSMODE_CORR0INV                    (_MODEM_CTRL4_SOFTDSSSMODE_CORR0INV << 22)      /**< Shifted mode CORR0INV for MODEM_CTRL4       */
+#define MODEM_CTRL4_SOFTDSSSMODE_CORRDIFF                    (_MODEM_CTRL4_SOFTDSSSMODE_CORRDIFF << 22)      /**< Shifted mode CORRDIFF for MODEM_CTRL4       */
 #define _MODEM_CTRL4_ADCSATLEVEL_SHIFT                       23                                              /**< Shift value for MODEM_ADCSATLEVEL           */
 #define _MODEM_CTRL4_ADCSATLEVEL_MASK                        0x3800000UL                                     /**< Bit mask for MODEM_ADCSATLEVEL              */
 #define _MODEM_CTRL4_ADCSATLEVEL_DEFAULT                     0x00000006UL                                    /**< Mode DEFAULT for MODEM_CTRL4                */
-#define _MODEM_CTRL4_ADCSATLEVEL_CONS1                       0x00000000UL                                    /**< Mode CONS1 for MODEM_CTRL4                   */
-#define _MODEM_CTRL4_ADCSATLEVEL_CONS2                       0x00000001UL                                    /**< Mode CONS2 for MODEM_CTRL4                   */
-#define _MODEM_CTRL4_ADCSATLEVEL_CONS4                       0x00000002UL                                    /**< Mode CONS4 for MODEM_CTRL4                   */
-#define _MODEM_CTRL4_ADCSATLEVEL_CONS8                       0x00000003UL                                    /**< Mode CONS8 for MODEM_CTRL4                   */
-#define _MODEM_CTRL4_ADCSATLEVEL_CONS16                      0x00000004UL                                    /**< Mode CONS16 for MODEM_CTRL4                  */
-#define _MODEM_CTRL4_ADCSATLEVEL_CONS32                      0x00000005UL                                    /**< Mode CONS32 for MODEM_CTRL4                  */
-#define _MODEM_CTRL4_ADCSATLEVEL_CONS64                      0x00000006UL                                    /**< Mode CONS64 for MODEM_CTRL4                  */
+#define _MODEM_CTRL4_ADCSATLEVEL_CONS1                       0x00000000UL                                    /**< Mode CONS1 for MODEM_CTRL4                  */
+#define _MODEM_CTRL4_ADCSATLEVEL_CONS2                       0x00000001UL                                    /**< Mode CONS2 for MODEM_CTRL4                  */
+#define _MODEM_CTRL4_ADCSATLEVEL_CONS4                       0x00000002UL                                    /**< Mode CONS4 for MODEM_CTRL4                  */
+#define _MODEM_CTRL4_ADCSATLEVEL_CONS8                       0x00000003UL                                    /**< Mode CONS8 for MODEM_CTRL4                  */
+#define _MODEM_CTRL4_ADCSATLEVEL_CONS16                      0x00000004UL                                    /**< Mode CONS16 for MODEM_CTRL4                 */
+#define _MODEM_CTRL4_ADCSATLEVEL_CONS32                      0x00000005UL                                    /**< Mode CONS32 for MODEM_CTRL4                 */
+#define _MODEM_CTRL4_ADCSATLEVEL_CONS64                      0x00000006UL                                    /**< Mode CONS64 for MODEM_CTRL4                 */
 #define MODEM_CTRL4_ADCSATLEVEL_DEFAULT                      (_MODEM_CTRL4_ADCSATLEVEL_DEFAULT << 23)        /**< Shifted mode DEFAULT for MODEM_CTRL4        */
-#define MODEM_CTRL4_ADCSATLEVEL_CONS1                        (_MODEM_CTRL4_ADCSATLEVEL_CONS1 << 23)          /**< Shifted mode CONS1 for MODEM_CTRL4           */
-#define MODEM_CTRL4_ADCSATLEVEL_CONS2                        (_MODEM_CTRL4_ADCSATLEVEL_CONS2 << 23)          /**< Shifted mode CONS2 for MODEM_CTRL4           */
-#define MODEM_CTRL4_ADCSATLEVEL_CONS4                        (_MODEM_CTRL4_ADCSATLEVEL_CONS4 << 23)          /**< Shifted mode CONS4 for MODEM_CTRL4           */
-#define MODEM_CTRL4_ADCSATLEVEL_CONS8                        (_MODEM_CTRL4_ADCSATLEVEL_CONS8 << 23)          /**< Shifted mode CONS8 for MODEM_CTRL4           */
-#define MODEM_CTRL4_ADCSATLEVEL_CONS16                       (_MODEM_CTRL4_ADCSATLEVEL_CONS16 << 23)         /**< Shifted mode CONS16 for MODEM_CTRL4          */
-#define MODEM_CTRL4_ADCSATLEVEL_CONS32                       (_MODEM_CTRL4_ADCSATLEVEL_CONS32 << 23)         /**< Shifted mode CONS32 for MODEM_CTRL4          */
-#define MODEM_CTRL4_ADCSATLEVEL_CONS64                       (_MODEM_CTRL4_ADCSATLEVEL_CONS64 << 23)         /**< Shifted mode CONS64 for MODEM_CTRL4          */
+#define MODEM_CTRL4_ADCSATLEVEL_CONS1                        (_MODEM_CTRL4_ADCSATLEVEL_CONS1 << 23)          /**< Shifted mode CONS1 for MODEM_CTRL4          */
+#define MODEM_CTRL4_ADCSATLEVEL_CONS2                        (_MODEM_CTRL4_ADCSATLEVEL_CONS2 << 23)          /**< Shifted mode CONS2 for MODEM_CTRL4          */
+#define MODEM_CTRL4_ADCSATLEVEL_CONS4                        (_MODEM_CTRL4_ADCSATLEVEL_CONS4 << 23)          /**< Shifted mode CONS4 for MODEM_CTRL4          */
+#define MODEM_CTRL4_ADCSATLEVEL_CONS8                        (_MODEM_CTRL4_ADCSATLEVEL_CONS8 << 23)          /**< Shifted mode CONS8 for MODEM_CTRL4          */
+#define MODEM_CTRL4_ADCSATLEVEL_CONS16                       (_MODEM_CTRL4_ADCSATLEVEL_CONS16 << 23)         /**< Shifted mode CONS16 for MODEM_CTRL4         */
+#define MODEM_CTRL4_ADCSATLEVEL_CONS32                       (_MODEM_CTRL4_ADCSATLEVEL_CONS32 << 23)         /**< Shifted mode CONS32 for MODEM_CTRL4         */
+#define MODEM_CTRL4_ADCSATLEVEL_CONS64                       (_MODEM_CTRL4_ADCSATLEVEL_CONS64 << 23)         /**< Shifted mode CONS64 for MODEM_CTRL4         */
 #define _MODEM_CTRL4_ADCSATDENS_SHIFT                        26                                              /**< Shift value for MODEM_ADCSATDENS            */
 #define _MODEM_CTRL4_ADCSATDENS_MASK                         0xC000000UL                                     /**< Bit mask for MODEM_ADCSATDENS               */
 #define _MODEM_CTRL4_ADCSATDENS_DEFAULT                      0x00000000UL                                    /**< Mode DEFAULT for MODEM_CTRL4                */
@@ -1102,13 +1101,13 @@ typedef struct {
 #define _MODEM_CTRL5_BRCALMODE_SHIFT                         2                                             /**< Shift value for MODEM_BRCALMODE             */
 #define _MODEM_CTRL5_BRCALMODE_MASK                          0xCUL                                         /**< Bit mask for MODEM_BRCALMODE                */
 #define _MODEM_CTRL5_BRCALMODE_DEFAULT                       0x00000000UL                                  /**< Mode DEFAULT for MODEM_CTRL5                */
-#define _MODEM_CTRL5_BRCALMODE_PEAK                          0x00000000UL                                  /**< Mode PEAK for MODEM_CTRL5                    */
-#define _MODEM_CTRL5_BRCALMODE_ZERO                          0x00000001UL                                  /**< Mode ZERO for MODEM_CTRL5                    */
-#define _MODEM_CTRL5_BRCALMODE_PEAKZERO                      0x00000002UL                                  /**< Mode PEAKZERO for MODEM_CTRL5                */
+#define _MODEM_CTRL5_BRCALMODE_PEAK                          0x00000000UL                                  /**< Mode PEAK for MODEM_CTRL5                   */
+#define _MODEM_CTRL5_BRCALMODE_ZERO                          0x00000001UL                                  /**< Mode ZERO for MODEM_CTRL5                   */
+#define _MODEM_CTRL5_BRCALMODE_PEAKZERO                      0x00000002UL                                  /**< Mode PEAKZERO for MODEM_CTRL5               */
 #define MODEM_CTRL5_BRCALMODE_DEFAULT                        (_MODEM_CTRL5_BRCALMODE_DEFAULT << 2)         /**< Shifted mode DEFAULT for MODEM_CTRL5        */
-#define MODEM_CTRL5_BRCALMODE_PEAK                           (_MODEM_CTRL5_BRCALMODE_PEAK << 2)            /**< Shifted mode PEAK for MODEM_CTRL5            */
-#define MODEM_CTRL5_BRCALMODE_ZERO                           (_MODEM_CTRL5_BRCALMODE_ZERO << 2)            /**< Shifted mode ZERO for MODEM_CTRL5            */
-#define MODEM_CTRL5_BRCALMODE_PEAKZERO                       (_MODEM_CTRL5_BRCALMODE_PEAKZERO << 2)        /**< Shifted mode PEAKZERO for MODEM_CTRL5        */
+#define MODEM_CTRL5_BRCALMODE_PEAK                           (_MODEM_CTRL5_BRCALMODE_PEAK << 2)            /**< Shifted mode PEAK for MODEM_CTRL5           */
+#define MODEM_CTRL5_BRCALMODE_ZERO                           (_MODEM_CTRL5_BRCALMODE_ZERO << 2)            /**< Shifted mode ZERO for MODEM_CTRL5           */
+#define MODEM_CTRL5_BRCALMODE_PEAKZERO                       (_MODEM_CTRL5_BRCALMODE_PEAKZERO << 2)        /**< Shifted mode PEAKZERO for MODEM_CTRL5       */
 #define _MODEM_CTRL5_BRCALAVG_SHIFT                          4                                             /**< Shift value for MODEM_BRCALAVG              */
 #define _MODEM_CTRL5_BRCALAVG_MASK                           0x30UL                                        /**< Bit mask for MODEM_BRCALAVG                 */
 #define _MODEM_CTRL5_BRCALAVG_DEFAULT                        0x00000000UL                                  /**< Mode DEFAULT for MODEM_CTRL5                */
@@ -1143,19 +1142,19 @@ typedef struct {
 #define _MODEM_CTRL5_DEMODRAWDATASEL2_SHIFT                  20                                            /**< Shift value for MODEM_DEMODRAWDATASEL2      */
 #define _MODEM_CTRL5_DEMODRAWDATASEL2_MASK                   0x700000UL                                    /**< Bit mask for MODEM_DEMODRAWDATASEL2         */
 #define _MODEM_CTRL5_DEMODRAWDATASEL2_DEFAULT                0x00000000UL                                  /**< Mode DEFAULT for MODEM_CTRL5                */
-#define _MODEM_CTRL5_DEMODRAWDATASEL2_DIS                    0x00000000UL                                  /**< Mode DIS for MODEM_CTRL5                     */
-#define _MODEM_CTRL5_DEMODRAWDATASEL2_COH                    0x00000001UL                                  /**< Mode COH for MODEM_CTRL5                     */
-#define _MODEM_CTRL5_DEMODRAWDATASEL2_CORR                   0x00000002UL                                  /**< Mode CORR for MODEM_CTRL5                    */
-#define _MODEM_CTRL5_DEMODRAWDATASEL2_CHPW                   0x00000003UL                                  /**< Mode CHPW for MODEM_CTRL5                    */
-#define _MODEM_CTRL5_DEMODRAWDATASEL2_BBPF                   0x00000004UL                                  /**< Mode BBPF for MODEM_CTRL5                    */
-#define _MODEM_CTRL5_DEMODRAWDATASEL2_FSM                    0x00000005UL                                  /**< Mode FSM for MODEM_CTRL5                     */
+#define _MODEM_CTRL5_DEMODRAWDATASEL2_DIS                    0x00000000UL                                  /**< Mode DIS for MODEM_CTRL5                    */
+#define _MODEM_CTRL5_DEMODRAWDATASEL2_COH                    0x00000001UL                                  /**< Mode COH for MODEM_CTRL5                    */
+#define _MODEM_CTRL5_DEMODRAWDATASEL2_CORR                   0x00000002UL                                  /**< Mode CORR for MODEM_CTRL5                   */
+#define _MODEM_CTRL5_DEMODRAWDATASEL2_CHPW                   0x00000003UL                                  /**< Mode CHPW for MODEM_CTRL5                   */
+#define _MODEM_CTRL5_DEMODRAWDATASEL2_BBPF                   0x00000004UL                                  /**< Mode BBPF for MODEM_CTRL5                   */
+#define _MODEM_CTRL5_DEMODRAWDATASEL2_FSM                    0x00000005UL                                  /**< Mode FSM for MODEM_CTRL5                    */
 #define MODEM_CTRL5_DEMODRAWDATASEL2_DEFAULT                 (_MODEM_CTRL5_DEMODRAWDATASEL2_DEFAULT << 20) /**< Shifted mode DEFAULT for MODEM_CTRL5        */
-#define MODEM_CTRL5_DEMODRAWDATASEL2_DIS                     (_MODEM_CTRL5_DEMODRAWDATASEL2_DIS << 20)     /**< Shifted mode DIS for MODEM_CTRL5             */
-#define MODEM_CTRL5_DEMODRAWDATASEL2_COH                     (_MODEM_CTRL5_DEMODRAWDATASEL2_COH << 20)     /**< Shifted mode COH for MODEM_CTRL5             */
-#define MODEM_CTRL5_DEMODRAWDATASEL2_CORR                    (_MODEM_CTRL5_DEMODRAWDATASEL2_CORR << 20)    /**< Shifted mode CORR for MODEM_CTRL5            */
-#define MODEM_CTRL5_DEMODRAWDATASEL2_CHPW                    (_MODEM_CTRL5_DEMODRAWDATASEL2_CHPW << 20)    /**< Shifted mode CHPW for MODEM_CTRL5            */
-#define MODEM_CTRL5_DEMODRAWDATASEL2_BBPF                    (_MODEM_CTRL5_DEMODRAWDATASEL2_BBPF << 20)    /**< Shifted mode BBPF for MODEM_CTRL5            */
-#define MODEM_CTRL5_DEMODRAWDATASEL2_FSM                     (_MODEM_CTRL5_DEMODRAWDATASEL2_FSM << 20)     /**< Shifted mode FSM for MODEM_CTRL5             */
+#define MODEM_CTRL5_DEMODRAWDATASEL2_DIS                     (_MODEM_CTRL5_DEMODRAWDATASEL2_DIS << 20)     /**< Shifted mode DIS for MODEM_CTRL5            */
+#define MODEM_CTRL5_DEMODRAWDATASEL2_COH                     (_MODEM_CTRL5_DEMODRAWDATASEL2_COH << 20)     /**< Shifted mode COH for MODEM_CTRL5            */
+#define MODEM_CTRL5_DEMODRAWDATASEL2_CORR                    (_MODEM_CTRL5_DEMODRAWDATASEL2_CORR << 20)    /**< Shifted mode CORR for MODEM_CTRL5           */
+#define MODEM_CTRL5_DEMODRAWDATASEL2_CHPW                    (_MODEM_CTRL5_DEMODRAWDATASEL2_CHPW << 20)    /**< Shifted mode CHPW for MODEM_CTRL5           */
+#define MODEM_CTRL5_DEMODRAWDATASEL2_BBPF                    (_MODEM_CTRL5_DEMODRAWDATASEL2_BBPF << 20)    /**< Shifted mode BBPF for MODEM_CTRL5           */
+#define MODEM_CTRL5_DEMODRAWDATASEL2_FSM                     (_MODEM_CTRL5_DEMODRAWDATASEL2_FSM << 20)     /**< Shifted mode FSM for MODEM_CTRL5            */
 #define _MODEM_CTRL5_FOEPREAVG_SHIFT                         24                                            /**< Shift value for MODEM_FOEPREAVG             */
 #define _MODEM_CTRL5_FOEPREAVG_MASK                          0x7000000UL                                   /**< Bit mask for MODEM_FOEPREAVG                */
 #define _MODEM_CTRL5_FOEPREAVG_DEFAULT                       0x00000000UL                                  /**< Mode DEFAULT for MODEM_CTRL5                */
@@ -1174,11 +1173,11 @@ typedef struct {
 #define _MODEM_CTRL5_RESYNCLIMIT_SHIFT                       30                                            /**< Shift value for MODEM_RESYNCLIMIT           */
 #define _MODEM_CTRL5_RESYNCLIMIT_MASK                        0x40000000UL                                  /**< Bit mask for MODEM_RESYNCLIMIT              */
 #define _MODEM_CTRL5_RESYNCLIMIT_DEFAULT                     0x00000000UL                                  /**< Mode DEFAULT for MODEM_CTRL5                */
-#define _MODEM_CTRL5_RESYNCLIMIT_HALF                        0x00000000UL                                  /**< Mode HALF for MODEM_CTRL5                    */
-#define _MODEM_CTRL5_RESYNCLIMIT_ALWAYS                      0x00000001UL                                  /**< Mode ALWAYS for MODEM_CTRL5                  */
+#define _MODEM_CTRL5_RESYNCLIMIT_HALF                        0x00000000UL                                  /**< Mode HALF for MODEM_CTRL5                   */
+#define _MODEM_CTRL5_RESYNCLIMIT_ALWAYS                      0x00000001UL                                  /**< Mode ALWAYS for MODEM_CTRL5                 */
 #define MODEM_CTRL5_RESYNCLIMIT_DEFAULT                      (_MODEM_CTRL5_RESYNCLIMIT_DEFAULT << 30)      /**< Shifted mode DEFAULT for MODEM_CTRL5        */
-#define MODEM_CTRL5_RESYNCLIMIT_HALF                         (_MODEM_CTRL5_RESYNCLIMIT_HALF << 30)         /**< Shifted mode HALF for MODEM_CTRL5            */
-#define MODEM_CTRL5_RESYNCLIMIT_ALWAYS                       (_MODEM_CTRL5_RESYNCLIMIT_ALWAYS << 30)       /**< Shifted mode ALWAYS for MODEM_CTRL5          */
+#define MODEM_CTRL5_RESYNCLIMIT_HALF                         (_MODEM_CTRL5_RESYNCLIMIT_HALF << 30)         /**< Shifted mode HALF for MODEM_CTRL5           */
+#define MODEM_CTRL5_RESYNCLIMIT_ALWAYS                       (_MODEM_CTRL5_RESYNCLIMIT_ALWAYS << 30)       /**< Shifted mode ALWAYS for MODEM_CTRL5         */
 
 /* Bit fields for MODEM CTRL6 */
 #define _MODEM_CTRL6_RESETVALUE                              0x00000000UL                                   /**< Default value for MODEM_CTRL6               */
@@ -1214,15 +1213,15 @@ typedef struct {
 #define _MODEM_CTRL6_ARW_SHIFT                               15                                             /**< Shift value for MODEM_ARW                   */
 #define _MODEM_CTRL6_ARW_MASK                                0x18000UL                                      /**< Bit mask for MODEM_ARW                      */
 #define _MODEM_CTRL6_ARW_DEFAULT                             0x00000000UL                                   /**< Mode DEFAULT for MODEM_CTRL6                */
-#define _MODEM_CTRL6_ARW_SMALLWND                            0x00000000UL                                   /**< Mode SMALLWND for MODEM_CTRL6                */
-#define _MODEM_CTRL6_ARW_ALWAYS                              0x00000001UL                                   /**< Mode ALWAYS for MODEM_CTRL6                  */
-#define _MODEM_CTRL6_ARW_NEVER                               0x00000002UL                                   /**< Mode NEVER for MODEM_CTRL6                   */
-#define _MODEM_CTRL6_ARW_PSABORT                             0x00000003UL                                   /**< Mode PSABORT for MODEM_CTRL6                 */
+#define _MODEM_CTRL6_ARW_SMALLWND                            0x00000000UL                                   /**< Mode SMALLWND for MODEM_CTRL6               */
+#define _MODEM_CTRL6_ARW_ALWAYS                              0x00000001UL                                   /**< Mode ALWAYS for MODEM_CTRL6                 */
+#define _MODEM_CTRL6_ARW_NEVER                               0x00000002UL                                   /**< Mode NEVER for MODEM_CTRL6                  */
+#define _MODEM_CTRL6_ARW_PSABORT                             0x00000003UL                                   /**< Mode PSABORT for MODEM_CTRL6                */
 #define MODEM_CTRL6_ARW_DEFAULT                              (_MODEM_CTRL6_ARW_DEFAULT << 15)               /**< Shifted mode DEFAULT for MODEM_CTRL6        */
-#define MODEM_CTRL6_ARW_SMALLWND                             (_MODEM_CTRL6_ARW_SMALLWND << 15)              /**< Shifted mode SMALLWND for MODEM_CTRL6        */
-#define MODEM_CTRL6_ARW_ALWAYS                               (_MODEM_CTRL6_ARW_ALWAYS << 15)                /**< Shifted mode ALWAYS for MODEM_CTRL6          */
-#define MODEM_CTRL6_ARW_NEVER                                (_MODEM_CTRL6_ARW_NEVER << 15)                 /**< Shifted mode NEVER for MODEM_CTRL6           */
-#define MODEM_CTRL6_ARW_PSABORT                              (_MODEM_CTRL6_ARW_PSABORT << 15)               /**< Shifted mode PSABORT for MODEM_CTRL6         */
+#define MODEM_CTRL6_ARW_SMALLWND                             (_MODEM_CTRL6_ARW_SMALLWND << 15)              /**< Shifted mode SMALLWND for MODEM_CTRL6       */
+#define MODEM_CTRL6_ARW_ALWAYS                               (_MODEM_CTRL6_ARW_ALWAYS << 15)                /**< Shifted mode ALWAYS for MODEM_CTRL6         */
+#define MODEM_CTRL6_ARW_NEVER                                (_MODEM_CTRL6_ARW_NEVER << 15)                 /**< Shifted mode NEVER for MODEM_CTRL6          */
+#define MODEM_CTRL6_ARW_PSABORT                              (_MODEM_CTRL6_ARW_PSABORT << 15)               /**< Shifted mode PSABORT for MODEM_CTRL6        */
 #define _MODEM_CTRL6_TIMTHRESHGAIN_SHIFT                     17                                             /**< Shift value for MODEM_TIMTHRESHGAIN         */
 #define _MODEM_CTRL6_TIMTHRESHGAIN_MASK                      0xE0000UL                                      /**< Bit mask for MODEM_TIMTHRESHGAIN            */
 #define _MODEM_CTRL6_TIMTHRESHGAIN_DEFAULT                   0x00000000UL                                   /**< Mode DEFAULT for MODEM_CTRL6                */
@@ -1240,15 +1239,15 @@ typedef struct {
 #define _MODEM_CTRL6_CODINGB_SHIFT                           25                                             /**< Shift value for MODEM_CODINGB               */
 #define _MODEM_CTRL6_CODINGB_MASK                            0x6000000UL                                    /**< Bit mask for MODEM_CODINGB                  */
 #define _MODEM_CTRL6_CODINGB_DEFAULT                         0x00000000UL                                   /**< Mode DEFAULT for MODEM_CTRL6                */
-#define _MODEM_CTRL6_CODINGB_NRZ                             0x00000000UL                                   /**< Mode NRZ for MODEM_CTRL6                     */
-#define _MODEM_CTRL6_CODINGB_MANCHESTER                      0x00000001UL                                   /**< Mode MANCHESTER for MODEM_CTRL6              */
-#define _MODEM_CTRL6_CODINGB_DSSS                            0x00000002UL                                   /**< Mode DSSS for MODEM_CTRL6                    */
-#define _MODEM_CTRL6_CODINGB_LINECODE                        0x00000003UL                                   /**< Mode LINECODE for MODEM_CTRL6                */
+#define _MODEM_CTRL6_CODINGB_NRZ                             0x00000000UL                                   /**< Mode NRZ for MODEM_CTRL6                    */
+#define _MODEM_CTRL6_CODINGB_MANCHESTER                      0x00000001UL                                   /**< Mode MANCHESTER for MODEM_CTRL6             */
+#define _MODEM_CTRL6_CODINGB_DSSS                            0x00000002UL                                   /**< Mode DSSS for MODEM_CTRL6                   */
+#define _MODEM_CTRL6_CODINGB_LINECODE                        0x00000003UL                                   /**< Mode LINECODE for MODEM_CTRL6               */
 #define MODEM_CTRL6_CODINGB_DEFAULT                          (_MODEM_CTRL6_CODINGB_DEFAULT << 25)           /**< Shifted mode DEFAULT for MODEM_CTRL6        */
-#define MODEM_CTRL6_CODINGB_NRZ                              (_MODEM_CTRL6_CODINGB_NRZ << 25)               /**< Shifted mode NRZ for MODEM_CTRL6             */
-#define MODEM_CTRL6_CODINGB_MANCHESTER                       (_MODEM_CTRL6_CODINGB_MANCHESTER << 25)        /**< Shifted mode MANCHESTER for MODEM_CTRL6      */
-#define MODEM_CTRL6_CODINGB_DSSS                             (_MODEM_CTRL6_CODINGB_DSSS << 25)              /**< Shifted mode DSSS for MODEM_CTRL6            */
-#define MODEM_CTRL6_CODINGB_LINECODE                         (_MODEM_CTRL6_CODINGB_LINECODE << 25)          /**< Shifted mode LINECODE for MODEM_CTRL6        */
+#define MODEM_CTRL6_CODINGB_NRZ                              (_MODEM_CTRL6_CODINGB_NRZ << 25)               /**< Shifted mode NRZ for MODEM_CTRL6            */
+#define MODEM_CTRL6_CODINGB_MANCHESTER                       (_MODEM_CTRL6_CODINGB_MANCHESTER << 25)        /**< Shifted mode MANCHESTER for MODEM_CTRL6     */
+#define MODEM_CTRL6_CODINGB_DSSS                             (_MODEM_CTRL6_CODINGB_DSSS << 25)              /**< Shifted mode DSSS for MODEM_CTRL6           */
+#define MODEM_CTRL6_CODINGB_LINECODE                         (_MODEM_CTRL6_CODINGB_LINECODE << 25)          /**< Shifted mode LINECODE for MODEM_CTRL6       */
 #define MODEM_CTRL6_RXBRCALCDIS                              (0x1UL << 30)                                  /**< RX Baudrate Calculation Disable             */
 #define _MODEM_CTRL6_RXBRCALCDIS_SHIFT                       30                                             /**< Shift value for MODEM_RXBRCALCDIS           */
 #define _MODEM_CTRL6_RXBRCALCDIS_MASK                        0x40000000UL                                   /**< Bit mask for MODEM_RXBRCALCDIS              */
@@ -1289,17 +1288,17 @@ typedef struct {
 #define _MODEM_CF_DEC0_SHIFT                                 0                                  /**< Shift value for MODEM_DEC0                  */
 #define _MODEM_CF_DEC0_MASK                                  0x7UL                              /**< Bit mask for MODEM_DEC0                     */
 #define _MODEM_CF_DEC0_DEFAULT                               0x00000000UL                       /**< Mode DEFAULT for MODEM_CF                   */
-#define _MODEM_CF_DEC0_DF3                                   0x00000000UL                       /**< Mode DF3 for MODEM_CF                        */
-#define _MODEM_CF_DEC0_DF4WIDE                               0x00000001UL                       /**< Mode DF4WIDE for MODEM_CF                    */
-#define _MODEM_CF_DEC0_DF4NARROW                             0x00000002UL                       /**< Mode DF4NARROW for MODEM_CF                  */
-#define _MODEM_CF_DEC0_DF8WIDE                               0x00000003UL                       /**< Mode DF8WIDE for MODEM_CF                    */
-#define _MODEM_CF_DEC0_DF8NARROW                             0x00000004UL                       /**< Mode DF8NARROW for MODEM_CF                  */
+#define _MODEM_CF_DEC0_DF3                                   0x00000000UL                       /**< Mode DF3 for MODEM_CF                       */
+#define _MODEM_CF_DEC0_DF4WIDE                               0x00000001UL                       /**< Mode DF4WIDE for MODEM_CF                   */
+#define _MODEM_CF_DEC0_DF4NARROW                             0x00000002UL                       /**< Mode DF4NARROW for MODEM_CF                 */
+#define _MODEM_CF_DEC0_DF8WIDE                               0x00000003UL                       /**< Mode DF8WIDE for MODEM_CF                   */
+#define _MODEM_CF_DEC0_DF8NARROW                             0x00000004UL                       /**< Mode DF8NARROW for MODEM_CF                 */
 #define MODEM_CF_DEC0_DEFAULT                                (_MODEM_CF_DEC0_DEFAULT << 0)      /**< Shifted mode DEFAULT for MODEM_CF           */
-#define MODEM_CF_DEC0_DF3                                    (_MODEM_CF_DEC0_DF3 << 0)          /**< Shifted mode DF3 for MODEM_CF                */
-#define MODEM_CF_DEC0_DF4WIDE                                (_MODEM_CF_DEC0_DF4WIDE << 0)      /**< Shifted mode DF4WIDE for MODEM_CF            */
-#define MODEM_CF_DEC0_DF4NARROW                              (_MODEM_CF_DEC0_DF4NARROW << 0)    /**< Shifted mode DF4NARROW for MODEM_CF          */
-#define MODEM_CF_DEC0_DF8WIDE                                (_MODEM_CF_DEC0_DF8WIDE << 0)      /**< Shifted mode DF8WIDE for MODEM_CF            */
-#define MODEM_CF_DEC0_DF8NARROW                              (_MODEM_CF_DEC0_DF8NARROW << 0)    /**< Shifted mode DF8NARROW for MODEM_CF          */
+#define MODEM_CF_DEC0_DF3                                    (_MODEM_CF_DEC0_DF3 << 0)          /**< Shifted mode DF3 for MODEM_CF               */
+#define MODEM_CF_DEC0_DF4WIDE                                (_MODEM_CF_DEC0_DF4WIDE << 0)      /**< Shifted mode DF4WIDE for MODEM_CF           */
+#define MODEM_CF_DEC0_DF4NARROW                              (_MODEM_CF_DEC0_DF4NARROW << 0)    /**< Shifted mode DF4NARROW for MODEM_CF         */
+#define MODEM_CF_DEC0_DF8WIDE                                (_MODEM_CF_DEC0_DF8WIDE << 0)      /**< Shifted mode DF8WIDE for MODEM_CF           */
+#define MODEM_CF_DEC0_DF8NARROW                              (_MODEM_CF_DEC0_DF8NARROW << 0)    /**< Shifted mode DF8NARROW for MODEM_CF         */
 #define _MODEM_CF_DEC1_SHIFT                                 3                                  /**< Shift value for MODEM_DEC1                  */
 #define _MODEM_CF_DEC1_MASK                                  0x1FFF8UL                          /**< Bit mask for MODEM_DEC1                     */
 #define _MODEM_CF_DEC1_DEFAULT                               0x00000000UL                       /**< Mode DEFAULT for MODEM_CF                   */
@@ -1311,29 +1310,29 @@ typedef struct {
 #define _MODEM_CF_CFOSR_SHIFT                                23                                 /**< Shift value for MODEM_CFOSR                 */
 #define _MODEM_CF_CFOSR_MASK                                 0x3800000UL                        /**< Bit mask for MODEM_CFOSR                    */
 #define _MODEM_CF_CFOSR_DEFAULT                              0x00000000UL                       /**< Mode DEFAULT for MODEM_CF                   */
-#define _MODEM_CF_CFOSR_CF7                                  0x00000000UL                       /**< Mode CF7 for MODEM_CF                        */
-#define _MODEM_CF_CFOSR_CF8                                  0x00000001UL                       /**< Mode CF8 for MODEM_CF                        */
-#define _MODEM_CF_CFOSR_CF12                                 0x00000002UL                       /**< Mode CF12 for MODEM_CF                       */
-#define _MODEM_CF_CFOSR_CF16                                 0x00000003UL                       /**< Mode CF16 for MODEM_CF                       */
-#define _MODEM_CF_CFOSR_CF32                                 0x00000004UL                       /**< Mode CF32 for MODEM_CF                       */
-#define _MODEM_CF_CFOSR_CF0                                  0x00000005UL                       /**< Mode CF0 for MODEM_CF                        */
+#define _MODEM_CF_CFOSR_CF7                                  0x00000000UL                       /**< Mode CF7 for MODEM_CF                       */
+#define _MODEM_CF_CFOSR_CF8                                  0x00000001UL                       /**< Mode CF8 for MODEM_CF                       */
+#define _MODEM_CF_CFOSR_CF12                                 0x00000002UL                       /**< Mode CF12 for MODEM_CF                      */
+#define _MODEM_CF_CFOSR_CF16                                 0x00000003UL                       /**< Mode CF16 for MODEM_CF                      */
+#define _MODEM_CF_CFOSR_CF32                                 0x00000004UL                       /**< Mode CF32 for MODEM_CF                      */
+#define _MODEM_CF_CFOSR_CF0                                  0x00000005UL                       /**< Mode CF0 for MODEM_CF                       */
 #define MODEM_CF_CFOSR_DEFAULT                               (_MODEM_CF_CFOSR_DEFAULT << 23)    /**< Shifted mode DEFAULT for MODEM_CF           */
-#define MODEM_CF_CFOSR_CF7                                   (_MODEM_CF_CFOSR_CF7 << 23)        /**< Shifted mode CF7 for MODEM_CF                */
-#define MODEM_CF_CFOSR_CF8                                   (_MODEM_CF_CFOSR_CF8 << 23)        /**< Shifted mode CF8 for MODEM_CF                */
-#define MODEM_CF_CFOSR_CF12                                  (_MODEM_CF_CFOSR_CF12 << 23)       /**< Shifted mode CF12 for MODEM_CF               */
-#define MODEM_CF_CFOSR_CF16                                  (_MODEM_CF_CFOSR_CF16 << 23)       /**< Shifted mode CF16 for MODEM_CF               */
-#define MODEM_CF_CFOSR_CF32                                  (_MODEM_CF_CFOSR_CF32 << 23)       /**< Shifted mode CF32 for MODEM_CF               */
-#define MODEM_CF_CFOSR_CF0                                   (_MODEM_CF_CFOSR_CF0 << 23)        /**< Shifted mode CF0 for MODEM_CF                */
+#define MODEM_CF_CFOSR_CF7                                   (_MODEM_CF_CFOSR_CF7 << 23)        /**< Shifted mode CF7 for MODEM_CF               */
+#define MODEM_CF_CFOSR_CF8                                   (_MODEM_CF_CFOSR_CF8 << 23)        /**< Shifted mode CF8 for MODEM_CF               */
+#define MODEM_CF_CFOSR_CF12                                  (_MODEM_CF_CFOSR_CF12 << 23)       /**< Shifted mode CF12 for MODEM_CF              */
+#define MODEM_CF_CFOSR_CF16                                  (_MODEM_CF_CFOSR_CF16 << 23)       /**< Shifted mode CF16 for MODEM_CF              */
+#define MODEM_CF_CFOSR_CF32                                  (_MODEM_CF_CFOSR_CF32 << 23)       /**< Shifted mode CF32 for MODEM_CF              */
+#define MODEM_CF_CFOSR_CF0                                   (_MODEM_CF_CFOSR_CF0 << 23)        /**< Shifted mode CF0 for MODEM_CF               */
 #define _MODEM_CF_DEC1GAIN_SHIFT                             26                                 /**< Shift value for MODEM_DEC1GAIN              */
 #define _MODEM_CF_DEC1GAIN_MASK                              0xC000000UL                        /**< Bit mask for MODEM_DEC1GAIN                 */
 #define _MODEM_CF_DEC1GAIN_DEFAULT                           0x00000000UL                       /**< Mode DEFAULT for MODEM_CF                   */
-#define _MODEM_CF_DEC1GAIN_ADD0                              0x00000000UL                       /**< Mode ADD0 for MODEM_CF                       */
-#define _MODEM_CF_DEC1GAIN_ADD6                              0x00000001UL                       /**< Mode ADD6 for MODEM_CF                       */
-#define _MODEM_CF_DEC1GAIN_ADD12                             0x00000002UL                       /**< Mode ADD12 for MODEM_CF                      */
+#define _MODEM_CF_DEC1GAIN_ADD0                              0x00000000UL                       /**< Mode ADD0 for MODEM_CF                      */
+#define _MODEM_CF_DEC1GAIN_ADD6                              0x00000001UL                       /**< Mode ADD6 for MODEM_CF                      */
+#define _MODEM_CF_DEC1GAIN_ADD12                             0x00000002UL                       /**< Mode ADD12 for MODEM_CF                     */
 #define MODEM_CF_DEC1GAIN_DEFAULT                            (_MODEM_CF_DEC1GAIN_DEFAULT << 26) /**< Shifted mode DEFAULT for MODEM_CF           */
-#define MODEM_CF_DEC1GAIN_ADD0                               (_MODEM_CF_DEC1GAIN_ADD0 << 26)    /**< Shifted mode ADD0 for MODEM_CF               */
-#define MODEM_CF_DEC1GAIN_ADD6                               (_MODEM_CF_DEC1GAIN_ADD6 << 26)    /**< Shifted mode ADD6 for MODEM_CF               */
-#define MODEM_CF_DEC1GAIN_ADD12                              (_MODEM_CF_DEC1GAIN_ADD12 << 26)   /**< Shifted mode ADD12 for MODEM_CF              */
+#define MODEM_CF_DEC1GAIN_ADD0                               (_MODEM_CF_DEC1GAIN_ADD0 << 26)    /**< Shifted mode ADD0 for MODEM_CF              */
+#define MODEM_CF_DEC1GAIN_ADD6                               (_MODEM_CF_DEC1GAIN_ADD6 << 26)    /**< Shifted mode ADD6 for MODEM_CF              */
+#define MODEM_CF_DEC1GAIN_ADD12                              (_MODEM_CF_DEC1GAIN_ADD12 << 26)   /**< Shifted mode ADD12 for MODEM_CF             */
 
 /* Bit fields for MODEM PRE */
 #define _MODEM_PRE_RESETVALUE                                0x00000000UL                            /**< Default value for MODEM_PRE                 */
@@ -1350,11 +1349,11 @@ typedef struct {
 #define _MODEM_PRE_PRESYMB4FSK_SHIFT                         6                                       /**< Shift value for MODEM_PRESYMB4FSK           */
 #define _MODEM_PRE_PRESYMB4FSK_MASK                          0x40UL                                  /**< Bit mask for MODEM_PRESYMB4FSK              */
 #define _MODEM_PRE_PRESYMB4FSK_DEFAULT                       0x00000000UL                            /**< Mode DEFAULT for MODEM_PRE                  */
-#define _MODEM_PRE_PRESYMB4FSK_OUTER                         0x00000000UL                            /**< Mode OUTER for MODEM_PRE                     */
-#define _MODEM_PRE_PRESYMB4FSK_INNER                         0x00000001UL                            /**< Mode INNER for MODEM_PRE                     */
+#define _MODEM_PRE_PRESYMB4FSK_OUTER                         0x00000000UL                            /**< Mode OUTER for MODEM_PRE                    */
+#define _MODEM_PRE_PRESYMB4FSK_INNER                         0x00000001UL                            /**< Mode INNER for MODEM_PRE                    */
 #define MODEM_PRE_PRESYMB4FSK_DEFAULT                        (_MODEM_PRE_PRESYMB4FSK_DEFAULT << 6)   /**< Shifted mode DEFAULT for MODEM_PRE          */
-#define MODEM_PRE_PRESYMB4FSK_OUTER                          (_MODEM_PRE_PRESYMB4FSK_OUTER << 6)     /**< Shifted mode OUTER for MODEM_PRE             */
-#define MODEM_PRE_PRESYMB4FSK_INNER                          (_MODEM_PRE_PRESYMB4FSK_INNER << 6)     /**< Shifted mode INNER for MODEM_PRE             */
+#define MODEM_PRE_PRESYMB4FSK_OUTER                          (_MODEM_PRE_PRESYMB4FSK_OUTER << 6)     /**< Shifted mode OUTER for MODEM_PRE            */
+#define MODEM_PRE_PRESYMB4FSK_INNER                          (_MODEM_PRE_PRESYMB4FSK_INNER << 6)     /**< Shifted mode INNER for MODEM_PRE            */
 #define _MODEM_PRE_PREERRORS_SHIFT                           7                                       /**< Shift value for MODEM_PREERRORS             */
 #define _MODEM_PRE_PREERRORS_MASK                            0x780UL                                 /**< Bit mask for MODEM_PREERRORS                */
 #define _MODEM_PRE_PREERRORS_DEFAULT                         0x00000000UL                            /**< Mode DEFAULT for MODEM_PRE                  */
@@ -1368,11 +1367,11 @@ typedef struct {
 #define _MODEM_PRE_SYNCSYMB4FSK_SHIFT                        12                                      /**< Shift value for MODEM_SYNCSYMB4FSK          */
 #define _MODEM_PRE_SYNCSYMB4FSK_MASK                         0x1000UL                                /**< Bit mask for MODEM_SYNCSYMB4FSK             */
 #define _MODEM_PRE_SYNCSYMB4FSK_DEFAULT                      0x00000000UL                            /**< Mode DEFAULT for MODEM_PRE                  */
-#define _MODEM_PRE_SYNCSYMB4FSK_FSK2                         0x00000000UL                            /**< Mode FSK2 for MODEM_PRE                      */
-#define _MODEM_PRE_SYNCSYMB4FSK_FSK4                         0x00000001UL                            /**< Mode FSK4 for MODEM_PRE                      */
+#define _MODEM_PRE_SYNCSYMB4FSK_FSK2                         0x00000000UL                            /**< Mode FSK2 for MODEM_PRE                     */
+#define _MODEM_PRE_SYNCSYMB4FSK_FSK4                         0x00000001UL                            /**< Mode FSK4 for MODEM_PRE                     */
 #define MODEM_PRE_SYNCSYMB4FSK_DEFAULT                       (_MODEM_PRE_SYNCSYMB4FSK_DEFAULT << 12) /**< Shifted mode DEFAULT for MODEM_PRE          */
-#define MODEM_PRE_SYNCSYMB4FSK_FSK2                          (_MODEM_PRE_SYNCSYMB4FSK_FSK2 << 12)    /**< Shifted mode FSK2 for MODEM_PRE              */
-#define MODEM_PRE_SYNCSYMB4FSK_FSK4                          (_MODEM_PRE_SYNCSYMB4FSK_FSK4 << 12)    /**< Shifted mode FSK4 for MODEM_PRE              */
+#define MODEM_PRE_SYNCSYMB4FSK_FSK2                          (_MODEM_PRE_SYNCSYMB4FSK_FSK2 << 12)    /**< Shifted mode FSK2 for MODEM_PRE             */
+#define MODEM_PRE_SYNCSYMB4FSK_FSK4                          (_MODEM_PRE_SYNCSYMB4FSK_FSK4 << 12)    /**< Shifted mode FSK4 for MODEM_PRE             */
 #define _MODEM_PRE_TXBASES_SHIFT                             16                                      /**< Shift value for MODEM_TXBASES               */
 #define _MODEM_PRE_TXBASES_MASK                              0xFFFF0000UL                            /**< Bit mask for MODEM_TXBASES                  */
 #define _MODEM_PRE_TXBASES_DEFAULT                           0x00000000UL                            /**< Mode DEFAULT for MODEM_PRE                  */
@@ -1439,13 +1438,13 @@ typedef struct {
 #define _MODEM_TIMING_FASTRESYNC_SHIFT                       30                                        /**< Shift value for MODEM_FASTRESYNC            */
 #define _MODEM_TIMING_FASTRESYNC_MASK                        0xC0000000UL                              /**< Bit mask for MODEM_FASTRESYNC               */
 #define _MODEM_TIMING_FASTRESYNC_DEFAULT                     0x00000000UL                              /**< Mode DEFAULT for MODEM_TIMING               */
-#define _MODEM_TIMING_FASTRESYNC_DIS                         0x00000000UL                              /**< Mode DIS for MODEM_TIMING                    */
-#define _MODEM_TIMING_FASTRESYNC_PREDET                      0x00000001UL                              /**< Mode PREDET for MODEM_TIMING                 */
-#define _MODEM_TIMING_FASTRESYNC_FRAMEDET                    0x00000002UL                              /**< Mode FRAMEDET for MODEM_TIMING               */
+#define _MODEM_TIMING_FASTRESYNC_DIS                         0x00000000UL                              /**< Mode DIS for MODEM_TIMING                   */
+#define _MODEM_TIMING_FASTRESYNC_PREDET                      0x00000001UL                              /**< Mode PREDET for MODEM_TIMING                */
+#define _MODEM_TIMING_FASTRESYNC_FRAMEDET                    0x00000002UL                              /**< Mode FRAMEDET for MODEM_TIMING              */
 #define MODEM_TIMING_FASTRESYNC_DEFAULT                      (_MODEM_TIMING_FASTRESYNC_DEFAULT << 30)  /**< Shifted mode DEFAULT for MODEM_TIMING       */
-#define MODEM_TIMING_FASTRESYNC_DIS                          (_MODEM_TIMING_FASTRESYNC_DIS << 30)      /**< Shifted mode DIS for MODEM_TIMING            */
-#define MODEM_TIMING_FASTRESYNC_PREDET                       (_MODEM_TIMING_FASTRESYNC_PREDET << 30)   /**< Shifted mode PREDET for MODEM_TIMING         */
-#define MODEM_TIMING_FASTRESYNC_FRAMEDET                     (_MODEM_TIMING_FASTRESYNC_FRAMEDET << 30) /**< Shifted mode FRAMEDET for MODEM_TIMING       */
+#define MODEM_TIMING_FASTRESYNC_DIS                          (_MODEM_TIMING_FASTRESYNC_DIS << 30)      /**< Shifted mode DIS for MODEM_TIMING           */
+#define MODEM_TIMING_FASTRESYNC_PREDET                       (_MODEM_TIMING_FASTRESYNC_PREDET << 30)   /**< Shifted mode PREDET for MODEM_TIMING        */
+#define MODEM_TIMING_FASTRESYNC_FRAMEDET                     (_MODEM_TIMING_FASTRESYNC_FRAMEDET << 30) /**< Shifted mode FRAMEDET for MODEM_TIMING      */
 
 /* Bit fields for MODEM DSSS0 */
 #define _MODEM_DSSS0_RESETVALUE                              0x00000000UL                      /**< Default value for MODEM_DSSS0               */
@@ -1489,31 +1488,31 @@ typedef struct {
 #define _MODEM_AFC_AFCRXMODE_SHIFT                           10                                             /**< Shift value for MODEM_AFCRXMODE             */
 #define _MODEM_AFC_AFCRXMODE_MASK                            0x1C00UL                                       /**< Bit mask for MODEM_AFCRXMODE                */
 #define _MODEM_AFC_AFCRXMODE_DEFAULT                         0x00000000UL                                   /**< Mode DEFAULT for MODEM_AFC                  */
-#define _MODEM_AFC_AFCRXMODE_DIS                             0x00000000UL                                   /**< Mode DIS for MODEM_AFC                       */
-#define _MODEM_AFC_AFCRXMODE_FREE                            0x00000001UL                                   /**< Mode FREE for MODEM_AFC                      */
-#define _MODEM_AFC_AFCRXMODE_FREEPRESTART                    0x00000002UL                                   /**< Mode FREEPRESTART for MODEM_AFC              */
-#define _MODEM_AFC_AFCRXMODE_TIMLOCK                         0x00000003UL                                   /**< Mode TIMLOCK for MODEM_AFC                   */
-#define _MODEM_AFC_AFCRXMODE_PRELOCK                         0x00000004UL                                   /**< Mode PRELOCK for MODEM_AFC                   */
-#define _MODEM_AFC_AFCRXMODE_FRAMELOCK                       0x00000005UL                                   /**< Mode FRAMELOCK for MODEM_AFC                 */
-#define _MODEM_AFC_AFCRXMODE_FRAMELOCKPRESTART               0x00000006UL                                   /**< Mode FRAMELOCKPRESTART for MODEM_AFC         */
+#define _MODEM_AFC_AFCRXMODE_DIS                             0x00000000UL                                   /**< Mode DIS for MODEM_AFC                      */
+#define _MODEM_AFC_AFCRXMODE_FREE                            0x00000001UL                                   /**< Mode FREE for MODEM_AFC                     */
+#define _MODEM_AFC_AFCRXMODE_FREEPRESTART                    0x00000002UL                                   /**< Mode FREEPRESTART for MODEM_AFC             */
+#define _MODEM_AFC_AFCRXMODE_TIMLOCK                         0x00000003UL                                   /**< Mode TIMLOCK for MODEM_AFC                  */
+#define _MODEM_AFC_AFCRXMODE_PRELOCK                         0x00000004UL                                   /**< Mode PRELOCK for MODEM_AFC                  */
+#define _MODEM_AFC_AFCRXMODE_FRAMELOCK                       0x00000005UL                                   /**< Mode FRAMELOCK for MODEM_AFC                */
+#define _MODEM_AFC_AFCRXMODE_FRAMELOCKPRESTART               0x00000006UL                                   /**< Mode FRAMELOCKPRESTART for MODEM_AFC        */
 #define MODEM_AFC_AFCRXMODE_DEFAULT                          (_MODEM_AFC_AFCRXMODE_DEFAULT << 10)           /**< Shifted mode DEFAULT for MODEM_AFC          */
-#define MODEM_AFC_AFCRXMODE_DIS                              (_MODEM_AFC_AFCRXMODE_DIS << 10)               /**< Shifted mode DIS for MODEM_AFC               */
-#define MODEM_AFC_AFCRXMODE_FREE                             (_MODEM_AFC_AFCRXMODE_FREE << 10)              /**< Shifted mode FREE for MODEM_AFC              */
-#define MODEM_AFC_AFCRXMODE_FREEPRESTART                     (_MODEM_AFC_AFCRXMODE_FREEPRESTART << 10)      /**< Shifted mode FREEPRESTART for MODEM_AFC      */
-#define MODEM_AFC_AFCRXMODE_TIMLOCK                          (_MODEM_AFC_AFCRXMODE_TIMLOCK << 10)           /**< Shifted mode TIMLOCK for MODEM_AFC           */
-#define MODEM_AFC_AFCRXMODE_PRELOCK                          (_MODEM_AFC_AFCRXMODE_PRELOCK << 10)           /**< Shifted mode PRELOCK for MODEM_AFC           */
-#define MODEM_AFC_AFCRXMODE_FRAMELOCK                        (_MODEM_AFC_AFCRXMODE_FRAMELOCK << 10)         /**< Shifted mode FRAMELOCK for MODEM_AFC         */
-#define MODEM_AFC_AFCRXMODE_FRAMELOCKPRESTART                (_MODEM_AFC_AFCRXMODE_FRAMELOCKPRESTART << 10) /**< Shifted mode FRAMELOCKPRESTART for MODEM_AFC */
+#define MODEM_AFC_AFCRXMODE_DIS                              (_MODEM_AFC_AFCRXMODE_DIS << 10)               /**< Shifted mode DIS for MODEM_AFC              */
+#define MODEM_AFC_AFCRXMODE_FREE                             (_MODEM_AFC_AFCRXMODE_FREE << 10)              /**< Shifted mode FREE for MODEM_AFC             */
+#define MODEM_AFC_AFCRXMODE_FREEPRESTART                     (_MODEM_AFC_AFCRXMODE_FREEPRESTART << 10)      /**< Shifted mode FREEPRESTART for MODEM_AFC     */
+#define MODEM_AFC_AFCRXMODE_TIMLOCK                          (_MODEM_AFC_AFCRXMODE_TIMLOCK << 10)           /**< Shifted mode TIMLOCK for MODEM_AFC          */
+#define MODEM_AFC_AFCRXMODE_PRELOCK                          (_MODEM_AFC_AFCRXMODE_PRELOCK << 10)           /**< Shifted mode PRELOCK for MODEM_AFC          */
+#define MODEM_AFC_AFCRXMODE_FRAMELOCK                        (_MODEM_AFC_AFCRXMODE_FRAMELOCK << 10)         /**< Shifted mode FRAMELOCK for MODEM_AFC        */
+#define MODEM_AFC_AFCRXMODE_FRAMELOCKPRESTART                (_MODEM_AFC_AFCRXMODE_FRAMELOCKPRESTART << 10) /**< Shifted mode FRAMELOCKPRESTART for MODEM_AFC*/
 #define _MODEM_AFC_AFCTXMODE_SHIFT                           13                                             /**< Shift value for MODEM_AFCTXMODE             */
 #define _MODEM_AFC_AFCTXMODE_MASK                            0x6000UL                                       /**< Bit mask for MODEM_AFCTXMODE                */
 #define _MODEM_AFC_AFCTXMODE_DEFAULT                         0x00000000UL                                   /**< Mode DEFAULT for MODEM_AFC                  */
-#define _MODEM_AFC_AFCTXMODE_DIS                             0x00000000UL                                   /**< Mode DIS for MODEM_AFC                       */
-#define _MODEM_AFC_AFCTXMODE_PRELOCK                         0x00000001UL                                   /**< Mode PRELOCK for MODEM_AFC                   */
-#define _MODEM_AFC_AFCTXMODE_FRAMELOCK                       0x00000002UL                                   /**< Mode FRAMELOCK for MODEM_AFC                 */
+#define _MODEM_AFC_AFCTXMODE_DIS                             0x00000000UL                                   /**< Mode DIS for MODEM_AFC                      */
+#define _MODEM_AFC_AFCTXMODE_PRELOCK                         0x00000001UL                                   /**< Mode PRELOCK for MODEM_AFC                  */
+#define _MODEM_AFC_AFCTXMODE_FRAMELOCK                       0x00000002UL                                   /**< Mode FRAMELOCK for MODEM_AFC                */
 #define MODEM_AFC_AFCTXMODE_DEFAULT                          (_MODEM_AFC_AFCTXMODE_DEFAULT << 13)           /**< Shifted mode DEFAULT for MODEM_AFC          */
-#define MODEM_AFC_AFCTXMODE_DIS                              (_MODEM_AFC_AFCTXMODE_DIS << 13)               /**< Shifted mode DIS for MODEM_AFC               */
-#define MODEM_AFC_AFCTXMODE_PRELOCK                          (_MODEM_AFC_AFCTXMODE_PRELOCK << 13)           /**< Shifted mode PRELOCK for MODEM_AFC           */
-#define MODEM_AFC_AFCTXMODE_FRAMELOCK                        (_MODEM_AFC_AFCTXMODE_FRAMELOCK << 13)         /**< Shifted mode FRAMELOCK for MODEM_AFC         */
+#define MODEM_AFC_AFCTXMODE_DIS                              (_MODEM_AFC_AFCTXMODE_DIS << 13)               /**< Shifted mode DIS for MODEM_AFC              */
+#define MODEM_AFC_AFCTXMODE_PRELOCK                          (_MODEM_AFC_AFCTXMODE_PRELOCK << 13)           /**< Shifted mode PRELOCK for MODEM_AFC          */
+#define MODEM_AFC_AFCTXMODE_FRAMELOCK                        (_MODEM_AFC_AFCTXMODE_FRAMELOCK << 13)         /**< Shifted mode FRAMELOCK for MODEM_AFC        */
 #define MODEM_AFC_AFCRXCLR                                   (0x1UL << 15)                                  /**< AFCRX clear mode                            */
 #define _MODEM_AFC_AFCRXCLR_SHIFT                            15                                             /**< Shift value for MODEM_AFCRXCLR              */
 #define _MODEM_AFC_AFCRXCLR_MASK                             0x8000UL                                       /**< Bit mask for MODEM_AFCRXCLR                 */
@@ -1811,15 +1810,15 @@ typedef struct {
 #define _MODEM_DCCOMP_DCLIMIT_SHIFT                          7                                          /**< Shift value for MODEM_DCLIMIT               */
 #define _MODEM_DCCOMP_DCLIMIT_MASK                           0x180UL                                    /**< Bit mask for MODEM_DCLIMIT                  */
 #define _MODEM_DCCOMP_DCLIMIT_DEFAULT                        0x00000000UL                               /**< Mode DEFAULT for MODEM_DCCOMP               */
-#define _MODEM_DCCOMP_DCLIMIT_FULLSCALE                      0x00000000UL                               /**< Mode FULLSCALE for MODEM_DCCOMP              */
-#define _MODEM_DCCOMP_DCLIMIT_FULLSCALEBY4                   0x00000001UL                               /**< Mode FULLSCALEBY4 for MODEM_DCCOMP           */
-#define _MODEM_DCCOMP_DCLIMIT_FULLSCALEBY8                   0x00000002UL                               /**< Mode FULLSCALEBY8 for MODEM_DCCOMP           */
-#define _MODEM_DCCOMP_DCLIMIT_FULLSCALEBY16                  0x00000003UL                               /**< Mode FULLSCALEBY16 for MODEM_DCCOMP          */
+#define _MODEM_DCCOMP_DCLIMIT_FULLSCALE                      0x00000000UL                               /**< Mode FULLSCALE for MODEM_DCCOMP             */
+#define _MODEM_DCCOMP_DCLIMIT_FULLSCALEBY4                   0x00000001UL                               /**< Mode FULLSCALEBY4 for MODEM_DCCOMP          */
+#define _MODEM_DCCOMP_DCLIMIT_FULLSCALEBY8                   0x00000002UL                               /**< Mode FULLSCALEBY8 for MODEM_DCCOMP          */
+#define _MODEM_DCCOMP_DCLIMIT_FULLSCALEBY16                  0x00000003UL                               /**< Mode FULLSCALEBY16 for MODEM_DCCOMP         */
 #define MODEM_DCCOMP_DCLIMIT_DEFAULT                         (_MODEM_DCCOMP_DCLIMIT_DEFAULT << 7)       /**< Shifted mode DEFAULT for MODEM_DCCOMP       */
-#define MODEM_DCCOMP_DCLIMIT_FULLSCALE                       (_MODEM_DCCOMP_DCLIMIT_FULLSCALE << 7)     /**< Shifted mode FULLSCALE for MODEM_DCCOMP      */
-#define MODEM_DCCOMP_DCLIMIT_FULLSCALEBY4                    (_MODEM_DCCOMP_DCLIMIT_FULLSCALEBY4 << 7)  /**< Shifted mode FULLSCALEBY4 for MODEM_DCCOMP   */
-#define MODEM_DCCOMP_DCLIMIT_FULLSCALEBY8                    (_MODEM_DCCOMP_DCLIMIT_FULLSCALEBY8 << 7)  /**< Shifted mode FULLSCALEBY8 for MODEM_DCCOMP   */
-#define MODEM_DCCOMP_DCLIMIT_FULLSCALEBY16                   (_MODEM_DCCOMP_DCLIMIT_FULLSCALEBY16 << 7) /**< Shifted mode FULLSCALEBY16 for MODEM_DCCOMP  */
+#define MODEM_DCCOMP_DCLIMIT_FULLSCALE                       (_MODEM_DCCOMP_DCLIMIT_FULLSCALE << 7)     /**< Shifted mode FULLSCALE for MODEM_DCCOMP     */
+#define MODEM_DCCOMP_DCLIMIT_FULLSCALEBY4                    (_MODEM_DCCOMP_DCLIMIT_FULLSCALEBY4 << 7)  /**< Shifted mode FULLSCALEBY4 for MODEM_DCCOMP  */
+#define MODEM_DCCOMP_DCLIMIT_FULLSCALEBY8                    (_MODEM_DCCOMP_DCLIMIT_FULLSCALEBY8 << 7)  /**< Shifted mode FULLSCALEBY8 for MODEM_DCCOMP  */
+#define MODEM_DCCOMP_DCLIMIT_FULLSCALEBY16                   (_MODEM_DCCOMP_DCLIMIT_FULLSCALEBY16 << 7) /**< Shifted mode FULLSCALEBY16 for MODEM_DCCOMP */
 
 /* Bit fields for MODEM DCCOMPFILTINIT */
 #define _MODEM_DCCOMPFILTINIT_RESETVALUE                     0x00000000UL                                         /**< Default value for MODEM_DCCOMPFILTINIT      */
@@ -1874,15 +1873,15 @@ typedef struct {
 #define _MODEM_SRCCHF_BWSEL_SHIFT                            29                                       /**< Shift value for MODEM_BWSEL                 */
 #define _MODEM_SRCCHF_BWSEL_MASK                             0x60000000UL                             /**< Bit mask for MODEM_BWSEL                    */
 #define _MODEM_SRCCHF_BWSEL_DEFAULT                          0x00000000UL                             /**< Mode DEFAULT for MODEM_SRCCHF               */
-#define _MODEM_SRCCHF_BWSEL_X0                               0x00000000UL                             /**< Mode X0 for MODEM_SRCCHF                     */
-#define _MODEM_SRCCHF_BWSEL_X1                               0x00000001UL                             /**< Mode X1 for MODEM_SRCCHF                     */
-#define _MODEM_SRCCHF_BWSEL_X2                               0x00000002UL                             /**< Mode X2 for MODEM_SRCCHF                     */
-#define _MODEM_SRCCHF_BWSEL_X3                               0x00000003UL                             /**< Mode X3 for MODEM_SRCCHF                     */
+#define _MODEM_SRCCHF_BWSEL_X0                               0x00000000UL                             /**< Mode X0 for MODEM_SRCCHF                    */
+#define _MODEM_SRCCHF_BWSEL_X1                               0x00000001UL                             /**< Mode X1 for MODEM_SRCCHF                    */
+#define _MODEM_SRCCHF_BWSEL_X2                               0x00000002UL                             /**< Mode X2 for MODEM_SRCCHF                    */
+#define _MODEM_SRCCHF_BWSEL_X3                               0x00000003UL                             /**< Mode X3 for MODEM_SRCCHF                    */
 #define MODEM_SRCCHF_BWSEL_DEFAULT                           (_MODEM_SRCCHF_BWSEL_DEFAULT << 29)      /**< Shifted mode DEFAULT for MODEM_SRCCHF       */
-#define MODEM_SRCCHF_BWSEL_X0                                (_MODEM_SRCCHF_BWSEL_X0 << 29)           /**< Shifted mode X0 for MODEM_SRCCHF             */
-#define MODEM_SRCCHF_BWSEL_X1                                (_MODEM_SRCCHF_BWSEL_X1 << 29)           /**< Shifted mode X1 for MODEM_SRCCHF             */
-#define MODEM_SRCCHF_BWSEL_X2                                (_MODEM_SRCCHF_BWSEL_X2 << 29)           /**< Shifted mode X2 for MODEM_SRCCHF             */
-#define MODEM_SRCCHF_BWSEL_X3                                (_MODEM_SRCCHF_BWSEL_X3 << 29)           /**< Shifted mode X3 for MODEM_SRCCHF             */
+#define MODEM_SRCCHF_BWSEL_X0                                (_MODEM_SRCCHF_BWSEL_X0 << 29)           /**< Shifted mode X0 for MODEM_SRCCHF            */
+#define MODEM_SRCCHF_BWSEL_X1                                (_MODEM_SRCCHF_BWSEL_X1 << 29)           /**< Shifted mode X1 for MODEM_SRCCHF            */
+#define MODEM_SRCCHF_BWSEL_X2                                (_MODEM_SRCCHF_BWSEL_X2 << 29)           /**< Shifted mode X2 for MODEM_SRCCHF            */
+#define MODEM_SRCCHF_BWSEL_X3                                (_MODEM_SRCCHF_BWSEL_X3 << 29)           /**< Shifted mode X3 for MODEM_SRCCHF            */
 #define MODEM_SRCCHF_INTOSR                                  (0x1UL << 31)                            /**< Forcing Integer OSR                         */
 #define _MODEM_SRCCHF_INTOSR_SHIFT                           31                                       /**< Shift value for MODEM_INTOSR                */
 #define _MODEM_SRCCHF_INTOSR_MASK                            0x80000000UL                             /**< Bit mask for MODEM_INTOSR                   */
@@ -1955,15 +1954,15 @@ typedef struct {
 #define _MODEM_DSATHD1_POWRELTHD_SHIFT                       16                                        /**< Shift value for MODEM_POWRELTHD             */
 #define _MODEM_DSATHD1_POWRELTHD_MASK                        0x30000UL                                 /**< Bit mask for MODEM_POWRELTHD                */
 #define _MODEM_DSATHD1_POWRELTHD_DEFAULT                     0x00000000UL                              /**< Mode DEFAULT for MODEM_DSATHD1              */
-#define _MODEM_DSATHD1_POWRELTHD_DISABLED                    0x00000000UL                              /**< Mode DISABLED for MODEM_DSATHD1              */
-#define _MODEM_DSATHD1_POWRELTHD_MODE1                       0x00000001UL                              /**< Mode MODE1 for MODEM_DSATHD1                 */
-#define _MODEM_DSATHD1_POWRELTHD_MODE2                       0x00000002UL                              /**< Mode MODE2 for MODEM_DSATHD1                 */
-#define _MODEM_DSATHD1_POWRELTHD_MODE3                       0x00000003UL                              /**< Mode MODE3 for MODEM_DSATHD1                 */
+#define _MODEM_DSATHD1_POWRELTHD_DISABLED                    0x00000000UL                              /**< Mode DISABLED for MODEM_DSATHD1             */
+#define _MODEM_DSATHD1_POWRELTHD_MODE1                       0x00000001UL                              /**< Mode MODE1 for MODEM_DSATHD1                */
+#define _MODEM_DSATHD1_POWRELTHD_MODE2                       0x00000002UL                              /**< Mode MODE2 for MODEM_DSATHD1                */
+#define _MODEM_DSATHD1_POWRELTHD_MODE3                       0x00000003UL                              /**< Mode MODE3 for MODEM_DSATHD1                */
 #define MODEM_DSATHD1_POWRELTHD_DEFAULT                      (_MODEM_DSATHD1_POWRELTHD_DEFAULT << 16)  /**< Shifted mode DEFAULT for MODEM_DSATHD1      */
-#define MODEM_DSATHD1_POWRELTHD_DISABLED                     (_MODEM_DSATHD1_POWRELTHD_DISABLED << 16) /**< Shifted mode DISABLED for MODEM_DSATHD1      */
-#define MODEM_DSATHD1_POWRELTHD_MODE1                        (_MODEM_DSATHD1_POWRELTHD_MODE1 << 16)    /**< Shifted mode MODE1 for MODEM_DSATHD1         */
-#define MODEM_DSATHD1_POWRELTHD_MODE2                        (_MODEM_DSATHD1_POWRELTHD_MODE2 << 16)    /**< Shifted mode MODE2 for MODEM_DSATHD1         */
-#define MODEM_DSATHD1_POWRELTHD_MODE3                        (_MODEM_DSATHD1_POWRELTHD_MODE3 << 16)    /**< Shifted mode MODE3 for MODEM_DSATHD1         */
+#define MODEM_DSATHD1_POWRELTHD_DISABLED                     (_MODEM_DSATHD1_POWRELTHD_DISABLED << 16) /**< Shifted mode DISABLED for MODEM_DSATHD1     */
+#define MODEM_DSATHD1_POWRELTHD_MODE1                        (_MODEM_DSATHD1_POWRELTHD_MODE1 << 16)    /**< Shifted mode MODE1 for MODEM_DSATHD1        */
+#define MODEM_DSATHD1_POWRELTHD_MODE2                        (_MODEM_DSATHD1_POWRELTHD_MODE2 << 16)    /**< Shifted mode MODE2 for MODEM_DSATHD1        */
+#define MODEM_DSATHD1_POWRELTHD_MODE3                        (_MODEM_DSATHD1_POWRELTHD_MODE3 << 16)    /**< Shifted mode MODE3 for MODEM_DSATHD1        */
 #define _MODEM_DSATHD1_DSARSTCNT_SHIFT                       18                                        /**< Shift value for MODEM_DSARSTCNT             */
 #define _MODEM_DSATHD1_DSARSTCNT_MASK                        0x1C0000UL                                /**< Bit mask for MODEM_DSARSTCNT                */
 #define _MODEM_DSATHD1_DSARSTCNT_DEFAULT                     0x00000002UL                              /**< Mode DEFAULT for MODEM_DSATHD1              */
@@ -2003,11 +2002,11 @@ typedef struct {
 #define _MODEM_DSACTRL_DSAMODE_SHIFT                         0                                           /**< Shift value for MODEM_DSAMODE               */
 #define _MODEM_DSACTRL_DSAMODE_MASK                          0x3UL                                       /**< Bit mask for MODEM_DSAMODE                  */
 #define _MODEM_DSACTRL_DSAMODE_DEFAULT                       0x00000000UL                                /**< Mode DEFAULT for MODEM_DSACTRL              */
-#define _MODEM_DSACTRL_DSAMODE_DISABLED                      0x00000000UL                                /**< Mode DISABLED for MODEM_DSACTRL              */
-#define _MODEM_DSACTRL_DSAMODE_ENABLED                       0x00000001UL                                /**< Mode ENABLED for MODEM_DSACTRL               */
+#define _MODEM_DSACTRL_DSAMODE_DISABLED                      0x00000000UL                                /**< Mode DISABLED for MODEM_DSACTRL             */
+#define _MODEM_DSACTRL_DSAMODE_ENABLED                       0x00000001UL                                /**< Mode ENABLED for MODEM_DSACTRL              */
 #define MODEM_DSACTRL_DSAMODE_DEFAULT                        (_MODEM_DSACTRL_DSAMODE_DEFAULT << 0)       /**< Shifted mode DEFAULT for MODEM_DSACTRL      */
-#define MODEM_DSACTRL_DSAMODE_DISABLED                       (_MODEM_DSACTRL_DSAMODE_DISABLED << 0)      /**< Shifted mode DISABLED for MODEM_DSACTRL      */
-#define MODEM_DSACTRL_DSAMODE_ENABLED                        (_MODEM_DSACTRL_DSAMODE_ENABLED << 0)       /**< Shifted mode ENABLED for MODEM_DSACTRL       */
+#define MODEM_DSACTRL_DSAMODE_DISABLED                       (_MODEM_DSACTRL_DSAMODE_DISABLED << 0)      /**< Shifted mode DISABLED for MODEM_DSACTRL     */
+#define MODEM_DSACTRL_DSAMODE_ENABLED                        (_MODEM_DSACTRL_DSAMODE_ENABLED << 0)       /**< Shifted mode ENABLED for MODEM_DSACTRL      */
 #define _MODEM_DSACTRL_ARRTHD_SHIFT                          2                                           /**< Shift value for MODEM_ARRTHD                */
 #define _MODEM_DSACTRL_ARRTHD_MASK                           0x3CUL                                      /**< Bit mask for MODEM_ARRTHD                   */
 #define _MODEM_DSACTRL_ARRTHD_DEFAULT                        0x00000004UL                                /**< Mode DEFAULT for MODEM_DSACTRL              */
@@ -2024,20 +2023,20 @@ typedef struct {
 #define _MODEM_DSACTRL_SCHPRD_SHIFT                          16                                          /**< Shift value for MODEM_SCHPRD                */
 #define _MODEM_DSACTRL_SCHPRD_MASK                           0x10000UL                                   /**< Bit mask for MODEM_SCHPRD                   */
 #define _MODEM_DSACTRL_SCHPRD_DEFAULT                        0x00000000UL                                /**< Mode DEFAULT for MODEM_DSACTRL              */
-#define _MODEM_DSACTRL_SCHPRD_TS2                            0x00000000UL                                /**< Mode TS2 for MODEM_DSACTRL                   */
-#define _MODEM_DSACTRL_SCHPRD_TS4                            0x00000001UL                                /**< Mode TS4 for MODEM_DSACTRL                   */
+#define _MODEM_DSACTRL_SCHPRD_TS2                            0x00000000UL                                /**< Mode TS2 for MODEM_DSACTRL                  */
+#define _MODEM_DSACTRL_SCHPRD_TS4                            0x00000001UL                                /**< Mode TS4 for MODEM_DSACTRL                  */
 #define MODEM_DSACTRL_SCHPRD_DEFAULT                         (_MODEM_DSACTRL_SCHPRD_DEFAULT << 16)       /**< Shifted mode DEFAULT for MODEM_DSACTRL      */
-#define MODEM_DSACTRL_SCHPRD_TS2                             (_MODEM_DSACTRL_SCHPRD_TS2 << 16)           /**< Shifted mode TS2 for MODEM_DSACTRL           */
-#define MODEM_DSACTRL_SCHPRD_TS4                             (_MODEM_DSACTRL_SCHPRD_TS4 << 16)           /**< Shifted mode TS4 for MODEM_DSACTRL           */
+#define MODEM_DSACTRL_SCHPRD_TS2                             (_MODEM_DSACTRL_SCHPRD_TS2 << 16)           /**< Shifted mode TS2 for MODEM_DSACTRL          */
+#define MODEM_DSACTRL_SCHPRD_TS4                             (_MODEM_DSACTRL_SCHPRD_TS4 << 16)           /**< Shifted mode TS4 for MODEM_DSACTRL          */
 #define MODEM_DSACTRL_FREQAVGSYM                             (0x1UL << 17)                               /**< DSA frequency estimation averaging          */
 #define _MODEM_DSACTRL_FREQAVGSYM_SHIFT                      17                                          /**< Shift value for MODEM_FREQAVGSYM            */
 #define _MODEM_DSACTRL_FREQAVGSYM_MASK                       0x20000UL                                   /**< Bit mask for MODEM_FREQAVGSYM               */
 #define _MODEM_DSACTRL_FREQAVGSYM_DEFAULT                    0x00000001UL                                /**< Mode DEFAULT for MODEM_DSACTRL              */
-#define _MODEM_DSACTRL_FREQAVGSYM_AVG2TS                     0x00000000UL                                /**< Mode AVG2TS for MODEM_DSACTRL                */
-#define _MODEM_DSACTRL_FREQAVGSYM_AVG4TS                     0x00000001UL                                /**< Mode AVG4TS for MODEM_DSACTRL                */
+#define _MODEM_DSACTRL_FREQAVGSYM_AVG2TS                     0x00000000UL                                /**< Mode AVG2TS for MODEM_DSACTRL               */
+#define _MODEM_DSACTRL_FREQAVGSYM_AVG4TS                     0x00000001UL                                /**< Mode AVG4TS for MODEM_DSACTRL               */
 #define MODEM_DSACTRL_FREQAVGSYM_DEFAULT                     (_MODEM_DSACTRL_FREQAVGSYM_DEFAULT << 17)   /**< Shifted mode DEFAULT for MODEM_DSACTRL      */
-#define MODEM_DSACTRL_FREQAVGSYM_AVG2TS                      (_MODEM_DSACTRL_FREQAVGSYM_AVG2TS << 17)    /**< Shifted mode AVG2TS for MODEM_DSACTRL        */
-#define MODEM_DSACTRL_FREQAVGSYM_AVG4TS                      (_MODEM_DSACTRL_FREQAVGSYM_AVG4TS << 17)    /**< Shifted mode AVG4TS for MODEM_DSACTRL        */
+#define MODEM_DSACTRL_FREQAVGSYM_AVG2TS                      (_MODEM_DSACTRL_FREQAVGSYM_AVG2TS << 17)    /**< Shifted mode AVG2TS for MODEM_DSACTRL       */
+#define MODEM_DSACTRL_FREQAVGSYM_AVG4TS                      (_MODEM_DSACTRL_FREQAVGSYM_AVG4TS << 17)    /**< Shifted mode AVG4TS for MODEM_DSACTRL       */
 #define MODEM_DSACTRL_TRANRSTDSA                             (0x1UL << 18)                               /**< power transient detector Reset DSA          */
 #define _MODEM_DSACTRL_TRANRSTDSA_SHIFT                      18                                          /**< Shift value for MODEM_TRANRSTDSA            */
 #define _MODEM_DSACTRL_TRANRSTDSA_MASK                       0x40000UL                                   /**< Bit mask for MODEM_TRANRSTDSA               */
@@ -2134,11 +2133,11 @@ typedef struct {
 #define _MODEM_DIGMIXCTRL_DIGMIXMODE_SHIFT                   20                                              /**< Shift value for MODEM_DIGMIXMODE            */
 #define _MODEM_DIGMIXCTRL_DIGMIXMODE_MASK                    0x100000UL                                      /**< Bit mask for MODEM_DIGMIXMODE               */
 #define _MODEM_DIGMIXCTRL_DIGMIXMODE_DEFAULT                 0x00000000UL                                    /**< Mode DEFAULT for MODEM_DIGMIXCTRL           */
-#define _MODEM_DIGMIXCTRL_DIGMIXMODE_CFOSR                   0x00000000UL                                    /**< Mode CFOSR for MODEM_DIGMIXCTRL              */
-#define _MODEM_DIGMIXCTRL_DIGMIXMODE_DIGMIXFREQ              0x00000001UL                                    /**< Mode DIGMIXFREQ for MODEM_DIGMIXCTRL         */
+#define _MODEM_DIGMIXCTRL_DIGMIXMODE_CFOSR                   0x00000000UL                                    /**< Mode CFOSR for MODEM_DIGMIXCTRL             */
+#define _MODEM_DIGMIXCTRL_DIGMIXMODE_DIGMIXFREQ              0x00000001UL                                    /**< Mode DIGMIXFREQ for MODEM_DIGMIXCTRL        */
 #define MODEM_DIGMIXCTRL_DIGMIXMODE_DEFAULT                  (_MODEM_DIGMIXCTRL_DIGMIXMODE_DEFAULT << 20)    /**< Shifted mode DEFAULT for MODEM_DIGMIXCTRL   */
-#define MODEM_DIGMIXCTRL_DIGMIXMODE_CFOSR                    (_MODEM_DIGMIXCTRL_DIGMIXMODE_CFOSR << 20)      /**< Shifted mode CFOSR for MODEM_DIGMIXCTRL      */
-#define MODEM_DIGMIXCTRL_DIGMIXMODE_DIGMIXFREQ               (_MODEM_DIGMIXCTRL_DIGMIXMODE_DIGMIXFREQ << 20) /**< Shifted mode DIGMIXFREQ for MODEM_DIGMIXCTRL */
+#define MODEM_DIGMIXCTRL_DIGMIXMODE_CFOSR                    (_MODEM_DIGMIXCTRL_DIGMIXMODE_CFOSR << 20)      /**< Shifted mode CFOSR for MODEM_DIGMIXCTRL     */
+#define MODEM_DIGMIXCTRL_DIGMIXMODE_DIGMIXFREQ               (_MODEM_DIGMIXCTRL_DIGMIXMODE_DIGMIXFREQ << 20) /**< Shifted mode DIGMIXFREQ for MODEM_DIGMIXCTRL*/
 #define MODEM_DIGMIXCTRL_MIXERCONJ                           (0x1UL << 21)                                   /**< Digital mixer input conjugate               */
 #define _MODEM_DIGMIXCTRL_MIXERCONJ_SHIFT                    21                                              /**< Shift value for MODEM_MIXERCONJ             */
 #define _MODEM_DIGMIXCTRL_MIXERCONJ_MASK                     0x200000UL                                      /**< Bit mask for MODEM_MIXERCONJ                */
@@ -2175,15 +2174,15 @@ typedef struct {
 #define _MODEM_VTTRACK_FREQTRACKMODE_SHIFT                   0                                            /**< Shift value for MODEM_FREQTRACKMODE         */
 #define _MODEM_VTTRACK_FREQTRACKMODE_MASK                    0x3UL                                        /**< Bit mask for MODEM_FREQTRACKMODE            */
 #define _MODEM_VTTRACK_FREQTRACKMODE_DEFAULT                 0x00000000UL                                 /**< Mode DEFAULT for MODEM_VTTRACK              */
-#define _MODEM_VTTRACK_FREQTRACKMODE_DISABLED                0x00000000UL                                 /**< Mode DISABLED for MODEM_VTTRACK              */
-#define _MODEM_VTTRACK_FREQTRACKMODE_MODE1                   0x00000001UL                                 /**< Mode MODE1 for MODEM_VTTRACK                 */
-#define _MODEM_VTTRACK_FREQTRACKMODE_MODE2                   0x00000002UL                                 /**< Mode MODE2 for MODEM_VTTRACK                 */
-#define _MODEM_VTTRACK_FREQTRACKMODE_MODE3                   0x00000003UL                                 /**< Mode MODE3 for MODEM_VTTRACK                 */
+#define _MODEM_VTTRACK_FREQTRACKMODE_DISABLED                0x00000000UL                                 /**< Mode DISABLED for MODEM_VTTRACK             */
+#define _MODEM_VTTRACK_FREQTRACKMODE_MODE1                   0x00000001UL                                 /**< Mode MODE1 for MODEM_VTTRACK                */
+#define _MODEM_VTTRACK_FREQTRACKMODE_MODE2                   0x00000002UL                                 /**< Mode MODE2 for MODEM_VTTRACK                */
+#define _MODEM_VTTRACK_FREQTRACKMODE_MODE3                   0x00000003UL                                 /**< Mode MODE3 for MODEM_VTTRACK                */
 #define MODEM_VTTRACK_FREQTRACKMODE_DEFAULT                  (_MODEM_VTTRACK_FREQTRACKMODE_DEFAULT << 0)  /**< Shifted mode DEFAULT for MODEM_VTTRACK      */
-#define MODEM_VTTRACK_FREQTRACKMODE_DISABLED                 (_MODEM_VTTRACK_FREQTRACKMODE_DISABLED << 0) /**< Shifted mode DISABLED for MODEM_VTTRACK      */
-#define MODEM_VTTRACK_FREQTRACKMODE_MODE1                    (_MODEM_VTTRACK_FREQTRACKMODE_MODE1 << 0)    /**< Shifted mode MODE1 for MODEM_VTTRACK         */
-#define MODEM_VTTRACK_FREQTRACKMODE_MODE2                    (_MODEM_VTTRACK_FREQTRACKMODE_MODE2 << 0)    /**< Shifted mode MODE2 for MODEM_VTTRACK         */
-#define MODEM_VTTRACK_FREQTRACKMODE_MODE3                    (_MODEM_VTTRACK_FREQTRACKMODE_MODE3 << 0)    /**< Shifted mode MODE3 for MODEM_VTTRACK         */
+#define MODEM_VTTRACK_FREQTRACKMODE_DISABLED                 (_MODEM_VTTRACK_FREQTRACKMODE_DISABLED << 0) /**< Shifted mode DISABLED for MODEM_VTTRACK     */
+#define MODEM_VTTRACK_FREQTRACKMODE_MODE1                    (_MODEM_VTTRACK_FREQTRACKMODE_MODE1 << 0)    /**< Shifted mode MODE1 for MODEM_VTTRACK        */
+#define MODEM_VTTRACK_FREQTRACKMODE_MODE2                    (_MODEM_VTTRACK_FREQTRACKMODE_MODE2 << 0)    /**< Shifted mode MODE2 for MODEM_VTTRACK        */
+#define MODEM_VTTRACK_FREQTRACKMODE_MODE3                    (_MODEM_VTTRACK_FREQTRACKMODE_MODE3 << 0)    /**< Shifted mode MODE3 for MODEM_VTTRACK        */
 #define _MODEM_VTTRACK_TIMTRACKTHD_SHIFT                     2                                            /**< Shift value for MODEM_TIMTRACKTHD           */
 #define _MODEM_VTTRACK_TIMTRACKTHD_MASK                      0x3CUL                                       /**< Bit mask for MODEM_TIMTRACKTHD              */
 #define _MODEM_VTTRACK_TIMTRACKTHD_DEFAULT                   0x00000002UL                                 /**< Mode DEFAULT for MODEM_VTTRACK              */
@@ -2205,13 +2204,13 @@ typedef struct {
 #define _MODEM_VTTRACK_TIMGEAR_SHIFT                         16                                           /**< Shift value for MODEM_TIMGEAR               */
 #define _MODEM_VTTRACK_TIMGEAR_MASK                          0x30000UL                                    /**< Bit mask for MODEM_TIMGEAR                  */
 #define _MODEM_VTTRACK_TIMGEAR_DEFAULT                       0x00000000UL                                 /**< Mode DEFAULT for MODEM_VTTRACK              */
-#define _MODEM_VTTRACK_TIMGEAR_GEAR0                         0x00000000UL                                 /**< Mode GEAR0 for MODEM_VTTRACK                 */
-#define _MODEM_VTTRACK_TIMGEAR_GEAR1                         0x00000001UL                                 /**< Mode GEAR1 for MODEM_VTTRACK                 */
-#define _MODEM_VTTRACK_TIMGEAR_GEAR2                         0x00000002UL                                 /**< Mode GEAR2 for MODEM_VTTRACK                 */
+#define _MODEM_VTTRACK_TIMGEAR_GEAR0                         0x00000000UL                                 /**< Mode GEAR0 for MODEM_VTTRACK                */
+#define _MODEM_VTTRACK_TIMGEAR_GEAR1                         0x00000001UL                                 /**< Mode GEAR1 for MODEM_VTTRACK                */
+#define _MODEM_VTTRACK_TIMGEAR_GEAR2                         0x00000002UL                                 /**< Mode GEAR2 for MODEM_VTTRACK                */
 #define MODEM_VTTRACK_TIMGEAR_DEFAULT                        (_MODEM_VTTRACK_TIMGEAR_DEFAULT << 16)       /**< Shifted mode DEFAULT for MODEM_VTTRACK      */
-#define MODEM_VTTRACK_TIMGEAR_GEAR0                          (_MODEM_VTTRACK_TIMGEAR_GEAR0 << 16)         /**< Shifted mode GEAR0 for MODEM_VTTRACK         */
-#define MODEM_VTTRACK_TIMGEAR_GEAR1                          (_MODEM_VTTRACK_TIMGEAR_GEAR1 << 16)         /**< Shifted mode GEAR1 for MODEM_VTTRACK         */
-#define MODEM_VTTRACK_TIMGEAR_GEAR2                          (_MODEM_VTTRACK_TIMGEAR_GEAR2 << 16)         /**< Shifted mode GEAR2 for MODEM_VTTRACK         */
+#define MODEM_VTTRACK_TIMGEAR_GEAR0                          (_MODEM_VTTRACK_TIMGEAR_GEAR0 << 16)         /**< Shifted mode GEAR0 for MODEM_VTTRACK        */
+#define MODEM_VTTRACK_TIMGEAR_GEAR1                          (_MODEM_VTTRACK_TIMGEAR_GEAR1 << 16)         /**< Shifted mode GEAR1 for MODEM_VTTRACK        */
+#define MODEM_VTTRACK_TIMGEAR_GEAR2                          (_MODEM_VTTRACK_TIMGEAR_GEAR2 << 16)         /**< Shifted mode GEAR2 for MODEM_VTTRACK        */
 #define _MODEM_VTTRACK_FREQBIAS_SHIFT                        18                                           /**< Shift value for MODEM_FREQBIAS              */
 #define _MODEM_VTTRACK_FREQBIAS_MASK                         0x3C0000UL                                   /**< Bit mask for MODEM_FREQBIAS                 */
 #define _MODEM_VTTRACK_FREQBIAS_DEFAULT                      0x00000000UL                                 /**< Mode DEFAULT for MODEM_VTTRACK              */
@@ -2311,15 +2310,15 @@ typedef struct {
 #define _MODEM_DIRECTMODE_SYNCPREAM_SHIFT                    2                                          /**< Shift value for MODEM_SYNCPREAM             */
 #define _MODEM_DIRECTMODE_SYNCPREAM_MASK                     0xCUL                                      /**< Bit mask for MODEM_SYNCPREAM                */
 #define _MODEM_DIRECTMODE_SYNCPREAM_DEFAULT                  0x00000003UL                               /**< Mode DEFAULT for MODEM_DIRECTMODE           */
-#define _MODEM_DIRECTMODE_SYNCPREAM_ADD0                     0x00000000UL                               /**< Mode ADD0 for MODEM_DIRECTMODE               */
-#define _MODEM_DIRECTMODE_SYNCPREAM_ADD8                     0x00000001UL                               /**< Mode ADD8 for MODEM_DIRECTMODE               */
-#define _MODEM_DIRECTMODE_SYNCPREAM_ADD16                    0x00000002UL                               /**< Mode ADD16 for MODEM_DIRECTMODE              */
-#define _MODEM_DIRECTMODE_SYNCPREAM_ADD32                    0x00000003UL                               /**< Mode ADD32 for MODEM_DIRECTMODE              */
+#define _MODEM_DIRECTMODE_SYNCPREAM_ADD0                     0x00000000UL                               /**< Mode ADD0 for MODEM_DIRECTMODE              */
+#define _MODEM_DIRECTMODE_SYNCPREAM_ADD8                     0x00000001UL                               /**< Mode ADD8 for MODEM_DIRECTMODE              */
+#define _MODEM_DIRECTMODE_SYNCPREAM_ADD16                    0x00000002UL                               /**< Mode ADD16 for MODEM_DIRECTMODE             */
+#define _MODEM_DIRECTMODE_SYNCPREAM_ADD32                    0x00000003UL                               /**< Mode ADD32 for MODEM_DIRECTMODE             */
 #define MODEM_DIRECTMODE_SYNCPREAM_DEFAULT                   (_MODEM_DIRECTMODE_SYNCPREAM_DEFAULT << 2) /**< Shifted mode DEFAULT for MODEM_DIRECTMODE   */
-#define MODEM_DIRECTMODE_SYNCPREAM_ADD0                      (_MODEM_DIRECTMODE_SYNCPREAM_ADD0 << 2)    /**< Shifted mode ADD0 for MODEM_DIRECTMODE       */
-#define MODEM_DIRECTMODE_SYNCPREAM_ADD8                      (_MODEM_DIRECTMODE_SYNCPREAM_ADD8 << 2)    /**< Shifted mode ADD8 for MODEM_DIRECTMODE       */
-#define MODEM_DIRECTMODE_SYNCPREAM_ADD16                     (_MODEM_DIRECTMODE_SYNCPREAM_ADD16 << 2)   /**< Shifted mode ADD16 for MODEM_DIRECTMODE      */
-#define MODEM_DIRECTMODE_SYNCPREAM_ADD32                     (_MODEM_DIRECTMODE_SYNCPREAM_ADD32 << 2)   /**< Shifted mode ADD32 for MODEM_DIRECTMODE      */
+#define MODEM_DIRECTMODE_SYNCPREAM_ADD0                      (_MODEM_DIRECTMODE_SYNCPREAM_ADD0 << 2)    /**< Shifted mode ADD0 for MODEM_DIRECTMODE      */
+#define MODEM_DIRECTMODE_SYNCPREAM_ADD8                      (_MODEM_DIRECTMODE_SYNCPREAM_ADD8 << 2)    /**< Shifted mode ADD8 for MODEM_DIRECTMODE      */
+#define MODEM_DIRECTMODE_SYNCPREAM_ADD16                     (_MODEM_DIRECTMODE_SYNCPREAM_ADD16 << 2)   /**< Shifted mode ADD16 for MODEM_DIRECTMODE     */
+#define MODEM_DIRECTMODE_SYNCPREAM_ADD32                     (_MODEM_DIRECTMODE_SYNCPREAM_ADD32 << 2)   /**< Shifted mode ADD32 for MODEM_DIRECTMODE     */
 #define _MODEM_DIRECTMODE_CLKWIDTH_SHIFT                     8                                          /**< Shift value for MODEM_CLKWIDTH              */
 #define _MODEM_DIRECTMODE_CLKWIDTH_MASK                      0x1F00UL                                   /**< Bit mask for MODEM_CLKWIDTH                 */
 #define _MODEM_DIRECTMODE_CLKWIDTH_DEFAULT                   0x00000001UL                               /**< Mode DEFAULT for MODEM_DIRECTMODE           */
@@ -2374,13 +2373,13 @@ typedef struct {
 #define _MODEM_LONGRANGE1_CHPWRACCUDEL_SHIFT                 16                                                      /**< Shift value for MODEM_CHPWRACCUDEL          */
 #define _MODEM_LONGRANGE1_CHPWRACCUDEL_MASK                  0x30000UL                                               /**< Bit mask for MODEM_CHPWRACCUDEL             */
 #define _MODEM_LONGRANGE1_CHPWRACCUDEL_DEFAULT               0x00000000UL                                            /**< Mode DEFAULT for MODEM_LONGRANGE1           */
-#define _MODEM_LONGRANGE1_CHPWRACCUDEL_DEL0                  0x00000000UL                                            /**< Mode DEL0 for MODEM_LONGRANGE1               */
-#define _MODEM_LONGRANGE1_CHPWRACCUDEL_DEL32                 0x00000001UL                                            /**< Mode DEL32 for MODEM_LONGRANGE1              */
-#define _MODEM_LONGRANGE1_CHPWRACCUDEL_DEL64                 0x00000002UL                                            /**< Mode DEL64 for MODEM_LONGRANGE1              */
+#define _MODEM_LONGRANGE1_CHPWRACCUDEL_DEL0                  0x00000000UL                                            /**< Mode DEL0 for MODEM_LONGRANGE1              */
+#define _MODEM_LONGRANGE1_CHPWRACCUDEL_DEL32                 0x00000001UL                                            /**< Mode DEL32 for MODEM_LONGRANGE1             */
+#define _MODEM_LONGRANGE1_CHPWRACCUDEL_DEL64                 0x00000002UL                                            /**< Mode DEL64 for MODEM_LONGRANGE1             */
 #define MODEM_LONGRANGE1_CHPWRACCUDEL_DEFAULT                (_MODEM_LONGRANGE1_CHPWRACCUDEL_DEFAULT << 16)          /**< Shifted mode DEFAULT for MODEM_LONGRANGE1   */
-#define MODEM_LONGRANGE1_CHPWRACCUDEL_DEL0                   (_MODEM_LONGRANGE1_CHPWRACCUDEL_DEL0 << 16)             /**< Shifted mode DEL0 for MODEM_LONGRANGE1       */
-#define MODEM_LONGRANGE1_CHPWRACCUDEL_DEL32                  (_MODEM_LONGRANGE1_CHPWRACCUDEL_DEL32 << 16)            /**< Shifted mode DEL32 for MODEM_LONGRANGE1      */
-#define MODEM_LONGRANGE1_CHPWRACCUDEL_DEL64                  (_MODEM_LONGRANGE1_CHPWRACCUDEL_DEL64 << 16)            /**< Shifted mode DEL64 for MODEM_LONGRANGE1      */
+#define MODEM_LONGRANGE1_CHPWRACCUDEL_DEL0                   (_MODEM_LONGRANGE1_CHPWRACCUDEL_DEL0 << 16)             /**< Shifted mode DEL0 for MODEM_LONGRANGE1      */
+#define MODEM_LONGRANGE1_CHPWRACCUDEL_DEL32                  (_MODEM_LONGRANGE1_CHPWRACCUDEL_DEL32 << 16)            /**< Shifted mode DEL32 for MODEM_LONGRANGE1     */
+#define MODEM_LONGRANGE1_CHPWRACCUDEL_DEL64                  (_MODEM_LONGRANGE1_CHPWRACCUDEL_DEL64 << 16)            /**< Shifted mode DEL64 for MODEM_LONGRANGE1     */
 #define _MODEM_LONGRANGE1_HYSVAL_SHIFT                       18                                                      /**< Shift value for MODEM_HYSVAL                */
 #define _MODEM_LONGRANGE1_HYSVAL_MASK                        0x1C0000UL                                              /**< Bit mask for MODEM_HYSVAL                   */
 #define _MODEM_LONGRANGE1_HYSVAL_DEFAULT                     0x00000000UL                                            /**< Mode DEFAULT for MODEM_LONGRANGE1           */
@@ -2557,17 +2556,17 @@ typedef struct {
 #define _MODEM_COH0_COHDYNAMICPRETHRESHSEL_SHIFT             5                                                 /**< Shift value for MODEM_COHDYNAMICPRETHRESHSEL*/
 #define _MODEM_COH0_COHDYNAMICPRETHRESHSEL_MASK              0xE0UL                                            /**< Bit mask for MODEM_COHDYNAMICPRETHRESHSEL   */
 #define _MODEM_COH0_COHDYNAMICPRETHRESHSEL_DEFAULT           0x00000000UL                                      /**< Mode DEFAULT for MODEM_COH0                 */
-#define _MODEM_COH0_COHDYNAMICPRETHRESHSEL_SEL0              0x00000000UL                                      /**< Mode SEL0 for MODEM_COH0                     */
-#define _MODEM_COH0_COHDYNAMICPRETHRESHSEL_SEL1              0x00000001UL                                      /**< Mode SEL1 for MODEM_COH0                     */
-#define _MODEM_COH0_COHDYNAMICPRETHRESHSEL_SEL2              0x00000002UL                                      /**< Mode SEL2 for MODEM_COH0                     */
-#define _MODEM_COH0_COHDYNAMICPRETHRESHSEL_SEL3              0x00000003UL                                      /**< Mode SEL3 for MODEM_COH0                     */
-#define _MODEM_COH0_COHDYNAMICPRETHRESHSEL_SEL4              0x00000004UL                                      /**< Mode SEL4 for MODEM_COH0                     */
+#define _MODEM_COH0_COHDYNAMICPRETHRESHSEL_SEL0              0x00000000UL                                      /**< Mode SEL0 for MODEM_COH0                    */
+#define _MODEM_COH0_COHDYNAMICPRETHRESHSEL_SEL1              0x00000001UL                                      /**< Mode SEL1 for MODEM_COH0                    */
+#define _MODEM_COH0_COHDYNAMICPRETHRESHSEL_SEL2              0x00000002UL                                      /**< Mode SEL2 for MODEM_COH0                    */
+#define _MODEM_COH0_COHDYNAMICPRETHRESHSEL_SEL3              0x00000003UL                                      /**< Mode SEL3 for MODEM_COH0                    */
+#define _MODEM_COH0_COHDYNAMICPRETHRESHSEL_SEL4              0x00000004UL                                      /**< Mode SEL4 for MODEM_COH0                    */
 #define MODEM_COH0_COHDYNAMICPRETHRESHSEL_DEFAULT            (_MODEM_COH0_COHDYNAMICPRETHRESHSEL_DEFAULT << 5) /**< Shifted mode DEFAULT for MODEM_COH0         */
-#define MODEM_COH0_COHDYNAMICPRETHRESHSEL_SEL0               (_MODEM_COH0_COHDYNAMICPRETHRESHSEL_SEL0 << 5)    /**< Shifted mode SEL0 for MODEM_COH0             */
-#define MODEM_COH0_COHDYNAMICPRETHRESHSEL_SEL1               (_MODEM_COH0_COHDYNAMICPRETHRESHSEL_SEL1 << 5)    /**< Shifted mode SEL1 for MODEM_COH0             */
-#define MODEM_COH0_COHDYNAMICPRETHRESHSEL_SEL2               (_MODEM_COH0_COHDYNAMICPRETHRESHSEL_SEL2 << 5)    /**< Shifted mode SEL2 for MODEM_COH0             */
-#define MODEM_COH0_COHDYNAMICPRETHRESHSEL_SEL3               (_MODEM_COH0_COHDYNAMICPRETHRESHSEL_SEL3 << 5)    /**< Shifted mode SEL3 for MODEM_COH0             */
-#define MODEM_COH0_COHDYNAMICPRETHRESHSEL_SEL4               (_MODEM_COH0_COHDYNAMICPRETHRESHSEL_SEL4 << 5)    /**< Shifted mode SEL4 for MODEM_COH0             */
+#define MODEM_COH0_COHDYNAMICPRETHRESHSEL_SEL0               (_MODEM_COH0_COHDYNAMICPRETHRESHSEL_SEL0 << 5)    /**< Shifted mode SEL0 for MODEM_COH0            */
+#define MODEM_COH0_COHDYNAMICPRETHRESHSEL_SEL1               (_MODEM_COH0_COHDYNAMICPRETHRESHSEL_SEL1 << 5)    /**< Shifted mode SEL1 for MODEM_COH0            */
+#define MODEM_COH0_COHDYNAMICPRETHRESHSEL_SEL2               (_MODEM_COH0_COHDYNAMICPRETHRESHSEL_SEL2 << 5)    /**< Shifted mode SEL2 for MODEM_COH0            */
+#define MODEM_COH0_COHDYNAMICPRETHRESHSEL_SEL3               (_MODEM_COH0_COHDYNAMICPRETHRESHSEL_SEL3 << 5)    /**< Shifted mode SEL3 for MODEM_COH0            */
+#define MODEM_COH0_COHDYNAMICPRETHRESHSEL_SEL4               (_MODEM_COH0_COHDYNAMICPRETHRESHSEL_SEL4 << 5)    /**< Shifted mode SEL4 for MODEM_COH0            */
 #define _MODEM_COH0_COHCHPWRTH0_SHIFT                        8                                                 /**< Shift value for MODEM_COHCHPWRTH0           */
 #define _MODEM_COH0_COHCHPWRTH0_MASK                         0xFF00UL                                          /**< Bit mask for MODEM_COHCHPWRTH0              */
 #define _MODEM_COH0_COHCHPWRTH0_DEFAULT                      0x00000000UL                                      /**< Mode DEFAULT for MODEM_COH0                 */
@@ -2730,14 +2729,14 @@ typedef struct {
 #define _MODEM_VTBLETIMING_VTBLETIMINGSEL_SHIFT              0                                                        /**< Shift value for MODEM_VTBLETIMINGSEL        */
 #define _MODEM_VTBLETIMING_VTBLETIMINGSEL_MASK               0x3UL                                                    /**< Bit mask for MODEM_VTBLETIMINGSEL           */
 #define _MODEM_VTBLETIMING_VTBLETIMINGSEL_DEFAULT            0x00000000UL                                             /**< Mode DEFAULT for MODEM_VTBLETIMING          */
-#define _MODEM_VTBLETIMING_VTBLETIMINGSEL_FRAMEDET_DELAY     0x00000000UL                                             /**< Mode FRAMEDET_DELAY for MODEM_VTBLETIMING    */
-#define _MODEM_VTBLETIMING_VTBLETIMINGSEL_END_FRAME_PULSE    0x00000001UL                                             /**< Mode END_FRAME_PULSE for MODEM_VTBLETIMING   */
-#define _MODEM_VTBLETIMING_VTBLETIMINGSEL_END_FRAME          0x00000002UL                                             /**< Mode END_FRAME for MODEM_VTBLETIMING         */
-#define _MODEM_VTBLETIMING_VTBLETIMINGSEL_INV_END_FRAME      0x00000003UL                                             /**< Mode INV_END_FRAME for MODEM_VTBLETIMING     */
+#define _MODEM_VTBLETIMING_VTBLETIMINGSEL_FRAMEDET_DELAY     0x00000000UL                                             /**< Mode FRAMEDET_DELAY for MODEM_VTBLETIMING   */
+#define _MODEM_VTBLETIMING_VTBLETIMINGSEL_END_FRAME_PULSE    0x00000001UL                                             /**< Mode END_FRAME_PULSE for MODEM_VTBLETIMING  */
+#define _MODEM_VTBLETIMING_VTBLETIMINGSEL_END_FRAME          0x00000002UL                                             /**< Mode END_FRAME for MODEM_VTBLETIMING        */
+#define _MODEM_VTBLETIMING_VTBLETIMINGSEL_INV_END_FRAME      0x00000003UL                                             /**< Mode INV_END_FRAME for MODEM_VTBLETIMING    */
 #define MODEM_VTBLETIMING_VTBLETIMINGSEL_DEFAULT             (_MODEM_VTBLETIMING_VTBLETIMINGSEL_DEFAULT << 0)         /**< Shifted mode DEFAULT for MODEM_VTBLETIMING  */
 #define MODEM_VTBLETIMING_VTBLETIMINGSEL_FRAMEDET_DELAY      (_MODEM_VTBLETIMING_VTBLETIMINGSEL_FRAMEDET_DELAY << 0)  /**< Shifted mode FRAMEDET_DELAY for MODEM_VTBLETIMING*/
 #define MODEM_VTBLETIMING_VTBLETIMINGSEL_END_FRAME_PULSE     (_MODEM_VTBLETIMING_VTBLETIMINGSEL_END_FRAME_PULSE << 0) /**< Shifted mode END_FRAME_PULSE for MODEM_VTBLETIMING*/
-#define MODEM_VTBLETIMING_VTBLETIMINGSEL_END_FRAME           (_MODEM_VTBLETIMING_VTBLETIMINGSEL_END_FRAME << 0)       /**< Shifted mode END_FRAME for MODEM_VTBLETIMING */
+#define MODEM_VTBLETIMING_VTBLETIMINGSEL_END_FRAME           (_MODEM_VTBLETIMING_VTBLETIMINGSEL_END_FRAME << 0)       /**< Shifted mode END_FRAME for MODEM_VTBLETIMING*/
 #define MODEM_VTBLETIMING_VTBLETIMINGSEL_INV_END_FRAME       (_MODEM_VTBLETIMING_VTBLETIMINGSEL_INV_END_FRAME << 0)   /**< Shifted mode INV_END_FRAME for MODEM_VTBLETIMING*/
 #define _MODEM_VTBLETIMING_TIMINGDELAY_SHIFT                 4                                                        /**< Shift value for MODEM_TIMINGDELAY           */
 #define _MODEM_VTBLETIMING_TIMINGDELAY_MASK                  0xFF0UL                                                  /**< Bit mask for MODEM_TIMINGDELAY              */
@@ -2906,139 +2905,139 @@ typedef struct {
 #define _MODEM_FSMSTATUS_DETSTATE_SHIFT                      0                                                   /**< Shift value for MODEM_DETSTATE              */
 #define _MODEM_FSMSTATUS_DETSTATE_MASK                       0x7FUL                                              /**< Bit mask for MODEM_DETSTATE                 */
 #define _MODEM_FSMSTATUS_DETSTATE_DEFAULT                    0x00000000UL                                        /**< Mode DEFAULT for MODEM_FSMSTATUS            */
-#define _MODEM_FSMSTATUS_DETSTATE_OFF                        0x00000000UL                                        /**< Mode OFF for MODEM_FSMSTATUS                 */
-#define _MODEM_FSMSTATUS_DETSTATE_TIMINGSEARCH               0x0000000AUL                                        /**< Mode TIMINGSEARCH for MODEM_FSMSTATUS        */
-#define _MODEM_FSMSTATUS_DETSTATE_PRESEARCH                  0x00000014UL                                        /**< Mode PRESEARCH for MODEM_FSMSTATUS           */
-#define _MODEM_FSMSTATUS_DETSTATE_FRAMESEARCH                0x0000001EUL                                        /**< Mode FRAMESEARCH for MODEM_FSMSTATUS         */
-#define _MODEM_FSMSTATUS_DETSTATE_RXFRAME                    0x00000028UL                                        /**< Mode RXFRAME for MODEM_FSMSTATUS             */
-#define _MODEM_FSMSTATUS_DETSTATE_FRAMEDETMODE0              0x00000032UL                                        /**< Mode FRAMEDETMODE0 for MODEM_FSMSTATUS       */
+#define _MODEM_FSMSTATUS_DETSTATE_OFF                        0x00000000UL                                        /**< Mode OFF for MODEM_FSMSTATUS                */
+#define _MODEM_FSMSTATUS_DETSTATE_TIMINGSEARCH               0x0000000AUL                                        /**< Mode TIMINGSEARCH for MODEM_FSMSTATUS       */
+#define _MODEM_FSMSTATUS_DETSTATE_PRESEARCH                  0x00000014UL                                        /**< Mode PRESEARCH for MODEM_FSMSTATUS          */
+#define _MODEM_FSMSTATUS_DETSTATE_FRAMESEARCH                0x0000001EUL                                        /**< Mode FRAMESEARCH for MODEM_FSMSTATUS        */
+#define _MODEM_FSMSTATUS_DETSTATE_RXFRAME                    0x00000028UL                                        /**< Mode RXFRAME for MODEM_FSMSTATUS            */
+#define _MODEM_FSMSTATUS_DETSTATE_FRAMEDETMODE0              0x00000032UL                                        /**< Mode FRAMEDETMODE0 for MODEM_FSMSTATUS      */
 #define MODEM_FSMSTATUS_DETSTATE_DEFAULT                     (_MODEM_FSMSTATUS_DETSTATE_DEFAULT << 0)            /**< Shifted mode DEFAULT for MODEM_FSMSTATUS    */
-#define MODEM_FSMSTATUS_DETSTATE_OFF                         (_MODEM_FSMSTATUS_DETSTATE_OFF << 0)                /**< Shifted mode OFF for MODEM_FSMSTATUS         */
+#define MODEM_FSMSTATUS_DETSTATE_OFF                         (_MODEM_FSMSTATUS_DETSTATE_OFF << 0)                /**< Shifted mode OFF for MODEM_FSMSTATUS        */
 #define MODEM_FSMSTATUS_DETSTATE_TIMINGSEARCH                (_MODEM_FSMSTATUS_DETSTATE_TIMINGSEARCH << 0)       /**< Shifted mode TIMINGSEARCH for MODEM_FSMSTATUS*/
-#define MODEM_FSMSTATUS_DETSTATE_PRESEARCH                   (_MODEM_FSMSTATUS_DETSTATE_PRESEARCH << 0)          /**< Shifted mode PRESEARCH for MODEM_FSMSTATUS   */
-#define MODEM_FSMSTATUS_DETSTATE_FRAMESEARCH                 (_MODEM_FSMSTATUS_DETSTATE_FRAMESEARCH << 0)        /**< Shifted mode FRAMESEARCH for MODEM_FSMSTATUS */
-#define MODEM_FSMSTATUS_DETSTATE_RXFRAME                     (_MODEM_FSMSTATUS_DETSTATE_RXFRAME << 0)            /**< Shifted mode RXFRAME for MODEM_FSMSTATUS     */
+#define MODEM_FSMSTATUS_DETSTATE_PRESEARCH                   (_MODEM_FSMSTATUS_DETSTATE_PRESEARCH << 0)          /**< Shifted mode PRESEARCH for MODEM_FSMSTATUS  */
+#define MODEM_FSMSTATUS_DETSTATE_FRAMESEARCH                 (_MODEM_FSMSTATUS_DETSTATE_FRAMESEARCH << 0)        /**< Shifted mode FRAMESEARCH for MODEM_FSMSTATUS*/
+#define MODEM_FSMSTATUS_DETSTATE_RXFRAME                     (_MODEM_FSMSTATUS_DETSTATE_RXFRAME << 0)            /**< Shifted mode RXFRAME for MODEM_FSMSTATUS    */
 #define MODEM_FSMSTATUS_DETSTATE_FRAMEDETMODE0               (_MODEM_FSMSTATUS_DETSTATE_FRAMEDETMODE0 << 0)      /**< Shifted mode FRAMEDETMODE0 for MODEM_FSMSTATUS*/
 #define _MODEM_FSMSTATUS_DSASTATE_SHIFT                      7                                                   /**< Shift value for MODEM_DSASTATE              */
 #define _MODEM_FSMSTATUS_DSASTATE_MASK                       0x380UL                                             /**< Bit mask for MODEM_DSASTATE                 */
 #define _MODEM_FSMSTATUS_DSASTATE_DEFAULT                    0x00000000UL                                        /**< Mode DEFAULT for MODEM_FSMSTATUS            */
-#define _MODEM_FSMSTATUS_DSASTATE_IDLE                       0x00000000UL                                        /**< Mode IDLE for MODEM_FSMSTATUS                */
-#define _MODEM_FSMSTATUS_DSASTATE_ARRIVALCHK                 0x00000001UL                                        /**< Mode ARRIVALCHK for MODEM_FSMSTATUS          */
-#define _MODEM_FSMSTATUS_DSASTATE_STATUSCHK                  0x00000002UL                                        /**< Mode STATUSCHK for MODEM_FSMSTATUS           */
-#define _MODEM_FSMSTATUS_DSASTATE_SAMPPW                     0x00000003UL                                        /**< Mode SAMPPW for MODEM_FSMSTATUS              */
-#define _MODEM_FSMSTATUS_DSASTATE_WAITPWRUP                  0x00000004UL                                        /**< Mode WAITPWRUP for MODEM_FSMSTATUS           */
-#define _MODEM_FSMSTATUS_DSASTATE_WAITDSALO                  0x00000005UL                                        /**< Mode WAITDSALO for MODEM_FSMSTATUS           */
-#define _MODEM_FSMSTATUS_DSASTATE_WAITABORT                  0x00000006UL                                        /**< Mode WAITABORT for MODEM_FSMSTATUS           */
-#define _MODEM_FSMSTATUS_DSASTATE_STOP                       0x00000007UL                                        /**< Mode STOP for MODEM_FSMSTATUS                */
+#define _MODEM_FSMSTATUS_DSASTATE_IDLE                       0x00000000UL                                        /**< Mode IDLE for MODEM_FSMSTATUS               */
+#define _MODEM_FSMSTATUS_DSASTATE_ARRIVALCHK                 0x00000001UL                                        /**< Mode ARRIVALCHK for MODEM_FSMSTATUS         */
+#define _MODEM_FSMSTATUS_DSASTATE_STATUSCHK                  0x00000002UL                                        /**< Mode STATUSCHK for MODEM_FSMSTATUS          */
+#define _MODEM_FSMSTATUS_DSASTATE_SAMPPW                     0x00000003UL                                        /**< Mode SAMPPW for MODEM_FSMSTATUS             */
+#define _MODEM_FSMSTATUS_DSASTATE_WAITPWRUP                  0x00000004UL                                        /**< Mode WAITPWRUP for MODEM_FSMSTATUS          */
+#define _MODEM_FSMSTATUS_DSASTATE_WAITDSALO                  0x00000005UL                                        /**< Mode WAITDSALO for MODEM_FSMSTATUS          */
+#define _MODEM_FSMSTATUS_DSASTATE_WAITABORT                  0x00000006UL                                        /**< Mode WAITABORT for MODEM_FSMSTATUS          */
+#define _MODEM_FSMSTATUS_DSASTATE_STOP                       0x00000007UL                                        /**< Mode STOP for MODEM_FSMSTATUS               */
 #define MODEM_FSMSTATUS_DSASTATE_DEFAULT                     (_MODEM_FSMSTATUS_DSASTATE_DEFAULT << 7)            /**< Shifted mode DEFAULT for MODEM_FSMSTATUS    */
-#define MODEM_FSMSTATUS_DSASTATE_IDLE                        (_MODEM_FSMSTATUS_DSASTATE_IDLE << 7)               /**< Shifted mode IDLE for MODEM_FSMSTATUS        */
-#define MODEM_FSMSTATUS_DSASTATE_ARRIVALCHK                  (_MODEM_FSMSTATUS_DSASTATE_ARRIVALCHK << 7)         /**< Shifted mode ARRIVALCHK for MODEM_FSMSTATUS  */
-#define MODEM_FSMSTATUS_DSASTATE_STATUSCHK                   (_MODEM_FSMSTATUS_DSASTATE_STATUSCHK << 7)          /**< Shifted mode STATUSCHK for MODEM_FSMSTATUS   */
-#define MODEM_FSMSTATUS_DSASTATE_SAMPPW                      (_MODEM_FSMSTATUS_DSASTATE_SAMPPW << 7)             /**< Shifted mode SAMPPW for MODEM_FSMSTATUS      */
-#define MODEM_FSMSTATUS_DSASTATE_WAITPWRUP                   (_MODEM_FSMSTATUS_DSASTATE_WAITPWRUP << 7)          /**< Shifted mode WAITPWRUP for MODEM_FSMSTATUS   */
-#define MODEM_FSMSTATUS_DSASTATE_WAITDSALO                   (_MODEM_FSMSTATUS_DSASTATE_WAITDSALO << 7)          /**< Shifted mode WAITDSALO for MODEM_FSMSTATUS   */
-#define MODEM_FSMSTATUS_DSASTATE_WAITABORT                   (_MODEM_FSMSTATUS_DSASTATE_WAITABORT << 7)          /**< Shifted mode WAITABORT for MODEM_FSMSTATUS   */
-#define MODEM_FSMSTATUS_DSASTATE_STOP                        (_MODEM_FSMSTATUS_DSASTATE_STOP << 7)               /**< Shifted mode STOP for MODEM_FSMSTATUS        */
+#define MODEM_FSMSTATUS_DSASTATE_IDLE                        (_MODEM_FSMSTATUS_DSASTATE_IDLE << 7)               /**< Shifted mode IDLE for MODEM_FSMSTATUS       */
+#define MODEM_FSMSTATUS_DSASTATE_ARRIVALCHK                  (_MODEM_FSMSTATUS_DSASTATE_ARRIVALCHK << 7)         /**< Shifted mode ARRIVALCHK for MODEM_FSMSTATUS */
+#define MODEM_FSMSTATUS_DSASTATE_STATUSCHK                   (_MODEM_FSMSTATUS_DSASTATE_STATUSCHK << 7)          /**< Shifted mode STATUSCHK for MODEM_FSMSTATUS  */
+#define MODEM_FSMSTATUS_DSASTATE_SAMPPW                      (_MODEM_FSMSTATUS_DSASTATE_SAMPPW << 7)             /**< Shifted mode SAMPPW for MODEM_FSMSTATUS     */
+#define MODEM_FSMSTATUS_DSASTATE_WAITPWRUP                   (_MODEM_FSMSTATUS_DSASTATE_WAITPWRUP << 7)          /**< Shifted mode WAITPWRUP for MODEM_FSMSTATUS  */
+#define MODEM_FSMSTATUS_DSASTATE_WAITDSALO                   (_MODEM_FSMSTATUS_DSASTATE_WAITDSALO << 7)          /**< Shifted mode WAITDSALO for MODEM_FSMSTATUS  */
+#define MODEM_FSMSTATUS_DSASTATE_WAITABORT                   (_MODEM_FSMSTATUS_DSASTATE_WAITABORT << 7)          /**< Shifted mode WAITABORT for MODEM_FSMSTATUS  */
+#define MODEM_FSMSTATUS_DSASTATE_STOP                        (_MODEM_FSMSTATUS_DSASTATE_STOP << 7)               /**< Shifted mode STOP for MODEM_FSMSTATUS       */
 #define _MODEM_FSMSTATUS_LRBLESTATE_SHIFT                    10                                                  /**< Shift value for MODEM_LRBLESTATE            */
 #define _MODEM_FSMSTATUS_LRBLESTATE_MASK                     0x7C00UL                                            /**< Bit mask for MODEM_LRBLESTATE               */
 #define _MODEM_FSMSTATUS_LRBLESTATE_DEFAULT                  0x00000000UL                                        /**< Mode DEFAULT for MODEM_FSMSTATUS            */
-#define _MODEM_FSMSTATUS_LRBLESTATE_IDLE                     0x00000000UL                                        /**< Mode IDLE for MODEM_FSMSTATUS                */
-#define _MODEM_FSMSTATUS_LRBLESTATE_CLEANUP                  0x00000001UL                                        /**< Mode CLEANUP for MODEM_FSMSTATUS             */
-#define _MODEM_FSMSTATUS_LRBLESTATE_CORRCOE                  0x00000002UL                                        /**< Mode CORRCOE for MODEM_FSMSTATUS             */
-#define _MODEM_FSMSTATUS_LRBLESTATE_WAITLRDSA                0x00000003UL                                        /**< Mode WAITLRDSA for MODEM_FSMSTATUS           */
-#define _MODEM_FSMSTATUS_LRBLESTATE_MAXCORR                  0x00000004UL                                        /**< Mode MAXCORR for MODEM_FSMSTATUS             */
-#define _MODEM_FSMSTATUS_LRBLESTATE_WAITRDY                  0x00000005UL                                        /**< Mode WAITRDY for MODEM_FSMSTATUS             */
-#define _MODEM_FSMSTATUS_LRBLESTATE_FEC1DATA                 0x00000006UL                                        /**< Mode FEC1DATA for MODEM_FSMSTATUS            */
-#define _MODEM_FSMSTATUS_LRBLESTATE_FEC1ACK                  0x00000007UL                                        /**< Mode FEC1ACK for MODEM_FSMSTATUS             */
-#define _MODEM_FSMSTATUS_LRBLESTATE_PAUSE                    0x00000008UL                                        /**< Mode PAUSE for MODEM_FSMSTATUS               */
-#define _MODEM_FSMSTATUS_LRBLESTATE_FEC2DATA                 0x00000009UL                                        /**< Mode FEC2DATA for MODEM_FSMSTATUS            */
-#define _MODEM_FSMSTATUS_LRBLESTATE_FEC2ACK                  0x0000000AUL                                        /**< Mode FEC2ACK for MODEM_FSMSTATUS             */
-#define _MODEM_FSMSTATUS_LRBLESTATE_TRACKCUR                 0x0000000BUL                                        /**< Mode TRACKCUR for MODEM_FSMSTATUS            */
-#define _MODEM_FSMSTATUS_LRBLESTATE_TRACKEAR                 0x0000000CUL                                        /**< Mode TRACKEAR for MODEM_FSMSTATUS            */
-#define _MODEM_FSMSTATUS_LRBLESTATE_TRACKLAT                 0x0000000DUL                                        /**< Mode TRACKLAT for MODEM_FSMSTATUS            */
-#define _MODEM_FSMSTATUS_LRBLESTATE_TRACKDONE                0x0000000EUL                                        /**< Mode TRACKDONE for MODEM_FSMSTATUS           */
-#define _MODEM_FSMSTATUS_LRBLESTATE_TDECISION                0x0000000FUL                                        /**< Mode TDECISION for MODEM_FSMSTATUS           */
-#define _MODEM_FSMSTATUS_LRBLESTATE_STOP                     0x00000010UL                                        /**< Mode STOP for MODEM_FSMSTATUS                */
+#define _MODEM_FSMSTATUS_LRBLESTATE_IDLE                     0x00000000UL                                        /**< Mode IDLE for MODEM_FSMSTATUS               */
+#define _MODEM_FSMSTATUS_LRBLESTATE_CLEANUP                  0x00000001UL                                        /**< Mode CLEANUP for MODEM_FSMSTATUS            */
+#define _MODEM_FSMSTATUS_LRBLESTATE_CORRCOE                  0x00000002UL                                        /**< Mode CORRCOE for MODEM_FSMSTATUS            */
+#define _MODEM_FSMSTATUS_LRBLESTATE_WAITLRDSA                0x00000003UL                                        /**< Mode WAITLRDSA for MODEM_FSMSTATUS          */
+#define _MODEM_FSMSTATUS_LRBLESTATE_MAXCORR                  0x00000004UL                                        /**< Mode MAXCORR for MODEM_FSMSTATUS            */
+#define _MODEM_FSMSTATUS_LRBLESTATE_WAITRDY                  0x00000005UL                                        /**< Mode WAITRDY for MODEM_FSMSTATUS            */
+#define _MODEM_FSMSTATUS_LRBLESTATE_FEC1DATA                 0x00000006UL                                        /**< Mode FEC1DATA for MODEM_FSMSTATUS           */
+#define _MODEM_FSMSTATUS_LRBLESTATE_FEC1ACK                  0x00000007UL                                        /**< Mode FEC1ACK for MODEM_FSMSTATUS            */
+#define _MODEM_FSMSTATUS_LRBLESTATE_PAUSE                    0x00000008UL                                        /**< Mode PAUSE for MODEM_FSMSTATUS              */
+#define _MODEM_FSMSTATUS_LRBLESTATE_FEC2DATA                 0x00000009UL                                        /**< Mode FEC2DATA for MODEM_FSMSTATUS           */
+#define _MODEM_FSMSTATUS_LRBLESTATE_FEC2ACK                  0x0000000AUL                                        /**< Mode FEC2ACK for MODEM_FSMSTATUS            */
+#define _MODEM_FSMSTATUS_LRBLESTATE_TRACKCUR                 0x0000000BUL                                        /**< Mode TRACKCUR for MODEM_FSMSTATUS           */
+#define _MODEM_FSMSTATUS_LRBLESTATE_TRACKEAR                 0x0000000CUL                                        /**< Mode TRACKEAR for MODEM_FSMSTATUS           */
+#define _MODEM_FSMSTATUS_LRBLESTATE_TRACKLAT                 0x0000000DUL                                        /**< Mode TRACKLAT for MODEM_FSMSTATUS           */
+#define _MODEM_FSMSTATUS_LRBLESTATE_TRACKDONE                0x0000000EUL                                        /**< Mode TRACKDONE for MODEM_FSMSTATUS          */
+#define _MODEM_FSMSTATUS_LRBLESTATE_TDECISION                0x0000000FUL                                        /**< Mode TDECISION for MODEM_FSMSTATUS          */
+#define _MODEM_FSMSTATUS_LRBLESTATE_STOP                     0x00000010UL                                        /**< Mode STOP for MODEM_FSMSTATUS               */
 #define MODEM_FSMSTATUS_LRBLESTATE_DEFAULT                   (_MODEM_FSMSTATUS_LRBLESTATE_DEFAULT << 10)         /**< Shifted mode DEFAULT for MODEM_FSMSTATUS    */
-#define MODEM_FSMSTATUS_LRBLESTATE_IDLE                      (_MODEM_FSMSTATUS_LRBLESTATE_IDLE << 10)            /**< Shifted mode IDLE for MODEM_FSMSTATUS        */
-#define MODEM_FSMSTATUS_LRBLESTATE_CLEANUP                   (_MODEM_FSMSTATUS_LRBLESTATE_CLEANUP << 10)         /**< Shifted mode CLEANUP for MODEM_FSMSTATUS     */
-#define MODEM_FSMSTATUS_LRBLESTATE_CORRCOE                   (_MODEM_FSMSTATUS_LRBLESTATE_CORRCOE << 10)         /**< Shifted mode CORRCOE for MODEM_FSMSTATUS     */
-#define MODEM_FSMSTATUS_LRBLESTATE_WAITLRDSA                 (_MODEM_FSMSTATUS_LRBLESTATE_WAITLRDSA << 10)       /**< Shifted mode WAITLRDSA for MODEM_FSMSTATUS   */
-#define MODEM_FSMSTATUS_LRBLESTATE_MAXCORR                   (_MODEM_FSMSTATUS_LRBLESTATE_MAXCORR << 10)         /**< Shifted mode MAXCORR for MODEM_FSMSTATUS     */
-#define MODEM_FSMSTATUS_LRBLESTATE_WAITRDY                   (_MODEM_FSMSTATUS_LRBLESTATE_WAITRDY << 10)         /**< Shifted mode WAITRDY for MODEM_FSMSTATUS     */
-#define MODEM_FSMSTATUS_LRBLESTATE_FEC1DATA                  (_MODEM_FSMSTATUS_LRBLESTATE_FEC1DATA << 10)        /**< Shifted mode FEC1DATA for MODEM_FSMSTATUS    */
-#define MODEM_FSMSTATUS_LRBLESTATE_FEC1ACK                   (_MODEM_FSMSTATUS_LRBLESTATE_FEC1ACK << 10)         /**< Shifted mode FEC1ACK for MODEM_FSMSTATUS     */
-#define MODEM_FSMSTATUS_LRBLESTATE_PAUSE                     (_MODEM_FSMSTATUS_LRBLESTATE_PAUSE << 10)           /**< Shifted mode PAUSE for MODEM_FSMSTATUS       */
-#define MODEM_FSMSTATUS_LRBLESTATE_FEC2DATA                  (_MODEM_FSMSTATUS_LRBLESTATE_FEC2DATA << 10)        /**< Shifted mode FEC2DATA for MODEM_FSMSTATUS    */
-#define MODEM_FSMSTATUS_LRBLESTATE_FEC2ACK                   (_MODEM_FSMSTATUS_LRBLESTATE_FEC2ACK << 10)         /**< Shifted mode FEC2ACK for MODEM_FSMSTATUS     */
-#define MODEM_FSMSTATUS_LRBLESTATE_TRACKCUR                  (_MODEM_FSMSTATUS_LRBLESTATE_TRACKCUR << 10)        /**< Shifted mode TRACKCUR for MODEM_FSMSTATUS    */
-#define MODEM_FSMSTATUS_LRBLESTATE_TRACKEAR                  (_MODEM_FSMSTATUS_LRBLESTATE_TRACKEAR << 10)        /**< Shifted mode TRACKEAR for MODEM_FSMSTATUS    */
-#define MODEM_FSMSTATUS_LRBLESTATE_TRACKLAT                  (_MODEM_FSMSTATUS_LRBLESTATE_TRACKLAT << 10)        /**< Shifted mode TRACKLAT for MODEM_FSMSTATUS    */
-#define MODEM_FSMSTATUS_LRBLESTATE_TRACKDONE                 (_MODEM_FSMSTATUS_LRBLESTATE_TRACKDONE << 10)       /**< Shifted mode TRACKDONE for MODEM_FSMSTATUS   */
-#define MODEM_FSMSTATUS_LRBLESTATE_TDECISION                 (_MODEM_FSMSTATUS_LRBLESTATE_TDECISION << 10)       /**< Shifted mode TDECISION for MODEM_FSMSTATUS   */
-#define MODEM_FSMSTATUS_LRBLESTATE_STOP                      (_MODEM_FSMSTATUS_LRBLESTATE_STOP << 10)            /**< Shifted mode STOP for MODEM_FSMSTATUS        */
+#define MODEM_FSMSTATUS_LRBLESTATE_IDLE                      (_MODEM_FSMSTATUS_LRBLESTATE_IDLE << 10)            /**< Shifted mode IDLE for MODEM_FSMSTATUS       */
+#define MODEM_FSMSTATUS_LRBLESTATE_CLEANUP                   (_MODEM_FSMSTATUS_LRBLESTATE_CLEANUP << 10)         /**< Shifted mode CLEANUP for MODEM_FSMSTATUS    */
+#define MODEM_FSMSTATUS_LRBLESTATE_CORRCOE                   (_MODEM_FSMSTATUS_LRBLESTATE_CORRCOE << 10)         /**< Shifted mode CORRCOE for MODEM_FSMSTATUS    */
+#define MODEM_FSMSTATUS_LRBLESTATE_WAITLRDSA                 (_MODEM_FSMSTATUS_LRBLESTATE_WAITLRDSA << 10)       /**< Shifted mode WAITLRDSA for MODEM_FSMSTATUS  */
+#define MODEM_FSMSTATUS_LRBLESTATE_MAXCORR                   (_MODEM_FSMSTATUS_LRBLESTATE_MAXCORR << 10)         /**< Shifted mode MAXCORR for MODEM_FSMSTATUS    */
+#define MODEM_FSMSTATUS_LRBLESTATE_WAITRDY                   (_MODEM_FSMSTATUS_LRBLESTATE_WAITRDY << 10)         /**< Shifted mode WAITRDY for MODEM_FSMSTATUS    */
+#define MODEM_FSMSTATUS_LRBLESTATE_FEC1DATA                  (_MODEM_FSMSTATUS_LRBLESTATE_FEC1DATA << 10)        /**< Shifted mode FEC1DATA for MODEM_FSMSTATUS   */
+#define MODEM_FSMSTATUS_LRBLESTATE_FEC1ACK                   (_MODEM_FSMSTATUS_LRBLESTATE_FEC1ACK << 10)         /**< Shifted mode FEC1ACK for MODEM_FSMSTATUS    */
+#define MODEM_FSMSTATUS_LRBLESTATE_PAUSE                     (_MODEM_FSMSTATUS_LRBLESTATE_PAUSE << 10)           /**< Shifted mode PAUSE for MODEM_FSMSTATUS      */
+#define MODEM_FSMSTATUS_LRBLESTATE_FEC2DATA                  (_MODEM_FSMSTATUS_LRBLESTATE_FEC2DATA << 10)        /**< Shifted mode FEC2DATA for MODEM_FSMSTATUS   */
+#define MODEM_FSMSTATUS_LRBLESTATE_FEC2ACK                   (_MODEM_FSMSTATUS_LRBLESTATE_FEC2ACK << 10)         /**< Shifted mode FEC2ACK for MODEM_FSMSTATUS    */
+#define MODEM_FSMSTATUS_LRBLESTATE_TRACKCUR                  (_MODEM_FSMSTATUS_LRBLESTATE_TRACKCUR << 10)        /**< Shifted mode TRACKCUR for MODEM_FSMSTATUS   */
+#define MODEM_FSMSTATUS_LRBLESTATE_TRACKEAR                  (_MODEM_FSMSTATUS_LRBLESTATE_TRACKEAR << 10)        /**< Shifted mode TRACKEAR for MODEM_FSMSTATUS   */
+#define MODEM_FSMSTATUS_LRBLESTATE_TRACKLAT                  (_MODEM_FSMSTATUS_LRBLESTATE_TRACKLAT << 10)        /**< Shifted mode TRACKLAT for MODEM_FSMSTATUS   */
+#define MODEM_FSMSTATUS_LRBLESTATE_TRACKDONE                 (_MODEM_FSMSTATUS_LRBLESTATE_TRACKDONE << 10)       /**< Shifted mode TRACKDONE for MODEM_FSMSTATUS  */
+#define MODEM_FSMSTATUS_LRBLESTATE_TDECISION                 (_MODEM_FSMSTATUS_LRBLESTATE_TDECISION << 10)       /**< Shifted mode TDECISION for MODEM_FSMSTATUS  */
+#define MODEM_FSMSTATUS_LRBLESTATE_STOP                      (_MODEM_FSMSTATUS_LRBLESTATE_STOP << 10)            /**< Shifted mode STOP for MODEM_FSMSTATUS       */
 #define _MODEM_FSMSTATUS_NBBLESTATE_SHIFT                    15                                                  /**< Shift value for MODEM_NBBLESTATE            */
 #define _MODEM_FSMSTATUS_NBBLESTATE_MASK                     0xF8000UL                                           /**< Bit mask for MODEM_NBBLESTATE               */
 #define _MODEM_FSMSTATUS_NBBLESTATE_DEFAULT                  0x00000000UL                                        /**< Mode DEFAULT for MODEM_FSMSTATUS            */
-#define _MODEM_FSMSTATUS_NBBLESTATE_IDLE                     0x00000000UL                                        /**< Mode IDLE for MODEM_FSMSTATUS                */
-#define _MODEM_FSMSTATUS_NBBLESTATE_VTINITI                  0x00000001UL                                        /**< Mode VTINITI for MODEM_FSMSTATUS             */
-#define _MODEM_FSMSTATUS_NBBLESTATE_ADDRNXT                  0x00000002UL                                        /**< Mode ADDRNXT for MODEM_FSMSTATUS             */
-#define _MODEM_FSMSTATUS_NBBLESTATE_INICOST                  0x00000003UL                                        /**< Mode INICOST for MODEM_FSMSTATUS             */
-#define _MODEM_FSMSTATUS_NBBLESTATE_CALCCOST                 0x00000004UL                                        /**< Mode CALCCOST for MODEM_FSMSTATUS            */
-#define _MODEM_FSMSTATUS_NBBLESTATE_INITALACQU               0x00000005UL                                        /**< Mode INITALACQU for MODEM_FSMSTATUS          */
-#define _MODEM_FSMSTATUS_NBBLESTATE_INITALCOSTCALC           0x00000006UL                                        /**< Mode INITALCOSTCALC for MODEM_FSMSTATUS      */
-#define _MODEM_FSMSTATUS_NBBLESTATE_MINCOSTCALC              0x00000007UL                                        /**< Mode MINCOSTCALC for MODEM_FSMSTATUS         */
-#define _MODEM_FSMSTATUS_NBBLESTATE_FREQACQU                 0x00000008UL                                        /**< Mode FREQACQU for MODEM_FSMSTATUS            */
-#define _MODEM_FSMSTATUS_NBBLESTATE_FREQACQUDONE             0x00000009UL                                        /**< Mode FREQACQUDONE for MODEM_FSMSTATUS        */
-#define _MODEM_FSMSTATUS_NBBLESTATE_TIMINGACQUEARLY          0x0000000AUL                                        /**< Mode TIMINGACQUEARLY for MODEM_FSMSTATUS     */
-#define _MODEM_FSMSTATUS_NBBLESTATE_TIMINGACQUCURR           0x0000000BUL                                        /**< Mode TIMINGACQUCURR for MODEM_FSMSTATUS      */
-#define _MODEM_FSMSTATUS_NBBLESTATE_TIMINGACQULATE           0x0000000CUL                                        /**< Mode TIMINGACQULATE for MODEM_FSMSTATUS      */
-#define _MODEM_FSMSTATUS_NBBLESTATE_TIMINGACQUDONE           0x0000000DUL                                        /**< Mode TIMINGACQUDONE for MODEM_FSMSTATUS      */
-#define _MODEM_FSMSTATUS_NBBLESTATE_VIRTBIINIT0              0x0000000EUL                                        /**< Mode VIRTBIINIT0 for MODEM_FSMSTATUS         */
-#define _MODEM_FSMSTATUS_NBBLESTATE_VIRTBIINIT1              0x0000000FUL                                        /**< Mode VIRTBIINIT1 for MODEM_FSMSTATUS         */
-#define _MODEM_FSMSTATUS_NBBLESTATE_VIRTBIRXSYNC             0x00000010UL                                        /**< Mode VIRTBIRXSYNC for MODEM_FSMSTATUS        */
-#define _MODEM_FSMSTATUS_NBBLESTATE_VIRTBIRXPAYLOAD          0x00000011UL                                        /**< Mode VIRTBIRXPAYLOAD for MODEM_FSMSTATUS     */
-#define _MODEM_FSMSTATUS_NBBLESTATE_HARDRXSYNC               0x00000012UL                                        /**< Mode HARDRXSYNC for MODEM_FSMSTATUS          */
-#define _MODEM_FSMSTATUS_NBBLESTATE_HARDXPAYLOAD             0x00000013UL                                        /**< Mode HARDXPAYLOAD for MODEM_FSMSTATUS        */
-#define _MODEM_FSMSTATUS_NBBLESTATE_TRACKFREQ                0x00000014UL                                        /**< Mode TRACKFREQ for MODEM_FSMSTATUS           */
-#define _MODEM_FSMSTATUS_NBBLESTATE_TRACKTIMEARLY            0x00000015UL                                        /**< Mode TRACKTIMEARLY for MODEM_FSMSTATUS       */
-#define _MODEM_FSMSTATUS_NBBLESTATE_TRACKTIMCURR             0x00000016UL                                        /**< Mode TRACKTIMCURR for MODEM_FSMSTATUS        */
-#define _MODEM_FSMSTATUS_NBBLESTATE_TRACKTIMLATE             0x00000017UL                                        /**< Mode TRACKTIMLATE for MODEM_FSMSTATUS        */
-#define _MODEM_FSMSTATUS_NBBLESTATE_TRACKDONE                0x00000018UL                                        /**< Mode TRACKDONE for MODEM_FSMSTATUS           */
-#define _MODEM_FSMSTATUS_NBBLESTATE_TRACKDECISION            0x00000019UL                                        /**< Mode TRACKDECISION for MODEM_FSMSTATUS       */
-#define _MODEM_FSMSTATUS_NBBLESTATE_STOP                     0x0000001AUL                                        /**< Mode STOP for MODEM_FSMSTATUS                */
-#define _MODEM_FSMSTATUS_NBBLESTATE_WAITACK                  0x0000001BUL                                        /**< Mode WAITACK for MODEM_FSMSTATUS             */
-#define _MODEM_FSMSTATUS_NBBLESTATE_DEBUG                    0x0000001CUL                                        /**< Mode DEBUG for MODEM_FSMSTATUS               */
+#define _MODEM_FSMSTATUS_NBBLESTATE_IDLE                     0x00000000UL                                        /**< Mode IDLE for MODEM_FSMSTATUS               */
+#define _MODEM_FSMSTATUS_NBBLESTATE_VTINITI                  0x00000001UL                                        /**< Mode VTINITI for MODEM_FSMSTATUS            */
+#define _MODEM_FSMSTATUS_NBBLESTATE_ADDRNXT                  0x00000002UL                                        /**< Mode ADDRNXT for MODEM_FSMSTATUS            */
+#define _MODEM_FSMSTATUS_NBBLESTATE_INICOST                  0x00000003UL                                        /**< Mode INICOST for MODEM_FSMSTATUS            */
+#define _MODEM_FSMSTATUS_NBBLESTATE_CALCCOST                 0x00000004UL                                        /**< Mode CALCCOST for MODEM_FSMSTATUS           */
+#define _MODEM_FSMSTATUS_NBBLESTATE_INITALACQU               0x00000005UL                                        /**< Mode INITALACQU for MODEM_FSMSTATUS         */
+#define _MODEM_FSMSTATUS_NBBLESTATE_INITALCOSTCALC           0x00000006UL                                        /**< Mode INITALCOSTCALC for MODEM_FSMSTATUS     */
+#define _MODEM_FSMSTATUS_NBBLESTATE_MINCOSTCALC              0x00000007UL                                        /**< Mode MINCOSTCALC for MODEM_FSMSTATUS        */
+#define _MODEM_FSMSTATUS_NBBLESTATE_FREQACQU                 0x00000008UL                                        /**< Mode FREQACQU for MODEM_FSMSTATUS           */
+#define _MODEM_FSMSTATUS_NBBLESTATE_FREQACQUDONE             0x00000009UL                                        /**< Mode FREQACQUDONE for MODEM_FSMSTATUS       */
+#define _MODEM_FSMSTATUS_NBBLESTATE_TIMINGACQUEARLY          0x0000000AUL                                        /**< Mode TIMINGACQUEARLY for MODEM_FSMSTATUS    */
+#define _MODEM_FSMSTATUS_NBBLESTATE_TIMINGACQUCURR           0x0000000BUL                                        /**< Mode TIMINGACQUCURR for MODEM_FSMSTATUS     */
+#define _MODEM_FSMSTATUS_NBBLESTATE_TIMINGACQULATE           0x0000000CUL                                        /**< Mode TIMINGACQULATE for MODEM_FSMSTATUS     */
+#define _MODEM_FSMSTATUS_NBBLESTATE_TIMINGACQUDONE           0x0000000DUL                                        /**< Mode TIMINGACQUDONE for MODEM_FSMSTATUS     */
+#define _MODEM_FSMSTATUS_NBBLESTATE_VIRTBIINIT0              0x0000000EUL                                        /**< Mode VIRTBIINIT0 for MODEM_FSMSTATUS        */
+#define _MODEM_FSMSTATUS_NBBLESTATE_VIRTBIINIT1              0x0000000FUL                                        /**< Mode VIRTBIINIT1 for MODEM_FSMSTATUS        */
+#define _MODEM_FSMSTATUS_NBBLESTATE_VIRTBIRXSYNC             0x00000010UL                                        /**< Mode VIRTBIRXSYNC for MODEM_FSMSTATUS       */
+#define _MODEM_FSMSTATUS_NBBLESTATE_VIRTBIRXPAYLOAD          0x00000011UL                                        /**< Mode VIRTBIRXPAYLOAD for MODEM_FSMSTATUS    */
+#define _MODEM_FSMSTATUS_NBBLESTATE_HARDRXSYNC               0x00000012UL                                        /**< Mode HARDRXSYNC for MODEM_FSMSTATUS         */
+#define _MODEM_FSMSTATUS_NBBLESTATE_HARDXPAYLOAD             0x00000013UL                                        /**< Mode HARDXPAYLOAD for MODEM_FSMSTATUS       */
+#define _MODEM_FSMSTATUS_NBBLESTATE_TRACKFREQ                0x00000014UL                                        /**< Mode TRACKFREQ for MODEM_FSMSTATUS          */
+#define _MODEM_FSMSTATUS_NBBLESTATE_TRACKTIMEARLY            0x00000015UL                                        /**< Mode TRACKTIMEARLY for MODEM_FSMSTATUS      */
+#define _MODEM_FSMSTATUS_NBBLESTATE_TRACKTIMCURR             0x00000016UL                                        /**< Mode TRACKTIMCURR for MODEM_FSMSTATUS       */
+#define _MODEM_FSMSTATUS_NBBLESTATE_TRACKTIMLATE             0x00000017UL                                        /**< Mode TRACKTIMLATE for MODEM_FSMSTATUS       */
+#define _MODEM_FSMSTATUS_NBBLESTATE_TRACKDONE                0x00000018UL                                        /**< Mode TRACKDONE for MODEM_FSMSTATUS          */
+#define _MODEM_FSMSTATUS_NBBLESTATE_TRACKDECISION            0x00000019UL                                        /**< Mode TRACKDECISION for MODEM_FSMSTATUS      */
+#define _MODEM_FSMSTATUS_NBBLESTATE_STOP                     0x0000001AUL                                        /**< Mode STOP for MODEM_FSMSTATUS               */
+#define _MODEM_FSMSTATUS_NBBLESTATE_WAITACK                  0x0000001BUL                                        /**< Mode WAITACK for MODEM_FSMSTATUS            */
+#define _MODEM_FSMSTATUS_NBBLESTATE_DEBUG                    0x0000001CUL                                        /**< Mode DEBUG for MODEM_FSMSTATUS              */
 #define MODEM_FSMSTATUS_NBBLESTATE_DEFAULT                   (_MODEM_FSMSTATUS_NBBLESTATE_DEFAULT << 15)         /**< Shifted mode DEFAULT for MODEM_FSMSTATUS    */
-#define MODEM_FSMSTATUS_NBBLESTATE_IDLE                      (_MODEM_FSMSTATUS_NBBLESTATE_IDLE << 15)            /**< Shifted mode IDLE for MODEM_FSMSTATUS        */
-#define MODEM_FSMSTATUS_NBBLESTATE_VTINITI                   (_MODEM_FSMSTATUS_NBBLESTATE_VTINITI << 15)         /**< Shifted mode VTINITI for MODEM_FSMSTATUS     */
-#define MODEM_FSMSTATUS_NBBLESTATE_ADDRNXT                   (_MODEM_FSMSTATUS_NBBLESTATE_ADDRNXT << 15)         /**< Shifted mode ADDRNXT for MODEM_FSMSTATUS     */
-#define MODEM_FSMSTATUS_NBBLESTATE_INICOST                   (_MODEM_FSMSTATUS_NBBLESTATE_INICOST << 15)         /**< Shifted mode INICOST for MODEM_FSMSTATUS     */
-#define MODEM_FSMSTATUS_NBBLESTATE_CALCCOST                  (_MODEM_FSMSTATUS_NBBLESTATE_CALCCOST << 15)        /**< Shifted mode CALCCOST for MODEM_FSMSTATUS    */
-#define MODEM_FSMSTATUS_NBBLESTATE_INITALACQU                (_MODEM_FSMSTATUS_NBBLESTATE_INITALACQU << 15)      /**< Shifted mode INITALACQU for MODEM_FSMSTATUS  */
+#define MODEM_FSMSTATUS_NBBLESTATE_IDLE                      (_MODEM_FSMSTATUS_NBBLESTATE_IDLE << 15)            /**< Shifted mode IDLE for MODEM_FSMSTATUS       */
+#define MODEM_FSMSTATUS_NBBLESTATE_VTINITI                   (_MODEM_FSMSTATUS_NBBLESTATE_VTINITI << 15)         /**< Shifted mode VTINITI for MODEM_FSMSTATUS    */
+#define MODEM_FSMSTATUS_NBBLESTATE_ADDRNXT                   (_MODEM_FSMSTATUS_NBBLESTATE_ADDRNXT << 15)         /**< Shifted mode ADDRNXT for MODEM_FSMSTATUS    */
+#define MODEM_FSMSTATUS_NBBLESTATE_INICOST                   (_MODEM_FSMSTATUS_NBBLESTATE_INICOST << 15)         /**< Shifted mode INICOST for MODEM_FSMSTATUS    */
+#define MODEM_FSMSTATUS_NBBLESTATE_CALCCOST                  (_MODEM_FSMSTATUS_NBBLESTATE_CALCCOST << 15)        /**< Shifted mode CALCCOST for MODEM_FSMSTATUS   */
+#define MODEM_FSMSTATUS_NBBLESTATE_INITALACQU                (_MODEM_FSMSTATUS_NBBLESTATE_INITALACQU << 15)      /**< Shifted mode INITALACQU for MODEM_FSMSTATUS */
 #define MODEM_FSMSTATUS_NBBLESTATE_INITALCOSTCALC            (_MODEM_FSMSTATUS_NBBLESTATE_INITALCOSTCALC << 15)  /**< Shifted mode INITALCOSTCALC for MODEM_FSMSTATUS*/
-#define MODEM_FSMSTATUS_NBBLESTATE_MINCOSTCALC               (_MODEM_FSMSTATUS_NBBLESTATE_MINCOSTCALC << 15)     /**< Shifted mode MINCOSTCALC for MODEM_FSMSTATUS */
-#define MODEM_FSMSTATUS_NBBLESTATE_FREQACQU                  (_MODEM_FSMSTATUS_NBBLESTATE_FREQACQU << 15)        /**< Shifted mode FREQACQU for MODEM_FSMSTATUS    */
+#define MODEM_FSMSTATUS_NBBLESTATE_MINCOSTCALC               (_MODEM_FSMSTATUS_NBBLESTATE_MINCOSTCALC << 15)     /**< Shifted mode MINCOSTCALC for MODEM_FSMSTATUS*/
+#define MODEM_FSMSTATUS_NBBLESTATE_FREQACQU                  (_MODEM_FSMSTATUS_NBBLESTATE_FREQACQU << 15)        /**< Shifted mode FREQACQU for MODEM_FSMSTATUS   */
 #define MODEM_FSMSTATUS_NBBLESTATE_FREQACQUDONE              (_MODEM_FSMSTATUS_NBBLESTATE_FREQACQUDONE << 15)    /**< Shifted mode FREQACQUDONE for MODEM_FSMSTATUS*/
 #define MODEM_FSMSTATUS_NBBLESTATE_TIMINGACQUEARLY           (_MODEM_FSMSTATUS_NBBLESTATE_TIMINGACQUEARLY << 15) /**< Shifted mode TIMINGACQUEARLY for MODEM_FSMSTATUS*/
 #define MODEM_FSMSTATUS_NBBLESTATE_TIMINGACQUCURR            (_MODEM_FSMSTATUS_NBBLESTATE_TIMINGACQUCURR << 15)  /**< Shifted mode TIMINGACQUCURR for MODEM_FSMSTATUS*/
 #define MODEM_FSMSTATUS_NBBLESTATE_TIMINGACQULATE            (_MODEM_FSMSTATUS_NBBLESTATE_TIMINGACQULATE << 15)  /**< Shifted mode TIMINGACQULATE for MODEM_FSMSTATUS*/
 #define MODEM_FSMSTATUS_NBBLESTATE_TIMINGACQUDONE            (_MODEM_FSMSTATUS_NBBLESTATE_TIMINGACQUDONE << 15)  /**< Shifted mode TIMINGACQUDONE for MODEM_FSMSTATUS*/
-#define MODEM_FSMSTATUS_NBBLESTATE_VIRTBIINIT0               (_MODEM_FSMSTATUS_NBBLESTATE_VIRTBIINIT0 << 15)     /**< Shifted mode VIRTBIINIT0 for MODEM_FSMSTATUS */
-#define MODEM_FSMSTATUS_NBBLESTATE_VIRTBIINIT1               (_MODEM_FSMSTATUS_NBBLESTATE_VIRTBIINIT1 << 15)     /**< Shifted mode VIRTBIINIT1 for MODEM_FSMSTATUS */
+#define MODEM_FSMSTATUS_NBBLESTATE_VIRTBIINIT0               (_MODEM_FSMSTATUS_NBBLESTATE_VIRTBIINIT0 << 15)     /**< Shifted mode VIRTBIINIT0 for MODEM_FSMSTATUS*/
+#define MODEM_FSMSTATUS_NBBLESTATE_VIRTBIINIT1               (_MODEM_FSMSTATUS_NBBLESTATE_VIRTBIINIT1 << 15)     /**< Shifted mode VIRTBIINIT1 for MODEM_FSMSTATUS*/
 #define MODEM_FSMSTATUS_NBBLESTATE_VIRTBIRXSYNC              (_MODEM_FSMSTATUS_NBBLESTATE_VIRTBIRXSYNC << 15)    /**< Shifted mode VIRTBIRXSYNC for MODEM_FSMSTATUS*/
 #define MODEM_FSMSTATUS_NBBLESTATE_VIRTBIRXPAYLOAD           (_MODEM_FSMSTATUS_NBBLESTATE_VIRTBIRXPAYLOAD << 15) /**< Shifted mode VIRTBIRXPAYLOAD for MODEM_FSMSTATUS*/
-#define MODEM_FSMSTATUS_NBBLESTATE_HARDRXSYNC                (_MODEM_FSMSTATUS_NBBLESTATE_HARDRXSYNC << 15)      /**< Shifted mode HARDRXSYNC for MODEM_FSMSTATUS  */
+#define MODEM_FSMSTATUS_NBBLESTATE_HARDRXSYNC                (_MODEM_FSMSTATUS_NBBLESTATE_HARDRXSYNC << 15)      /**< Shifted mode HARDRXSYNC for MODEM_FSMSTATUS */
 #define MODEM_FSMSTATUS_NBBLESTATE_HARDXPAYLOAD              (_MODEM_FSMSTATUS_NBBLESTATE_HARDXPAYLOAD << 15)    /**< Shifted mode HARDXPAYLOAD for MODEM_FSMSTATUS*/
-#define MODEM_FSMSTATUS_NBBLESTATE_TRACKFREQ                 (_MODEM_FSMSTATUS_NBBLESTATE_TRACKFREQ << 15)       /**< Shifted mode TRACKFREQ for MODEM_FSMSTATUS   */
+#define MODEM_FSMSTATUS_NBBLESTATE_TRACKFREQ                 (_MODEM_FSMSTATUS_NBBLESTATE_TRACKFREQ << 15)       /**< Shifted mode TRACKFREQ for MODEM_FSMSTATUS  */
 #define MODEM_FSMSTATUS_NBBLESTATE_TRACKTIMEARLY             (_MODEM_FSMSTATUS_NBBLESTATE_TRACKTIMEARLY << 15)   /**< Shifted mode TRACKTIMEARLY for MODEM_FSMSTATUS*/
 #define MODEM_FSMSTATUS_NBBLESTATE_TRACKTIMCURR              (_MODEM_FSMSTATUS_NBBLESTATE_TRACKTIMCURR << 15)    /**< Shifted mode TRACKTIMCURR for MODEM_FSMSTATUS*/
 #define MODEM_FSMSTATUS_NBBLESTATE_TRACKTIMLATE              (_MODEM_FSMSTATUS_NBBLESTATE_TRACKTIMLATE << 15)    /**< Shifted mode TRACKTIMLATE for MODEM_FSMSTATUS*/
-#define MODEM_FSMSTATUS_NBBLESTATE_TRACKDONE                 (_MODEM_FSMSTATUS_NBBLESTATE_TRACKDONE << 15)       /**< Shifted mode TRACKDONE for MODEM_FSMSTATUS   */
+#define MODEM_FSMSTATUS_NBBLESTATE_TRACKDONE                 (_MODEM_FSMSTATUS_NBBLESTATE_TRACKDONE << 15)       /**< Shifted mode TRACKDONE for MODEM_FSMSTATUS  */
 #define MODEM_FSMSTATUS_NBBLESTATE_TRACKDECISION             (_MODEM_FSMSTATUS_NBBLESTATE_TRACKDECISION << 15)   /**< Shifted mode TRACKDECISION for MODEM_FSMSTATUS*/
-#define MODEM_FSMSTATUS_NBBLESTATE_STOP                      (_MODEM_FSMSTATUS_NBBLESTATE_STOP << 15)            /**< Shifted mode STOP for MODEM_FSMSTATUS        */
-#define MODEM_FSMSTATUS_NBBLESTATE_WAITACK                   (_MODEM_FSMSTATUS_NBBLESTATE_WAITACK << 15)         /**< Shifted mode WAITACK for MODEM_FSMSTATUS     */
-#define MODEM_FSMSTATUS_NBBLESTATE_DEBUG                     (_MODEM_FSMSTATUS_NBBLESTATE_DEBUG << 15)           /**< Shifted mode DEBUG for MODEM_FSMSTATUS       */
+#define MODEM_FSMSTATUS_NBBLESTATE_STOP                      (_MODEM_FSMSTATUS_NBBLESTATE_STOP << 15)            /**< Shifted mode STOP for MODEM_FSMSTATUS       */
+#define MODEM_FSMSTATUS_NBBLESTATE_WAITACK                   (_MODEM_FSMSTATUS_NBBLESTATE_WAITACK << 15)         /**< Shifted mode WAITACK for MODEM_FSMSTATUS    */
+#define MODEM_FSMSTATUS_NBBLESTATE_DEBUG                     (_MODEM_FSMSTATUS_NBBLESTATE_DEBUG << 15)           /**< Shifted mode DEBUG for MODEM_FSMSTATUS      */
 
 /* Bit fields for MODEM STATUS2 */
 #define _MODEM_STATUS2_RESETVALUE                            0x00000000UL                               /**< Default value for MODEM_STATUS2             */
@@ -3054,11 +3053,11 @@ typedef struct {
 #define _MODEM_STATUS2_LRBLECI_SHIFT                         12                                         /**< Shift value for MODEM_LRBLECI               */
 #define _MODEM_STATUS2_LRBLECI_MASK                          0x3000UL                                   /**< Bit mask for MODEM_LRBLECI                  */
 #define _MODEM_STATUS2_LRBLECI_DEFAULT                       0x00000000UL                               /**< Mode DEFAULT for MODEM_STATUS2              */
-#define _MODEM_STATUS2_LRBLECI_LR125k                        0x00000000UL                               /**< Mode LR125k for MODEM_STATUS2                */
-#define _MODEM_STATUS2_LRBLECI_LR500k                        0x00000001UL                               /**< Mode LR500k for MODEM_STATUS2                */
+#define _MODEM_STATUS2_LRBLECI_LR125k                        0x00000000UL                               /**< Mode LR125k for MODEM_STATUS2               */
+#define _MODEM_STATUS2_LRBLECI_LR500k                        0x00000001UL                               /**< Mode LR500k for MODEM_STATUS2               */
 #define MODEM_STATUS2_LRBLECI_DEFAULT                        (_MODEM_STATUS2_LRBLECI_DEFAULT << 12)     /**< Shifted mode DEFAULT for MODEM_STATUS2      */
-#define MODEM_STATUS2_LRBLECI_LR125k                         (_MODEM_STATUS2_LRBLECI_LR125k << 12)      /**< Shifted mode LR125k for MODEM_STATUS2        */
-#define MODEM_STATUS2_LRBLECI_LR500k                         (_MODEM_STATUS2_LRBLECI_LR500k << 12)      /**< Shifted mode LR500k for MODEM_STATUS2        */
+#define MODEM_STATUS2_LRBLECI_LR125k                         (_MODEM_STATUS2_LRBLECI_LR125k << 12)      /**< Shifted mode LR125k for MODEM_STATUS2       */
+#define MODEM_STATUS2_LRBLECI_LR500k                         (_MODEM_STATUS2_LRBLECI_LR500k << 12)      /**< Shifted mode LR500k for MODEM_STATUS2       */
 
 /* Bit fields for MODEM STATUS3 */
 #define _MODEM_STATUS3_RESETVALUE                            0x00000000UL                                   /**< Default value for MODEM_STATUS3             */
@@ -3167,15 +3166,15 @@ typedef struct {
 #define _MODEM_BLEIQDSAEXT1_CHPWRFIRAVGVAL_SHIFT             3                                                    /**< Shift value for MODEM_CHPWRFIRAVGVAL        */
 #define _MODEM_BLEIQDSAEXT1_CHPWRFIRAVGVAL_MASK              0x18UL                                               /**< Bit mask for MODEM_CHPWRFIRAVGVAL           */
 #define _MODEM_BLEIQDSAEXT1_CHPWRFIRAVGVAL_DEFAULT           0x00000000UL                                         /**< Mode DEFAULT for MODEM_BLEIQDSAEXT1         */
-#define _MODEM_BLEIQDSAEXT1_CHPWRFIRAVGVAL_AVG0              0x00000000UL                                         /**< Mode AVG0 for MODEM_BLEIQDSAEXT1             */
-#define _MODEM_BLEIQDSAEXT1_CHPWRFIRAVGVAL_AVG2              0x00000001UL                                         /**< Mode AVG2 for MODEM_BLEIQDSAEXT1             */
-#define _MODEM_BLEIQDSAEXT1_CHPWRFIRAVGVAL_AVG4              0x00000002UL                                         /**< Mode AVG4 for MODEM_BLEIQDSAEXT1             */
-#define _MODEM_BLEIQDSAEXT1_CHPWRFIRAVGVAL_AVG8              0x00000003UL                                         /**< Mode AVG8 for MODEM_BLEIQDSAEXT1             */
+#define _MODEM_BLEIQDSAEXT1_CHPWRFIRAVGVAL_AVG0              0x00000000UL                                         /**< Mode AVG0 for MODEM_BLEIQDSAEXT1            */
+#define _MODEM_BLEIQDSAEXT1_CHPWRFIRAVGVAL_AVG2              0x00000001UL                                         /**< Mode AVG2 for MODEM_BLEIQDSAEXT1            */
+#define _MODEM_BLEIQDSAEXT1_CHPWRFIRAVGVAL_AVG4              0x00000002UL                                         /**< Mode AVG4 for MODEM_BLEIQDSAEXT1            */
+#define _MODEM_BLEIQDSAEXT1_CHPWRFIRAVGVAL_AVG8              0x00000003UL                                         /**< Mode AVG8 for MODEM_BLEIQDSAEXT1            */
 #define MODEM_BLEIQDSAEXT1_CHPWRFIRAVGVAL_DEFAULT            (_MODEM_BLEIQDSAEXT1_CHPWRFIRAVGVAL_DEFAULT << 3)    /**< Shifted mode DEFAULT for MODEM_BLEIQDSAEXT1 */
-#define MODEM_BLEIQDSAEXT1_CHPWRFIRAVGVAL_AVG0               (_MODEM_BLEIQDSAEXT1_CHPWRFIRAVGVAL_AVG0 << 3)       /**< Shifted mode AVG0 for MODEM_BLEIQDSAEXT1     */
-#define MODEM_BLEIQDSAEXT1_CHPWRFIRAVGVAL_AVG2               (_MODEM_BLEIQDSAEXT1_CHPWRFIRAVGVAL_AVG2 << 3)       /**< Shifted mode AVG2 for MODEM_BLEIQDSAEXT1     */
-#define MODEM_BLEIQDSAEXT1_CHPWRFIRAVGVAL_AVG4               (_MODEM_BLEIQDSAEXT1_CHPWRFIRAVGVAL_AVG4 << 3)       /**< Shifted mode AVG4 for MODEM_BLEIQDSAEXT1     */
-#define MODEM_BLEIQDSAEXT1_CHPWRFIRAVGVAL_AVG8               (_MODEM_BLEIQDSAEXT1_CHPWRFIRAVGVAL_AVG8 << 3)       /**< Shifted mode AVG8 for MODEM_BLEIQDSAEXT1     */
+#define MODEM_BLEIQDSAEXT1_CHPWRFIRAVGVAL_AVG0               (_MODEM_BLEIQDSAEXT1_CHPWRFIRAVGVAL_AVG0 << 3)       /**< Shifted mode AVG0 for MODEM_BLEIQDSAEXT1    */
+#define MODEM_BLEIQDSAEXT1_CHPWRFIRAVGVAL_AVG2               (_MODEM_BLEIQDSAEXT1_CHPWRFIRAVGVAL_AVG2 << 3)       /**< Shifted mode AVG2 for MODEM_BLEIQDSAEXT1    */
+#define MODEM_BLEIQDSAEXT1_CHPWRFIRAVGVAL_AVG4               (_MODEM_BLEIQDSAEXT1_CHPWRFIRAVGVAL_AVG4 << 3)       /**< Shifted mode AVG4 for MODEM_BLEIQDSAEXT1    */
+#define MODEM_BLEIQDSAEXT1_CHPWRFIRAVGVAL_AVG8               (_MODEM_BLEIQDSAEXT1_CHPWRFIRAVGVAL_AVG8 << 3)       /**< Shifted mode AVG8 for MODEM_BLEIQDSAEXT1    */
 #define _MODEM_BLEIQDSAEXT1_CORRIIRAVGMULFACT_SHIFT          5                                                    /**< Shift value for MODEM_CORRIIRAVGMULFACT     */
 #define _MODEM_BLEIQDSAEXT1_CORRIIRAVGMULFACT_MASK           0x60UL                                               /**< Bit mask for MODEM_CORRIIRAVGMULFACT        */
 #define _MODEM_BLEIQDSAEXT1_CORRIIRAVGMULFACT_DEFAULT        0x00000000UL                                         /**< Mode DEFAULT for MODEM_BLEIQDSAEXT1         */
@@ -3222,57 +3221,57 @@ typedef struct {
 #define _MODEM_DIGIGAINCTRL_DIGIGAINSEL_SHIFT                1                                                 /**< Shift value for MODEM_DIGIGAINSEL           */
 #define _MODEM_DIGIGAINCTRL_DIGIGAINSEL_MASK                 0x3EUL                                            /**< Bit mask for MODEM_DIGIGAINSEL              */
 #define _MODEM_DIGIGAINCTRL_DIGIGAINSEL_DEFAULT              0x00000000UL                                      /**< Mode DEFAULT for MODEM_DIGIGAINCTRL         */
-#define _MODEM_DIGIGAINCTRL_DIGIGAINSEL_GAINM3               0x00000000UL                                      /**< Mode GAINM3 for MODEM_DIGIGAINCTRL           */
-#define _MODEM_DIGIGAINCTRL_DIGIGAINSEL_GAINM2P75            0x00000001UL                                      /**< Mode GAINM2P75 for MODEM_DIGIGAINCTRL        */
-#define _MODEM_DIGIGAINCTRL_DIGIGAINSEL_GAINM2P5             0x00000002UL                                      /**< Mode GAINM2P5 for MODEM_DIGIGAINCTRL         */
-#define _MODEM_DIGIGAINCTRL_DIGIGAINSEL_GAINM2P25            0x00000003UL                                      /**< Mode GAINM2P25 for MODEM_DIGIGAINCTRL        */
-#define _MODEM_DIGIGAINCTRL_DIGIGAINSEL_GAINM2               0x00000004UL                                      /**< Mode GAINM2 for MODEM_DIGIGAINCTRL           */
-#define _MODEM_DIGIGAINCTRL_DIGIGAINSEL_GAINM1P75            0x00000005UL                                      /**< Mode GAINM1P75 for MODEM_DIGIGAINCTRL        */
-#define _MODEM_DIGIGAINCTRL_DIGIGAINSEL_GAINM1P5             0x00000006UL                                      /**< Mode GAINM1P5 for MODEM_DIGIGAINCTRL         */
-#define _MODEM_DIGIGAINCTRL_DIGIGAINSEL_GAINM1P25            0x00000007UL                                      /**< Mode GAINM1P25 for MODEM_DIGIGAINCTRL        */
-#define _MODEM_DIGIGAINCTRL_DIGIGAINSEL_GAINM1               0x00000008UL                                      /**< Mode GAINM1 for MODEM_DIGIGAINCTRL           */
-#define _MODEM_DIGIGAINCTRL_DIGIGAINSEL_GAINM0P75            0x00000009UL                                      /**< Mode GAINM0P75 for MODEM_DIGIGAINCTRL        */
-#define _MODEM_DIGIGAINCTRL_DIGIGAINSEL_GAINM0P5             0x0000000AUL                                      /**< Mode GAINM0P5 for MODEM_DIGIGAINCTRL         */
-#define _MODEM_DIGIGAINCTRL_DIGIGAINSEL_GAINM0P25            0x0000000BUL                                      /**< Mode GAINM0P25 for MODEM_DIGIGAINCTRL        */
-#define _MODEM_DIGIGAINCTRL_DIGIGAINSEL_GAINM0               0x0000000CUL                                      /**< Mode GAINM0 for MODEM_DIGIGAINCTRL           */
-#define _MODEM_DIGIGAINCTRL_DIGIGAINSEL_GAINP0P25            0x0000000DUL                                      /**< Mode GAINP0P25 for MODEM_DIGIGAINCTRL        */
-#define _MODEM_DIGIGAINCTRL_DIGIGAINSEL_GAINP0P5             0x0000000EUL                                      /**< Mode GAINP0P5 for MODEM_DIGIGAINCTRL         */
-#define _MODEM_DIGIGAINCTRL_DIGIGAINSEL_GAINP0P75            0x0000000FUL                                      /**< Mode GAINP0P75 for MODEM_DIGIGAINCTRL        */
-#define _MODEM_DIGIGAINCTRL_DIGIGAINSEL_GAINP1               0x00000010UL                                      /**< Mode GAINP1 for MODEM_DIGIGAINCTRL           */
-#define _MODEM_DIGIGAINCTRL_DIGIGAINSEL_GAINP1P25            0x00000011UL                                      /**< Mode GAINP1P25 for MODEM_DIGIGAINCTRL        */
-#define _MODEM_DIGIGAINCTRL_DIGIGAINSEL_GAINP1P5             0x00000012UL                                      /**< Mode GAINP1P5 for MODEM_DIGIGAINCTRL         */
-#define _MODEM_DIGIGAINCTRL_DIGIGAINSEL_GAINP1P75            0x00000013UL                                      /**< Mode GAINP1P75 for MODEM_DIGIGAINCTRL        */
-#define _MODEM_DIGIGAINCTRL_DIGIGAINSEL_GAINP2               0x00000014UL                                      /**< Mode GAINP2 for MODEM_DIGIGAINCTRL           */
-#define _MODEM_DIGIGAINCTRL_DIGIGAINSEL_GAINP2P25            0x00000015UL                                      /**< Mode GAINP2P25 for MODEM_DIGIGAINCTRL        */
-#define _MODEM_DIGIGAINCTRL_DIGIGAINSEL_GAINP2P5             0x00000016UL                                      /**< Mode GAINP2P5 for MODEM_DIGIGAINCTRL         */
-#define _MODEM_DIGIGAINCTRL_DIGIGAINSEL_GAINP2P75            0x00000017UL                                      /**< Mode GAINP2P75 for MODEM_DIGIGAINCTRL        */
-#define _MODEM_DIGIGAINCTRL_DIGIGAINSEL_GAINP3               0x00000018UL                                      /**< Mode GAINP3 for MODEM_DIGIGAINCTRL           */
+#define _MODEM_DIGIGAINCTRL_DIGIGAINSEL_GAINM3               0x00000000UL                                      /**< Mode GAINM3 for MODEM_DIGIGAINCTRL          */
+#define _MODEM_DIGIGAINCTRL_DIGIGAINSEL_GAINM2P75            0x00000001UL                                      /**< Mode GAINM2P75 for MODEM_DIGIGAINCTRL       */
+#define _MODEM_DIGIGAINCTRL_DIGIGAINSEL_GAINM2P5             0x00000002UL                                      /**< Mode GAINM2P5 for MODEM_DIGIGAINCTRL        */
+#define _MODEM_DIGIGAINCTRL_DIGIGAINSEL_GAINM2P25            0x00000003UL                                      /**< Mode GAINM2P25 for MODEM_DIGIGAINCTRL       */
+#define _MODEM_DIGIGAINCTRL_DIGIGAINSEL_GAINM2               0x00000004UL                                      /**< Mode GAINM2 for MODEM_DIGIGAINCTRL          */
+#define _MODEM_DIGIGAINCTRL_DIGIGAINSEL_GAINM1P75            0x00000005UL                                      /**< Mode GAINM1P75 for MODEM_DIGIGAINCTRL       */
+#define _MODEM_DIGIGAINCTRL_DIGIGAINSEL_GAINM1P5             0x00000006UL                                      /**< Mode GAINM1P5 for MODEM_DIGIGAINCTRL        */
+#define _MODEM_DIGIGAINCTRL_DIGIGAINSEL_GAINM1P25            0x00000007UL                                      /**< Mode GAINM1P25 for MODEM_DIGIGAINCTRL       */
+#define _MODEM_DIGIGAINCTRL_DIGIGAINSEL_GAINM1               0x00000008UL                                      /**< Mode GAINM1 for MODEM_DIGIGAINCTRL          */
+#define _MODEM_DIGIGAINCTRL_DIGIGAINSEL_GAINM0P75            0x00000009UL                                      /**< Mode GAINM0P75 for MODEM_DIGIGAINCTRL       */
+#define _MODEM_DIGIGAINCTRL_DIGIGAINSEL_GAINM0P5             0x0000000AUL                                      /**< Mode GAINM0P5 for MODEM_DIGIGAINCTRL        */
+#define _MODEM_DIGIGAINCTRL_DIGIGAINSEL_GAINM0P25            0x0000000BUL                                      /**< Mode GAINM0P25 for MODEM_DIGIGAINCTRL       */
+#define _MODEM_DIGIGAINCTRL_DIGIGAINSEL_GAINM0               0x0000000CUL                                      /**< Mode GAINM0 for MODEM_DIGIGAINCTRL          */
+#define _MODEM_DIGIGAINCTRL_DIGIGAINSEL_GAINP0P25            0x0000000DUL                                      /**< Mode GAINP0P25 for MODEM_DIGIGAINCTRL       */
+#define _MODEM_DIGIGAINCTRL_DIGIGAINSEL_GAINP0P5             0x0000000EUL                                      /**< Mode GAINP0P5 for MODEM_DIGIGAINCTRL        */
+#define _MODEM_DIGIGAINCTRL_DIGIGAINSEL_GAINP0P75            0x0000000FUL                                      /**< Mode GAINP0P75 for MODEM_DIGIGAINCTRL       */
+#define _MODEM_DIGIGAINCTRL_DIGIGAINSEL_GAINP1               0x00000010UL                                      /**< Mode GAINP1 for MODEM_DIGIGAINCTRL          */
+#define _MODEM_DIGIGAINCTRL_DIGIGAINSEL_GAINP1P25            0x00000011UL                                      /**< Mode GAINP1P25 for MODEM_DIGIGAINCTRL       */
+#define _MODEM_DIGIGAINCTRL_DIGIGAINSEL_GAINP1P5             0x00000012UL                                      /**< Mode GAINP1P5 for MODEM_DIGIGAINCTRL        */
+#define _MODEM_DIGIGAINCTRL_DIGIGAINSEL_GAINP1P75            0x00000013UL                                      /**< Mode GAINP1P75 for MODEM_DIGIGAINCTRL       */
+#define _MODEM_DIGIGAINCTRL_DIGIGAINSEL_GAINP2               0x00000014UL                                      /**< Mode GAINP2 for MODEM_DIGIGAINCTRL          */
+#define _MODEM_DIGIGAINCTRL_DIGIGAINSEL_GAINP2P25            0x00000015UL                                      /**< Mode GAINP2P25 for MODEM_DIGIGAINCTRL       */
+#define _MODEM_DIGIGAINCTRL_DIGIGAINSEL_GAINP2P5             0x00000016UL                                      /**< Mode GAINP2P5 for MODEM_DIGIGAINCTRL        */
+#define _MODEM_DIGIGAINCTRL_DIGIGAINSEL_GAINP2P75            0x00000017UL                                      /**< Mode GAINP2P75 for MODEM_DIGIGAINCTRL       */
+#define _MODEM_DIGIGAINCTRL_DIGIGAINSEL_GAINP3               0x00000018UL                                      /**< Mode GAINP3 for MODEM_DIGIGAINCTRL          */
 #define MODEM_DIGIGAINCTRL_DIGIGAINSEL_DEFAULT               (_MODEM_DIGIGAINCTRL_DIGIGAINSEL_DEFAULT << 1)    /**< Shifted mode DEFAULT for MODEM_DIGIGAINCTRL */
-#define MODEM_DIGIGAINCTRL_DIGIGAINSEL_GAINM3                (_MODEM_DIGIGAINCTRL_DIGIGAINSEL_GAINM3 << 1)     /**< Shifted mode GAINM3 for MODEM_DIGIGAINCTRL   */
+#define MODEM_DIGIGAINCTRL_DIGIGAINSEL_GAINM3                (_MODEM_DIGIGAINCTRL_DIGIGAINSEL_GAINM3 << 1)     /**< Shifted mode GAINM3 for MODEM_DIGIGAINCTRL  */
 #define MODEM_DIGIGAINCTRL_DIGIGAINSEL_GAINM2P75             (_MODEM_DIGIGAINCTRL_DIGIGAINSEL_GAINM2P75 << 1)  /**< Shifted mode GAINM2P75 for MODEM_DIGIGAINCTRL*/
-#define MODEM_DIGIGAINCTRL_DIGIGAINSEL_GAINM2P5              (_MODEM_DIGIGAINCTRL_DIGIGAINSEL_GAINM2P5 << 1)   /**< Shifted mode GAINM2P5 for MODEM_DIGIGAINCTRL */
+#define MODEM_DIGIGAINCTRL_DIGIGAINSEL_GAINM2P5              (_MODEM_DIGIGAINCTRL_DIGIGAINSEL_GAINM2P5 << 1)   /**< Shifted mode GAINM2P5 for MODEM_DIGIGAINCTRL*/
 #define MODEM_DIGIGAINCTRL_DIGIGAINSEL_GAINM2P25             (_MODEM_DIGIGAINCTRL_DIGIGAINSEL_GAINM2P25 << 1)  /**< Shifted mode GAINM2P25 for MODEM_DIGIGAINCTRL*/
-#define MODEM_DIGIGAINCTRL_DIGIGAINSEL_GAINM2                (_MODEM_DIGIGAINCTRL_DIGIGAINSEL_GAINM2 << 1)     /**< Shifted mode GAINM2 for MODEM_DIGIGAINCTRL   */
+#define MODEM_DIGIGAINCTRL_DIGIGAINSEL_GAINM2                (_MODEM_DIGIGAINCTRL_DIGIGAINSEL_GAINM2 << 1)     /**< Shifted mode GAINM2 for MODEM_DIGIGAINCTRL  */
 #define MODEM_DIGIGAINCTRL_DIGIGAINSEL_GAINM1P75             (_MODEM_DIGIGAINCTRL_DIGIGAINSEL_GAINM1P75 << 1)  /**< Shifted mode GAINM1P75 for MODEM_DIGIGAINCTRL*/
-#define MODEM_DIGIGAINCTRL_DIGIGAINSEL_GAINM1P5              (_MODEM_DIGIGAINCTRL_DIGIGAINSEL_GAINM1P5 << 1)   /**< Shifted mode GAINM1P5 for MODEM_DIGIGAINCTRL */
+#define MODEM_DIGIGAINCTRL_DIGIGAINSEL_GAINM1P5              (_MODEM_DIGIGAINCTRL_DIGIGAINSEL_GAINM1P5 << 1)   /**< Shifted mode GAINM1P5 for MODEM_DIGIGAINCTRL*/
 #define MODEM_DIGIGAINCTRL_DIGIGAINSEL_GAINM1P25             (_MODEM_DIGIGAINCTRL_DIGIGAINSEL_GAINM1P25 << 1)  /**< Shifted mode GAINM1P25 for MODEM_DIGIGAINCTRL*/
-#define MODEM_DIGIGAINCTRL_DIGIGAINSEL_GAINM1                (_MODEM_DIGIGAINCTRL_DIGIGAINSEL_GAINM1 << 1)     /**< Shifted mode GAINM1 for MODEM_DIGIGAINCTRL   */
+#define MODEM_DIGIGAINCTRL_DIGIGAINSEL_GAINM1                (_MODEM_DIGIGAINCTRL_DIGIGAINSEL_GAINM1 << 1)     /**< Shifted mode GAINM1 for MODEM_DIGIGAINCTRL  */
 #define MODEM_DIGIGAINCTRL_DIGIGAINSEL_GAINM0P75             (_MODEM_DIGIGAINCTRL_DIGIGAINSEL_GAINM0P75 << 1)  /**< Shifted mode GAINM0P75 for MODEM_DIGIGAINCTRL*/
-#define MODEM_DIGIGAINCTRL_DIGIGAINSEL_GAINM0P5              (_MODEM_DIGIGAINCTRL_DIGIGAINSEL_GAINM0P5 << 1)   /**< Shifted mode GAINM0P5 for MODEM_DIGIGAINCTRL */
+#define MODEM_DIGIGAINCTRL_DIGIGAINSEL_GAINM0P5              (_MODEM_DIGIGAINCTRL_DIGIGAINSEL_GAINM0P5 << 1)   /**< Shifted mode GAINM0P5 for MODEM_DIGIGAINCTRL*/
 #define MODEM_DIGIGAINCTRL_DIGIGAINSEL_GAINM0P25             (_MODEM_DIGIGAINCTRL_DIGIGAINSEL_GAINM0P25 << 1)  /**< Shifted mode GAINM0P25 for MODEM_DIGIGAINCTRL*/
-#define MODEM_DIGIGAINCTRL_DIGIGAINSEL_GAINM0                (_MODEM_DIGIGAINCTRL_DIGIGAINSEL_GAINM0 << 1)     /**< Shifted mode GAINM0 for MODEM_DIGIGAINCTRL   */
+#define MODEM_DIGIGAINCTRL_DIGIGAINSEL_GAINM0                (_MODEM_DIGIGAINCTRL_DIGIGAINSEL_GAINM0 << 1)     /**< Shifted mode GAINM0 for MODEM_DIGIGAINCTRL  */
 #define MODEM_DIGIGAINCTRL_DIGIGAINSEL_GAINP0P25             (_MODEM_DIGIGAINCTRL_DIGIGAINSEL_GAINP0P25 << 1)  /**< Shifted mode GAINP0P25 for MODEM_DIGIGAINCTRL*/
-#define MODEM_DIGIGAINCTRL_DIGIGAINSEL_GAINP0P5              (_MODEM_DIGIGAINCTRL_DIGIGAINSEL_GAINP0P5 << 1)   /**< Shifted mode GAINP0P5 for MODEM_DIGIGAINCTRL */
+#define MODEM_DIGIGAINCTRL_DIGIGAINSEL_GAINP0P5              (_MODEM_DIGIGAINCTRL_DIGIGAINSEL_GAINP0P5 << 1)   /**< Shifted mode GAINP0P5 for MODEM_DIGIGAINCTRL*/
 #define MODEM_DIGIGAINCTRL_DIGIGAINSEL_GAINP0P75             (_MODEM_DIGIGAINCTRL_DIGIGAINSEL_GAINP0P75 << 1)  /**< Shifted mode GAINP0P75 for MODEM_DIGIGAINCTRL*/
-#define MODEM_DIGIGAINCTRL_DIGIGAINSEL_GAINP1                (_MODEM_DIGIGAINCTRL_DIGIGAINSEL_GAINP1 << 1)     /**< Shifted mode GAINP1 for MODEM_DIGIGAINCTRL   */
+#define MODEM_DIGIGAINCTRL_DIGIGAINSEL_GAINP1                (_MODEM_DIGIGAINCTRL_DIGIGAINSEL_GAINP1 << 1)     /**< Shifted mode GAINP1 for MODEM_DIGIGAINCTRL  */
 #define MODEM_DIGIGAINCTRL_DIGIGAINSEL_GAINP1P25             (_MODEM_DIGIGAINCTRL_DIGIGAINSEL_GAINP1P25 << 1)  /**< Shifted mode GAINP1P25 for MODEM_DIGIGAINCTRL*/
-#define MODEM_DIGIGAINCTRL_DIGIGAINSEL_GAINP1P5              (_MODEM_DIGIGAINCTRL_DIGIGAINSEL_GAINP1P5 << 1)   /**< Shifted mode GAINP1P5 for MODEM_DIGIGAINCTRL */
+#define MODEM_DIGIGAINCTRL_DIGIGAINSEL_GAINP1P5              (_MODEM_DIGIGAINCTRL_DIGIGAINSEL_GAINP1P5 << 1)   /**< Shifted mode GAINP1P5 for MODEM_DIGIGAINCTRL*/
 #define MODEM_DIGIGAINCTRL_DIGIGAINSEL_GAINP1P75             (_MODEM_DIGIGAINCTRL_DIGIGAINSEL_GAINP1P75 << 1)  /**< Shifted mode GAINP1P75 for MODEM_DIGIGAINCTRL*/
-#define MODEM_DIGIGAINCTRL_DIGIGAINSEL_GAINP2                (_MODEM_DIGIGAINCTRL_DIGIGAINSEL_GAINP2 << 1)     /**< Shifted mode GAINP2 for MODEM_DIGIGAINCTRL   */
+#define MODEM_DIGIGAINCTRL_DIGIGAINSEL_GAINP2                (_MODEM_DIGIGAINCTRL_DIGIGAINSEL_GAINP2 << 1)     /**< Shifted mode GAINP2 for MODEM_DIGIGAINCTRL  */
 #define MODEM_DIGIGAINCTRL_DIGIGAINSEL_GAINP2P25             (_MODEM_DIGIGAINCTRL_DIGIGAINSEL_GAINP2P25 << 1)  /**< Shifted mode GAINP2P25 for MODEM_DIGIGAINCTRL*/
-#define MODEM_DIGIGAINCTRL_DIGIGAINSEL_GAINP2P5              (_MODEM_DIGIGAINCTRL_DIGIGAINSEL_GAINP2P5 << 1)   /**< Shifted mode GAINP2P5 for MODEM_DIGIGAINCTRL */
+#define MODEM_DIGIGAINCTRL_DIGIGAINSEL_GAINP2P5              (_MODEM_DIGIGAINCTRL_DIGIGAINSEL_GAINP2P5 << 1)   /**< Shifted mode GAINP2P5 for MODEM_DIGIGAINCTRL*/
 #define MODEM_DIGIGAINCTRL_DIGIGAINSEL_GAINP2P75             (_MODEM_DIGIGAINCTRL_DIGIGAINSEL_GAINP2P75 << 1)  /**< Shifted mode GAINP2P75 for MODEM_DIGIGAINCTRL*/
-#define MODEM_DIGIGAINCTRL_DIGIGAINSEL_GAINP3                (_MODEM_DIGIGAINCTRL_DIGIGAINSEL_GAINP3 << 1)     /**< Shifted mode GAINP3 for MODEM_DIGIGAINCTRL   */
+#define MODEM_DIGIGAINCTRL_DIGIGAINSEL_GAINP3                (_MODEM_DIGIGAINCTRL_DIGIGAINSEL_GAINP3 << 1)     /**< Shifted mode GAINP3 for MODEM_DIGIGAINCTRL  */
 #define MODEM_DIGIGAINCTRL_DIGIGAINDOUBLE                    (0x1UL << 6)                                      /**< Digital Gain Doubled                        */
 #define _MODEM_DIGIGAINCTRL_DIGIGAINDOUBLE_SHIFT             6                                                 /**< Shift value for MODEM_DIGIGAINDOUBLE        */
 #define _MODEM_DIGIGAINCTRL_DIGIGAINDOUBLE_MASK              0x40UL                                            /**< Bit mask for MODEM_DIGIGAINDOUBLE           */

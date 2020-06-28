@@ -2,10 +2,9 @@
  * @file
  * @brief CMSIS Cortex-M Peripheral Access Layer Header File
  *        for EZR32HG320F64R61
- * @version 5.7.0
  *******************************************************************************
  * # License
- * <b>Copyright 2018 Silicon Laboratories Inc. www.silabs.com</b>
+ * <b>Copyright 2020 Silicon Laboratories Inc. www.silabs.com</b>
  *******************************************************************************
  *
  * SPDX-License-Identifier: Zlib
@@ -123,34 +122,34 @@ typedef enum IRQn{
 #define PART_NUMBER          "EZR32HG320F64R61" /**< Part Number */
 
 /** Memory Base addresses and limits */
-#define FLASH_MEM_BASE       ((uint32_t) 0x0UL)        /**< FLASH base address  */
-#define FLASH_MEM_SIZE       ((uint32_t) 0x10000000UL) /**< FLASH available address space  */
-#define FLASH_MEM_END        ((uint32_t) 0xFFFFFFFUL)  /**< FLASH end address  */
-#define FLASH_MEM_BITS       ((uint32_t) 0x28UL)       /**< FLASH used bits  */
-#define AES_MEM_BASE         ((uint32_t) 0x400E0000UL) /**< AES base address  */
-#define AES_MEM_SIZE         ((uint32_t) 0x400UL)      /**< AES available address space  */
-#define AES_MEM_END          ((uint32_t) 0x400E03FFUL) /**< AES end address  */
-#define AES_MEM_BITS         ((uint32_t) 0x10UL)       /**< AES used bits  */
-#define USBC_MEM_BASE        ((uint32_t) 0x40100000UL) /**< USBC base address  */
-#define USBC_MEM_SIZE        ((uint32_t) 0x40000UL)    /**< USBC available address space  */
-#define USBC_MEM_END         ((uint32_t) 0x4013FFFFUL) /**< USBC end address  */
-#define USBC_MEM_BITS        ((uint32_t) 0x18UL)       /**< USBC used bits  */
-#define PER_MEM_BASE         ((uint32_t) 0x40000000UL) /**< PER base address  */
-#define PER_MEM_SIZE         ((uint32_t) 0xE0000UL)    /**< PER available address space  */
-#define PER_MEM_END          ((uint32_t) 0x400DFFFFUL) /**< PER end address  */
-#define PER_MEM_BITS         ((uint32_t) 0x20UL)       /**< PER used bits  */
-#define RAM_MEM_BASE         ((uint32_t) 0x20000000UL) /**< RAM base address  */
-#define RAM_MEM_SIZE         ((uint32_t) 0x40000UL)    /**< RAM available address space  */
-#define RAM_MEM_END          ((uint32_t) 0x2003FFFFUL) /**< RAM end address  */
-#define RAM_MEM_BITS         ((uint32_t) 0x18UL)       /**< RAM used bits  */
-#define DEVICE_MEM_BASE      ((uint32_t) 0xF0040000UL) /**< DEVICE base address  */
-#define DEVICE_MEM_SIZE      ((uint32_t) 0x1000UL)     /**< DEVICE available address space  */
-#define DEVICE_MEM_END       ((uint32_t) 0xF0040FFFUL) /**< DEVICE end address  */
-#define DEVICE_MEM_BITS      ((uint32_t) 0x12UL)       /**< DEVICE used bits  */
-#define RAM_CODE_MEM_BASE    ((uint32_t) 0x10000000UL) /**< RAM_CODE base address  */
-#define RAM_CODE_MEM_SIZE    ((uint32_t) 0x20000UL)    /**< RAM_CODE available address space  */
-#define RAM_CODE_MEM_END     ((uint32_t) 0x1001FFFFUL) /**< RAM_CODE end address  */
-#define RAM_CODE_MEM_BITS    ((uint32_t) 0x17UL)       /**< RAM_CODE used bits  */
+#define RAM_MEM_BASE         (0x20000000UL) /**< RAM base address  */
+#define RAM_MEM_SIZE         (0x40000UL)    /**< RAM available address space  */
+#define RAM_MEM_END          (0x2003FFFFUL) /**< RAM end address  */
+#define RAM_MEM_BITS         (0x18UL)       /**< RAM used bits  */
+#define DEVICE_MEM_BASE      (0xF0040000UL) /**< DEVICE base address  */
+#define DEVICE_MEM_SIZE      (0x1000UL)     /**< DEVICE available address space  */
+#define DEVICE_MEM_END       (0xF0040FFFUL) /**< DEVICE end address  */
+#define DEVICE_MEM_BITS      (0x12UL)       /**< DEVICE used bits  */
+#define USBC_MEM_BASE        (0x40100000UL) /**< USBC base address  */
+#define USBC_MEM_SIZE        (0x40000UL)    /**< USBC available address space  */
+#define USBC_MEM_END         (0x4013FFFFUL) /**< USBC end address  */
+#define USBC_MEM_BITS        (0x18UL)       /**< USBC used bits  */
+#define RAM_CODE_MEM_BASE    (0x10000000UL) /**< RAM_CODE base address  */
+#define RAM_CODE_MEM_SIZE    (0x20000UL)    /**< RAM_CODE available address space  */
+#define RAM_CODE_MEM_END     (0x1001FFFFUL) /**< RAM_CODE end address  */
+#define RAM_CODE_MEM_BITS    (0x17UL)       /**< RAM_CODE used bits  */
+#define PER_MEM_BASE         (0x40000000UL) /**< PER base address  */
+#define PER_MEM_SIZE         (0xE0000UL)    /**< PER available address space  */
+#define PER_MEM_END          (0x400DFFFFUL) /**< PER end address  */
+#define PER_MEM_BITS         (0x20UL)       /**< PER used bits  */
+#define FLASH_MEM_BASE       (0x0UL)        /**< FLASH base address  */
+#define FLASH_MEM_SIZE       (0x10000000UL) /**< FLASH available address space  */
+#define FLASH_MEM_END        (0xFFFFFFFUL)  /**< FLASH end address  */
+#define FLASH_MEM_BITS       (0x28UL)       /**< FLASH used bits  */
+#define AES_MEM_BASE         (0x400E0000UL) /**< AES base address  */
+#define AES_MEM_SIZE         (0x400UL)      /**< AES available address space  */
+#define AES_MEM_END          (0x400E03FFUL) /**< AES end address  */
+#define AES_MEM_BITS         (0x10UL)       /**< AES used bits  */
 
 /** Flash and SRAM limits for EZR32HG320F64R61 */
 #define FLASH_BASE           (0x00000000UL) /**< Flash Base Address */

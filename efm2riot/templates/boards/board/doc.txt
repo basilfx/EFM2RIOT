@@ -26,14 +26,22 @@ actively measure the power consumption of your hardware and code, in real-time.
 | FPU             | {{ ("yes" if fpu else "no")|align(52)             }} |
 | MPU             | {{ ("yes" if mpu else "no")|align(52)             }} |
 {% strip 2 %}
-    {% if board in ["slstk3401a"] %}
+    {% if board in ["slstk3301a"] %}
         | DMA             | 8 channels                                           |
         | Timers          | 2x 32-bit + 2x 16-bit + 1x 16-bit (low power)        |
         | ADCs            | 12-bit ADC                                           |
         | UARTs           | 4x USART, 1x UART, 1x LEUART                         |
         | SPIs            | 4x USART                                             |
         | I2Cs            | 2x                                                   |
-        | Vcc             | 1.85V - 3.8V                                         |
+        | Vcc             | 1.8V - 3.8V                                          |
+    {% elif board in ["slstk3400a"] %}
+        | DMA             | 8 channels                                           |
+        | Timers          | 3x 16-bit + 1x 16-bit (low power)                    |
+        | ADCs            | 12-bit ADC                                           |
+        | UARTs           | 2x USART, 3x UART, 1x LEUART                         |
+        | SPIs            | 2x USART                                             |
+        | I2Cs            | 1x                                                   |
+        | Vcc             | 1.98V - 3.8V                                         |
     {% elif board in ["slstk3401a"] %}
         | DMA             | 8 channels                                           |
         | Timers          | 2x 16-bit + 1x 16-bit (low power)                    |
@@ -66,6 +74,30 @@ actively measure the power consumption of your hardware and code, in real-time.
         | SPIs            | 2x USART                                             |
         | I2Cs            | 1x                                                   |
         | Vcc             | 1.85V - 3.8V                                         |
+    {% elif board in ["sltb004a"] %}
+        | DMA             | 8 channels                                           |
+        | Timers          | 2x 32-bit + 2x 16-bit + 1x 16-bit (low power)        |
+        | ADCs            | 12-bit ADC                                           |
+        | UARTs           | 4x USART, 1x LEUART                                  |
+        | SPIs            | 4x USART                                             |
+        | I2Cs            | 2x                                                   |
+        | Vcc             | 1.8V - 3.8V                                          |
+    {% elif board in ["sltb009a"] %}
+        | DMA             | 12 channels                                          |
+        | Timers          | 4x 32-bit, 7x 16-bit + 1x 16-bit (low power)         |
+        | ADCs            | 12-bit ADC                                           |
+        | UARTs           | 2x UART, 5x USART, 1x LEUART                         |
+        | SPIs            | 5x USART                                             |
+        | I2Cs            | 2x                                                   |
+        | Vcc             | 1.8V - 3.8V                                          |
+    {% elif board in ["sltb010a"] %}
+        | DMA             | 8 channels                                           |
+        | Timers          | 1x 32-bit + 4x 16-bit + 1x 16-bit (low power)        |
+        | ADCs            | 12-bit ADC                                           |
+        | UARTs           | 2x USART, 1x EUART                                   |
+        | SPIs            | 2x USART                                             |
+        | I2Cs            | 2x                                                   |
+        | Vcc             | 1.71V - 3.8V                                         |
     {% elif board in ["slwstk6220a"] %}
         | DMA             | 12 channels                                          |
         | Timers          | 3x 16-bit + 1x 16-bit (low power)                    |
@@ -115,7 +147,7 @@ actively measure the power consumption of your hardware and code, in real-time.
 
 ### Pinout
 {% strip 2 %}
-    {% if board in ["sltb001a"] %}
+    {% if board in ["sltb001a", "sltb004a", "sltb010a"] %}
         This is the pinout of the expansion pins on the front side of the board. PIN 1
         is the top-left contact, marked on the silkscreen.
     {% else %}
@@ -130,13 +162,24 @@ actively measure the power consumption of your hardware and code, in real-time.
     {% if board in ["slstk3301a"] %}
         | 3V3  | 20  | 19  | RES  |
         | 5V   | 18  | 17  | RES  |
-        | PCD6 | 16  | 15  | PD7  |
+        | PD6  | 16  | 15  | PD7  |
         | PC15 | 14  | 13  | PC9  |
         | PC14 | 12  | 11  | PD5  |
         | PC8  | 10  | 9   | PC13 |
-        | PC12 | 8   | 7   | PD2  |
+        | PA12 | 8   | 7   | PD2  |
         | PC10 | 6   | 5   | PC1  |
         | PC11 | 4   | 3   | PC0  |
+        | VMCU | 2   | 1   | GND  |
+    {% elif board in ["slstk3400a"] %}
+        | 3V3  | 20  | 19  | RES  |
+        | 5V   | 18  | 17  | RES  |
+        | PD6  | 16  | 15  | PD7  |
+        | PD5  | 14  | 13  | PA1  |
+        | PD4  | 12  | 11  | PB11 |
+        | PE13 | 10  | 9   | PA2  |
+        | PE12 | 8   | 7   | PC2  |
+        | PE11 | 6   | 5   | PC1  |
+        | PE10 | 4   | 3   | PC0  |
         | VMCU | 2   | 1   | GND  |
     {% elif board in ["slstk3401a", "slstk3402a"] %}
         | 3V3  | 20  | 19  | RES  |
@@ -158,6 +201,46 @@ actively measure the power consumption of your hardware and code, in real-time.
         | PF5  | 11  | 12  | PC0  |
         | PF6  | 13  | 14  | PC1  |
         | PC11 | 15  | 16  | PC10 |
+        | RES  | 17  | 18  | 5V   |
+        | RES  | 19  | 20  | 3V3  |
+    {% elif board in ["sltb004a"] %}
+        | GND  | 1   | 2   | VMCU |
+        | PA8  | 3   | 4   | PK0  |
+        | PA9  | 5   | 6   | PK2  |
+        | PA6  | 7   | 8   | PF7  |
+        | PA7  | 9   | 10  | PA5  |
+        | PF5  | 11  | 12  | PF3  |
+        | PF6  | 13  | 14  | PF4  |
+        | PC11 | 15  | 16  | PC10 |
+        | RES  | 17  | 18  | 5V   |
+        | RES  | 19  | 20  | 3V3  |
+    {% elif board in ["sltb009a"] %}
+        | GND  | 1   | 2   | VMCU |
+        | PD0  | 3   | 4   | PA0  |
+        | PD1  | 5   | 6   | PA1  |
+        | PA4  | 7   | 8   | PA2  |
+        | PA5  | 9   | 10  | PA3  |
+        | PA6  | 11  | 12  | PC4  |
+        | PE15 | 13  | 14  | PC5  |
+        | PE5  | 15  | 16  | PE4  |
+        |      | 17  | 18  | 5V   |
+        |      | 19  | 20  | 3V3  |
+        | PB12 | 21  | 22  | PE8  |
+        | PB11 | 23  | 24  | PE9  |
+        | PB3  | 25  | 26  | PE10 |
+        | PB4  | 27  | 28  | PE11 |
+        | PD2  | 29  | 30  | PE13 |
+        | PD3  | 31  | 32  | PE14 |
+        | PD4  | 33  | 34  | PF5  |
+    {% elif board in ["sltb010a"] %}
+        | GND  | 1   | 2   | VMCU |
+        | PA8  | 3   | 4   | PC0  |
+        | PA7  | 5   | 6   | PC1  |
+        | PC6  | 7   | 8   | PC2  |
+        | PC7  | 9   | 10  | PB2  |
+        | PB0  | 11  | 12  | PA5  |
+        | PB1  | 13  | 14  | PA6  |
+        | PD3  | 15  | 16  | PD2  |
         | RES  | 17  | 18  | 5V   |
         | RES  | 19  | 20  | 3V3  |
     {% elif board in ["slwstk6220a"] %}
@@ -209,6 +292,7 @@ actively measure the power consumption of your hardware and code, in real-time.
 |------------|---------|-----------------|---------------------------------|-----------------------------------------------------------|
 {% strip 2 %}
     {% if board in ["slstk3301a"] %}
+    {% elif board in ["slstk3400a"] %}
     {% elif board in ["slstk3401a"] %}
         | ADC        | 0       | ADC0            | CHAN0: internal temperature     | Ports are fixed, 14/16-bit resolution not supported       |
         | I2C        | 0       | I2C0            | SDA: PC10, CLK: PC11            | `I2C_SPEED_LOW` and `I2C_SPEED_HIGH` clock speed deviate  |
@@ -243,6 +327,9 @@ actively measure the power consumption of your hardware and code, in real-time.
         | UART       | 0       | USART0          | RX: PA1, TX: PA0                | Default STDIO output                                      |
         |            | 1       | USART1          | RX: PC6, TX: PC7                |                                                           |
         |            | 2       | LEUART0         | RX: PD11, TX: PD10              | Baud rate limited (see below)                             |
+    {% elif board in ["sltb004a"] %}
+    {% elif board in ["sltb009a"] %}
+    {% elif board in ["sltb010a"] %}
     {% elif board in ["slwstk6000b"] %}
     {% elif board in ["slwstk6220a"] %}
         | ADC        | 0       | ADC0            | CHAN0: internal temperature     | Ports are fixed, 14/16-bit resolution not supported       |
@@ -286,21 +373,39 @@ actively measure the power consumption of your hardware and code, in real-time.
         |            | PB1       | PC9  |            |
         | LED        | LED0      | PD2  | Yellow LED |
         |            | LED1      | PC2  | Yellow LED |
+    {% elif board in ["slstk3400a"] %}
+        | Button     | PB0       | PC9  |            |
+        |            | PB1       | PC10 |            |
+        | LED        | LED0      | PF4  | Yellow LED |
+        |            | LED1      | PF5  | Yellow LED |
     {% elif board in ["slstk3401a", "slstk3402a"] %}
         | Button     | PB0       | PF6  |            |
         |            | PB1       | PF7  |            |
         | LED        | LED0      | PF4  | Yellow LED |
         |            | LED1      | PF5  | Yellow LED |
     {% elif board in ["slstk3701a"] %}
-        | Button     | PB0       | PF6  |            |
-        |            | PB1       | PF7  |            |
-        | LED        | LED0      | PF4  | Yellow LED |
-        |            | LED1      | PF5  | Yellow LED |
+        | Button     | PB0       | PC8  |            |
+        |            | PB1       | PC9  |            |
+        | LED        | LED0      | PH10 | Red LED    |
+        |            | LED1      | PH13 | Red LED    |
     {% elif board in ["sltb001a"] %}
         | Button     | PB0       | PD14 |            |
         |            | PB1       | PD15 |            |
         | LED        | LED0      | PD11 | Red LED    |
         |            | LED1      | PD12 | Green LED  |
+    {% elif board in ["sltb004a"] %}
+        | Button     | PB0       | PD14 |            |
+        |            | PB1       | PD15 |            |
+        | LED        | LED0      | PD8  | Red LED    |
+        |            | LED1      | PD9  | Green LED  |
+    {% elif board in ["sltb009a"] %}
+        | Button     | PB0       | PD5  |            |
+        |            | PB1       | PD8  |            |
+        | LED        | LED0      | PA12 | Red LED    |
+        |            | LED1      | PD6  | Red LED    |
+    {% elif board in ["sltb010a"] %}
+        | Button     | PB0       | PB01 |            |
+        | LED        | LED0      | PB00 | Yellow LED |
     {% elif board in ["slwstk6000b"] %}
         | Button     | PB0       | F12  |            |
         |            | PB1       | F13  |            |
@@ -359,7 +464,7 @@ actively measure the power consumption of your hardware and code, in real-time.
     {% if board in ["slstk3401a", "slstk3402a", "slwstk6220a", "stk3200"] %}
         | LCD driver                    | LS013B7DH03                         | yes       | Sharp Low Power Memory LCD                                     |
     {% endif %}
-    {% if board in ["slstk3401a", "slstk3402a", "sltb001a", "slwstk6220a"] %}
+    {% if board in ["slstk3400a", "slstk3401a", "slstk3402a", "sltb001a", "slwstk6220a"] %}
         | Temperature + humidity sensor | Si7021                              | yes       | Silicon Labs Temperature + Humidity sensor                     |
     {% endif %}
     {% if board in ["sltb001a"] %}
@@ -516,12 +621,12 @@ RIOT-OS has support for *Real-Time Tickers* and *Real-Time Clocks*.
 {% strip 2 %}
     {% if cpu_series == 0 %}
         {% if family in ["efm32zg"] %}
-            This MCUs has support for hardware accelerated AES128.
+            This MCUs has support for hardware-accelerated AES128.
         {% else %}
-            This MCUs has support for hardware accelerated AES128 and AES256.
+            This MCUs has support for hardware-accelerated AES128 and AES256.
         {% endif %}
     {% else %}
-        This MCU is equipped with a hardware accelerated crypto peripheral that can
+        This MCU is equipped with a hardware-accelerated crypto peripheral that can
         speed up AES128, AES256, SHA1, SHA256 and several other cryptographic
         computations.
     {% endif %}
@@ -552,7 +657,7 @@ In other words, these definitions must match. Refer to the data sheet for more
 information.
 
 {% strip 2, ">" %}
-    {% if cpu_series == 1 %}
+    {% if cpu_series in [1, 2] %}
         This MCU has extended pin mapping support. Each pin of a peripheral can be
         connected separately to one of the predefined pins for that peripheral.
     {% endif %}

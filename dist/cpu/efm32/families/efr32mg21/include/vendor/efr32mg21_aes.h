@@ -1,10 +1,9 @@
 /**************************************************************************//**
  * @file
  * @brief EFR32MG21 AES register and bit field definitions
- * @version 5.7.0
  ******************************************************************************
  * # License
- * <b>Copyright 2018 Silicon Laboratories, Inc. www.silabs.com</b>
+ * <b>Copyright 2020 Silicon Laboratories, Inc. www.silabs.com</b>
  ******************************************************************************
  *
  * SPDX-License-Identifier: Zlib
@@ -56,15 +55,15 @@ typedef struct {
   __IOM uint32_t PUSHDESCR;                     /**< Pusher Descriptor                                  */
   __IOM uint32_t PUSHLEN;                       /**< Pusher Length                                      */
   __IOM uint32_t IEN;                           /**< Interrupt Enable                                   */
-  uint32_t       RESERVED0[2U];                 /**< Reserved for future use                      */
+  uint32_t       RESERVED0[2U];                 /**< Reserved for future use                            */
   __IM uint32_t  IF;                            /**< Interrupt Flags                                    */
-  uint32_t       RESERVED1[1U];                 /**< Reserved for future use                      */
+  uint32_t       RESERVED1[1U];                 /**< Reserved for future use                            */
   __IOM uint32_t IFC;                           /**< Interrupt status clear                             */
   __IOM uint32_t CTRL;                          /**< Control register                                   */
   __IOM uint32_t CMD;                           /**< Command register                                   */
   __IM uint32_t  STATUS;                        /**< Status register                                    */
-  uint32_t       RESERVED2[4079U];              /**< Reserved for future use*/
-  uint32_t       RESERVED3[1U];                 /**< Reserved for future use                      */
+  uint32_t       RESERVED2[4079U];              /**< Reserved for future use                            */
+  uint32_t       RESERVED3[1U];                 /**< Reserved for future use                            */
 } AES_TypeDef;
 /** @} End of group EFR32MG21_AES */
 

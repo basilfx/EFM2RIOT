@@ -1,0 +1,38 @@
+# Copyright (c) 2020 HAW Hamburg
+#
+# This file is subject to the terms and conditions of the GNU Lesser
+# General Public License v2.1. See the file LICENSE in the top level
+# directory for more details.
+
+config CPU_FAM_EFR32MG22
+    bool
+    select CPU_CORE_CORTEX_M33
+    select CPU_COMMON_EFM32
+    select HAS_PERIPH_HWRNG
+
+## CPU Models
+config CPU_MODEL_EFR32MG22C224F512IM40
+    bool
+    select CPU_FAM_EFR32MG22
+
+config CPU_MODEL_EFR32MG22C224F512IM32
+    bool
+    select CPU_FAM_EFR32MG22
+
+config CPU_MODEL_EFR32MG22C224F512GN32
+    bool
+    select CPU_FAM_EFR32MG22
+
+config CPU_MODEL_EFR32MG22A224F512IM40
+    bool
+    select CPU_FAM_EFR32MG22
+
+## Common CPU symbols
+config CPU_FAM
+    default "efr32mg22" if CPU_FAM_EFR32MG22
+
+config CPU_MODEL
+    default "efr32mg22c224f512im40" if CPU_MODEL_EFR32MG22C224F512IM40
+    default "efr32mg22c224f512im32" if CPU_MODEL_EFR32MG22C224F512IM32
+    default "efr32mg22c224f512gn32" if CPU_MODEL_EFR32MG22C224F512GN32
+    default "efr32mg22a224f512im40" if CPU_MODEL_EFR32MG22A224F512IM40

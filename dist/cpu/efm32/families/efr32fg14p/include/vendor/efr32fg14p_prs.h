@@ -1,10 +1,9 @@
 /***************************************************************************//**
  * @file
  * @brief EFR32FG14P_PRS register and bit field definitions
- * @version 5.7.0
  *******************************************************************************
  * # License
- * <b>Copyright 2018 Silicon Laboratories Inc. www.silabs.com</b>
+ * <b>Copyright 2020 Silicon Laboratories Inc. www.silabs.com</b>
  *******************************************************************************
  *
  * SPDX-License-Identifier: Zlib
@@ -768,6 +767,7 @@ typedef struct {
 #define _PRS_CH_CTRL_SIGSEL_GPIOPIN8               0x00000000UL                                   /**< Mode GPIOPIN8 for PRS_CH_CTRL */
 #define _PRS_CH_CTRL_SIGSEL_LETIMER0CH0            0x00000000UL                                   /**< Mode LETIMER0CH0 for PRS_CH_CTRL */
 #define _PRS_CH_CTRL_SIGSEL_PCNT0TCC               0x00000000UL                                   /**< Mode PCNT0TCC for PRS_CH_CTRL */
+#define _PRS_CH_CTRL_SIGSEL_PRORTCOF               0x00000000UL                                   /**< Mode PRORTCOF for PRS_CH_CTRL */
 #define _PRS_CH_CTRL_SIGSEL_CMUCLKOUT0             0x00000000UL                                   /**< Mode CMUCLKOUT0 for PRS_CH_CTRL */
 #define _PRS_CH_CTRL_SIGSEL_VDAC0CH0               0x00000000UL                                   /**< Mode VDAC0CH0 for PRS_CH_CTRL */
 #define _PRS_CH_CTRL_SIGSEL_CRYOTIMERPERIOD        0x00000000UL                                   /**< Mode CRYOTIMERPERIOD for PRS_CH_CTRL */
@@ -787,6 +787,7 @@ typedef struct {
 #define _PRS_CH_CTRL_SIGSEL_GPIOPIN9               0x00000001UL                                   /**< Mode GPIOPIN9 for PRS_CH_CTRL */
 #define _PRS_CH_CTRL_SIGSEL_LETIMER0CH1            0x00000001UL                                   /**< Mode LETIMER0CH1 for PRS_CH_CTRL */
 #define _PRS_CH_CTRL_SIGSEL_PCNT0UFOF              0x00000001UL                                   /**< Mode PCNT0UFOF for PRS_CH_CTRL */
+#define _PRS_CH_CTRL_SIGSEL_PRORTCCOMP0            0x00000001UL                                   /**< Mode PRORTCCOMP0 for PRS_CH_CTRL */
 #define _PRS_CH_CTRL_SIGSEL_CMUCLKOUT1             0x00000001UL                                   /**< Mode CMUCLKOUT1 for PRS_CH_CTRL */
 #define _PRS_CH_CTRL_SIGSEL_VDAC0CH1               0x00000001UL                                   /**< Mode VDAC0CH1 for PRS_CH_CTRL */
 #define _PRS_CH_CTRL_SIGSEL_USART0TXC              0x00000001UL                                   /**< Mode USART0TXC for PRS_CH_CTRL */
@@ -804,6 +805,7 @@ typedef struct {
 #define _PRS_CH_CTRL_SIGSEL_GPIOPIN2               0x00000002UL                                   /**< Mode GPIOPIN2 for PRS_CH_CTRL */
 #define _PRS_CH_CTRL_SIGSEL_GPIOPIN10              0x00000002UL                                   /**< Mode GPIOPIN10 for PRS_CH_CTRL */
 #define _PRS_CH_CTRL_SIGSEL_PCNT0DIR               0x00000002UL                                   /**< Mode PCNT0DIR for PRS_CH_CTRL */
+#define _PRS_CH_CTRL_SIGSEL_PRORTCCOMP1            0x00000002UL                                   /**< Mode PRORTCCOMP1 for PRS_CH_CTRL */
 #define _PRS_CH_CTRL_SIGSEL_VDAC0OPA0              0x00000002UL                                   /**< Mode VDAC0OPA0 for PRS_CH_CTRL */
 #define _PRS_CH_CTRL_SIGSEL_USART0RXDATAV          0x00000002UL                                   /**< Mode USART0RXDATAV for PRS_CH_CTRL */
 #define _PRS_CH_CTRL_SIGSEL_USART1RXDATAV          0x00000002UL                                   /**< Mode USART1RXDATAV for PRS_CH_CTRL */
@@ -866,6 +868,7 @@ typedef struct {
 #define PRS_CH_CTRL_SIGSEL_GPIOPIN8                (_PRS_CH_CTRL_SIGSEL_GPIOPIN8 << 0)            /**< Shifted mode GPIOPIN8 for PRS_CH_CTRL */
 #define PRS_CH_CTRL_SIGSEL_LETIMER0CH0             (_PRS_CH_CTRL_SIGSEL_LETIMER0CH0 << 0)         /**< Shifted mode LETIMER0CH0 for PRS_CH_CTRL */
 #define PRS_CH_CTRL_SIGSEL_PCNT0TCC                (_PRS_CH_CTRL_SIGSEL_PCNT0TCC << 0)            /**< Shifted mode PCNT0TCC for PRS_CH_CTRL */
+#define PRS_CH_CTRL_SIGSEL_PRORTCOF                (_PRS_CH_CTRL_SIGSEL_PRORTCOF << 0)            /**< Shifted mode PRORTCOF for PRS_CH_CTRL */
 #define PRS_CH_CTRL_SIGSEL_CMUCLKOUT0              (_PRS_CH_CTRL_SIGSEL_CMUCLKOUT0 << 0)          /**< Shifted mode CMUCLKOUT0 for PRS_CH_CTRL */
 #define PRS_CH_CTRL_SIGSEL_VDAC0CH0                (_PRS_CH_CTRL_SIGSEL_VDAC0CH0 << 0)            /**< Shifted mode VDAC0CH0 for PRS_CH_CTRL */
 #define PRS_CH_CTRL_SIGSEL_CRYOTIMERPERIOD         (_PRS_CH_CTRL_SIGSEL_CRYOTIMERPERIOD << 0)     /**< Shifted mode CRYOTIMERPERIOD for PRS_CH_CTRL */
@@ -885,6 +888,7 @@ typedef struct {
 #define PRS_CH_CTRL_SIGSEL_GPIOPIN9                (_PRS_CH_CTRL_SIGSEL_GPIOPIN9 << 0)            /**< Shifted mode GPIOPIN9 for PRS_CH_CTRL */
 #define PRS_CH_CTRL_SIGSEL_LETIMER0CH1             (_PRS_CH_CTRL_SIGSEL_LETIMER0CH1 << 0)         /**< Shifted mode LETIMER0CH1 for PRS_CH_CTRL */
 #define PRS_CH_CTRL_SIGSEL_PCNT0UFOF               (_PRS_CH_CTRL_SIGSEL_PCNT0UFOF << 0)           /**< Shifted mode PCNT0UFOF for PRS_CH_CTRL */
+#define PRS_CH_CTRL_SIGSEL_PRORTCCOMP0             (_PRS_CH_CTRL_SIGSEL_PRORTCCOMP0 << 0)         /**< Shifted mode PRORTCCOMP0 for PRS_CH_CTRL */
 #define PRS_CH_CTRL_SIGSEL_CMUCLKOUT1              (_PRS_CH_CTRL_SIGSEL_CMUCLKOUT1 << 0)          /**< Shifted mode CMUCLKOUT1 for PRS_CH_CTRL */
 #define PRS_CH_CTRL_SIGSEL_VDAC0CH1                (_PRS_CH_CTRL_SIGSEL_VDAC0CH1 << 0)            /**< Shifted mode VDAC0CH1 for PRS_CH_CTRL */
 #define PRS_CH_CTRL_SIGSEL_USART0TXC               (_PRS_CH_CTRL_SIGSEL_USART0TXC << 0)           /**< Shifted mode USART0TXC for PRS_CH_CTRL */
@@ -902,6 +906,7 @@ typedef struct {
 #define PRS_CH_CTRL_SIGSEL_GPIOPIN2                (_PRS_CH_CTRL_SIGSEL_GPIOPIN2 << 0)            /**< Shifted mode GPIOPIN2 for PRS_CH_CTRL */
 #define PRS_CH_CTRL_SIGSEL_GPIOPIN10               (_PRS_CH_CTRL_SIGSEL_GPIOPIN10 << 0)           /**< Shifted mode GPIOPIN10 for PRS_CH_CTRL */
 #define PRS_CH_CTRL_SIGSEL_PCNT0DIR                (_PRS_CH_CTRL_SIGSEL_PCNT0DIR << 0)            /**< Shifted mode PCNT0DIR for PRS_CH_CTRL */
+#define PRS_CH_CTRL_SIGSEL_PRORTCCOMP1             (_PRS_CH_CTRL_SIGSEL_PRORTCCOMP1 << 0)         /**< Shifted mode PRORTCCOMP1 for PRS_CH_CTRL */
 #define PRS_CH_CTRL_SIGSEL_VDAC0OPA0               (_PRS_CH_CTRL_SIGSEL_VDAC0OPA0 << 0)           /**< Shifted mode VDAC0OPA0 for PRS_CH_CTRL */
 #define PRS_CH_CTRL_SIGSEL_USART0RXDATAV           (_PRS_CH_CTRL_SIGSEL_USART0RXDATAV << 0)       /**< Shifted mode USART0RXDATAV for PRS_CH_CTRL */
 #define PRS_CH_CTRL_SIGSEL_USART1RXDATAV           (_PRS_CH_CTRL_SIGSEL_USART1RXDATAV << 0)       /**< Shifted mode USART1RXDATAV for PRS_CH_CTRL */
@@ -968,6 +973,7 @@ typedef struct {
 #define _PRS_CH_CTRL_SOURCESEL_GPIOH               0x0000000DUL                                   /**< Mode GPIOH for PRS_CH_CTRL */
 #define _PRS_CH_CTRL_SOURCESEL_LETIMER0            0x0000000EUL                                   /**< Mode LETIMER0 for PRS_CH_CTRL */
 #define _PRS_CH_CTRL_SOURCESEL_PCNT0               0x0000000FUL                                   /**< Mode PCNT0 for PRS_CH_CTRL */
+#define _PRS_CH_CTRL_SOURCESEL_PRORTC              0x00000010UL                                   /**< Mode PRORTC for PRS_CH_CTRL */
 #define _PRS_CH_CTRL_SOURCESEL_CMU                 0x00000012UL                                   /**< Mode CMU for PRS_CH_CTRL */
 #define _PRS_CH_CTRL_SOURCESEL_VDAC0               0x00000018UL                                   /**< Mode VDAC0 for PRS_CH_CTRL */
 #define _PRS_CH_CTRL_SOURCESEL_CRYOTIMER           0x0000001AUL                                   /**< Mode CRYOTIMER for PRS_CH_CTRL */
@@ -992,6 +998,7 @@ typedef struct {
 #define PRS_CH_CTRL_SOURCESEL_GPIOH                (_PRS_CH_CTRL_SOURCESEL_GPIOH << 8)            /**< Shifted mode GPIOH for PRS_CH_CTRL */
 #define PRS_CH_CTRL_SOURCESEL_LETIMER0             (_PRS_CH_CTRL_SOURCESEL_LETIMER0 << 8)         /**< Shifted mode LETIMER0 for PRS_CH_CTRL */
 #define PRS_CH_CTRL_SOURCESEL_PCNT0                (_PRS_CH_CTRL_SOURCESEL_PCNT0 << 8)            /**< Shifted mode PCNT0 for PRS_CH_CTRL */
+#define PRS_CH_CTRL_SOURCESEL_PRORTC               (_PRS_CH_CTRL_SOURCESEL_PRORTC << 8)           /**< Shifted mode PRORTC for PRS_CH_CTRL */
 #define PRS_CH_CTRL_SOURCESEL_CMU                  (_PRS_CH_CTRL_SOURCESEL_CMU << 8)              /**< Shifted mode CMU for PRS_CH_CTRL */
 #define PRS_CH_CTRL_SOURCESEL_VDAC0                (_PRS_CH_CTRL_SOURCESEL_VDAC0 << 8)            /**< Shifted mode VDAC0 for PRS_CH_CTRL */
 #define PRS_CH_CTRL_SOURCESEL_CRYOTIMER            (_PRS_CH_CTRL_SOURCESEL_CRYOTIMER << 8)        /**< Shifted mode CRYOTIMER for PRS_CH_CTRL */

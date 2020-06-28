@@ -1,10 +1,9 @@
 /**************************************************************************//**
  * @file
  * @brief EFR32BG21 BURTC register and bit field definitions
- * @version 5.7.0
  ******************************************************************************
  * # License
- * <b>Copyright 2018 Silicon Laboratories, Inc. www.silabs.com</b>
+ * <b>Copyright 2020 Silicon Laboratories, Inc. www.silabs.com</b>
  ******************************************************************************
  *
  * SPDX-License-Identifier: Zlib
@@ -62,7 +61,7 @@ typedef struct {
   __IM uint32_t  SYNCBUSY;                      /**< Synchronization Busy Register                      */
   __IOM uint32_t LOCK;                          /**< Configuration Lock Register                        */
   __IOM uint32_t COMP;                          /**< Compare Value Register                             */
-  uint32_t       RESERVED0[1011U];              /**< Reserved for future use*/
+  uint32_t       RESERVED0[1011U];              /**< Reserved for future use                            */
   __IM uint32_t  IPVERSION_SET;                 /**< IP version ID                                      */
   __IOM uint32_t EN_SET;                        /**< Module Enable Register                             */
   __IOM uint32_t CFG_SET;                       /**< Configuration Register                             */
@@ -76,7 +75,7 @@ typedef struct {
   __IM uint32_t  SYNCBUSY_SET;                  /**< Synchronization Busy Register                      */
   __IOM uint32_t LOCK_SET;                      /**< Configuration Lock Register                        */
   __IOM uint32_t COMP_SET;                      /**< Compare Value Register                             */
-  uint32_t       RESERVED1[1011U];              /**< Reserved for future use*/
+  uint32_t       RESERVED1[1011U];              /**< Reserved for future use                            */
   __IM uint32_t  IPVERSION_CLR;                 /**< IP version ID                                      */
   __IOM uint32_t EN_CLR;                        /**< Module Enable Register                             */
   __IOM uint32_t CFG_CLR;                       /**< Configuration Register                             */
@@ -90,7 +89,7 @@ typedef struct {
   __IM uint32_t  SYNCBUSY_CLR;                  /**< Synchronization Busy Register                      */
   __IOM uint32_t LOCK_CLR;                      /**< Configuration Lock Register                        */
   __IOM uint32_t COMP_CLR;                      /**< Compare Value Register                             */
-  uint32_t       RESERVED2[1011U];              /**< Reserved for future use*/
+  uint32_t       RESERVED2[1011U];              /**< Reserved for future use                            */
   __IM uint32_t  IPVERSION_TGL;                 /**< IP version ID                                      */
   __IOM uint32_t EN_TGL;                        /**< Module Enable Register                             */
   __IOM uint32_t CFG_TGL;                       /**< Configuration Register                             */
@@ -138,56 +137,56 @@ typedef struct {
 #define _BURTC_CFG_DEBUGRUN_SHIFT             0                                         /**< Shift value for BURTC_DEBUGRUN              */
 #define _BURTC_CFG_DEBUGRUN_MASK              0x1UL                                     /**< Bit mask for BURTC_DEBUGRUN                 */
 #define _BURTC_CFG_DEBUGRUN_DEFAULT           0x00000000UL                              /**< Mode DEFAULT for BURTC_CFG                  */
-#define _BURTC_CFG_DEBUGRUN_DISABLE           0x00000000UL                              /**< Mode DISABLE for BURTC_CFG                   */
-#define _BURTC_CFG_DEBUGRUN_ENABLE            0x00000001UL                              /**< Mode ENABLE for BURTC_CFG                    */
+#define _BURTC_CFG_DEBUGRUN_DISABLE           0x00000000UL                              /**< Mode DISABLE for BURTC_CFG                  */
+#define _BURTC_CFG_DEBUGRUN_ENABLE            0x00000001UL                              /**< Mode ENABLE for BURTC_CFG                   */
 #define BURTC_CFG_DEBUGRUN_DEFAULT            (_BURTC_CFG_DEBUGRUN_DEFAULT << 0)        /**< Shifted mode DEFAULT for BURTC_CFG          */
-#define BURTC_CFG_DEBUGRUN_DISABLE            (_BURTC_CFG_DEBUGRUN_DISABLE << 0)        /**< Shifted mode DISABLE for BURTC_CFG           */
-#define BURTC_CFG_DEBUGRUN_ENABLE             (_BURTC_CFG_DEBUGRUN_ENABLE << 0)         /**< Shifted mode ENABLE for BURTC_CFG            */
+#define BURTC_CFG_DEBUGRUN_DISABLE            (_BURTC_CFG_DEBUGRUN_DISABLE << 0)        /**< Shifted mode DISABLE for BURTC_CFG          */
+#define BURTC_CFG_DEBUGRUN_ENABLE             (_BURTC_CFG_DEBUGRUN_ENABLE << 0)         /**< Shifted mode ENABLE for BURTC_CFG           */
 #define BURTC_CFG_COMPTOP                     (0x1UL << 1)                              /**< Compare Channel is Top Value                */
 #define _BURTC_CFG_COMPTOP_SHIFT              1                                         /**< Shift value for BURTC_COMPTOP               */
 #define _BURTC_CFG_COMPTOP_MASK               0x2UL                                     /**< Bit mask for BURTC_COMPTOP                  */
 #define _BURTC_CFG_COMPTOP_DEFAULT            0x00000000UL                              /**< Mode DEFAULT for BURTC_CFG                  */
-#define _BURTC_CFG_COMPTOP_DISABLE            0x00000000UL                              /**< Mode DISABLE for BURTC_CFG                   */
-#define _BURTC_CFG_COMPTOP_ENABLE             0x00000001UL                              /**< Mode ENABLE for BURTC_CFG                    */
+#define _BURTC_CFG_COMPTOP_DISABLE            0x00000000UL                              /**< Mode DISABLE for BURTC_CFG                  */
+#define _BURTC_CFG_COMPTOP_ENABLE             0x00000001UL                              /**< Mode ENABLE for BURTC_CFG                   */
 #define BURTC_CFG_COMPTOP_DEFAULT             (_BURTC_CFG_COMPTOP_DEFAULT << 1)         /**< Shifted mode DEFAULT for BURTC_CFG          */
-#define BURTC_CFG_COMPTOP_DISABLE             (_BURTC_CFG_COMPTOP_DISABLE << 1)         /**< Shifted mode DISABLE for BURTC_CFG           */
-#define BURTC_CFG_COMPTOP_ENABLE              (_BURTC_CFG_COMPTOP_ENABLE << 1)          /**< Shifted mode ENABLE for BURTC_CFG            */
+#define BURTC_CFG_COMPTOP_DISABLE             (_BURTC_CFG_COMPTOP_DISABLE << 1)         /**< Shifted mode DISABLE for BURTC_CFG          */
+#define BURTC_CFG_COMPTOP_ENABLE              (_BURTC_CFG_COMPTOP_ENABLE << 1)          /**< Shifted mode ENABLE for BURTC_CFG           */
 #define _BURTC_CFG_CNTPRESC_SHIFT             4                                         /**< Shift value for BURTC_CNTPRESC              */
 #define _BURTC_CFG_CNTPRESC_MASK              0xF0UL                                    /**< Bit mask for BURTC_CNTPRESC                 */
 #define _BURTC_CFG_CNTPRESC_DEFAULT           0x00000000UL                              /**< Mode DEFAULT for BURTC_CFG                  */
-#define _BURTC_CFG_CNTPRESC_DIV1              0x00000000UL                              /**< Mode DIV1 for BURTC_CFG                      */
-#define _BURTC_CFG_CNTPRESC_DIV2              0x00000001UL                              /**< Mode DIV2 for BURTC_CFG                      */
-#define _BURTC_CFG_CNTPRESC_DIV4              0x00000002UL                              /**< Mode DIV4 for BURTC_CFG                      */
-#define _BURTC_CFG_CNTPRESC_DIV8              0x00000003UL                              /**< Mode DIV8 for BURTC_CFG                      */
-#define _BURTC_CFG_CNTPRESC_DIV16             0x00000004UL                              /**< Mode DIV16 for BURTC_CFG                     */
-#define _BURTC_CFG_CNTPRESC_DIV32             0x00000005UL                              /**< Mode DIV32 for BURTC_CFG                     */
-#define _BURTC_CFG_CNTPRESC_DIV64             0x00000006UL                              /**< Mode DIV64 for BURTC_CFG                     */
-#define _BURTC_CFG_CNTPRESC_DIV128            0x00000007UL                              /**< Mode DIV128 for BURTC_CFG                    */
-#define _BURTC_CFG_CNTPRESC_DIV256            0x00000008UL                              /**< Mode DIV256 for BURTC_CFG                    */
-#define _BURTC_CFG_CNTPRESC_DIV512            0x00000009UL                              /**< Mode DIV512 for BURTC_CFG                    */
-#define _BURTC_CFG_CNTPRESC_DIV1024           0x0000000AUL                              /**< Mode DIV1024 for BURTC_CFG                   */
-#define _BURTC_CFG_CNTPRESC_DIV2048           0x0000000BUL                              /**< Mode DIV2048 for BURTC_CFG                   */
-#define _BURTC_CFG_CNTPRESC_DIV4096           0x0000000CUL                              /**< Mode DIV4096 for BURTC_CFG                   */
-#define _BURTC_CFG_CNTPRESC_DIV8192           0x0000000DUL                              /**< Mode DIV8192 for BURTC_CFG                   */
-#define _BURTC_CFG_CNTPRESC_DIV16384          0x0000000EUL                              /**< Mode DIV16384 for BURTC_CFG                  */
-#define _BURTC_CFG_CNTPRESC_DIV32768          0x0000000FUL                              /**< Mode DIV32768 for BURTC_CFG                  */
+#define _BURTC_CFG_CNTPRESC_DIV1              0x00000000UL                              /**< Mode DIV1 for BURTC_CFG                     */
+#define _BURTC_CFG_CNTPRESC_DIV2              0x00000001UL                              /**< Mode DIV2 for BURTC_CFG                     */
+#define _BURTC_CFG_CNTPRESC_DIV4              0x00000002UL                              /**< Mode DIV4 for BURTC_CFG                     */
+#define _BURTC_CFG_CNTPRESC_DIV8              0x00000003UL                              /**< Mode DIV8 for BURTC_CFG                     */
+#define _BURTC_CFG_CNTPRESC_DIV16             0x00000004UL                              /**< Mode DIV16 for BURTC_CFG                    */
+#define _BURTC_CFG_CNTPRESC_DIV32             0x00000005UL                              /**< Mode DIV32 for BURTC_CFG                    */
+#define _BURTC_CFG_CNTPRESC_DIV64             0x00000006UL                              /**< Mode DIV64 for BURTC_CFG                    */
+#define _BURTC_CFG_CNTPRESC_DIV128            0x00000007UL                              /**< Mode DIV128 for BURTC_CFG                   */
+#define _BURTC_CFG_CNTPRESC_DIV256            0x00000008UL                              /**< Mode DIV256 for BURTC_CFG                   */
+#define _BURTC_CFG_CNTPRESC_DIV512            0x00000009UL                              /**< Mode DIV512 for BURTC_CFG                   */
+#define _BURTC_CFG_CNTPRESC_DIV1024           0x0000000AUL                              /**< Mode DIV1024 for BURTC_CFG                  */
+#define _BURTC_CFG_CNTPRESC_DIV2048           0x0000000BUL                              /**< Mode DIV2048 for BURTC_CFG                  */
+#define _BURTC_CFG_CNTPRESC_DIV4096           0x0000000CUL                              /**< Mode DIV4096 for BURTC_CFG                  */
+#define _BURTC_CFG_CNTPRESC_DIV8192           0x0000000DUL                              /**< Mode DIV8192 for BURTC_CFG                  */
+#define _BURTC_CFG_CNTPRESC_DIV16384          0x0000000EUL                              /**< Mode DIV16384 for BURTC_CFG                 */
+#define _BURTC_CFG_CNTPRESC_DIV32768          0x0000000FUL                              /**< Mode DIV32768 for BURTC_CFG                 */
 #define BURTC_CFG_CNTPRESC_DEFAULT            (_BURTC_CFG_CNTPRESC_DEFAULT << 4)        /**< Shifted mode DEFAULT for BURTC_CFG          */
-#define BURTC_CFG_CNTPRESC_DIV1               (_BURTC_CFG_CNTPRESC_DIV1 << 4)           /**< Shifted mode DIV1 for BURTC_CFG              */
-#define BURTC_CFG_CNTPRESC_DIV2               (_BURTC_CFG_CNTPRESC_DIV2 << 4)           /**< Shifted mode DIV2 for BURTC_CFG              */
-#define BURTC_CFG_CNTPRESC_DIV4               (_BURTC_CFG_CNTPRESC_DIV4 << 4)           /**< Shifted mode DIV4 for BURTC_CFG              */
-#define BURTC_CFG_CNTPRESC_DIV8               (_BURTC_CFG_CNTPRESC_DIV8 << 4)           /**< Shifted mode DIV8 for BURTC_CFG              */
-#define BURTC_CFG_CNTPRESC_DIV16              (_BURTC_CFG_CNTPRESC_DIV16 << 4)          /**< Shifted mode DIV16 for BURTC_CFG             */
-#define BURTC_CFG_CNTPRESC_DIV32              (_BURTC_CFG_CNTPRESC_DIV32 << 4)          /**< Shifted mode DIV32 for BURTC_CFG             */
-#define BURTC_CFG_CNTPRESC_DIV64              (_BURTC_CFG_CNTPRESC_DIV64 << 4)          /**< Shifted mode DIV64 for BURTC_CFG             */
-#define BURTC_CFG_CNTPRESC_DIV128             (_BURTC_CFG_CNTPRESC_DIV128 << 4)         /**< Shifted mode DIV128 for BURTC_CFG            */
-#define BURTC_CFG_CNTPRESC_DIV256             (_BURTC_CFG_CNTPRESC_DIV256 << 4)         /**< Shifted mode DIV256 for BURTC_CFG            */
-#define BURTC_CFG_CNTPRESC_DIV512             (_BURTC_CFG_CNTPRESC_DIV512 << 4)         /**< Shifted mode DIV512 for BURTC_CFG            */
-#define BURTC_CFG_CNTPRESC_DIV1024            (_BURTC_CFG_CNTPRESC_DIV1024 << 4)        /**< Shifted mode DIV1024 for BURTC_CFG           */
-#define BURTC_CFG_CNTPRESC_DIV2048            (_BURTC_CFG_CNTPRESC_DIV2048 << 4)        /**< Shifted mode DIV2048 for BURTC_CFG           */
-#define BURTC_CFG_CNTPRESC_DIV4096            (_BURTC_CFG_CNTPRESC_DIV4096 << 4)        /**< Shifted mode DIV4096 for BURTC_CFG           */
-#define BURTC_CFG_CNTPRESC_DIV8192            (_BURTC_CFG_CNTPRESC_DIV8192 << 4)        /**< Shifted mode DIV8192 for BURTC_CFG           */
-#define BURTC_CFG_CNTPRESC_DIV16384           (_BURTC_CFG_CNTPRESC_DIV16384 << 4)       /**< Shifted mode DIV16384 for BURTC_CFG          */
-#define BURTC_CFG_CNTPRESC_DIV32768           (_BURTC_CFG_CNTPRESC_DIV32768 << 4)       /**< Shifted mode DIV32768 for BURTC_CFG          */
+#define BURTC_CFG_CNTPRESC_DIV1               (_BURTC_CFG_CNTPRESC_DIV1 << 4)           /**< Shifted mode DIV1 for BURTC_CFG             */
+#define BURTC_CFG_CNTPRESC_DIV2               (_BURTC_CFG_CNTPRESC_DIV2 << 4)           /**< Shifted mode DIV2 for BURTC_CFG             */
+#define BURTC_CFG_CNTPRESC_DIV4               (_BURTC_CFG_CNTPRESC_DIV4 << 4)           /**< Shifted mode DIV4 for BURTC_CFG             */
+#define BURTC_CFG_CNTPRESC_DIV8               (_BURTC_CFG_CNTPRESC_DIV8 << 4)           /**< Shifted mode DIV8 for BURTC_CFG             */
+#define BURTC_CFG_CNTPRESC_DIV16              (_BURTC_CFG_CNTPRESC_DIV16 << 4)          /**< Shifted mode DIV16 for BURTC_CFG            */
+#define BURTC_CFG_CNTPRESC_DIV32              (_BURTC_CFG_CNTPRESC_DIV32 << 4)          /**< Shifted mode DIV32 for BURTC_CFG            */
+#define BURTC_CFG_CNTPRESC_DIV64              (_BURTC_CFG_CNTPRESC_DIV64 << 4)          /**< Shifted mode DIV64 for BURTC_CFG            */
+#define BURTC_CFG_CNTPRESC_DIV128             (_BURTC_CFG_CNTPRESC_DIV128 << 4)         /**< Shifted mode DIV128 for BURTC_CFG           */
+#define BURTC_CFG_CNTPRESC_DIV256             (_BURTC_CFG_CNTPRESC_DIV256 << 4)         /**< Shifted mode DIV256 for BURTC_CFG           */
+#define BURTC_CFG_CNTPRESC_DIV512             (_BURTC_CFG_CNTPRESC_DIV512 << 4)         /**< Shifted mode DIV512 for BURTC_CFG           */
+#define BURTC_CFG_CNTPRESC_DIV1024            (_BURTC_CFG_CNTPRESC_DIV1024 << 4)        /**< Shifted mode DIV1024 for BURTC_CFG          */
+#define BURTC_CFG_CNTPRESC_DIV2048            (_BURTC_CFG_CNTPRESC_DIV2048 << 4)        /**< Shifted mode DIV2048 for BURTC_CFG          */
+#define BURTC_CFG_CNTPRESC_DIV4096            (_BURTC_CFG_CNTPRESC_DIV4096 << 4)        /**< Shifted mode DIV4096 for BURTC_CFG          */
+#define BURTC_CFG_CNTPRESC_DIV8192            (_BURTC_CFG_CNTPRESC_DIV8192 << 4)        /**< Shifted mode DIV8192 for BURTC_CFG          */
+#define BURTC_CFG_CNTPRESC_DIV16384           (_BURTC_CFG_CNTPRESC_DIV16384 << 4)       /**< Shifted mode DIV16384 for BURTC_CFG         */
+#define BURTC_CFG_CNTPRESC_DIV32768           (_BURTC_CFG_CNTPRESC_DIV32768 << 4)       /**< Shifted mode DIV32768 for BURTC_CFG         */
 
 /* Bit fields for BURTC CMD */
 #define _BURTC_CMD_RESETVALUE                 0x00000000UL                              /**< Default value for BURTC_CMD                 */
@@ -215,11 +214,11 @@ typedef struct {
 #define _BURTC_STATUS_LOCK_SHIFT              1                                         /**< Shift value for BURTC_LOCK                  */
 #define _BURTC_STATUS_LOCK_MASK               0x2UL                                     /**< Bit mask for BURTC_LOCK                     */
 #define _BURTC_STATUS_LOCK_DEFAULT            0x00000000UL                              /**< Mode DEFAULT for BURTC_STATUS               */
-#define _BURTC_STATUS_LOCK_UNLOCKED           0x00000000UL                              /**< Mode UNLOCKED for BURTC_STATUS               */
-#define _BURTC_STATUS_LOCK_LOCKED             0x00000001UL                              /**< Mode LOCKED for BURTC_STATUS                 */
+#define _BURTC_STATUS_LOCK_UNLOCKED           0x00000000UL                              /**< Mode UNLOCKED for BURTC_STATUS              */
+#define _BURTC_STATUS_LOCK_LOCKED             0x00000001UL                              /**< Mode LOCKED for BURTC_STATUS                */
 #define BURTC_STATUS_LOCK_DEFAULT             (_BURTC_STATUS_LOCK_DEFAULT << 1)         /**< Shifted mode DEFAULT for BURTC_STATUS       */
-#define BURTC_STATUS_LOCK_UNLOCKED            (_BURTC_STATUS_LOCK_UNLOCKED << 1)        /**< Shifted mode UNLOCKED for BURTC_STATUS       */
-#define BURTC_STATUS_LOCK_LOCKED              (_BURTC_STATUS_LOCK_LOCKED << 1)          /**< Shifted mode LOCKED for BURTC_STATUS         */
+#define BURTC_STATUS_LOCK_UNLOCKED            (_BURTC_STATUS_LOCK_UNLOCKED << 1)        /**< Shifted mode UNLOCKED for BURTC_STATUS      */
+#define BURTC_STATUS_LOCK_LOCKED              (_BURTC_STATUS_LOCK_LOCKED << 1)          /**< Shifted mode LOCKED for BURTC_STATUS        */
 
 /* Bit fields for BURTC IF */
 #define _BURTC_IF_RESETVALUE                  0x00000000UL                              /**< Default value for BURTC_IF                  */
@@ -319,9 +318,9 @@ typedef struct {
 #define _BURTC_LOCK_LOCKKEY_SHIFT             0                                         /**< Shift value for BURTC_LOCKKEY               */
 #define _BURTC_LOCK_LOCKKEY_MASK              0xFFFFUL                                  /**< Bit mask for BURTC_LOCKKEY                  */
 #define _BURTC_LOCK_LOCKKEY_DEFAULT           0x0000AEE8UL                              /**< Mode DEFAULT for BURTC_LOCK                 */
-#define _BURTC_LOCK_LOCKKEY_UNLOCK            0x0000AEE8UL                              /**< Mode UNLOCK for BURTC_LOCK                   */
+#define _BURTC_LOCK_LOCKKEY_UNLOCK            0x0000AEE8UL                              /**< Mode UNLOCK for BURTC_LOCK                  */
 #define BURTC_LOCK_LOCKKEY_DEFAULT            (_BURTC_LOCK_LOCKKEY_DEFAULT << 0)        /**< Shifted mode DEFAULT for BURTC_LOCK         */
-#define BURTC_LOCK_LOCKKEY_UNLOCK             (_BURTC_LOCK_LOCKKEY_UNLOCK << 0)         /**< Shifted mode UNLOCK for BURTC_LOCK           */
+#define BURTC_LOCK_LOCKKEY_UNLOCK             (_BURTC_LOCK_LOCKKEY_UNLOCK << 0)         /**< Shifted mode UNLOCK for BURTC_LOCK          */
 
 /* Bit fields for BURTC COMP */
 #define _BURTC_COMP_RESETVALUE                0x00000000UL                              /**< Default value for BURTC_COMP                */

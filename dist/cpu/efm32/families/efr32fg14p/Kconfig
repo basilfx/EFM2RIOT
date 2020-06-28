@@ -1,0 +1,78 @@
+# Copyright (c) 2020 HAW Hamburg
+#
+# This file is subject to the terms and conditions of the GNU Lesser
+# General Public License v2.1. See the file LICENSE in the top level
+# directory for more details.
+
+config CPU_FAM_EFR32FG14P
+    bool
+    select CPU_CORE_CORTEX_M4F
+    select CPU_COMMON_EFM32
+    select HAS_PERIPH_HWRNG
+
+## CPU Models
+config CPU_MODEL_EFR32FG14P232F256GM32
+    bool
+    select CPU_FAM_EFR32FG14P
+
+config CPU_MODEL_EFR32FG14P231F256IM32
+    bool
+    select CPU_FAM_EFR32FG14P
+
+config CPU_MODEL_EFR32FG14P231F256GM48
+    bool
+    select CPU_FAM_EFR32FG14P
+
+config CPU_MODEL_EFR32FG14P231F128GM48
+    bool
+    select CPU_FAM_EFR32FG14P
+
+config CPU_MODEL_EFR32FG14P232F128GM32
+    bool
+    select CPU_FAM_EFR32FG14P
+
+config CPU_MODEL_EFR32FG14P232F128GM48
+    bool
+    select CPU_FAM_EFR32FG14P
+
+config CPU_MODEL_EFR32FG14P231F128GM32
+    bool
+    select CPU_FAM_EFR32FG14P
+
+config CPU_MODEL_EFR32FG14P233F256GM48
+    bool
+    select CPU_FAM_EFR32FG14P
+
+config CPU_MODEL_EFR32FG14P231F256GM32
+    bool
+    select CPU_FAM_EFR32FG14P
+
+config CPU_MODEL_EFR32FG14P233F128GM48
+    bool
+    select CPU_FAM_EFR32FG14P
+
+config CPU_MODEL_EFR32FG14P231F256IM48
+    bool
+    select CPU_FAM_EFR32FG14P
+
+config CPU_MODEL_EFR32FG14P232F256GM48
+    bool
+    select CPU_FAM_EFR32FG14P
+
+## Common CPU symbols
+config CPU_FAM
+    default "efr32fg14p" if CPU_FAM_EFR32FG14P
+
+config CPU_MODEL
+    default "efr32fg14p232f256gm32" if CPU_MODEL_EFR32FG14P232F256GM32
+    default "efr32fg14p231f256im32" if CPU_MODEL_EFR32FG14P231F256IM32
+    default "efr32fg14p231f256gm48" if CPU_MODEL_EFR32FG14P231F256GM48
+    default "efr32fg14p231f128gm48" if CPU_MODEL_EFR32FG14P231F128GM48
+    default "efr32fg14p232f128gm32" if CPU_MODEL_EFR32FG14P232F128GM32
+    default "efr32fg14p232f128gm48" if CPU_MODEL_EFR32FG14P232F128GM48
+    default "efr32fg14p231f128gm32" if CPU_MODEL_EFR32FG14P231F128GM32
+    default "efr32fg14p233f256gm48" if CPU_MODEL_EFR32FG14P233F256GM48
+    default "efr32fg14p231f256gm32" if CPU_MODEL_EFR32FG14P231F256GM32
+    default "efr32fg14p233f128gm48" if CPU_MODEL_EFR32FG14P233F128GM48
+    default "efr32fg14p231f256im48" if CPU_MODEL_EFR32FG14P231F256IM48
+    default "efr32fg14p232f256gm48" if CPU_MODEL_EFR32FG14P232F256GM48

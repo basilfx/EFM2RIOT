@@ -1,10 +1,9 @@
 /**************************************************************************//**
  * @file
  * @brief EFR32MG21 BUFC register and bit field definitions
- * @version 5.7.0
  ******************************************************************************
  * # License
- * <b>Copyright 2018 Silicon Laboratories, Inc. www.silabs.com</b>
+ * <b>Copyright 2020 Silicon Laboratories, Inc. www.silabs.com</b>
  ******************************************************************************
  *
  * SPDX-License-Identifier: Zlib
@@ -53,7 +52,7 @@ typedef struct {
   __IOM uint32_t ADDR;                               /**< Buffer Address                                     */
   __IOM uint32_t WRITEOFFSET;                        /**< Write Offset                                       */
   __IOM uint32_t READOFFSET;                         /**< Read Offset                                        */
-  uint32_t       RESERVED0[1U];                      /**< Reserved for future use                      */
+  uint32_t       RESERVED0[1U];                      /**< Reserved for future use                            */
   __IM uint32_t  READDATA;                           /**< Buffer Read Data                                   */
   __IOM uint32_t WRITEDATA;                          /**< Buffer Write Data                                  */
   __IOM uint32_t XWRITE;                             /**< Buffer XOR Write                                   */
@@ -67,37 +66,37 @@ typedef struct {
 typedef struct {
   __IM uint32_t    IPVERSION;                   /**< IP Version                                         */
   __IOM uint32_t   EN;                          /**< Enable peripheral clock to this module             */
-  BUFC_BUF_TypeDef BUF[4U];                     /**< Data Buffer                                       */
-  uint32_t         RESERVED0[6U];               /**< Reserved for future use*/
+  BUFC_BUF_TypeDef BUF[4U];                     /**< Data Buffer                                        */
+  uint32_t         RESERVED0[6U];               /**< Reserved for future use                            */
   __IOM uint32_t   IF;                          /**< BUFC Interrupt Flags                               */
-  uint32_t         RESERVED1[2U];               /**< Reserved for future use                      */
+  uint32_t         RESERVED1[2U];               /**< Reserved for future use                            */
   __IOM uint32_t   IEN;                         /**< Interrupt Enable Register                          */
   __IOM uint32_t   RAMBASEADDR;                 /**< New Register                                       */
-  uint32_t         RESERVED2[963U];             /**< Reserved for future use*/
+  uint32_t         RESERVED2[963U];             /**< Reserved for future use                            */
   __IM uint32_t    IPVERSION_SET;               /**< IP Version                                         */
   __IOM uint32_t   EN_SET;                      /**< Enable peripheral clock to this module             */
-  BUFC_BUF_TypeDef BUF_SET[4U];                 /**< Data Buffer                                       */
-  uint32_t         RESERVED3[6U];               /**< Reserved for future use*/
+  BUFC_BUF_TypeDef BUF_SET[4U];                 /**< Data Buffer                                        */
+  uint32_t         RESERVED3[6U];               /**< Reserved for future use                            */
   __IOM uint32_t   IF_SET;                      /**< BUFC Interrupt Flags                               */
-  uint32_t         RESERVED4[2U];               /**< Reserved for future use                      */
+  uint32_t         RESERVED4[2U];               /**< Reserved for future use                            */
   __IOM uint32_t   IEN_SET;                     /**< Interrupt Enable Register                          */
   __IOM uint32_t   RAMBASEADDR_SET;             /**< New Register                                       */
-  uint32_t         RESERVED5[963U];             /**< Reserved for future use*/
+  uint32_t         RESERVED5[963U];             /**< Reserved for future use                            */
   __IM uint32_t    IPVERSION_CLR;               /**< IP Version                                         */
   __IOM uint32_t   EN_CLR;                      /**< Enable peripheral clock to this module             */
-  BUFC_BUF_TypeDef BUF_CLR[4U];                 /**< Data Buffer                                       */
-  uint32_t         RESERVED6[6U];               /**< Reserved for future use*/
+  BUFC_BUF_TypeDef BUF_CLR[4U];                 /**< Data Buffer                                        */
+  uint32_t         RESERVED6[6U];               /**< Reserved for future use                            */
   __IOM uint32_t   IF_CLR;                      /**< BUFC Interrupt Flags                               */
-  uint32_t         RESERVED7[2U];               /**< Reserved for future use                      */
+  uint32_t         RESERVED7[2U];               /**< Reserved for future use                            */
   __IOM uint32_t   IEN_CLR;                     /**< Interrupt Enable Register                          */
   __IOM uint32_t   RAMBASEADDR_CLR;             /**< New Register                                       */
-  uint32_t         RESERVED8[963U];             /**< Reserved for future use*/
+  uint32_t         RESERVED8[963U];             /**< Reserved for future use                            */
   __IM uint32_t    IPVERSION_TGL;               /**< IP Version                                         */
   __IOM uint32_t   EN_TGL;                      /**< Enable peripheral clock to this module             */
-  BUFC_BUF_TypeDef BUF_TGL[4U];                 /**< Data Buffer                                       */
-  uint32_t         RESERVED9[6U];               /**< Reserved for future use*/
+  BUFC_BUF_TypeDef BUF_TGL[4U];                 /**< Data Buffer                                        */
+  uint32_t         RESERVED9[6U];               /**< Reserved for future use                            */
   __IOM uint32_t   IF_TGL;                      /**< BUFC Interrupt Flags                               */
-  uint32_t         RESERVED10[2U];              /**< Reserved for future use                      */
+  uint32_t         RESERVED10[2U];              /**< Reserved for future use                            */
   __IOM uint32_t   IEN_TGL;                     /**< Interrupt Enable Register                          */
   __IOM uint32_t   RAMBASEADDR_TGL;             /**< New Register                                       */
 } BUFC_TypeDef;
@@ -133,21 +132,21 @@ typedef struct {
 #define _BUFC_BUF_CTRL_SIZE_SHIFT                            0                                   /**< Shift value for BUFC_SIZE                   */
 #define _BUFC_BUF_CTRL_SIZE_MASK                             0x7UL                               /**< Bit mask for BUFC_SIZE                      */
 #define _BUFC_BUF_CTRL_SIZE_DEFAULT                          0x00000000UL                        /**< Mode DEFAULT for BUFC_BUF_CTRL              */
-#define _BUFC_BUF_CTRL_SIZE_SIZE64                           0x00000000UL                        /**< Mode SIZE64 for BUFC_BUF_CTRL                */
-#define _BUFC_BUF_CTRL_SIZE_SIZE128                          0x00000001UL                        /**< Mode SIZE128 for BUFC_BUF_CTRL               */
-#define _BUFC_BUF_CTRL_SIZE_SIZE256                          0x00000002UL                        /**< Mode SIZE256 for BUFC_BUF_CTRL               */
-#define _BUFC_BUF_CTRL_SIZE_SIZE512                          0x00000003UL                        /**< Mode SIZE512 for BUFC_BUF_CTRL               */
-#define _BUFC_BUF_CTRL_SIZE_SIZE1024                         0x00000004UL                        /**< Mode SIZE1024 for BUFC_BUF_CTRL              */
-#define _BUFC_BUF_CTRL_SIZE_SIZE2048                         0x00000005UL                        /**< Mode SIZE2048 for BUFC_BUF_CTRL              */
-#define _BUFC_BUF_CTRL_SIZE_SIZE4096                         0x00000006UL                        /**< Mode SIZE4096 for BUFC_BUF_CTRL              */
+#define _BUFC_BUF_CTRL_SIZE_SIZE64                           0x00000000UL                        /**< Mode SIZE64 for BUFC_BUF_CTRL               */
+#define _BUFC_BUF_CTRL_SIZE_SIZE128                          0x00000001UL                        /**< Mode SIZE128 for BUFC_BUF_CTRL              */
+#define _BUFC_BUF_CTRL_SIZE_SIZE256                          0x00000002UL                        /**< Mode SIZE256 for BUFC_BUF_CTRL              */
+#define _BUFC_BUF_CTRL_SIZE_SIZE512                          0x00000003UL                        /**< Mode SIZE512 for BUFC_BUF_CTRL              */
+#define _BUFC_BUF_CTRL_SIZE_SIZE1024                         0x00000004UL                        /**< Mode SIZE1024 for BUFC_BUF_CTRL             */
+#define _BUFC_BUF_CTRL_SIZE_SIZE2048                         0x00000005UL                        /**< Mode SIZE2048 for BUFC_BUF_CTRL             */
+#define _BUFC_BUF_CTRL_SIZE_SIZE4096                         0x00000006UL                        /**< Mode SIZE4096 for BUFC_BUF_CTRL             */
 #define BUFC_BUF_CTRL_SIZE_DEFAULT                           (_BUFC_BUF_CTRL_SIZE_DEFAULT << 0)  /**< Shifted mode DEFAULT for BUFC_BUF_CTRL      */
-#define BUFC_BUF_CTRL_SIZE_SIZE64                            (_BUFC_BUF_CTRL_SIZE_SIZE64 << 0)   /**< Shifted mode SIZE64 for BUFC_BUF_CTRL        */
-#define BUFC_BUF_CTRL_SIZE_SIZE128                           (_BUFC_BUF_CTRL_SIZE_SIZE128 << 0)  /**< Shifted mode SIZE128 for BUFC_BUF_CTRL       */
-#define BUFC_BUF_CTRL_SIZE_SIZE256                           (_BUFC_BUF_CTRL_SIZE_SIZE256 << 0)  /**< Shifted mode SIZE256 for BUFC_BUF_CTRL       */
-#define BUFC_BUF_CTRL_SIZE_SIZE512                           (_BUFC_BUF_CTRL_SIZE_SIZE512 << 0)  /**< Shifted mode SIZE512 for BUFC_BUF_CTRL       */
-#define BUFC_BUF_CTRL_SIZE_SIZE1024                          (_BUFC_BUF_CTRL_SIZE_SIZE1024 << 0) /**< Shifted mode SIZE1024 for BUFC_BUF_CTRL      */
-#define BUFC_BUF_CTRL_SIZE_SIZE2048                          (_BUFC_BUF_CTRL_SIZE_SIZE2048 << 0) /**< Shifted mode SIZE2048 for BUFC_BUF_CTRL      */
-#define BUFC_BUF_CTRL_SIZE_SIZE4096                          (_BUFC_BUF_CTRL_SIZE_SIZE4096 << 0) /**< Shifted mode SIZE4096 for BUFC_BUF_CTRL      */
+#define BUFC_BUF_CTRL_SIZE_SIZE64                            (_BUFC_BUF_CTRL_SIZE_SIZE64 << 0)   /**< Shifted mode SIZE64 for BUFC_BUF_CTRL       */
+#define BUFC_BUF_CTRL_SIZE_SIZE128                           (_BUFC_BUF_CTRL_SIZE_SIZE128 << 0)  /**< Shifted mode SIZE128 for BUFC_BUF_CTRL      */
+#define BUFC_BUF_CTRL_SIZE_SIZE256                           (_BUFC_BUF_CTRL_SIZE_SIZE256 << 0)  /**< Shifted mode SIZE256 for BUFC_BUF_CTRL      */
+#define BUFC_BUF_CTRL_SIZE_SIZE512                           (_BUFC_BUF_CTRL_SIZE_SIZE512 << 0)  /**< Shifted mode SIZE512 for BUFC_BUF_CTRL      */
+#define BUFC_BUF_CTRL_SIZE_SIZE1024                          (_BUFC_BUF_CTRL_SIZE_SIZE1024 << 0) /**< Shifted mode SIZE1024 for BUFC_BUF_CTRL     */
+#define BUFC_BUF_CTRL_SIZE_SIZE2048                          (_BUFC_BUF_CTRL_SIZE_SIZE2048 << 0) /**< Shifted mode SIZE2048 for BUFC_BUF_CTRL     */
+#define BUFC_BUF_CTRL_SIZE_SIZE4096                          (_BUFC_BUF_CTRL_SIZE_SIZE4096 << 0) /**< Shifted mode SIZE4096 for BUFC_BUF_CTRL     */
 
 /* Bit fields for BUFC BUF_ADDR */
 #define _BUFC_BUF_ADDR_RESETVALUE                            0x00000000UL                       /**< Default value for BUFC_BUF_ADDR             */
@@ -221,8 +220,8 @@ typedef struct {
 #define _BUFC_BUF_THRESHOLDCTRL_THRESHOLDMODE_SHIFT          13                                                        /**< Shift value for BUFC_THRESHOLDMODE          */
 #define _BUFC_BUF_THRESHOLDCTRL_THRESHOLDMODE_MASK           0x2000UL                                                  /**< Bit mask for BUFC_THRESHOLDMODE             */
 #define _BUFC_BUF_THRESHOLDCTRL_THRESHOLDMODE_DEFAULT        0x00000000UL                                              /**< Mode DEFAULT for BUFC_BUF_THRESHOLDCTRL     */
-#define _BUFC_BUF_THRESHOLDCTRL_THRESHOLDMODE_LARGER         0x00000000UL                                              /**< Mode LARGER for BUFC_BUF_THRESHOLDCTRL       */
-#define _BUFC_BUF_THRESHOLDCTRL_THRESHOLDMODE_LESSOREQUAL    0x00000001UL                                              /**< Mode LESSOREQUAL for BUFC_BUF_THRESHOLDCTRL  */
+#define _BUFC_BUF_THRESHOLDCTRL_THRESHOLDMODE_LARGER         0x00000000UL                                              /**< Mode LARGER for BUFC_BUF_THRESHOLDCTRL      */
+#define _BUFC_BUF_THRESHOLDCTRL_THRESHOLDMODE_LESSOREQUAL    0x00000001UL                                              /**< Mode LESSOREQUAL for BUFC_BUF_THRESHOLDCTRL */
 #define BUFC_BUF_THRESHOLDCTRL_THRESHOLDMODE_DEFAULT         (_BUFC_BUF_THRESHOLDCTRL_THRESHOLDMODE_DEFAULT << 13)     /**< Shifted mode DEFAULT for BUFC_BUF_THRESHOLDCTRL*/
 #define BUFC_BUF_THRESHOLDCTRL_THRESHOLDMODE_LARGER          (_BUFC_BUF_THRESHOLDCTRL_THRESHOLDMODE_LARGER << 13)      /**< Shifted mode LARGER for BUFC_BUF_THRESHOLDCTRL*/
 #define BUFC_BUF_THRESHOLDCTRL_THRESHOLDMODE_LESSOREQUAL     (_BUFC_BUF_THRESHOLDCTRL_THRESHOLDMODE_LESSOREQUAL << 13) /**< Shifted mode LESSOREQUAL for BUFC_BUF_THRESHOLDCTRL*/

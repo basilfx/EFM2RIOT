@@ -1,10 +1,9 @@
 /**************************************************************************//**
  * @file
  * @brief EFR32MG21 RFCRC register and bit field definitions
- * @version 5.7.0
  ******************************************************************************
  * # License
- * <b>Copyright 2018 Silicon Laboratories, Inc. www.silabs.com</b>
+ * <b>Copyright 2020 Silicon Laboratories, Inc. www.silabs.com</b>
  ******************************************************************************
  *
  * SPDX-License-Identifier: Zlib
@@ -58,7 +57,7 @@ typedef struct {
   __IOM uint32_t INIT;                          /**< CRC Initialization Value                           */
   __IM uint32_t  DATA;                          /**< CRC Data Register                                  */
   __IOM uint32_t POLY;                          /**< CRC Polynomial Value                               */
-  uint32_t       RESERVED0[1015U];              /**< Reserved for future use*/
+  uint32_t       RESERVED0[1015U];              /**< Reserved for future use                            */
   __IM uint32_t  IPVERSION_SET;                 /**< IP Version                                         */
   __IOM uint32_t EN_SET;                        /**< Enable peripheral clock to this module             */
   __IOM uint32_t CTRL_SET;                      /**< Control Register                                   */
@@ -68,7 +67,7 @@ typedef struct {
   __IOM uint32_t INIT_SET;                      /**< CRC Initialization Value                           */
   __IM uint32_t  DATA_SET;                      /**< CRC Data Register                                  */
   __IOM uint32_t POLY_SET;                      /**< CRC Polynomial Value                               */
-  uint32_t       RESERVED1[1015U];              /**< Reserved for future use*/
+  uint32_t       RESERVED1[1015U];              /**< Reserved for future use                            */
   __IM uint32_t  IPVERSION_CLR;                 /**< IP Version                                         */
   __IOM uint32_t EN_CLR;                        /**< Enable peripheral clock to this module             */
   __IOM uint32_t CTRL_CLR;                      /**< Control Register                                   */
@@ -78,7 +77,7 @@ typedef struct {
   __IOM uint32_t INIT_CLR;                      /**< CRC Initialization Value                           */
   __IM uint32_t  DATA_CLR;                      /**< CRC Data Register                                  */
   __IOM uint32_t POLY_CLR;                      /**< CRC Polynomial Value                               */
-  uint32_t       RESERVED2[1015U];              /**< Reserved for future use*/
+  uint32_t       RESERVED2[1015U];              /**< Reserved for future use                            */
   __IM uint32_t  IPVERSION_TGL;                 /**< IP Version                                         */
   __IOM uint32_t EN_TGL;                        /**< Enable peripheral clock to this module             */
   __IOM uint32_t CTRL_TGL;                      /**< Control Register                                   */
@@ -131,42 +130,42 @@ typedef struct {
 #define _RFCRC_CTRL_CRCWIDTH_SHIFT            2                                         /**< Shift value for RFCRC_CRCWIDTH              */
 #define _RFCRC_CTRL_CRCWIDTH_MASK             0xCUL                                     /**< Bit mask for RFCRC_CRCWIDTH                 */
 #define _RFCRC_CTRL_CRCWIDTH_DEFAULT          0x00000001UL                              /**< Mode DEFAULT for RFCRC_CTRL                 */
-#define _RFCRC_CTRL_CRCWIDTH_CRCWIDTH8        0x00000000UL                              /**< Mode CRCWIDTH8 for RFCRC_CTRL                */
-#define _RFCRC_CTRL_CRCWIDTH_CRCWIDTH16       0x00000001UL                              /**< Mode CRCWIDTH16 for RFCRC_CTRL               */
-#define _RFCRC_CTRL_CRCWIDTH_CRCWIDTH24       0x00000002UL                              /**< Mode CRCWIDTH24 for RFCRC_CTRL               */
-#define _RFCRC_CTRL_CRCWIDTH_CRCWIDTH32       0x00000003UL                              /**< Mode CRCWIDTH32 for RFCRC_CTRL               */
+#define _RFCRC_CTRL_CRCWIDTH_CRCWIDTH8        0x00000000UL                              /**< Mode CRCWIDTH8 for RFCRC_CTRL               */
+#define _RFCRC_CTRL_CRCWIDTH_CRCWIDTH16       0x00000001UL                              /**< Mode CRCWIDTH16 for RFCRC_CTRL              */
+#define _RFCRC_CTRL_CRCWIDTH_CRCWIDTH24       0x00000002UL                              /**< Mode CRCWIDTH24 for RFCRC_CTRL              */
+#define _RFCRC_CTRL_CRCWIDTH_CRCWIDTH32       0x00000003UL                              /**< Mode CRCWIDTH32 for RFCRC_CTRL              */
 #define RFCRC_CTRL_CRCWIDTH_DEFAULT           (_RFCRC_CTRL_CRCWIDTH_DEFAULT << 2)       /**< Shifted mode DEFAULT for RFCRC_CTRL         */
-#define RFCRC_CTRL_CRCWIDTH_CRCWIDTH8         (_RFCRC_CTRL_CRCWIDTH_CRCWIDTH8 << 2)     /**< Shifted mode CRCWIDTH8 for RFCRC_CTRL        */
-#define RFCRC_CTRL_CRCWIDTH_CRCWIDTH16        (_RFCRC_CTRL_CRCWIDTH_CRCWIDTH16 << 2)    /**< Shifted mode CRCWIDTH16 for RFCRC_CTRL       */
-#define RFCRC_CTRL_CRCWIDTH_CRCWIDTH24        (_RFCRC_CTRL_CRCWIDTH_CRCWIDTH24 << 2)    /**< Shifted mode CRCWIDTH24 for RFCRC_CTRL       */
-#define RFCRC_CTRL_CRCWIDTH_CRCWIDTH32        (_RFCRC_CTRL_CRCWIDTH_CRCWIDTH32 << 2)    /**< Shifted mode CRCWIDTH32 for RFCRC_CTRL       */
+#define RFCRC_CTRL_CRCWIDTH_CRCWIDTH8         (_RFCRC_CTRL_CRCWIDTH_CRCWIDTH8 << 2)     /**< Shifted mode CRCWIDTH8 for RFCRC_CTRL       */
+#define RFCRC_CTRL_CRCWIDTH_CRCWIDTH16        (_RFCRC_CTRL_CRCWIDTH_CRCWIDTH16 << 2)    /**< Shifted mode CRCWIDTH16 for RFCRC_CTRL      */
+#define RFCRC_CTRL_CRCWIDTH_CRCWIDTH24        (_RFCRC_CTRL_CRCWIDTH_CRCWIDTH24 << 2)    /**< Shifted mode CRCWIDTH24 for RFCRC_CTRL      */
+#define RFCRC_CTRL_CRCWIDTH_CRCWIDTH32        (_RFCRC_CTRL_CRCWIDTH_CRCWIDTH32 << 2)    /**< Shifted mode CRCWIDTH32 for RFCRC_CTRL      */
 #define RFCRC_CTRL_INPUTBITORDER              (0x1UL << 5)                              /**< CRC input bit ordering setting              */
 #define _RFCRC_CTRL_INPUTBITORDER_SHIFT       5                                         /**< Shift value for RFCRC_INPUTBITORDER         */
 #define _RFCRC_CTRL_INPUTBITORDER_MASK        0x20UL                                    /**< Bit mask for RFCRC_INPUTBITORDER            */
 #define _RFCRC_CTRL_INPUTBITORDER_DEFAULT     0x00000000UL                              /**< Mode DEFAULT for RFCRC_CTRL                 */
-#define _RFCRC_CTRL_INPUTBITORDER_LSBFIRST    0x00000000UL                              /**< Mode LSBFIRST for RFCRC_CTRL                 */
-#define _RFCRC_CTRL_INPUTBITORDER_MSBFIRST    0x00000001UL                              /**< Mode MSBFIRST for RFCRC_CTRL                 */
+#define _RFCRC_CTRL_INPUTBITORDER_LSBFIRST    0x00000000UL                              /**< Mode LSBFIRST for RFCRC_CTRL                */
+#define _RFCRC_CTRL_INPUTBITORDER_MSBFIRST    0x00000001UL                              /**< Mode MSBFIRST for RFCRC_CTRL                */
 #define RFCRC_CTRL_INPUTBITORDER_DEFAULT      (_RFCRC_CTRL_INPUTBITORDER_DEFAULT << 5)  /**< Shifted mode DEFAULT for RFCRC_CTRL         */
-#define RFCRC_CTRL_INPUTBITORDER_LSBFIRST     (_RFCRC_CTRL_INPUTBITORDER_LSBFIRST << 5) /**< Shifted mode LSBFIRST for RFCRC_CTRL         */
-#define RFCRC_CTRL_INPUTBITORDER_MSBFIRST     (_RFCRC_CTRL_INPUTBITORDER_MSBFIRST << 5) /**< Shifted mode MSBFIRST for RFCRC_CTRL         */
+#define RFCRC_CTRL_INPUTBITORDER_LSBFIRST     (_RFCRC_CTRL_INPUTBITORDER_LSBFIRST << 5) /**< Shifted mode LSBFIRST for RFCRC_CTRL        */
+#define RFCRC_CTRL_INPUTBITORDER_MSBFIRST     (_RFCRC_CTRL_INPUTBITORDER_MSBFIRST << 5) /**< Shifted mode MSBFIRST for RFCRC_CTRL        */
 #define RFCRC_CTRL_BYTEREVERSE                (0x1UL << 6)                              /**< Reverse CRC byte ordering over air          */
 #define _RFCRC_CTRL_BYTEREVERSE_SHIFT         6                                         /**< Shift value for RFCRC_BYTEREVERSE           */
 #define _RFCRC_CTRL_BYTEREVERSE_MASK          0x40UL                                    /**< Bit mask for RFCRC_BYTEREVERSE              */
 #define _RFCRC_CTRL_BYTEREVERSE_DEFAULT       0x00000000UL                              /**< Mode DEFAULT for RFCRC_CTRL                 */
-#define _RFCRC_CTRL_BYTEREVERSE_NORMAL        0x00000000UL                              /**< Mode NORMAL for RFCRC_CTRL                   */
-#define _RFCRC_CTRL_BYTEREVERSE_REVERSED      0x00000001UL                              /**< Mode REVERSED for RFCRC_CTRL                 */
+#define _RFCRC_CTRL_BYTEREVERSE_NORMAL        0x00000000UL                              /**< Mode NORMAL for RFCRC_CTRL                  */
+#define _RFCRC_CTRL_BYTEREVERSE_REVERSED      0x00000001UL                              /**< Mode REVERSED for RFCRC_CTRL                */
 #define RFCRC_CTRL_BYTEREVERSE_DEFAULT        (_RFCRC_CTRL_BYTEREVERSE_DEFAULT << 6)    /**< Shifted mode DEFAULT for RFCRC_CTRL         */
-#define RFCRC_CTRL_BYTEREVERSE_NORMAL         (_RFCRC_CTRL_BYTEREVERSE_NORMAL << 6)     /**< Shifted mode NORMAL for RFCRC_CTRL           */
-#define RFCRC_CTRL_BYTEREVERSE_REVERSED       (_RFCRC_CTRL_BYTEREVERSE_REVERSED << 6)   /**< Shifted mode REVERSED for RFCRC_CTRL         */
+#define RFCRC_CTRL_BYTEREVERSE_NORMAL         (_RFCRC_CTRL_BYTEREVERSE_NORMAL << 6)     /**< Shifted mode NORMAL for RFCRC_CTRL          */
+#define RFCRC_CTRL_BYTEREVERSE_REVERSED       (_RFCRC_CTRL_BYTEREVERSE_REVERSED << 6)   /**< Shifted mode REVERSED for RFCRC_CTRL        */
 #define RFCRC_CTRL_BITREVERSE                 (0x1UL << 7)                              /**< Reverse CRC bit ordering over air           */
 #define _RFCRC_CTRL_BITREVERSE_SHIFT          7                                         /**< Shift value for RFCRC_BITREVERSE            */
 #define _RFCRC_CTRL_BITREVERSE_MASK           0x80UL                                    /**< Bit mask for RFCRC_BITREVERSE               */
 #define _RFCRC_CTRL_BITREVERSE_DEFAULT        0x00000000UL                              /**< Mode DEFAULT for RFCRC_CTRL                 */
-#define _RFCRC_CTRL_BITREVERSE_NORMAL         0x00000000UL                              /**< Mode NORMAL for RFCRC_CTRL                   */
-#define _RFCRC_CTRL_BITREVERSE_REVERSED       0x00000001UL                              /**< Mode REVERSED for RFCRC_CTRL                 */
+#define _RFCRC_CTRL_BITREVERSE_NORMAL         0x00000000UL                              /**< Mode NORMAL for RFCRC_CTRL                  */
+#define _RFCRC_CTRL_BITREVERSE_REVERSED       0x00000001UL                              /**< Mode REVERSED for RFCRC_CTRL                */
 #define RFCRC_CTRL_BITREVERSE_DEFAULT         (_RFCRC_CTRL_BITREVERSE_DEFAULT << 7)     /**< Shifted mode DEFAULT for RFCRC_CTRL         */
-#define RFCRC_CTRL_BITREVERSE_NORMAL          (_RFCRC_CTRL_BITREVERSE_NORMAL << 7)      /**< Shifted mode NORMAL for RFCRC_CTRL           */
-#define RFCRC_CTRL_BITREVERSE_REVERSED        (_RFCRC_CTRL_BITREVERSE_REVERSED << 7)    /**< Shifted mode REVERSED for RFCRC_CTRL         */
+#define RFCRC_CTRL_BITREVERSE_NORMAL          (_RFCRC_CTRL_BITREVERSE_NORMAL << 7)      /**< Shifted mode NORMAL for RFCRC_CTRL          */
+#define RFCRC_CTRL_BITREVERSE_REVERSED        (_RFCRC_CTRL_BITREVERSE_REVERSED << 7)    /**< Shifted mode REVERSED for RFCRC_CTRL        */
 #define _RFCRC_CTRL_BITSPERWORD_SHIFT         8                                         /**< Shift value for RFCRC_BITSPERWORD           */
 #define _RFCRC_CTRL_BITSPERWORD_MASK          0xF00UL                                   /**< Bit mask for RFCRC_BITSPERWORD              */
 #define _RFCRC_CTRL_BITSPERWORD_DEFAULT       0x00000007UL                              /**< Mode DEFAULT for RFCRC_CTRL                 */
@@ -175,11 +174,11 @@ typedef struct {
 #define _RFCRC_CTRL_PADCRCINPUT_SHIFT         12                                        /**< Shift value for RFCRC_PADCRCINPUT           */
 #define _RFCRC_CTRL_PADCRCINPUT_MASK          0x1000UL                                  /**< Bit mask for RFCRC_PADCRCINPUT              */
 #define _RFCRC_CTRL_PADCRCINPUT_DEFAULT       0x00000000UL                              /**< Mode DEFAULT for RFCRC_CTRL                 */
-#define _RFCRC_CTRL_PADCRCINPUT_X0            0x00000000UL                              /**< Mode X0 for RFCRC_CTRL                       */
-#define _RFCRC_CTRL_PADCRCINPUT_X1            0x00000001UL                              /**< Mode X1 for RFCRC_CTRL                       */
+#define _RFCRC_CTRL_PADCRCINPUT_X0            0x00000000UL                              /**< Mode X0 for RFCRC_CTRL                      */
+#define _RFCRC_CTRL_PADCRCINPUT_X1            0x00000001UL                              /**< Mode X1 for RFCRC_CTRL                      */
 #define RFCRC_CTRL_PADCRCINPUT_DEFAULT        (_RFCRC_CTRL_PADCRCINPUT_DEFAULT << 12)   /**< Shifted mode DEFAULT for RFCRC_CTRL         */
-#define RFCRC_CTRL_PADCRCINPUT_X0             (_RFCRC_CTRL_PADCRCINPUT_X0 << 12)        /**< Shifted mode X0 for RFCRC_CTRL               */
-#define RFCRC_CTRL_PADCRCINPUT_X1             (_RFCRC_CTRL_PADCRCINPUT_X1 << 12)        /**< Shifted mode X1 for RFCRC_CTRL               */
+#define RFCRC_CTRL_PADCRCINPUT_X0             (_RFCRC_CTRL_PADCRCINPUT_X0 << 12)        /**< Shifted mode X0 for RFCRC_CTRL              */
+#define RFCRC_CTRL_PADCRCINPUT_X1             (_RFCRC_CTRL_PADCRCINPUT_X1 << 12)        /**< Shifted mode X1 for RFCRC_CTRL              */
 
 /* Bit fields for RFCRC STATUS */
 #define _RFCRC_STATUS_RESETVALUE              0x00000000UL                              /**< Default value for RFCRC_STATUS              */

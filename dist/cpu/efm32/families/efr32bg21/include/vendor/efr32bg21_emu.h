@@ -1,10 +1,9 @@
 /**************************************************************************//**
  * @file
  * @brief EFR32BG21 EMU register and bit field definitions
- * @version 5.7.0
  ******************************************************************************
  * # License
- * <b>Copyright 2018 Silicon Laboratories, Inc. www.silabs.com</b>
+ * <b>Copyright 2020 Silicon Laboratories, Inc. www.silabs.com</b>
  ******************************************************************************
  *
  * SPDX-License-Identifier: Zlib
@@ -49,11 +48,11 @@ extern "C" {
 
 /** EMU Register Declaration. */
 typedef struct {
-  uint32_t       RESERVED0[4U];                 /**< Reserved for future use                      */
+  uint32_t       RESERVED0[4U];                 /**< Reserved for future use                            */
   __IOM uint32_t DECBOD;                        /**< DECOUPLE LVBOD  Control register                   */
-  uint32_t       RESERVED1[3U];                 /**< Reserved for future use                      */
+  uint32_t       RESERVED1[3U];                 /**< Reserved for future use                            */
   __IOM uint32_t BOD3SENSE;                     /**< BOD3SENSE Control register                         */
-  uint32_t       RESERVED2[15U];                /**< Reserved for future use*/
+  uint32_t       RESERVED2[15U];                /**< Reserved for future use                            */
   __IOM uint32_t LOCK;                          /**< EMU Configuration lock register                    */
   __IOM uint32_t IF;                            /**< Interrupt Flags                                    */
   __IOM uint32_t IEN;                           /**< Interrupt Enables                                  */
@@ -61,25 +60,25 @@ typedef struct {
   __IOM uint32_t CMD;                           /**< EMU Command register                               */
   __IOM uint32_t CTRL;                          /**< EMU Control register                               */
   __IOM uint32_t TEMPLIMITS;                    /**< EMU Temperature thresholds                         */
-  uint32_t       RESERVED3[2U];                 /**< Reserved for future use                      */
+  uint32_t       RESERVED3[2U];                 /**< Reserved for future use                            */
   __IM uint32_t  STATUS;                        /**< EMU Status register                                */
   __IM uint32_t  TEMP;                          /**< Temperature                                        */
-  uint32_t       RESERVED4[1U];                 /**< Reserved for future use                      */
+  uint32_t       RESERVED4[1U];                 /**< Reserved for future use                            */
   __IOM uint32_t RSTCTRL;                       /**< Reset Management Control register                  */
   __IM uint32_t  RSTCAUSE;                      /**< Reset cause                                        */
-  uint32_t       RESERVED5[2U];                 /**< Reserved for future use                      */
+  uint32_t       RESERVED5[2U];                 /**< Reserved for future use                            */
   __IOM uint32_t DGIF;                          /**< Interrupt Flags Debug                              */
   __IOM uint32_t DGIEN;                         /**< Interrupt Enables Debug                            */
   __IOM uint32_t SEIF;                          /**< Interrupt Flags Secure Element                     */
   __IOM uint32_t SEIEN;                         /**< Interrupt Enables Secure Elements                  */
-  uint32_t       RESERVED6[4U];                 /**< Reserved for future use*/
-  uint32_t       RESERVED7[1U];                 /**< Reserved for future use                      */
-  uint32_t       RESERVED8[975U];               /**< Reserved for future use*/
-  uint32_t       RESERVED9[4U];                 /**< Reserved for future use                      */
+  uint32_t       RESERVED6[4U];                 /**< Reserved for future use                            */
+  uint32_t       RESERVED7[1U];                 /**< Reserved for future use                            */
+  uint32_t       RESERVED8[975U];               /**< Reserved for future use                            */
+  uint32_t       RESERVED9[4U];                 /**< Reserved for future use                            */
   __IOM uint32_t DECBOD_SET;                    /**< DECOUPLE LVBOD  Control register                   */
-  uint32_t       RESERVED10[3U];                /**< Reserved for future use                      */
+  uint32_t       RESERVED10[3U];                /**< Reserved for future use                            */
   __IOM uint32_t BOD3SENSE_SET;                 /**< BOD3SENSE Control register                         */
-  uint32_t       RESERVED11[15U];               /**< Reserved for future use*/
+  uint32_t       RESERVED11[15U];               /**< Reserved for future use                            */
   __IOM uint32_t LOCK_SET;                      /**< EMU Configuration lock register                    */
   __IOM uint32_t IF_SET;                        /**< Interrupt Flags                                    */
   __IOM uint32_t IEN_SET;                       /**< Interrupt Enables                                  */
@@ -87,25 +86,25 @@ typedef struct {
   __IOM uint32_t CMD_SET;                       /**< EMU Command register                               */
   __IOM uint32_t CTRL_SET;                      /**< EMU Control register                               */
   __IOM uint32_t TEMPLIMITS_SET;                /**< EMU Temperature thresholds                         */
-  uint32_t       RESERVED12[2U];                /**< Reserved for future use                      */
+  uint32_t       RESERVED12[2U];                /**< Reserved for future use                            */
   __IM uint32_t  STATUS_SET;                    /**< EMU Status register                                */
   __IM uint32_t  TEMP_SET;                      /**< Temperature                                        */
-  uint32_t       RESERVED13[1U];                /**< Reserved for future use                      */
+  uint32_t       RESERVED13[1U];                /**< Reserved for future use                            */
   __IOM uint32_t RSTCTRL_SET;                   /**< Reset Management Control register                  */
   __IM uint32_t  RSTCAUSE_SET;                  /**< Reset cause                                        */
-  uint32_t       RESERVED14[2U];                /**< Reserved for future use                      */
+  uint32_t       RESERVED14[2U];                /**< Reserved for future use                            */
   __IOM uint32_t DGIF_SET;                      /**< Interrupt Flags Debug                              */
   __IOM uint32_t DGIEN_SET;                     /**< Interrupt Enables Debug                            */
   __IOM uint32_t SEIF_SET;                      /**< Interrupt Flags Secure Element                     */
   __IOM uint32_t SEIEN_SET;                     /**< Interrupt Enables Secure Elements                  */
-  uint32_t       RESERVED15[4U];                /**< Reserved for future use*/
-  uint32_t       RESERVED16[1U];                /**< Reserved for future use                      */
-  uint32_t       RESERVED17[975U];              /**< Reserved for future use*/
-  uint32_t       RESERVED18[4U];                /**< Reserved for future use                      */
+  uint32_t       RESERVED15[4U];                /**< Reserved for future use                            */
+  uint32_t       RESERVED16[1U];                /**< Reserved for future use                            */
+  uint32_t       RESERVED17[975U];              /**< Reserved for future use                            */
+  uint32_t       RESERVED18[4U];                /**< Reserved for future use                            */
   __IOM uint32_t DECBOD_CLR;                    /**< DECOUPLE LVBOD  Control register                   */
-  uint32_t       RESERVED19[3U];                /**< Reserved for future use                      */
+  uint32_t       RESERVED19[3U];                /**< Reserved for future use                            */
   __IOM uint32_t BOD3SENSE_CLR;                 /**< BOD3SENSE Control register                         */
-  uint32_t       RESERVED20[15U];               /**< Reserved for future use*/
+  uint32_t       RESERVED20[15U];               /**< Reserved for future use                            */
   __IOM uint32_t LOCK_CLR;                      /**< EMU Configuration lock register                    */
   __IOM uint32_t IF_CLR;                        /**< Interrupt Flags                                    */
   __IOM uint32_t IEN_CLR;                       /**< Interrupt Enables                                  */
@@ -113,25 +112,25 @@ typedef struct {
   __IOM uint32_t CMD_CLR;                       /**< EMU Command register                               */
   __IOM uint32_t CTRL_CLR;                      /**< EMU Control register                               */
   __IOM uint32_t TEMPLIMITS_CLR;                /**< EMU Temperature thresholds                         */
-  uint32_t       RESERVED21[2U];                /**< Reserved for future use                      */
+  uint32_t       RESERVED21[2U];                /**< Reserved for future use                            */
   __IM uint32_t  STATUS_CLR;                    /**< EMU Status register                                */
   __IM uint32_t  TEMP_CLR;                      /**< Temperature                                        */
-  uint32_t       RESERVED22[1U];                /**< Reserved for future use                      */
+  uint32_t       RESERVED22[1U];                /**< Reserved for future use                            */
   __IOM uint32_t RSTCTRL_CLR;                   /**< Reset Management Control register                  */
   __IM uint32_t  RSTCAUSE_CLR;                  /**< Reset cause                                        */
-  uint32_t       RESERVED23[2U];                /**< Reserved for future use                      */
+  uint32_t       RESERVED23[2U];                /**< Reserved for future use                            */
   __IOM uint32_t DGIF_CLR;                      /**< Interrupt Flags Debug                              */
   __IOM uint32_t DGIEN_CLR;                     /**< Interrupt Enables Debug                            */
   __IOM uint32_t SEIF_CLR;                      /**< Interrupt Flags Secure Element                     */
   __IOM uint32_t SEIEN_CLR;                     /**< Interrupt Enables Secure Elements                  */
-  uint32_t       RESERVED24[4U];                /**< Reserved for future use*/
-  uint32_t       RESERVED25[1U];                /**< Reserved for future use                      */
-  uint32_t       RESERVED26[975U];              /**< Reserved for future use*/
-  uint32_t       RESERVED27[4U];                /**< Reserved for future use                      */
+  uint32_t       RESERVED24[4U];                /**< Reserved for future use                            */
+  uint32_t       RESERVED25[1U];                /**< Reserved for future use                            */
+  uint32_t       RESERVED26[975U];              /**< Reserved for future use                            */
+  uint32_t       RESERVED27[4U];                /**< Reserved for future use                            */
   __IOM uint32_t DECBOD_TGL;                    /**< DECOUPLE LVBOD  Control register                   */
-  uint32_t       RESERVED28[3U];                /**< Reserved for future use                      */
+  uint32_t       RESERVED28[3U];                /**< Reserved for future use                            */
   __IOM uint32_t BOD3SENSE_TGL;                 /**< BOD3SENSE Control register                         */
-  uint32_t       RESERVED29[15U];               /**< Reserved for future use*/
+  uint32_t       RESERVED29[15U];               /**< Reserved for future use                            */
   __IOM uint32_t LOCK_TGL;                      /**< EMU Configuration lock register                    */
   __IOM uint32_t IF_TGL;                        /**< Interrupt Flags                                    */
   __IOM uint32_t IEN_TGL;                       /**< Interrupt Enables                                  */
@@ -139,19 +138,19 @@ typedef struct {
   __IOM uint32_t CMD_TGL;                       /**< EMU Command register                               */
   __IOM uint32_t CTRL_TGL;                      /**< EMU Control register                               */
   __IOM uint32_t TEMPLIMITS_TGL;                /**< EMU Temperature thresholds                         */
-  uint32_t       RESERVED30[2U];                /**< Reserved for future use                      */
+  uint32_t       RESERVED30[2U];                /**< Reserved for future use                            */
   __IM uint32_t  STATUS_TGL;                    /**< EMU Status register                                */
   __IM uint32_t  TEMP_TGL;                      /**< Temperature                                        */
-  uint32_t       RESERVED31[1U];                /**< Reserved for future use                      */
+  uint32_t       RESERVED31[1U];                /**< Reserved for future use                            */
   __IOM uint32_t RSTCTRL_TGL;                   /**< Reset Management Control register                  */
   __IM uint32_t  RSTCAUSE_TGL;                  /**< Reset cause                                        */
-  uint32_t       RESERVED32[2U];                /**< Reserved for future use                      */
+  uint32_t       RESERVED32[2U];                /**< Reserved for future use                            */
   __IOM uint32_t DGIF_TGL;                      /**< Interrupt Flags Debug                              */
   __IOM uint32_t DGIEN_TGL;                     /**< Interrupt Enables Debug                            */
   __IOM uint32_t SEIF_TGL;                      /**< Interrupt Flags Secure Element                     */
   __IOM uint32_t SEIEN_TGL;                     /**< Interrupt Enables Secure Elements                  */
-  uint32_t       RESERVED33[4U];                /**< Reserved for future use*/
-  uint32_t       RESERVED34[1U];                /**< Reserved for future use                      */
+  uint32_t       RESERVED33[4U];                /**< Reserved for future use                            */
+  uint32_t       RESERVED34[1U];                /**< Reserved for future use                            */
 } EMU_TypeDef;
 /** @} End of group EFR32BG21_EMU */
 
@@ -211,9 +210,9 @@ typedef struct {
 #define _EMU_LOCK_LOCKKEY_SHIFT                 0                                       /**< Shift value for EMU_LOCKKEY                 */
 #define _EMU_LOCK_LOCKKEY_MASK                  0xFFFFUL                                /**< Bit mask for EMU_LOCKKEY                    */
 #define _EMU_LOCK_LOCKKEY_DEFAULT               0x0000ADE8UL                            /**< Mode DEFAULT for EMU_LOCK                   */
-#define _EMU_LOCK_LOCKKEY_UNLOCK                0x0000ADE8UL                            /**< Mode UNLOCK for EMU_LOCK                     */
+#define _EMU_LOCK_LOCKKEY_UNLOCK                0x0000ADE8UL                            /**< Mode UNLOCK for EMU_LOCK                    */
 #define EMU_LOCK_LOCKKEY_DEFAULT                (_EMU_LOCK_LOCKKEY_DEFAULT << 0)        /**< Shifted mode DEFAULT for EMU_LOCK           */
-#define EMU_LOCK_LOCKKEY_UNLOCK                 (_EMU_LOCK_LOCKKEY_UNLOCK << 0)         /**< Shifted mode UNLOCK for EMU_LOCK             */
+#define EMU_LOCK_LOCKKEY_UNLOCK                 (_EMU_LOCK_LOCKKEY_UNLOCK << 0)         /**< Shifted mode UNLOCK for EMU_LOCK            */
 
 /* Bit fields for EMU IF */
 #define _EMU_IF_RESETVALUE                      0x00000000UL                            /**< Default value for EMU_IF                    */
@@ -293,13 +292,13 @@ typedef struct {
 #define _EMU_EM4CTRL_EM4IORETMODE_SHIFT         4                                          /**< Shift value for EMU_EM4IORETMODE            */
 #define _EMU_EM4CTRL_EM4IORETMODE_MASK          0x30UL                                     /**< Bit mask for EMU_EM4IORETMODE               */
 #define _EMU_EM4CTRL_EM4IORETMODE_DEFAULT       0x00000000UL                               /**< Mode DEFAULT for EMU_EM4CTRL                */
-#define _EMU_EM4CTRL_EM4IORETMODE_DISABLE       0x00000000UL                               /**< Mode DISABLE for EMU_EM4CTRL                 */
-#define _EMU_EM4CTRL_EM4IORETMODE_EM4EXIT       0x00000001UL                               /**< Mode EM4EXIT for EMU_EM4CTRL                 */
-#define _EMU_EM4CTRL_EM4IORETMODE_SWUNLATCH     0x00000002UL                               /**< Mode SWUNLATCH for EMU_EM4CTRL               */
+#define _EMU_EM4CTRL_EM4IORETMODE_DISABLE       0x00000000UL                               /**< Mode DISABLE for EMU_EM4CTRL                */
+#define _EMU_EM4CTRL_EM4IORETMODE_EM4EXIT       0x00000001UL                               /**< Mode EM4EXIT for EMU_EM4CTRL                */
+#define _EMU_EM4CTRL_EM4IORETMODE_SWUNLATCH     0x00000002UL                               /**< Mode SWUNLATCH for EMU_EM4CTRL              */
 #define EMU_EM4CTRL_EM4IORETMODE_DEFAULT        (_EMU_EM4CTRL_EM4IORETMODE_DEFAULT << 4)   /**< Shifted mode DEFAULT for EMU_EM4CTRL        */
-#define EMU_EM4CTRL_EM4IORETMODE_DISABLE        (_EMU_EM4CTRL_EM4IORETMODE_DISABLE << 4)   /**< Shifted mode DISABLE for EMU_EM4CTRL         */
-#define EMU_EM4CTRL_EM4IORETMODE_EM4EXIT        (_EMU_EM4CTRL_EM4IORETMODE_EM4EXIT << 4)   /**< Shifted mode EM4EXIT for EMU_EM4CTRL         */
-#define EMU_EM4CTRL_EM4IORETMODE_SWUNLATCH      (_EMU_EM4CTRL_EM4IORETMODE_SWUNLATCH << 4) /**< Shifted mode SWUNLATCH for EMU_EM4CTRL       */
+#define EMU_EM4CTRL_EM4IORETMODE_DISABLE        (_EMU_EM4CTRL_EM4IORETMODE_DISABLE << 4)   /**< Shifted mode DISABLE for EMU_EM4CTRL        */
+#define EMU_EM4CTRL_EM4IORETMODE_EM4EXIT        (_EMU_EM4CTRL_EM4IORETMODE_EM4EXIT << 4)   /**< Shifted mode EM4EXIT for EMU_EM4CTRL        */
+#define EMU_EM4CTRL_EM4IORETMODE_SWUNLATCH      (_EMU_EM4CTRL_EM4IORETMODE_SWUNLATCH << 4) /**< Shifted mode SWUNLATCH for EMU_EM4CTRL      */
 
 /* Bit fields for EMU CMD */
 #define _EMU_CMD_RESETVALUE                     0x00000000UL                            /**< Default value for EMU_CMD                   */
@@ -348,11 +347,11 @@ typedef struct {
 #define _EMU_STATUS_LOCK_SHIFT                  0                                        /**< Shift value for EMU_LOCK                    */
 #define _EMU_STATUS_LOCK_MASK                   0x1UL                                    /**< Bit mask for EMU_LOCK                       */
 #define _EMU_STATUS_LOCK_DEFAULT                0x00000000UL                             /**< Mode DEFAULT for EMU_STATUS                 */
-#define _EMU_STATUS_LOCK_UNLOCKED               0x00000000UL                             /**< Mode UNLOCKED for EMU_STATUS                 */
-#define _EMU_STATUS_LOCK_LOCKED                 0x00000001UL                             /**< Mode LOCKED for EMU_STATUS                   */
+#define _EMU_STATUS_LOCK_UNLOCKED               0x00000000UL                             /**< Mode UNLOCKED for EMU_STATUS                */
+#define _EMU_STATUS_LOCK_LOCKED                 0x00000001UL                             /**< Mode LOCKED for EMU_STATUS                  */
 #define EMU_STATUS_LOCK_DEFAULT                 (_EMU_STATUS_LOCK_DEFAULT << 0)          /**< Shifted mode DEFAULT for EMU_STATUS         */
-#define EMU_STATUS_LOCK_UNLOCKED                (_EMU_STATUS_LOCK_UNLOCKED << 0)         /**< Shifted mode UNLOCKED for EMU_STATUS         */
-#define EMU_STATUS_LOCK_LOCKED                  (_EMU_STATUS_LOCK_LOCKED << 0)           /**< Shifted mode LOCKED for EMU_STATUS           */
+#define EMU_STATUS_LOCK_UNLOCKED                (_EMU_STATUS_LOCK_UNLOCKED << 0)         /**< Shifted mode UNLOCKED for EMU_STATUS        */
+#define EMU_STATUS_LOCK_LOCKED                  (_EMU_STATUS_LOCK_LOCKED << 0)           /**< Shifted mode LOCKED for EMU_STATUS          */
 #define EMU_STATUS_FIRSTTEMPDONE                (0x1UL << 1)                             /**< First Temp done                             */
 #define _EMU_STATUS_FIRSTTEMPDONE_SHIFT         1                                        /**< Shift value for EMU_FIRSTTEMPDONE           */
 #define _EMU_STATUS_FIRSTTEMPDONE_MASK          0x2UL                                    /**< Bit mask for EMU_FIRSTTEMPDONE              */
@@ -398,83 +397,83 @@ typedef struct {
 #define _EMU_RSTCTRL_WDOG0RMODE_SHIFT           0                                           /**< Shift value for EMU_WDOG0RMODE              */
 #define _EMU_RSTCTRL_WDOG0RMODE_MASK            0x1UL                                       /**< Bit mask for EMU_WDOG0RMODE                 */
 #define _EMU_RSTCTRL_WDOG0RMODE_DEFAULT         0x00000001UL                                /**< Mode DEFAULT for EMU_RSTCTRL                */
-#define _EMU_RSTCTRL_WDOG0RMODE_DISABLED        0x00000000UL                                /**< Mode DISABLED for EMU_RSTCTRL                */
-#define _EMU_RSTCTRL_WDOG0RMODE_ENABLED         0x00000001UL                                /**< Mode ENABLED for EMU_RSTCTRL                 */
+#define _EMU_RSTCTRL_WDOG0RMODE_DISABLED        0x00000000UL                                /**< Mode DISABLED for EMU_RSTCTRL               */
+#define _EMU_RSTCTRL_WDOG0RMODE_ENABLED         0x00000001UL                                /**< Mode ENABLED for EMU_RSTCTRL                */
 #define EMU_RSTCTRL_WDOG0RMODE_DEFAULT          (_EMU_RSTCTRL_WDOG0RMODE_DEFAULT << 0)      /**< Shifted mode DEFAULT for EMU_RSTCTRL        */
-#define EMU_RSTCTRL_WDOG0RMODE_DISABLED         (_EMU_RSTCTRL_WDOG0RMODE_DISABLED << 0)     /**< Shifted mode DISABLED for EMU_RSTCTRL        */
-#define EMU_RSTCTRL_WDOG0RMODE_ENABLED          (_EMU_RSTCTRL_WDOG0RMODE_ENABLED << 0)      /**< Shifted mode ENABLED for EMU_RSTCTRL         */
+#define EMU_RSTCTRL_WDOG0RMODE_DISABLED         (_EMU_RSTCTRL_WDOG0RMODE_DISABLED << 0)     /**< Shifted mode DISABLED for EMU_RSTCTRL       */
+#define EMU_RSTCTRL_WDOG0RMODE_ENABLED          (_EMU_RSTCTRL_WDOG0RMODE_ENABLED << 0)      /**< Shifted mode ENABLED for EMU_RSTCTRL        */
 #define EMU_RSTCTRL_WDOG1RMODE                  (0x1UL << 1)                                /**< Enable WDOG1 reset                          */
 #define _EMU_RSTCTRL_WDOG1RMODE_SHIFT           1                                           /**< Shift value for EMU_WDOG1RMODE              */
 #define _EMU_RSTCTRL_WDOG1RMODE_MASK            0x2UL                                       /**< Bit mask for EMU_WDOG1RMODE                 */
 #define _EMU_RSTCTRL_WDOG1RMODE_DEFAULT         0x00000001UL                                /**< Mode DEFAULT for EMU_RSTCTRL                */
-#define _EMU_RSTCTRL_WDOG1RMODE_DISABLED        0x00000000UL                                /**< Mode DISABLED for EMU_RSTCTRL                */
-#define _EMU_RSTCTRL_WDOG1RMODE_ENABLED         0x00000001UL                                /**< Mode ENABLED for EMU_RSTCTRL                 */
+#define _EMU_RSTCTRL_WDOG1RMODE_DISABLED        0x00000000UL                                /**< Mode DISABLED for EMU_RSTCTRL               */
+#define _EMU_RSTCTRL_WDOG1RMODE_ENABLED         0x00000001UL                                /**< Mode ENABLED for EMU_RSTCTRL                */
 #define EMU_RSTCTRL_WDOG1RMODE_DEFAULT          (_EMU_RSTCTRL_WDOG1RMODE_DEFAULT << 1)      /**< Shifted mode DEFAULT for EMU_RSTCTRL        */
-#define EMU_RSTCTRL_WDOG1RMODE_DISABLED         (_EMU_RSTCTRL_WDOG1RMODE_DISABLED << 1)     /**< Shifted mode DISABLED for EMU_RSTCTRL        */
-#define EMU_RSTCTRL_WDOG1RMODE_ENABLED          (_EMU_RSTCTRL_WDOG1RMODE_ENABLED << 1)      /**< Shifted mode ENABLED for EMU_RSTCTRL         */
+#define EMU_RSTCTRL_WDOG1RMODE_DISABLED         (_EMU_RSTCTRL_WDOG1RMODE_DISABLED << 1)     /**< Shifted mode DISABLED for EMU_RSTCTRL       */
+#define EMU_RSTCTRL_WDOG1RMODE_ENABLED          (_EMU_RSTCTRL_WDOG1RMODE_ENABLED << 1)      /**< Shifted mode ENABLED for EMU_RSTCTRL        */
 #define EMU_RSTCTRL_SYSRMODE                    (0x1UL << 2)                                /**< Enable M33 System reset                     */
 #define _EMU_RSTCTRL_SYSRMODE_SHIFT             2                                           /**< Shift value for EMU_SYSRMODE                */
 #define _EMU_RSTCTRL_SYSRMODE_MASK              0x4UL                                       /**< Bit mask for EMU_SYSRMODE                   */
 #define _EMU_RSTCTRL_SYSRMODE_DEFAULT           0x00000001UL                                /**< Mode DEFAULT for EMU_RSTCTRL                */
-#define _EMU_RSTCTRL_SYSRMODE_DISABLED          0x00000000UL                                /**< Mode DISABLED for EMU_RSTCTRL                */
-#define _EMU_RSTCTRL_SYSRMODE_ENABLED           0x00000001UL                                /**< Mode ENABLED for EMU_RSTCTRL                 */
+#define _EMU_RSTCTRL_SYSRMODE_DISABLED          0x00000000UL                                /**< Mode DISABLED for EMU_RSTCTRL               */
+#define _EMU_RSTCTRL_SYSRMODE_ENABLED           0x00000001UL                                /**< Mode ENABLED for EMU_RSTCTRL                */
 #define EMU_RSTCTRL_SYSRMODE_DEFAULT            (_EMU_RSTCTRL_SYSRMODE_DEFAULT << 2)        /**< Shifted mode DEFAULT for EMU_RSTCTRL        */
-#define EMU_RSTCTRL_SYSRMODE_DISABLED           (_EMU_RSTCTRL_SYSRMODE_DISABLED << 2)       /**< Shifted mode DISABLED for EMU_RSTCTRL        */
-#define EMU_RSTCTRL_SYSRMODE_ENABLED            (_EMU_RSTCTRL_SYSRMODE_ENABLED << 2)        /**< Shifted mode ENABLED for EMU_RSTCTRL         */
+#define EMU_RSTCTRL_SYSRMODE_DISABLED           (_EMU_RSTCTRL_SYSRMODE_DISABLED << 2)       /**< Shifted mode DISABLED for EMU_RSTCTRL       */
+#define EMU_RSTCTRL_SYSRMODE_ENABLED            (_EMU_RSTCTRL_SYSRMODE_ENABLED << 2)        /**< Shifted mode ENABLED for EMU_RSTCTRL        */
 #define EMU_RSTCTRL_LOCKUPRMODE                 (0x1UL << 3)                                /**< Enable M33 Lockup reset                     */
 #define _EMU_RSTCTRL_LOCKUPRMODE_SHIFT          3                                           /**< Shift value for EMU_LOCKUPRMODE             */
 #define _EMU_RSTCTRL_LOCKUPRMODE_MASK           0x8UL                                       /**< Bit mask for EMU_LOCKUPRMODE                */
 #define _EMU_RSTCTRL_LOCKUPRMODE_DEFAULT        0x00000000UL                                /**< Mode DEFAULT for EMU_RSTCTRL                */
-#define _EMU_RSTCTRL_LOCKUPRMODE_DISABLED       0x00000000UL                                /**< Mode DISABLED for EMU_RSTCTRL                */
-#define _EMU_RSTCTRL_LOCKUPRMODE_ENABLED        0x00000001UL                                /**< Mode ENABLED for EMU_RSTCTRL                 */
+#define _EMU_RSTCTRL_LOCKUPRMODE_DISABLED       0x00000000UL                                /**< Mode DISABLED for EMU_RSTCTRL               */
+#define _EMU_RSTCTRL_LOCKUPRMODE_ENABLED        0x00000001UL                                /**< Mode ENABLED for EMU_RSTCTRL                */
 #define EMU_RSTCTRL_LOCKUPRMODE_DEFAULT         (_EMU_RSTCTRL_LOCKUPRMODE_DEFAULT << 3)     /**< Shifted mode DEFAULT for EMU_RSTCTRL        */
-#define EMU_RSTCTRL_LOCKUPRMODE_DISABLED        (_EMU_RSTCTRL_LOCKUPRMODE_DISABLED << 3)    /**< Shifted mode DISABLED for EMU_RSTCTRL        */
-#define EMU_RSTCTRL_LOCKUPRMODE_ENABLED         (_EMU_RSTCTRL_LOCKUPRMODE_ENABLED << 3)     /**< Shifted mode ENABLED for EMU_RSTCTRL         */
+#define EMU_RSTCTRL_LOCKUPRMODE_DISABLED        (_EMU_RSTCTRL_LOCKUPRMODE_DISABLED << 3)    /**< Shifted mode DISABLED for EMU_RSTCTRL       */
+#define EMU_RSTCTRL_LOCKUPRMODE_ENABLED         (_EMU_RSTCTRL_LOCKUPRMODE_ENABLED << 3)     /**< Shifted mode ENABLED for EMU_RSTCTRL        */
 #define EMU_RSTCTRL_AVDDBODRMODE                (0x1UL << 6)                                /**< Enable AVDD BOD reset                       */
 #define _EMU_RSTCTRL_AVDDBODRMODE_SHIFT         6                                           /**< Shift value for EMU_AVDDBODRMODE            */
 #define _EMU_RSTCTRL_AVDDBODRMODE_MASK          0x40UL                                      /**< Bit mask for EMU_AVDDBODRMODE               */
 #define _EMU_RSTCTRL_AVDDBODRMODE_DEFAULT       0x00000000UL                                /**< Mode DEFAULT for EMU_RSTCTRL                */
-#define _EMU_RSTCTRL_AVDDBODRMODE_DISABLED      0x00000000UL                                /**< Mode DISABLED for EMU_RSTCTRL                */
-#define _EMU_RSTCTRL_AVDDBODRMODE_ENABLED       0x00000001UL                                /**< Mode ENABLED for EMU_RSTCTRL                 */
+#define _EMU_RSTCTRL_AVDDBODRMODE_DISABLED      0x00000000UL                                /**< Mode DISABLED for EMU_RSTCTRL               */
+#define _EMU_RSTCTRL_AVDDBODRMODE_ENABLED       0x00000001UL                                /**< Mode ENABLED for EMU_RSTCTRL                */
 #define EMU_RSTCTRL_AVDDBODRMODE_DEFAULT        (_EMU_RSTCTRL_AVDDBODRMODE_DEFAULT << 6)    /**< Shifted mode DEFAULT for EMU_RSTCTRL        */
-#define EMU_RSTCTRL_AVDDBODRMODE_DISABLED       (_EMU_RSTCTRL_AVDDBODRMODE_DISABLED << 6)   /**< Shifted mode DISABLED for EMU_RSTCTRL        */
-#define EMU_RSTCTRL_AVDDBODRMODE_ENABLED        (_EMU_RSTCTRL_AVDDBODRMODE_ENABLED << 6)    /**< Shifted mode ENABLED for EMU_RSTCTRL         */
+#define EMU_RSTCTRL_AVDDBODRMODE_DISABLED       (_EMU_RSTCTRL_AVDDBODRMODE_DISABLED << 6)   /**< Shifted mode DISABLED for EMU_RSTCTRL       */
+#define EMU_RSTCTRL_AVDDBODRMODE_ENABLED        (_EMU_RSTCTRL_AVDDBODRMODE_ENABLED << 6)    /**< Shifted mode ENABLED for EMU_RSTCTRL        */
 #define EMU_RSTCTRL_IOVDD0BODRMODE              (0x1UL << 7)                                /**< Enable VDDIO0 BOD reset                     */
 #define _EMU_RSTCTRL_IOVDD0BODRMODE_SHIFT       7                                           /**< Shift value for EMU_IOVDD0BODRMODE          */
 #define _EMU_RSTCTRL_IOVDD0BODRMODE_MASK        0x80UL                                      /**< Bit mask for EMU_IOVDD0BODRMODE             */
 #define _EMU_RSTCTRL_IOVDD0BODRMODE_DEFAULT     0x00000000UL                                /**< Mode DEFAULT for EMU_RSTCTRL                */
-#define _EMU_RSTCTRL_IOVDD0BODRMODE_DISABLED    0x00000000UL                                /**< Mode DISABLED for EMU_RSTCTRL                */
-#define _EMU_RSTCTRL_IOVDD0BODRMODE_ENABLED     0x00000001UL                                /**< Mode ENABLED for EMU_RSTCTRL                 */
+#define _EMU_RSTCTRL_IOVDD0BODRMODE_DISABLED    0x00000000UL                                /**< Mode DISABLED for EMU_RSTCTRL               */
+#define _EMU_RSTCTRL_IOVDD0BODRMODE_ENABLED     0x00000001UL                                /**< Mode ENABLED for EMU_RSTCTRL                */
 #define EMU_RSTCTRL_IOVDD0BODRMODE_DEFAULT      (_EMU_RSTCTRL_IOVDD0BODRMODE_DEFAULT << 7)  /**< Shifted mode DEFAULT for EMU_RSTCTRL        */
-#define EMU_RSTCTRL_IOVDD0BODRMODE_DISABLED     (_EMU_RSTCTRL_IOVDD0BODRMODE_DISABLED << 7) /**< Shifted mode DISABLED for EMU_RSTCTRL        */
-#define EMU_RSTCTRL_IOVDD0BODRMODE_ENABLED      (_EMU_RSTCTRL_IOVDD0BODRMODE_ENABLED << 7)  /**< Shifted mode ENABLED for EMU_RSTCTRL         */
+#define EMU_RSTCTRL_IOVDD0BODRMODE_DISABLED     (_EMU_RSTCTRL_IOVDD0BODRMODE_DISABLED << 7) /**< Shifted mode DISABLED for EMU_RSTCTRL       */
+#define EMU_RSTCTRL_IOVDD0BODRMODE_ENABLED      (_EMU_RSTCTRL_IOVDD0BODRMODE_ENABLED << 7)  /**< Shifted mode ENABLED for EMU_RSTCTRL        */
 #define EMU_RSTCTRL_DECBODRMODE                 (0x1UL << 10)                               /**< Enable DECBOD reset                         */
 #define _EMU_RSTCTRL_DECBODRMODE_SHIFT          10                                          /**< Shift value for EMU_DECBODRMODE             */
 #define _EMU_RSTCTRL_DECBODRMODE_MASK           0x400UL                                     /**< Bit mask for EMU_DECBODRMODE                */
 #define _EMU_RSTCTRL_DECBODRMODE_DEFAULT        0x00000001UL                                /**< Mode DEFAULT for EMU_RSTCTRL                */
-#define _EMU_RSTCTRL_DECBODRMODE_DISABLED       0x00000000UL                                /**< Mode DISABLED for EMU_RSTCTRL                */
-#define _EMU_RSTCTRL_DECBODRMODE_ENABLED        0x00000001UL                                /**< Mode ENABLED for EMU_RSTCTRL                 */
+#define _EMU_RSTCTRL_DECBODRMODE_DISABLED       0x00000000UL                                /**< Mode DISABLED for EMU_RSTCTRL               */
+#define _EMU_RSTCTRL_DECBODRMODE_ENABLED        0x00000001UL                                /**< Mode ENABLED for EMU_RSTCTRL                */
 #define EMU_RSTCTRL_DECBODRMODE_DEFAULT         (_EMU_RSTCTRL_DECBODRMODE_DEFAULT << 10)    /**< Shifted mode DEFAULT for EMU_RSTCTRL        */
-#define EMU_RSTCTRL_DECBODRMODE_DISABLED        (_EMU_RSTCTRL_DECBODRMODE_DISABLED << 10)   /**< Shifted mode DISABLED for EMU_RSTCTRL        */
-#define EMU_RSTCTRL_DECBODRMODE_ENABLED         (_EMU_RSTCTRL_DECBODRMODE_ENABLED << 10)    /**< Shifted mode ENABLED for EMU_RSTCTRL         */
+#define EMU_RSTCTRL_DECBODRMODE_DISABLED        (_EMU_RSTCTRL_DECBODRMODE_DISABLED << 10)   /**< Shifted mode DISABLED for EMU_RSTCTRL       */
+#define EMU_RSTCTRL_DECBODRMODE_ENABLED         (_EMU_RSTCTRL_DECBODRMODE_ENABLED << 10)    /**< Shifted mode ENABLED for EMU_RSTCTRL        */
 #define EMU_RSTCTRL_SESYSRMODE                  (0x1UL << 14)                               /**< Enable SE System reset                      */
 #define _EMU_RSTCTRL_SESYSRMODE_SHIFT           14                                          /**< Shift value for EMU_SESYSRMODE              */
 #define _EMU_RSTCTRL_SESYSRMODE_MASK            0x4000UL                                    /**< Bit mask for EMU_SESYSRMODE                 */
 #define _EMU_RSTCTRL_SESYSRMODE_DEFAULT         0x00000001UL                                /**< Mode DEFAULT for EMU_RSTCTRL                */
-#define _EMU_RSTCTRL_SESYSRMODE_DISABLED        0x00000000UL                                /**< Mode DISABLED for EMU_RSTCTRL                */
-#define _EMU_RSTCTRL_SESYSRMODE_ENABLED         0x00000001UL                                /**< Mode ENABLED for EMU_RSTCTRL                 */
+#define _EMU_RSTCTRL_SESYSRMODE_DISABLED        0x00000000UL                                /**< Mode DISABLED for EMU_RSTCTRL               */
+#define _EMU_RSTCTRL_SESYSRMODE_ENABLED         0x00000001UL                                /**< Mode ENABLED for EMU_RSTCTRL                */
 #define EMU_RSTCTRL_SESYSRMODE_DEFAULT          (_EMU_RSTCTRL_SESYSRMODE_DEFAULT << 14)     /**< Shifted mode DEFAULT for EMU_RSTCTRL        */
-#define EMU_RSTCTRL_SESYSRMODE_DISABLED         (_EMU_RSTCTRL_SESYSRMODE_DISABLED << 14)    /**< Shifted mode DISABLED for EMU_RSTCTRL        */
-#define EMU_RSTCTRL_SESYSRMODE_ENABLED          (_EMU_RSTCTRL_SESYSRMODE_ENABLED << 14)     /**< Shifted mode ENABLED for EMU_RSTCTRL         */
+#define EMU_RSTCTRL_SESYSRMODE_DISABLED         (_EMU_RSTCTRL_SESYSRMODE_DISABLED << 14)    /**< Shifted mode DISABLED for EMU_RSTCTRL       */
+#define EMU_RSTCTRL_SESYSRMODE_ENABLED          (_EMU_RSTCTRL_SESYSRMODE_ENABLED << 14)     /**< Shifted mode ENABLED for EMU_RSTCTRL        */
 #define EMU_RSTCTRL_SELOCKUPRMODE               (0x1UL << 15)                               /**< Enable SE Lockup reset                      */
 #define _EMU_RSTCTRL_SELOCKUPRMODE_SHIFT        15                                          /**< Shift value for EMU_SELOCKUPRMODE           */
 #define _EMU_RSTCTRL_SELOCKUPRMODE_MASK         0x8000UL                                    /**< Bit mask for EMU_SELOCKUPRMODE              */
 #define _EMU_RSTCTRL_SELOCKUPRMODE_DEFAULT      0x00000000UL                                /**< Mode DEFAULT for EMU_RSTCTRL                */
-#define _EMU_RSTCTRL_SELOCKUPRMODE_DISABLED     0x00000000UL                                /**< Mode DISABLED for EMU_RSTCTRL                */
-#define _EMU_RSTCTRL_SELOCKUPRMODE_ENABLED      0x00000001UL                                /**< Mode ENABLED for EMU_RSTCTRL                 */
+#define _EMU_RSTCTRL_SELOCKUPRMODE_DISABLED     0x00000000UL                                /**< Mode DISABLED for EMU_RSTCTRL               */
+#define _EMU_RSTCTRL_SELOCKUPRMODE_ENABLED      0x00000001UL                                /**< Mode ENABLED for EMU_RSTCTRL                */
 #define EMU_RSTCTRL_SELOCKUPRMODE_DEFAULT       (_EMU_RSTCTRL_SELOCKUPRMODE_DEFAULT << 15)  /**< Shifted mode DEFAULT for EMU_RSTCTRL        */
-#define EMU_RSTCTRL_SELOCKUPRMODE_DISABLED      (_EMU_RSTCTRL_SELOCKUPRMODE_DISABLED << 15) /**< Shifted mode DISABLED for EMU_RSTCTRL        */
-#define EMU_RSTCTRL_SELOCKUPRMODE_ENABLED       (_EMU_RSTCTRL_SELOCKUPRMODE_ENABLED << 15)  /**< Shifted mode ENABLED for EMU_RSTCTRL         */
+#define EMU_RSTCTRL_SELOCKUPRMODE_DISABLED      (_EMU_RSTCTRL_SELOCKUPRMODE_DISABLED << 15) /**< Shifted mode DISABLED for EMU_RSTCTRL       */
+#define EMU_RSTCTRL_SELOCKUPRMODE_ENABLED       (_EMU_RSTCTRL_SELOCKUPRMODE_ENABLED << 15)  /**< Shifted mode ENABLED for EMU_RSTCTRL        */
 
 /* Bit fields for EMU RSTCAUSE */
 #define _EMU_RSTCAUSE_RESETVALUE                0x00000000UL                            /**< Default value for EMU_RSTCAUSE              */

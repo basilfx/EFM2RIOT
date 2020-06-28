@@ -1,10 +1,9 @@
 /**************************************************************************//**
  * @file
  * @brief EFR32MG21 LFRCO register and bit field definitions
- * @version 5.7.0
  ******************************************************************************
  * # License
- * <b>Copyright 2018 Silicon Laboratories, Inc. www.silabs.com</b>
+ * <b>Copyright 2020 Silicon Laboratories, Inc. www.silabs.com</b>
  ******************************************************************************
  *
  * SPDX-License-Identifier: Zlib
@@ -50,40 +49,40 @@ extern "C" {
 /** LFRCO Register Declaration. */
 typedef struct {
   __IM uint32_t  IPVERSION;                     /**< IP version                                         */
-  uint32_t       RESERVED0[1U];                 /**< Reserved for future use                      */
+  uint32_t       RESERVED0[1U];                 /**< Reserved for future use                            */
   __IM uint32_t  STATUS;                        /**< Status Register                                    */
   __IOM uint32_t CAL;                           /**< Calibration Register                               */
-  uint32_t       RESERVED1[1U];                 /**< Reserved for future use                      */
+  uint32_t       RESERVED1[1U];                 /**< Reserved for future use                            */
   __IOM uint32_t IF;                            /**< Interrupt Flag Register                            */
   __IOM uint32_t IEN;                           /**< Interrupt Enable Register                          */
   __IM uint32_t  SYNCBUSY;                      /**< Synchronization Busy Register                      */
   __IOM uint32_t LOCK;                          /**< Configuration Lock Register                        */
-  uint32_t       RESERVED2[1015U];              /**< Reserved for future use*/
+  uint32_t       RESERVED2[1015U];              /**< Reserved for future use                            */
   __IM uint32_t  IPVERSION_SET;                 /**< IP version                                         */
-  uint32_t       RESERVED3[1U];                 /**< Reserved for future use                      */
+  uint32_t       RESERVED3[1U];                 /**< Reserved for future use                            */
   __IM uint32_t  STATUS_SET;                    /**< Status Register                                    */
   __IOM uint32_t CAL_SET;                       /**< Calibration Register                               */
-  uint32_t       RESERVED4[1U];                 /**< Reserved for future use                      */
+  uint32_t       RESERVED4[1U];                 /**< Reserved for future use                            */
   __IOM uint32_t IF_SET;                        /**< Interrupt Flag Register                            */
   __IOM uint32_t IEN_SET;                       /**< Interrupt Enable Register                          */
   __IM uint32_t  SYNCBUSY_SET;                  /**< Synchronization Busy Register                      */
   __IOM uint32_t LOCK_SET;                      /**< Configuration Lock Register                        */
-  uint32_t       RESERVED5[1015U];              /**< Reserved for future use*/
+  uint32_t       RESERVED5[1015U];              /**< Reserved for future use                            */
   __IM uint32_t  IPVERSION_CLR;                 /**< IP version                                         */
-  uint32_t       RESERVED6[1U];                 /**< Reserved for future use                      */
+  uint32_t       RESERVED6[1U];                 /**< Reserved for future use                            */
   __IM uint32_t  STATUS_CLR;                    /**< Status Register                                    */
   __IOM uint32_t CAL_CLR;                       /**< Calibration Register                               */
-  uint32_t       RESERVED7[1U];                 /**< Reserved for future use                      */
+  uint32_t       RESERVED7[1U];                 /**< Reserved for future use                            */
   __IOM uint32_t IF_CLR;                        /**< Interrupt Flag Register                            */
   __IOM uint32_t IEN_CLR;                       /**< Interrupt Enable Register                          */
   __IM uint32_t  SYNCBUSY_CLR;                  /**< Synchronization Busy Register                      */
   __IOM uint32_t LOCK_CLR;                      /**< Configuration Lock Register                        */
-  uint32_t       RESERVED8[1015U];              /**< Reserved for future use*/
+  uint32_t       RESERVED8[1015U];              /**< Reserved for future use                            */
   __IM uint32_t  IPVERSION_TGL;                 /**< IP version                                         */
-  uint32_t       RESERVED9[1U];                 /**< Reserved for future use                      */
+  uint32_t       RESERVED9[1U];                 /**< Reserved for future use                            */
   __IM uint32_t  STATUS_TGL;                    /**< Status Register                                    */
   __IOM uint32_t CAL_TGL;                       /**< Calibration Register                               */
-  uint32_t       RESERVED10[1U];                /**< Reserved for future use                      */
+  uint32_t       RESERVED10[1U];                /**< Reserved for future use                            */
   __IOM uint32_t IF_TGL;                        /**< Interrupt Flag Register                            */
   __IOM uint32_t IEN_TGL;                       /**< Interrupt Enable Register                          */
   __IM uint32_t  SYNCBUSY_TGL;                  /**< Synchronization Busy Register                      */
@@ -123,11 +122,11 @@ typedef struct {
 #define _LFRCO_STATUS_LOCK_SHIFT              31                                        /**< Shift value for LFRCO_LOCK                  */
 #define _LFRCO_STATUS_LOCK_MASK               0x80000000UL                              /**< Bit mask for LFRCO_LOCK                     */
 #define _LFRCO_STATUS_LOCK_DEFAULT            0x00000000UL                              /**< Mode DEFAULT for LFRCO_STATUS               */
-#define _LFRCO_STATUS_LOCK_UNLOCKED           0x00000000UL                              /**< Mode UNLOCKED for LFRCO_STATUS               */
-#define _LFRCO_STATUS_LOCK_LOCKED             0x00000001UL                              /**< Mode LOCKED for LFRCO_STATUS                 */
+#define _LFRCO_STATUS_LOCK_UNLOCKED           0x00000000UL                              /**< Mode UNLOCKED for LFRCO_STATUS              */
+#define _LFRCO_STATUS_LOCK_LOCKED             0x00000001UL                              /**< Mode LOCKED for LFRCO_STATUS                */
 #define LFRCO_STATUS_LOCK_DEFAULT             (_LFRCO_STATUS_LOCK_DEFAULT << 31)        /**< Shifted mode DEFAULT for LFRCO_STATUS       */
-#define LFRCO_STATUS_LOCK_UNLOCKED            (_LFRCO_STATUS_LOCK_UNLOCKED << 31)       /**< Shifted mode UNLOCKED for LFRCO_STATUS       */
-#define LFRCO_STATUS_LOCK_LOCKED              (_LFRCO_STATUS_LOCK_LOCKED << 31)         /**< Shifted mode LOCKED for LFRCO_STATUS         */
+#define LFRCO_STATUS_LOCK_UNLOCKED            (_LFRCO_STATUS_LOCK_UNLOCKED << 31)       /**< Shifted mode UNLOCKED for LFRCO_STATUS      */
+#define LFRCO_STATUS_LOCK_LOCKED              (_LFRCO_STATUS_LOCK_LOCKED << 31)         /**< Shifted mode LOCKED for LFRCO_STATUS        */
 
 /* Bit fields for LFRCO CAL */
 #define _LFRCO_CAL_RESETVALUE                 0x000000A5UL                              /**< Default value for LFRCO_CAL                 */
@@ -190,11 +189,11 @@ typedef struct {
 #define _LFRCO_LOCK_LOCKKEY_SHIFT             0                                         /**< Shift value for LFRCO_LOCKKEY               */
 #define _LFRCO_LOCK_LOCKKEY_MASK              0xFFFFUL                                  /**< Bit mask for LFRCO_LOCKKEY                  */
 #define _LFRCO_LOCK_LOCKKEY_DEFAULT           0x00002603UL                              /**< Mode DEFAULT for LFRCO_LOCK                 */
-#define _LFRCO_LOCK_LOCKKEY_LOCK              0x00000000UL                              /**< Mode LOCK for LFRCO_LOCK                     */
-#define _LFRCO_LOCK_LOCKKEY_UNLOCK            0x00002603UL                              /**< Mode UNLOCK for LFRCO_LOCK                   */
+#define _LFRCO_LOCK_LOCKKEY_LOCK              0x00000000UL                              /**< Mode LOCK for LFRCO_LOCK                    */
+#define _LFRCO_LOCK_LOCKKEY_UNLOCK            0x00002603UL                              /**< Mode UNLOCK for LFRCO_LOCK                  */
 #define LFRCO_LOCK_LOCKKEY_DEFAULT            (_LFRCO_LOCK_LOCKKEY_DEFAULT << 0)        /**< Shifted mode DEFAULT for LFRCO_LOCK         */
-#define LFRCO_LOCK_LOCKKEY_LOCK               (_LFRCO_LOCK_LOCKKEY_LOCK << 0)           /**< Shifted mode LOCK for LFRCO_LOCK             */
-#define LFRCO_LOCK_LOCKKEY_UNLOCK             (_LFRCO_LOCK_LOCKKEY_UNLOCK << 0)         /**< Shifted mode UNLOCK for LFRCO_LOCK           */
+#define LFRCO_LOCK_LOCKKEY_LOCK               (_LFRCO_LOCK_LOCKKEY_LOCK << 0)           /**< Shifted mode LOCK for LFRCO_LOCK            */
+#define LFRCO_LOCK_LOCKKEY_UNLOCK             (_LFRCO_LOCK_LOCKKEY_UNLOCK << 0)         /**< Shifted mode UNLOCK for LFRCO_LOCK          */
 
 /** @} End of group EFR32MG21_LFRCO_BitFields */
 /** @} End of group EFR32MG21_LFRCO */
