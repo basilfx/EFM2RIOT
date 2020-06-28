@@ -1,10 +1,9 @@
 /***************************************************************************//**
  * @file
  * @brief EFR32FG14P_SMU register and bit field definitions
- * @version 5.7.0
  *******************************************************************************
  * # License
- * <b>Copyright 2018 Silicon Laboratories Inc. www.silabs.com</b>
+ * <b>Copyright 2020 Silicon Laboratories Inc. www.silabs.com</b>
  *******************************************************************************
  *
  * SPDX-License-Identifier: Zlib
@@ -121,7 +120,7 @@ typedef struct {
 
 /* Bit fields for SMU PPUPATD0 */
 #define _SMU_PPUPATD0_RESETVALUE           0x00000000UL                           /**< Default value for SMU_PPUPATD0 */
-#define _SMU_PPUPATD0_MASK                 0xE17FDFA7UL                           /**< Mask for SMU_PPUPATD0 */
+#define _SMU_PPUPATD0_MASK                 0xE37FDFA7UL                           /**< Mask for SMU_PPUPATD0 */
 #define SMU_PPUPATD0_ACMP0                 (0x1UL << 0)                           /**< Analog Comparator 0 access control bit */
 #define _SMU_PPUPATD0_ACMP0_SHIFT          0                                      /**< Shift value for SMU_ACMP0 */
 #define _SMU_PPUPATD0_ACMP0_MASK           0x1UL                                  /**< Bit mask for SMU_ACMP0 */
@@ -142,7 +141,7 @@ typedef struct {
 #define _SMU_PPUPATD0_CMU_MASK             0x20UL                                 /**< Bit mask for SMU_CMU */
 #define _SMU_PPUPATD0_CMU_DEFAULT          0x00000000UL                           /**< Mode DEFAULT for SMU_PPUPATD0 */
 #define SMU_PPUPATD0_CMU_DEFAULT           (_SMU_PPUPATD0_CMU_DEFAULT << 5)       /**< Shifted mode DEFAULT for SMU_PPUPATD0 */
-#define SMU_PPUPATD0_CRYOTIMER             (0x1UL << 7)                           /**< CryoTimer access control bit */
+#define SMU_PPUPATD0_CRYOTIMER             (0x1UL << 7)                           /**< CRYOTIMER access control bit */
 #define _SMU_PPUPATD0_CRYOTIMER_SHIFT      7                                      /**< Shift value for SMU_CRYOTIMER */
 #define _SMU_PPUPATD0_CRYOTIMER_MASK       0x80UL                                 /**< Bit mask for SMU_CRYOTIMER */
 #define _SMU_PPUPATD0_CRYOTIMER_DEFAULT    0x00000000UL                           /**< Mode DEFAULT for SMU_PPUPATD0 */
@@ -222,6 +221,11 @@ typedef struct {
 #define _SMU_PPUPATD0_PCNT0_MASK           0x1000000UL                            /**< Bit mask for SMU_PCNT0 */
 #define _SMU_PPUPATD0_PCNT0_DEFAULT        0x00000000UL                           /**< Mode DEFAULT for SMU_PPUPATD0 */
 #define SMU_PPUPATD0_PCNT0_DEFAULT         (_SMU_PPUPATD0_PCNT0_DEFAULT << 24)    /**< Shifted mode DEFAULT for SMU_PPUPATD0 */
+#define SMU_PPUPATD0_PRORTC                (0x1UL << 25)                          /**< Protocol Real-Time Counter access control bit */
+#define _SMU_PPUPATD0_PRORTC_SHIFT         25                                     /**< Shift value for SMU_PRORTC */
+#define _SMU_PPUPATD0_PRORTC_MASK          0x2000000UL                            /**< Bit mask for SMU_PRORTC */
+#define _SMU_PPUPATD0_PRORTC_DEFAULT       0x00000000UL                           /**< Mode DEFAULT for SMU_PPUPATD0 */
+#define SMU_PPUPATD0_PRORTC_DEFAULT        (_SMU_PPUPATD0_PRORTC_DEFAULT << 25)   /**< Shifted mode DEFAULT for SMU_PPUPATD0 */
 #define SMU_PPUPATD0_RMU                   (0x1UL << 29)                          /**< Reset Management Unit access control bit */
 #define _SMU_PPUPATD0_RMU_SHIFT            29                                     /**< Shift value for SMU_RMU */
 #define _SMU_PPUPATD0_RMU_MASK             0x20000000UL                           /**< Bit mask for SMU_RMU */
@@ -308,6 +312,7 @@ typedef struct {
 #define _SMU_PPUFS_PERIPHID_LETIMER0       0x00000015UL                         /**< Mode LETIMER0 for SMU_PPUFS */
 #define _SMU_PPUFS_PERIPHID_LEUART0        0x00000016UL                         /**< Mode LEUART0 for SMU_PPUFS */
 #define _SMU_PPUFS_PERIPHID_PCNT0          0x00000018UL                         /**< Mode PCNT0 for SMU_PPUFS */
+#define _SMU_PPUFS_PERIPHID_PRORTC         0x00000019UL                         /**< Mode PRORTC for SMU_PPUFS */
 #define _SMU_PPUFS_PERIPHID_RMU            0x0000001DUL                         /**< Mode RMU for SMU_PPUFS */
 #define _SMU_PPUFS_PERIPHID_RTCC           0x0000001EUL                         /**< Mode RTCC for SMU_PPUFS */
 #define _SMU_PPUFS_PERIPHID_SMU            0x0000001FUL                         /**< Mode SMU for SMU_PPUFS */
@@ -340,6 +345,7 @@ typedef struct {
 #define SMU_PPUFS_PERIPHID_LETIMER0        (_SMU_PPUFS_PERIPHID_LETIMER0 << 0)  /**< Shifted mode LETIMER0 for SMU_PPUFS */
 #define SMU_PPUFS_PERIPHID_LEUART0         (_SMU_PPUFS_PERIPHID_LEUART0 << 0)   /**< Shifted mode LEUART0 for SMU_PPUFS */
 #define SMU_PPUFS_PERIPHID_PCNT0           (_SMU_PPUFS_PERIPHID_PCNT0 << 0)     /**< Shifted mode PCNT0 for SMU_PPUFS */
+#define SMU_PPUFS_PERIPHID_PRORTC          (_SMU_PPUFS_PERIPHID_PRORTC << 0)    /**< Shifted mode PRORTC for SMU_PPUFS */
 #define SMU_PPUFS_PERIPHID_RMU             (_SMU_PPUFS_PERIPHID_RMU << 0)       /**< Shifted mode RMU for SMU_PPUFS */
 #define SMU_PPUFS_PERIPHID_RTCC            (_SMU_PPUFS_PERIPHID_RTCC << 0)      /**< Shifted mode RTCC for SMU_PPUFS */
 #define SMU_PPUFS_PERIPHID_SMU             (_SMU_PPUFS_PERIPHID_SMU << 0)       /**< Shifted mode SMU for SMU_PPUFS */

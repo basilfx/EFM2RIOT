@@ -1,0 +1,157 @@
+# Copyright (c) 2020 HAW Hamburg
+#
+# This file is subject to the terms and conditions of the GNU Lesser
+# General Public License v2.1. See the file LICENSE in the top level
+# directory for more details.
+
+config CPU_FAM_EZR32HG
+    bool
+    select CPU_CORE_CORTEX_M0PLUS
+    select CPU_COMMON_EFM32
+
+## CPU Models
+config CPU_MODEL_EZR32HG320F32R61
+    bool
+    select CPU_FAM_EZR32HG
+
+config CPU_MODEL_EZR32HG220F32R68
+    bool
+    select CPU_FAM_EZR32HG
+
+config CPU_MODEL_EZR32HG220F64R68
+    bool
+    select CPU_FAM_EZR32HG
+
+config CPU_MODEL_EZR32HG320F64R61
+    bool
+    select CPU_FAM_EZR32HG
+
+config CPU_MODEL_EZR32HG220F32R61
+    bool
+    select CPU_FAM_EZR32HG
+
+config CPU_MODEL_EZR32HG320F32R68
+    bool
+    select CPU_FAM_EZR32HG
+
+config CPU_MODEL_EZR32HG320F64R68
+    bool
+    select CPU_FAM_EZR32HG
+
+config CPU_MODEL_EZR32HG220F64R61
+    bool
+    select CPU_FAM_EZR32HG
+
+config CPU_MODEL_EZR32HG320F32R67
+    bool
+    select CPU_FAM_EZR32HG
+
+config CPU_MODEL_EZR32HG220F32R60
+    bool
+    select CPU_FAM_EZR32HG
+
+config CPU_MODEL_EZR32HG220F64R55
+    bool
+    select CPU_FAM_EZR32HG
+
+config CPU_MODEL_EZR32HG320F32R69
+    bool
+    select CPU_FAM_EZR32HG
+
+config CPU_MODEL_EZR32HG320F32R63
+    bool
+    select CPU_FAM_EZR32HG
+
+config CPU_MODEL_EZR32HG320F64R63
+    bool
+    select CPU_FAM_EZR32HG
+
+config CPU_MODEL_EZR32HG320F64R69
+    bool
+    select CPU_FAM_EZR32HG
+
+config CPU_MODEL_EZR32HG220F32R55
+    bool
+    select CPU_FAM_EZR32HG
+
+config CPU_MODEL_EZR32HG220F64R60
+    bool
+    select CPU_FAM_EZR32HG
+
+config CPU_MODEL_EZR32HG320F64R67
+    bool
+    select CPU_FAM_EZR32HG
+
+config CPU_MODEL_EZR32HG220F32R67
+    bool
+    select CPU_FAM_EZR32HG
+
+config CPU_MODEL_EZR32HG320F64R55
+    bool
+    select CPU_FAM_EZR32HG
+
+config CPU_MODEL_EZR32HG320F32R60
+    bool
+    select CPU_FAM_EZR32HG
+
+config CPU_MODEL_EZR32HG220F32R63
+    bool
+    select CPU_FAM_EZR32HG
+
+config CPU_MODEL_EZR32HG220F32R69
+    bool
+    select CPU_FAM_EZR32HG
+
+config CPU_MODEL_EZR32HG220F64R69
+    bool
+    select CPU_FAM_EZR32HG
+
+config CPU_MODEL_EZR32HG220F64R63
+    bool
+    select CPU_FAM_EZR32HG
+
+config CPU_MODEL_EZR32HG320F64R60
+    bool
+    select CPU_FAM_EZR32HG
+
+config CPU_MODEL_EZR32HG320F32R55
+    bool
+    select CPU_FAM_EZR32HG
+
+config CPU_MODEL_EZR32HG220F64R67
+    bool
+    select CPU_FAM_EZR32HG
+
+## Common CPU symbols
+config CPU_FAM
+    default "ezr32hg" if CPU_FAM_EZR32HG
+
+config CPU_MODEL
+    default "ezr32hg320f32r61" if CPU_MODEL_EZR32HG320F32R61
+    default "ezr32hg220f32r68" if CPU_MODEL_EZR32HG220F32R68
+    default "ezr32hg220f64r68" if CPU_MODEL_EZR32HG220F64R68
+    default "ezr32hg320f64r61" if CPU_MODEL_EZR32HG320F64R61
+    default "ezr32hg220f32r61" if CPU_MODEL_EZR32HG220F32R61
+    default "ezr32hg320f32r68" if CPU_MODEL_EZR32HG320F32R68
+    default "ezr32hg320f64r68" if CPU_MODEL_EZR32HG320F64R68
+    default "ezr32hg220f64r61" if CPU_MODEL_EZR32HG220F64R61
+    default "ezr32hg320f32r67" if CPU_MODEL_EZR32HG320F32R67
+    default "ezr32hg220f32r60" if CPU_MODEL_EZR32HG220F32R60
+    default "ezr32hg220f64r55" if CPU_MODEL_EZR32HG220F64R55
+    default "ezr32hg320f32r69" if CPU_MODEL_EZR32HG320F32R69
+    default "ezr32hg320f32r63" if CPU_MODEL_EZR32HG320F32R63
+    default "ezr32hg320f64r63" if CPU_MODEL_EZR32HG320F64R63
+    default "ezr32hg320f64r69" if CPU_MODEL_EZR32HG320F64R69
+    default "ezr32hg220f32r55" if CPU_MODEL_EZR32HG220F32R55
+    default "ezr32hg220f64r60" if CPU_MODEL_EZR32HG220F64R60
+    default "ezr32hg320f64r67" if CPU_MODEL_EZR32HG320F64R67
+    default "ezr32hg220f32r67" if CPU_MODEL_EZR32HG220F32R67
+    default "ezr32hg320f64r55" if CPU_MODEL_EZR32HG320F64R55
+    default "ezr32hg320f32r60" if CPU_MODEL_EZR32HG320F32R60
+    default "ezr32hg220f32r63" if CPU_MODEL_EZR32HG220F32R63
+    default "ezr32hg220f32r69" if CPU_MODEL_EZR32HG220F32R69
+    default "ezr32hg220f64r69" if CPU_MODEL_EZR32HG220F64R69
+    default "ezr32hg220f64r63" if CPU_MODEL_EZR32HG220F64R63
+    default "ezr32hg320f64r60" if CPU_MODEL_EZR32HG320F64R60
+    default "ezr32hg320f32r55" if CPU_MODEL_EZR32HG320F32R55
+    default "ezr32hg220f64r67" if CPU_MODEL_EZR32HG220F64R67

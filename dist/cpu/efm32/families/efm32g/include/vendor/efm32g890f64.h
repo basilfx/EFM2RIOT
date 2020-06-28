@@ -2,10 +2,9 @@
  * @file
  * @brief CMSIS Cortex-M3 Peripheral Access Layer Header File
  *        for EFM EFM32G890F64
- * @version 5.7.0
  *******************************************************************************
  * # License
- * <b>Copyright 2018 Silicon Laboratories Inc. www.silabs.com</b>
+ * <b>Copyright 2020 Silicon Laboratories Inc. www.silabs.com</b>
  *******************************************************************************
  *
  * SPDX-License-Identifier: Zlib
@@ -135,34 +134,34 @@ typedef enum IRQn{
 #define PART_NUMBER          "EFM32G890F64" /**< Part Number */
 
 /** Memory Base addresses and limits */
-#define FLASH_MEM_BASE       ((uint32_t) 0x0UL)        /**< FLASH base address  */
-#define FLASH_MEM_SIZE       ((uint32_t) 0x10000000UL) /**< FLASH available address space  */
-#define FLASH_MEM_END        ((uint32_t) 0xFFFFFFFUL)  /**< FLASH end address  */
-#define FLASH_MEM_BITS       ((uint32_t) 0x28UL)       /**< FLASH used bits  */
-#define AES_MEM_BASE         ((uint32_t) 0x400E0000UL) /**< AES base address  */
-#define AES_MEM_SIZE         ((uint32_t) 0x400UL)      /**< AES available address space  */
-#define AES_MEM_END          ((uint32_t) 0x400E03FFUL) /**< AES end address  */
-#define AES_MEM_BITS         ((uint32_t) 0x10UL)       /**< AES used bits  */
-#define PER_MEM_BASE         ((uint32_t) 0x40000000UL) /**< PER base address  */
-#define PER_MEM_SIZE         ((uint32_t) 0xE0000UL)    /**< PER available address space  */
-#define PER_MEM_END          ((uint32_t) 0x400DFFFFUL) /**< PER end address  */
-#define PER_MEM_BITS         ((uint32_t) 0x20UL)       /**< PER used bits  */
-#define RAM_MEM_BASE         ((uint32_t) 0x20000000UL) /**< RAM base address  */
-#define RAM_MEM_SIZE         ((uint32_t) 0x8000UL)     /**< RAM available address space  */
-#define RAM_MEM_END          ((uint32_t) 0x20007FFFUL) /**< RAM end address  */
-#define RAM_MEM_BITS         ((uint32_t) 0x15UL)       /**< RAM used bits  */
-#define RAM_CODE_MEM_BASE    ((uint32_t) 0x10000000UL) /**< RAM_CODE base address  */
-#define RAM_CODE_MEM_SIZE    ((uint32_t) 0x4000UL)     /**< RAM_CODE available address space  */
-#define RAM_CODE_MEM_END     ((uint32_t) 0x10003FFFUL) /**< RAM_CODE end address  */
-#define RAM_CODE_MEM_BITS    ((uint32_t) 0x14UL)       /**< RAM_CODE used bits  */
-#define EBI_MEM_BASE         ((uint32_t) 0x80000000UL) /**< EBI base address  */
-#define EBI_MEM_SIZE         ((uint32_t) 0x10000000UL) /**< EBI available address space  */
-#define EBI_MEM_END          ((uint32_t) 0x8FFFFFFFUL) /**< EBI end address  */
-#define EBI_MEM_BITS         ((uint32_t) 0x28UL)       /**< EBI used bits  */
+#define RAM_MEM_BASE         (0x20000000UL) /**< RAM base address  */
+#define RAM_MEM_SIZE         (0x8000UL)     /**< RAM available address space  */
+#define RAM_MEM_END          (0x20007FFFUL) /**< RAM end address  */
+#define RAM_MEM_BITS         (0x15UL)       /**< RAM used bits  */
+#define RAM_CODE_MEM_BASE    (0x10000000UL) /**< RAM_CODE base address  */
+#define RAM_CODE_MEM_SIZE    (0x4000UL)     /**< RAM_CODE available address space  */
+#define RAM_CODE_MEM_END     (0x10003FFFUL) /**< RAM_CODE end address  */
+#define RAM_CODE_MEM_BITS    (0x14UL)       /**< RAM_CODE used bits  */
+#define PER_MEM_BASE         (0x40000000UL) /**< PER base address  */
+#define PER_MEM_SIZE         (0xE0000UL)    /**< PER available address space  */
+#define PER_MEM_END          (0x400DFFFFUL) /**< PER end address  */
+#define PER_MEM_BITS         (0x20UL)       /**< PER used bits  */
+#define EBI_MEM_BASE         (0x80000000UL) /**< EBI base address  */
+#define EBI_MEM_SIZE         (0x10000000UL) /**< EBI available address space  */
+#define EBI_MEM_END          (0x8FFFFFFFUL) /**< EBI end address  */
+#define EBI_MEM_BITS         (0x28UL)       /**< EBI used bits  */
+#define FLASH_MEM_BASE       (0x0UL)        /**< FLASH base address  */
+#define FLASH_MEM_SIZE       (0x10000000UL) /**< FLASH available address space  */
+#define FLASH_MEM_END        (0xFFFFFFFUL)  /**< FLASH end address  */
+#define FLASH_MEM_BITS       (0x28UL)       /**< FLASH used bits  */
+#define AES_MEM_BASE         (0x400E0000UL) /**< AES base address  */
+#define AES_MEM_SIZE         (0x400UL)      /**< AES available address space  */
+#define AES_MEM_END          (0x400E03FFUL) /**< AES end address  */
+#define AES_MEM_BITS         (0x10UL)       /**< AES used bits  */
 
 /** Bit banding area */
-#define BITBAND_PER_BASE     ((uint32_t) 0x42000000UL) /**< Peripheral Address Space bit-band area */
-#define BITBAND_RAM_BASE     ((uint32_t) 0x22000000UL) /**< SRAM Address Space bit-band area */
+#define BITBAND_PER_BASE     (0x42000000UL) /**< Peripheral Address Space bit-band area */
+#define BITBAND_RAM_BASE     (0x22000000UL) /**< SRAM Address Space bit-band area */
 
 /** Flash and SRAM limits for EFM32G890F64 */
 #define FLASH_BASE           (0x00000000UL) /**< Flash Base Address */

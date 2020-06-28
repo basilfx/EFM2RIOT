@@ -1,10 +1,9 @@
 /**************************************************************************//**
  * @file
  * @brief EFR32BG21 HFRCO register and bit field definitions
- * @version 5.7.0
  ******************************************************************************
  * # License
- * <b>Copyright 2018 Silicon Laboratories, Inc. www.silabs.com</b>
+ * <b>Copyright 2020 Silicon Laboratories, Inc. www.silabs.com</b>
  ******************************************************************************
  *
  * SPDX-License-Identifier: Zlib
@@ -55,34 +54,34 @@ typedef struct {
   __IM uint32_t  STATUS;                        /**< Status Register                                    */
   __IOM uint32_t IF;                            /**< Interrupt Flag Register                            */
   __IOM uint32_t IEN;                           /**< Interrupt Enable Register                          */
-  uint32_t       RESERVED0[1U];                 /**< Reserved for future use                      */
+  uint32_t       RESERVED0[1U];                 /**< Reserved for future use                            */
   __IOM uint32_t LOCK;                          /**< Lock Register                                      */
-  uint32_t       RESERVED1[1016U];              /**< Reserved for future use*/
+  uint32_t       RESERVED1[1016U];              /**< Reserved for future use                            */
   __IM uint32_t  IPVERSION_SET;                 /**< IP Version ID                                      */
   __IOM uint32_t CTRL_SET;                      /**< Ctrl Register                                      */
   __IOM uint32_t CAL_SET;                       /**< Calibration Register                               */
   __IM uint32_t  STATUS_SET;                    /**< Status Register                                    */
   __IOM uint32_t IF_SET;                        /**< Interrupt Flag Register                            */
   __IOM uint32_t IEN_SET;                       /**< Interrupt Enable Register                          */
-  uint32_t       RESERVED2[1U];                 /**< Reserved for future use                      */
+  uint32_t       RESERVED2[1U];                 /**< Reserved for future use                            */
   __IOM uint32_t LOCK_SET;                      /**< Lock Register                                      */
-  uint32_t       RESERVED3[1016U];              /**< Reserved for future use*/
+  uint32_t       RESERVED3[1016U];              /**< Reserved for future use                            */
   __IM uint32_t  IPVERSION_CLR;                 /**< IP Version ID                                      */
   __IOM uint32_t CTRL_CLR;                      /**< Ctrl Register                                      */
   __IOM uint32_t CAL_CLR;                       /**< Calibration Register                               */
   __IM uint32_t  STATUS_CLR;                    /**< Status Register                                    */
   __IOM uint32_t IF_CLR;                        /**< Interrupt Flag Register                            */
   __IOM uint32_t IEN_CLR;                       /**< Interrupt Enable Register                          */
-  uint32_t       RESERVED4[1U];                 /**< Reserved for future use                      */
+  uint32_t       RESERVED4[1U];                 /**< Reserved for future use                            */
   __IOM uint32_t LOCK_CLR;                      /**< Lock Register                                      */
-  uint32_t       RESERVED5[1016U];              /**< Reserved for future use*/
+  uint32_t       RESERVED5[1016U];              /**< Reserved for future use                            */
   __IM uint32_t  IPVERSION_TGL;                 /**< IP Version ID                                      */
   __IOM uint32_t CTRL_TGL;                      /**< Ctrl Register                                      */
   __IOM uint32_t CAL_TGL;                       /**< Calibration Register                               */
   __IM uint32_t  STATUS_TGL;                    /**< Status Register                                    */
   __IOM uint32_t IF_TGL;                        /**< Interrupt Flag Register                            */
   __IOM uint32_t IEN_TGL;                       /**< Interrupt Enable Register                          */
-  uint32_t       RESERVED6[1U];                 /**< Reserved for future use                      */
+  uint32_t       RESERVED6[1U];                 /**< Reserved for future use                            */
   __IOM uint32_t LOCK_TGL;                      /**< Lock Register                                      */
 } HFRCO_TypeDef;
 /** @} End of group EFR32BG21_HFRCO */
@@ -143,13 +142,13 @@ typedef struct {
 #define _HFRCO_CAL_CLKDIV_SHIFT               24                                        /**< Shift value for HFRCO_CLKDIV                */
 #define _HFRCO_CAL_CLKDIV_MASK                0x3000000UL                               /**< Bit mask for HFRCO_CLKDIV                   */
 #define _HFRCO_CAL_CLKDIV_DEFAULT             0x00000000UL                              /**< Mode DEFAULT for HFRCO_CAL                  */
-#define _HFRCO_CAL_CLKDIV_DIV1                0x00000000UL                              /**< Mode DIV1 for HFRCO_CAL                      */
-#define _HFRCO_CAL_CLKDIV_DIV2                0x00000001UL                              /**< Mode DIV2 for HFRCO_CAL                      */
-#define _HFRCO_CAL_CLKDIV_DIV4                0x00000002UL                              /**< Mode DIV4 for HFRCO_CAL                      */
+#define _HFRCO_CAL_CLKDIV_DIV1                0x00000000UL                              /**< Mode DIV1 for HFRCO_CAL                     */
+#define _HFRCO_CAL_CLKDIV_DIV2                0x00000001UL                              /**< Mode DIV2 for HFRCO_CAL                     */
+#define _HFRCO_CAL_CLKDIV_DIV4                0x00000002UL                              /**< Mode DIV4 for HFRCO_CAL                     */
 #define HFRCO_CAL_CLKDIV_DEFAULT              (_HFRCO_CAL_CLKDIV_DEFAULT << 24)         /**< Shifted mode DEFAULT for HFRCO_CAL          */
-#define HFRCO_CAL_CLKDIV_DIV1                 (_HFRCO_CAL_CLKDIV_DIV1 << 24)            /**< Shifted mode DIV1 for HFRCO_CAL              */
-#define HFRCO_CAL_CLKDIV_DIV2                 (_HFRCO_CAL_CLKDIV_DIV2 << 24)            /**< Shifted mode DIV2 for HFRCO_CAL              */
-#define HFRCO_CAL_CLKDIV_DIV4                 (_HFRCO_CAL_CLKDIV_DIV4 << 24)            /**< Shifted mode DIV4 for HFRCO_CAL              */
+#define HFRCO_CAL_CLKDIV_DIV1                 (_HFRCO_CAL_CLKDIV_DIV1 << 24)            /**< Shifted mode DIV1 for HFRCO_CAL             */
+#define HFRCO_CAL_CLKDIV_DIV2                 (_HFRCO_CAL_CLKDIV_DIV2 << 24)            /**< Shifted mode DIV2 for HFRCO_CAL             */
+#define HFRCO_CAL_CLKDIV_DIV4                 (_HFRCO_CAL_CLKDIV_DIV4 << 24)            /**< Shifted mode DIV4 for HFRCO_CAL             */
 #define _HFRCO_CAL_CMPSEL_SHIFT               26                                        /**< Shift value for HFRCO_CMPSEL                */
 #define _HFRCO_CAL_CMPSEL_MASK                0xC000000UL                               /**< Bit mask for HFRCO_CMPSEL                   */
 #define _HFRCO_CAL_CMPSEL_DEFAULT             0x00000002UL                              /**< Mode DEFAULT for HFRCO_CAL                  */
@@ -186,11 +185,11 @@ typedef struct {
 #define _HFRCO_STATUS_LOCK_SHIFT              31                                        /**< Shift value for HFRCO_LOCK                  */
 #define _HFRCO_STATUS_LOCK_MASK               0x80000000UL                              /**< Bit mask for HFRCO_LOCK                     */
 #define _HFRCO_STATUS_LOCK_DEFAULT            0x00000000UL                              /**< Mode DEFAULT for HFRCO_STATUS               */
-#define _HFRCO_STATUS_LOCK_UNLOCKED           0x00000000UL                              /**< Mode UNLOCKED for HFRCO_STATUS               */
-#define _HFRCO_STATUS_LOCK_LOCKED             0x00000001UL                              /**< Mode LOCKED for HFRCO_STATUS                 */
+#define _HFRCO_STATUS_LOCK_UNLOCKED           0x00000000UL                              /**< Mode UNLOCKED for HFRCO_STATUS              */
+#define _HFRCO_STATUS_LOCK_LOCKED             0x00000001UL                              /**< Mode LOCKED for HFRCO_STATUS                */
 #define HFRCO_STATUS_LOCK_DEFAULT             (_HFRCO_STATUS_LOCK_DEFAULT << 31)        /**< Shifted mode DEFAULT for HFRCO_STATUS       */
-#define HFRCO_STATUS_LOCK_UNLOCKED            (_HFRCO_STATUS_LOCK_UNLOCKED << 31)       /**< Shifted mode UNLOCKED for HFRCO_STATUS       */
-#define HFRCO_STATUS_LOCK_LOCKED              (_HFRCO_STATUS_LOCK_LOCKED << 31)         /**< Shifted mode LOCKED for HFRCO_STATUS         */
+#define HFRCO_STATUS_LOCK_UNLOCKED            (_HFRCO_STATUS_LOCK_UNLOCKED << 31)       /**< Shifted mode UNLOCKED for HFRCO_STATUS      */
+#define HFRCO_STATUS_LOCK_LOCKED              (_HFRCO_STATUS_LOCK_LOCKED << 31)         /**< Shifted mode LOCKED for HFRCO_STATUS        */
 
 /* Bit fields for HFRCO IF */
 #define _HFRCO_IF_RESETVALUE                  0x00000000UL                              /**< Default value for HFRCO_IF                  */
@@ -216,9 +215,9 @@ typedef struct {
 #define _HFRCO_LOCK_LOCKKEY_SHIFT             0                                         /**< Shift value for HFRCO_LOCKKEY               */
 #define _HFRCO_LOCK_LOCKKEY_MASK              0xFFFFUL                                  /**< Bit mask for HFRCO_LOCKKEY                  */
 #define _HFRCO_LOCK_LOCKKEY_DEFAULT           0x00008195UL                              /**< Mode DEFAULT for HFRCO_LOCK                 */
-#define _HFRCO_LOCK_LOCKKEY_UNLOCK            0x00008195UL                              /**< Mode UNLOCK for HFRCO_LOCK                   */
+#define _HFRCO_LOCK_LOCKKEY_UNLOCK            0x00008195UL                              /**< Mode UNLOCK for HFRCO_LOCK                  */
 #define HFRCO_LOCK_LOCKKEY_DEFAULT            (_HFRCO_LOCK_LOCKKEY_DEFAULT << 0)        /**< Shifted mode DEFAULT for HFRCO_LOCK         */
-#define HFRCO_LOCK_LOCKKEY_UNLOCK             (_HFRCO_LOCK_LOCKKEY_UNLOCK << 0)         /**< Shifted mode UNLOCK for HFRCO_LOCK           */
+#define HFRCO_LOCK_LOCKKEY_UNLOCK             (_HFRCO_LOCK_LOCKKEY_UNLOCK << 0)         /**< Shifted mode UNLOCK for HFRCO_LOCK          */
 
 /** @} End of group EFR32BG21_HFRCO_BitFields */
 /** @} End of group EFR32BG21_HFRCO */

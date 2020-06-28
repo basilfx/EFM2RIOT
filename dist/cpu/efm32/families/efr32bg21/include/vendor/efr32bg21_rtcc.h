@@ -1,10 +1,9 @@
 /**************************************************************************//**
  * @file
  * @brief EFR32BG21 RTCC register and bit field definitions
- * @version 5.7.0
  ******************************************************************************
  * # License
- * <b>Copyright 2018 Silicon Laboratories, Inc. www.silabs.com</b>
+ * <b>Copyright 2020 Silicon Laboratories, Inc. www.silabs.com</b>
  ******************************************************************************
  *
  * SPDX-License-Identifier: Zlib
@@ -68,8 +67,8 @@ typedef struct {
   __IM uint32_t   COMBCNT;                      /**< Combined Pre-Counter and Counter Valu...           */
   __IM uint32_t   SYNCBUSY;                     /**< Synchronization Busy Register                      */
   __IOM uint32_t  LOCK;                         /**< Configuration Lock Register                        */
-  RTCC_CC_TypeDef CC[3U];                       /**< Capture/Compare Channel                           */
-  uint32_t        RESERVED0[1003U];             /**< Reserved for future use*/
+  RTCC_CC_TypeDef CC[3U];                       /**< Capture/Compare Channel                            */
+  uint32_t        RESERVED0[1003U];             /**< Reserved for future use                            */
   __IM uint32_t   IPVERSION_SET;                /**< IP VERSION                                         */
   __IOM uint32_t  EN_SET;                       /**< Module Enable Register                             */
   __IOM uint32_t  CFG_SET;                      /**< Configuration Register                             */
@@ -82,8 +81,8 @@ typedef struct {
   __IM uint32_t   COMBCNT_SET;                  /**< Combined Pre-Counter and Counter Valu...           */
   __IM uint32_t   SYNCBUSY_SET;                 /**< Synchronization Busy Register                      */
   __IOM uint32_t  LOCK_SET;                     /**< Configuration Lock Register                        */
-  RTCC_CC_TypeDef CC_SET[3U];                   /**< Capture/Compare Channel                           */
-  uint32_t        RESERVED1[1003U];             /**< Reserved for future use*/
+  RTCC_CC_TypeDef CC_SET[3U];                   /**< Capture/Compare Channel                            */
+  uint32_t        RESERVED1[1003U];             /**< Reserved for future use                            */
   __IM uint32_t   IPVERSION_CLR;                /**< IP VERSION                                         */
   __IOM uint32_t  EN_CLR;                       /**< Module Enable Register                             */
   __IOM uint32_t  CFG_CLR;                      /**< Configuration Register                             */
@@ -96,8 +95,8 @@ typedef struct {
   __IM uint32_t   COMBCNT_CLR;                  /**< Combined Pre-Counter and Counter Valu...           */
   __IM uint32_t   SYNCBUSY_CLR;                 /**< Synchronization Busy Register                      */
   __IOM uint32_t  LOCK_CLR;                     /**< Configuration Lock Register                        */
-  RTCC_CC_TypeDef CC_CLR[3U];                   /**< Capture/Compare Channel                           */
-  uint32_t        RESERVED2[1003U];             /**< Reserved for future use*/
+  RTCC_CC_TypeDef CC_CLR[3U];                   /**< Capture/Compare Channel                            */
+  uint32_t        RESERVED2[1003U];             /**< Reserved for future use                            */
   __IM uint32_t   IPVERSION_TGL;                /**< IP VERSION                                         */
   __IOM uint32_t  EN_TGL;                       /**< Module Enable Register                             */
   __IOM uint32_t  CFG_TGL;                      /**< Configuration Register                             */
@@ -110,7 +109,7 @@ typedef struct {
   __IM uint32_t   COMBCNT_TGL;                  /**< Combined Pre-Counter and Counter Valu...           */
   __IM uint32_t   SYNCBUSY_TGL;                 /**< Synchronization Busy Register                      */
   __IOM uint32_t  LOCK_TGL;                     /**< Configuration Lock Register                        */
-  RTCC_CC_TypeDef CC_TGL[3U];                   /**< Capture/Compare Channel                           */
+  RTCC_CC_TypeDef CC_TGL[3U];                   /**< Capture/Compare Channel                            */
 } RTCC_TypeDef;
 /** @} End of group EFR32BG21_RTCC */
 
@@ -145,11 +144,11 @@ typedef struct {
 #define _RTCC_CFG_DEBUGRUN_SHIFT                0                                       /**< Shift value for RTCC_DEBUGRUN               */
 #define _RTCC_CFG_DEBUGRUN_MASK                 0x1UL                                   /**< Bit mask for RTCC_DEBUGRUN                  */
 #define _RTCC_CFG_DEBUGRUN_DEFAULT              0x00000000UL                            /**< Mode DEFAULT for RTCC_CFG                   */
-#define _RTCC_CFG_DEBUGRUN_X0                   0x00000000UL                            /**< Mode X0 for RTCC_CFG                         */
-#define _RTCC_CFG_DEBUGRUN_X1                   0x00000001UL                            /**< Mode X1 for RTCC_CFG                         */
+#define _RTCC_CFG_DEBUGRUN_X0                   0x00000000UL                            /**< Mode X0 for RTCC_CFG                        */
+#define _RTCC_CFG_DEBUGRUN_X1                   0x00000001UL                            /**< Mode X1 for RTCC_CFG                        */
 #define RTCC_CFG_DEBUGRUN_DEFAULT               (_RTCC_CFG_DEBUGRUN_DEFAULT << 0)       /**< Shifted mode DEFAULT for RTCC_CFG           */
-#define RTCC_CFG_DEBUGRUN_X0                    (_RTCC_CFG_DEBUGRUN_X0 << 0)            /**< Shifted mode X0 for RTCC_CFG                 */
-#define RTCC_CFG_DEBUGRUN_X1                    (_RTCC_CFG_DEBUGRUN_X1 << 0)            /**< Shifted mode X1 for RTCC_CFG                 */
+#define RTCC_CFG_DEBUGRUN_X0                    (_RTCC_CFG_DEBUGRUN_X0 << 0)            /**< Shifted mode X0 for RTCC_CFG                */
+#define RTCC_CFG_DEBUGRUN_X1                    (_RTCC_CFG_DEBUGRUN_X1 << 0)            /**< Shifted mode X1 for RTCC_CFG                */
 #define RTCC_CFG_PRECNTCCV0TOP                  (0x1UL << 1)                            /**< Pre-counter CCV0 top value enable.          */
 #define _RTCC_CFG_PRECNTCCV0TOP_SHIFT           1                                       /**< Shift value for RTCC_PRECNTCCV0TOP          */
 #define _RTCC_CFG_PRECNTCCV0TOP_MASK            0x2UL                                   /**< Bit mask for RTCC_PRECNTCCV0TOP             */
@@ -164,47 +163,47 @@ typedef struct {
 #define _RTCC_CFG_CNTTICK_SHIFT                 3                                       /**< Shift value for RTCC_CNTTICK                */
 #define _RTCC_CFG_CNTTICK_MASK                  0x8UL                                   /**< Bit mask for RTCC_CNTTICK                   */
 #define _RTCC_CFG_CNTTICK_DEFAULT               0x00000000UL                            /**< Mode DEFAULT for RTCC_CFG                   */
-#define _RTCC_CFG_CNTTICK_PRESC                 0x00000000UL                            /**< Mode PRESC for RTCC_CFG                      */
-#define _RTCC_CFG_CNTTICK_CCV0MATCH             0x00000001UL                            /**< Mode CCV0MATCH for RTCC_CFG                  */
+#define _RTCC_CFG_CNTTICK_PRESC                 0x00000000UL                            /**< Mode PRESC for RTCC_CFG                     */
+#define _RTCC_CFG_CNTTICK_CCV0MATCH             0x00000001UL                            /**< Mode CCV0MATCH for RTCC_CFG                 */
 #define RTCC_CFG_CNTTICK_DEFAULT                (_RTCC_CFG_CNTTICK_DEFAULT << 3)        /**< Shifted mode DEFAULT for RTCC_CFG           */
-#define RTCC_CFG_CNTTICK_PRESC                  (_RTCC_CFG_CNTTICK_PRESC << 3)          /**< Shifted mode PRESC for RTCC_CFG              */
-#define RTCC_CFG_CNTTICK_CCV0MATCH              (_RTCC_CFG_CNTTICK_CCV0MATCH << 3)      /**< Shifted mode CCV0MATCH for RTCC_CFG          */
+#define RTCC_CFG_CNTTICK_PRESC                  (_RTCC_CFG_CNTTICK_PRESC << 3)          /**< Shifted mode PRESC for RTCC_CFG             */
+#define RTCC_CFG_CNTTICK_CCV0MATCH              (_RTCC_CFG_CNTTICK_CCV0MATCH << 3)      /**< Shifted mode CCV0MATCH for RTCC_CFG         */
 #define _RTCC_CFG_CNTPRESC_SHIFT                4                                       /**< Shift value for RTCC_CNTPRESC               */
 #define _RTCC_CFG_CNTPRESC_MASK                 0xF0UL                                  /**< Bit mask for RTCC_CNTPRESC                  */
 #define _RTCC_CFG_CNTPRESC_DEFAULT              0x00000000UL                            /**< Mode DEFAULT for RTCC_CFG                   */
-#define _RTCC_CFG_CNTPRESC_DIV1                 0x00000000UL                            /**< Mode DIV1 for RTCC_CFG                       */
-#define _RTCC_CFG_CNTPRESC_DIV2                 0x00000001UL                            /**< Mode DIV2 for RTCC_CFG                       */
-#define _RTCC_CFG_CNTPRESC_DIV4                 0x00000002UL                            /**< Mode DIV4 for RTCC_CFG                       */
-#define _RTCC_CFG_CNTPRESC_DIV8                 0x00000003UL                            /**< Mode DIV8 for RTCC_CFG                       */
-#define _RTCC_CFG_CNTPRESC_DIV16                0x00000004UL                            /**< Mode DIV16 for RTCC_CFG                      */
-#define _RTCC_CFG_CNTPRESC_DIV32                0x00000005UL                            /**< Mode DIV32 for RTCC_CFG                      */
-#define _RTCC_CFG_CNTPRESC_DIV64                0x00000006UL                            /**< Mode DIV64 for RTCC_CFG                      */
-#define _RTCC_CFG_CNTPRESC_DIV128               0x00000007UL                            /**< Mode DIV128 for RTCC_CFG                     */
-#define _RTCC_CFG_CNTPRESC_DIV256               0x00000008UL                            /**< Mode DIV256 for RTCC_CFG                     */
-#define _RTCC_CFG_CNTPRESC_DIV512               0x00000009UL                            /**< Mode DIV512 for RTCC_CFG                     */
-#define _RTCC_CFG_CNTPRESC_DIV1024              0x0000000AUL                            /**< Mode DIV1024 for RTCC_CFG                    */
-#define _RTCC_CFG_CNTPRESC_DIV2048              0x0000000BUL                            /**< Mode DIV2048 for RTCC_CFG                    */
-#define _RTCC_CFG_CNTPRESC_DIV4096              0x0000000CUL                            /**< Mode DIV4096 for RTCC_CFG                    */
-#define _RTCC_CFG_CNTPRESC_DIV8192              0x0000000DUL                            /**< Mode DIV8192 for RTCC_CFG                    */
-#define _RTCC_CFG_CNTPRESC_DIV16384             0x0000000EUL                            /**< Mode DIV16384 for RTCC_CFG                   */
-#define _RTCC_CFG_CNTPRESC_DIV32768             0x0000000FUL                            /**< Mode DIV32768 for RTCC_CFG                   */
+#define _RTCC_CFG_CNTPRESC_DIV1                 0x00000000UL                            /**< Mode DIV1 for RTCC_CFG                      */
+#define _RTCC_CFG_CNTPRESC_DIV2                 0x00000001UL                            /**< Mode DIV2 for RTCC_CFG                      */
+#define _RTCC_CFG_CNTPRESC_DIV4                 0x00000002UL                            /**< Mode DIV4 for RTCC_CFG                      */
+#define _RTCC_CFG_CNTPRESC_DIV8                 0x00000003UL                            /**< Mode DIV8 for RTCC_CFG                      */
+#define _RTCC_CFG_CNTPRESC_DIV16                0x00000004UL                            /**< Mode DIV16 for RTCC_CFG                     */
+#define _RTCC_CFG_CNTPRESC_DIV32                0x00000005UL                            /**< Mode DIV32 for RTCC_CFG                     */
+#define _RTCC_CFG_CNTPRESC_DIV64                0x00000006UL                            /**< Mode DIV64 for RTCC_CFG                     */
+#define _RTCC_CFG_CNTPRESC_DIV128               0x00000007UL                            /**< Mode DIV128 for RTCC_CFG                    */
+#define _RTCC_CFG_CNTPRESC_DIV256               0x00000008UL                            /**< Mode DIV256 for RTCC_CFG                    */
+#define _RTCC_CFG_CNTPRESC_DIV512               0x00000009UL                            /**< Mode DIV512 for RTCC_CFG                    */
+#define _RTCC_CFG_CNTPRESC_DIV1024              0x0000000AUL                            /**< Mode DIV1024 for RTCC_CFG                   */
+#define _RTCC_CFG_CNTPRESC_DIV2048              0x0000000BUL                            /**< Mode DIV2048 for RTCC_CFG                   */
+#define _RTCC_CFG_CNTPRESC_DIV4096              0x0000000CUL                            /**< Mode DIV4096 for RTCC_CFG                   */
+#define _RTCC_CFG_CNTPRESC_DIV8192              0x0000000DUL                            /**< Mode DIV8192 for RTCC_CFG                   */
+#define _RTCC_CFG_CNTPRESC_DIV16384             0x0000000EUL                            /**< Mode DIV16384 for RTCC_CFG                  */
+#define _RTCC_CFG_CNTPRESC_DIV32768             0x0000000FUL                            /**< Mode DIV32768 for RTCC_CFG                  */
 #define RTCC_CFG_CNTPRESC_DEFAULT               (_RTCC_CFG_CNTPRESC_DEFAULT << 4)       /**< Shifted mode DEFAULT for RTCC_CFG           */
-#define RTCC_CFG_CNTPRESC_DIV1                  (_RTCC_CFG_CNTPRESC_DIV1 << 4)          /**< Shifted mode DIV1 for RTCC_CFG               */
-#define RTCC_CFG_CNTPRESC_DIV2                  (_RTCC_CFG_CNTPRESC_DIV2 << 4)          /**< Shifted mode DIV2 for RTCC_CFG               */
-#define RTCC_CFG_CNTPRESC_DIV4                  (_RTCC_CFG_CNTPRESC_DIV4 << 4)          /**< Shifted mode DIV4 for RTCC_CFG               */
-#define RTCC_CFG_CNTPRESC_DIV8                  (_RTCC_CFG_CNTPRESC_DIV8 << 4)          /**< Shifted mode DIV8 for RTCC_CFG               */
-#define RTCC_CFG_CNTPRESC_DIV16                 (_RTCC_CFG_CNTPRESC_DIV16 << 4)         /**< Shifted mode DIV16 for RTCC_CFG              */
-#define RTCC_CFG_CNTPRESC_DIV32                 (_RTCC_CFG_CNTPRESC_DIV32 << 4)         /**< Shifted mode DIV32 for RTCC_CFG              */
-#define RTCC_CFG_CNTPRESC_DIV64                 (_RTCC_CFG_CNTPRESC_DIV64 << 4)         /**< Shifted mode DIV64 for RTCC_CFG              */
-#define RTCC_CFG_CNTPRESC_DIV128                (_RTCC_CFG_CNTPRESC_DIV128 << 4)        /**< Shifted mode DIV128 for RTCC_CFG             */
-#define RTCC_CFG_CNTPRESC_DIV256                (_RTCC_CFG_CNTPRESC_DIV256 << 4)        /**< Shifted mode DIV256 for RTCC_CFG             */
-#define RTCC_CFG_CNTPRESC_DIV512                (_RTCC_CFG_CNTPRESC_DIV512 << 4)        /**< Shifted mode DIV512 for RTCC_CFG             */
-#define RTCC_CFG_CNTPRESC_DIV1024               (_RTCC_CFG_CNTPRESC_DIV1024 << 4)       /**< Shifted mode DIV1024 for RTCC_CFG            */
-#define RTCC_CFG_CNTPRESC_DIV2048               (_RTCC_CFG_CNTPRESC_DIV2048 << 4)       /**< Shifted mode DIV2048 for RTCC_CFG            */
-#define RTCC_CFG_CNTPRESC_DIV4096               (_RTCC_CFG_CNTPRESC_DIV4096 << 4)       /**< Shifted mode DIV4096 for RTCC_CFG            */
-#define RTCC_CFG_CNTPRESC_DIV8192               (_RTCC_CFG_CNTPRESC_DIV8192 << 4)       /**< Shifted mode DIV8192 for RTCC_CFG            */
-#define RTCC_CFG_CNTPRESC_DIV16384              (_RTCC_CFG_CNTPRESC_DIV16384 << 4)      /**< Shifted mode DIV16384 for RTCC_CFG           */
-#define RTCC_CFG_CNTPRESC_DIV32768              (_RTCC_CFG_CNTPRESC_DIV32768 << 4)      /**< Shifted mode DIV32768 for RTCC_CFG           */
+#define RTCC_CFG_CNTPRESC_DIV1                  (_RTCC_CFG_CNTPRESC_DIV1 << 4)          /**< Shifted mode DIV1 for RTCC_CFG              */
+#define RTCC_CFG_CNTPRESC_DIV2                  (_RTCC_CFG_CNTPRESC_DIV2 << 4)          /**< Shifted mode DIV2 for RTCC_CFG              */
+#define RTCC_CFG_CNTPRESC_DIV4                  (_RTCC_CFG_CNTPRESC_DIV4 << 4)          /**< Shifted mode DIV4 for RTCC_CFG              */
+#define RTCC_CFG_CNTPRESC_DIV8                  (_RTCC_CFG_CNTPRESC_DIV8 << 4)          /**< Shifted mode DIV8 for RTCC_CFG              */
+#define RTCC_CFG_CNTPRESC_DIV16                 (_RTCC_CFG_CNTPRESC_DIV16 << 4)         /**< Shifted mode DIV16 for RTCC_CFG             */
+#define RTCC_CFG_CNTPRESC_DIV32                 (_RTCC_CFG_CNTPRESC_DIV32 << 4)         /**< Shifted mode DIV32 for RTCC_CFG             */
+#define RTCC_CFG_CNTPRESC_DIV64                 (_RTCC_CFG_CNTPRESC_DIV64 << 4)         /**< Shifted mode DIV64 for RTCC_CFG             */
+#define RTCC_CFG_CNTPRESC_DIV128                (_RTCC_CFG_CNTPRESC_DIV128 << 4)        /**< Shifted mode DIV128 for RTCC_CFG            */
+#define RTCC_CFG_CNTPRESC_DIV256                (_RTCC_CFG_CNTPRESC_DIV256 << 4)        /**< Shifted mode DIV256 for RTCC_CFG            */
+#define RTCC_CFG_CNTPRESC_DIV512                (_RTCC_CFG_CNTPRESC_DIV512 << 4)        /**< Shifted mode DIV512 for RTCC_CFG            */
+#define RTCC_CFG_CNTPRESC_DIV1024               (_RTCC_CFG_CNTPRESC_DIV1024 << 4)       /**< Shifted mode DIV1024 for RTCC_CFG           */
+#define RTCC_CFG_CNTPRESC_DIV2048               (_RTCC_CFG_CNTPRESC_DIV2048 << 4)       /**< Shifted mode DIV2048 for RTCC_CFG           */
+#define RTCC_CFG_CNTPRESC_DIV4096               (_RTCC_CFG_CNTPRESC_DIV4096 << 4)       /**< Shifted mode DIV4096 for RTCC_CFG           */
+#define RTCC_CFG_CNTPRESC_DIV8192               (_RTCC_CFG_CNTPRESC_DIV8192 << 4)       /**< Shifted mode DIV8192 for RTCC_CFG           */
+#define RTCC_CFG_CNTPRESC_DIV16384              (_RTCC_CFG_CNTPRESC_DIV16384 << 4)      /**< Shifted mode DIV16384 for RTCC_CFG          */
+#define RTCC_CFG_CNTPRESC_DIV32768              (_RTCC_CFG_CNTPRESC_DIV32768 << 4)      /**< Shifted mode DIV32768 for RTCC_CFG          */
 
 /* Bit fields for RTCC CMD */
 #define _RTCC_CMD_RESETVALUE                    0x00000000UL                            /**< Default value for RTCC_CMD                  */
@@ -232,11 +231,11 @@ typedef struct {
 #define _RTCC_STATUS_RTCCLOCKSTATUS_SHIFT       1                                           /**< Shift value for RTCC_RTCCLOCKSTATUS         */
 #define _RTCC_STATUS_RTCCLOCKSTATUS_MASK        0x2UL                                       /**< Bit mask for RTCC_RTCCLOCKSTATUS            */
 #define _RTCC_STATUS_RTCCLOCKSTATUS_DEFAULT     0x00000000UL                                /**< Mode DEFAULT for RTCC_STATUS                */
-#define _RTCC_STATUS_RTCCLOCKSTATUS_UNLOCKED    0x00000000UL                                /**< Mode UNLOCKED for RTCC_STATUS                */
-#define _RTCC_STATUS_RTCCLOCKSTATUS_LOCKED      0x00000001UL                                /**< Mode LOCKED for RTCC_STATUS                  */
+#define _RTCC_STATUS_RTCCLOCKSTATUS_UNLOCKED    0x00000000UL                                /**< Mode UNLOCKED for RTCC_STATUS               */
+#define _RTCC_STATUS_RTCCLOCKSTATUS_LOCKED      0x00000001UL                                /**< Mode LOCKED for RTCC_STATUS                 */
 #define RTCC_STATUS_RTCCLOCKSTATUS_DEFAULT      (_RTCC_STATUS_RTCCLOCKSTATUS_DEFAULT << 1)  /**< Shifted mode DEFAULT for RTCC_STATUS        */
-#define RTCC_STATUS_RTCCLOCKSTATUS_UNLOCKED     (_RTCC_STATUS_RTCCLOCKSTATUS_UNLOCKED << 1) /**< Shifted mode UNLOCKED for RTCC_STATUS        */
-#define RTCC_STATUS_RTCCLOCKSTATUS_LOCKED       (_RTCC_STATUS_RTCCLOCKSTATUS_LOCKED << 1)   /**< Shifted mode LOCKED for RTCC_STATUS          */
+#define RTCC_STATUS_RTCCLOCKSTATUS_UNLOCKED     (_RTCC_STATUS_RTCCLOCKSTATUS_UNLOCKED << 1) /**< Shifted mode UNLOCKED for RTCC_STATUS       */
+#define RTCC_STATUS_RTCCLOCKSTATUS_LOCKED       (_RTCC_STATUS_RTCCLOCKSTATUS_LOCKED << 1)   /**< Shifted mode LOCKED for RTCC_STATUS         */
 
 /* Bit fields for RTCC IF */
 #define _RTCC_IF_RESETVALUE                     0x00000000UL                            /**< Default value for RTCC_IF                   */
@@ -354,9 +353,9 @@ typedef struct {
 #define _RTCC_LOCK_LOCKKEY_SHIFT                0                                       /**< Shift value for RTCC_LOCKKEY                */
 #define _RTCC_LOCK_LOCKKEY_MASK                 0xFFFFUL                                /**< Bit mask for RTCC_LOCKKEY                   */
 #define _RTCC_LOCK_LOCKKEY_DEFAULT              0x00000000UL                            /**< Mode DEFAULT for RTCC_LOCK                  */
-#define _RTCC_LOCK_LOCKKEY_UNLOCK               0x0000AEE8UL                            /**< Mode UNLOCK for RTCC_LOCK                    */
+#define _RTCC_LOCK_LOCKKEY_UNLOCK               0x0000AEE8UL                            /**< Mode UNLOCK for RTCC_LOCK                   */
 #define RTCC_LOCK_LOCKKEY_DEFAULT               (_RTCC_LOCK_LOCKKEY_DEFAULT << 0)       /**< Shifted mode DEFAULT for RTCC_LOCK          */
-#define RTCC_LOCK_LOCKKEY_UNLOCK                (_RTCC_LOCK_LOCKKEY_UNLOCK << 0)        /**< Shifted mode UNLOCK for RTCC_LOCK            */
+#define RTCC_LOCK_LOCKKEY_UNLOCK                (_RTCC_LOCK_LOCKKEY_UNLOCK << 0)        /**< Shifted mode UNLOCK for RTCC_LOCK           */
 
 /* Bit fields for RTCC CC_CTRL */
 #define _RTCC_CC_CTRL_RESETVALUE                0x00000000UL                            /**< Default value for RTCC_CC_CTRL              */
@@ -364,46 +363,46 @@ typedef struct {
 #define _RTCC_CC_CTRL_MODE_SHIFT                0                                       /**< Shift value for RTCC_MODE                   */
 #define _RTCC_CC_CTRL_MODE_MASK                 0x3UL                                   /**< Bit mask for RTCC_MODE                      */
 #define _RTCC_CC_CTRL_MODE_DEFAULT              0x00000000UL                            /**< Mode DEFAULT for RTCC_CC_CTRL               */
-#define _RTCC_CC_CTRL_MODE_OFF                  0x00000000UL                            /**< Mode OFF for RTCC_CC_CTRL                    */
-#define _RTCC_CC_CTRL_MODE_INPUTCAPTURE         0x00000001UL                            /**< Mode INPUTCAPTURE for RTCC_CC_CTRL           */
-#define _RTCC_CC_CTRL_MODE_OUTPUTCOMPARE        0x00000002UL                            /**< Mode OUTPUTCOMPARE for RTCC_CC_CTRL          */
+#define _RTCC_CC_CTRL_MODE_OFF                  0x00000000UL                            /**< Mode OFF for RTCC_CC_CTRL                   */
+#define _RTCC_CC_CTRL_MODE_INPUTCAPTURE         0x00000001UL                            /**< Mode INPUTCAPTURE for RTCC_CC_CTRL          */
+#define _RTCC_CC_CTRL_MODE_OUTPUTCOMPARE        0x00000002UL                            /**< Mode OUTPUTCOMPARE for RTCC_CC_CTRL         */
 #define RTCC_CC_CTRL_MODE_DEFAULT               (_RTCC_CC_CTRL_MODE_DEFAULT << 0)       /**< Shifted mode DEFAULT for RTCC_CC_CTRL       */
-#define RTCC_CC_CTRL_MODE_OFF                   (_RTCC_CC_CTRL_MODE_OFF << 0)           /**< Shifted mode OFF for RTCC_CC_CTRL            */
-#define RTCC_CC_CTRL_MODE_INPUTCAPTURE          (_RTCC_CC_CTRL_MODE_INPUTCAPTURE << 0)  /**< Shifted mode INPUTCAPTURE for RTCC_CC_CTRL   */
-#define RTCC_CC_CTRL_MODE_OUTPUTCOMPARE         (_RTCC_CC_CTRL_MODE_OUTPUTCOMPARE << 0) /**< Shifted mode OUTPUTCOMPARE for RTCC_CC_CTRL  */
+#define RTCC_CC_CTRL_MODE_OFF                   (_RTCC_CC_CTRL_MODE_OFF << 0)           /**< Shifted mode OFF for RTCC_CC_CTRL           */
+#define RTCC_CC_CTRL_MODE_INPUTCAPTURE          (_RTCC_CC_CTRL_MODE_INPUTCAPTURE << 0)  /**< Shifted mode INPUTCAPTURE for RTCC_CC_CTRL  */
+#define RTCC_CC_CTRL_MODE_OUTPUTCOMPARE         (_RTCC_CC_CTRL_MODE_OUTPUTCOMPARE << 0) /**< Shifted mode OUTPUTCOMPARE for RTCC_CC_CTRL */
 #define _RTCC_CC_CTRL_CMOA_SHIFT                2                                       /**< Shift value for RTCC_CMOA                   */
 #define _RTCC_CC_CTRL_CMOA_MASK                 0xCUL                                   /**< Bit mask for RTCC_CMOA                      */
 #define _RTCC_CC_CTRL_CMOA_DEFAULT              0x00000000UL                            /**< Mode DEFAULT for RTCC_CC_CTRL               */
-#define _RTCC_CC_CTRL_CMOA_PULSE                0x00000000UL                            /**< Mode PULSE for RTCC_CC_CTRL                  */
-#define _RTCC_CC_CTRL_CMOA_TOGGLE               0x00000001UL                            /**< Mode TOGGLE for RTCC_CC_CTRL                 */
-#define _RTCC_CC_CTRL_CMOA_CLEAR                0x00000002UL                            /**< Mode CLEAR for RTCC_CC_CTRL                  */
-#define _RTCC_CC_CTRL_CMOA_SET                  0x00000003UL                            /**< Mode SET for RTCC_CC_CTRL                    */
+#define _RTCC_CC_CTRL_CMOA_PULSE                0x00000000UL                            /**< Mode PULSE for RTCC_CC_CTRL                 */
+#define _RTCC_CC_CTRL_CMOA_TOGGLE               0x00000001UL                            /**< Mode TOGGLE for RTCC_CC_CTRL                */
+#define _RTCC_CC_CTRL_CMOA_CLEAR                0x00000002UL                            /**< Mode CLEAR for RTCC_CC_CTRL                 */
+#define _RTCC_CC_CTRL_CMOA_SET                  0x00000003UL                            /**< Mode SET for RTCC_CC_CTRL                   */
 #define RTCC_CC_CTRL_CMOA_DEFAULT               (_RTCC_CC_CTRL_CMOA_DEFAULT << 2)       /**< Shifted mode DEFAULT for RTCC_CC_CTRL       */
-#define RTCC_CC_CTRL_CMOA_PULSE                 (_RTCC_CC_CTRL_CMOA_PULSE << 2)         /**< Shifted mode PULSE for RTCC_CC_CTRL          */
-#define RTCC_CC_CTRL_CMOA_TOGGLE                (_RTCC_CC_CTRL_CMOA_TOGGLE << 2)        /**< Shifted mode TOGGLE for RTCC_CC_CTRL         */
-#define RTCC_CC_CTRL_CMOA_CLEAR                 (_RTCC_CC_CTRL_CMOA_CLEAR << 2)         /**< Shifted mode CLEAR for RTCC_CC_CTRL          */
-#define RTCC_CC_CTRL_CMOA_SET                   (_RTCC_CC_CTRL_CMOA_SET << 2)           /**< Shifted mode SET for RTCC_CC_CTRL            */
+#define RTCC_CC_CTRL_CMOA_PULSE                 (_RTCC_CC_CTRL_CMOA_PULSE << 2)         /**< Shifted mode PULSE for RTCC_CC_CTRL         */
+#define RTCC_CC_CTRL_CMOA_TOGGLE                (_RTCC_CC_CTRL_CMOA_TOGGLE << 2)        /**< Shifted mode TOGGLE for RTCC_CC_CTRL        */
+#define RTCC_CC_CTRL_CMOA_CLEAR                 (_RTCC_CC_CTRL_CMOA_CLEAR << 2)         /**< Shifted mode CLEAR for RTCC_CC_CTRL         */
+#define RTCC_CC_CTRL_CMOA_SET                   (_RTCC_CC_CTRL_CMOA_SET << 2)           /**< Shifted mode SET for RTCC_CC_CTRL           */
 #define RTCC_CC_CTRL_COMPBASE                   (0x1UL << 4)                            /**< Capture compare channel comparison base.    */
 #define _RTCC_CC_CTRL_COMPBASE_SHIFT            4                                       /**< Shift value for RTCC_COMPBASE               */
 #define _RTCC_CC_CTRL_COMPBASE_MASK             0x10UL                                  /**< Bit mask for RTCC_COMPBASE                  */
 #define _RTCC_CC_CTRL_COMPBASE_DEFAULT          0x00000000UL                            /**< Mode DEFAULT for RTCC_CC_CTRL               */
-#define _RTCC_CC_CTRL_COMPBASE_CNT              0x00000000UL                            /**< Mode CNT for RTCC_CC_CTRL                    */
-#define _RTCC_CC_CTRL_COMPBASE_PRECNT           0x00000001UL                            /**< Mode PRECNT for RTCC_CC_CTRL                 */
+#define _RTCC_CC_CTRL_COMPBASE_CNT              0x00000000UL                            /**< Mode CNT for RTCC_CC_CTRL                   */
+#define _RTCC_CC_CTRL_COMPBASE_PRECNT           0x00000001UL                            /**< Mode PRECNT for RTCC_CC_CTRL                */
 #define RTCC_CC_CTRL_COMPBASE_DEFAULT           (_RTCC_CC_CTRL_COMPBASE_DEFAULT << 4)   /**< Shifted mode DEFAULT for RTCC_CC_CTRL       */
-#define RTCC_CC_CTRL_COMPBASE_CNT               (_RTCC_CC_CTRL_COMPBASE_CNT << 4)       /**< Shifted mode CNT for RTCC_CC_CTRL            */
-#define RTCC_CC_CTRL_COMPBASE_PRECNT            (_RTCC_CC_CTRL_COMPBASE_PRECNT << 4)    /**< Shifted mode PRECNT for RTCC_CC_CTRL         */
+#define RTCC_CC_CTRL_COMPBASE_CNT               (_RTCC_CC_CTRL_COMPBASE_CNT << 4)       /**< Shifted mode CNT for RTCC_CC_CTRL           */
+#define RTCC_CC_CTRL_COMPBASE_PRECNT            (_RTCC_CC_CTRL_COMPBASE_PRECNT << 4)    /**< Shifted mode PRECNT for RTCC_CC_CTRL        */
 #define _RTCC_CC_CTRL_ICEDGE_SHIFT              5                                       /**< Shift value for RTCC_ICEDGE                 */
 #define _RTCC_CC_CTRL_ICEDGE_MASK               0x60UL                                  /**< Bit mask for RTCC_ICEDGE                    */
 #define _RTCC_CC_CTRL_ICEDGE_DEFAULT            0x00000000UL                            /**< Mode DEFAULT for RTCC_CC_CTRL               */
-#define _RTCC_CC_CTRL_ICEDGE_RISING             0x00000000UL                            /**< Mode RISING for RTCC_CC_CTRL                 */
-#define _RTCC_CC_CTRL_ICEDGE_FALLING            0x00000001UL                            /**< Mode FALLING for RTCC_CC_CTRL                */
-#define _RTCC_CC_CTRL_ICEDGE_BOTH               0x00000002UL                            /**< Mode BOTH for RTCC_CC_CTRL                   */
-#define _RTCC_CC_CTRL_ICEDGE_NONE               0x00000003UL                            /**< Mode NONE for RTCC_CC_CTRL                   */
+#define _RTCC_CC_CTRL_ICEDGE_RISING             0x00000000UL                            /**< Mode RISING for RTCC_CC_CTRL                */
+#define _RTCC_CC_CTRL_ICEDGE_FALLING            0x00000001UL                            /**< Mode FALLING for RTCC_CC_CTRL               */
+#define _RTCC_CC_CTRL_ICEDGE_BOTH               0x00000002UL                            /**< Mode BOTH for RTCC_CC_CTRL                  */
+#define _RTCC_CC_CTRL_ICEDGE_NONE               0x00000003UL                            /**< Mode NONE for RTCC_CC_CTRL                  */
 #define RTCC_CC_CTRL_ICEDGE_DEFAULT             (_RTCC_CC_CTRL_ICEDGE_DEFAULT << 5)     /**< Shifted mode DEFAULT for RTCC_CC_CTRL       */
-#define RTCC_CC_CTRL_ICEDGE_RISING              (_RTCC_CC_CTRL_ICEDGE_RISING << 5)      /**< Shifted mode RISING for RTCC_CC_CTRL         */
-#define RTCC_CC_CTRL_ICEDGE_FALLING             (_RTCC_CC_CTRL_ICEDGE_FALLING << 5)     /**< Shifted mode FALLING for RTCC_CC_CTRL        */
-#define RTCC_CC_CTRL_ICEDGE_BOTH                (_RTCC_CC_CTRL_ICEDGE_BOTH << 5)        /**< Shifted mode BOTH for RTCC_CC_CTRL           */
-#define RTCC_CC_CTRL_ICEDGE_NONE                (_RTCC_CC_CTRL_ICEDGE_NONE << 5)        /**< Shifted mode NONE for RTCC_CC_CTRL           */
+#define RTCC_CC_CTRL_ICEDGE_RISING              (_RTCC_CC_CTRL_ICEDGE_RISING << 5)      /**< Shifted mode RISING for RTCC_CC_CTRL        */
+#define RTCC_CC_CTRL_ICEDGE_FALLING             (_RTCC_CC_CTRL_ICEDGE_FALLING << 5)     /**< Shifted mode FALLING for RTCC_CC_CTRL       */
+#define RTCC_CC_CTRL_ICEDGE_BOTH                (_RTCC_CC_CTRL_ICEDGE_BOTH << 5)        /**< Shifted mode BOTH for RTCC_CC_CTRL          */
+#define RTCC_CC_CTRL_ICEDGE_NONE                (_RTCC_CC_CTRL_ICEDGE_NONE << 5)        /**< Shifted mode NONE for RTCC_CC_CTRL          */
 
 /* Bit fields for RTCC CC_OCVALUE */
 #define _RTCC_CC_OCVALUE_RESETVALUE             0x00000000UL                            /**< Default value for RTCC_CC_OCVALUE           */

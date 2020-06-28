@@ -1,10 +1,9 @@
 /***************************************************************************//**
  * @file
  * @brief EFM32TG11B_CAN register and bit field definitions
- * @version 5.7.0
  *******************************************************************************
  * # License
- * <b>Copyright 2018 Silicon Laboratories Inc. www.silabs.com</b>
+ * <b>Copyright 2020 Silicon Laboratories Inc. www.silabs.com</b>
  *******************************************************************************
  *
  * SPDX-License-Identifier: Zlib
@@ -118,7 +117,7 @@ typedef struct {
 #define _CAN_CTRL_CCE_MASK                       0x40UL                        /**< Bit mask for CAN_CCE */
 #define _CAN_CTRL_CCE_DEFAULT                    0x00000000UL                  /**< Mode DEFAULT for CAN_CTRL */
 #define CAN_CTRL_CCE_DEFAULT                     (_CAN_CTRL_CCE_DEFAULT << 6)  /**< Shifted mode DEFAULT for CAN_CTRL */
-#define CAN_CTRL_TEST                            (0x1UL << 7)                  /**< Test Mode Enable Write Access to the Test Register is Enabled By Setting Bit Test in the CAN Control Register */
+#define CAN_CTRL_TEST                            (0x1UL << 7)                  /**< Test Mode Enable Write */
 #define _CAN_CTRL_TEST_SHIFT                     7                             /**< Shift value for CAN_TEST */
 #define _CAN_CTRL_TEST_MASK                      0x80UL                        /**< Bit mask for CAN_TEST */
 #define _CAN_CTRL_TEST_DEFAULT                   0x00000000UL                  /**< Mode DEFAULT for CAN_CTRL */

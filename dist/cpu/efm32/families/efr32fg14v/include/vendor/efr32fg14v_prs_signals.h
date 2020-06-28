@@ -1,10 +1,9 @@
 /***************************************************************************//**
  * @file
  * @brief EFR32FG14V_PRS_SIGNALS register and bit field definitions
- * @version 5.7.0
  *******************************************************************************
  * # License
- * <b>Copyright 2018 Silicon Laboratories Inc. www.silabs.com</b>
+ * <b>Copyright 2020 Silicon Laboratories Inc. www.silabs.com</b>
  *******************************************************************************
  *
  * SPDX-License-Identifier: Zlib
@@ -86,6 +85,9 @@ extern "C" {
 #define PRS_GPIO_PIN15              ((13 << 8) + 7) /**< PRS GPIO pin 15 */
 #define PRS_LETIMER0_CH0            ((14 << 8) + 0) /**< PRS LETIMER CH0 Out */
 #define PRS_LETIMER0_CH1            ((14 << 8) + 1) /**< PRS LETIMER CH1 Out */
+#define PRS_PRORTC_OF               ((16 << 8) + 0) /**< PRS PRORTC Overflow */
+#define PRS_PRORTC_COMP0            ((16 << 8) + 1) /**< PRS PRORTC Compare 0 */
+#define PRS_PRORTC_COMP1            ((16 << 8) + 2) /**< PRS PRORTC Compare 1 */
 #define PRS_CMU_CLKOUT0             ((18 << 8) + 0) /**< PRS Clock Output 0 */
 #define PRS_CMU_CLKOUT1             ((18 << 8) + 1) /**< PRS Clock Output 1 */
 #define PRS_RFSENSE_WU              ((25 << 8) + 0) /**< PRS RFSENSE Output */

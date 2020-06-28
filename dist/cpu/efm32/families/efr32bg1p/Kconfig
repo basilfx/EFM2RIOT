@@ -1,0 +1,72 @@
+# Copyright (c) 2020 HAW Hamburg
+#
+# This file is subject to the terms and conditions of the GNU Lesser
+# General Public License v2.1. See the file LICENSE in the top level
+# directory for more details.
+
+config CPU_FAM_EFR32BG1P
+    bool
+    select CPU_CORE_CORTEX_M4F
+    select CPU_COMMON_EFM32
+
+## CPU Models
+config CPU_MODEL_EFR32BG1P332F256GJ43
+    bool
+    select CPU_FAM_EFR32BG1P
+
+config CPU_MODEL_EFR32BG1P233F256GM48
+    bool
+    select CPU_FAM_EFR32BG1P
+
+config CPU_MODEL_EFR32BG1P332F256GM32
+    bool
+    select CPU_FAM_EFR32BG1P
+
+config CPU_MODEL_EFR32BG1P333F256IM48
+    bool
+    select CPU_FAM_EFR32BG1P
+
+config CPU_MODEL_EFR32BG1P232F256IM32
+    bool
+    select CPU_FAM_EFR32BG1P
+
+config CPU_MODEL_EFR32BG1P232F256GM48
+    bool
+    select CPU_FAM_EFR32BG1P
+
+config CPU_MODEL_EFR32BG1P232F256GM32
+    bool
+    select CPU_FAM_EFR32BG1P
+
+config CPU_MODEL_EFR32BG1P333F256GM48
+    bool
+    select CPU_FAM_EFR32BG1P
+
+config CPU_MODEL_EFR32BG1P232F256GJ43
+    bool
+    select CPU_FAM_EFR32BG1P
+
+config CPU_MODEL_EFR32BG1P232F256IM48
+    bool
+    select CPU_FAM_EFR32BG1P
+
+config CPU_MODEL_EFR32BG1P332F256GM48
+    bool
+    select CPU_FAM_EFR32BG1P
+
+## Common CPU symbols
+config CPU_FAM
+    default "efr32bg1p" if CPU_FAM_EFR32BG1P
+
+config CPU_MODEL
+    default "efr32bg1p332f256gj43" if CPU_MODEL_EFR32BG1P332F256GJ43
+    default "efr32bg1p233f256gm48" if CPU_MODEL_EFR32BG1P233F256GM48
+    default "efr32bg1p332f256gm32" if CPU_MODEL_EFR32BG1P332F256GM32
+    default "efr32bg1p333f256im48" if CPU_MODEL_EFR32BG1P333F256IM48
+    default "efr32bg1p232f256im32" if CPU_MODEL_EFR32BG1P232F256IM32
+    default "efr32bg1p232f256gm48" if CPU_MODEL_EFR32BG1P232F256GM48
+    default "efr32bg1p232f256gm32" if CPU_MODEL_EFR32BG1P232F256GM32
+    default "efr32bg1p333f256gm48" if CPU_MODEL_EFR32BG1P333F256GM48
+    default "efr32bg1p232f256gj43" if CPU_MODEL_EFR32BG1P232F256GJ43
+    default "efr32bg1p232f256im48" if CPU_MODEL_EFR32BG1P232F256IM48
+    default "efr32bg1p332f256gm48" if CPU_MODEL_EFR32BG1P332F256GM48

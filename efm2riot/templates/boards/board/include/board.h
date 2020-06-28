@@ -16,6 +16,9 @@
  * @author      Hauke Petersen <hauke.petersen@fu-berlin.de>
  * @author      Bas Stottelaar <basstottelaar@gmail.com>
 {% strip 2, "", 2 %}
+  {% if board in ["slstk3400a"] %}
+     * @author      Akshai M <mail@akshaim.in>
+  {% endif %}
   {% if board in ["slwstk6000b"] %}
      * @author      Kai Beckmann <kai.beckmann@hs-rm.de>
   {% endif %}
@@ -56,6 +59,8 @@ extern "C" {
         {% strip 2 %}
             {% if board in ["slstk3301a"] %}
                 #define BC_PIN              GPIO_PIN(PA, 8)
+            {% elif board in ["slstk3400a"] %}
+                #define BC_PIN              GPIO_PIN(PA, 9)
             {% elif board in ["slstk3401a", "slstk3402a"] %}
                 #define BC_PIN              GPIO_PIN(PA, 5)
             {% elif board in ["slstk3701a"] %}
@@ -82,6 +87,9 @@ extern "C" {
     {% if board in ["slstk3301a"] %}
         #define PB0_PIN             GPIO_PIN(PD, 5)
         #define PB1_PIN             GPIO_PIN(PC, 9)
+    {% elif board in ["slstk3400a"] %}
+        #define PB0_PIN             GPIO_PIN(PC, 9)
+        #define PB1_PIN             GPIO_PIN(PC, 10)
     {% elif board in ["slstk3401a", "slstk3402a"] %}
         #define PB0_PIN             GPIO_PIN(PF, 6)
         #define PB1_PIN             GPIO_PIN(PF, 7)
@@ -91,6 +99,14 @@ extern "C" {
     {% elif board in ["sltb001a"] %}
         #define PB0_PIN             GPIO_PIN(PD, 14)
         #define PB1_PIN             GPIO_PIN(PD, 15)
+    {% elif board in ["sltb004a"] %}
+        #define PB0_PIN             GPIO_PIN(PD, 14)
+        #define PB1_PIN             GPIO_PIN(PD, 15)
+    {% elif board in ["sltb009a"] %}
+        #define PB0_PIN             GPIO_PIN(PD, 5)
+        #define PB1_PIN             GPIO_PIN(PD, 8)
+    {% elif board in ["sltb010a"] %}
+        #define PB0_PIN             GPIO_PIN(PB, 1)
     {% elif board in ["slwstk6000b"] %}
         #define PB0_PIN             MODULE_PIN_F12
         #define PB1_PIN             MODULE_PIN_F13
@@ -115,6 +131,9 @@ extern "C" {
     {% if board in ["slstk3301a"] %}
         #define LED0_PIN            GPIO_PIN(PD, 2)
         #define LED1_PIN            GPIO_PIN(PC, 2)
+    {% elif board in ["slstk3400a"] %}
+        #define LED0_PIN            GPIO_PIN(PF, 4)
+        #define LED1_PIN            GPIO_PIN(PF, 5)
     {% elif board in ["slstk3401a", "slstk3402a"] %}
         #define LED0_PIN            GPIO_PIN(PF, 4)
         #define LED1_PIN            GPIO_PIN(PF, 5)
@@ -131,6 +150,21 @@ extern "C" {
     {% elif board in ["sltb001a"] %}
         #define LED0_PIN            GPIO_PIN(PD, 12)
         #define LED1_PIN            GPIO_PIN(PD, 11)
+    {% elif board in ["sltb004a"] %}
+        #define LED0_PIN            GPIO_PIN(PD, 8)
+        #define LED1_PIN            GPIO_PIN(PD, 9)
+    {% elif board in ["sltb009a"] %}
+        #define LED0R_PIN           GPIO_PIN(PA, 12)
+        #define LED0G_PIN           GPIO_PIN(PA, 13)
+        #define LED0B_PIN           GPIO_PIN(PA, 14)
+        #define LED1R_PIN           GPIO_PIN(PD, 6)
+        #define LED1G_PIN           GPIO_PIN(PF, 12)
+        #define LED1B_PIN           GPIO_PIN(PE, 12)
+
+        #define LED0_PIN            LED0R_PIN
+        #define LED1_PIN            LED1R_PIN
+    {% elif board in ["sltb010a"] %}
+        #define LED0_PIN            GPIO_PIN(PB, 0)
     {% elif board in ["slwstk6000b"] %}
         #define LED0_PIN            MODULE_PIN_F10
         #define LED1_PIN            MODULE_PIN_F11
@@ -160,7 +194,19 @@ extern "C" {
 /** @} */
 
 {% strip 2, ">" %}
-    {% if board in ["slstk3401a", "slstk3402a"] %}
+    {% if board in ["slstk3400a"] %}
+        /**
+         * @name    Display configuration
+         *
+         * Connection to the on-board Sharp Memory LCD (LS013B7DH03).
+         * @{
+         */
+        #define DISP_SPI            SPI_DEV(0)
+        #define DISP_COM_PIN        GPIO_PIN(PF, 3)
+        #define DISP_CS_PIN         GPIO_PIN(PA, 10)
+        #define DISP_EN_PIN         GPIO_PIN(PA, 8)
+        /** @} */
+    {% elif board in ["slstk3401a", "slstk3402a"] %}
         /**
          * @name    Display configuration
          *
@@ -247,6 +293,18 @@ extern "C" {
          */
         #define SI7210_I2C              I2C_DEV(0)
         #define SI7210_EN_PIN           GPIO_PIN(PC, 12)
+        /** @} */
+    {% elif board in ["slstk3400a"] %}
+        /**
+         * @name    Temperature sensor configuration
+         *
+         * Connection to the on-board temperature/humidity sensor (Si7021).
+         * @{
+         */
+        #define SI7021_I2C              I2C_DEV(0)
+        #define SI7021_EN_PIN           GPIO_PIN(PC, 8)
+
+        #define SI70XX_PARAM_I2C_DEV    SI7021_I2C
         /** @} */
     {% elif board in ["slstk3401a"] %}
         /**
@@ -379,6 +437,226 @@ extern "C" {
          *
          * Connection to the on-board hall-effect sensor (Si7210). Available on Rev. A02
          * boards only.
+         * @{
+         */
+        #define SI7210_I2C          I2C_DEV(0)
+        /** @} */
+    {% elif board in ["sltb004a"] %}
+        /**
+         * @name    Environmental sensors configuration
+         *
+         * Pin for enabling environmental sensors (BMP280, Si1133, Si7021, Si7210).
+         * @{
+         */
+        #define ENV_SENSE_PIC_ADDR  (0x01)
+        #define ENV_SENSE_PIC_BIT   (0)
+        /** @} */
+
+        /**
+         * @name    Pressure sensor configuration
+         *
+         * Connection to the on-board pressure sensor (BMP280).
+         * @{
+         */
+        #define BMP280_I2C              I2C_DEV(0)
+
+        #define BMX280_PARAM_I2C_DEV    BMP280_I2C
+        /** @} */
+
+        /**
+         * @name    Air quality/gas sensor configuration
+         *
+         * Connection to the on-board air quality/gas sensor (CCS811).
+         * @{
+         */
+        #define CCS811_I2C          I2C_DEV(0)
+        #define CCS811_PIC_ADDR     (0x03)
+        #define CCS811_PIC_EN_BIT   (0x00)
+        #define CCS811_PIC_WAKE_BIT (0x01)
+        /** @} */
+
+        /**
+         * @name    IMU sensor configuration
+         *
+         * Connection to the on-board IMU sensor (ICM-20648).
+         * @{
+         */
+        #define ICM20648_SPI        SPI_DEV(0)
+        #define ICM20648_PIC_ADDR   (0x00)
+        #define ICM20648_PIC_EN_BIT (0x00)
+        /** @} */
+
+        /**
+         * @name    Power and Interrupt controller
+         *
+         * Pin for communication with the Power and Interrupt Controller.
+         * @{
+         */
+        #define PIC_INT_WAKE_PIN    GPIO_PIN(PD, 10)
+        #define PIC_I2C             I2C_DEV(0)
+        #define PIC_I2C_ADDR        (0x48)
+        /** @} */
+
+        /**
+         * @name    RGB leds configuration
+         *
+         * There are four RGB leds on the board.
+         * @{
+         */
+        #define RGB_LED_ADDR        (0x04)
+        #define RGB_LED_EN_BIT      (0x00)
+        #define RGB_LED1_EN_BIT     (0x07)
+        #define RGB_LED2_EN_BIT     (0x06)
+        #define RGB_LED3_EN_BIT     (0x05)
+        #define RGB_LED4_EN_BIT     (0x04)
+        /** @} */
+
+        /**
+         * @name    UV/Ambient sensor configuration
+         *
+         * Connection to the on-board UV/ambient light sensor (Si1133).
+         * @{
+         */
+        #define SI1133_I2C          I2C_DEV(0)
+        /** @} */
+
+        /**
+         * @name    Temperature sensor configuration
+         *
+         * Connection to the on-board temperature/humidity sensor (Si7021).
+         * @{
+         */
+        #define SI7021_I2C              I2C_DEV(0)
+
+        #define SI70XX_PARAM_I2C_DEV    SI7021_I2C
+        /** @} */
+
+        /**
+         * @name    Hall-effect sensor configuration
+         *
+         * Connection to the on-board hall-effect sensor (Si7210).
+         * @{
+         */
+        #define SI7210_I2C          I2C_DEV(0)
+        /** @} */
+    {% elif board in ["sltb009a"] %}
+        /**
+         * @name    Environmental sensors configuration
+         *
+         * Pin for enabling environmental sensors (Si1133, Si7021, Si7210).
+         * @{
+         */
+        #define ENV_SENSE_PIC_ADDR  (0x01)
+        #define ENV_SENSE_PIC_BIT   (0)
+        /** @} */
+
+        /**
+         * @name    IMU sensor configuration
+         *
+         * Connection to the on-board IMU sensor (ICM-20648).
+         * @{
+         */
+        #define ICM20648_SPI        SPI_DEV(0)
+        #define ICM20648_PIC_ADDR   (0x00)
+        #define ICM20648_PIC_EN_BIT (0x00)
+        /** @} */
+
+        /**
+         * @name    Power and Interrupt controller
+         *
+         * Pin for communication with the Power and Interrupt Controller.
+         * @{
+         */
+        #define PIC_INT_WAKE_PIN    GPIO_PIN(PD, 10)
+        #define PIC_I2C             I2C_DEV(0)
+        #define PIC_I2C_ADDR        (0x48)
+        /** @} */
+
+        /**
+         * @name    UV/Ambient sensor configuration
+         *
+         * Connection to the on-board UV/ambient light sensor (Si1133).
+         * @{
+         */
+        #define SI1133_I2C          I2C_DEV(0)
+        /** @} */
+
+        /**
+         * @name    Temperature sensor configuration
+         *
+         * Connection to the on-board temperature/humidity sensor (Si7021).
+         * @{
+         */
+        #define SI7021_I2C              I2C_DEV(0)
+
+        #define SI70XX_PARAM_I2C_DEV    SI7021_I2C
+        /** @} */
+
+        /**
+         * @name    Hall-effect sensor configuration
+         *
+         * Connection to the on-board hall-effect sensor (Si7210).
+         * @{
+         */
+        #define SI7210_I2C          I2C_DEV(0)
+        /** @} */
+    {% elif board in ["sltb010a"] %}
+        /**
+         * @name    Environmental sensors configuration
+         *
+         * Pin for enabling environmental sensors (Si1133, Si7021, Si7210).
+         * @{
+         */
+        #define ENV_SENSE_PIC_ADDR  (0x01)
+        #define ENV_SENSE_PIC_BIT   (0)
+        /** @} */
+
+        /**
+         * @name    IMU sensor configuration
+         *
+         * Connection to the on-board IMU sensor (ICM-20648).
+         * @{
+         */
+        #define ICM20648_SPI        SPI_DEV(0)
+        #define ICM20648_PIC_ADDR   (0x00)
+        #define ICM20648_PIC_EN_BIT (0x00)
+        /** @} */
+
+        /**
+         * @name    Power and Interrupt controller
+         *
+         * Pin for communication with the Power and Interrupt Controller.
+         * @{
+         */
+        #define PIC_INT_WAKE_PIN    GPIO_PIN(PD, 10)
+        #define PIC_I2C             I2C_DEV(0)
+        #define PIC_I2C_ADDR        (0x48)
+        /** @} */
+
+        /**
+         * @name    UV/Ambient sensor configuration
+         *
+         * Connection to the on-board UV/ambient light sensor (Si1133).
+         * @{
+         */
+        #define SI1133_I2C          I2C_DEV(0)
+        /** @} */
+
+        /**
+         * @name    Temperature sensor configuration
+         *
+         * Connection to the on-board temperature/humidity sensor (Si7021).
+         * @{
+         */
+        #define SI7021_I2C              I2C_DEV(0)
+
+        #define SI70XX_PARAM_I2C_DEV    SI7021_I2C
+        /** @} */
+
+        /**
+         * @name    Hall-effect sensor configuration
+         *
+         * Connection to the on-board hall-effect sensor (Si7210).
          * @{
          */
         #define SI7210_I2C          I2C_DEV(0)

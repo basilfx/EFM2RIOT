@@ -2,10 +2,9 @@
  * @file
  * @brief CMSIS Cortex-M Peripheral Access Layer Header File
  *        for EFR32MG13P832F512IM48
- * @version 5.7.0
  *******************************************************************************
  * # License
- * <b>Copyright 2018 Silicon Laboratories Inc. www.silabs.com</b>
+ * <b>Copyright 2020 Silicon Laboratories Inc. www.silabs.com</b>
  *******************************************************************************
  *
  * SPDX-License-Identifier: Zlib
@@ -161,86 +160,86 @@ typedef enum IRQn{
 #define PART_NUMBER                "EFR32MG13P832F512IM48" /**< Part Number */
 
 /** Memory Base addresses and limits */
-#define RAM0_CODE_MEM_BASE         ((uint32_t) 0x10000000UL) /**< RAM0_CODE base address  */
-#define RAM0_CODE_MEM_SIZE         ((uint32_t) 0x8000UL)     /**< RAM0_CODE available address space  */
-#define RAM0_CODE_MEM_END          ((uint32_t) 0x10007FFFUL) /**< RAM0_CODE end address  */
-#define RAM0_CODE_MEM_BITS         ((uint32_t) 0x0000000FUL) /**< RAM0_CODE used bits  */
-#define RAM2_MEM_BASE              ((uint32_t) 0x20010000UL) /**< RAM2 base address  */
-#define RAM2_MEM_SIZE              ((uint32_t) 0x800UL)      /**< RAM2 available address space  */
-#define RAM2_MEM_END               ((uint32_t) 0x200107FFUL) /**< RAM2 end address  */
-#define RAM2_MEM_BITS              ((uint32_t) 0x0000000BUL) /**< RAM2 used bits  */
-#define RAM1_MEM_BASE              ((uint32_t) 0x20008000UL) /**< RAM1 base address  */
-#define RAM1_MEM_SIZE              ((uint32_t) 0x8000UL)     /**< RAM1 available address space  */
-#define RAM1_MEM_END               ((uint32_t) 0x2000FFFFUL) /**< RAM1 end address  */
-#define RAM1_MEM_BITS              ((uint32_t) 0x0000000FUL) /**< RAM1 used bits  */
-#define CRYPTO1_BITCLR_MEM_BASE    ((uint32_t) 0x440F0400UL) /**< CRYPTO1_BITCLR base address  */
-#define CRYPTO1_BITCLR_MEM_SIZE    ((uint32_t) 0x400UL)      /**< CRYPTO1_BITCLR available address space  */
-#define CRYPTO1_BITCLR_MEM_END     ((uint32_t) 0x440F07FFUL) /**< CRYPTO1_BITCLR end address  */
-#define CRYPTO1_BITCLR_MEM_BITS    ((uint32_t) 0x0000000AUL) /**< CRYPTO1_BITCLR used bits  */
-#define PER_MEM_BASE               ((uint32_t) 0x40000000UL) /**< PER base address  */
-#define PER_MEM_SIZE               ((uint32_t) 0xF0000UL)    /**< PER available address space  */
-#define PER_MEM_END                ((uint32_t) 0x400EFFFFUL) /**< PER end address  */
-#define PER_MEM_BITS               ((uint32_t) 0x00000014UL) /**< PER used bits  */
-#define RAM1_CODE_MEM_BASE         ((uint32_t) 0x10008000UL) /**< RAM1_CODE base address  */
-#define RAM1_CODE_MEM_SIZE         ((uint32_t) 0x8000UL)     /**< RAM1_CODE available address space  */
-#define RAM1_CODE_MEM_END          ((uint32_t) 0x1000FFFFUL) /**< RAM1_CODE end address  */
-#define RAM1_CODE_MEM_BITS         ((uint32_t) 0x0000000FUL) /**< RAM1_CODE used bits  */
-#define CRYPTO1_MEM_BASE           ((uint32_t) 0x400F0400UL) /**< CRYPTO1 base address  */
-#define CRYPTO1_MEM_SIZE           ((uint32_t) 0x400UL)      /**< CRYPTO1 available address space  */
-#define CRYPTO1_MEM_END            ((uint32_t) 0x400F07FFUL) /**< CRYPTO1 end address  */
-#define CRYPTO1_MEM_BITS           ((uint32_t) 0x0000000AUL) /**< CRYPTO1 used bits  */
-#define FLASH_MEM_BASE             ((uint32_t) 0x00000000UL) /**< FLASH base address  */
-#define FLASH_MEM_SIZE             ((uint32_t) 0x10000000UL) /**< FLASH available address space  */
-#define FLASH_MEM_END              ((uint32_t) 0x0FFFFFFFUL) /**< FLASH end address  */
-#define FLASH_MEM_BITS             ((uint32_t) 0x0000001CUL) /**< FLASH used bits  */
-#define CRYPTO0_MEM_BASE           ((uint32_t) 0x400F0000UL) /**< CRYPTO0 base address  */
-#define CRYPTO0_MEM_SIZE           ((uint32_t) 0x400UL)      /**< CRYPTO0 available address space  */
-#define CRYPTO0_MEM_END            ((uint32_t) 0x400F03FFUL) /**< CRYPTO0 end address  */
-#define CRYPTO0_MEM_BITS           ((uint32_t) 0x0000000AUL) /**< CRYPTO0 used bits  */
-#define CRYPTO_MEM_BASE            CRYPTO0_MEM_BASE          /**< Alias for CRYPTO0_MEM_BASE */
-#define CRYPTO_MEM_SIZE            CRYPTO0_MEM_SIZE          /**< Alias for CRYPTO0_MEM_SIZE */
-#define CRYPTO_MEM_END             CRYPTO0_MEM_END           /**< Alias for CRYPTO0_MEM_END  */
-#define CRYPTO_MEM_BITS            CRYPTO0_MEM_BITS          /**< Alias for CRYPTO0_MEM_BITS */
-#define PER_BITCLR_MEM_BASE        ((uint32_t) 0x44000000UL) /**< PER_BITCLR base address  */
-#define PER_BITCLR_MEM_SIZE        ((uint32_t) 0xF0000UL)    /**< PER_BITCLR available address space  */
-#define PER_BITCLR_MEM_END         ((uint32_t) 0x440EFFFFUL) /**< PER_BITCLR end address  */
-#define PER_BITCLR_MEM_BITS        ((uint32_t) 0x00000014UL) /**< PER_BITCLR used bits  */
-#define CRYPTO0_BITSET_MEM_BASE    ((uint32_t) 0x460F0000UL) /**< CRYPTO0_BITSET base address  */
-#define CRYPTO0_BITSET_MEM_SIZE    ((uint32_t) 0x400UL)      /**< CRYPTO0_BITSET available address space  */
-#define CRYPTO0_BITSET_MEM_END     ((uint32_t) 0x460F03FFUL) /**< CRYPTO0_BITSET end address  */
-#define CRYPTO0_BITSET_MEM_BITS    ((uint32_t) 0x0000000AUL) /**< CRYPTO0_BITSET used bits  */
-#define CRYPTO_BITSET_MEM_BASE     CRYPTO0_BITSET_MEM_BASE   /**< Alias for CRYPTO0_BITSET_MEM_BASE */
-#define CRYPTO_BITSET_MEM_SIZE     CRYPTO0_BITSET_MEM_SIZE   /**< Alias for CRYPTO0_BITSET_MEM_SIZE */
-#define CRYPTO_BITSET_MEM_END      CRYPTO0_BITSET_MEM_END    /**< Alias for CRYPTO0_BITSET_MEM_END  */
-#define CRYPTO_BITSET_MEM_BITS     CRYPTO0_BITSET_MEM_BITS   /**< Alias for CRYPTO0_BITSET_MEM_BITS */
-#define CRYPTO0_BITCLR_MEM_BASE    ((uint32_t) 0x440F0000UL) /**< CRYPTO0_BITCLR base address  */
-#define CRYPTO0_BITCLR_MEM_SIZE    ((uint32_t) 0x400UL)      /**< CRYPTO0_BITCLR available address space  */
-#define CRYPTO0_BITCLR_MEM_END     ((uint32_t) 0x440F03FFUL) /**< CRYPTO0_BITCLR end address  */
-#define CRYPTO0_BITCLR_MEM_BITS    ((uint32_t) 0x0000000AUL) /**< CRYPTO0_BITCLR used bits  */
-#define CRYPTO_BITCLR_MEM_BASE     CRYPTO0_BITCLR_MEM_BASE   /**< Alias for CRYPTO0_BITCLR_MEM_BASE */
-#define CRYPTO_BITCLR_MEM_SIZE     CRYPTO0_BITCLR_MEM_SIZE   /**< Alias for CRYPTO0_BITCLR_MEM_SIZE */
-#define CRYPTO_BITCLR_MEM_END      CRYPTO0_BITCLR_MEM_END    /**< Alias for CRYPTO0_BITCLR_MEM_END  */
-#define CRYPTO_BITCLR_MEM_BITS     CRYPTO0_BITCLR_MEM_BITS   /**< Alias for CRYPTO0_BITCLR_MEM_BITS */
-#define PER_BITSET_MEM_BASE        ((uint32_t) 0x46000000UL) /**< PER_BITSET base address  */
-#define PER_BITSET_MEM_SIZE        ((uint32_t) 0xF0000UL)    /**< PER_BITSET available address space  */
-#define PER_BITSET_MEM_END         ((uint32_t) 0x460EFFFFUL) /**< PER_BITSET end address  */
-#define PER_BITSET_MEM_BITS        ((uint32_t) 0x00000014UL) /**< PER_BITSET used bits  */
-#define CRYPTO1_BITSET_MEM_BASE    ((uint32_t) 0x460F0400UL) /**< CRYPTO1_BITSET base address  */
-#define CRYPTO1_BITSET_MEM_SIZE    ((uint32_t) 0x400UL)      /**< CRYPTO1_BITSET available address space  */
-#define CRYPTO1_BITSET_MEM_END     ((uint32_t) 0x460F07FFUL) /**< CRYPTO1_BITSET end address  */
-#define CRYPTO1_BITSET_MEM_BITS    ((uint32_t) 0x0000000AUL) /**< CRYPTO1_BITSET used bits  */
-#define RAM2_CODE_MEM_BASE         ((uint32_t) 0x10010000UL) /**< RAM2_CODE base address  */
-#define RAM2_CODE_MEM_SIZE         ((uint32_t) 0x800UL)      /**< RAM2_CODE available address space  */
-#define RAM2_CODE_MEM_END          ((uint32_t) 0x100107FFUL) /**< RAM2_CODE end address  */
-#define RAM2_CODE_MEM_BITS         ((uint32_t) 0x0000000BUL) /**< RAM2_CODE used bits  */
-#define RAM_MEM_BASE               ((uint32_t) 0x20000000UL) /**< RAM base address  */
-#define RAM_MEM_SIZE               ((uint32_t) 0x8000UL)     /**< RAM available address space  */
-#define RAM_MEM_END                ((uint32_t) 0x20007FFFUL) /**< RAM end address  */
-#define RAM_MEM_BITS               ((uint32_t) 0x0000000FUL) /**< RAM used bits  */
+#define CRYPTO1_BITCLR_MEM_BASE    (0x440F0400UL)          /**< CRYPTO1_BITCLR base address  */
+#define CRYPTO1_BITCLR_MEM_SIZE    (0x400UL)               /**< CRYPTO1_BITCLR available address space  */
+#define CRYPTO1_BITCLR_MEM_END     (0x440F07FFUL)          /**< CRYPTO1_BITCLR end address  */
+#define CRYPTO1_BITCLR_MEM_BITS    (0x0000000AUL)          /**< CRYPTO1_BITCLR used bits  */
+#define RAM1_MEM_BASE              (0x20008000UL)          /**< RAM1 base address  */
+#define RAM1_MEM_SIZE              (0x8000UL)              /**< RAM1 available address space  */
+#define RAM1_MEM_END               (0x2000FFFFUL)          /**< RAM1 end address  */
+#define RAM1_MEM_BITS              (0x0000000FUL)          /**< RAM1 used bits  */
+#define RAM2_MEM_BASE              (0x20010000UL)          /**< RAM2 base address  */
+#define RAM2_MEM_SIZE              (0x800UL)               /**< RAM2 available address space  */
+#define RAM2_MEM_END               (0x200107FFUL)          /**< RAM2 end address  */
+#define RAM2_MEM_BITS              (0x0000000BUL)          /**< RAM2 used bits  */
+#define CRYPTO0_BITCLR_MEM_BASE    (0x440F0000UL)          /**< CRYPTO0_BITCLR base address  */
+#define CRYPTO0_BITCLR_MEM_SIZE    (0x400UL)               /**< CRYPTO0_BITCLR available address space  */
+#define CRYPTO0_BITCLR_MEM_END     (0x440F03FFUL)          /**< CRYPTO0_BITCLR end address  */
+#define CRYPTO0_BITCLR_MEM_BITS    (0x0000000AUL)          /**< CRYPTO0_BITCLR used bits  */
+#define CRYPTO_BITCLR_MEM_BASE     CRYPTO0_BITCLR_MEM_BASE /**< Alias for CRYPTO0_BITCLR_MEM_BASE */
+#define CRYPTO_BITCLR_MEM_SIZE     CRYPTO0_BITCLR_MEM_SIZE /**< Alias for CRYPTO0_BITCLR_MEM_SIZE */
+#define CRYPTO_BITCLR_MEM_END      CRYPTO0_BITCLR_MEM_END  /**< Alias for CRYPTO0_BITCLR_MEM_END  */
+#define CRYPTO_BITCLR_MEM_BITS     CRYPTO0_BITCLR_MEM_BITS /**< Alias for CRYPTO0_BITCLR_MEM_BITS */
+#define CRYPTO1_MEM_BASE           (0x400F0400UL)          /**< CRYPTO1 base address  */
+#define CRYPTO1_MEM_SIZE           (0x400UL)               /**< CRYPTO1 available address space  */
+#define CRYPTO1_MEM_END            (0x400F07FFUL)          /**< CRYPTO1 end address  */
+#define CRYPTO1_MEM_BITS           (0x0000000AUL)          /**< CRYPTO1 used bits  */
+#define CRYPTO0_BITSET_MEM_BASE    (0x460F0000UL)          /**< CRYPTO0_BITSET base address  */
+#define CRYPTO0_BITSET_MEM_SIZE    (0x400UL)               /**< CRYPTO0_BITSET available address space  */
+#define CRYPTO0_BITSET_MEM_END     (0x460F03FFUL)          /**< CRYPTO0_BITSET end address  */
+#define CRYPTO0_BITSET_MEM_BITS    (0x0000000AUL)          /**< CRYPTO0_BITSET used bits  */
+#define CRYPTO_BITSET_MEM_BASE     CRYPTO0_BITSET_MEM_BASE /**< Alias for CRYPTO0_BITSET_MEM_BASE */
+#define CRYPTO_BITSET_MEM_SIZE     CRYPTO0_BITSET_MEM_SIZE /**< Alias for CRYPTO0_BITSET_MEM_SIZE */
+#define CRYPTO_BITSET_MEM_END      CRYPTO0_BITSET_MEM_END  /**< Alias for CRYPTO0_BITSET_MEM_END  */
+#define CRYPTO_BITSET_MEM_BITS     CRYPTO0_BITSET_MEM_BITS /**< Alias for CRYPTO0_BITSET_MEM_BITS */
+#define RAM1_CODE_MEM_BASE         (0x10008000UL)          /**< RAM1_CODE base address  */
+#define RAM1_CODE_MEM_SIZE         (0x8000UL)              /**< RAM1_CODE available address space  */
+#define RAM1_CODE_MEM_END          (0x1000FFFFUL)          /**< RAM1_CODE end address  */
+#define RAM1_CODE_MEM_BITS         (0x0000000FUL)          /**< RAM1_CODE used bits  */
+#define RAM0_CODE_MEM_BASE         (0x10000000UL)          /**< RAM0_CODE base address  */
+#define RAM0_CODE_MEM_SIZE         (0x8000UL)              /**< RAM0_CODE available address space  */
+#define RAM0_CODE_MEM_END          (0x10007FFFUL)          /**< RAM0_CODE end address  */
+#define RAM0_CODE_MEM_BITS         (0x0000000FUL)          /**< RAM0_CODE used bits  */
+#define FLASH_MEM_BASE             (0x00000000UL)          /**< FLASH base address  */
+#define FLASH_MEM_SIZE             (0x10000000UL)          /**< FLASH available address space  */
+#define FLASH_MEM_END              (0x0FFFFFFFUL)          /**< FLASH end address  */
+#define FLASH_MEM_BITS             (0x0000001CUL)          /**< FLASH used bits  */
+#define CRYPTO1_BITSET_MEM_BASE    (0x460F0400UL)          /**< CRYPTO1_BITSET base address  */
+#define CRYPTO1_BITSET_MEM_SIZE    (0x400UL)               /**< CRYPTO1_BITSET available address space  */
+#define CRYPTO1_BITSET_MEM_END     (0x460F07FFUL)          /**< CRYPTO1_BITSET end address  */
+#define CRYPTO1_BITSET_MEM_BITS    (0x0000000AUL)          /**< CRYPTO1_BITSET used bits  */
+#define RAM_MEM_BASE               (0x20000000UL)          /**< RAM base address  */
+#define RAM_MEM_SIZE               (0x8000UL)              /**< RAM available address space  */
+#define RAM_MEM_END                (0x20007FFFUL)          /**< RAM end address  */
+#define RAM_MEM_BITS               (0x0000000FUL)          /**< RAM used bits  */
+#define CRYPTO0_MEM_BASE           (0x400F0000UL)          /**< CRYPTO0 base address  */
+#define CRYPTO0_MEM_SIZE           (0x400UL)               /**< CRYPTO0 available address space  */
+#define CRYPTO0_MEM_END            (0x400F03FFUL)          /**< CRYPTO0 end address  */
+#define CRYPTO0_MEM_BITS           (0x0000000AUL)          /**< CRYPTO0 used bits  */
+#define CRYPTO_MEM_BASE            CRYPTO0_MEM_BASE        /**< Alias for CRYPTO0_MEM_BASE */
+#define CRYPTO_MEM_SIZE            CRYPTO0_MEM_SIZE        /**< Alias for CRYPTO0_MEM_SIZE */
+#define CRYPTO_MEM_END             CRYPTO0_MEM_END         /**< Alias for CRYPTO0_MEM_END  */
+#define CRYPTO_MEM_BITS            CRYPTO0_MEM_BITS        /**< Alias for CRYPTO0_MEM_BITS */
+#define PER_BITSET_MEM_BASE        (0x46000000UL)          /**< PER_BITSET base address  */
+#define PER_BITSET_MEM_SIZE        (0xF0000UL)             /**< PER_BITSET available address space  */
+#define PER_BITSET_MEM_END         (0x460EFFFFUL)          /**< PER_BITSET end address  */
+#define PER_BITSET_MEM_BITS        (0x00000014UL)          /**< PER_BITSET used bits  */
+#define PER_MEM_BASE               (0x40000000UL)          /**< PER base address  */
+#define PER_MEM_SIZE               (0xF0000UL)             /**< PER available address space  */
+#define PER_MEM_END                (0x400EFFFFUL)          /**< PER end address  */
+#define PER_MEM_BITS               (0x00000014UL)          /**< PER used bits  */
+#define RAM2_CODE_MEM_BASE         (0x10010000UL)          /**< RAM2_CODE base address  */
+#define RAM2_CODE_MEM_SIZE         (0x800UL)               /**< RAM2_CODE available address space  */
+#define RAM2_CODE_MEM_END          (0x100107FFUL)          /**< RAM2_CODE end address  */
+#define RAM2_CODE_MEM_BITS         (0x0000000BUL)          /**< RAM2_CODE used bits  */
+#define PER_BITCLR_MEM_BASE        (0x44000000UL)          /**< PER_BITCLR base address  */
+#define PER_BITCLR_MEM_SIZE        (0xF0000UL)             /**< PER_BITCLR available address space  */
+#define PER_BITCLR_MEM_END         (0x440EFFFFUL)          /**< PER_BITCLR end address  */
+#define PER_BITCLR_MEM_BITS        (0x00000014UL)          /**< PER_BITCLR used bits  */
 
 /** Bit banding area */
-#define BITBAND_PER_BASE           ((uint32_t) 0x42000000UL) /**< Peripheral Address Space bit-band area */
-#define BITBAND_RAM_BASE           ((uint32_t) 0x22000000UL) /**< SRAM Address Space bit-band area */
+#define BITBAND_PER_BASE           (0x42000000UL) /**< Peripheral Address Space bit-band area */
+#define BITBAND_RAM_BASE           (0x22000000UL) /**< SRAM Address Space bit-band area */
 
 /** Flash and SRAM limits for EFR32MG13P832F512IM48 */
 #define FLASH_BASE                 (0x00000000UL) /**< Flash Base Address */
@@ -312,6 +311,8 @@ typedef enum IRQn{
 #define LESENSE_COUNT         1 /**< 1 LESENSE available */
 #define RTCC_PRESENT            /**< RTCC is available in this part */
 #define RTCC_COUNT            1 /**< 1 RTCC available */
+#define PRORTC_PRESENT          /**< PRORTC is available in this part */
+#define PRORTC_COUNT          1 /**< 1 PRORTC available */
 #define ETM_PRESENT             /**< ETM is available in this part */
 #define ETM_COUNT             1 /**< 1 ETM available */
 #define BOOTLOADER_PRESENT      /**< BOOTLOADER is available in this part */
@@ -432,6 +433,13 @@ typedef struct {
   uint32_t       RESERVED25[1U];      /**< Reserved for future use **/
   __IOM uint32_t LOCK;                /**< Configuration Lock Register  */
   __IOM uint32_t HFRCOSS;             /**< HFRCO Spread Spectrum Register  */
+
+  uint32_t       RESERVED26[30U];     /**< Reserved for future use **/
+  __IOM uint32_t LFRCLKSEL;           /**< Low Frequency R Clock Select Register  */
+  uint32_t       RESERVED27[3U];      /**< Reserved for future use **/
+  __IOM uint32_t LFRCLKEN0;           /**< Low Frequency R Clock Enable Register 0  (Async Reg)  */
+  uint32_t       RESERVED28[1U];      /**< Reserved for future use **/
+  __IOM uint32_t LFRPRESC0;           /**< Low Frequency R Prescaler Register 0 (Async Reg)  */
 } CMU_TypeDef;                        /** @} */
 
 #include "efr32mg13p_crypto.h"
@@ -492,6 +500,8 @@ typedef struct {
 #include "efr32mg13p_rtcc_cc.h"
 #include "efr32mg13p_rtcc_ret.h"
 #include "efr32mg13p_rtcc.h"
+#include "efr32mg13p_rtc_comp.h"
+#include "efr32mg13p_rtc.h"
 #include "efr32mg13p_wdog_pch.h"
 #include "efr32mg13p_wdog.h"
 #include "efr32mg13p_etm.h"
@@ -561,6 +571,7 @@ typedef struct {
 #define VDAC0_BASE        (0x40008000UL) /**< VDAC0 base address  */
 #define LESENSE_BASE      (0x40055000UL) /**< LESENSE base address  */
 #define RTCC_BASE         (0x40042000UL) /**< RTCC base address  */
+#define PRORTC_BASE       (0x40044000UL) /**< PRORTC base address  */
 #define WDOG0_BASE        (0x40052000UL) /**< WDOG0 base address  */
 #define WDOG1_BASE        (0x40052400UL) /**< WDOG1 base address  */
 #define ETM_BASE          (0xE0041000UL) /**< ETM base address  */
@@ -608,6 +619,7 @@ typedef struct {
 #define VDAC0        ((VDAC_TypeDef *) VDAC0_BASE)          /**< VDAC0 base pointer */
 #define LESENSE      ((LESENSE_TypeDef *) LESENSE_BASE)     /**< LESENSE base pointer */
 #define RTCC         ((RTCC_TypeDef *) RTCC_BASE)           /**< RTCC base pointer */
+#define PRORTC       ((RTC_TypeDef *) PRORTC_BASE)          /**< PRORTC base pointer */
 #define WDOG0        ((WDOG_TypeDef *) WDOG0_BASE)          /**< WDOG0 base pointer */
 #define WDOG1        ((WDOG_TypeDef *) WDOG1_BASE)          /**< WDOG1 base pointer */
 #define ETM          ((ETM_TypeDef *) ETM_BASE)             /**< ETM base pointer */
@@ -1221,13 +1233,13 @@ typedef struct {
 #define _WTIMER_LOCK_TIMERLOCKKEY_SHIFT             0                                         /**< Shift value for TIMER_TIMERLOCKKEY */
 #define _WTIMER_LOCK_TIMERLOCKKEY_MASK              0xFFFFUL                                  /**< Bit mask for TIMER_TIMERLOCKKEY */
 #define _WTIMER_LOCK_TIMERLOCKKEY_DEFAULT           0x00000000UL                              /**< Mode DEFAULT for WTIMER_LOCK */
-#define _WTIMER_LOCK_TIMERLOCKKEY_LOCK              0x00000000UL                              /**< Mode LOCK for WTIMER_LOCK */
 #define _WTIMER_LOCK_TIMERLOCKKEY_UNLOCKED          0x00000000UL                              /**< Mode UNLOCKED for WTIMER_LOCK */
+#define _WTIMER_LOCK_TIMERLOCKKEY_LOCK              0x00000000UL                              /**< Mode LOCK for WTIMER_LOCK */
 #define _WTIMER_LOCK_TIMERLOCKKEY_LOCKED            0x00000001UL                              /**< Mode LOCKED for WTIMER_LOCK */
 #define _WTIMER_LOCK_TIMERLOCKKEY_UNLOCK            0x0000CE80UL                              /**< Mode UNLOCK for WTIMER_LOCK */
 #define WTIMER_LOCK_TIMERLOCKKEY_DEFAULT            (_WTIMER_LOCK_TIMERLOCKKEY_DEFAULT << 0)  /**< Shifted mode DEFAULT for WTIMER_LOCK */
-#define WTIMER_LOCK_TIMERLOCKKEY_LOCK               (_WTIMER_LOCK_TIMERLOCKKEY_LOCK << 0)     /**< Shifted mode LOCK for WTIMER_LOCK */
 #define WTIMER_LOCK_TIMERLOCKKEY_UNLOCKED           (_WTIMER_LOCK_TIMERLOCKKEY_UNLOCKED << 0) /**< Shifted mode UNLOCKED for WTIMER_LOCK */
+#define WTIMER_LOCK_TIMERLOCKKEY_LOCK               (_WTIMER_LOCK_TIMERLOCKKEY_LOCK << 0)     /**< Shifted mode LOCK for WTIMER_LOCK */
 #define WTIMER_LOCK_TIMERLOCKKEY_LOCKED             (_WTIMER_LOCK_TIMERLOCKKEY_LOCKED << 0)   /**< Shifted mode LOCKED for WTIMER_LOCK */
 #define WTIMER_LOCK_TIMERLOCKKEY_UNLOCK             (_WTIMER_LOCK_TIMERLOCKKEY_UNLOCK << 0)   /**< Shifted mode UNLOCK for WTIMER_LOCK */
 
@@ -2208,13 +2220,13 @@ typedef struct {
 #define _WTIMER_DTLOCK_LOCKKEY_SHIFT                0                                      /**< Shift value for TIMER_LOCKKEY */
 #define _WTIMER_DTLOCK_LOCKKEY_MASK                 0xFFFFUL                               /**< Bit mask for TIMER_LOCKKEY */
 #define _WTIMER_DTLOCK_LOCKKEY_DEFAULT              0x00000000UL                           /**< Mode DEFAULT for WTIMER_DTLOCK */
-#define _WTIMER_DTLOCK_LOCKKEY_LOCK                 0x00000000UL                           /**< Mode LOCK for WTIMER_DTLOCK */
 #define _WTIMER_DTLOCK_LOCKKEY_UNLOCKED             0x00000000UL                           /**< Mode UNLOCKED for WTIMER_DTLOCK */
+#define _WTIMER_DTLOCK_LOCKKEY_LOCK                 0x00000000UL                           /**< Mode LOCK for WTIMER_DTLOCK */
 #define _WTIMER_DTLOCK_LOCKKEY_LOCKED               0x00000001UL                           /**< Mode LOCKED for WTIMER_DTLOCK */
 #define _WTIMER_DTLOCK_LOCKKEY_UNLOCK               0x0000CE80UL                           /**< Mode UNLOCK for WTIMER_DTLOCK */
 #define WTIMER_DTLOCK_LOCKKEY_DEFAULT               (_WTIMER_DTLOCK_LOCKKEY_DEFAULT << 0)  /**< Shifted mode DEFAULT for WTIMER_DTLOCK */
-#define WTIMER_DTLOCK_LOCKKEY_LOCK                  (_WTIMER_DTLOCK_LOCKKEY_LOCK << 0)     /**< Shifted mode LOCK for WTIMER_DTLOCK */
 #define WTIMER_DTLOCK_LOCKKEY_UNLOCKED              (_WTIMER_DTLOCK_LOCKKEY_UNLOCKED << 0) /**< Shifted mode UNLOCKED for WTIMER_DTLOCK */
+#define WTIMER_DTLOCK_LOCKKEY_LOCK                  (_WTIMER_DTLOCK_LOCKKEY_LOCK << 0)     /**< Shifted mode LOCK for WTIMER_DTLOCK */
 #define WTIMER_DTLOCK_LOCKKEY_LOCKED                (_WTIMER_DTLOCK_LOCKKEY_LOCKED << 0)   /**< Shifted mode LOCKED for WTIMER_DTLOCK */
 #define WTIMER_DTLOCK_LOCKKEY_UNLOCK                (_WTIMER_DTLOCK_LOCKKEY_UNLOCK << 0)   /**< Shifted mode UNLOCK for WTIMER_DTLOCK */
 
@@ -3722,7 +3734,7 @@ typedef struct {
 #define _CMU_HFPERCLKEN0_ACMP1_MASK                       0x200UL                                    /**< Bit mask for CMU_ACMP1 */
 #define _CMU_HFPERCLKEN0_ACMP1_DEFAULT                    0x00000000UL                               /**< Mode DEFAULT for CMU_HFPERCLKEN0 */
 #define CMU_HFPERCLKEN0_ACMP1_DEFAULT                     (_CMU_HFPERCLKEN0_ACMP1_DEFAULT << 9)      /**< Shifted mode DEFAULT for CMU_HFPERCLKEN0 */
-#define CMU_HFPERCLKEN0_CRYOTIMER                         (0x1UL << 10)                              /**< CryoTimer Clock Enable */
+#define CMU_HFPERCLKEN0_CRYOTIMER                         (0x1UL << 10)                              /**< CRYOTIMER Clock Enable */
 #define _CMU_HFPERCLKEN0_CRYOTIMER_SHIFT                  10                                         /**< Shift value for CMU_CRYOTIMER */
 #define _CMU_HFPERCLKEN0_CRYOTIMER_MASK                   0x400UL                                    /**< Bit mask for CMU_CRYOTIMER */
 #define _CMU_HFPERCLKEN0_CRYOTIMER_DEFAULT                0x00000000UL                               /**< Mode DEFAULT for CMU_HFPERCLKEN0 */
@@ -3908,7 +3920,7 @@ typedef struct {
 
 /* Bit fields for CMU SYNCBUSY */
 #define _CMU_SYNCBUSY_RESETVALUE                          0x00000000UL                               /**< Default value for CMU_SYNCBUSY */
-#define _CMU_SYNCBUSY_MASK                                0x3F050055UL                               /**< Mask for CMU_SYNCBUSY */
+#define _CMU_SYNCBUSY_MASK                                0x3F055055UL                               /**< Mask for CMU_SYNCBUSY */
 #define CMU_SYNCBUSY_LFACLKEN0                            (0x1UL << 0)                               /**< Low Frequency a Clock Enable 0 Busy */
 #define _CMU_SYNCBUSY_LFACLKEN0_SHIFT                     0                                          /**< Shift value for CMU_LFACLKEN0 */
 #define _CMU_SYNCBUSY_LFACLKEN0_MASK                      0x1UL                                      /**< Bit mask for CMU_LFACLKEN0 */
@@ -3929,6 +3941,16 @@ typedef struct {
 #define _CMU_SYNCBUSY_LFBPRESC0_MASK                      0x40UL                                     /**< Bit mask for CMU_LFBPRESC0 */
 #define _CMU_SYNCBUSY_LFBPRESC0_DEFAULT                   0x00000000UL                               /**< Mode DEFAULT for CMU_SYNCBUSY */
 #define CMU_SYNCBUSY_LFBPRESC0_DEFAULT                    (_CMU_SYNCBUSY_LFBPRESC0_DEFAULT << 6)     /**< Shifted mode DEFAULT for CMU_SYNCBUSY */
+#define CMU_SYNCBUSY_LFRCLKEN0                            (0x1UL << 12)                              /**< Low Frequency R Clock Enable 0 Busy */
+#define _CMU_SYNCBUSY_LFRCLKEN0_SHIFT                     12                                         /**< Shift value for CMU_LFRCLKEN0 */
+#define _CMU_SYNCBUSY_LFRCLKEN0_MASK                      0x1000UL                                   /**< Bit mask for CMU_LFRCLKEN0 */
+#define _CMU_SYNCBUSY_LFRCLKEN0_DEFAULT                   0x00000000UL                               /**< Mode DEFAULT for CMU_SYNCBUSY */
+#define CMU_SYNCBUSY_LFRCLKEN0_DEFAULT                    (_CMU_SYNCBUSY_LFRCLKEN0_DEFAULT << 12)    /**< Shifted mode DEFAULT for CMU_SYNCBUSY */
+#define CMU_SYNCBUSY_LFRPRESC0                            (0x1UL << 14)                              /**< Low Frequency R Prescaler 0 Busy */
+#define _CMU_SYNCBUSY_LFRPRESC0_SHIFT                     14                                         /**< Shift value for CMU_LFRPRESC0 */
+#define _CMU_SYNCBUSY_LFRPRESC0_MASK                      0x4000UL                                   /**< Bit mask for CMU_LFRPRESC0 */
+#define _CMU_SYNCBUSY_LFRPRESC0_DEFAULT                   0x00000000UL                               /**< Mode DEFAULT for CMU_SYNCBUSY */
+#define CMU_SYNCBUSY_LFRPRESC0_DEFAULT                    (_CMU_SYNCBUSY_LFRPRESC0_DEFAULT << 14)    /**< Shifted mode DEFAULT for CMU_SYNCBUSY */
 #define CMU_SYNCBUSY_LFECLKEN0                            (0x1UL << 16)                              /**< Low Frequency E Clock Enable 0 Busy */
 #define _CMU_SYNCBUSY_LFECLKEN0_SHIFT                     16                                         /**< Shift value for CMU_LFECLKEN0 */
 #define _CMU_SYNCBUSY_LFECLKEN0_MASK                      0x10000UL                                  /**< Bit mask for CMU_LFECLKEN0 */
@@ -4109,13 +4131,13 @@ typedef struct {
 #define _CMU_LOCK_LOCKKEY_SHIFT                           0                                 /**< Shift value for CMU_LOCKKEY */
 #define _CMU_LOCK_LOCKKEY_MASK                            0xFFFFUL                          /**< Bit mask for CMU_LOCKKEY */
 #define _CMU_LOCK_LOCKKEY_DEFAULT                         0x00000000UL                      /**< Mode DEFAULT for CMU_LOCK */
-#define _CMU_LOCK_LOCKKEY_LOCK                            0x00000000UL                      /**< Mode LOCK for CMU_LOCK */
 #define _CMU_LOCK_LOCKKEY_UNLOCKED                        0x00000000UL                      /**< Mode UNLOCKED for CMU_LOCK */
+#define _CMU_LOCK_LOCKKEY_LOCK                            0x00000000UL                      /**< Mode LOCK for CMU_LOCK */
 #define _CMU_LOCK_LOCKKEY_LOCKED                          0x00000001UL                      /**< Mode LOCKED for CMU_LOCK */
 #define _CMU_LOCK_LOCKKEY_UNLOCK                          0x0000580EUL                      /**< Mode UNLOCK for CMU_LOCK */
 #define CMU_LOCK_LOCKKEY_DEFAULT                          (_CMU_LOCK_LOCKKEY_DEFAULT << 0)  /**< Shifted mode DEFAULT for CMU_LOCK */
-#define CMU_LOCK_LOCKKEY_LOCK                             (_CMU_LOCK_LOCKKEY_LOCK << 0)     /**< Shifted mode LOCK for CMU_LOCK */
 #define CMU_LOCK_LOCKKEY_UNLOCKED                         (_CMU_LOCK_LOCKKEY_UNLOCKED << 0) /**< Shifted mode UNLOCKED for CMU_LOCK */
+#define CMU_LOCK_LOCKKEY_LOCK                             (_CMU_LOCK_LOCKKEY_LOCK << 0)     /**< Shifted mode LOCK for CMU_LOCK */
 #define CMU_LOCK_LOCKKEY_LOCKED                           (_CMU_LOCK_LOCKKEY_LOCKED << 0)   /**< Shifted mode LOCKED for CMU_LOCK */
 #define CMU_LOCK_LOCKKEY_UNLOCK                           (_CMU_LOCK_LOCKKEY_UNLOCK << 0)   /**< Shifted mode UNLOCK for CMU_LOCK */
 
@@ -4130,6 +4152,43 @@ typedef struct {
 #define _CMU_HFRCOSS_SSINV_MASK                           0x1F00UL                          /**< Bit mask for CMU_SSINV */
 #define _CMU_HFRCOSS_SSINV_DEFAULT                        0x00000000UL                      /**< Mode DEFAULT for CMU_HFRCOSS */
 #define CMU_HFRCOSS_SSINV_DEFAULT                         (_CMU_HFRCOSS_SSINV_DEFAULT << 8) /**< Shifted mode DEFAULT for CMU_HFRCOSS */
+
+/* Bit fields for CMU LFRCLKSEL */
+#define _CMU_LFRCLKSEL_RESETVALUE                         0x00000000UL                       /**< Default value for CMU_LFRCLKSEL */
+#define _CMU_LFRCLKSEL_MASK                               0x00000007UL                       /**< Mask for CMU_LFRCLKSEL */
+#define _CMU_LFRCLKSEL_LFR_SHIFT                          0                                  /**< Shift value for CMU_LFR */
+#define _CMU_LFRCLKSEL_LFR_MASK                           0x7UL                              /**< Bit mask for CMU_LFR */
+#define _CMU_LFRCLKSEL_LFR_DEFAULT                        0x00000000UL                       /**< Mode DEFAULT for CMU_LFRCLKSEL */
+#define _CMU_LFRCLKSEL_LFR_DISABLED                       0x00000000UL                       /**< Mode DISABLED for CMU_LFRCLKSEL */
+#define _CMU_LFRCLKSEL_LFR_LFRCO                          0x00000001UL                       /**< Mode LFRCO for CMU_LFRCLKSEL */
+#define _CMU_LFRCLKSEL_LFR_LFXO                           0x00000002UL                       /**< Mode LFXO for CMU_LFRCLKSEL */
+#define _CMU_LFRCLKSEL_LFR_ULFRCO                         0x00000004UL                       /**< Mode ULFRCO for CMU_LFRCLKSEL */
+#define CMU_LFRCLKSEL_LFR_DEFAULT                         (_CMU_LFRCLKSEL_LFR_DEFAULT << 0)  /**< Shifted mode DEFAULT for CMU_LFRCLKSEL */
+#define CMU_LFRCLKSEL_LFR_DISABLED                        (_CMU_LFRCLKSEL_LFR_DISABLED << 0) /**< Shifted mode DISABLED for CMU_LFRCLKSEL */
+#define CMU_LFRCLKSEL_LFR_LFRCO                           (_CMU_LFRCLKSEL_LFR_LFRCO << 0)    /**< Shifted mode LFRCO for CMU_LFRCLKSEL */
+#define CMU_LFRCLKSEL_LFR_LFXO                            (_CMU_LFRCLKSEL_LFR_LFXO << 0)     /**< Shifted mode LFXO for CMU_LFRCLKSEL */
+#define CMU_LFRCLKSEL_LFR_ULFRCO                          (_CMU_LFRCLKSEL_LFR_ULFRCO << 0)   /**< Shifted mode ULFRCO for CMU_LFRCLKSEL */
+
+/* Bit fields for CMU LFRCLKEN0 */
+#define _CMU_LFRCLKEN0_RESETVALUE                         0x00000000UL                         /**< Default value for CMU_LFRCLKEN0 */
+#define _CMU_LFRCLKEN0_MASK                               0x00000001UL                         /**< Mask for CMU_LFRCLKEN0 */
+#define CMU_LFRCLKEN0_PRORTC                              (0x1UL << 0)                         /**< Protocol Real-Time Counter Clock Enable */
+#define _CMU_LFRCLKEN0_PRORTC_SHIFT                       0                                    /**< Shift value for CMU_PRORTC */
+#define _CMU_LFRCLKEN0_PRORTC_MASK                        0x1UL                                /**< Bit mask for CMU_PRORTC */
+#define _CMU_LFRCLKEN0_PRORTC_DEFAULT                     0x00000000UL                         /**< Mode DEFAULT for CMU_LFRCLKEN0 */
+#define CMU_LFRCLKEN0_PRORTC_DEFAULT                      (_CMU_LFRCLKEN0_PRORTC_DEFAULT << 0) /**< Shifted mode DEFAULT for CMU_LFRCLKEN0 */
+
+/* Bit fields for CMU LFRPRESC0 */
+#define _CMU_LFRPRESC0_RESETVALUE                         0x00000000UL                      /**< Default value for CMU_LFRPRESC0 */
+#define _CMU_LFRPRESC0_MASK                               0x00000003UL                      /**< Mask for CMU_LFRPRESC0 */
+#define _CMU_LFRPRESC0_PRORTC_SHIFT                       0                                 /**< Shift value for CMU_PRORTC */
+#define _CMU_LFRPRESC0_PRORTC_MASK                        0x3UL                             /**< Bit mask for CMU_PRORTC */
+#define _CMU_LFRPRESC0_PRORTC_DIV1                        0x00000000UL                      /**< Mode DIV1 for CMU_LFRPRESC0 */
+#define _CMU_LFRPRESC0_PRORTC_DIV2                        0x00000001UL                      /**< Mode DIV2 for CMU_LFRPRESC0 */
+#define _CMU_LFRPRESC0_PRORTC_DIV4                        0x00000002UL                      /**< Mode DIV4 for CMU_LFRPRESC0 */
+#define CMU_LFRPRESC0_PRORTC_DIV1                         (_CMU_LFRPRESC0_PRORTC_DIV1 << 0) /**< Shifted mode DIV1 for CMU_LFRPRESC0 */
+#define CMU_LFRPRESC0_PRORTC_DIV2                         (_CMU_LFRPRESC0_PRORTC_DIV2 << 0) /**< Shifted mode DIV2 for CMU_LFRPRESC0 */
+#define CMU_LFRPRESC0_PRORTC_DIV4                         (_CMU_LFRPRESC0_PRORTC_DIV4 << 0) /**< Shifted mode DIV4 for CMU_LFRPRESC0 */
 
 /** @} */
 /** @} End of group EFR32MG13P832F512IM48_CMU */
@@ -4685,6 +4744,107 @@ typedef struct {
 /** @} End of group EFR32MG13P832F512IM48_LDMA */
 
 /***************************************************************************//**
+ * @addtogroup EFR32MG13P832F512IM48_PRORTC
+ * @{
+ * @defgroup EFR32MG13P832F512IM48_PRORTC_BitFields  PRORTC Bit Fields
+ * @{
+ ******************************************************************************/
+
+/* Bit fields for PRORTC CTRL */
+#define _PRORTC_CTRL_RESETVALUE           0x00000000UL                         /**< Default value for PRORTC_CTRL */
+#define _PRORTC_CTRL_MASK                 0x00000007UL                         /**< Mask for PRORTC_CTRL */
+#define PRORTC_CTRL_EN                    (0x1UL << 0)                         /**< RTC Enable */
+#define _PRORTC_CTRL_EN_SHIFT             0                                    /**< Shift value for RTC_EN */
+#define _PRORTC_CTRL_EN_MASK              0x1UL                                /**< Bit mask for RTC_EN */
+#define _PRORTC_CTRL_EN_DEFAULT           0x00000000UL                         /**< Mode DEFAULT for PRORTC_CTRL */
+#define PRORTC_CTRL_EN_DEFAULT            (_PRORTC_CTRL_EN_DEFAULT << 0)       /**< Shifted mode DEFAULT for PRORTC_CTRL */
+#define PRORTC_CTRL_DEBUGRUN              (0x1UL << 1)                         /**< Debug Mode Run Enable */
+#define _PRORTC_CTRL_DEBUGRUN_SHIFT       1                                    /**< Shift value for RTC_DEBUGRUN */
+#define _PRORTC_CTRL_DEBUGRUN_MASK        0x2UL                                /**< Bit mask for RTC_DEBUGRUN */
+#define _PRORTC_CTRL_DEBUGRUN_DEFAULT     0x00000000UL                         /**< Mode DEFAULT for PRORTC_CTRL */
+#define PRORTC_CTRL_DEBUGRUN_DEFAULT      (_PRORTC_CTRL_DEBUGRUN_DEFAULT << 1) /**< Shifted mode DEFAULT for PRORTC_CTRL */
+#define PRORTC_CTRL_COMP0TOP              (0x1UL << 2)                         /**< Compare Channel 0 is Top Value */
+#define _PRORTC_CTRL_COMP0TOP_SHIFT       2                                    /**< Shift value for RTC_COMP0TOP */
+#define _PRORTC_CTRL_COMP0TOP_MASK        0x4UL                                /**< Bit mask for RTC_COMP0TOP */
+#define _PRORTC_CTRL_COMP0TOP_DEFAULT     0x00000000UL                         /**< Mode DEFAULT for PRORTC_CTRL */
+#define _PRORTC_CTRL_COMP0TOP_DISABLE     0x00000000UL                         /**< Mode DISABLE for PRORTC_CTRL */
+#define _PRORTC_CTRL_COMP0TOP_ENABLE      0x00000001UL                         /**< Mode ENABLE for PRORTC_CTRL */
+#define PRORTC_CTRL_COMP0TOP_DEFAULT      (_PRORTC_CTRL_COMP0TOP_DEFAULT << 2) /**< Shifted mode DEFAULT for PRORTC_CTRL */
+#define PRORTC_CTRL_COMP0TOP_DISABLE      (_PRORTC_CTRL_COMP0TOP_DISABLE << 2) /**< Shifted mode DISABLE for PRORTC_CTRL */
+#define PRORTC_CTRL_COMP0TOP_ENABLE       (_PRORTC_CTRL_COMP0TOP_ENABLE << 2)  /**< Shifted mode ENABLE for PRORTC_CTRL */
+
+/* Bit fields for PRORTC CNT */
+#define _PRORTC_CNT_RESETVALUE            0x00000000UL                   /**< Default value for PRORTC_CNT */
+#define _PRORTC_CNT_MASK                  0xFFFFFFFFUL                   /**< Mask for PRORTC_CNT */
+#define _PRORTC_CNT_CNT_SHIFT             0                              /**< Shift value for RTC_CNT */
+#define _PRORTC_CNT_CNT_MASK              0xFFFFFFFFUL                   /**< Bit mask for RTC_CNT */
+#define _PRORTC_CNT_CNT_DEFAULT           0x00000000UL                   /**< Mode DEFAULT for PRORTC_CNT */
+#define PRORTC_CNT_CNT_DEFAULT            (_PRORTC_CNT_CNT_DEFAULT << 0) /**< Shifted mode DEFAULT for PRORTC_CNT */
+
+/* Bit fields for PRORTC IF */
+#define _PRORTC_IF_RESETVALUE             0x00000000UL                   /**< Default value for PRORTC_IF */
+#define _PRORTC_IF_MASK                   0x00000007UL                   /**< Mask for PRORTC_IF */
+#define PRORTC_IF_OF                      (0x1UL << 0)                   /**< Overflow Interrupt Flag */
+#define _PRORTC_IF_OF_SHIFT               0                              /**< Shift value for RTC_OF */
+#define _PRORTC_IF_OF_MASK                0x1UL                          /**< Bit mask for RTC_OF */
+#define _PRORTC_IF_OF_DEFAULT             0x00000000UL                   /**< Mode DEFAULT for PRORTC_IF */
+#define PRORTC_IF_OF_DEFAULT              (_PRORTC_IF_OF_DEFAULT << 0)   /**< Shifted mode DEFAULT for PRORTC_IF */
+#define _PRORTC_IF_COMP_SHIFT             1                              /**< Shift value for RTC_COMP */
+#define _PRORTC_IF_COMP_MASK              0x6UL                          /**< Bit mask for RTC_COMP */
+#define _PRORTC_IF_COMP_DEFAULT           0x00000000UL                   /**< Mode DEFAULT for PRORTC_IF */
+#define PRORTC_IF_COMP_DEFAULT            (_PRORTC_IF_COMP_DEFAULT << 1) /**< Shifted mode DEFAULT for PRORTC_IF */
+
+/* Bit fields for PRORTC IFS */
+#define _PRORTC_IFS_RESETVALUE            0x00000000UL                    /**< Default value for PRORTC_IFS */
+#define _PRORTC_IFS_MASK                  0x00000007UL                    /**< Mask for PRORTC_IFS */
+#define PRORTC_IFS_OF                     (0x1UL << 0)                    /**< Set OF Interrupt Flag */
+#define _PRORTC_IFS_OF_SHIFT              0                               /**< Shift value for RTC_OF */
+#define _PRORTC_IFS_OF_MASK               0x1UL                           /**< Bit mask for RTC_OF */
+#define _PRORTC_IFS_OF_DEFAULT            0x00000000UL                    /**< Mode DEFAULT for PRORTC_IFS */
+#define PRORTC_IFS_OF_DEFAULT             (_PRORTC_IFS_OF_DEFAULT << 0)   /**< Shifted mode DEFAULT for PRORTC_IFS */
+#define _PRORTC_IFS_COMP_SHIFT            1                               /**< Shift value for RTC_COMP */
+#define _PRORTC_IFS_COMP_MASK             0x6UL                           /**< Bit mask for RTC_COMP */
+#define _PRORTC_IFS_COMP_DEFAULT          0x00000000UL                    /**< Mode DEFAULT for PRORTC_IFS */
+#define PRORTC_IFS_COMP_DEFAULT           (_PRORTC_IFS_COMP_DEFAULT << 1) /**< Shifted mode DEFAULT for PRORTC_IFS */
+
+/* Bit fields for PRORTC IFC */
+#define _PRORTC_IFC_RESETVALUE            0x00000000UL                    /**< Default value for PRORTC_IFC */
+#define _PRORTC_IFC_MASK                  0x00000007UL                    /**< Mask for PRORTC_IFC */
+#define PRORTC_IFC_OF                     (0x1UL << 0)                    /**< Clear OF Interrupt Flag */
+#define _PRORTC_IFC_OF_SHIFT              0                               /**< Shift value for RTC_OF */
+#define _PRORTC_IFC_OF_MASK               0x1UL                           /**< Bit mask for RTC_OF */
+#define _PRORTC_IFC_OF_DEFAULT            0x00000000UL                    /**< Mode DEFAULT for PRORTC_IFC */
+#define PRORTC_IFC_OF_DEFAULT             (_PRORTC_IFC_OF_DEFAULT << 0)   /**< Shifted mode DEFAULT for PRORTC_IFC */
+#define _PRORTC_IFC_COMP_SHIFT            1                               /**< Shift value for RTC_COMP */
+#define _PRORTC_IFC_COMP_MASK             0x6UL                           /**< Bit mask for RTC_COMP */
+#define _PRORTC_IFC_COMP_DEFAULT          0x00000000UL                    /**< Mode DEFAULT for PRORTC_IFC */
+#define PRORTC_IFC_COMP_DEFAULT           (_PRORTC_IFC_COMP_DEFAULT << 1) /**< Shifted mode DEFAULT for PRORTC_IFC */
+
+/* Bit fields for PRORTC IEN */
+#define _PRORTC_IEN_RESETVALUE            0x00000000UL                    /**< Default value for PRORTC_IEN */
+#define _PRORTC_IEN_MASK                  0x00000007UL                    /**< Mask for PRORTC_IEN */
+#define PRORTC_IEN_OF                     (0x1UL << 0)                    /**< OF Interrupt Enable */
+#define _PRORTC_IEN_OF_SHIFT              0                               /**< Shift value for RTC_OF */
+#define _PRORTC_IEN_OF_MASK               0x1UL                           /**< Bit mask for RTC_OF */
+#define _PRORTC_IEN_OF_DEFAULT            0x00000000UL                    /**< Mode DEFAULT for PRORTC_IEN */
+#define PRORTC_IEN_OF_DEFAULT             (_PRORTC_IEN_OF_DEFAULT << 0)   /**< Shifted mode DEFAULT for PRORTC_IEN */
+#define _PRORTC_IEN_COMP_SHIFT            1                               /**< Shift value for RTC_COMP */
+#define _PRORTC_IEN_COMP_MASK             0x6UL                           /**< Bit mask for RTC_COMP */
+#define _PRORTC_IEN_COMP_DEFAULT          0x00000000UL                    /**< Mode DEFAULT for PRORTC_IEN */
+#define PRORTC_IEN_COMP_DEFAULT           (_PRORTC_IEN_COMP_DEFAULT << 1) /**< Shifted mode DEFAULT for PRORTC_IEN */
+
+/* Bit fields for PRORTC COMP_COMP */
+#define _PRORTC_COMP_COMP_RESETVALUE      0x00000000UL                          /**< Default value for PRORTC_COMP_COMP */
+#define _PRORTC_COMP_COMP_MASK            0xFFFFFFFFUL                          /**< Mask for PRORTC_COMP_COMP */
+#define _PRORTC_COMP_COMP_COMP_SHIFT      0                                     /**< Shift value for RTC_COMP */
+#define _PRORTC_COMP_COMP_COMP_MASK       0xFFFFFFFFUL                          /**< Bit mask for RTC_COMP */
+#define _PRORTC_COMP_COMP_COMP_DEFAULT    0x00000000UL                          /**< Mode DEFAULT for PRORTC_COMP_COMP */
+#define PRORTC_COMP_COMP_COMP_DEFAULT     (_PRORTC_COMP_COMP_COMP_DEFAULT << 0) /**< Shifted mode DEFAULT for PRORTC_COMP_COMP */
+
+/** @} */
+/** @} End of group EFR32MG13P832F512IM48_PRORTC */
+
+/***************************************************************************//**
  * @addtogroup EFR32MG13P832F512IM48_SMU
  * @{
  * @defgroup EFR32MG13P832F512IM48_SMU_BitFields  SMU Bit Fields
@@ -4738,7 +4898,7 @@ typedef struct {
 
 /* Bit fields for SMU PPUPATD0 */
 #define _SMU_PPUPATD0_RESETVALUE           0x00000000UL                           /**< Default value for SMU_PPUPATD0 */
-#define _SMU_PPUPATD0_MASK                 0x0BEF7BA7UL                           /**< Mask for SMU_PPUPATD0 */
+#define _SMU_PPUPATD0_MASK                 0x1BEF7BA7UL                           /**< Mask for SMU_PPUPATD0 */
 #define SMU_PPUPATD0_ACMP0                 (0x1UL << 0)                           /**< Analog Comparator 0 access control bit */
 #define _SMU_PPUPATD0_ACMP0_SHIFT          0                                      /**< Shift value for SMU_ACMP0 */
 #define _SMU_PPUPATD0_ACMP0_MASK           0x1UL                                  /**< Bit mask for SMU_ACMP0 */
@@ -4759,7 +4919,7 @@ typedef struct {
 #define _SMU_PPUPATD0_CMU_MASK             0x20UL                                 /**< Bit mask for SMU_CMU */
 #define _SMU_PPUPATD0_CMU_DEFAULT          0x00000000UL                           /**< Mode DEFAULT for SMU_PPUPATD0 */
 #define SMU_PPUPATD0_CMU_DEFAULT           (_SMU_PPUPATD0_CMU_DEFAULT << 5)       /**< Shifted mode DEFAULT for SMU_PPUPATD0 */
-#define SMU_PPUPATD0_CRYOTIMER             (0x1UL << 7)                           /**< CryoTimer access control bit */
+#define SMU_PPUPATD0_CRYOTIMER             (0x1UL << 7)                           /**< CRYOTIMER access control bit */
 #define _SMU_PPUPATD0_CRYOTIMER_SHIFT      7                                      /**< Shift value for SMU_CRYOTIMER */
 #define _SMU_PPUPATD0_CRYOTIMER_MASK       0x80UL                                 /**< Bit mask for SMU_CRYOTIMER */
 #define _SMU_PPUPATD0_CRYOTIMER_DEFAULT    0x00000000UL                           /**< Mode DEFAULT for SMU_PPUPATD0 */
@@ -4844,6 +5004,11 @@ typedef struct {
 #define _SMU_PPUPATD0_PCNT0_MASK           0x8000000UL                            /**< Bit mask for SMU_PCNT0 */
 #define _SMU_PPUPATD0_PCNT0_DEFAULT        0x00000000UL                           /**< Mode DEFAULT for SMU_PPUPATD0 */
 #define SMU_PPUPATD0_PCNT0_DEFAULT         (_SMU_PPUPATD0_PCNT0_DEFAULT << 27)    /**< Shifted mode DEFAULT for SMU_PPUPATD0 */
+#define SMU_PPUPATD0_PRORTC                (0x1UL << 28)                          /**< Protocol Real-Time Counter access control bit */
+#define _SMU_PPUPATD0_PRORTC_SHIFT         28                                     /**< Shift value for SMU_PRORTC */
+#define _SMU_PPUPATD0_PRORTC_MASK          0x10000000UL                           /**< Bit mask for SMU_PRORTC */
+#define _SMU_PPUPATD0_PRORTC_DEFAULT       0x00000000UL                           /**< Mode DEFAULT for SMU_PPUPATD0 */
+#define SMU_PPUPATD0_PRORTC_DEFAULT        (_SMU_PPUPATD0_PRORTC_DEFAULT << 28)   /**< Shifted mode DEFAULT for SMU_PPUPATD0 */
 
 /* Bit fields for SMU PPUPATD1 */
 #define _SMU_PPUPATD1_RESETVALUE           0x00000000UL                          /**< Default value for SMU_PPUPATD1 */
@@ -4936,6 +5101,7 @@ typedef struct {
 #define _SMU_PPUFS_PERIPHID_LETIMER0       0x00000018UL                         /**< Mode LETIMER0 for SMU_PPUFS */
 #define _SMU_PPUFS_PERIPHID_LEUART0        0x00000019UL                         /**< Mode LEUART0 for SMU_PPUFS */
 #define _SMU_PPUFS_PERIPHID_PCNT0          0x0000001BUL                         /**< Mode PCNT0 for SMU_PPUFS */
+#define _SMU_PPUFS_PERIPHID_PRORTC         0x0000001CUL                         /**< Mode PRORTC for SMU_PPUFS */
 #define _SMU_PPUFS_PERIPHID_RMU            0x00000020UL                         /**< Mode RMU for SMU_PPUFS */
 #define _SMU_PPUFS_PERIPHID_RTCC           0x00000021UL                         /**< Mode RTCC for SMU_PPUFS */
 #define _SMU_PPUFS_PERIPHID_SMU            0x00000022UL                         /**< Mode SMU for SMU_PPUFS */
@@ -4970,6 +5136,7 @@ typedef struct {
 #define SMU_PPUFS_PERIPHID_LETIMER0        (_SMU_PPUFS_PERIPHID_LETIMER0 << 0)  /**< Shifted mode LETIMER0 for SMU_PPUFS */
 #define SMU_PPUFS_PERIPHID_LEUART0         (_SMU_PPUFS_PERIPHID_LEUART0 << 0)   /**< Shifted mode LEUART0 for SMU_PPUFS */
 #define SMU_PPUFS_PERIPHID_PCNT0           (_SMU_PPUFS_PERIPHID_PCNT0 << 0)     /**< Shifted mode PCNT0 for SMU_PPUFS */
+#define SMU_PPUFS_PERIPHID_PRORTC          (_SMU_PPUFS_PERIPHID_PRORTC << 0)    /**< Shifted mode PRORTC for SMU_PPUFS */
 #define SMU_PPUFS_PERIPHID_RMU             (_SMU_PPUFS_PERIPHID_RMU << 0)       /**< Shifted mode RMU for SMU_PPUFS */
 #define SMU_PPUFS_PERIPHID_RTCC            (_SMU_PPUFS_PERIPHID_RTCC << 0)      /**< Shifted mode RTCC for SMU_PPUFS */
 #define SMU_PPUFS_PERIPHID_SMU             (_SMU_PPUFS_PERIPHID_SMU << 0)       /**< Shifted mode SMU for SMU_PPUFS */

@@ -1,0 +1,73 @@
+# Copyright (c) 2020 HAW Hamburg
+#
+# This file is subject to the terms and conditions of the GNU Lesser
+# General Public License v2.1. See the file LICENSE in the top level
+# directory for more details.
+
+config CPU_FAM_EFR32BG13P
+    bool
+    select CPU_CORE_CORTEX_M4F
+    select CPU_COMMON_EFM32
+    select HAS_PERIPH_HWRNG
+
+## CPU Models
+config CPU_MODEL_EFR32BG13P732F512GM48
+    bool
+    select CPU_FAM_EFR32BG13P
+
+config CPU_MODEL_EFR32BG13P532F512GM32
+    bool
+    select CPU_FAM_EFR32BG13P
+
+config CPU_MODEL_EFR32BG13P733F512GM48
+    bool
+    select CPU_FAM_EFR32BG13P
+
+config CPU_MODEL_EFR32BG13P632F512GM32
+    bool
+    select CPU_FAM_EFR32BG13P
+
+config CPU_MODEL_EFR32BG13P632F512IM48
+    bool
+    select CPU_FAM_EFR32BG13P
+
+config CPU_MODEL_EFR32BG13P732F512GM51
+    bool
+    select CPU_FAM_EFR32BG13P
+
+config CPU_MODEL_EFR32BG13P632F512IM32
+    bool
+    select CPU_FAM_EFR32BG13P
+
+config CPU_MODEL_EFR32BG13P632F512GM48
+    bool
+    select CPU_FAM_EFR32BG13P
+
+config CPU_MODEL_EFR32BG13P632F512GM51
+    bool
+    select CPU_FAM_EFR32BG13P
+
+config CPU_MODEL_EFR32BG13P532F512GM48
+    bool
+    select CPU_FAM_EFR32BG13P
+
+config CPU_MODEL_EFR32BG13P732F512GM32
+    bool
+    select CPU_FAM_EFR32BG13P
+
+## Common CPU symbols
+config CPU_FAM
+    default "efr32bg13p" if CPU_FAM_EFR32BG13P
+
+config CPU_MODEL
+    default "efr32bg13p732f512gm48" if CPU_MODEL_EFR32BG13P732F512GM48
+    default "efr32bg13p532f512gm32" if CPU_MODEL_EFR32BG13P532F512GM32
+    default "efr32bg13p733f512gm48" if CPU_MODEL_EFR32BG13P733F512GM48
+    default "efr32bg13p632f512gm32" if CPU_MODEL_EFR32BG13P632F512GM32
+    default "efr32bg13p632f512im48" if CPU_MODEL_EFR32BG13P632F512IM48
+    default "efr32bg13p732f512gm51" if CPU_MODEL_EFR32BG13P732F512GM51
+    default "efr32bg13p632f512im32" if CPU_MODEL_EFR32BG13P632F512IM32
+    default "efr32bg13p632f512gm48" if CPU_MODEL_EFR32BG13P632F512GM48
+    default "efr32bg13p632f512gm51" if CPU_MODEL_EFR32BG13P632F512GM51
+    default "efr32bg13p532f512gm48" if CPU_MODEL_EFR32BG13P532F512GM48
+    default "efr32bg13p732f512gm32" if CPU_MODEL_EFR32BG13P732F512GM32

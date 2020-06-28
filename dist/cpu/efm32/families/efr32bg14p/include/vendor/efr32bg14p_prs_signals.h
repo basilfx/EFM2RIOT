@@ -1,10 +1,9 @@
 /***************************************************************************//**
  * @file
  * @brief EFR32BG14P_PRS_SIGNALS register and bit field definitions
- * @version 5.7.0
  *******************************************************************************
  * # License
- * <b>Copyright 2018 Silicon Laboratories Inc. www.silabs.com</b>
+ * <b>Copyright 2020 Silicon Laboratories Inc. www.silabs.com</b>
  *******************************************************************************
  *
  * SPDX-License-Identifier: Zlib
@@ -112,6 +111,9 @@ extern "C" {
 #define PRS_PCNT0_TCC               ((15 << 8) + 0) /**< PRS PCNT0 Triggered compare match */
 #define PRS_PCNT0_UFOF              ((15 << 8) + 1) /**< PRS PCNT0 Counter overflow or underflow */
 #define PRS_PCNT0_DIR               ((15 << 8) + 2) /**< PRS PCNT0 Counter direction */
+#define PRS_PRORTC_OF               ((16 << 8) + 0) /**< PRS PRORTC Overflow */
+#define PRS_PRORTC_COMP0            ((16 << 8) + 1) /**< PRS PRORTC Compare 0 */
+#define PRS_PRORTC_COMP1            ((16 << 8) + 2) /**< PRS PRORTC Compare 1 */
 #define PRS_CMU_CLKOUT0             ((18 << 8) + 0) /**< PRS Clock Output 0 */
 #define PRS_CMU_CLKOUT1             ((18 << 8) + 1) /**< PRS Clock Output 1 */
 #define PRS_VDAC0_CH0               ((24 << 8) + 0) /**< PRS DAC ch0 conversion done */

@@ -1,10 +1,9 @@
 /**************************************************************************//**
  * @file
  * @brief EFR32BG21 SYSCFG register and bit field definitions
- * @version 5.7.0
  ******************************************************************************
  * # License
- * <b>Copyright 2018 Silicon Laboratories, Inc. www.silabs.com</b>
+ * <b>Copyright 2020 Silicon Laboratories, Inc. www.silabs.com</b>
  ******************************************************************************
  *
  * SPDX-License-Identifier: Zlib
@@ -51,91 +50,91 @@ extern "C" {
 typedef struct {
   __IOM uint32_t IF;                            /**< Interrupt Flag Register                            */
   __IOM uint32_t IEN;                           /**< Interrupt Enable Register                          */
-  uint32_t       RESERVED0[2U];                 /**< Reserved for future use                      */
+  uint32_t       RESERVED0[2U];                 /**< Reserved for future use                            */
   __IOM uint32_t CHIPREVHW;                     /**< Hardwired Chip Rev values                          */
   __IOM uint32_t CHIPREV;                       /**< Part Family and Revision values                    */
-  uint32_t       RESERVED1[58U];                /**< Reserved for future use*/
-  uint32_t       RESERVED2[1U];                 /**< Reserved for future use                      */
-  uint32_t       RESERVED3[63U];                /**< Reserved for future use*/
+  uint32_t       RESERVED1[58U];                /**< Reserved for future use                            */
+  uint32_t       RESERVED2[1U];                 /**< Reserved for future use                            */
+  uint32_t       RESERVED3[63U];                /**< Reserved for future use                            */
   __IOM uint32_t CTRL;                          /**< Memory System Control Register                     */
-  uint32_t       RESERVED4[1U];                 /**< Reserved for future use                      */
+  uint32_t       RESERVED4[1U];                 /**< Reserved for future use                            */
   __IOM uint32_t DMEM0RETNCTRL;                 /**< DMEM retention Control Register                    */
-  uint32_t       RESERVED5[1U];                 /**< Reserved for future use                      */
+  uint32_t       RESERVED5[1U];                 /**< Reserved for future use                            */
   __IM uint32_t  DMEM0ECCADDR;                  /**< DMEM ECC Error Address Register                    */
   __IOM uint32_t DMEM0ECCCTRL;                  /**< DMEM ECC Control Register                          */
   __IOM uint32_t DMEM0RAMCTRL;                  /**< DMEM Control enable Register                       */
-  uint32_t       RESERVED6[121U];               /**< Reserved for future use                      */
-  __IOM uint32_t RADIORAMRETNCTRL;              /**< RADIO RAM retention Control Register               */
-  uint32_t       RESERVED7[1U];                 /**< Reserved for future use                      */
+  uint32_t       RESERVED6[121U];               /**< Reserved for future use                            */
+  __IOM uint32_t RADIORAMRETNCTRL;              /**< RADIO RAM Retention Control Register               */
+  uint32_t       RESERVED7[1U];                 /**< Reserved for future use                            */
   __IOM uint32_t RADIOECCCTRL;                  /**< RADIO RAM ECC Control Register                     */
   __IOM uint32_t RADIORAMCTRL;                  /**< RADIO RAM Control Register                         */
   __IM uint32_t  SEQRAMECCADDR;                 /**< SEQRAM ECC Error Address Register                  */
   __IM uint32_t  FRCRAMECCADDR;                 /**< FRCRAM ECC Error Address Register                  */
-  uint32_t       RESERVED8[762U];               /**< Reserved for future use*/
+  uint32_t       RESERVED8[762U];               /**< Reserved for future use                            */
   __IOM uint32_t IF_SET;                        /**< Interrupt Flag Register                            */
   __IOM uint32_t IEN_SET;                       /**< Interrupt Enable Register                          */
-  uint32_t       RESERVED9[2U];                 /**< Reserved for future use                      */
+  uint32_t       RESERVED9[2U];                 /**< Reserved for future use                            */
   __IOM uint32_t CHIPREVHW_SET;                 /**< Hardwired Chip Rev values                          */
   __IOM uint32_t CHIPREV_SET;                   /**< Part Family and Revision values                    */
-  uint32_t       RESERVED10[58U];               /**< Reserved for future use*/
-  uint32_t       RESERVED11[1U];                /**< Reserved for future use                      */
-  uint32_t       RESERVED12[63U];               /**< Reserved for future use*/
+  uint32_t       RESERVED10[58U];               /**< Reserved for future use                            */
+  uint32_t       RESERVED11[1U];                /**< Reserved for future use                            */
+  uint32_t       RESERVED12[63U];               /**< Reserved for future use                            */
   __IOM uint32_t CTRL_SET;                      /**< Memory System Control Register                     */
-  uint32_t       RESERVED13[1U];                /**< Reserved for future use                      */
+  uint32_t       RESERVED13[1U];                /**< Reserved for future use                            */
   __IOM uint32_t DMEM0RETNCTRL_SET;             /**< DMEM retention Control Register                    */
-  uint32_t       RESERVED14[1U];                /**< Reserved for future use                      */
+  uint32_t       RESERVED14[1U];                /**< Reserved for future use                            */
   __IM uint32_t  DMEM0ECCADDR_SET;              /**< DMEM ECC Error Address Register                    */
   __IOM uint32_t DMEM0ECCCTRL_SET;              /**< DMEM ECC Control Register                          */
   __IOM uint32_t DMEM0RAMCTRL_SET;              /**< DMEM Control enable Register                       */
-  uint32_t       RESERVED15[121U];              /**< Reserved for future use                      */
-  __IOM uint32_t RADIORAMRETNCTRL_SET;          /**< RADIO RAM retention Control Register               */
-  uint32_t       RESERVED16[1U];                /**< Reserved for future use                      */
+  uint32_t       RESERVED15[121U];              /**< Reserved for future use                            */
+  __IOM uint32_t RADIORAMRETNCTRL_SET;          /**< RADIO RAM Retention Control Register               */
+  uint32_t       RESERVED16[1U];                /**< Reserved for future use                            */
   __IOM uint32_t RADIOECCCTRL_SET;              /**< RADIO RAM ECC Control Register                     */
   __IOM uint32_t RADIORAMCTRL_SET;              /**< RADIO RAM Control Register                         */
   __IM uint32_t  SEQRAMECCADDR_SET;             /**< SEQRAM ECC Error Address Register                  */
   __IM uint32_t  FRCRAMECCADDR_SET;             /**< FRCRAM ECC Error Address Register                  */
-  uint32_t       RESERVED17[762U];              /**< Reserved for future use*/
+  uint32_t       RESERVED17[762U];              /**< Reserved for future use                            */
   __IOM uint32_t IF_CLR;                        /**< Interrupt Flag Register                            */
   __IOM uint32_t IEN_CLR;                       /**< Interrupt Enable Register                          */
-  uint32_t       RESERVED18[2U];                /**< Reserved for future use                      */
+  uint32_t       RESERVED18[2U];                /**< Reserved for future use                            */
   __IOM uint32_t CHIPREVHW_CLR;                 /**< Hardwired Chip Rev values                          */
   __IOM uint32_t CHIPREV_CLR;                   /**< Part Family and Revision values                    */
-  uint32_t       RESERVED19[58U];               /**< Reserved for future use*/
-  uint32_t       RESERVED20[1U];                /**< Reserved for future use                      */
-  uint32_t       RESERVED21[63U];               /**< Reserved for future use*/
+  uint32_t       RESERVED19[58U];               /**< Reserved for future use                            */
+  uint32_t       RESERVED20[1U];                /**< Reserved for future use                            */
+  uint32_t       RESERVED21[63U];               /**< Reserved for future use                            */
   __IOM uint32_t CTRL_CLR;                      /**< Memory System Control Register                     */
-  uint32_t       RESERVED22[1U];                /**< Reserved for future use                      */
+  uint32_t       RESERVED22[1U];                /**< Reserved for future use                            */
   __IOM uint32_t DMEM0RETNCTRL_CLR;             /**< DMEM retention Control Register                    */
-  uint32_t       RESERVED23[1U];                /**< Reserved for future use                      */
+  uint32_t       RESERVED23[1U];                /**< Reserved for future use                            */
   __IM uint32_t  DMEM0ECCADDR_CLR;              /**< DMEM ECC Error Address Register                    */
   __IOM uint32_t DMEM0ECCCTRL_CLR;              /**< DMEM ECC Control Register                          */
   __IOM uint32_t DMEM0RAMCTRL_CLR;              /**< DMEM Control enable Register                       */
-  uint32_t       RESERVED24[121U];              /**< Reserved for future use                      */
-  __IOM uint32_t RADIORAMRETNCTRL_CLR;          /**< RADIO RAM retention Control Register               */
-  uint32_t       RESERVED25[1U];                /**< Reserved for future use                      */
+  uint32_t       RESERVED24[121U];              /**< Reserved for future use                            */
+  __IOM uint32_t RADIORAMRETNCTRL_CLR;          /**< RADIO RAM Retention Control Register               */
+  uint32_t       RESERVED25[1U];                /**< Reserved for future use                            */
   __IOM uint32_t RADIOECCCTRL_CLR;              /**< RADIO RAM ECC Control Register                     */
   __IOM uint32_t RADIORAMCTRL_CLR;              /**< RADIO RAM Control Register                         */
   __IM uint32_t  SEQRAMECCADDR_CLR;             /**< SEQRAM ECC Error Address Register                  */
   __IM uint32_t  FRCRAMECCADDR_CLR;             /**< FRCRAM ECC Error Address Register                  */
-  uint32_t       RESERVED26[762U];              /**< Reserved for future use*/
+  uint32_t       RESERVED26[762U];              /**< Reserved for future use                            */
   __IOM uint32_t IF_TGL;                        /**< Interrupt Flag Register                            */
   __IOM uint32_t IEN_TGL;                       /**< Interrupt Enable Register                          */
-  uint32_t       RESERVED27[2U];                /**< Reserved for future use                      */
+  uint32_t       RESERVED27[2U];                /**< Reserved for future use                            */
   __IOM uint32_t CHIPREVHW_TGL;                 /**< Hardwired Chip Rev values                          */
   __IOM uint32_t CHIPREV_TGL;                   /**< Part Family and Revision values                    */
-  uint32_t       RESERVED28[58U];               /**< Reserved for future use*/
-  uint32_t       RESERVED29[1U];                /**< Reserved for future use                      */
-  uint32_t       RESERVED30[63U];               /**< Reserved for future use*/
+  uint32_t       RESERVED28[58U];               /**< Reserved for future use                            */
+  uint32_t       RESERVED29[1U];                /**< Reserved for future use                            */
+  uint32_t       RESERVED30[63U];               /**< Reserved for future use                            */
   __IOM uint32_t CTRL_TGL;                      /**< Memory System Control Register                     */
-  uint32_t       RESERVED31[1U];                /**< Reserved for future use                      */
+  uint32_t       RESERVED31[1U];                /**< Reserved for future use                            */
   __IOM uint32_t DMEM0RETNCTRL_TGL;             /**< DMEM retention Control Register                    */
-  uint32_t       RESERVED32[1U];                /**< Reserved for future use                      */
+  uint32_t       RESERVED32[1U];                /**< Reserved for future use                            */
   __IM uint32_t  DMEM0ECCADDR_TGL;              /**< DMEM ECC Error Address Register                    */
   __IOM uint32_t DMEM0ECCCTRL_TGL;              /**< DMEM ECC Control Register                          */
   __IOM uint32_t DMEM0RAMCTRL_TGL;              /**< DMEM Control enable Register                       */
-  uint32_t       RESERVED33[121U];              /**< Reserved for future use                      */
-  __IOM uint32_t RADIORAMRETNCTRL_TGL;          /**< RADIO RAM retention Control Register               */
-  uint32_t       RESERVED34[1U];                /**< Reserved for future use                      */
+  uint32_t       RESERVED33[121U];              /**< Reserved for future use                            */
+  __IOM uint32_t RADIORAMRETNCTRL_TGL;          /**< RADIO RAM Retention Control Register               */
+  uint32_t       RESERVED34[1U];                /**< Reserved for future use                            */
   __IOM uint32_t RADIOECCCTRL_TGL;              /**< RADIO RAM ECC Control Register                     */
   __IOM uint32_t RADIORAMCTRL_TGL;              /**< RADIO RAM Control Register                         */
   __IM uint32_t  SEQRAMECCADDR_TGL;             /**< SEQRAM ECC Error Address Register                  */
@@ -310,15 +309,15 @@ typedef struct {
 #define _SYSCFG_DMEM0RETNCTRL_RAMRETNCTRL_SHIFT            0                                                /**< Shift value for SYSCFG_RAMRETNCTRL          */
 #define _SYSCFG_DMEM0RETNCTRL_RAMRETNCTRL_MASK             0x1FUL                                           /**< Bit mask for SYSCFG_RAMRETNCTRL             */
 #define _SYSCFG_DMEM0RETNCTRL_RAMRETNCTRL_DEFAULT          0x00000000UL                                     /**< Mode DEFAULT for SYSCFG_DMEM0RETNCTRL       */
-#define _SYSCFG_DMEM0RETNCTRL_RAMRETNCTRL_ALLON            0x00000000UL                                     /**< Mode ALLON for SYSCFG_DMEM0RETNCTRL          */
-#define _SYSCFG_DMEM0RETNCTRL_RAMRETNCTRL_BLK5             0x00000010UL                                     /**< Mode BLK5 for SYSCFG_DMEM0RETNCTRL           */
-#define _SYSCFG_DMEM0RETNCTRL_RAMRETNCTRL_BLK4TO5          0x00000018UL                                     /**< Mode BLK4TO5 for SYSCFG_DMEM0RETNCTRL        */
-#define _SYSCFG_DMEM0RETNCTRL_RAMRETNCTRL_BLK3TO5          0x0000001CUL                                     /**< Mode BLK3TO5 for SYSCFG_DMEM0RETNCTRL        */
-#define _SYSCFG_DMEM0RETNCTRL_RAMRETNCTRL_BLK2TO5          0x0000001EUL                                     /**< Mode BLK2TO5 for SYSCFG_DMEM0RETNCTRL        */
-#define _SYSCFG_DMEM0RETNCTRL_RAMRETNCTRL_BLK1TO5          0x0000001FUL                                     /**< Mode BLK1TO5 for SYSCFG_DMEM0RETNCTRL        */
+#define _SYSCFG_DMEM0RETNCTRL_RAMRETNCTRL_ALLON            0x00000000UL                                     /**< Mode ALLON for SYSCFG_DMEM0RETNCTRL         */
+#define _SYSCFG_DMEM0RETNCTRL_RAMRETNCTRL_BLK5             0x00000010UL                                     /**< Mode BLK5 for SYSCFG_DMEM0RETNCTRL          */
+#define _SYSCFG_DMEM0RETNCTRL_RAMRETNCTRL_BLK4TO5          0x00000018UL                                     /**< Mode BLK4TO5 for SYSCFG_DMEM0RETNCTRL       */
+#define _SYSCFG_DMEM0RETNCTRL_RAMRETNCTRL_BLK3TO5          0x0000001CUL                                     /**< Mode BLK3TO5 for SYSCFG_DMEM0RETNCTRL       */
+#define _SYSCFG_DMEM0RETNCTRL_RAMRETNCTRL_BLK2TO5          0x0000001EUL                                     /**< Mode BLK2TO5 for SYSCFG_DMEM0RETNCTRL       */
+#define _SYSCFG_DMEM0RETNCTRL_RAMRETNCTRL_BLK1TO5          0x0000001FUL                                     /**< Mode BLK1TO5 for SYSCFG_DMEM0RETNCTRL       */
 #define SYSCFG_DMEM0RETNCTRL_RAMRETNCTRL_DEFAULT           (_SYSCFG_DMEM0RETNCTRL_RAMRETNCTRL_DEFAULT << 0) /**< Shifted mode DEFAULT for SYSCFG_DMEM0RETNCTRL*/
-#define SYSCFG_DMEM0RETNCTRL_RAMRETNCTRL_ALLON             (_SYSCFG_DMEM0RETNCTRL_RAMRETNCTRL_ALLON << 0)   /**< Shifted mode ALLON for SYSCFG_DMEM0RETNCTRL  */
-#define SYSCFG_DMEM0RETNCTRL_RAMRETNCTRL_BLK5              (_SYSCFG_DMEM0RETNCTRL_RAMRETNCTRL_BLK5 << 0)    /**< Shifted mode BLK5 for SYSCFG_DMEM0RETNCTRL   */
+#define SYSCFG_DMEM0RETNCTRL_RAMRETNCTRL_ALLON             (_SYSCFG_DMEM0RETNCTRL_RAMRETNCTRL_ALLON << 0)   /**< Shifted mode ALLON for SYSCFG_DMEM0RETNCTRL */
+#define SYSCFG_DMEM0RETNCTRL_RAMRETNCTRL_BLK5              (_SYSCFG_DMEM0RETNCTRL_RAMRETNCTRL_BLK5 << 0)    /**< Shifted mode BLK5 for SYSCFG_DMEM0RETNCTRL  */
 #define SYSCFG_DMEM0RETNCTRL_RAMRETNCTRL_BLK4TO5           (_SYSCFG_DMEM0RETNCTRL_RAMRETNCTRL_BLK4TO5 << 0) /**< Shifted mode BLK4TO5 for SYSCFG_DMEM0RETNCTRL*/
 #define SYSCFG_DMEM0RETNCTRL_RAMRETNCTRL_BLK3TO5           (_SYSCFG_DMEM0RETNCTRL_RAMRETNCTRL_BLK3TO5 << 0) /**< Shifted mode BLK3TO5 for SYSCFG_DMEM0RETNCTRL*/
 #define SYSCFG_DMEM0RETNCTRL_RAMRETNCTRL_BLK2TO5           (_SYSCFG_DMEM0RETNCTRL_RAMRETNCTRL_BLK2TO5 << 0) /**< Shifted mode BLK2TO5 for SYSCFG_DMEM0RETNCTRL*/
@@ -372,8 +371,8 @@ typedef struct {
 #define _SYSCFG_RADIORAMRETNCTRL_SEQRAMRETNCTRL_SHIFT      0                                                      /**< Shift value for SYSCFG_SEQRAMRETNCTRL       */
 #define _SYSCFG_RADIORAMRETNCTRL_SEQRAMRETNCTRL_MASK       0x1UL                                                  /**< Bit mask for SYSCFG_SEQRAMRETNCTRL          */
 #define _SYSCFG_RADIORAMRETNCTRL_SEQRAMRETNCTRL_DEFAULT    0x00000000UL                                           /**< Mode DEFAULT for SYSCFG_RADIORAMRETNCTRL    */
-#define _SYSCFG_RADIORAMRETNCTRL_SEQRAMRETNCTRL_ALLON      0x00000000UL                                           /**< Mode ALLON for SYSCFG_RADIORAMRETNCTRL       */
-#define _SYSCFG_RADIORAMRETNCTRL_SEQRAMRETNCTRL_SEQBLK     0x00000001UL                                           /**< Mode SEQBLK for SYSCFG_RADIORAMRETNCTRL      */
+#define _SYSCFG_RADIORAMRETNCTRL_SEQRAMRETNCTRL_ALLON      0x00000000UL                                           /**< Mode ALLON for SYSCFG_RADIORAMRETNCTRL      */
+#define _SYSCFG_RADIORAMRETNCTRL_SEQRAMRETNCTRL_SEQBLK     0x00000001UL                                           /**< Mode SEQBLK for SYSCFG_RADIORAMRETNCTRL     */
 #define SYSCFG_RADIORAMRETNCTRL_SEQRAMRETNCTRL_DEFAULT     (_SYSCFG_RADIORAMRETNCTRL_SEQRAMRETNCTRL_DEFAULT << 0) /**< Shifted mode DEFAULT for SYSCFG_RADIORAMRETNCTRL*/
 #define SYSCFG_RADIORAMRETNCTRL_SEQRAMRETNCTRL_ALLON       (_SYSCFG_RADIORAMRETNCTRL_SEQRAMRETNCTRL_ALLON << 0)   /**< Shifted mode ALLON for SYSCFG_RADIORAMRETNCTRL*/
 #define SYSCFG_RADIORAMRETNCTRL_SEQRAMRETNCTRL_SEQBLK      (_SYSCFG_RADIORAMRETNCTRL_SEQRAMRETNCTRL_SEQBLK << 0)  /**< Shifted mode SEQBLK for SYSCFG_RADIORAMRETNCTRL*/
@@ -381,8 +380,8 @@ typedef struct {
 #define _SYSCFG_RADIORAMRETNCTRL_FRCRAMRETNCTRL_SHIFT      8                                                      /**< Shift value for SYSCFG_FRCRAMRETNCTRL       */
 #define _SYSCFG_RADIORAMRETNCTRL_FRCRAMRETNCTRL_MASK       0x100UL                                                /**< Bit mask for SYSCFG_FRCRAMRETNCTRL          */
 #define _SYSCFG_RADIORAMRETNCTRL_FRCRAMRETNCTRL_DEFAULT    0x00000000UL                                           /**< Mode DEFAULT for SYSCFG_RADIORAMRETNCTRL    */
-#define _SYSCFG_RADIORAMRETNCTRL_FRCRAMRETNCTRL_ALLON      0x00000000UL                                           /**< Mode ALLON for SYSCFG_RADIORAMRETNCTRL       */
-#define _SYSCFG_RADIORAMRETNCTRL_FRCRAMRETNCTRL_FRCBLK     0x00000001UL                                           /**< Mode FRCBLK for SYSCFG_RADIORAMRETNCTRL      */
+#define _SYSCFG_RADIORAMRETNCTRL_FRCRAMRETNCTRL_ALLON      0x00000000UL                                           /**< Mode ALLON for SYSCFG_RADIORAMRETNCTRL      */
+#define _SYSCFG_RADIORAMRETNCTRL_FRCRAMRETNCTRL_FRCBLK     0x00000001UL                                           /**< Mode FRCBLK for SYSCFG_RADIORAMRETNCTRL     */
 #define SYSCFG_RADIORAMRETNCTRL_FRCRAMRETNCTRL_DEFAULT     (_SYSCFG_RADIORAMRETNCTRL_FRCRAMRETNCTRL_DEFAULT << 8) /**< Shifted mode DEFAULT for SYSCFG_RADIORAMRETNCTRL*/
 #define SYSCFG_RADIORAMRETNCTRL_FRCRAMRETNCTRL_ALLON       (_SYSCFG_RADIORAMRETNCTRL_FRCRAMRETNCTRL_ALLON << 8)   /**< Shifted mode ALLON for SYSCFG_RADIORAMRETNCTRL*/
 #define SYSCFG_RADIORAMRETNCTRL_FRCRAMRETNCTRL_FRCBLK      (_SYSCFG_RADIORAMRETNCTRL_FRCRAMRETNCTRL_FRCBLK << 8)  /**< Shifted mode FRCBLK for SYSCFG_RADIORAMRETNCTRL*/

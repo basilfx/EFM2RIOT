@@ -1,10 +1,9 @@
 /**************************************************************************//**
  * @file
  * @brief EFR32MG21 I2C register and bit field definitions
- * @version 5.7.0
  ******************************************************************************
  * # License
- * <b>Copyright 2018 Silicon Laboratories, Inc. www.silabs.com</b>
+ * <b>Copyright 2020 Silicon Laboratories, Inc. www.silabs.com</b>
  ******************************************************************************
  *
  * SPDX-License-Identifier: Zlib
@@ -66,7 +65,7 @@ typedef struct {
   __IOM uint32_t TXDOUBLE;                      /**< Transmit Buffer Double Data Register               */
   __IOM uint32_t IF;                            /**< Interrupt Flag Register                            */
   __IOM uint32_t IEN;                           /**< Interrupt Enable Register                          */
-  uint32_t       RESERVED0[1007U];              /**< Reserved for future use*/
+  uint32_t       RESERVED0[1007U];              /**< Reserved for future use                            */
   __IM uint32_t  IPVERSION_SET;                 /**< IP VERSION Register                                */
   __IOM uint32_t EN_SET;                        /**< Enable Register                                    */
   __IOM uint32_t CTRL_SET;                      /**< Control Register                                   */
@@ -84,7 +83,7 @@ typedef struct {
   __IOM uint32_t TXDOUBLE_SET;                  /**< Transmit Buffer Double Data Register               */
   __IOM uint32_t IF_SET;                        /**< Interrupt Flag Register                            */
   __IOM uint32_t IEN_SET;                       /**< Interrupt Enable Register                          */
-  uint32_t       RESERVED1[1007U];              /**< Reserved for future use*/
+  uint32_t       RESERVED1[1007U];              /**< Reserved for future use                            */
   __IM uint32_t  IPVERSION_CLR;                 /**< IP VERSION Register                                */
   __IOM uint32_t EN_CLR;                        /**< Enable Register                                    */
   __IOM uint32_t CTRL_CLR;                      /**< Control Register                                   */
@@ -102,7 +101,7 @@ typedef struct {
   __IOM uint32_t TXDOUBLE_CLR;                  /**< Transmit Buffer Double Data Register               */
   __IOM uint32_t IF_CLR;                        /**< Interrupt Flag Register                            */
   __IOM uint32_t IEN_CLR;                       /**< Interrupt Enable Register                          */
-  uint32_t       RESERVED2[1007U];              /**< Reserved for future use*/
+  uint32_t       RESERVED2[1007U];              /**< Reserved for future use                            */
   __IM uint32_t  IPVERSION_TGL;                 /**< IP VERSION Register                                */
   __IOM uint32_t EN_TGL;                        /**< Enable Register                                    */
   __IOM uint32_t CTRL_TGL;                      /**< Control Register                                   */
@@ -145,11 +144,11 @@ typedef struct {
 #define _I2C_EN_EN_SHIFT                    0                                           /**< Shift value for I2C_EN                      */
 #define _I2C_EN_EN_MASK                     0x1UL                                       /**< Bit mask for I2C_EN                         */
 #define _I2C_EN_EN_DEFAULT                  0x00000000UL                                /**< Mode DEFAULT for I2C_EN                     */
-#define _I2C_EN_EN_DISABLE                  0x00000000UL                                /**< Mode DISABLE for I2C_EN                      */
-#define _I2C_EN_EN_ENABLE                   0x00000001UL                                /**< Mode ENABLE for I2C_EN                       */
+#define _I2C_EN_EN_DISABLE                  0x00000000UL                                /**< Mode DISABLE for I2C_EN                     */
+#define _I2C_EN_EN_ENABLE                   0x00000001UL                                /**< Mode ENABLE for I2C_EN                      */
 #define I2C_EN_EN_DEFAULT                   (_I2C_EN_EN_DEFAULT << 0)                   /**< Shifted mode DEFAULT for I2C_EN             */
-#define I2C_EN_EN_DISABLE                   (_I2C_EN_EN_DISABLE << 0)                   /**< Shifted mode DISABLE for I2C_EN              */
-#define I2C_EN_EN_ENABLE                    (_I2C_EN_EN_ENABLE << 0)                    /**< Shifted mode ENABLE for I2C_EN               */
+#define I2C_EN_EN_DISABLE                   (_I2C_EN_EN_DISABLE << 0)                   /**< Shifted mode DISABLE for I2C_EN             */
+#define I2C_EN_EN_ENABLE                    (_I2C_EN_EN_ENABLE << 0)                    /**< Shifted mode ENABLE for I2C_EN              */
 
 /* Bit fields for I2C CTRL */
 #define _I2C_CTRL_RESETVALUE                0x00000000UL                                /**< Default value for I2C_CTRL                  */
@@ -158,139 +157,139 @@ typedef struct {
 #define _I2C_CTRL_CORERST_SHIFT             0                                           /**< Shift value for I2C_CORERST                 */
 #define _I2C_CTRL_CORERST_MASK              0x1UL                                       /**< Bit mask for I2C_CORERST                    */
 #define _I2C_CTRL_CORERST_DEFAULT           0x00000000UL                                /**< Mode DEFAULT for I2C_CTRL                   */
-#define _I2C_CTRL_CORERST_DISABLE           0x00000000UL                                /**< Mode DISABLE for I2C_CTRL                    */
-#define _I2C_CTRL_CORERST_ENABLE            0x00000001UL                                /**< Mode ENABLE for I2C_CTRL                     */
+#define _I2C_CTRL_CORERST_DISABLE           0x00000000UL                                /**< Mode DISABLE for I2C_CTRL                   */
+#define _I2C_CTRL_CORERST_ENABLE            0x00000001UL                                /**< Mode ENABLE for I2C_CTRL                    */
 #define I2C_CTRL_CORERST_DEFAULT            (_I2C_CTRL_CORERST_DEFAULT << 0)            /**< Shifted mode DEFAULT for I2C_CTRL           */
-#define I2C_CTRL_CORERST_DISABLE            (_I2C_CTRL_CORERST_DISABLE << 0)            /**< Shifted mode DISABLE for I2C_CTRL            */
-#define I2C_CTRL_CORERST_ENABLE             (_I2C_CTRL_CORERST_ENABLE << 0)             /**< Shifted mode ENABLE for I2C_CTRL             */
+#define I2C_CTRL_CORERST_DISABLE            (_I2C_CTRL_CORERST_DISABLE << 0)            /**< Shifted mode DISABLE for I2C_CTRL           */
+#define I2C_CTRL_CORERST_ENABLE             (_I2C_CTRL_CORERST_ENABLE << 0)             /**< Shifted mode ENABLE for I2C_CTRL            */
 #define I2C_CTRL_SLAVE                      (0x1UL << 1)                                /**< Addressable as Slave                        */
 #define _I2C_CTRL_SLAVE_SHIFT               1                                           /**< Shift value for I2C_SLAVE                   */
 #define _I2C_CTRL_SLAVE_MASK                0x2UL                                       /**< Bit mask for I2C_SLAVE                      */
 #define _I2C_CTRL_SLAVE_DEFAULT             0x00000000UL                                /**< Mode DEFAULT for I2C_CTRL                   */
-#define _I2C_CTRL_SLAVE_DISABLE             0x00000000UL                                /**< Mode DISABLE for I2C_CTRL                    */
-#define _I2C_CTRL_SLAVE_ENABLE              0x00000001UL                                /**< Mode ENABLE for I2C_CTRL                     */
+#define _I2C_CTRL_SLAVE_DISABLE             0x00000000UL                                /**< Mode DISABLE for I2C_CTRL                   */
+#define _I2C_CTRL_SLAVE_ENABLE              0x00000001UL                                /**< Mode ENABLE for I2C_CTRL                    */
 #define I2C_CTRL_SLAVE_DEFAULT              (_I2C_CTRL_SLAVE_DEFAULT << 1)              /**< Shifted mode DEFAULT for I2C_CTRL           */
-#define I2C_CTRL_SLAVE_DISABLE              (_I2C_CTRL_SLAVE_DISABLE << 1)              /**< Shifted mode DISABLE for I2C_CTRL            */
-#define I2C_CTRL_SLAVE_ENABLE               (_I2C_CTRL_SLAVE_ENABLE << 1)               /**< Shifted mode ENABLE for I2C_CTRL             */
+#define I2C_CTRL_SLAVE_DISABLE              (_I2C_CTRL_SLAVE_DISABLE << 1)              /**< Shifted mode DISABLE for I2C_CTRL           */
+#define I2C_CTRL_SLAVE_ENABLE               (_I2C_CTRL_SLAVE_ENABLE << 1)               /**< Shifted mode ENABLE for I2C_CTRL            */
 #define I2C_CTRL_AUTOACK                    (0x1UL << 2)                                /**< Automatic Acknowledge                       */
 #define _I2C_CTRL_AUTOACK_SHIFT             2                                           /**< Shift value for I2C_AUTOACK                 */
 #define _I2C_CTRL_AUTOACK_MASK              0x4UL                                       /**< Bit mask for I2C_AUTOACK                    */
 #define _I2C_CTRL_AUTOACK_DEFAULT           0x00000000UL                                /**< Mode DEFAULT for I2C_CTRL                   */
-#define _I2C_CTRL_AUTOACK_DISABLE           0x00000000UL                                /**< Mode DISABLE for I2C_CTRL                    */
-#define _I2C_CTRL_AUTOACK_ENABLE            0x00000001UL                                /**< Mode ENABLE for I2C_CTRL                     */
+#define _I2C_CTRL_AUTOACK_DISABLE           0x00000000UL                                /**< Mode DISABLE for I2C_CTRL                   */
+#define _I2C_CTRL_AUTOACK_ENABLE            0x00000001UL                                /**< Mode ENABLE for I2C_CTRL                    */
 #define I2C_CTRL_AUTOACK_DEFAULT            (_I2C_CTRL_AUTOACK_DEFAULT << 2)            /**< Shifted mode DEFAULT for I2C_CTRL           */
-#define I2C_CTRL_AUTOACK_DISABLE            (_I2C_CTRL_AUTOACK_DISABLE << 2)            /**< Shifted mode DISABLE for I2C_CTRL            */
-#define I2C_CTRL_AUTOACK_ENABLE             (_I2C_CTRL_AUTOACK_ENABLE << 2)             /**< Shifted mode ENABLE for I2C_CTRL             */
+#define I2C_CTRL_AUTOACK_DISABLE            (_I2C_CTRL_AUTOACK_DISABLE << 2)            /**< Shifted mode DISABLE for I2C_CTRL           */
+#define I2C_CTRL_AUTOACK_ENABLE             (_I2C_CTRL_AUTOACK_ENABLE << 2)             /**< Shifted mode ENABLE for I2C_CTRL            */
 #define I2C_CTRL_AUTOSE                     (0x1UL << 3)                                /**< Automatic STOP when Empty                   */
 #define _I2C_CTRL_AUTOSE_SHIFT              3                                           /**< Shift value for I2C_AUTOSE                  */
 #define _I2C_CTRL_AUTOSE_MASK               0x8UL                                       /**< Bit mask for I2C_AUTOSE                     */
 #define _I2C_CTRL_AUTOSE_DEFAULT            0x00000000UL                                /**< Mode DEFAULT for I2C_CTRL                   */
-#define _I2C_CTRL_AUTOSE_DISABLE            0x00000000UL                                /**< Mode DISABLE for I2C_CTRL                    */
-#define _I2C_CTRL_AUTOSE_ENABLE             0x00000001UL                                /**< Mode ENABLE for I2C_CTRL                     */
+#define _I2C_CTRL_AUTOSE_DISABLE            0x00000000UL                                /**< Mode DISABLE for I2C_CTRL                   */
+#define _I2C_CTRL_AUTOSE_ENABLE             0x00000001UL                                /**< Mode ENABLE for I2C_CTRL                    */
 #define I2C_CTRL_AUTOSE_DEFAULT             (_I2C_CTRL_AUTOSE_DEFAULT << 3)             /**< Shifted mode DEFAULT for I2C_CTRL           */
-#define I2C_CTRL_AUTOSE_DISABLE             (_I2C_CTRL_AUTOSE_DISABLE << 3)             /**< Shifted mode DISABLE for I2C_CTRL            */
-#define I2C_CTRL_AUTOSE_ENABLE              (_I2C_CTRL_AUTOSE_ENABLE << 3)              /**< Shifted mode ENABLE for I2C_CTRL             */
+#define I2C_CTRL_AUTOSE_DISABLE             (_I2C_CTRL_AUTOSE_DISABLE << 3)             /**< Shifted mode DISABLE for I2C_CTRL           */
+#define I2C_CTRL_AUTOSE_ENABLE              (_I2C_CTRL_AUTOSE_ENABLE << 3)              /**< Shifted mode ENABLE for I2C_CTRL            */
 #define I2C_CTRL_AUTOSN                     (0x1UL << 4)                                /**< Automatic STOP on NACK                      */
 #define _I2C_CTRL_AUTOSN_SHIFT              4                                           /**< Shift value for I2C_AUTOSN                  */
 #define _I2C_CTRL_AUTOSN_MASK               0x10UL                                      /**< Bit mask for I2C_AUTOSN                     */
 #define _I2C_CTRL_AUTOSN_DEFAULT            0x00000000UL                                /**< Mode DEFAULT for I2C_CTRL                   */
-#define _I2C_CTRL_AUTOSN_DISABLE            0x00000000UL                                /**< Mode DISABLE for I2C_CTRL                    */
-#define _I2C_CTRL_AUTOSN_ENABLE             0x00000001UL                                /**< Mode ENABLE for I2C_CTRL                     */
+#define _I2C_CTRL_AUTOSN_DISABLE            0x00000000UL                                /**< Mode DISABLE for I2C_CTRL                   */
+#define _I2C_CTRL_AUTOSN_ENABLE             0x00000001UL                                /**< Mode ENABLE for I2C_CTRL                    */
 #define I2C_CTRL_AUTOSN_DEFAULT             (_I2C_CTRL_AUTOSN_DEFAULT << 4)             /**< Shifted mode DEFAULT for I2C_CTRL           */
-#define I2C_CTRL_AUTOSN_DISABLE             (_I2C_CTRL_AUTOSN_DISABLE << 4)             /**< Shifted mode DISABLE for I2C_CTRL            */
-#define I2C_CTRL_AUTOSN_ENABLE              (_I2C_CTRL_AUTOSN_ENABLE << 4)              /**< Shifted mode ENABLE for I2C_CTRL             */
+#define I2C_CTRL_AUTOSN_DISABLE             (_I2C_CTRL_AUTOSN_DISABLE << 4)             /**< Shifted mode DISABLE for I2C_CTRL           */
+#define I2C_CTRL_AUTOSN_ENABLE              (_I2C_CTRL_AUTOSN_ENABLE << 4)              /**< Shifted mode ENABLE for I2C_CTRL            */
 #define I2C_CTRL_ARBDIS                     (0x1UL << 5)                                /**< Arbitration Disable                         */
 #define _I2C_CTRL_ARBDIS_SHIFT              5                                           /**< Shift value for I2C_ARBDIS                  */
 #define _I2C_CTRL_ARBDIS_MASK               0x20UL                                      /**< Bit mask for I2C_ARBDIS                     */
 #define _I2C_CTRL_ARBDIS_DEFAULT            0x00000000UL                                /**< Mode DEFAULT for I2C_CTRL                   */
-#define _I2C_CTRL_ARBDIS_DISABLE            0x00000000UL                                /**< Mode DISABLE for I2C_CTRL                    */
-#define _I2C_CTRL_ARBDIS_ENABLE             0x00000001UL                                /**< Mode ENABLE for I2C_CTRL                     */
+#define _I2C_CTRL_ARBDIS_DISABLE            0x00000000UL                                /**< Mode DISABLE for I2C_CTRL                   */
+#define _I2C_CTRL_ARBDIS_ENABLE             0x00000001UL                                /**< Mode ENABLE for I2C_CTRL                    */
 #define I2C_CTRL_ARBDIS_DEFAULT             (_I2C_CTRL_ARBDIS_DEFAULT << 5)             /**< Shifted mode DEFAULT for I2C_CTRL           */
-#define I2C_CTRL_ARBDIS_DISABLE             (_I2C_CTRL_ARBDIS_DISABLE << 5)             /**< Shifted mode DISABLE for I2C_CTRL            */
-#define I2C_CTRL_ARBDIS_ENABLE              (_I2C_CTRL_ARBDIS_ENABLE << 5)              /**< Shifted mode ENABLE for I2C_CTRL             */
+#define I2C_CTRL_ARBDIS_DISABLE             (_I2C_CTRL_ARBDIS_DISABLE << 5)             /**< Shifted mode DISABLE for I2C_CTRL           */
+#define I2C_CTRL_ARBDIS_ENABLE              (_I2C_CTRL_ARBDIS_ENABLE << 5)              /**< Shifted mode ENABLE for I2C_CTRL            */
 #define I2C_CTRL_GCAMEN                     (0x1UL << 6)                                /**< General Call Address Match Enable           */
 #define _I2C_CTRL_GCAMEN_SHIFT              6                                           /**< Shift value for I2C_GCAMEN                  */
 #define _I2C_CTRL_GCAMEN_MASK               0x40UL                                      /**< Bit mask for I2C_GCAMEN                     */
 #define _I2C_CTRL_GCAMEN_DEFAULT            0x00000000UL                                /**< Mode DEFAULT for I2C_CTRL                   */
-#define _I2C_CTRL_GCAMEN_DISABLE            0x00000000UL                                /**< Mode DISABLE for I2C_CTRL                    */
-#define _I2C_CTRL_GCAMEN_ENABLE             0x00000001UL                                /**< Mode ENABLE for I2C_CTRL                     */
+#define _I2C_CTRL_GCAMEN_DISABLE            0x00000000UL                                /**< Mode DISABLE for I2C_CTRL                   */
+#define _I2C_CTRL_GCAMEN_ENABLE             0x00000001UL                                /**< Mode ENABLE for I2C_CTRL                    */
 #define I2C_CTRL_GCAMEN_DEFAULT             (_I2C_CTRL_GCAMEN_DEFAULT << 6)             /**< Shifted mode DEFAULT for I2C_CTRL           */
-#define I2C_CTRL_GCAMEN_DISABLE             (_I2C_CTRL_GCAMEN_DISABLE << 6)             /**< Shifted mode DISABLE for I2C_CTRL            */
-#define I2C_CTRL_GCAMEN_ENABLE              (_I2C_CTRL_GCAMEN_ENABLE << 6)              /**< Shifted mode ENABLE for I2C_CTRL             */
+#define I2C_CTRL_GCAMEN_DISABLE             (_I2C_CTRL_GCAMEN_DISABLE << 6)             /**< Shifted mode DISABLE for I2C_CTRL           */
+#define I2C_CTRL_GCAMEN_ENABLE              (_I2C_CTRL_GCAMEN_ENABLE << 6)              /**< Shifted mode ENABLE for I2C_CTRL            */
 #define I2C_CTRL_TXBIL                      (0x1UL << 7)                                /**< TX Buffer Interrupt Level                   */
 #define _I2C_CTRL_TXBIL_SHIFT               7                                           /**< Shift value for I2C_TXBIL                   */
 #define _I2C_CTRL_TXBIL_MASK                0x80UL                                      /**< Bit mask for I2C_TXBIL                      */
 #define _I2C_CTRL_TXBIL_DEFAULT             0x00000000UL                                /**< Mode DEFAULT for I2C_CTRL                   */
-#define _I2C_CTRL_TXBIL_EMPTY               0x00000000UL                                /**< Mode EMPTY for I2C_CTRL                      */
-#define _I2C_CTRL_TXBIL_HALF_FULL           0x00000001UL                                /**< Mode HALF_FULL for I2C_CTRL                  */
+#define _I2C_CTRL_TXBIL_EMPTY               0x00000000UL                                /**< Mode EMPTY for I2C_CTRL                     */
+#define _I2C_CTRL_TXBIL_HALF_FULL           0x00000001UL                                /**< Mode HALF_FULL for I2C_CTRL                 */
 #define I2C_CTRL_TXBIL_DEFAULT              (_I2C_CTRL_TXBIL_DEFAULT << 7)              /**< Shifted mode DEFAULT for I2C_CTRL           */
-#define I2C_CTRL_TXBIL_EMPTY                (_I2C_CTRL_TXBIL_EMPTY << 7)                /**< Shifted mode EMPTY for I2C_CTRL              */
-#define I2C_CTRL_TXBIL_HALF_FULL            (_I2C_CTRL_TXBIL_HALF_FULL << 7)            /**< Shifted mode HALF_FULL for I2C_CTRL          */
+#define I2C_CTRL_TXBIL_EMPTY                (_I2C_CTRL_TXBIL_EMPTY << 7)                /**< Shifted mode EMPTY for I2C_CTRL             */
+#define I2C_CTRL_TXBIL_HALF_FULL            (_I2C_CTRL_TXBIL_HALF_FULL << 7)            /**< Shifted mode HALF_FULL for I2C_CTRL         */
 #define _I2C_CTRL_CLHR_SHIFT                8                                           /**< Shift value for I2C_CLHR                    */
 #define _I2C_CTRL_CLHR_MASK                 0x300UL                                     /**< Bit mask for I2C_CLHR                       */
 #define _I2C_CTRL_CLHR_DEFAULT              0x00000000UL                                /**< Mode DEFAULT for I2C_CTRL                   */
-#define _I2C_CTRL_CLHR_STANDARD             0x00000000UL                                /**< Mode STANDARD for I2C_CTRL                   */
-#define _I2C_CTRL_CLHR_ASYMMETRIC           0x00000001UL                                /**< Mode ASYMMETRIC for I2C_CTRL                 */
-#define _I2C_CTRL_CLHR_FAST                 0x00000002UL                                /**< Mode FAST for I2C_CTRL                       */
+#define _I2C_CTRL_CLHR_STANDARD             0x00000000UL                                /**< Mode STANDARD for I2C_CTRL                  */
+#define _I2C_CTRL_CLHR_ASYMMETRIC           0x00000001UL                                /**< Mode ASYMMETRIC for I2C_CTRL                */
+#define _I2C_CTRL_CLHR_FAST                 0x00000002UL                                /**< Mode FAST for I2C_CTRL                      */
 #define I2C_CTRL_CLHR_DEFAULT               (_I2C_CTRL_CLHR_DEFAULT << 8)               /**< Shifted mode DEFAULT for I2C_CTRL           */
-#define I2C_CTRL_CLHR_STANDARD              (_I2C_CTRL_CLHR_STANDARD << 8)              /**< Shifted mode STANDARD for I2C_CTRL           */
-#define I2C_CTRL_CLHR_ASYMMETRIC            (_I2C_CTRL_CLHR_ASYMMETRIC << 8)            /**< Shifted mode ASYMMETRIC for I2C_CTRL         */
-#define I2C_CTRL_CLHR_FAST                  (_I2C_CTRL_CLHR_FAST << 8)                  /**< Shifted mode FAST for I2C_CTRL               */
+#define I2C_CTRL_CLHR_STANDARD              (_I2C_CTRL_CLHR_STANDARD << 8)              /**< Shifted mode STANDARD for I2C_CTRL          */
+#define I2C_CTRL_CLHR_ASYMMETRIC            (_I2C_CTRL_CLHR_ASYMMETRIC << 8)            /**< Shifted mode ASYMMETRIC for I2C_CTRL        */
+#define I2C_CTRL_CLHR_FAST                  (_I2C_CTRL_CLHR_FAST << 8)                  /**< Shifted mode FAST for I2C_CTRL              */
 #define _I2C_CTRL_BITO_SHIFT                12                                          /**< Shift value for I2C_BITO                    */
 #define _I2C_CTRL_BITO_MASK                 0x3000UL                                    /**< Bit mask for I2C_BITO                       */
 #define _I2C_CTRL_BITO_DEFAULT              0x00000000UL                                /**< Mode DEFAULT for I2C_CTRL                   */
-#define _I2C_CTRL_BITO_OFF                  0x00000000UL                                /**< Mode OFF for I2C_CTRL                        */
-#define _I2C_CTRL_BITO_I2C40PCC             0x00000001UL                                /**< Mode I2C40PCC for I2C_CTRL                   */
-#define _I2C_CTRL_BITO_I2C80PCC             0x00000002UL                                /**< Mode I2C80PCC for I2C_CTRL                   */
-#define _I2C_CTRL_BITO_I2C160PCC            0x00000003UL                                /**< Mode I2C160PCC for I2C_CTRL                  */
+#define _I2C_CTRL_BITO_OFF                  0x00000000UL                                /**< Mode OFF for I2C_CTRL                       */
+#define _I2C_CTRL_BITO_I2C40PCC             0x00000001UL                                /**< Mode I2C40PCC for I2C_CTRL                  */
+#define _I2C_CTRL_BITO_I2C80PCC             0x00000002UL                                /**< Mode I2C80PCC for I2C_CTRL                  */
+#define _I2C_CTRL_BITO_I2C160PCC            0x00000003UL                                /**< Mode I2C160PCC for I2C_CTRL                 */
 #define I2C_CTRL_BITO_DEFAULT               (_I2C_CTRL_BITO_DEFAULT << 12)              /**< Shifted mode DEFAULT for I2C_CTRL           */
-#define I2C_CTRL_BITO_OFF                   (_I2C_CTRL_BITO_OFF << 12)                  /**< Shifted mode OFF for I2C_CTRL                */
-#define I2C_CTRL_BITO_I2C40PCC              (_I2C_CTRL_BITO_I2C40PCC << 12)             /**< Shifted mode I2C40PCC for I2C_CTRL           */
-#define I2C_CTRL_BITO_I2C80PCC              (_I2C_CTRL_BITO_I2C80PCC << 12)             /**< Shifted mode I2C80PCC for I2C_CTRL           */
-#define I2C_CTRL_BITO_I2C160PCC             (_I2C_CTRL_BITO_I2C160PCC << 12)            /**< Shifted mode I2C160PCC for I2C_CTRL          */
+#define I2C_CTRL_BITO_OFF                   (_I2C_CTRL_BITO_OFF << 12)                  /**< Shifted mode OFF for I2C_CTRL               */
+#define I2C_CTRL_BITO_I2C40PCC              (_I2C_CTRL_BITO_I2C40PCC << 12)             /**< Shifted mode I2C40PCC for I2C_CTRL          */
+#define I2C_CTRL_BITO_I2C80PCC              (_I2C_CTRL_BITO_I2C80PCC << 12)             /**< Shifted mode I2C80PCC for I2C_CTRL          */
+#define I2C_CTRL_BITO_I2C160PCC             (_I2C_CTRL_BITO_I2C160PCC << 12)            /**< Shifted mode I2C160PCC for I2C_CTRL         */
 #define I2C_CTRL_GIBITO                     (0x1UL << 15)                               /**< Go Idle on Bus Idle Timeout                 */
 #define _I2C_CTRL_GIBITO_SHIFT              15                                          /**< Shift value for I2C_GIBITO                  */
 #define _I2C_CTRL_GIBITO_MASK               0x8000UL                                    /**< Bit mask for I2C_GIBITO                     */
 #define _I2C_CTRL_GIBITO_DEFAULT            0x00000000UL                                /**< Mode DEFAULT for I2C_CTRL                   */
-#define _I2C_CTRL_GIBITO_DISABLE            0x00000000UL                                /**< Mode DISABLE for I2C_CTRL                    */
-#define _I2C_CTRL_GIBITO_ENABLE             0x00000001UL                                /**< Mode ENABLE for I2C_CTRL                     */
+#define _I2C_CTRL_GIBITO_DISABLE            0x00000000UL                                /**< Mode DISABLE for I2C_CTRL                   */
+#define _I2C_CTRL_GIBITO_ENABLE             0x00000001UL                                /**< Mode ENABLE for I2C_CTRL                    */
 #define I2C_CTRL_GIBITO_DEFAULT             (_I2C_CTRL_GIBITO_DEFAULT << 15)            /**< Shifted mode DEFAULT for I2C_CTRL           */
-#define I2C_CTRL_GIBITO_DISABLE             (_I2C_CTRL_GIBITO_DISABLE << 15)            /**< Shifted mode DISABLE for I2C_CTRL            */
-#define I2C_CTRL_GIBITO_ENABLE              (_I2C_CTRL_GIBITO_ENABLE << 15)             /**< Shifted mode ENABLE for I2C_CTRL             */
+#define I2C_CTRL_GIBITO_DISABLE             (_I2C_CTRL_GIBITO_DISABLE << 15)            /**< Shifted mode DISABLE for I2C_CTRL           */
+#define I2C_CTRL_GIBITO_ENABLE              (_I2C_CTRL_GIBITO_ENABLE << 15)             /**< Shifted mode ENABLE for I2C_CTRL            */
 #define _I2C_CTRL_CLTO_SHIFT                16                                          /**< Shift value for I2C_CLTO                    */
 #define _I2C_CTRL_CLTO_MASK                 0x70000UL                                   /**< Bit mask for I2C_CLTO                       */
 #define _I2C_CTRL_CLTO_DEFAULT              0x00000000UL                                /**< Mode DEFAULT for I2C_CTRL                   */
-#define _I2C_CTRL_CLTO_OFF                  0x00000000UL                                /**< Mode OFF for I2C_CTRL                        */
-#define _I2C_CTRL_CLTO_I2C40PCC             0x00000001UL                                /**< Mode I2C40PCC for I2C_CTRL                   */
-#define _I2C_CTRL_CLTO_I2C80PCC             0x00000002UL                                /**< Mode I2C80PCC for I2C_CTRL                   */
-#define _I2C_CTRL_CLTO_I2C160PCC            0x00000003UL                                /**< Mode I2C160PCC for I2C_CTRL                  */
-#define _I2C_CTRL_CLTO_I2C320PCC            0x00000004UL                                /**< Mode I2C320PCC for I2C_CTRL                  */
-#define _I2C_CTRL_CLTO_I2C1024PCC           0x00000005UL                                /**< Mode I2C1024PCC for I2C_CTRL                 */
+#define _I2C_CTRL_CLTO_OFF                  0x00000000UL                                /**< Mode OFF for I2C_CTRL                       */
+#define _I2C_CTRL_CLTO_I2C40PCC             0x00000001UL                                /**< Mode I2C40PCC for I2C_CTRL                  */
+#define _I2C_CTRL_CLTO_I2C80PCC             0x00000002UL                                /**< Mode I2C80PCC for I2C_CTRL                  */
+#define _I2C_CTRL_CLTO_I2C160PCC            0x00000003UL                                /**< Mode I2C160PCC for I2C_CTRL                 */
+#define _I2C_CTRL_CLTO_I2C320PCC            0x00000004UL                                /**< Mode I2C320PCC for I2C_CTRL                 */
+#define _I2C_CTRL_CLTO_I2C1024PCC           0x00000005UL                                /**< Mode I2C1024PCC for I2C_CTRL                */
 #define I2C_CTRL_CLTO_DEFAULT               (_I2C_CTRL_CLTO_DEFAULT << 16)              /**< Shifted mode DEFAULT for I2C_CTRL           */
-#define I2C_CTRL_CLTO_OFF                   (_I2C_CTRL_CLTO_OFF << 16)                  /**< Shifted mode OFF for I2C_CTRL                */
-#define I2C_CTRL_CLTO_I2C40PCC              (_I2C_CTRL_CLTO_I2C40PCC << 16)             /**< Shifted mode I2C40PCC for I2C_CTRL           */
-#define I2C_CTRL_CLTO_I2C80PCC              (_I2C_CTRL_CLTO_I2C80PCC << 16)             /**< Shifted mode I2C80PCC for I2C_CTRL           */
-#define I2C_CTRL_CLTO_I2C160PCC             (_I2C_CTRL_CLTO_I2C160PCC << 16)            /**< Shifted mode I2C160PCC for I2C_CTRL          */
-#define I2C_CTRL_CLTO_I2C320PCC             (_I2C_CTRL_CLTO_I2C320PCC << 16)            /**< Shifted mode I2C320PCC for I2C_CTRL          */
-#define I2C_CTRL_CLTO_I2C1024PCC            (_I2C_CTRL_CLTO_I2C1024PCC << 16)           /**< Shifted mode I2C1024PCC for I2C_CTRL         */
+#define I2C_CTRL_CLTO_OFF                   (_I2C_CTRL_CLTO_OFF << 16)                  /**< Shifted mode OFF for I2C_CTRL               */
+#define I2C_CTRL_CLTO_I2C40PCC              (_I2C_CTRL_CLTO_I2C40PCC << 16)             /**< Shifted mode I2C40PCC for I2C_CTRL          */
+#define I2C_CTRL_CLTO_I2C80PCC              (_I2C_CTRL_CLTO_I2C80PCC << 16)             /**< Shifted mode I2C80PCC for I2C_CTRL          */
+#define I2C_CTRL_CLTO_I2C160PCC             (_I2C_CTRL_CLTO_I2C160PCC << 16)            /**< Shifted mode I2C160PCC for I2C_CTRL         */
+#define I2C_CTRL_CLTO_I2C320PCC             (_I2C_CTRL_CLTO_I2C320PCC << 16)            /**< Shifted mode I2C320PCC for I2C_CTRL         */
+#define I2C_CTRL_CLTO_I2C1024PCC            (_I2C_CTRL_CLTO_I2C1024PCC << 16)           /**< Shifted mode I2C1024PCC for I2C_CTRL        */
 #define I2C_CTRL_SCLMONEN                   (0x1UL << 20)                               /**< SCL Monitor Enable                          */
 #define _I2C_CTRL_SCLMONEN_SHIFT            20                                          /**< Shift value for I2C_SCLMONEN                */
 #define _I2C_CTRL_SCLMONEN_MASK             0x100000UL                                  /**< Bit mask for I2C_SCLMONEN                   */
 #define _I2C_CTRL_SCLMONEN_DEFAULT          0x00000000UL                                /**< Mode DEFAULT for I2C_CTRL                   */
-#define _I2C_CTRL_SCLMONEN_DISABLE          0x00000000UL                                /**< Mode DISABLE for I2C_CTRL                    */
-#define _I2C_CTRL_SCLMONEN_ENABLE           0x00000001UL                                /**< Mode ENABLE for I2C_CTRL                     */
+#define _I2C_CTRL_SCLMONEN_DISABLE          0x00000000UL                                /**< Mode DISABLE for I2C_CTRL                   */
+#define _I2C_CTRL_SCLMONEN_ENABLE           0x00000001UL                                /**< Mode ENABLE for I2C_CTRL                    */
 #define I2C_CTRL_SCLMONEN_DEFAULT           (_I2C_CTRL_SCLMONEN_DEFAULT << 20)          /**< Shifted mode DEFAULT for I2C_CTRL           */
-#define I2C_CTRL_SCLMONEN_DISABLE           (_I2C_CTRL_SCLMONEN_DISABLE << 20)          /**< Shifted mode DISABLE for I2C_CTRL            */
-#define I2C_CTRL_SCLMONEN_ENABLE            (_I2C_CTRL_SCLMONEN_ENABLE << 20)           /**< Shifted mode ENABLE for I2C_CTRL             */
+#define I2C_CTRL_SCLMONEN_DISABLE           (_I2C_CTRL_SCLMONEN_DISABLE << 20)          /**< Shifted mode DISABLE for I2C_CTRL           */
+#define I2C_CTRL_SCLMONEN_ENABLE            (_I2C_CTRL_SCLMONEN_ENABLE << 20)           /**< Shifted mode ENABLE for I2C_CTRL            */
 #define I2C_CTRL_SDAMONEN                   (0x1UL << 21)                               /**< SDA Monitor Enable                          */
 #define _I2C_CTRL_SDAMONEN_SHIFT            21                                          /**< Shift value for I2C_SDAMONEN                */
 #define _I2C_CTRL_SDAMONEN_MASK             0x200000UL                                  /**< Bit mask for I2C_SDAMONEN                   */
 #define _I2C_CTRL_SDAMONEN_DEFAULT          0x00000000UL                                /**< Mode DEFAULT for I2C_CTRL                   */
-#define _I2C_CTRL_SDAMONEN_DISABLE          0x00000000UL                                /**< Mode DISABLE for I2C_CTRL                    */
-#define _I2C_CTRL_SDAMONEN_ENABLE           0x00000001UL                                /**< Mode ENABLE for I2C_CTRL                     */
+#define _I2C_CTRL_SDAMONEN_DISABLE          0x00000000UL                                /**< Mode DISABLE for I2C_CTRL                   */
+#define _I2C_CTRL_SDAMONEN_ENABLE           0x00000001UL                                /**< Mode ENABLE for I2C_CTRL                    */
 #define I2C_CTRL_SDAMONEN_DEFAULT           (_I2C_CTRL_SDAMONEN_DEFAULT << 21)          /**< Shifted mode DEFAULT for I2C_CTRL           */
-#define I2C_CTRL_SDAMONEN_DISABLE           (_I2C_CTRL_SDAMONEN_DISABLE << 21)          /**< Shifted mode DISABLE for I2C_CTRL            */
-#define I2C_CTRL_SDAMONEN_ENABLE            (_I2C_CTRL_SDAMONEN_ENABLE << 21)           /**< Shifted mode ENABLE for I2C_CTRL             */
+#define I2C_CTRL_SDAMONEN_DISABLE           (_I2C_CTRL_SDAMONEN_DISABLE << 21)          /**< Shifted mode DISABLE for I2C_CTRL           */
+#define I2C_CTRL_SDAMONEN_ENABLE            (_I2C_CTRL_SDAMONEN_ENABLE << 21)           /**< Shifted mode ENABLE for I2C_CTRL            */
 
 /* Bit fields for I2C CMD */
 #define _I2C_CMD_RESETVALUE                 0x00000000UL                                /**< Default value for I2C_CMD                   */
@@ -367,21 +366,21 @@ typedef struct {
 #define _I2C_STATE_STATE_SHIFT              5                                           /**< Shift value for I2C_STATE                   */
 #define _I2C_STATE_STATE_MASK               0xE0UL                                      /**< Bit mask for I2C_STATE                      */
 #define _I2C_STATE_STATE_DEFAULT            0x00000000UL                                /**< Mode DEFAULT for I2C_STATE                  */
-#define _I2C_STATE_STATE_IDLE               0x00000000UL                                /**< Mode IDLE for I2C_STATE                      */
-#define _I2C_STATE_STATE_WAIT               0x00000001UL                                /**< Mode WAIT for I2C_STATE                      */
-#define _I2C_STATE_STATE_START              0x00000002UL                                /**< Mode START for I2C_STATE                     */
-#define _I2C_STATE_STATE_ADDR               0x00000003UL                                /**< Mode ADDR for I2C_STATE                      */
-#define _I2C_STATE_STATE_ADDRACK            0x00000004UL                                /**< Mode ADDRACK for I2C_STATE                   */
-#define _I2C_STATE_STATE_DATA               0x00000005UL                                /**< Mode DATA for I2C_STATE                      */
-#define _I2C_STATE_STATE_DATAACK            0x00000006UL                                /**< Mode DATAACK for I2C_STATE                   */
+#define _I2C_STATE_STATE_IDLE               0x00000000UL                                /**< Mode IDLE for I2C_STATE                     */
+#define _I2C_STATE_STATE_WAIT               0x00000001UL                                /**< Mode WAIT for I2C_STATE                     */
+#define _I2C_STATE_STATE_START              0x00000002UL                                /**< Mode START for I2C_STATE                    */
+#define _I2C_STATE_STATE_ADDR               0x00000003UL                                /**< Mode ADDR for I2C_STATE                     */
+#define _I2C_STATE_STATE_ADDRACK            0x00000004UL                                /**< Mode ADDRACK for I2C_STATE                  */
+#define _I2C_STATE_STATE_DATA               0x00000005UL                                /**< Mode DATA for I2C_STATE                     */
+#define _I2C_STATE_STATE_DATAACK            0x00000006UL                                /**< Mode DATAACK for I2C_STATE                  */
 #define I2C_STATE_STATE_DEFAULT             (_I2C_STATE_STATE_DEFAULT << 5)             /**< Shifted mode DEFAULT for I2C_STATE          */
-#define I2C_STATE_STATE_IDLE                (_I2C_STATE_STATE_IDLE << 5)                /**< Shifted mode IDLE for I2C_STATE              */
-#define I2C_STATE_STATE_WAIT                (_I2C_STATE_STATE_WAIT << 5)                /**< Shifted mode WAIT for I2C_STATE              */
-#define I2C_STATE_STATE_START               (_I2C_STATE_STATE_START << 5)               /**< Shifted mode START for I2C_STATE             */
-#define I2C_STATE_STATE_ADDR                (_I2C_STATE_STATE_ADDR << 5)                /**< Shifted mode ADDR for I2C_STATE              */
-#define I2C_STATE_STATE_ADDRACK             (_I2C_STATE_STATE_ADDRACK << 5)             /**< Shifted mode ADDRACK for I2C_STATE           */
-#define I2C_STATE_STATE_DATA                (_I2C_STATE_STATE_DATA << 5)                /**< Shifted mode DATA for I2C_STATE              */
-#define I2C_STATE_STATE_DATAACK             (_I2C_STATE_STATE_DATAACK << 5)             /**< Shifted mode DATAACK for I2C_STATE           */
+#define I2C_STATE_STATE_IDLE                (_I2C_STATE_STATE_IDLE << 5)                /**< Shifted mode IDLE for I2C_STATE             */
+#define I2C_STATE_STATE_WAIT                (_I2C_STATE_STATE_WAIT << 5)                /**< Shifted mode WAIT for I2C_STATE             */
+#define I2C_STATE_STATE_START               (_I2C_STATE_STATE_START << 5)               /**< Shifted mode START for I2C_STATE            */
+#define I2C_STATE_STATE_ADDR                (_I2C_STATE_STATE_ADDR << 5)                /**< Shifted mode ADDR for I2C_STATE             */
+#define I2C_STATE_STATE_ADDRACK             (_I2C_STATE_STATE_ADDRACK << 5)             /**< Shifted mode ADDRACK for I2C_STATE          */
+#define I2C_STATE_STATE_DATA                (_I2C_STATE_STATE_DATA << 5)                /**< Shifted mode DATA for I2C_STATE             */
+#define I2C_STATE_STATE_DATAACK             (_I2C_STATE_STATE_DATAACK << 5)             /**< Shifted mode DATAACK for I2C_STATE          */
 
 /* Bit fields for I2C STATUS */
 #define _I2C_STATUS_RESETVALUE              0x00000080UL                                /**< Default value for I2C_STATUS                */

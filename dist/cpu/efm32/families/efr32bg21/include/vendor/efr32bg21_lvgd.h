@@ -1,10 +1,9 @@
 /**************************************************************************//**
  * @file
  * @brief EFR32BG21 LVGD register and bit field definitions
- * @version 5.7.0
  ******************************************************************************
  * # License
- * <b>Copyright 2018 Silicon Laboratories, Inc. www.silabs.com</b>
+ * <b>Copyright 2020 Silicon Laboratories, Inc. www.silabs.com</b>
  ******************************************************************************
  *
  * SPDX-License-Identifier: Zlib
@@ -49,13 +48,13 @@ extern "C" {
 
 /** LVGD Register Declaration. */
 typedef struct {
-  uint32_t RESERVED0[1U];                       /**< Reserved for future use                      */
-  uint32_t RESERVED1[1023U];                    /**< Reserved for future use*/
-  uint32_t RESERVED2[1U];                       /**< Reserved for future use                      */
-  uint32_t RESERVED3[1023U];                    /**< Reserved for future use*/
-  uint32_t RESERVED4[1U];                       /**< Reserved for future use                      */
-  uint32_t RESERVED5[1023U];                    /**< Reserved for future use*/
-  uint32_t RESERVED6[1U];                       /**< Reserved for future use                      */
+  uint32_t RESERVED0[1U];                       /**< Reserved for future use                            */
+  uint32_t RESERVED1[1023U];                    /**< Reserved for future use                            */
+  uint32_t RESERVED2[1U];                       /**< Reserved for future use                            */
+  uint32_t RESERVED3[1023U];                    /**< Reserved for future use                            */
+  uint32_t RESERVED4[1U];                       /**< Reserved for future use                            */
+  uint32_t RESERVED5[1023U];                    /**< Reserved for future use                            */
+  uint32_t RESERVED6[1U];                       /**< Reserved for future use                            */
 } LVGD_TypeDef;
 /** @} End of group EFR32BG21_LVGD */
 

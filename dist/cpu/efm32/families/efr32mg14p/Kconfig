@@ -1,0 +1,63 @@
+# Copyright (c) 2020 HAW Hamburg
+#
+# This file is subject to the terms and conditions of the GNU Lesser
+# General Public License v2.1. See the file LICENSE in the top level
+# directory for more details.
+
+config CPU_FAM_EFR32MG14P
+    bool
+    select CPU_CORE_CORTEX_M4F
+    select CPU_COMMON_EFM32
+    select HAS_PERIPH_HWRNG
+
+## CPU Models
+config CPU_MODEL_EFR32MG14P732F256IM48
+    bool
+    select CPU_FAM_EFR32MG14P
+
+config CPU_MODEL_EFR32MG14P731F256GM48
+    bool
+    select CPU_FAM_EFR32MG14P
+
+config CPU_MODEL_EFR32MG14P732F256GM32
+    bool
+    select CPU_FAM_EFR32MG14P
+
+config CPU_MODEL_EFR32MG14P733F256IM48
+    bool
+    select CPU_FAM_EFR32MG14P
+
+config CPU_MODEL_EFR32MG14P632F256GM48
+    bool
+    select CPU_FAM_EFR32MG14P
+
+config CPU_MODEL_EFR32MG14P632F256GM32
+    bool
+    select CPU_FAM_EFR32MG14P
+
+config CPU_MODEL_EFR32MG14P733F256GM48
+    bool
+    select CPU_FAM_EFR32MG14P
+
+config CPU_MODEL_EFR32MG14P732F256GM48
+    bool
+    select CPU_FAM_EFR32MG14P
+
+config CPU_MODEL_EFR32MG14P732F256IM32
+    bool
+    select CPU_FAM_EFR32MG14P
+
+## Common CPU symbols
+config CPU_FAM
+    default "efr32mg14p" if CPU_FAM_EFR32MG14P
+
+config CPU_MODEL
+    default "efr32mg14p732f256im48" if CPU_MODEL_EFR32MG14P732F256IM48
+    default "efr32mg14p731f256gm48" if CPU_MODEL_EFR32MG14P731F256GM48
+    default "efr32mg14p732f256gm32" if CPU_MODEL_EFR32MG14P732F256GM32
+    default "efr32mg14p733f256im48" if CPU_MODEL_EFR32MG14P733F256IM48
+    default "efr32mg14p632f256gm48" if CPU_MODEL_EFR32MG14P632F256GM48
+    default "efr32mg14p632f256gm32" if CPU_MODEL_EFR32MG14P632F256GM32
+    default "efr32mg14p733f256gm48" if CPU_MODEL_EFR32MG14P733F256GM48
+    default "efr32mg14p732f256gm48" if CPU_MODEL_EFR32MG14P732F256GM48
+    default "efr32mg14p732f256im32" if CPU_MODEL_EFR32MG14P732F256IM32

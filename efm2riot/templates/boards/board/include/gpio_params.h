@@ -36,23 +36,31 @@ static const  saul_gpio_params_t saul_gpio_params[] =
         .pin = LED0_PIN,
         .mode = GPIO_OUT
     },
-    {
-        .name = "LED 1",
-        .pin = LED1_PIN,
-        .mode = GPIO_OUT
-    },
+    {% strip 2 %}
+        {% if board not in ["sltb010a"] %}
+            {
+                .name = "LED 1",
+                .pin = LED1_PIN,
+                .mode = GPIO_OUT
+            },
+        {% endif %}
+    {% endstrip %}
     {
         .name = "Button 1",
         .pin = PB0_PIN,
         .mode = GPIO_IN_PU,
         .flags = SAUL_GPIO_INVERTED
     },
-    {
-        .name = "Button 2",
-        .pin = PB1_PIN,
-        .mode = GPIO_IN_PU,
-        .flags = SAUL_GPIO_INVERTED
-    }
+    {% strip 2 %}
+        {% if board not in ["sltb010a"] %}
+            {
+                .name = "Button 2",
+                .pin = PB1_PIN,
+                .mode = GPIO_IN_PU,
+                .flags = SAUL_GPIO_INVERTED
+            }
+        {% endif %}
+    {% endstrip %}
 };
 
 #ifdef __cplusplus

@@ -1,10 +1,9 @@
 /***************************************************************************//**
  * @file
  * @brief CMSIS Cortex-M33 system support for EFR32MG21 devices.
- * @version 5.7.0
  ******************************************************************************
  * # License
- * <b>Copyright 2018 Silicon Laboratories, Inc. www.silabs.com</b>
+ * <b>Copyright 2020 Silicon Laboratories, Inc. www.silabs.com</b>
  ******************************************************************************
  *
  * SPDX-License-Identifier: Zlib
@@ -107,13 +106,6 @@ static uint32_t SystemHFRCODPLLClock = HFRCODPLL_STARTUP_FREQ;
 /*******************************************************************************
  **************************   GLOBAL VARIABLES   *******************************
  ******************************************************************************/
-
-#if defined(__VTOR_PRESENT) && (__VTOR_PRESENT == 1U)
-#if defined(__ICCARM__)    /* IAR requires the __vector_table symbol */
-#define __Vectors    __vector_table
-#endif
-extern uint32_t __Vectors;
-#endif
 
 #if !defined(SYSTEM_NO_STATIC_MEMORY)
 
@@ -468,7 +460,6 @@ uint32_t SystemFSRCOClockGet(void)
   return FSRCO_FREQ;
 }
 
-#if defined(HFRCOEM23_PRESENT)
 /**************************************************************************//**
  * @brief
  *   Get current HFRCOEM23 frequency.
@@ -536,7 +527,6 @@ uint32_t SystemHFRCOEM23ClockGet(void)
   }
   return ret;
 }
-#endif
 
 /**************************************************************************//**
  * @brief

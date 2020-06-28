@@ -1,10 +1,9 @@
 /**************************************************************************//**
  * @file
  * @brief EFR32BG21 GPIO register and bit field definitions
- * @version 5.7.0
  ******************************************************************************
  * # License
- * <b>Copyright 2018 Silicon Laboratories, Inc. www.silabs.com</b>
+ * <b>Copyright 2020 Silicon Laboratories, Inc. www.silabs.com</b>
  ******************************************************************************
  *
  * SPDX-License-Identifier: Zlib
@@ -47,7 +46,7 @@ extern "C" {
 typedef struct {
   __IOM uint32_t ROUTEEN;                            /**< ACMP0 pin enable                                   */
   __IOM uint32_t ACMPOUTROUTE;                       /**< ACMPOUT port/pin select                            */
-  uint32_t       RESERVED0[1U];                      /**< Reserved for future use                      */
+  uint32_t       RESERVED0[1U];                      /**< Reserved for future use                            */
 } GPIO_ACMPROUTE_TypeDef;
 
 typedef struct {
@@ -56,7 +55,7 @@ typedef struct {
   __IOM uint32_t CLKOUT0ROUTE;                       /**< CLKOUT0 port/pin select                            */
   __IOM uint32_t CLKOUT1ROUTE;                       /**< CLKOUT1 port/pin select                            */
   __IOM uint32_t CLKOUT2ROUTE;                       /**< CLKOUT2 port/pin select                            */
-  uint32_t       RESERVED0[2U];                      /**< Reserved for future use                      */
+  uint32_t       RESERVED0[2U];                      /**< Reserved for future use                            */
 } GPIO_CMUROUTE_TypeDef;
 
 typedef struct {
@@ -64,21 +63,21 @@ typedef struct {
   __IOM uint32_t DCLKROUTE;                          /**< DCLK port/pin select                               */
   __IOM uint32_t DFRAMEROUTE;                        /**< DFRAME port/pin select                             */
   __IOM uint32_t DOUTROUTE;                          /**< DOUT port/pin select                               */
-  uint32_t       RESERVED0[1U];                      /**< Reserved for future use                      */
+  uint32_t       RESERVED0[1U];                      /**< Reserved for future use                            */
 } GPIO_FRCROUTE_TypeDef;
 
 typedef struct {
   __IOM uint32_t ROUTEEN;                            /**< I2C0 pin enable                                    */
   __IOM uint32_t SCLROUTE;                           /**< SCL port/pin select                                */
   __IOM uint32_t SDAROUTE;                           /**< SDA port/pin select                                */
-  uint32_t       RESERVED0[1U];                      /**< Reserved for future use                      */
+  uint32_t       RESERVED0[1U];                      /**< Reserved for future use                            */
 } GPIO_I2CROUTE_TypeDef;
 
 typedef struct {
   __IOM uint32_t ROUTEEN;                            /**< LETIMER pin enable                                 */
   __IOM uint32_t OUT0ROUTE;                          /**< OUT0 port/pin select                               */
   __IOM uint32_t OUT1ROUTE;                          /**< OUT1 port/pin select                               */
-  uint32_t       RESERVED0[1U];                      /**< Reserved for future use                      */
+  uint32_t       RESERVED0[1U];                      /**< Reserved for future use                            */
 } GPIO_LETIMERROUTE_TypeDef;
 
 typedef struct {
@@ -88,7 +87,7 @@ typedef struct {
   __IOM uint32_t DCLKROUTE;                          /**< DCLK port/pin select                               */
   __IOM uint32_t DINROUTE;                           /**< DIN port/pin select                                */
   __IOM uint32_t DOUTROUTE;                          /**< DOUT port/pin select                               */
-  uint32_t       RESERVED0[1U];                      /**< Reserved for future use                      */
+  uint32_t       RESERVED0[1U];                      /**< Reserved for future use                            */
 } GPIO_MODEMROUTE_TypeDef;
 
 typedef struct {
@@ -109,7 +108,7 @@ typedef struct {
   __IOM uint32_t SYNCH1ROUTE;                        /**< SYNCH1 port/pin select                             */
   __IOM uint32_t SYNCH2ROUTE;                        /**< SYNCH2 port/pin select                             */
   __IOM uint32_t SYNCH3ROUTE;                        /**< SYNCH3 port/pin select                             */
-  uint32_t       RESERVED0[1U];                      /**< Reserved for future use                      */
+  uint32_t       RESERVED0[1U];                      /**< Reserved for future use                            */
 } GPIO_PRSROUTE_TypeDef;
 
 typedef struct {
@@ -120,7 +119,7 @@ typedef struct {
   __IOM uint32_t CDTI0ROUTE;                         /**< CDTI0 port/pin select                              */
   __IOM uint32_t CDTI1ROUTE;                         /**< CDTI1 port/pin select                              */
   __IOM uint32_t CDTI2ROUTE;                         /**< CDTI2 port/pin select                              */
-  uint32_t       RESERVED0[1U];                      /**< Reserved for future use                      */
+  uint32_t       RESERVED0[1U];                      /**< Reserved for future use                            */
 } GPIO_TIMERROUTE_TypeDef;
 
 typedef struct {
@@ -131,211 +130,159 @@ typedef struct {
   __IOM uint32_t RXROUTE;                            /**< RX port/pin select                                 */
   __IOM uint32_t CLKROUTE;                           /**< CLK port/pin select                                */
   __IOM uint32_t TXROUTE;                            /**< TX port/pin select                                 */
-  uint32_t       RESERVED0[1U];                      /**< Reserved for future use                      */
+  uint32_t       RESERVED0[1U];                      /**< Reserved for future use                            */
 } GPIO_USARTROUTE_TypeDef;
 
 typedef struct {
-  GPIO_PORT_TypeDef         P[4U];                   /**<                                                   */
-  uint32_t                  RESERVED0[144U];         /**< Reserved for future use*/
+  GPIO_PORT_TypeDef         P[4U];                   /**<                                                    */
+  uint32_t                  RESERVED0[144U];         /**< Reserved for future use                            */
   __IOM uint32_t            LOCK;                    /**< main                                               */
-  uint32_t                  RESERVED1[3U];           /**< Reserved for future use*/
+  uint32_t                  RESERVED1[3U];           /**< Reserved for future use                            */
   __IM uint32_t             GPIOLOCKSTATUS;          /**< Lock Status                                        */
-  uint32_t                  RESERVED2[3U];           /**< Reserved for future use*/
+  uint32_t                  RESERVED2[3U];           /**< Reserved for future use                            */
   __IOM uint32_t            ABUSALLOC;               /**< A Bus allocation                                   */
   __IOM uint32_t            BBUSALLOC;               /**< B Bus allocation                                   */
   __IOM uint32_t            CDBUSALLOC;              /**< CD Bus allocation                                  */
-  uint32_t                  RESERVED3[1U];           /**< Reserved for future use                      */
-  __IOM uint32_t            AODD0SWITCH;             /**< AODD0 Switch Register                              */
-  __IOM uint32_t            AODD1SWITCH;             /**< AODD1 Switch Register                              */
-  __IOM uint32_t            AEVEN0SWITCH;            /**< AEVEN0 Switch Register                             */
-  __IOM uint32_t            AEVEN1SWITCH;            /**< AEVEN1 Switch Register                             */
-  __IOM uint32_t            BODD0SWITCH;             /**< BODD0 Switch Register                              */
-  __IOM uint32_t            BODD1SWITCH;             /**< BODD1 Switch Register                              */
-  __IOM uint32_t            BEVEN0SWITCH;            /**< BEVEN0 Switch Register                             */
-  __IOM uint32_t            BEVEN1SWITCH;            /**< BEVEN1 Switch Register                             */
-  __IOM uint32_t            CDODD0SWITCH;            /**< CDODD0 Switch Register                             */
-  __IOM uint32_t            CDODD1SWITCH;            /**< CDODD1 Switch Register                             */
-  __IOM uint32_t            CDEVEN0SWITCH;           /**< CDEVEN0 Switch Register                            */
-  __IOM uint32_t            CDEVEN1SWITCH;           /**< CDEVEN1 Switch Register                            */
-  uint32_t                  RESERVED4[40U];          /**< Reserved for future use*/
+  uint32_t                  RESERVED3[53U];          /**< Reserved for future use                            */
   __IOM uint32_t            EXTIPSELL;               /**< External Interrupt Port Select Low                 */
-  uint32_t                  RESERVED5[1U];           /**< Reserved for future use                      */
+  uint32_t                  RESERVED4[1U];           /**< Reserved for future use                            */
   __IOM uint32_t            EXTIPINSELL;             /**< External Interrupt Pin Select Low                  */
-  uint32_t                  RESERVED6[1U];           /**< Reserved for future use                      */
+  uint32_t                  RESERVED5[1U];           /**< Reserved for future use                            */
   __IOM uint32_t            EXTIRISE;                /**< External Interrupt Rising Edge Trigger             */
   __IOM uint32_t            EXTIFALL;                /**< External Interrupt Falling Edge Trigger            */
-  uint32_t                  RESERVED7[2U];           /**< Reserved for future use                      */
+  uint32_t                  RESERVED6[2U];           /**< Reserved for future use                            */
   __IOM uint32_t            IF;                      /**< Interrupt Flag                                     */
   __IOM uint32_t            IEN;                     /**< Interrupt Enable                                   */
-  uint32_t                  RESERVED8[1U];           /**< Reserved for future use*/
+  uint32_t                  RESERVED7[1U];           /**< Reserved for future use                            */
   __IOM uint32_t            EM4WUEN;                 /**< main                                               */
   __IOM uint32_t            EM4WUPOL;                /**< New Register                                       */
-  uint32_t                  RESERVED9[3U];           /**< Reserved for future use*/
+  uint32_t                  RESERVED8[3U];           /**< Reserved for future use                            */
   __IOM uint32_t            DBGROUTEPEN;             /**< Debugger Route Pin enable                          */
   __IOM uint32_t            TRACEROUTEPEN;           /**< Trace Route Pin Enable                             */
-  uint32_t                  RESERVED10[2U];          /**< Reserved for future use                      */
-  GPIO_ACMPROUTE_TypeDef    ACMPROUTE[2U];           /**< acmp0 DBUS config registers                       */
-  GPIO_CMUROUTE_TypeDef     CMUROUTE;                /**< cmu DBUS config registers                         */
-  GPIO_FRCROUTE_TypeDef     FRCROUTE;                /**< frc DBUS config registers                         */
-  GPIO_I2CROUTE_TypeDef     I2CROUTE[2U];            /**< i2c0 DBUS config registers                        */
-  GPIO_LETIMERROUTE_TypeDef LETIMERROUTE;            /**< letimer DBUS config registers                     */
-  GPIO_MODEMROUTE_TypeDef   MODEMROUTE;              /**< modem DBUS config registers                       */
-  GPIO_PRSROUTE_TypeDef     PRSROUTE[1U];            /**< prs0 DBUS config registers                        */
-  GPIO_TIMERROUTE_TypeDef   TIMERROUTE[4U];          /**< timer0 DBUS config registers                      */
-  GPIO_USARTROUTE_TypeDef   USARTROUTE[3U];          /**< usart0 DBUS config registers                      */
-  uint32_t                  RESERVED11[637U];        /**< Reserved for future use*/
-  GPIO_PORT_TypeDef         P_SET[4U];               /**<                                                   */
-  uint32_t                  RESERVED12[144U];        /**< Reserved for future use*/
+  uint32_t                  RESERVED9[2U];           /**< Reserved for future use                            */
+  GPIO_ACMPROUTE_TypeDef    ACMPROUTE[2U];           /**< acmp0 DBUS config registers                        */
+  GPIO_CMUROUTE_TypeDef     CMUROUTE;                /**< cmu DBUS config registers                          */
+  GPIO_FRCROUTE_TypeDef     FRCROUTE;                /**< frc DBUS config registers                          */
+  GPIO_I2CROUTE_TypeDef     I2CROUTE[2U];            /**< i2c0 DBUS config registers                         */
+  GPIO_LETIMERROUTE_TypeDef LETIMERROUTE[1U];        /**< letimer DBUS config registers                      */
+  GPIO_MODEMROUTE_TypeDef   MODEMROUTE;              /**< modem DBUS config registers                        */
+  GPIO_PRSROUTE_TypeDef     PRSROUTE[1U];            /**< prs0 DBUS config registers                         */
+  GPIO_TIMERROUTE_TypeDef   TIMERROUTE[4U];          /**< timer0 DBUS config registers                       */
+  GPIO_USARTROUTE_TypeDef   USARTROUTE[3U];          /**< usart0 DBUS config registers                       */
+  uint32_t                  RESERVED10[637U];        /**< Reserved for future use                            */
+  GPIO_PORT_TypeDef         P_SET[4U];               /**<                                                    */
+  uint32_t                  RESERVED11[144U];        /**< Reserved for future use                            */
   __IOM uint32_t            LOCK_SET;                /**< main                                               */
-  uint32_t                  RESERVED13[3U];          /**< Reserved for future use*/
+  uint32_t                  RESERVED12[3U];          /**< Reserved for future use                            */
   __IM uint32_t             GPIOLOCKSTATUS_SET;      /**< Lock Status                                        */
-  uint32_t                  RESERVED14[3U];          /**< Reserved for future use*/
+  uint32_t                  RESERVED13[3U];          /**< Reserved for future use                            */
   __IOM uint32_t            ABUSALLOC_SET;           /**< A Bus allocation                                   */
   __IOM uint32_t            BBUSALLOC_SET;           /**< B Bus allocation                                   */
   __IOM uint32_t            CDBUSALLOC_SET;          /**< CD Bus allocation                                  */
-  uint32_t                  RESERVED15[1U];          /**< Reserved for future use                      */
-  __IOM uint32_t            AODD0SWITCH_SET;         /**< AODD0 Switch Register                              */
-  __IOM uint32_t            AODD1SWITCH_SET;         /**< AODD1 Switch Register                              */
-  __IOM uint32_t            AEVEN0SWITCH_SET;        /**< AEVEN0 Switch Register                             */
-  __IOM uint32_t            AEVEN1SWITCH_SET;        /**< AEVEN1 Switch Register                             */
-  __IOM uint32_t            BODD0SWITCH_SET;         /**< BODD0 Switch Register                              */
-  __IOM uint32_t            BODD1SWITCH_SET;         /**< BODD1 Switch Register                              */
-  __IOM uint32_t            BEVEN0SWITCH_SET;        /**< BEVEN0 Switch Register                             */
-  __IOM uint32_t            BEVEN1SWITCH_SET;        /**< BEVEN1 Switch Register                             */
-  __IOM uint32_t            CDODD0SWITCH_SET;        /**< CDODD0 Switch Register                             */
-  __IOM uint32_t            CDODD1SWITCH_SET;        /**< CDODD1 Switch Register                             */
-  __IOM uint32_t            CDEVEN0SWITCH_SET;       /**< CDEVEN0 Switch Register                            */
-  __IOM uint32_t            CDEVEN1SWITCH_SET;       /**< CDEVEN1 Switch Register                            */
-  uint32_t                  RESERVED16[40U];         /**< Reserved for future use*/
+  uint32_t                  RESERVED14[53U];         /**< Reserved for future use                            */
   __IOM uint32_t            EXTIPSELL_SET;           /**< External Interrupt Port Select Low                 */
-  uint32_t                  RESERVED17[1U];          /**< Reserved for future use                      */
+  uint32_t                  RESERVED15[1U];          /**< Reserved for future use                            */
   __IOM uint32_t            EXTIPINSELL_SET;         /**< External Interrupt Pin Select Low                  */
-  uint32_t                  RESERVED18[1U];          /**< Reserved for future use                      */
+  uint32_t                  RESERVED16[1U];          /**< Reserved for future use                            */
   __IOM uint32_t            EXTIRISE_SET;            /**< External Interrupt Rising Edge Trigger             */
   __IOM uint32_t            EXTIFALL_SET;            /**< External Interrupt Falling Edge Trigger            */
-  uint32_t                  RESERVED19[2U];          /**< Reserved for future use                      */
+  uint32_t                  RESERVED17[2U];          /**< Reserved for future use                            */
   __IOM uint32_t            IF_SET;                  /**< Interrupt Flag                                     */
   __IOM uint32_t            IEN_SET;                 /**< Interrupt Enable                                   */
-  uint32_t                  RESERVED20[1U];          /**< Reserved for future use*/
+  uint32_t                  RESERVED18[1U];          /**< Reserved for future use                            */
   __IOM uint32_t            EM4WUEN_SET;             /**< main                                               */
   __IOM uint32_t            EM4WUPOL_SET;            /**< New Register                                       */
-  uint32_t                  RESERVED21[3U];          /**< Reserved for future use*/
+  uint32_t                  RESERVED19[3U];          /**< Reserved for future use                            */
   __IOM uint32_t            DBGROUTEPEN_SET;         /**< Debugger Route Pin enable                          */
   __IOM uint32_t            TRACEROUTEPEN_SET;       /**< Trace Route Pin Enable                             */
-  uint32_t                  RESERVED22[2U];          /**< Reserved for future use                      */
-  GPIO_ACMPROUTE_TypeDef    ACMPROUTE_SET[2U];       /**< acmp0 DBUS config registers                       */
-  GPIO_CMUROUTE_TypeDef     CMUROUTE_SET;            /**< cmu DBUS config registers                         */
-  GPIO_FRCROUTE_TypeDef     FRCROUTE_SET;            /**< frc DBUS config registers                         */
-  GPIO_I2CROUTE_TypeDef     I2CROUTE_SET[2U];        /**< i2c0 DBUS config registers                        */
-  GPIO_LETIMERROUTE_TypeDef LETIMERROUTE_SET;        /**< letimer DBUS config registers                     */
-  GPIO_MODEMROUTE_TypeDef   MODEMROUTE_SET;          /**< modem DBUS config registers                       */
-  GPIO_PRSROUTE_TypeDef     PRSROUTE_SET[1U];        /**< prs0 DBUS config registers                        */
-  GPIO_TIMERROUTE_TypeDef   TIMERROUTE_SET[4U];      /**< timer0 DBUS config registers                      */
-  GPIO_USARTROUTE_TypeDef   USARTROUTE_SET[3U];      /**< usart0 DBUS config registers                      */
-  uint32_t                  RESERVED23[637U];        /**< Reserved for future use*/
-  GPIO_PORT_TypeDef         P_CLR[4U];               /**<                                                   */
-  uint32_t                  RESERVED24[144U];        /**< Reserved for future use*/
+  uint32_t                  RESERVED20[2U];          /**< Reserved for future use                            */
+  GPIO_ACMPROUTE_TypeDef    ACMPROUTE_SET[2U];       /**< acmp0 DBUS config registers                        */
+  GPIO_CMUROUTE_TypeDef     CMUROUTE_SET;            /**< cmu DBUS config registers                          */
+  GPIO_FRCROUTE_TypeDef     FRCROUTE_SET;            /**< frc DBUS config registers                          */
+  GPIO_I2CROUTE_TypeDef     I2CROUTE_SET[2U];        /**< i2c0 DBUS config registers                         */
+  GPIO_LETIMERROUTE_TypeDef LETIMERROUTE_SET[1U];    /**< letimer DBUS config registers                      */
+  GPIO_MODEMROUTE_TypeDef   MODEMROUTE_SET;          /**< modem DBUS config registers                        */
+  GPIO_PRSROUTE_TypeDef     PRSROUTE_SET[1U];        /**< prs0 DBUS config registers                         */
+  GPIO_TIMERROUTE_TypeDef   TIMERROUTE_SET[4U];      /**< timer0 DBUS config registers                       */
+  GPIO_USARTROUTE_TypeDef   USARTROUTE_SET[3U];      /**< usart0 DBUS config registers                       */
+  uint32_t                  RESERVED21[637U];        /**< Reserved for future use                            */
+  GPIO_PORT_TypeDef         P_CLR[4U];               /**<                                                    */
+  uint32_t                  RESERVED22[144U];        /**< Reserved for future use                            */
   __IOM uint32_t            LOCK_CLR;                /**< main                                               */
-  uint32_t                  RESERVED25[3U];          /**< Reserved for future use*/
+  uint32_t                  RESERVED23[3U];          /**< Reserved for future use                            */
   __IM uint32_t             GPIOLOCKSTATUS_CLR;      /**< Lock Status                                        */
-  uint32_t                  RESERVED26[3U];          /**< Reserved for future use*/
+  uint32_t                  RESERVED24[3U];          /**< Reserved for future use                            */
   __IOM uint32_t            ABUSALLOC_CLR;           /**< A Bus allocation                                   */
   __IOM uint32_t            BBUSALLOC_CLR;           /**< B Bus allocation                                   */
   __IOM uint32_t            CDBUSALLOC_CLR;          /**< CD Bus allocation                                  */
-  uint32_t                  RESERVED27[1U];          /**< Reserved for future use                      */
-  __IOM uint32_t            AODD0SWITCH_CLR;         /**< AODD0 Switch Register                              */
-  __IOM uint32_t            AODD1SWITCH_CLR;         /**< AODD1 Switch Register                              */
-  __IOM uint32_t            AEVEN0SWITCH_CLR;        /**< AEVEN0 Switch Register                             */
-  __IOM uint32_t            AEVEN1SWITCH_CLR;        /**< AEVEN1 Switch Register                             */
-  __IOM uint32_t            BODD0SWITCH_CLR;         /**< BODD0 Switch Register                              */
-  __IOM uint32_t            BODD1SWITCH_CLR;         /**< BODD1 Switch Register                              */
-  __IOM uint32_t            BEVEN0SWITCH_CLR;        /**< BEVEN0 Switch Register                             */
-  __IOM uint32_t            BEVEN1SWITCH_CLR;        /**< BEVEN1 Switch Register                             */
-  __IOM uint32_t            CDODD0SWITCH_CLR;        /**< CDODD0 Switch Register                             */
-  __IOM uint32_t            CDODD1SWITCH_CLR;        /**< CDODD1 Switch Register                             */
-  __IOM uint32_t            CDEVEN0SWITCH_CLR;       /**< CDEVEN0 Switch Register                            */
-  __IOM uint32_t            CDEVEN1SWITCH_CLR;       /**< CDEVEN1 Switch Register                            */
-  uint32_t                  RESERVED28[40U];         /**< Reserved for future use*/
+  uint32_t                  RESERVED25[53U];         /**< Reserved for future use                            */
   __IOM uint32_t            EXTIPSELL_CLR;           /**< External Interrupt Port Select Low                 */
-  uint32_t                  RESERVED29[1U];          /**< Reserved for future use                      */
+  uint32_t                  RESERVED26[1U];          /**< Reserved for future use                            */
   __IOM uint32_t            EXTIPINSELL_CLR;         /**< External Interrupt Pin Select Low                  */
-  uint32_t                  RESERVED30[1U];          /**< Reserved for future use                      */
+  uint32_t                  RESERVED27[1U];          /**< Reserved for future use                            */
   __IOM uint32_t            EXTIRISE_CLR;            /**< External Interrupt Rising Edge Trigger             */
   __IOM uint32_t            EXTIFALL_CLR;            /**< External Interrupt Falling Edge Trigger            */
-  uint32_t                  RESERVED31[2U];          /**< Reserved for future use                      */
+  uint32_t                  RESERVED28[2U];          /**< Reserved for future use                            */
   __IOM uint32_t            IF_CLR;                  /**< Interrupt Flag                                     */
   __IOM uint32_t            IEN_CLR;                 /**< Interrupt Enable                                   */
-  uint32_t                  RESERVED32[1U];          /**< Reserved for future use*/
+  uint32_t                  RESERVED29[1U];          /**< Reserved for future use                            */
   __IOM uint32_t            EM4WUEN_CLR;             /**< main                                               */
   __IOM uint32_t            EM4WUPOL_CLR;            /**< New Register                                       */
-  uint32_t                  RESERVED33[3U];          /**< Reserved for future use*/
+  uint32_t                  RESERVED30[3U];          /**< Reserved for future use                            */
   __IOM uint32_t            DBGROUTEPEN_CLR;         /**< Debugger Route Pin enable                          */
   __IOM uint32_t            TRACEROUTEPEN_CLR;       /**< Trace Route Pin Enable                             */
-  uint32_t                  RESERVED34[2U];          /**< Reserved for future use                      */
-  GPIO_ACMPROUTE_TypeDef    ACMPROUTE_CLR[2U];       /**< acmp0 DBUS config registers                       */
-  GPIO_CMUROUTE_TypeDef     CMUROUTE_CLR;            /**< cmu DBUS config registers                         */
-  GPIO_FRCROUTE_TypeDef     FRCROUTE_CLR;            /**< frc DBUS config registers                         */
-  GPIO_I2CROUTE_TypeDef     I2CROUTE_CLR[2U];        /**< i2c0 DBUS config registers                        */
-  GPIO_LETIMERROUTE_TypeDef LETIMERROUTE_CLR;        /**< letimer DBUS config registers                     */
-  GPIO_MODEMROUTE_TypeDef   MODEMROUTE_CLR;          /**< modem DBUS config registers                       */
-  GPIO_PRSROUTE_TypeDef     PRSROUTE_CLR[1U];        /**< prs0 DBUS config registers                        */
-  GPIO_TIMERROUTE_TypeDef   TIMERROUTE_CLR[4U];      /**< timer0 DBUS config registers                      */
-  GPIO_USARTROUTE_TypeDef   USARTROUTE_CLR[3U];      /**< usart0 DBUS config registers                      */
-  uint32_t                  RESERVED35[637U];        /**< Reserved for future use*/
-  GPIO_PORT_TypeDef         P_TGL[4U];               /**<                                                   */
-  uint32_t                  RESERVED36[144U];        /**< Reserved for future use*/
+  uint32_t                  RESERVED31[2U];          /**< Reserved for future use                            */
+  GPIO_ACMPROUTE_TypeDef    ACMPROUTE_CLR[2U];       /**< acmp0 DBUS config registers                        */
+  GPIO_CMUROUTE_TypeDef     CMUROUTE_CLR;            /**< cmu DBUS config registers                          */
+  GPIO_FRCROUTE_TypeDef     FRCROUTE_CLR;            /**< frc DBUS config registers                          */
+  GPIO_I2CROUTE_TypeDef     I2CROUTE_CLR[2U];        /**< i2c0 DBUS config registers                         */
+  GPIO_LETIMERROUTE_TypeDef LETIMERROUTE_CLR[1U];    /**< letimer DBUS config registers                      */
+  GPIO_MODEMROUTE_TypeDef   MODEMROUTE_CLR;          /**< modem DBUS config registers                        */
+  GPIO_PRSROUTE_TypeDef     PRSROUTE_CLR[1U];        /**< prs0 DBUS config registers                         */
+  GPIO_TIMERROUTE_TypeDef   TIMERROUTE_CLR[4U];      /**< timer0 DBUS config registers                       */
+  GPIO_USARTROUTE_TypeDef   USARTROUTE_CLR[3U];      /**< usart0 DBUS config registers                       */
+  uint32_t                  RESERVED32[637U];        /**< Reserved for future use                            */
+  GPIO_PORT_TypeDef         P_TGL[4U];               /**<                                                    */
+  uint32_t                  RESERVED33[144U];        /**< Reserved for future use                            */
   __IOM uint32_t            LOCK_TGL;                /**< main                                               */
-  uint32_t                  RESERVED37[3U];          /**< Reserved for future use*/
+  uint32_t                  RESERVED34[3U];          /**< Reserved for future use                            */
   __IM uint32_t             GPIOLOCKSTATUS_TGL;      /**< Lock Status                                        */
-  uint32_t                  RESERVED38[3U];          /**< Reserved for future use*/
+  uint32_t                  RESERVED35[3U];          /**< Reserved for future use                            */
   __IOM uint32_t            ABUSALLOC_TGL;           /**< A Bus allocation                                   */
   __IOM uint32_t            BBUSALLOC_TGL;           /**< B Bus allocation                                   */
   __IOM uint32_t            CDBUSALLOC_TGL;          /**< CD Bus allocation                                  */
-  uint32_t                  RESERVED39[1U];          /**< Reserved for future use                      */
-  __IOM uint32_t            AODD0SWITCH_TGL;         /**< AODD0 Switch Register                              */
-  __IOM uint32_t            AODD1SWITCH_TGL;         /**< AODD1 Switch Register                              */
-  __IOM uint32_t            AEVEN0SWITCH_TGL;        /**< AEVEN0 Switch Register                             */
-  __IOM uint32_t            AEVEN1SWITCH_TGL;        /**< AEVEN1 Switch Register                             */
-  __IOM uint32_t            BODD0SWITCH_TGL;         /**< BODD0 Switch Register                              */
-  __IOM uint32_t            BODD1SWITCH_TGL;         /**< BODD1 Switch Register                              */
-  __IOM uint32_t            BEVEN0SWITCH_TGL;        /**< BEVEN0 Switch Register                             */
-  __IOM uint32_t            BEVEN1SWITCH_TGL;        /**< BEVEN1 Switch Register                             */
-  __IOM uint32_t            CDODD0SWITCH_TGL;        /**< CDODD0 Switch Register                             */
-  __IOM uint32_t            CDODD1SWITCH_TGL;        /**< CDODD1 Switch Register                             */
-  __IOM uint32_t            CDEVEN0SWITCH_TGL;       /**< CDEVEN0 Switch Register                            */
-  __IOM uint32_t            CDEVEN1SWITCH_TGL;       /**< CDEVEN1 Switch Register                            */
-  uint32_t                  RESERVED40[40U];         /**< Reserved for future use*/
+  uint32_t                  RESERVED36[53U];         /**< Reserved for future use                            */
   __IOM uint32_t            EXTIPSELL_TGL;           /**< External Interrupt Port Select Low                 */
-  uint32_t                  RESERVED41[1U];          /**< Reserved for future use                      */
+  uint32_t                  RESERVED37[1U];          /**< Reserved for future use                            */
   __IOM uint32_t            EXTIPINSELL_TGL;         /**< External Interrupt Pin Select Low                  */
-  uint32_t                  RESERVED42[1U];          /**< Reserved for future use                      */
+  uint32_t                  RESERVED38[1U];          /**< Reserved for future use                            */
   __IOM uint32_t            EXTIRISE_TGL;            /**< External Interrupt Rising Edge Trigger             */
   __IOM uint32_t            EXTIFALL_TGL;            /**< External Interrupt Falling Edge Trigger            */
-  uint32_t                  RESERVED43[2U];          /**< Reserved for future use                      */
+  uint32_t                  RESERVED39[2U];          /**< Reserved for future use                            */
   __IOM uint32_t            IF_TGL;                  /**< Interrupt Flag                                     */
   __IOM uint32_t            IEN_TGL;                 /**< Interrupt Enable                                   */
-  uint32_t                  RESERVED44[1U];          /**< Reserved for future use*/
+  uint32_t                  RESERVED40[1U];          /**< Reserved for future use                            */
   __IOM uint32_t            EM4WUEN_TGL;             /**< main                                               */
   __IOM uint32_t            EM4WUPOL_TGL;            /**< New Register                                       */
-  uint32_t                  RESERVED45[3U];          /**< Reserved for future use*/
+  uint32_t                  RESERVED41[3U];          /**< Reserved for future use                            */
   __IOM uint32_t            DBGROUTEPEN_TGL;         /**< Debugger Route Pin enable                          */
   __IOM uint32_t            TRACEROUTEPEN_TGL;       /**< Trace Route Pin Enable                             */
-  uint32_t                  RESERVED46[2U];          /**< Reserved for future use                      */
-  GPIO_ACMPROUTE_TypeDef    ACMPROUTE_TGL[2U];       /**< acmp0 DBUS config registers                       */
-  GPIO_CMUROUTE_TypeDef     CMUROUTE_TGL;            /**< cmu DBUS config registers                         */
-  GPIO_FRCROUTE_TypeDef     FRCROUTE_TGL;            /**< frc DBUS config registers                         */
-  GPIO_I2CROUTE_TypeDef     I2CROUTE_TGL[2U];        /**< i2c0 DBUS config registers                        */
-  GPIO_LETIMERROUTE_TypeDef LETIMERROUTE_TGL;        /**< letimer DBUS config registers                     */
-  GPIO_MODEMROUTE_TypeDef   MODEMROUTE_TGL;          /**< modem DBUS config registers                       */
-  GPIO_PRSROUTE_TypeDef     PRSROUTE_TGL[1U];        /**< prs0 DBUS config registers                        */
-  GPIO_TIMERROUTE_TypeDef   TIMERROUTE_TGL[4U];      /**< timer0 DBUS config registers                      */
-  GPIO_USARTROUTE_TypeDef   USARTROUTE_TGL[3U];      /**< usart0 DBUS config registers                      */
+  uint32_t                  RESERVED42[2U];          /**< Reserved for future use                            */
+  GPIO_ACMPROUTE_TypeDef    ACMPROUTE_TGL[2U];       /**< acmp0 DBUS config registers                        */
+  GPIO_CMUROUTE_TypeDef     CMUROUTE_TGL;            /**< cmu DBUS config registers                          */
+  GPIO_FRCROUTE_TypeDef     FRCROUTE_TGL;            /**< frc DBUS config registers                          */
+  GPIO_I2CROUTE_TypeDef     I2CROUTE_TGL[2U];        /**< i2c0 DBUS config registers                         */
+  GPIO_LETIMERROUTE_TypeDef LETIMERROUTE_TGL[1U];    /**< letimer DBUS config registers                      */
+  GPIO_MODEMROUTE_TypeDef   MODEMROUTE_TGL;          /**< modem DBUS config registers                        */
+  GPIO_PRSROUTE_TypeDef     PRSROUTE_TGL[1U];        /**< prs0 DBUS config registers                         */
+  GPIO_TIMERROUTE_TypeDef   TIMERROUTE_TGL[4U];      /**< timer0 DBUS config registers                       */
+  GPIO_USARTROUTE_TypeDef   USARTROUTE_TGL[3U];      /**< usart0 DBUS config registers                       */
 } GPIO_TypeDef;
 
-#define GPIO_PORTA                                   0x00000000UL                       /**< PORTA index                                 */
-#define GPIO_PORTB                                   0x00000001UL                       /**< PORTB index                                 */
-#define GPIO_PORTC                                   0x00000002UL                       /**< PORTC index                                 */
-#define GPIO_PORTD                                   0x00000003UL                       /**< PORTD index                                 */
+#define GPIO_PORTA                                   0x00000000UL                       /**< PORTA index                                  */
+#define GPIO_PORTB                                   0x00000001UL                       /**< PORTB index                                  */
+#define GPIO_PORTC                                   0x00000002UL                       /**< PORTC index                                  */
+#define GPIO_PORTD                                   0x00000003UL                       /**< PORTD index                                  */
 
 /* Bit fields for GPIO LOCK */
 #define _GPIO_LOCK_RESETVALUE                        0x0000A534UL                       /**< Default value for GPIO_LOCK                 */
@@ -343,22 +290,22 @@ typedef struct {
 #define _GPIO_LOCK_LOCKKEY_SHIFT                     0                                  /**< Shift value for GPIO_LOCKKEY                */
 #define _GPIO_LOCK_LOCKKEY_MASK                      0xFFFFUL                           /**< Bit mask for GPIO_LOCKKEY                   */
 #define _GPIO_LOCK_LOCKKEY_DEFAULT                   0x0000A534UL                       /**< Mode DEFAULT for GPIO_LOCK                  */
-#define _GPIO_LOCK_LOCKKEY_UNLOCK                    0x0000A534UL                       /**< Mode UNLOCK for GPIO_LOCK                    */
+#define _GPIO_LOCK_LOCKKEY_UNLOCK                    0x0000A534UL                       /**< Mode UNLOCK for GPIO_LOCK                   */
 #define GPIO_LOCK_LOCKKEY_DEFAULT                    (_GPIO_LOCK_LOCKKEY_DEFAULT << 0)  /**< Shifted mode DEFAULT for GPIO_LOCK          */
-#define GPIO_LOCK_LOCKKEY_UNLOCK                     (_GPIO_LOCK_LOCKKEY_UNLOCK << 0)   /**< Shifted mode UNLOCK for GPIO_LOCK            */
+#define GPIO_LOCK_LOCKKEY_UNLOCK                     (_GPIO_LOCK_LOCKKEY_UNLOCK << 0)   /**< Shifted mode UNLOCK for GPIO_LOCK           */
 
 /* Bit fields for GPIO GPIOLOCKSTATUS */
 #define _GPIO_GPIOLOCKSTATUS_RESETVALUE              0x00000000UL                              /**< Default value for GPIO_GPIOLOCKSTATUS       */
 #define _GPIO_GPIOLOCKSTATUS_MASK                    0x00000001UL                              /**< Mask for GPIO_GPIOLOCKSTATUS                */
-#define GPIO_GPIOLOCKSTATUS_LOCK                     (0x1UL << 0)                              /**< New BitField                                */
+#define GPIO_GPIOLOCKSTATUS_LOCK                     (0x1UL << 0)                              /**< GPIO LOCK Status                            */
 #define _GPIO_GPIOLOCKSTATUS_LOCK_SHIFT              0                                         /**< Shift value for GPIO_LOCK                   */
 #define _GPIO_GPIOLOCKSTATUS_LOCK_MASK               0x1UL                                     /**< Bit mask for GPIO_LOCK                      */
 #define _GPIO_GPIOLOCKSTATUS_LOCK_DEFAULT            0x00000000UL                              /**< Mode DEFAULT for GPIO_GPIOLOCKSTATUS        */
-#define _GPIO_GPIOLOCKSTATUS_LOCK_UNLOCKED           0x00000000UL                              /**< Mode UNLOCKED for GPIO_GPIOLOCKSTATUS        */
-#define _GPIO_GPIOLOCKSTATUS_LOCK_LOCKED             0x00000001UL                              /**< Mode LOCKED for GPIO_GPIOLOCKSTATUS          */
+#define _GPIO_GPIOLOCKSTATUS_LOCK_UNLOCKED           0x00000000UL                              /**< Mode UNLOCKED for GPIO_GPIOLOCKSTATUS       */
+#define _GPIO_GPIOLOCKSTATUS_LOCK_LOCKED             0x00000001UL                              /**< Mode LOCKED for GPIO_GPIOLOCKSTATUS         */
 #define GPIO_GPIOLOCKSTATUS_LOCK_DEFAULT             (_GPIO_GPIOLOCKSTATUS_LOCK_DEFAULT << 0)  /**< Shifted mode DEFAULT for GPIO_GPIOLOCKSTATUS*/
 #define GPIO_GPIOLOCKSTATUS_LOCK_UNLOCKED            (_GPIO_GPIOLOCKSTATUS_LOCK_UNLOCKED << 0) /**< Shifted mode UNLOCKED for GPIO_GPIOLOCKSTATUS*/
-#define GPIO_GPIOLOCKSTATUS_LOCK_LOCKED              (_GPIO_GPIOLOCKSTATUS_LOCK_LOCKED << 0)   /**< Shifted mode LOCKED for GPIO_GPIOLOCKSTATUS  */
+#define GPIO_GPIOLOCKSTATUS_LOCK_LOCKED              (_GPIO_GPIOLOCKSTATUS_LOCK_LOCKED << 0)   /**< Shifted mode LOCKED for GPIO_GPIOLOCKSTATUS */
 
 /* Bit fields for GPIO ABUSALLOC */
 #define _GPIO_ABUSALLOC_RESETVALUE                   0x00000000UL                           /**< Default value for GPIO_ABUSALLOC            */
@@ -366,63 +313,63 @@ typedef struct {
 #define _GPIO_ABUSALLOC_AEVEN0_SHIFT                 0                                      /**< Shift value for GPIO_AEVEN0                 */
 #define _GPIO_ABUSALLOC_AEVEN0_MASK                  0xFUL                                  /**< Bit mask for GPIO_AEVEN0                    */
 #define _GPIO_ABUSALLOC_AEVEN0_DEFAULT               0x00000000UL                           /**< Mode DEFAULT for GPIO_ABUSALLOC             */
-#define _GPIO_ABUSALLOC_AEVEN0_TRISTATE              0x00000000UL                           /**< Mode TRISTATE for GPIO_ABUSALLOC             */
-#define _GPIO_ABUSALLOC_AEVEN0_ADC0                  0x00000001UL                           /**< Mode ADC0 for GPIO_ABUSALLOC                 */
-#define _GPIO_ABUSALLOC_AEVEN0_ACMP0                 0x00000002UL                           /**< Mode ACMP0 for GPIO_ABUSALLOC                */
-#define _GPIO_ABUSALLOC_AEVEN0_ACMP1                 0x00000003UL                           /**< Mode ACMP1 for GPIO_ABUSALLOC                */
-#define _GPIO_ABUSALLOC_AEVEN0_DIAGA                 0x0000000EUL                           /**< Mode DIAGA for GPIO_ABUSALLOC                */
-#define _GPIO_ABUSALLOC_AEVEN0_DEBUG                 0x0000000FUL                           /**< Mode DEBUG for GPIO_ABUSALLOC                */
+#define _GPIO_ABUSALLOC_AEVEN0_TRISTATE              0x00000000UL                           /**< Mode TRISTATE for GPIO_ABUSALLOC            */
+#define _GPIO_ABUSALLOC_AEVEN0_ADC0                  0x00000001UL                           /**< Mode ADC0 for GPIO_ABUSALLOC                */
+#define _GPIO_ABUSALLOC_AEVEN0_ACMP0                 0x00000002UL                           /**< Mode ACMP0 for GPIO_ABUSALLOC               */
+#define _GPIO_ABUSALLOC_AEVEN0_ACMP1                 0x00000003UL                           /**< Mode ACMP1 for GPIO_ABUSALLOC               */
+#define _GPIO_ABUSALLOC_AEVEN0_DIAGA                 0x0000000EUL                           /**< Mode DIAGA for GPIO_ABUSALLOC               */
+#define _GPIO_ABUSALLOC_AEVEN0_DEBUG                 0x0000000FUL                           /**< Mode DEBUG for GPIO_ABUSALLOC               */
 #define GPIO_ABUSALLOC_AEVEN0_DEFAULT                (_GPIO_ABUSALLOC_AEVEN0_DEFAULT << 0)  /**< Shifted mode DEFAULT for GPIO_ABUSALLOC     */
-#define GPIO_ABUSALLOC_AEVEN0_TRISTATE               (_GPIO_ABUSALLOC_AEVEN0_TRISTATE << 0) /**< Shifted mode TRISTATE for GPIO_ABUSALLOC     */
-#define GPIO_ABUSALLOC_AEVEN0_ADC0                   (_GPIO_ABUSALLOC_AEVEN0_ADC0 << 0)     /**< Shifted mode ADC0 for GPIO_ABUSALLOC         */
-#define GPIO_ABUSALLOC_AEVEN0_ACMP0                  (_GPIO_ABUSALLOC_AEVEN0_ACMP0 << 0)    /**< Shifted mode ACMP0 for GPIO_ABUSALLOC        */
-#define GPIO_ABUSALLOC_AEVEN0_ACMP1                  (_GPIO_ABUSALLOC_AEVEN0_ACMP1 << 0)    /**< Shifted mode ACMP1 for GPIO_ABUSALLOC        */
-#define GPIO_ABUSALLOC_AEVEN0_DIAGA                  (_GPIO_ABUSALLOC_AEVEN0_DIAGA << 0)    /**< Shifted mode DIAGA for GPIO_ABUSALLOC        */
-#define GPIO_ABUSALLOC_AEVEN0_DEBUG                  (_GPIO_ABUSALLOC_AEVEN0_DEBUG << 0)    /**< Shifted mode DEBUG for GPIO_ABUSALLOC        */
+#define GPIO_ABUSALLOC_AEVEN0_TRISTATE               (_GPIO_ABUSALLOC_AEVEN0_TRISTATE << 0) /**< Shifted mode TRISTATE for GPIO_ABUSALLOC    */
+#define GPIO_ABUSALLOC_AEVEN0_ADC0                   (_GPIO_ABUSALLOC_AEVEN0_ADC0 << 0)     /**< Shifted mode ADC0 for GPIO_ABUSALLOC        */
+#define GPIO_ABUSALLOC_AEVEN0_ACMP0                  (_GPIO_ABUSALLOC_AEVEN0_ACMP0 << 0)    /**< Shifted mode ACMP0 for GPIO_ABUSALLOC       */
+#define GPIO_ABUSALLOC_AEVEN0_ACMP1                  (_GPIO_ABUSALLOC_AEVEN0_ACMP1 << 0)    /**< Shifted mode ACMP1 for GPIO_ABUSALLOC       */
+#define GPIO_ABUSALLOC_AEVEN0_DIAGA                  (_GPIO_ABUSALLOC_AEVEN0_DIAGA << 0)    /**< Shifted mode DIAGA for GPIO_ABUSALLOC       */
+#define GPIO_ABUSALLOC_AEVEN0_DEBUG                  (_GPIO_ABUSALLOC_AEVEN0_DEBUG << 0)    /**< Shifted mode DEBUG for GPIO_ABUSALLOC       */
 #define _GPIO_ABUSALLOC_AEVEN1_SHIFT                 8                                      /**< Shift value for GPIO_AEVEN1                 */
 #define _GPIO_ABUSALLOC_AEVEN1_MASK                  0xF00UL                                /**< Bit mask for GPIO_AEVEN1                    */
 #define _GPIO_ABUSALLOC_AEVEN1_DEFAULT               0x00000000UL                           /**< Mode DEFAULT for GPIO_ABUSALLOC             */
-#define _GPIO_ABUSALLOC_AEVEN1_TRISTATE              0x00000000UL                           /**< Mode TRISTATE for GPIO_ABUSALLOC             */
-#define _GPIO_ABUSALLOC_AEVEN1_ADC0                  0x00000001UL                           /**< Mode ADC0 for GPIO_ABUSALLOC                 */
-#define _GPIO_ABUSALLOC_AEVEN1_ACMP0                 0x00000002UL                           /**< Mode ACMP0 for GPIO_ABUSALLOC                */
-#define _GPIO_ABUSALLOC_AEVEN1_ACMP1                 0x00000003UL                           /**< Mode ACMP1 for GPIO_ABUSALLOC                */
-#define _GPIO_ABUSALLOC_AEVEN1_DEBUG                 0x0000000FUL                           /**< Mode DEBUG for GPIO_ABUSALLOC                */
+#define _GPIO_ABUSALLOC_AEVEN1_TRISTATE              0x00000000UL                           /**< Mode TRISTATE for GPIO_ABUSALLOC            */
+#define _GPIO_ABUSALLOC_AEVEN1_ADC0                  0x00000001UL                           /**< Mode ADC0 for GPIO_ABUSALLOC                */
+#define _GPIO_ABUSALLOC_AEVEN1_ACMP0                 0x00000002UL                           /**< Mode ACMP0 for GPIO_ABUSALLOC               */
+#define _GPIO_ABUSALLOC_AEVEN1_ACMP1                 0x00000003UL                           /**< Mode ACMP1 for GPIO_ABUSALLOC               */
+#define _GPIO_ABUSALLOC_AEVEN1_DEBUG                 0x0000000FUL                           /**< Mode DEBUG for GPIO_ABUSALLOC               */
 #define GPIO_ABUSALLOC_AEVEN1_DEFAULT                (_GPIO_ABUSALLOC_AEVEN1_DEFAULT << 8)  /**< Shifted mode DEFAULT for GPIO_ABUSALLOC     */
-#define GPIO_ABUSALLOC_AEVEN1_TRISTATE               (_GPIO_ABUSALLOC_AEVEN1_TRISTATE << 8) /**< Shifted mode TRISTATE for GPIO_ABUSALLOC     */
-#define GPIO_ABUSALLOC_AEVEN1_ADC0                   (_GPIO_ABUSALLOC_AEVEN1_ADC0 << 8)     /**< Shifted mode ADC0 for GPIO_ABUSALLOC         */
-#define GPIO_ABUSALLOC_AEVEN1_ACMP0                  (_GPIO_ABUSALLOC_AEVEN1_ACMP0 << 8)    /**< Shifted mode ACMP0 for GPIO_ABUSALLOC        */
-#define GPIO_ABUSALLOC_AEVEN1_ACMP1                  (_GPIO_ABUSALLOC_AEVEN1_ACMP1 << 8)    /**< Shifted mode ACMP1 for GPIO_ABUSALLOC        */
-#define GPIO_ABUSALLOC_AEVEN1_DEBUG                  (_GPIO_ABUSALLOC_AEVEN1_DEBUG << 8)    /**< Shifted mode DEBUG for GPIO_ABUSALLOC        */
+#define GPIO_ABUSALLOC_AEVEN1_TRISTATE               (_GPIO_ABUSALLOC_AEVEN1_TRISTATE << 8) /**< Shifted mode TRISTATE for GPIO_ABUSALLOC    */
+#define GPIO_ABUSALLOC_AEVEN1_ADC0                   (_GPIO_ABUSALLOC_AEVEN1_ADC0 << 8)     /**< Shifted mode ADC0 for GPIO_ABUSALLOC        */
+#define GPIO_ABUSALLOC_AEVEN1_ACMP0                  (_GPIO_ABUSALLOC_AEVEN1_ACMP0 << 8)    /**< Shifted mode ACMP0 for GPIO_ABUSALLOC       */
+#define GPIO_ABUSALLOC_AEVEN1_ACMP1                  (_GPIO_ABUSALLOC_AEVEN1_ACMP1 << 8)    /**< Shifted mode ACMP1 for GPIO_ABUSALLOC       */
+#define GPIO_ABUSALLOC_AEVEN1_DEBUG                  (_GPIO_ABUSALLOC_AEVEN1_DEBUG << 8)    /**< Shifted mode DEBUG for GPIO_ABUSALLOC       */
 #define _GPIO_ABUSALLOC_AODD0_SHIFT                  16                                     /**< Shift value for GPIO_AODD0                  */
 #define _GPIO_ABUSALLOC_AODD0_MASK                   0xF0000UL                              /**< Bit mask for GPIO_AODD0                     */
 #define _GPIO_ABUSALLOC_AODD0_DEFAULT                0x00000000UL                           /**< Mode DEFAULT for GPIO_ABUSALLOC             */
-#define _GPIO_ABUSALLOC_AODD0_TRISTATE               0x00000000UL                           /**< Mode TRISTATE for GPIO_ABUSALLOC             */
-#define _GPIO_ABUSALLOC_AODD0_ADC0                   0x00000001UL                           /**< Mode ADC0 for GPIO_ABUSALLOC                 */
-#define _GPIO_ABUSALLOC_AODD0_ACMP0                  0x00000002UL                           /**< Mode ACMP0 for GPIO_ABUSALLOC                */
-#define _GPIO_ABUSALLOC_AODD0_ACMP1                  0x00000003UL                           /**< Mode ACMP1 for GPIO_ABUSALLOC                */
-#define _GPIO_ABUSALLOC_AODD0_DIAGA                  0x0000000EUL                           /**< Mode DIAGA for GPIO_ABUSALLOC                */
-#define _GPIO_ABUSALLOC_AODD0_DEBUG                  0x0000000FUL                           /**< Mode DEBUG for GPIO_ABUSALLOC                */
+#define _GPIO_ABUSALLOC_AODD0_TRISTATE               0x00000000UL                           /**< Mode TRISTATE for GPIO_ABUSALLOC            */
+#define _GPIO_ABUSALLOC_AODD0_ADC0                   0x00000001UL                           /**< Mode ADC0 for GPIO_ABUSALLOC                */
+#define _GPIO_ABUSALLOC_AODD0_ACMP0                  0x00000002UL                           /**< Mode ACMP0 for GPIO_ABUSALLOC               */
+#define _GPIO_ABUSALLOC_AODD0_ACMP1                  0x00000003UL                           /**< Mode ACMP1 for GPIO_ABUSALLOC               */
+#define _GPIO_ABUSALLOC_AODD0_DIAGA                  0x0000000EUL                           /**< Mode DIAGA for GPIO_ABUSALLOC               */
+#define _GPIO_ABUSALLOC_AODD0_DEBUG                  0x0000000FUL                           /**< Mode DEBUG for GPIO_ABUSALLOC               */
 #define GPIO_ABUSALLOC_AODD0_DEFAULT                 (_GPIO_ABUSALLOC_AODD0_DEFAULT << 16)  /**< Shifted mode DEFAULT for GPIO_ABUSALLOC     */
-#define GPIO_ABUSALLOC_AODD0_TRISTATE                (_GPIO_ABUSALLOC_AODD0_TRISTATE << 16) /**< Shifted mode TRISTATE for GPIO_ABUSALLOC     */
-#define GPIO_ABUSALLOC_AODD0_ADC0                    (_GPIO_ABUSALLOC_AODD0_ADC0 << 16)     /**< Shifted mode ADC0 for GPIO_ABUSALLOC         */
-#define GPIO_ABUSALLOC_AODD0_ACMP0                   (_GPIO_ABUSALLOC_AODD0_ACMP0 << 16)    /**< Shifted mode ACMP0 for GPIO_ABUSALLOC        */
-#define GPIO_ABUSALLOC_AODD0_ACMP1                   (_GPIO_ABUSALLOC_AODD0_ACMP1 << 16)    /**< Shifted mode ACMP1 for GPIO_ABUSALLOC        */
-#define GPIO_ABUSALLOC_AODD0_DIAGA                   (_GPIO_ABUSALLOC_AODD0_DIAGA << 16)    /**< Shifted mode DIAGA for GPIO_ABUSALLOC        */
-#define GPIO_ABUSALLOC_AODD0_DEBUG                   (_GPIO_ABUSALLOC_AODD0_DEBUG << 16)    /**< Shifted mode DEBUG for GPIO_ABUSALLOC        */
+#define GPIO_ABUSALLOC_AODD0_TRISTATE                (_GPIO_ABUSALLOC_AODD0_TRISTATE << 16) /**< Shifted mode TRISTATE for GPIO_ABUSALLOC    */
+#define GPIO_ABUSALLOC_AODD0_ADC0                    (_GPIO_ABUSALLOC_AODD0_ADC0 << 16)     /**< Shifted mode ADC0 for GPIO_ABUSALLOC        */
+#define GPIO_ABUSALLOC_AODD0_ACMP0                   (_GPIO_ABUSALLOC_AODD0_ACMP0 << 16)    /**< Shifted mode ACMP0 for GPIO_ABUSALLOC       */
+#define GPIO_ABUSALLOC_AODD0_ACMP1                   (_GPIO_ABUSALLOC_AODD0_ACMP1 << 16)    /**< Shifted mode ACMP1 for GPIO_ABUSALLOC       */
+#define GPIO_ABUSALLOC_AODD0_DIAGA                   (_GPIO_ABUSALLOC_AODD0_DIAGA << 16)    /**< Shifted mode DIAGA for GPIO_ABUSALLOC       */
+#define GPIO_ABUSALLOC_AODD0_DEBUG                   (_GPIO_ABUSALLOC_AODD0_DEBUG << 16)    /**< Shifted mode DEBUG for GPIO_ABUSALLOC       */
 #define _GPIO_ABUSALLOC_AODD1_SHIFT                  24                                     /**< Shift value for GPIO_AODD1                  */
 #define _GPIO_ABUSALLOC_AODD1_MASK                   0xF000000UL                            /**< Bit mask for GPIO_AODD1                     */
 #define _GPIO_ABUSALLOC_AODD1_DEFAULT                0x00000000UL                           /**< Mode DEFAULT for GPIO_ABUSALLOC             */
-#define _GPIO_ABUSALLOC_AODD1_TRISTATE               0x00000000UL                           /**< Mode TRISTATE for GPIO_ABUSALLOC             */
-#define _GPIO_ABUSALLOC_AODD1_ADC0                   0x00000001UL                           /**< Mode ADC0 for GPIO_ABUSALLOC                 */
-#define _GPIO_ABUSALLOC_AODD1_ACMP0                  0x00000002UL                           /**< Mode ACMP0 for GPIO_ABUSALLOC                */
-#define _GPIO_ABUSALLOC_AODD1_ACMP1                  0x00000003UL                           /**< Mode ACMP1 for GPIO_ABUSALLOC                */
-#define _GPIO_ABUSALLOC_AODD1_DEBUG                  0x0000000FUL                           /**< Mode DEBUG for GPIO_ABUSALLOC                */
+#define _GPIO_ABUSALLOC_AODD1_TRISTATE               0x00000000UL                           /**< Mode TRISTATE for GPIO_ABUSALLOC            */
+#define _GPIO_ABUSALLOC_AODD1_ADC0                   0x00000001UL                           /**< Mode ADC0 for GPIO_ABUSALLOC                */
+#define _GPIO_ABUSALLOC_AODD1_ACMP0                  0x00000002UL                           /**< Mode ACMP0 for GPIO_ABUSALLOC               */
+#define _GPIO_ABUSALLOC_AODD1_ACMP1                  0x00000003UL                           /**< Mode ACMP1 for GPIO_ABUSALLOC               */
+#define _GPIO_ABUSALLOC_AODD1_DEBUG                  0x0000000FUL                           /**< Mode DEBUG for GPIO_ABUSALLOC               */
 #define GPIO_ABUSALLOC_AODD1_DEFAULT                 (_GPIO_ABUSALLOC_AODD1_DEFAULT << 24)  /**< Shifted mode DEFAULT for GPIO_ABUSALLOC     */
-#define GPIO_ABUSALLOC_AODD1_TRISTATE                (_GPIO_ABUSALLOC_AODD1_TRISTATE << 24) /**< Shifted mode TRISTATE for GPIO_ABUSALLOC     */
-#define GPIO_ABUSALLOC_AODD1_ADC0                    (_GPIO_ABUSALLOC_AODD1_ADC0 << 24)     /**< Shifted mode ADC0 for GPIO_ABUSALLOC         */
-#define GPIO_ABUSALLOC_AODD1_ACMP0                   (_GPIO_ABUSALLOC_AODD1_ACMP0 << 24)    /**< Shifted mode ACMP0 for GPIO_ABUSALLOC        */
-#define GPIO_ABUSALLOC_AODD1_ACMP1                   (_GPIO_ABUSALLOC_AODD1_ACMP1 << 24)    /**< Shifted mode ACMP1 for GPIO_ABUSALLOC        */
-#define GPIO_ABUSALLOC_AODD1_DEBUG                   (_GPIO_ABUSALLOC_AODD1_DEBUG << 24)    /**< Shifted mode DEBUG for GPIO_ABUSALLOC        */
+#define GPIO_ABUSALLOC_AODD1_TRISTATE                (_GPIO_ABUSALLOC_AODD1_TRISTATE << 24) /**< Shifted mode TRISTATE for GPIO_ABUSALLOC    */
+#define GPIO_ABUSALLOC_AODD1_ADC0                    (_GPIO_ABUSALLOC_AODD1_ADC0 << 24)     /**< Shifted mode ADC0 for GPIO_ABUSALLOC        */
+#define GPIO_ABUSALLOC_AODD1_ACMP0                   (_GPIO_ABUSALLOC_AODD1_ACMP0 << 24)    /**< Shifted mode ACMP0 for GPIO_ABUSALLOC       */
+#define GPIO_ABUSALLOC_AODD1_ACMP1                   (_GPIO_ABUSALLOC_AODD1_ACMP1 << 24)    /**< Shifted mode ACMP1 for GPIO_ABUSALLOC       */
+#define GPIO_ABUSALLOC_AODD1_DEBUG                   (_GPIO_ABUSALLOC_AODD1_DEBUG << 24)    /**< Shifted mode DEBUG for GPIO_ABUSALLOC       */
 
 /* Bit fields for GPIO BBUSALLOC */
 #define _GPIO_BBUSALLOC_RESETVALUE                   0x00000000UL                           /**< Default value for GPIO_BBUSALLOC            */
@@ -430,59 +377,59 @@ typedef struct {
 #define _GPIO_BBUSALLOC_BEVEN0_SHIFT                 0                                      /**< Shift value for GPIO_BEVEN0                 */
 #define _GPIO_BBUSALLOC_BEVEN0_MASK                  0xFUL                                  /**< Bit mask for GPIO_BEVEN0                    */
 #define _GPIO_BBUSALLOC_BEVEN0_DEFAULT               0x00000000UL                           /**< Mode DEFAULT for GPIO_BBUSALLOC             */
-#define _GPIO_BBUSALLOC_BEVEN0_TRISTATE              0x00000000UL                           /**< Mode TRISTATE for GPIO_BBUSALLOC             */
-#define _GPIO_BBUSALLOC_BEVEN0_ADC0                  0x00000001UL                           /**< Mode ADC0 for GPIO_BBUSALLOC                 */
-#define _GPIO_BBUSALLOC_BEVEN0_ACMP0                 0x00000002UL                           /**< Mode ACMP0 for GPIO_BBUSALLOC                */
-#define _GPIO_BBUSALLOC_BEVEN0_ACMP1                 0x00000003UL                           /**< Mode ACMP1 for GPIO_BBUSALLOC                */
-#define _GPIO_BBUSALLOC_BEVEN0_DEBUG                 0x0000000FUL                           /**< Mode DEBUG for GPIO_BBUSALLOC                */
+#define _GPIO_BBUSALLOC_BEVEN0_TRISTATE              0x00000000UL                           /**< Mode TRISTATE for GPIO_BBUSALLOC            */
+#define _GPIO_BBUSALLOC_BEVEN0_ADC0                  0x00000001UL                           /**< Mode ADC0 for GPIO_BBUSALLOC                */
+#define _GPIO_BBUSALLOC_BEVEN0_ACMP0                 0x00000002UL                           /**< Mode ACMP0 for GPIO_BBUSALLOC               */
+#define _GPIO_BBUSALLOC_BEVEN0_ACMP1                 0x00000003UL                           /**< Mode ACMP1 for GPIO_BBUSALLOC               */
+#define _GPIO_BBUSALLOC_BEVEN0_DEBUG                 0x0000000FUL                           /**< Mode DEBUG for GPIO_BBUSALLOC               */
 #define GPIO_BBUSALLOC_BEVEN0_DEFAULT                (_GPIO_BBUSALLOC_BEVEN0_DEFAULT << 0)  /**< Shifted mode DEFAULT for GPIO_BBUSALLOC     */
-#define GPIO_BBUSALLOC_BEVEN0_TRISTATE               (_GPIO_BBUSALLOC_BEVEN0_TRISTATE << 0) /**< Shifted mode TRISTATE for GPIO_BBUSALLOC     */
-#define GPIO_BBUSALLOC_BEVEN0_ADC0                   (_GPIO_BBUSALLOC_BEVEN0_ADC0 << 0)     /**< Shifted mode ADC0 for GPIO_BBUSALLOC         */
-#define GPIO_BBUSALLOC_BEVEN0_ACMP0                  (_GPIO_BBUSALLOC_BEVEN0_ACMP0 << 0)    /**< Shifted mode ACMP0 for GPIO_BBUSALLOC        */
-#define GPIO_BBUSALLOC_BEVEN0_ACMP1                  (_GPIO_BBUSALLOC_BEVEN0_ACMP1 << 0)    /**< Shifted mode ACMP1 for GPIO_BBUSALLOC        */
-#define GPIO_BBUSALLOC_BEVEN0_DEBUG                  (_GPIO_BBUSALLOC_BEVEN0_DEBUG << 0)    /**< Shifted mode DEBUG for GPIO_BBUSALLOC        */
+#define GPIO_BBUSALLOC_BEVEN0_TRISTATE               (_GPIO_BBUSALLOC_BEVEN0_TRISTATE << 0) /**< Shifted mode TRISTATE for GPIO_BBUSALLOC    */
+#define GPIO_BBUSALLOC_BEVEN0_ADC0                   (_GPIO_BBUSALLOC_BEVEN0_ADC0 << 0)     /**< Shifted mode ADC0 for GPIO_BBUSALLOC        */
+#define GPIO_BBUSALLOC_BEVEN0_ACMP0                  (_GPIO_BBUSALLOC_BEVEN0_ACMP0 << 0)    /**< Shifted mode ACMP0 for GPIO_BBUSALLOC       */
+#define GPIO_BBUSALLOC_BEVEN0_ACMP1                  (_GPIO_BBUSALLOC_BEVEN0_ACMP1 << 0)    /**< Shifted mode ACMP1 for GPIO_BBUSALLOC       */
+#define GPIO_BBUSALLOC_BEVEN0_DEBUG                  (_GPIO_BBUSALLOC_BEVEN0_DEBUG << 0)    /**< Shifted mode DEBUG for GPIO_BBUSALLOC       */
 #define _GPIO_BBUSALLOC_BEVEN1_SHIFT                 8                                      /**< Shift value for GPIO_BEVEN1                 */
 #define _GPIO_BBUSALLOC_BEVEN1_MASK                  0xF00UL                                /**< Bit mask for GPIO_BEVEN1                    */
 #define _GPIO_BBUSALLOC_BEVEN1_DEFAULT               0x00000000UL                           /**< Mode DEFAULT for GPIO_BBUSALLOC             */
-#define _GPIO_BBUSALLOC_BEVEN1_TRISTATE              0x00000000UL                           /**< Mode TRISTATE for GPIO_BBUSALLOC             */
-#define _GPIO_BBUSALLOC_BEVEN1_ADC0                  0x00000001UL                           /**< Mode ADC0 for GPIO_BBUSALLOC                 */
-#define _GPIO_BBUSALLOC_BEVEN1_ACMP0                 0x00000002UL                           /**< Mode ACMP0 for GPIO_BBUSALLOC                */
-#define _GPIO_BBUSALLOC_BEVEN1_ACMP1                 0x00000003UL                           /**< Mode ACMP1 for GPIO_BBUSALLOC                */
-#define _GPIO_BBUSALLOC_BEVEN1_DEBUG                 0x0000000FUL                           /**< Mode DEBUG for GPIO_BBUSALLOC                */
+#define _GPIO_BBUSALLOC_BEVEN1_TRISTATE              0x00000000UL                           /**< Mode TRISTATE for GPIO_BBUSALLOC            */
+#define _GPIO_BBUSALLOC_BEVEN1_ADC0                  0x00000001UL                           /**< Mode ADC0 for GPIO_BBUSALLOC                */
+#define _GPIO_BBUSALLOC_BEVEN1_ACMP0                 0x00000002UL                           /**< Mode ACMP0 for GPIO_BBUSALLOC               */
+#define _GPIO_BBUSALLOC_BEVEN1_ACMP1                 0x00000003UL                           /**< Mode ACMP1 for GPIO_BBUSALLOC               */
+#define _GPIO_BBUSALLOC_BEVEN1_DEBUG                 0x0000000FUL                           /**< Mode DEBUG for GPIO_BBUSALLOC               */
 #define GPIO_BBUSALLOC_BEVEN1_DEFAULT                (_GPIO_BBUSALLOC_BEVEN1_DEFAULT << 8)  /**< Shifted mode DEFAULT for GPIO_BBUSALLOC     */
-#define GPIO_BBUSALLOC_BEVEN1_TRISTATE               (_GPIO_BBUSALLOC_BEVEN1_TRISTATE << 8) /**< Shifted mode TRISTATE for GPIO_BBUSALLOC     */
-#define GPIO_BBUSALLOC_BEVEN1_ADC0                   (_GPIO_BBUSALLOC_BEVEN1_ADC0 << 8)     /**< Shifted mode ADC0 for GPIO_BBUSALLOC         */
-#define GPIO_BBUSALLOC_BEVEN1_ACMP0                  (_GPIO_BBUSALLOC_BEVEN1_ACMP0 << 8)    /**< Shifted mode ACMP0 for GPIO_BBUSALLOC        */
-#define GPIO_BBUSALLOC_BEVEN1_ACMP1                  (_GPIO_BBUSALLOC_BEVEN1_ACMP1 << 8)    /**< Shifted mode ACMP1 for GPIO_BBUSALLOC        */
-#define GPIO_BBUSALLOC_BEVEN1_DEBUG                  (_GPIO_BBUSALLOC_BEVEN1_DEBUG << 8)    /**< Shifted mode DEBUG for GPIO_BBUSALLOC        */
+#define GPIO_BBUSALLOC_BEVEN1_TRISTATE               (_GPIO_BBUSALLOC_BEVEN1_TRISTATE << 8) /**< Shifted mode TRISTATE for GPIO_BBUSALLOC    */
+#define GPIO_BBUSALLOC_BEVEN1_ADC0                   (_GPIO_BBUSALLOC_BEVEN1_ADC0 << 8)     /**< Shifted mode ADC0 for GPIO_BBUSALLOC        */
+#define GPIO_BBUSALLOC_BEVEN1_ACMP0                  (_GPIO_BBUSALLOC_BEVEN1_ACMP0 << 8)    /**< Shifted mode ACMP0 for GPIO_BBUSALLOC       */
+#define GPIO_BBUSALLOC_BEVEN1_ACMP1                  (_GPIO_BBUSALLOC_BEVEN1_ACMP1 << 8)    /**< Shifted mode ACMP1 for GPIO_BBUSALLOC       */
+#define GPIO_BBUSALLOC_BEVEN1_DEBUG                  (_GPIO_BBUSALLOC_BEVEN1_DEBUG << 8)    /**< Shifted mode DEBUG for GPIO_BBUSALLOC       */
 #define _GPIO_BBUSALLOC_BODD0_SHIFT                  16                                     /**< Shift value for GPIO_BODD0                  */
 #define _GPIO_BBUSALLOC_BODD0_MASK                   0xF0000UL                              /**< Bit mask for GPIO_BODD0                     */
 #define _GPIO_BBUSALLOC_BODD0_DEFAULT                0x00000000UL                           /**< Mode DEFAULT for GPIO_BBUSALLOC             */
-#define _GPIO_BBUSALLOC_BODD0_TRISTATE               0x00000000UL                           /**< Mode TRISTATE for GPIO_BBUSALLOC             */
-#define _GPIO_BBUSALLOC_BODD0_ADC0                   0x00000001UL                           /**< Mode ADC0 for GPIO_BBUSALLOC                 */
-#define _GPIO_BBUSALLOC_BODD0_ACMP0                  0x00000002UL                           /**< Mode ACMP0 for GPIO_BBUSALLOC                */
-#define _GPIO_BBUSALLOC_BODD0_ACMP1                  0x00000003UL                           /**< Mode ACMP1 for GPIO_BBUSALLOC                */
-#define _GPIO_BBUSALLOC_BODD0_DEBUG                  0x0000000FUL                           /**< Mode DEBUG for GPIO_BBUSALLOC                */
+#define _GPIO_BBUSALLOC_BODD0_TRISTATE               0x00000000UL                           /**< Mode TRISTATE for GPIO_BBUSALLOC            */
+#define _GPIO_BBUSALLOC_BODD0_ADC0                   0x00000001UL                           /**< Mode ADC0 for GPIO_BBUSALLOC                */
+#define _GPIO_BBUSALLOC_BODD0_ACMP0                  0x00000002UL                           /**< Mode ACMP0 for GPIO_BBUSALLOC               */
+#define _GPIO_BBUSALLOC_BODD0_ACMP1                  0x00000003UL                           /**< Mode ACMP1 for GPIO_BBUSALLOC               */
+#define _GPIO_BBUSALLOC_BODD0_DEBUG                  0x0000000FUL                           /**< Mode DEBUG for GPIO_BBUSALLOC               */
 #define GPIO_BBUSALLOC_BODD0_DEFAULT                 (_GPIO_BBUSALLOC_BODD0_DEFAULT << 16)  /**< Shifted mode DEFAULT for GPIO_BBUSALLOC     */
-#define GPIO_BBUSALLOC_BODD0_TRISTATE                (_GPIO_BBUSALLOC_BODD0_TRISTATE << 16) /**< Shifted mode TRISTATE for GPIO_BBUSALLOC     */
-#define GPIO_BBUSALLOC_BODD0_ADC0                    (_GPIO_BBUSALLOC_BODD0_ADC0 << 16)     /**< Shifted mode ADC0 for GPIO_BBUSALLOC         */
-#define GPIO_BBUSALLOC_BODD0_ACMP0                   (_GPIO_BBUSALLOC_BODD0_ACMP0 << 16)    /**< Shifted mode ACMP0 for GPIO_BBUSALLOC        */
-#define GPIO_BBUSALLOC_BODD0_ACMP1                   (_GPIO_BBUSALLOC_BODD0_ACMP1 << 16)    /**< Shifted mode ACMP1 for GPIO_BBUSALLOC        */
-#define GPIO_BBUSALLOC_BODD0_DEBUG                   (_GPIO_BBUSALLOC_BODD0_DEBUG << 16)    /**< Shifted mode DEBUG for GPIO_BBUSALLOC        */
+#define GPIO_BBUSALLOC_BODD0_TRISTATE                (_GPIO_BBUSALLOC_BODD0_TRISTATE << 16) /**< Shifted mode TRISTATE for GPIO_BBUSALLOC    */
+#define GPIO_BBUSALLOC_BODD0_ADC0                    (_GPIO_BBUSALLOC_BODD0_ADC0 << 16)     /**< Shifted mode ADC0 for GPIO_BBUSALLOC        */
+#define GPIO_BBUSALLOC_BODD0_ACMP0                   (_GPIO_BBUSALLOC_BODD0_ACMP0 << 16)    /**< Shifted mode ACMP0 for GPIO_BBUSALLOC       */
+#define GPIO_BBUSALLOC_BODD0_ACMP1                   (_GPIO_BBUSALLOC_BODD0_ACMP1 << 16)    /**< Shifted mode ACMP1 for GPIO_BBUSALLOC       */
+#define GPIO_BBUSALLOC_BODD0_DEBUG                   (_GPIO_BBUSALLOC_BODD0_DEBUG << 16)    /**< Shifted mode DEBUG for GPIO_BBUSALLOC       */
 #define _GPIO_BBUSALLOC_BODD1_SHIFT                  24                                     /**< Shift value for GPIO_BODD1                  */
 #define _GPIO_BBUSALLOC_BODD1_MASK                   0xF000000UL                            /**< Bit mask for GPIO_BODD1                     */
 #define _GPIO_BBUSALLOC_BODD1_DEFAULT                0x00000000UL                           /**< Mode DEFAULT for GPIO_BBUSALLOC             */
-#define _GPIO_BBUSALLOC_BODD1_TRISTATE               0x00000000UL                           /**< Mode TRISTATE for GPIO_BBUSALLOC             */
-#define _GPIO_BBUSALLOC_BODD1_ADC0                   0x00000001UL                           /**< Mode ADC0 for GPIO_BBUSALLOC                 */
-#define _GPIO_BBUSALLOC_BODD1_ACMP0                  0x00000002UL                           /**< Mode ACMP0 for GPIO_BBUSALLOC                */
-#define _GPIO_BBUSALLOC_BODD1_ACMP1                  0x00000003UL                           /**< Mode ACMP1 for GPIO_BBUSALLOC                */
-#define _GPIO_BBUSALLOC_BODD1_DEBUG                  0x0000000FUL                           /**< Mode DEBUG for GPIO_BBUSALLOC                */
+#define _GPIO_BBUSALLOC_BODD1_TRISTATE               0x00000000UL                           /**< Mode TRISTATE for GPIO_BBUSALLOC            */
+#define _GPIO_BBUSALLOC_BODD1_ADC0                   0x00000001UL                           /**< Mode ADC0 for GPIO_BBUSALLOC                */
+#define _GPIO_BBUSALLOC_BODD1_ACMP0                  0x00000002UL                           /**< Mode ACMP0 for GPIO_BBUSALLOC               */
+#define _GPIO_BBUSALLOC_BODD1_ACMP1                  0x00000003UL                           /**< Mode ACMP1 for GPIO_BBUSALLOC               */
+#define _GPIO_BBUSALLOC_BODD1_DEBUG                  0x0000000FUL                           /**< Mode DEBUG for GPIO_BBUSALLOC               */
 #define GPIO_BBUSALLOC_BODD1_DEFAULT                 (_GPIO_BBUSALLOC_BODD1_DEFAULT << 24)  /**< Shifted mode DEFAULT for GPIO_BBUSALLOC     */
-#define GPIO_BBUSALLOC_BODD1_TRISTATE                (_GPIO_BBUSALLOC_BODD1_TRISTATE << 24) /**< Shifted mode TRISTATE for GPIO_BBUSALLOC     */
-#define GPIO_BBUSALLOC_BODD1_ADC0                    (_GPIO_BBUSALLOC_BODD1_ADC0 << 24)     /**< Shifted mode ADC0 for GPIO_BBUSALLOC         */
-#define GPIO_BBUSALLOC_BODD1_ACMP0                   (_GPIO_BBUSALLOC_BODD1_ACMP0 << 24)    /**< Shifted mode ACMP0 for GPIO_BBUSALLOC        */
-#define GPIO_BBUSALLOC_BODD1_ACMP1                   (_GPIO_BBUSALLOC_BODD1_ACMP1 << 24)    /**< Shifted mode ACMP1 for GPIO_BBUSALLOC        */
-#define GPIO_BBUSALLOC_BODD1_DEBUG                   (_GPIO_BBUSALLOC_BODD1_DEBUG << 24)    /**< Shifted mode DEBUG for GPIO_BBUSALLOC        */
+#define GPIO_BBUSALLOC_BODD1_TRISTATE                (_GPIO_BBUSALLOC_BODD1_TRISTATE << 24) /**< Shifted mode TRISTATE for GPIO_BBUSALLOC    */
+#define GPIO_BBUSALLOC_BODD1_ADC0                    (_GPIO_BBUSALLOC_BODD1_ADC0 << 24)     /**< Shifted mode ADC0 for GPIO_BBUSALLOC        */
+#define GPIO_BBUSALLOC_BODD1_ACMP0                   (_GPIO_BBUSALLOC_BODD1_ACMP0 << 24)    /**< Shifted mode ACMP0 for GPIO_BBUSALLOC       */
+#define GPIO_BBUSALLOC_BODD1_ACMP1                   (_GPIO_BBUSALLOC_BODD1_ACMP1 << 24)    /**< Shifted mode ACMP1 for GPIO_BBUSALLOC       */
+#define GPIO_BBUSALLOC_BODD1_DEBUG                   (_GPIO_BBUSALLOC_BODD1_DEBUG << 24)    /**< Shifted mode DEBUG for GPIO_BBUSALLOC       */
 
 /* Bit fields for GPIO CDBUSALLOC */
 #define _GPIO_CDBUSALLOC_RESETVALUE                  0x00000000UL                             /**< Default value for GPIO_CDBUSALLOC           */
@@ -490,181 +437,65 @@ typedef struct {
 #define _GPIO_CDBUSALLOC_CDEVEN0_SHIFT               0                                        /**< Shift value for GPIO_CDEVEN0                */
 #define _GPIO_CDBUSALLOC_CDEVEN0_MASK                0xFUL                                    /**< Bit mask for GPIO_CDEVEN0                   */
 #define _GPIO_CDBUSALLOC_CDEVEN0_DEFAULT             0x00000000UL                             /**< Mode DEFAULT for GPIO_CDBUSALLOC            */
-#define _GPIO_CDBUSALLOC_CDEVEN0_TRISTATE            0x00000000UL                             /**< Mode TRISTATE for GPIO_CDBUSALLOC            */
-#define _GPIO_CDBUSALLOC_CDEVEN0_ADC0                0x00000001UL                             /**< Mode ADC0 for GPIO_CDBUSALLOC                */
-#define _GPIO_CDBUSALLOC_CDEVEN0_ACMP0               0x00000002UL                             /**< Mode ACMP0 for GPIO_CDBUSALLOC               */
-#define _GPIO_CDBUSALLOC_CDEVEN0_ACMP1               0x00000003UL                             /**< Mode ACMP1 for GPIO_CDBUSALLOC               */
-#define _GPIO_CDBUSALLOC_CDEVEN0_PMON                0x0000000CUL                             /**< Mode PMON for GPIO_CDBUSALLOC                */
-#define _GPIO_CDBUSALLOC_CDEVEN0_EFUSE               0x0000000DUL                             /**< Mode EFUSE for GPIO_CDBUSALLOC               */
-#define _GPIO_CDBUSALLOC_CDEVEN0_DEBUG               0x0000000FUL                             /**< Mode DEBUG for GPIO_CDBUSALLOC               */
+#define _GPIO_CDBUSALLOC_CDEVEN0_TRISTATE            0x00000000UL                             /**< Mode TRISTATE for GPIO_CDBUSALLOC           */
+#define _GPIO_CDBUSALLOC_CDEVEN0_ADC0                0x00000001UL                             /**< Mode ADC0 for GPIO_CDBUSALLOC               */
+#define _GPIO_CDBUSALLOC_CDEVEN0_ACMP0               0x00000002UL                             /**< Mode ACMP0 for GPIO_CDBUSALLOC              */
+#define _GPIO_CDBUSALLOC_CDEVEN0_ACMP1               0x00000003UL                             /**< Mode ACMP1 for GPIO_CDBUSALLOC              */
+#define _GPIO_CDBUSALLOC_CDEVEN0_PMON                0x0000000CUL                             /**< Mode PMON for GPIO_CDBUSALLOC               */
+#define _GPIO_CDBUSALLOC_CDEVEN0_EFUSE               0x0000000DUL                             /**< Mode EFUSE for GPIO_CDBUSALLOC              */
+#define _GPIO_CDBUSALLOC_CDEVEN0_DEBUG               0x0000000FUL                             /**< Mode DEBUG for GPIO_CDBUSALLOC              */
 #define GPIO_CDBUSALLOC_CDEVEN0_DEFAULT              (_GPIO_CDBUSALLOC_CDEVEN0_DEFAULT << 0)  /**< Shifted mode DEFAULT for GPIO_CDBUSALLOC    */
-#define GPIO_CDBUSALLOC_CDEVEN0_TRISTATE             (_GPIO_CDBUSALLOC_CDEVEN0_TRISTATE << 0) /**< Shifted mode TRISTATE for GPIO_CDBUSALLOC    */
-#define GPIO_CDBUSALLOC_CDEVEN0_ADC0                 (_GPIO_CDBUSALLOC_CDEVEN0_ADC0 << 0)     /**< Shifted mode ADC0 for GPIO_CDBUSALLOC        */
-#define GPIO_CDBUSALLOC_CDEVEN0_ACMP0                (_GPIO_CDBUSALLOC_CDEVEN0_ACMP0 << 0)    /**< Shifted mode ACMP0 for GPIO_CDBUSALLOC       */
-#define GPIO_CDBUSALLOC_CDEVEN0_ACMP1                (_GPIO_CDBUSALLOC_CDEVEN0_ACMP1 << 0)    /**< Shifted mode ACMP1 for GPIO_CDBUSALLOC       */
-#define GPIO_CDBUSALLOC_CDEVEN0_PMON                 (_GPIO_CDBUSALLOC_CDEVEN0_PMON << 0)     /**< Shifted mode PMON for GPIO_CDBUSALLOC        */
-#define GPIO_CDBUSALLOC_CDEVEN0_EFUSE                (_GPIO_CDBUSALLOC_CDEVEN0_EFUSE << 0)    /**< Shifted mode EFUSE for GPIO_CDBUSALLOC       */
-#define GPIO_CDBUSALLOC_CDEVEN0_DEBUG                (_GPIO_CDBUSALLOC_CDEVEN0_DEBUG << 0)    /**< Shifted mode DEBUG for GPIO_CDBUSALLOC       */
+#define GPIO_CDBUSALLOC_CDEVEN0_TRISTATE             (_GPIO_CDBUSALLOC_CDEVEN0_TRISTATE << 0) /**< Shifted mode TRISTATE for GPIO_CDBUSALLOC   */
+#define GPIO_CDBUSALLOC_CDEVEN0_ADC0                 (_GPIO_CDBUSALLOC_CDEVEN0_ADC0 << 0)     /**< Shifted mode ADC0 for GPIO_CDBUSALLOC       */
+#define GPIO_CDBUSALLOC_CDEVEN0_ACMP0                (_GPIO_CDBUSALLOC_CDEVEN0_ACMP0 << 0)    /**< Shifted mode ACMP0 for GPIO_CDBUSALLOC      */
+#define GPIO_CDBUSALLOC_CDEVEN0_ACMP1                (_GPIO_CDBUSALLOC_CDEVEN0_ACMP1 << 0)    /**< Shifted mode ACMP1 for GPIO_CDBUSALLOC      */
+#define GPIO_CDBUSALLOC_CDEVEN0_PMON                 (_GPIO_CDBUSALLOC_CDEVEN0_PMON << 0)     /**< Shifted mode PMON for GPIO_CDBUSALLOC       */
+#define GPIO_CDBUSALLOC_CDEVEN0_EFUSE                (_GPIO_CDBUSALLOC_CDEVEN0_EFUSE << 0)    /**< Shifted mode EFUSE for GPIO_CDBUSALLOC      */
+#define GPIO_CDBUSALLOC_CDEVEN0_DEBUG                (_GPIO_CDBUSALLOC_CDEVEN0_DEBUG << 0)    /**< Shifted mode DEBUG for GPIO_CDBUSALLOC      */
 #define _GPIO_CDBUSALLOC_CDEVEN1_SHIFT               8                                        /**< Shift value for GPIO_CDEVEN1                */
 #define _GPIO_CDBUSALLOC_CDEVEN1_MASK                0xF00UL                                  /**< Bit mask for GPIO_CDEVEN1                   */
 #define _GPIO_CDBUSALLOC_CDEVEN1_DEFAULT             0x00000000UL                             /**< Mode DEFAULT for GPIO_CDBUSALLOC            */
-#define _GPIO_CDBUSALLOC_CDEVEN1_TRISTATE            0x00000000UL                             /**< Mode TRISTATE for GPIO_CDBUSALLOC            */
-#define _GPIO_CDBUSALLOC_CDEVEN1_ADC0                0x00000001UL                             /**< Mode ADC0 for GPIO_CDBUSALLOC                */
-#define _GPIO_CDBUSALLOC_CDEVEN1_ACMP0               0x00000002UL                             /**< Mode ACMP0 for GPIO_CDBUSALLOC               */
-#define _GPIO_CDBUSALLOC_CDEVEN1_ACMP1               0x00000003UL                             /**< Mode ACMP1 for GPIO_CDBUSALLOC               */
-#define _GPIO_CDBUSALLOC_CDEVEN1_DEBUG               0x0000000FUL                             /**< Mode DEBUG for GPIO_CDBUSALLOC               */
+#define _GPIO_CDBUSALLOC_CDEVEN1_TRISTATE            0x00000000UL                             /**< Mode TRISTATE for GPIO_CDBUSALLOC           */
+#define _GPIO_CDBUSALLOC_CDEVEN1_ADC0                0x00000001UL                             /**< Mode ADC0 for GPIO_CDBUSALLOC               */
+#define _GPIO_CDBUSALLOC_CDEVEN1_ACMP0               0x00000002UL                             /**< Mode ACMP0 for GPIO_CDBUSALLOC              */
+#define _GPIO_CDBUSALLOC_CDEVEN1_ACMP1               0x00000003UL                             /**< Mode ACMP1 for GPIO_CDBUSALLOC              */
+#define _GPIO_CDBUSALLOC_CDEVEN1_DEBUG               0x0000000FUL                             /**< Mode DEBUG for GPIO_CDBUSALLOC              */
 #define GPIO_CDBUSALLOC_CDEVEN1_DEFAULT              (_GPIO_CDBUSALLOC_CDEVEN1_DEFAULT << 8)  /**< Shifted mode DEFAULT for GPIO_CDBUSALLOC    */
-#define GPIO_CDBUSALLOC_CDEVEN1_TRISTATE             (_GPIO_CDBUSALLOC_CDEVEN1_TRISTATE << 8) /**< Shifted mode TRISTATE for GPIO_CDBUSALLOC    */
-#define GPIO_CDBUSALLOC_CDEVEN1_ADC0                 (_GPIO_CDBUSALLOC_CDEVEN1_ADC0 << 8)     /**< Shifted mode ADC0 for GPIO_CDBUSALLOC        */
-#define GPIO_CDBUSALLOC_CDEVEN1_ACMP0                (_GPIO_CDBUSALLOC_CDEVEN1_ACMP0 << 8)    /**< Shifted mode ACMP0 for GPIO_CDBUSALLOC       */
-#define GPIO_CDBUSALLOC_CDEVEN1_ACMP1                (_GPIO_CDBUSALLOC_CDEVEN1_ACMP1 << 8)    /**< Shifted mode ACMP1 for GPIO_CDBUSALLOC       */
-#define GPIO_CDBUSALLOC_CDEVEN1_DEBUG                (_GPIO_CDBUSALLOC_CDEVEN1_DEBUG << 8)    /**< Shifted mode DEBUG for GPIO_CDBUSALLOC       */
+#define GPIO_CDBUSALLOC_CDEVEN1_TRISTATE             (_GPIO_CDBUSALLOC_CDEVEN1_TRISTATE << 8) /**< Shifted mode TRISTATE for GPIO_CDBUSALLOC   */
+#define GPIO_CDBUSALLOC_CDEVEN1_ADC0                 (_GPIO_CDBUSALLOC_CDEVEN1_ADC0 << 8)     /**< Shifted mode ADC0 for GPIO_CDBUSALLOC       */
+#define GPIO_CDBUSALLOC_CDEVEN1_ACMP0                (_GPIO_CDBUSALLOC_CDEVEN1_ACMP0 << 8)    /**< Shifted mode ACMP0 for GPIO_CDBUSALLOC      */
+#define GPIO_CDBUSALLOC_CDEVEN1_ACMP1                (_GPIO_CDBUSALLOC_CDEVEN1_ACMP1 << 8)    /**< Shifted mode ACMP1 for GPIO_CDBUSALLOC      */
+#define GPIO_CDBUSALLOC_CDEVEN1_DEBUG                (_GPIO_CDBUSALLOC_CDEVEN1_DEBUG << 8)    /**< Shifted mode DEBUG for GPIO_CDBUSALLOC      */
 #define _GPIO_CDBUSALLOC_CDODD0_SHIFT                16                                       /**< Shift value for GPIO_CDODD0                 */
 #define _GPIO_CDBUSALLOC_CDODD0_MASK                 0xF0000UL                                /**< Bit mask for GPIO_CDODD0                    */
 #define _GPIO_CDBUSALLOC_CDODD0_DEFAULT              0x00000000UL                             /**< Mode DEFAULT for GPIO_CDBUSALLOC            */
-#define _GPIO_CDBUSALLOC_CDODD0_TRISTATE             0x00000000UL                             /**< Mode TRISTATE for GPIO_CDBUSALLOC            */
-#define _GPIO_CDBUSALLOC_CDODD0_ADC0                 0x00000001UL                             /**< Mode ADC0 for GPIO_CDBUSALLOC                */
-#define _GPIO_CDBUSALLOC_CDODD0_ACMP0                0x00000002UL                             /**< Mode ACMP0 for GPIO_CDBUSALLOC               */
-#define _GPIO_CDBUSALLOC_CDODD0_ACMP1                0x00000003UL                             /**< Mode ACMP1 for GPIO_CDBUSALLOC               */
-#define _GPIO_CDBUSALLOC_CDODD0_PMON                 0x0000000CUL                             /**< Mode PMON for GPIO_CDBUSALLOC                */
-#define _GPIO_CDBUSALLOC_CDODD0_DEBUG                0x0000000FUL                             /**< Mode DEBUG for GPIO_CDBUSALLOC               */
+#define _GPIO_CDBUSALLOC_CDODD0_TRISTATE             0x00000000UL                             /**< Mode TRISTATE for GPIO_CDBUSALLOC           */
+#define _GPIO_CDBUSALLOC_CDODD0_ADC0                 0x00000001UL                             /**< Mode ADC0 for GPIO_CDBUSALLOC               */
+#define _GPIO_CDBUSALLOC_CDODD0_ACMP0                0x00000002UL                             /**< Mode ACMP0 for GPIO_CDBUSALLOC              */
+#define _GPIO_CDBUSALLOC_CDODD0_ACMP1                0x00000003UL                             /**< Mode ACMP1 for GPIO_CDBUSALLOC              */
+#define _GPIO_CDBUSALLOC_CDODD0_PMON                 0x0000000CUL                             /**< Mode PMON for GPIO_CDBUSALLOC               */
+#define _GPIO_CDBUSALLOC_CDODD0_DEBUG                0x0000000FUL                             /**< Mode DEBUG for GPIO_CDBUSALLOC              */
 #define GPIO_CDBUSALLOC_CDODD0_DEFAULT               (_GPIO_CDBUSALLOC_CDODD0_DEFAULT << 16)  /**< Shifted mode DEFAULT for GPIO_CDBUSALLOC    */
-#define GPIO_CDBUSALLOC_CDODD0_TRISTATE              (_GPIO_CDBUSALLOC_CDODD0_TRISTATE << 16) /**< Shifted mode TRISTATE for GPIO_CDBUSALLOC    */
-#define GPIO_CDBUSALLOC_CDODD0_ADC0                  (_GPIO_CDBUSALLOC_CDODD0_ADC0 << 16)     /**< Shifted mode ADC0 for GPIO_CDBUSALLOC        */
-#define GPIO_CDBUSALLOC_CDODD0_ACMP0                 (_GPIO_CDBUSALLOC_CDODD0_ACMP0 << 16)    /**< Shifted mode ACMP0 for GPIO_CDBUSALLOC       */
-#define GPIO_CDBUSALLOC_CDODD0_ACMP1                 (_GPIO_CDBUSALLOC_CDODD0_ACMP1 << 16)    /**< Shifted mode ACMP1 for GPIO_CDBUSALLOC       */
-#define GPIO_CDBUSALLOC_CDODD0_PMON                  (_GPIO_CDBUSALLOC_CDODD0_PMON << 16)     /**< Shifted mode PMON for GPIO_CDBUSALLOC        */
-#define GPIO_CDBUSALLOC_CDODD0_DEBUG                 (_GPIO_CDBUSALLOC_CDODD0_DEBUG << 16)    /**< Shifted mode DEBUG for GPIO_CDBUSALLOC       */
+#define GPIO_CDBUSALLOC_CDODD0_TRISTATE              (_GPIO_CDBUSALLOC_CDODD0_TRISTATE << 16) /**< Shifted mode TRISTATE for GPIO_CDBUSALLOC   */
+#define GPIO_CDBUSALLOC_CDODD0_ADC0                  (_GPIO_CDBUSALLOC_CDODD0_ADC0 << 16)     /**< Shifted mode ADC0 for GPIO_CDBUSALLOC       */
+#define GPIO_CDBUSALLOC_CDODD0_ACMP0                 (_GPIO_CDBUSALLOC_CDODD0_ACMP0 << 16)    /**< Shifted mode ACMP0 for GPIO_CDBUSALLOC      */
+#define GPIO_CDBUSALLOC_CDODD0_ACMP1                 (_GPIO_CDBUSALLOC_CDODD0_ACMP1 << 16)    /**< Shifted mode ACMP1 for GPIO_CDBUSALLOC      */
+#define GPIO_CDBUSALLOC_CDODD0_PMON                  (_GPIO_CDBUSALLOC_CDODD0_PMON << 16)     /**< Shifted mode PMON for GPIO_CDBUSALLOC       */
+#define GPIO_CDBUSALLOC_CDODD0_DEBUG                 (_GPIO_CDBUSALLOC_CDODD0_DEBUG << 16)    /**< Shifted mode DEBUG for GPIO_CDBUSALLOC      */
 #define _GPIO_CDBUSALLOC_CDODD1_SHIFT                24                                       /**< Shift value for GPIO_CDODD1                 */
 #define _GPIO_CDBUSALLOC_CDODD1_MASK                 0xF000000UL                              /**< Bit mask for GPIO_CDODD1                    */
 #define _GPIO_CDBUSALLOC_CDODD1_DEFAULT              0x00000000UL                             /**< Mode DEFAULT for GPIO_CDBUSALLOC            */
-#define _GPIO_CDBUSALLOC_CDODD1_TRISTATE             0x00000000UL                             /**< Mode TRISTATE for GPIO_CDBUSALLOC            */
-#define _GPIO_CDBUSALLOC_CDODD1_ADC0                 0x00000001UL                             /**< Mode ADC0 for GPIO_CDBUSALLOC                */
-#define _GPIO_CDBUSALLOC_CDODD1_ACMP0                0x00000002UL                             /**< Mode ACMP0 for GPIO_CDBUSALLOC               */
-#define _GPIO_CDBUSALLOC_CDODD1_ACMP1                0x00000003UL                             /**< Mode ACMP1 for GPIO_CDBUSALLOC               */
-#define _GPIO_CDBUSALLOC_CDODD1_DEBUG                0x0000000FUL                             /**< Mode DEBUG for GPIO_CDBUSALLOC               */
+#define _GPIO_CDBUSALLOC_CDODD1_TRISTATE             0x00000000UL                             /**< Mode TRISTATE for GPIO_CDBUSALLOC           */
+#define _GPIO_CDBUSALLOC_CDODD1_ADC0                 0x00000001UL                             /**< Mode ADC0 for GPIO_CDBUSALLOC               */
+#define _GPIO_CDBUSALLOC_CDODD1_ACMP0                0x00000002UL                             /**< Mode ACMP0 for GPIO_CDBUSALLOC              */
+#define _GPIO_CDBUSALLOC_CDODD1_ACMP1                0x00000003UL                             /**< Mode ACMP1 for GPIO_CDBUSALLOC              */
+#define _GPIO_CDBUSALLOC_CDODD1_DEBUG                0x0000000FUL                             /**< Mode DEBUG for GPIO_CDBUSALLOC              */
 #define GPIO_CDBUSALLOC_CDODD1_DEFAULT               (_GPIO_CDBUSALLOC_CDODD1_DEFAULT << 24)  /**< Shifted mode DEFAULT for GPIO_CDBUSALLOC    */
-#define GPIO_CDBUSALLOC_CDODD1_TRISTATE              (_GPIO_CDBUSALLOC_CDODD1_TRISTATE << 24) /**< Shifted mode TRISTATE for GPIO_CDBUSALLOC    */
-#define GPIO_CDBUSALLOC_CDODD1_ADC0                  (_GPIO_CDBUSALLOC_CDODD1_ADC0 << 24)     /**< Shifted mode ADC0 for GPIO_CDBUSALLOC        */
-#define GPIO_CDBUSALLOC_CDODD1_ACMP0                 (_GPIO_CDBUSALLOC_CDODD1_ACMP0 << 24)    /**< Shifted mode ACMP0 for GPIO_CDBUSALLOC       */
-#define GPIO_CDBUSALLOC_CDODD1_ACMP1                 (_GPIO_CDBUSALLOC_CDODD1_ACMP1 << 24)    /**< Shifted mode ACMP1 for GPIO_CDBUSALLOC       */
-#define GPIO_CDBUSALLOC_CDODD1_DEBUG                 (_GPIO_CDBUSALLOC_CDODD1_DEBUG << 24)    /**< Shifted mode DEBUG for GPIO_CDBUSALLOC       */
-
-/* Bit fields for GPIO AODD0SWITCH */
-#define _GPIO_AODD0SWITCH_RESETVALUE                 0x00000000UL                                 /**< Default value for GPIO_AODD0SWITCH          */
-#define _GPIO_AODD0SWITCH_MASK                       0x00000007UL                                 /**< Mask for GPIO_AODD0SWITCH                   */
-#define _GPIO_AODD0SWITCH_AODD0SWITCH_SHIFT          0                                            /**< Shift value for GPIO_AODD0SWITCH            */
-#define _GPIO_AODD0SWITCH_AODD0SWITCH_MASK           0x7UL                                        /**< Bit mask for GPIO_AODD0SWITCH               */
-#define _GPIO_AODD0SWITCH_AODD0SWITCH_DEFAULT        0x00000000UL                                 /**< Mode DEFAULT for GPIO_AODD0SWITCH           */
-#define GPIO_AODD0SWITCH_AODD0SWITCH_DEFAULT         (_GPIO_AODD0SWITCH_AODD0SWITCH_DEFAULT << 0) /**< Shifted mode DEFAULT for GPIO_AODD0SWITCH   */
-
-/* Bit fields for GPIO AODD1SWITCH */
-#define _GPIO_AODD1SWITCH_RESETVALUE                 0x00000000UL                                 /**< Default value for GPIO_AODD1SWITCH          */
-#define _GPIO_AODD1SWITCH_MASK                       0x00000007UL                                 /**< Mask for GPIO_AODD1SWITCH                   */
-#define _GPIO_AODD1SWITCH_AODD1SWITCH_SHIFT          0                                            /**< Shift value for GPIO_AODD1SWITCH            */
-#define _GPIO_AODD1SWITCH_AODD1SWITCH_MASK           0x7UL                                        /**< Bit mask for GPIO_AODD1SWITCH               */
-#define _GPIO_AODD1SWITCH_AODD1SWITCH_DEFAULT        0x00000000UL                                 /**< Mode DEFAULT for GPIO_AODD1SWITCH           */
-#define GPIO_AODD1SWITCH_AODD1SWITCH_DEFAULT         (_GPIO_AODD1SWITCH_AODD1SWITCH_DEFAULT << 0) /**< Shifted mode DEFAULT for GPIO_AODD1SWITCH   */
-
-/* Bit fields for GPIO AEVEN0SWITCH */
-#define _GPIO_AEVEN0SWITCH_RESETVALUE                0x00000000UL                                   /**< Default value for GPIO_AEVEN0SWITCH         */
-#define _GPIO_AEVEN0SWITCH_MASK                      0x0000000FUL                                   /**< Mask for GPIO_AEVEN0SWITCH                  */
-#define _GPIO_AEVEN0SWITCH_AEVEN0SWITCH_SHIFT        0                                              /**< Shift value for GPIO_AEVEN0SWITCH           */
-#define _GPIO_AEVEN0SWITCH_AEVEN0SWITCH_MASK         0xFUL                                          /**< Bit mask for GPIO_AEVEN0SWITCH              */
-#define _GPIO_AEVEN0SWITCH_AEVEN0SWITCH_DEFAULT      0x00000000UL                                   /**< Mode DEFAULT for GPIO_AEVEN0SWITCH          */
-#define GPIO_AEVEN0SWITCH_AEVEN0SWITCH_DEFAULT       (_GPIO_AEVEN0SWITCH_AEVEN0SWITCH_DEFAULT << 0) /**< Shifted mode DEFAULT for GPIO_AEVEN0SWITCH  */
-
-/* Bit fields for GPIO AEVEN1SWITCH */
-#define _GPIO_AEVEN1SWITCH_RESETVALUE                0x00000000UL                                   /**< Default value for GPIO_AEVEN1SWITCH         */
-#define _GPIO_AEVEN1SWITCH_MASK                      0x0000000FUL                                   /**< Mask for GPIO_AEVEN1SWITCH                  */
-#define _GPIO_AEVEN1SWITCH_AEVEN1SWITCH_SHIFT        0                                              /**< Shift value for GPIO_AEVEN1SWITCH           */
-#define _GPIO_AEVEN1SWITCH_AEVEN1SWITCH_MASK         0xFUL                                          /**< Bit mask for GPIO_AEVEN1SWITCH              */
-#define _GPIO_AEVEN1SWITCH_AEVEN1SWITCH_DEFAULT      0x00000000UL                                   /**< Mode DEFAULT for GPIO_AEVEN1SWITCH          */
-#define GPIO_AEVEN1SWITCH_AEVEN1SWITCH_DEFAULT       (_GPIO_AEVEN1SWITCH_AEVEN1SWITCH_DEFAULT << 0) /**< Shifted mode DEFAULT for GPIO_AEVEN1SWITCH  */
-
-/* Bit fields for GPIO BODD0SWITCH */
-#define _GPIO_BODD0SWITCH_RESETVALUE                 0x00000000UL                                 /**< Default value for GPIO_BODD0SWITCH          */
-#define _GPIO_BODD0SWITCH_MASK                       0x00000001UL                                 /**< Mask for GPIO_BODD0SWITCH                   */
-#define GPIO_BODD0SWITCH_BODD0SWITCH                 (0x1UL << 0)                                 /**< BODD0 Switch Reg                            */
-#define _GPIO_BODD0SWITCH_BODD0SWITCH_SHIFT          0                                            /**< Shift value for GPIO_BODD0SWITCH            */
-#define _GPIO_BODD0SWITCH_BODD0SWITCH_MASK           0x1UL                                        /**< Bit mask for GPIO_BODD0SWITCH               */
-#define _GPIO_BODD0SWITCH_BODD0SWITCH_DEFAULT        0x00000000UL                                 /**< Mode DEFAULT for GPIO_BODD0SWITCH           */
-#define GPIO_BODD0SWITCH_BODD0SWITCH_DEFAULT         (_GPIO_BODD0SWITCH_BODD0SWITCH_DEFAULT << 0) /**< Shifted mode DEFAULT for GPIO_BODD0SWITCH   */
-
-/* Bit fields for GPIO BODD1SWITCH */
-#define _GPIO_BODD1SWITCH_RESETVALUE                 0x00000000UL                                 /**< Default value for GPIO_BODD1SWITCH          */
-#define _GPIO_BODD1SWITCH_MASK                       0x00000001UL                                 /**< Mask for GPIO_BODD1SWITCH                   */
-#define GPIO_BODD1SWITCH_BODD1SWITCH                 (0x1UL << 0)                                 /**< BODD1 Switch Reg                            */
-#define _GPIO_BODD1SWITCH_BODD1SWITCH_SHIFT          0                                            /**< Shift value for GPIO_BODD1SWITCH            */
-#define _GPIO_BODD1SWITCH_BODD1SWITCH_MASK           0x1UL                                        /**< Bit mask for GPIO_BODD1SWITCH               */
-#define _GPIO_BODD1SWITCH_BODD1SWITCH_DEFAULT        0x00000000UL                                 /**< Mode DEFAULT for GPIO_BODD1SWITCH           */
-#define GPIO_BODD1SWITCH_BODD1SWITCH_DEFAULT         (_GPIO_BODD1SWITCH_BODD1SWITCH_DEFAULT << 0) /**< Shifted mode DEFAULT for GPIO_BODD1SWITCH   */
-
-/* Bit fields for GPIO BEVEN0SWITCH */
-#define _GPIO_BEVEN0SWITCH_RESETVALUE                0x00000000UL                                   /**< Default value for GPIO_BEVEN0SWITCH         */
-#define _GPIO_BEVEN0SWITCH_MASK                      0x00000001UL                                   /**< Mask for GPIO_BEVEN0SWITCH                  */
-#define GPIO_BEVEN0SWITCH_BEVEN0SWITCH               (0x1UL << 0)                                   /**< BEVEN0 switch register                      */
-#define _GPIO_BEVEN0SWITCH_BEVEN0SWITCH_SHIFT        0                                              /**< Shift value for GPIO_BEVEN0SWITCH           */
-#define _GPIO_BEVEN0SWITCH_BEVEN0SWITCH_MASK         0x1UL                                          /**< Bit mask for GPIO_BEVEN0SWITCH              */
-#define _GPIO_BEVEN0SWITCH_BEVEN0SWITCH_DEFAULT      0x00000000UL                                   /**< Mode DEFAULT for GPIO_BEVEN0SWITCH          */
-#define GPIO_BEVEN0SWITCH_BEVEN0SWITCH_DEFAULT       (_GPIO_BEVEN0SWITCH_BEVEN0SWITCH_DEFAULT << 0) /**< Shifted mode DEFAULT for GPIO_BEVEN0SWITCH  */
-
-/* Bit fields for GPIO BEVEN1SWITCH */
-#define _GPIO_BEVEN1SWITCH_RESETVALUE                0x00000000UL                                   /**< Default value for GPIO_BEVEN1SWITCH         */
-#define _GPIO_BEVEN1SWITCH_MASK                      0x00000001UL                                   /**< Mask for GPIO_BEVEN1SWITCH                  */
-#define GPIO_BEVEN1SWITCH_BEVEN1SWITCH               (0x1UL << 0)                                   /**< BEVEN1 switch register                      */
-#define _GPIO_BEVEN1SWITCH_BEVEN1SWITCH_SHIFT        0                                              /**< Shift value for GPIO_BEVEN1SWITCH           */
-#define _GPIO_BEVEN1SWITCH_BEVEN1SWITCH_MASK         0x1UL                                          /**< Bit mask for GPIO_BEVEN1SWITCH              */
-#define _GPIO_BEVEN1SWITCH_BEVEN1SWITCH_DEFAULT      0x00000000UL                                   /**< Mode DEFAULT for GPIO_BEVEN1SWITCH          */
-#define GPIO_BEVEN1SWITCH_BEVEN1SWITCH_DEFAULT       (_GPIO_BEVEN1SWITCH_BEVEN1SWITCH_DEFAULT << 0) /**< Shifted mode DEFAULT for GPIO_BEVEN1SWITCH  */
-
-/* Bit fields for GPIO CDODD0SWITCH */
-#define _GPIO_CDODD0SWITCH_RESETVALUE                0x00000000UL                                   /**< Default value for GPIO_CDODD0SWITCH         */
-#define _GPIO_CDODD0SWITCH_MASK                      0x00030007UL                                   /**< Mask for GPIO_CDODD0SWITCH                  */
-#define _GPIO_CDODD0SWITCH_CODD0SWITCH_SHIFT         0                                              /**< Shift value for GPIO_CODD0SWITCH            */
-#define _GPIO_CDODD0SWITCH_CODD0SWITCH_MASK          0x7UL                                          /**< Bit mask for GPIO_CODD0SWITCH               */
-#define _GPIO_CDODD0SWITCH_CODD0SWITCH_DEFAULT       0x00000000UL                                   /**< Mode DEFAULT for GPIO_CDODD0SWITCH          */
-#define GPIO_CDODD0SWITCH_CODD0SWITCH_DEFAULT        (_GPIO_CDODD0SWITCH_CODD0SWITCH_DEFAULT << 0)  /**< Shifted mode DEFAULT for GPIO_CDODD0SWITCH  */
-#define _GPIO_CDODD0SWITCH_DODD0SWITCH_SHIFT         16                                             /**< Shift value for GPIO_DODD0SWITCH            */
-#define _GPIO_CDODD0SWITCH_DODD0SWITCH_MASK          0x30000UL                                      /**< Bit mask for GPIO_DODD0SWITCH               */
-#define _GPIO_CDODD0SWITCH_DODD0SWITCH_DEFAULT       0x00000000UL                                   /**< Mode DEFAULT for GPIO_CDODD0SWITCH          */
-#define GPIO_CDODD0SWITCH_DODD0SWITCH_DEFAULT        (_GPIO_CDODD0SWITCH_DODD0SWITCH_DEFAULT << 16) /**< Shifted mode DEFAULT for GPIO_CDODD0SWITCH  */
-
-/* Bit fields for GPIO CDODD1SWITCH */
-#define _GPIO_CDODD1SWITCH_RESETVALUE                0x00000000UL                                   /**< Default value for GPIO_CDODD1SWITCH         */
-#define _GPIO_CDODD1SWITCH_MASK                      0x00030007UL                                   /**< Mask for GPIO_CDODD1SWITCH                  */
-#define _GPIO_CDODD1SWITCH_CODD1SWITCH_SHIFT         0                                              /**< Shift value for GPIO_CODD1SWITCH            */
-#define _GPIO_CDODD1SWITCH_CODD1SWITCH_MASK          0x7UL                                          /**< Bit mask for GPIO_CODD1SWITCH               */
-#define _GPIO_CDODD1SWITCH_CODD1SWITCH_DEFAULT       0x00000000UL                                   /**< Mode DEFAULT for GPIO_CDODD1SWITCH          */
-#define GPIO_CDODD1SWITCH_CODD1SWITCH_DEFAULT        (_GPIO_CDODD1SWITCH_CODD1SWITCH_DEFAULT << 0)  /**< Shifted mode DEFAULT for GPIO_CDODD1SWITCH  */
-#define _GPIO_CDODD1SWITCH_DODD1SWITCH_SHIFT         16                                             /**< Shift value for GPIO_DODD1SWITCH            */
-#define _GPIO_CDODD1SWITCH_DODD1SWITCH_MASK          0x30000UL                                      /**< Bit mask for GPIO_DODD1SWITCH               */
-#define _GPIO_CDODD1SWITCH_DODD1SWITCH_DEFAULT       0x00000000UL                                   /**< Mode DEFAULT for GPIO_CDODD1SWITCH          */
-#define GPIO_CDODD1SWITCH_DODD1SWITCH_DEFAULT        (_GPIO_CDODD1SWITCH_DODD1SWITCH_DEFAULT << 16) /**< Shifted mode DEFAULT for GPIO_CDODD1SWITCH  */
-
-/* Bit fields for GPIO CDEVEN0SWITCH */
-#define _GPIO_CDEVEN0SWITCH_RESETVALUE               0x00000000UL                                     /**< Default value for GPIO_CDEVEN0SWITCH        */
-#define _GPIO_CDEVEN0SWITCH_MASK                     0x00070007UL                                     /**< Mask for GPIO_CDEVEN0SWITCH                 */
-#define _GPIO_CDEVEN0SWITCH_CEVEN0SWITCH_SHIFT       0                                                /**< Shift value for GPIO_CEVEN0SWITCH           */
-#define _GPIO_CDEVEN0SWITCH_CEVEN0SWITCH_MASK        0x7UL                                            /**< Bit mask for GPIO_CEVEN0SWITCH              */
-#define _GPIO_CDEVEN0SWITCH_CEVEN0SWITCH_DEFAULT     0x00000000UL                                     /**< Mode DEFAULT for GPIO_CDEVEN0SWITCH         */
-#define GPIO_CDEVEN0SWITCH_CEVEN0SWITCH_DEFAULT      (_GPIO_CDEVEN0SWITCH_CEVEN0SWITCH_DEFAULT << 0)  /**< Shifted mode DEFAULT for GPIO_CDEVEN0SWITCH */
-#define _GPIO_CDEVEN0SWITCH_DEVEN0SWITCH_SHIFT       16                                               /**< Shift value for GPIO_DEVEN0SWITCH           */
-#define _GPIO_CDEVEN0SWITCH_DEVEN0SWITCH_MASK        0x70000UL                                        /**< Bit mask for GPIO_DEVEN0SWITCH              */
-#define _GPIO_CDEVEN0SWITCH_DEVEN0SWITCH_DEFAULT     0x00000000UL                                     /**< Mode DEFAULT for GPIO_CDEVEN0SWITCH         */
-#define GPIO_CDEVEN0SWITCH_DEVEN0SWITCH_DEFAULT      (_GPIO_CDEVEN0SWITCH_DEVEN0SWITCH_DEFAULT << 16) /**< Shifted mode DEFAULT for GPIO_CDEVEN0SWITCH */
-
-/* Bit fields for GPIO CDEVEN1SWITCH */
-#define _GPIO_CDEVEN1SWITCH_RESETVALUE               0x00000000UL                                     /**< Default value for GPIO_CDEVEN1SWITCH        */
-#define _GPIO_CDEVEN1SWITCH_MASK                     0x00070007UL                                     /**< Mask for GPIO_CDEVEN1SWITCH                 */
-#define _GPIO_CDEVEN1SWITCH_CEVEN1SWITCH_SHIFT       0                                                /**< Shift value for GPIO_CEVEN1SWITCH           */
-#define _GPIO_CDEVEN1SWITCH_CEVEN1SWITCH_MASK        0x7UL                                            /**< Bit mask for GPIO_CEVEN1SWITCH              */
-#define _GPIO_CDEVEN1SWITCH_CEVEN1SWITCH_DEFAULT     0x00000000UL                                     /**< Mode DEFAULT for GPIO_CDEVEN1SWITCH         */
-#define GPIO_CDEVEN1SWITCH_CEVEN1SWITCH_DEFAULT      (_GPIO_CDEVEN1SWITCH_CEVEN1SWITCH_DEFAULT << 0)  /**< Shifted mode DEFAULT for GPIO_CDEVEN1SWITCH */
-#define _GPIO_CDEVEN1SWITCH_DEVEN1SWITCH_SHIFT       16                                               /**< Shift value for GPIO_DEVEN1SWITCH           */
-#define _GPIO_CDEVEN1SWITCH_DEVEN1SWITCH_MASK        0x70000UL                                        /**< Bit mask for GPIO_DEVEN1SWITCH              */
-#define _GPIO_CDEVEN1SWITCH_DEVEN1SWITCH_DEFAULT     0x00000000UL                                     /**< Mode DEFAULT for GPIO_CDEVEN1SWITCH         */
-#define GPIO_CDEVEN1SWITCH_DEVEN1SWITCH_DEFAULT      (_GPIO_CDEVEN1SWITCH_DEVEN1SWITCH_DEFAULT << 16) /**< Shifted mode DEFAULT for GPIO_CDEVEN1SWITCH */
+#define GPIO_CDBUSALLOC_CDODD1_TRISTATE              (_GPIO_CDBUSALLOC_CDODD1_TRISTATE << 24) /**< Shifted mode TRISTATE for GPIO_CDBUSALLOC   */
+#define GPIO_CDBUSALLOC_CDODD1_ADC0                  (_GPIO_CDBUSALLOC_CDODD1_ADC0 << 24)     /**< Shifted mode ADC0 for GPIO_CDBUSALLOC       */
+#define GPIO_CDBUSALLOC_CDODD1_ACMP0                 (_GPIO_CDBUSALLOC_CDODD1_ACMP0 << 24)    /**< Shifted mode ACMP0 for GPIO_CDBUSALLOC      */
+#define GPIO_CDBUSALLOC_CDODD1_ACMP1                 (_GPIO_CDBUSALLOC_CDODD1_ACMP1 << 24)    /**< Shifted mode ACMP1 for GPIO_CDBUSALLOC      */
+#define GPIO_CDBUSALLOC_CDODD1_DEBUG                 (_GPIO_CDBUSALLOC_CDODD1_DEBUG << 24)    /**< Shifted mode DEBUG for GPIO_CDBUSALLOC      */
 
 /* Bit fields for GPIO EXTIPSELL */
 #define _GPIO_EXTIPSELL_RESETVALUE                   0x00000000UL                              /**< Default value for GPIO_EXTIPSELL            */
@@ -672,99 +503,99 @@ typedef struct {
 #define _GPIO_EXTIPSELL_EXTIPSEL0_SHIFT              0                                         /**< Shift value for GPIO_EXTIPSEL0              */
 #define _GPIO_EXTIPSELL_EXTIPSEL0_MASK               0x3UL                                     /**< Bit mask for GPIO_EXTIPSEL0                 */
 #define _GPIO_EXTIPSELL_EXTIPSEL0_DEFAULT            0x00000000UL                              /**< Mode DEFAULT for GPIO_EXTIPSELL             */
-#define _GPIO_EXTIPSELL_EXTIPSEL0_PORTA              0x00000000UL                              /**< Mode PORTA for GPIO_EXTIPSELL                */
-#define _GPIO_EXTIPSELL_EXTIPSEL0_PORTB              0x00000001UL                              /**< Mode PORTB for GPIO_EXTIPSELL                */
-#define _GPIO_EXTIPSELL_EXTIPSEL0_PORTC              0x00000002UL                              /**< Mode PORTC for GPIO_EXTIPSELL                */
-#define _GPIO_EXTIPSELL_EXTIPSEL0_PORTD              0x00000003UL                              /**< Mode PORTD for GPIO_EXTIPSELL                */
+#define _GPIO_EXTIPSELL_EXTIPSEL0_PORTA              0x00000000UL                              /**< Mode PORTA for GPIO_EXTIPSELL               */
+#define _GPIO_EXTIPSELL_EXTIPSEL0_PORTB              0x00000001UL                              /**< Mode PORTB for GPIO_EXTIPSELL               */
+#define _GPIO_EXTIPSELL_EXTIPSEL0_PORTC              0x00000002UL                              /**< Mode PORTC for GPIO_EXTIPSELL               */
+#define _GPIO_EXTIPSELL_EXTIPSEL0_PORTD              0x00000003UL                              /**< Mode PORTD for GPIO_EXTIPSELL               */
 #define GPIO_EXTIPSELL_EXTIPSEL0_DEFAULT             (_GPIO_EXTIPSELL_EXTIPSEL0_DEFAULT << 0)  /**< Shifted mode DEFAULT for GPIO_EXTIPSELL     */
-#define GPIO_EXTIPSELL_EXTIPSEL0_PORTA               (_GPIO_EXTIPSELL_EXTIPSEL0_PORTA << 0)    /**< Shifted mode PORTA for GPIO_EXTIPSELL        */
-#define GPIO_EXTIPSELL_EXTIPSEL0_PORTB               (_GPIO_EXTIPSELL_EXTIPSEL0_PORTB << 0)    /**< Shifted mode PORTB for GPIO_EXTIPSELL        */
-#define GPIO_EXTIPSELL_EXTIPSEL0_PORTC               (_GPIO_EXTIPSELL_EXTIPSEL0_PORTC << 0)    /**< Shifted mode PORTC for GPIO_EXTIPSELL        */
-#define GPIO_EXTIPSELL_EXTIPSEL0_PORTD               (_GPIO_EXTIPSELL_EXTIPSEL0_PORTD << 0)    /**< Shifted mode PORTD for GPIO_EXTIPSELL        */
+#define GPIO_EXTIPSELL_EXTIPSEL0_PORTA               (_GPIO_EXTIPSELL_EXTIPSEL0_PORTA << 0)    /**< Shifted mode PORTA for GPIO_EXTIPSELL       */
+#define GPIO_EXTIPSELL_EXTIPSEL0_PORTB               (_GPIO_EXTIPSELL_EXTIPSEL0_PORTB << 0)    /**< Shifted mode PORTB for GPIO_EXTIPSELL       */
+#define GPIO_EXTIPSELL_EXTIPSEL0_PORTC               (_GPIO_EXTIPSELL_EXTIPSEL0_PORTC << 0)    /**< Shifted mode PORTC for GPIO_EXTIPSELL       */
+#define GPIO_EXTIPSELL_EXTIPSEL0_PORTD               (_GPIO_EXTIPSELL_EXTIPSEL0_PORTD << 0)    /**< Shifted mode PORTD for GPIO_EXTIPSELL       */
 #define _GPIO_EXTIPSELL_EXTIPSEL1_SHIFT              4                                         /**< Shift value for GPIO_EXTIPSEL1              */
 #define _GPIO_EXTIPSELL_EXTIPSEL1_MASK               0x30UL                                    /**< Bit mask for GPIO_EXTIPSEL1                 */
 #define _GPIO_EXTIPSELL_EXTIPSEL1_DEFAULT            0x00000000UL                              /**< Mode DEFAULT for GPIO_EXTIPSELL             */
-#define _GPIO_EXTIPSELL_EXTIPSEL1_PORTA              0x00000000UL                              /**< Mode PORTA for GPIO_EXTIPSELL                */
-#define _GPIO_EXTIPSELL_EXTIPSEL1_PORTB              0x00000001UL                              /**< Mode PORTB for GPIO_EXTIPSELL                */
-#define _GPIO_EXTIPSELL_EXTIPSEL1_PORTC              0x00000002UL                              /**< Mode PORTC for GPIO_EXTIPSELL                */
-#define _GPIO_EXTIPSELL_EXTIPSEL1_PORTD              0x00000003UL                              /**< Mode PORTD for GPIO_EXTIPSELL                */
+#define _GPIO_EXTIPSELL_EXTIPSEL1_PORTA              0x00000000UL                              /**< Mode PORTA for GPIO_EXTIPSELL               */
+#define _GPIO_EXTIPSELL_EXTIPSEL1_PORTB              0x00000001UL                              /**< Mode PORTB for GPIO_EXTIPSELL               */
+#define _GPIO_EXTIPSELL_EXTIPSEL1_PORTC              0x00000002UL                              /**< Mode PORTC for GPIO_EXTIPSELL               */
+#define _GPIO_EXTIPSELL_EXTIPSEL1_PORTD              0x00000003UL                              /**< Mode PORTD for GPIO_EXTIPSELL               */
 #define GPIO_EXTIPSELL_EXTIPSEL1_DEFAULT             (_GPIO_EXTIPSELL_EXTIPSEL1_DEFAULT << 4)  /**< Shifted mode DEFAULT for GPIO_EXTIPSELL     */
-#define GPIO_EXTIPSELL_EXTIPSEL1_PORTA               (_GPIO_EXTIPSELL_EXTIPSEL1_PORTA << 4)    /**< Shifted mode PORTA for GPIO_EXTIPSELL        */
-#define GPIO_EXTIPSELL_EXTIPSEL1_PORTB               (_GPIO_EXTIPSELL_EXTIPSEL1_PORTB << 4)    /**< Shifted mode PORTB for GPIO_EXTIPSELL        */
-#define GPIO_EXTIPSELL_EXTIPSEL1_PORTC               (_GPIO_EXTIPSELL_EXTIPSEL1_PORTC << 4)    /**< Shifted mode PORTC for GPIO_EXTIPSELL        */
-#define GPIO_EXTIPSELL_EXTIPSEL1_PORTD               (_GPIO_EXTIPSELL_EXTIPSEL1_PORTD << 4)    /**< Shifted mode PORTD for GPIO_EXTIPSELL        */
+#define GPIO_EXTIPSELL_EXTIPSEL1_PORTA               (_GPIO_EXTIPSELL_EXTIPSEL1_PORTA << 4)    /**< Shifted mode PORTA for GPIO_EXTIPSELL       */
+#define GPIO_EXTIPSELL_EXTIPSEL1_PORTB               (_GPIO_EXTIPSELL_EXTIPSEL1_PORTB << 4)    /**< Shifted mode PORTB for GPIO_EXTIPSELL       */
+#define GPIO_EXTIPSELL_EXTIPSEL1_PORTC               (_GPIO_EXTIPSELL_EXTIPSEL1_PORTC << 4)    /**< Shifted mode PORTC for GPIO_EXTIPSELL       */
+#define GPIO_EXTIPSELL_EXTIPSEL1_PORTD               (_GPIO_EXTIPSELL_EXTIPSEL1_PORTD << 4)    /**< Shifted mode PORTD for GPIO_EXTIPSELL       */
 #define _GPIO_EXTIPSELL_EXTIPSEL2_SHIFT              8                                         /**< Shift value for GPIO_EXTIPSEL2              */
 #define _GPIO_EXTIPSELL_EXTIPSEL2_MASK               0x300UL                                   /**< Bit mask for GPIO_EXTIPSEL2                 */
 #define _GPIO_EXTIPSELL_EXTIPSEL2_DEFAULT            0x00000000UL                              /**< Mode DEFAULT for GPIO_EXTIPSELL             */
-#define _GPIO_EXTIPSELL_EXTIPSEL2_PORTA              0x00000000UL                              /**< Mode PORTA for GPIO_EXTIPSELL                */
-#define _GPIO_EXTIPSELL_EXTIPSEL2_PORTB              0x00000001UL                              /**< Mode PORTB for GPIO_EXTIPSELL                */
-#define _GPIO_EXTIPSELL_EXTIPSEL2_PORTC              0x00000002UL                              /**< Mode PORTC for GPIO_EXTIPSELL                */
-#define _GPIO_EXTIPSELL_EXTIPSEL2_PORTD              0x00000003UL                              /**< Mode PORTD for GPIO_EXTIPSELL                */
+#define _GPIO_EXTIPSELL_EXTIPSEL2_PORTA              0x00000000UL                              /**< Mode PORTA for GPIO_EXTIPSELL               */
+#define _GPIO_EXTIPSELL_EXTIPSEL2_PORTB              0x00000001UL                              /**< Mode PORTB for GPIO_EXTIPSELL               */
+#define _GPIO_EXTIPSELL_EXTIPSEL2_PORTC              0x00000002UL                              /**< Mode PORTC for GPIO_EXTIPSELL               */
+#define _GPIO_EXTIPSELL_EXTIPSEL2_PORTD              0x00000003UL                              /**< Mode PORTD for GPIO_EXTIPSELL               */
 #define GPIO_EXTIPSELL_EXTIPSEL2_DEFAULT             (_GPIO_EXTIPSELL_EXTIPSEL2_DEFAULT << 8)  /**< Shifted mode DEFAULT for GPIO_EXTIPSELL     */
-#define GPIO_EXTIPSELL_EXTIPSEL2_PORTA               (_GPIO_EXTIPSELL_EXTIPSEL2_PORTA << 8)    /**< Shifted mode PORTA for GPIO_EXTIPSELL        */
-#define GPIO_EXTIPSELL_EXTIPSEL2_PORTB               (_GPIO_EXTIPSELL_EXTIPSEL2_PORTB << 8)    /**< Shifted mode PORTB for GPIO_EXTIPSELL        */
-#define GPIO_EXTIPSELL_EXTIPSEL2_PORTC               (_GPIO_EXTIPSELL_EXTIPSEL2_PORTC << 8)    /**< Shifted mode PORTC for GPIO_EXTIPSELL        */
-#define GPIO_EXTIPSELL_EXTIPSEL2_PORTD               (_GPIO_EXTIPSELL_EXTIPSEL2_PORTD << 8)    /**< Shifted mode PORTD for GPIO_EXTIPSELL        */
+#define GPIO_EXTIPSELL_EXTIPSEL2_PORTA               (_GPIO_EXTIPSELL_EXTIPSEL2_PORTA << 8)    /**< Shifted mode PORTA for GPIO_EXTIPSELL       */
+#define GPIO_EXTIPSELL_EXTIPSEL2_PORTB               (_GPIO_EXTIPSELL_EXTIPSEL2_PORTB << 8)    /**< Shifted mode PORTB for GPIO_EXTIPSELL       */
+#define GPIO_EXTIPSELL_EXTIPSEL2_PORTC               (_GPIO_EXTIPSELL_EXTIPSEL2_PORTC << 8)    /**< Shifted mode PORTC for GPIO_EXTIPSELL       */
+#define GPIO_EXTIPSELL_EXTIPSEL2_PORTD               (_GPIO_EXTIPSELL_EXTIPSEL2_PORTD << 8)    /**< Shifted mode PORTD for GPIO_EXTIPSELL       */
 #define _GPIO_EXTIPSELL_EXTIPSEL3_SHIFT              12                                        /**< Shift value for GPIO_EXTIPSEL3              */
 #define _GPIO_EXTIPSELL_EXTIPSEL3_MASK               0x3000UL                                  /**< Bit mask for GPIO_EXTIPSEL3                 */
 #define _GPIO_EXTIPSELL_EXTIPSEL3_DEFAULT            0x00000000UL                              /**< Mode DEFAULT for GPIO_EXTIPSELL             */
-#define _GPIO_EXTIPSELL_EXTIPSEL3_PORTA              0x00000000UL                              /**< Mode PORTA for GPIO_EXTIPSELL                */
-#define _GPIO_EXTIPSELL_EXTIPSEL3_PORTB              0x00000001UL                              /**< Mode PORTB for GPIO_EXTIPSELL                */
-#define _GPIO_EXTIPSELL_EXTIPSEL3_PORTC              0x00000002UL                              /**< Mode PORTC for GPIO_EXTIPSELL                */
-#define _GPIO_EXTIPSELL_EXTIPSEL3_PORTD              0x00000003UL                              /**< Mode PORTD for GPIO_EXTIPSELL                */
+#define _GPIO_EXTIPSELL_EXTIPSEL3_PORTA              0x00000000UL                              /**< Mode PORTA for GPIO_EXTIPSELL               */
+#define _GPIO_EXTIPSELL_EXTIPSEL3_PORTB              0x00000001UL                              /**< Mode PORTB for GPIO_EXTIPSELL               */
+#define _GPIO_EXTIPSELL_EXTIPSEL3_PORTC              0x00000002UL                              /**< Mode PORTC for GPIO_EXTIPSELL               */
+#define _GPIO_EXTIPSELL_EXTIPSEL3_PORTD              0x00000003UL                              /**< Mode PORTD for GPIO_EXTIPSELL               */
 #define GPIO_EXTIPSELL_EXTIPSEL3_DEFAULT             (_GPIO_EXTIPSELL_EXTIPSEL3_DEFAULT << 12) /**< Shifted mode DEFAULT for GPIO_EXTIPSELL     */
-#define GPIO_EXTIPSELL_EXTIPSEL3_PORTA               (_GPIO_EXTIPSELL_EXTIPSEL3_PORTA << 12)   /**< Shifted mode PORTA for GPIO_EXTIPSELL        */
-#define GPIO_EXTIPSELL_EXTIPSEL3_PORTB               (_GPIO_EXTIPSELL_EXTIPSEL3_PORTB << 12)   /**< Shifted mode PORTB for GPIO_EXTIPSELL        */
-#define GPIO_EXTIPSELL_EXTIPSEL3_PORTC               (_GPIO_EXTIPSELL_EXTIPSEL3_PORTC << 12)   /**< Shifted mode PORTC for GPIO_EXTIPSELL        */
-#define GPIO_EXTIPSELL_EXTIPSEL3_PORTD               (_GPIO_EXTIPSELL_EXTIPSEL3_PORTD << 12)   /**< Shifted mode PORTD for GPIO_EXTIPSELL        */
+#define GPIO_EXTIPSELL_EXTIPSEL3_PORTA               (_GPIO_EXTIPSELL_EXTIPSEL3_PORTA << 12)   /**< Shifted mode PORTA for GPIO_EXTIPSELL       */
+#define GPIO_EXTIPSELL_EXTIPSEL3_PORTB               (_GPIO_EXTIPSELL_EXTIPSEL3_PORTB << 12)   /**< Shifted mode PORTB for GPIO_EXTIPSELL       */
+#define GPIO_EXTIPSELL_EXTIPSEL3_PORTC               (_GPIO_EXTIPSELL_EXTIPSEL3_PORTC << 12)   /**< Shifted mode PORTC for GPIO_EXTIPSELL       */
+#define GPIO_EXTIPSELL_EXTIPSEL3_PORTD               (_GPIO_EXTIPSELL_EXTIPSEL3_PORTD << 12)   /**< Shifted mode PORTD for GPIO_EXTIPSELL       */
 #define _GPIO_EXTIPSELL_EXTIPSEL4_SHIFT              16                                        /**< Shift value for GPIO_EXTIPSEL4              */
 #define _GPIO_EXTIPSELL_EXTIPSEL4_MASK               0x30000UL                                 /**< Bit mask for GPIO_EXTIPSEL4                 */
 #define _GPIO_EXTIPSELL_EXTIPSEL4_DEFAULT            0x00000000UL                              /**< Mode DEFAULT for GPIO_EXTIPSELL             */
-#define _GPIO_EXTIPSELL_EXTIPSEL4_PORTA              0x00000000UL                              /**< Mode PORTA for GPIO_EXTIPSELL                */
-#define _GPIO_EXTIPSELL_EXTIPSEL4_PORTB              0x00000001UL                              /**< Mode PORTB for GPIO_EXTIPSELL                */
-#define _GPIO_EXTIPSELL_EXTIPSEL4_PORTC              0x00000002UL                              /**< Mode PORTC for GPIO_EXTIPSELL                */
-#define _GPIO_EXTIPSELL_EXTIPSEL4_PORTD              0x00000003UL                              /**< Mode PORTD for GPIO_EXTIPSELL                */
+#define _GPIO_EXTIPSELL_EXTIPSEL4_PORTA              0x00000000UL                              /**< Mode PORTA for GPIO_EXTIPSELL               */
+#define _GPIO_EXTIPSELL_EXTIPSEL4_PORTB              0x00000001UL                              /**< Mode PORTB for GPIO_EXTIPSELL               */
+#define _GPIO_EXTIPSELL_EXTIPSEL4_PORTC              0x00000002UL                              /**< Mode PORTC for GPIO_EXTIPSELL               */
+#define _GPIO_EXTIPSELL_EXTIPSEL4_PORTD              0x00000003UL                              /**< Mode PORTD for GPIO_EXTIPSELL               */
 #define GPIO_EXTIPSELL_EXTIPSEL4_DEFAULT             (_GPIO_EXTIPSELL_EXTIPSEL4_DEFAULT << 16) /**< Shifted mode DEFAULT for GPIO_EXTIPSELL     */
-#define GPIO_EXTIPSELL_EXTIPSEL4_PORTA               (_GPIO_EXTIPSELL_EXTIPSEL4_PORTA << 16)   /**< Shifted mode PORTA for GPIO_EXTIPSELL        */
-#define GPIO_EXTIPSELL_EXTIPSEL4_PORTB               (_GPIO_EXTIPSELL_EXTIPSEL4_PORTB << 16)   /**< Shifted mode PORTB for GPIO_EXTIPSELL        */
-#define GPIO_EXTIPSELL_EXTIPSEL4_PORTC               (_GPIO_EXTIPSELL_EXTIPSEL4_PORTC << 16)   /**< Shifted mode PORTC for GPIO_EXTIPSELL        */
-#define GPIO_EXTIPSELL_EXTIPSEL4_PORTD               (_GPIO_EXTIPSELL_EXTIPSEL4_PORTD << 16)   /**< Shifted mode PORTD for GPIO_EXTIPSELL        */
+#define GPIO_EXTIPSELL_EXTIPSEL4_PORTA               (_GPIO_EXTIPSELL_EXTIPSEL4_PORTA << 16)   /**< Shifted mode PORTA for GPIO_EXTIPSELL       */
+#define GPIO_EXTIPSELL_EXTIPSEL4_PORTB               (_GPIO_EXTIPSELL_EXTIPSEL4_PORTB << 16)   /**< Shifted mode PORTB for GPIO_EXTIPSELL       */
+#define GPIO_EXTIPSELL_EXTIPSEL4_PORTC               (_GPIO_EXTIPSELL_EXTIPSEL4_PORTC << 16)   /**< Shifted mode PORTC for GPIO_EXTIPSELL       */
+#define GPIO_EXTIPSELL_EXTIPSEL4_PORTD               (_GPIO_EXTIPSELL_EXTIPSEL4_PORTD << 16)   /**< Shifted mode PORTD for GPIO_EXTIPSELL       */
 #define _GPIO_EXTIPSELL_EXTIPSEL5_SHIFT              20                                        /**< Shift value for GPIO_EXTIPSEL5              */
 #define _GPIO_EXTIPSELL_EXTIPSEL5_MASK               0x300000UL                                /**< Bit mask for GPIO_EXTIPSEL5                 */
 #define _GPIO_EXTIPSELL_EXTIPSEL5_DEFAULT            0x00000000UL                              /**< Mode DEFAULT for GPIO_EXTIPSELL             */
-#define _GPIO_EXTIPSELL_EXTIPSEL5_PORTA              0x00000000UL                              /**< Mode PORTA for GPIO_EXTIPSELL                */
-#define _GPIO_EXTIPSELL_EXTIPSEL5_PORTB              0x00000001UL                              /**< Mode PORTB for GPIO_EXTIPSELL                */
-#define _GPIO_EXTIPSELL_EXTIPSEL5_PORTC              0x00000002UL                              /**< Mode PORTC for GPIO_EXTIPSELL                */
-#define _GPIO_EXTIPSELL_EXTIPSEL5_PORTD              0x00000003UL                              /**< Mode PORTD for GPIO_EXTIPSELL                */
+#define _GPIO_EXTIPSELL_EXTIPSEL5_PORTA              0x00000000UL                              /**< Mode PORTA for GPIO_EXTIPSELL               */
+#define _GPIO_EXTIPSELL_EXTIPSEL5_PORTB              0x00000001UL                              /**< Mode PORTB for GPIO_EXTIPSELL               */
+#define _GPIO_EXTIPSELL_EXTIPSEL5_PORTC              0x00000002UL                              /**< Mode PORTC for GPIO_EXTIPSELL               */
+#define _GPIO_EXTIPSELL_EXTIPSEL5_PORTD              0x00000003UL                              /**< Mode PORTD for GPIO_EXTIPSELL               */
 #define GPIO_EXTIPSELL_EXTIPSEL5_DEFAULT             (_GPIO_EXTIPSELL_EXTIPSEL5_DEFAULT << 20) /**< Shifted mode DEFAULT for GPIO_EXTIPSELL     */
-#define GPIO_EXTIPSELL_EXTIPSEL5_PORTA               (_GPIO_EXTIPSELL_EXTIPSEL5_PORTA << 20)   /**< Shifted mode PORTA for GPIO_EXTIPSELL        */
-#define GPIO_EXTIPSELL_EXTIPSEL5_PORTB               (_GPIO_EXTIPSELL_EXTIPSEL5_PORTB << 20)   /**< Shifted mode PORTB for GPIO_EXTIPSELL        */
-#define GPIO_EXTIPSELL_EXTIPSEL5_PORTC               (_GPIO_EXTIPSELL_EXTIPSEL5_PORTC << 20)   /**< Shifted mode PORTC for GPIO_EXTIPSELL        */
-#define GPIO_EXTIPSELL_EXTIPSEL5_PORTD               (_GPIO_EXTIPSELL_EXTIPSEL5_PORTD << 20)   /**< Shifted mode PORTD for GPIO_EXTIPSELL        */
+#define GPIO_EXTIPSELL_EXTIPSEL5_PORTA               (_GPIO_EXTIPSELL_EXTIPSEL5_PORTA << 20)   /**< Shifted mode PORTA for GPIO_EXTIPSELL       */
+#define GPIO_EXTIPSELL_EXTIPSEL5_PORTB               (_GPIO_EXTIPSELL_EXTIPSEL5_PORTB << 20)   /**< Shifted mode PORTB for GPIO_EXTIPSELL       */
+#define GPIO_EXTIPSELL_EXTIPSEL5_PORTC               (_GPIO_EXTIPSELL_EXTIPSEL5_PORTC << 20)   /**< Shifted mode PORTC for GPIO_EXTIPSELL       */
+#define GPIO_EXTIPSELL_EXTIPSEL5_PORTD               (_GPIO_EXTIPSELL_EXTIPSEL5_PORTD << 20)   /**< Shifted mode PORTD for GPIO_EXTIPSELL       */
 #define _GPIO_EXTIPSELL_EXTIPSEL6_SHIFT              24                                        /**< Shift value for GPIO_EXTIPSEL6              */
 #define _GPIO_EXTIPSELL_EXTIPSEL6_MASK               0x3000000UL                               /**< Bit mask for GPIO_EXTIPSEL6                 */
 #define _GPIO_EXTIPSELL_EXTIPSEL6_DEFAULT            0x00000000UL                              /**< Mode DEFAULT for GPIO_EXTIPSELL             */
-#define _GPIO_EXTIPSELL_EXTIPSEL6_PORTA              0x00000000UL                              /**< Mode PORTA for GPIO_EXTIPSELL                */
-#define _GPIO_EXTIPSELL_EXTIPSEL6_PORTB              0x00000001UL                              /**< Mode PORTB for GPIO_EXTIPSELL                */
-#define _GPIO_EXTIPSELL_EXTIPSEL6_PORTC              0x00000002UL                              /**< Mode PORTC for GPIO_EXTIPSELL                */
-#define _GPIO_EXTIPSELL_EXTIPSEL6_PORTD              0x00000003UL                              /**< Mode PORTD for GPIO_EXTIPSELL                */
+#define _GPIO_EXTIPSELL_EXTIPSEL6_PORTA              0x00000000UL                              /**< Mode PORTA for GPIO_EXTIPSELL               */
+#define _GPIO_EXTIPSELL_EXTIPSEL6_PORTB              0x00000001UL                              /**< Mode PORTB for GPIO_EXTIPSELL               */
+#define _GPIO_EXTIPSELL_EXTIPSEL6_PORTC              0x00000002UL                              /**< Mode PORTC for GPIO_EXTIPSELL               */
+#define _GPIO_EXTIPSELL_EXTIPSEL6_PORTD              0x00000003UL                              /**< Mode PORTD for GPIO_EXTIPSELL               */
 #define GPIO_EXTIPSELL_EXTIPSEL6_DEFAULT             (_GPIO_EXTIPSELL_EXTIPSEL6_DEFAULT << 24) /**< Shifted mode DEFAULT for GPIO_EXTIPSELL     */
-#define GPIO_EXTIPSELL_EXTIPSEL6_PORTA               (_GPIO_EXTIPSELL_EXTIPSEL6_PORTA << 24)   /**< Shifted mode PORTA for GPIO_EXTIPSELL        */
-#define GPIO_EXTIPSELL_EXTIPSEL6_PORTB               (_GPIO_EXTIPSELL_EXTIPSEL6_PORTB << 24)   /**< Shifted mode PORTB for GPIO_EXTIPSELL        */
-#define GPIO_EXTIPSELL_EXTIPSEL6_PORTC               (_GPIO_EXTIPSELL_EXTIPSEL6_PORTC << 24)   /**< Shifted mode PORTC for GPIO_EXTIPSELL        */
-#define GPIO_EXTIPSELL_EXTIPSEL6_PORTD               (_GPIO_EXTIPSELL_EXTIPSEL6_PORTD << 24)   /**< Shifted mode PORTD for GPIO_EXTIPSELL        */
+#define GPIO_EXTIPSELL_EXTIPSEL6_PORTA               (_GPIO_EXTIPSELL_EXTIPSEL6_PORTA << 24)   /**< Shifted mode PORTA for GPIO_EXTIPSELL       */
+#define GPIO_EXTIPSELL_EXTIPSEL6_PORTB               (_GPIO_EXTIPSELL_EXTIPSEL6_PORTB << 24)   /**< Shifted mode PORTB for GPIO_EXTIPSELL       */
+#define GPIO_EXTIPSELL_EXTIPSEL6_PORTC               (_GPIO_EXTIPSELL_EXTIPSEL6_PORTC << 24)   /**< Shifted mode PORTC for GPIO_EXTIPSELL       */
+#define GPIO_EXTIPSELL_EXTIPSEL6_PORTD               (_GPIO_EXTIPSELL_EXTIPSEL6_PORTD << 24)   /**< Shifted mode PORTD for GPIO_EXTIPSELL       */
 #define _GPIO_EXTIPSELL_EXTIPSEL7_SHIFT              28                                        /**< Shift value for GPIO_EXTIPSEL7              */
 #define _GPIO_EXTIPSELL_EXTIPSEL7_MASK               0x30000000UL                              /**< Bit mask for GPIO_EXTIPSEL7                 */
 #define _GPIO_EXTIPSELL_EXTIPSEL7_DEFAULT            0x00000000UL                              /**< Mode DEFAULT for GPIO_EXTIPSELL             */
-#define _GPIO_EXTIPSELL_EXTIPSEL7_PORTA              0x00000000UL                              /**< Mode PORTA for GPIO_EXTIPSELL                */
-#define _GPIO_EXTIPSELL_EXTIPSEL7_PORTB              0x00000001UL                              /**< Mode PORTB for GPIO_EXTIPSELL                */
-#define _GPIO_EXTIPSELL_EXTIPSEL7_PORTC              0x00000002UL                              /**< Mode PORTC for GPIO_EXTIPSELL                */
-#define _GPIO_EXTIPSELL_EXTIPSEL7_PORTD              0x00000003UL                              /**< Mode PORTD for GPIO_EXTIPSELL                */
+#define _GPIO_EXTIPSELL_EXTIPSEL7_PORTA              0x00000000UL                              /**< Mode PORTA for GPIO_EXTIPSELL               */
+#define _GPIO_EXTIPSELL_EXTIPSEL7_PORTB              0x00000001UL                              /**< Mode PORTB for GPIO_EXTIPSELL               */
+#define _GPIO_EXTIPSELL_EXTIPSEL7_PORTC              0x00000002UL                              /**< Mode PORTC for GPIO_EXTIPSELL               */
+#define _GPIO_EXTIPSELL_EXTIPSEL7_PORTD              0x00000003UL                              /**< Mode PORTD for GPIO_EXTIPSELL               */
 #define GPIO_EXTIPSELL_EXTIPSEL7_DEFAULT             (_GPIO_EXTIPSELL_EXTIPSEL7_DEFAULT << 28) /**< Shifted mode DEFAULT for GPIO_EXTIPSELL     */
-#define GPIO_EXTIPSELL_EXTIPSEL7_PORTA               (_GPIO_EXTIPSELL_EXTIPSEL7_PORTA << 28)   /**< Shifted mode PORTA for GPIO_EXTIPSELL        */
-#define GPIO_EXTIPSELL_EXTIPSEL7_PORTB               (_GPIO_EXTIPSELL_EXTIPSEL7_PORTB << 28)   /**< Shifted mode PORTB for GPIO_EXTIPSELL        */
-#define GPIO_EXTIPSELL_EXTIPSEL7_PORTC               (_GPIO_EXTIPSELL_EXTIPSEL7_PORTC << 28)   /**< Shifted mode PORTC for GPIO_EXTIPSELL        */
-#define GPIO_EXTIPSELL_EXTIPSEL7_PORTD               (_GPIO_EXTIPSELL_EXTIPSEL7_PORTD << 28)   /**< Shifted mode PORTD for GPIO_EXTIPSELL        */
+#define GPIO_EXTIPSELL_EXTIPSEL7_PORTA               (_GPIO_EXTIPSELL_EXTIPSEL7_PORTA << 28)   /**< Shifted mode PORTA for GPIO_EXTIPSELL       */
+#define GPIO_EXTIPSELL_EXTIPSEL7_PORTB               (_GPIO_EXTIPSELL_EXTIPSEL7_PORTB << 28)   /**< Shifted mode PORTB for GPIO_EXTIPSELL       */
+#define GPIO_EXTIPSELL_EXTIPSEL7_PORTC               (_GPIO_EXTIPSELL_EXTIPSEL7_PORTC << 28)   /**< Shifted mode PORTC for GPIO_EXTIPSELL       */
+#define GPIO_EXTIPSELL_EXTIPSEL7_PORTD               (_GPIO_EXTIPSELL_EXTIPSEL7_PORTD << 28)   /**< Shifted mode PORTD for GPIO_EXTIPSELL       */
 
 /* Bit fields for GPIO EXTIPINSELL */
 #define _GPIO_EXTIPINSELL_RESETVALUE                 0x00000000UL                                  /**< Default value for GPIO_EXTIPINSELL          */
@@ -772,99 +603,99 @@ typedef struct {
 #define _GPIO_EXTIPINSELL_EXTIPINSEL0_SHIFT          0                                             /**< Shift value for GPIO_EXTIPINSEL0            */
 #define _GPIO_EXTIPINSELL_EXTIPINSEL0_MASK           0x3UL                                         /**< Bit mask for GPIO_EXTIPINSEL0               */
 #define _GPIO_EXTIPINSELL_EXTIPINSEL0_DEFAULT        0x00000000UL                                  /**< Mode DEFAULT for GPIO_EXTIPINSELL           */
-#define _GPIO_EXTIPINSELL_EXTIPINSEL0_OFFSET0        0x00000000UL                                  /**< Mode OFFSET0 for GPIO_EXTIPINSELL            */
-#define _GPIO_EXTIPINSELL_EXTIPINSEL0_OFFSET1        0x00000001UL                                  /**< Mode OFFSET1 for GPIO_EXTIPINSELL            */
-#define _GPIO_EXTIPINSELL_EXTIPINSEL0_OFFSET2        0x00000002UL                                  /**< Mode OFFSET2 for GPIO_EXTIPINSELL            */
-#define _GPIO_EXTIPINSELL_EXTIPINSEL0_OFFSET3        0x00000003UL                                  /**< Mode OFFSET3 for GPIO_EXTIPINSELL            */
+#define _GPIO_EXTIPINSELL_EXTIPINSEL0_OFFSET0        0x00000000UL                                  /**< Mode OFFSET0 for GPIO_EXTIPINSELL           */
+#define _GPIO_EXTIPINSELL_EXTIPINSEL0_OFFSET1        0x00000001UL                                  /**< Mode OFFSET1 for GPIO_EXTIPINSELL           */
+#define _GPIO_EXTIPINSELL_EXTIPINSEL0_OFFSET2        0x00000002UL                                  /**< Mode OFFSET2 for GPIO_EXTIPINSELL           */
+#define _GPIO_EXTIPINSELL_EXTIPINSEL0_OFFSET3        0x00000003UL                                  /**< Mode OFFSET3 for GPIO_EXTIPINSELL           */
 #define GPIO_EXTIPINSELL_EXTIPINSEL0_DEFAULT         (_GPIO_EXTIPINSELL_EXTIPINSEL0_DEFAULT << 0)  /**< Shifted mode DEFAULT for GPIO_EXTIPINSELL   */
-#define GPIO_EXTIPINSELL_EXTIPINSEL0_OFFSET0         (_GPIO_EXTIPINSELL_EXTIPINSEL0_OFFSET0 << 0)  /**< Shifted mode OFFSET0 for GPIO_EXTIPINSELL    */
-#define GPIO_EXTIPINSELL_EXTIPINSEL0_OFFSET1         (_GPIO_EXTIPINSELL_EXTIPINSEL0_OFFSET1 << 0)  /**< Shifted mode OFFSET1 for GPIO_EXTIPINSELL    */
-#define GPIO_EXTIPINSELL_EXTIPINSEL0_OFFSET2         (_GPIO_EXTIPINSELL_EXTIPINSEL0_OFFSET2 << 0)  /**< Shifted mode OFFSET2 for GPIO_EXTIPINSELL    */
-#define GPIO_EXTIPINSELL_EXTIPINSEL0_OFFSET3         (_GPIO_EXTIPINSELL_EXTIPINSEL0_OFFSET3 << 0)  /**< Shifted mode OFFSET3 for GPIO_EXTIPINSELL    */
+#define GPIO_EXTIPINSELL_EXTIPINSEL0_OFFSET0         (_GPIO_EXTIPINSELL_EXTIPINSEL0_OFFSET0 << 0)  /**< Shifted mode OFFSET0 for GPIO_EXTIPINSELL   */
+#define GPIO_EXTIPINSELL_EXTIPINSEL0_OFFSET1         (_GPIO_EXTIPINSELL_EXTIPINSEL0_OFFSET1 << 0)  /**< Shifted mode OFFSET1 for GPIO_EXTIPINSELL   */
+#define GPIO_EXTIPINSELL_EXTIPINSEL0_OFFSET2         (_GPIO_EXTIPINSELL_EXTIPINSEL0_OFFSET2 << 0)  /**< Shifted mode OFFSET2 for GPIO_EXTIPINSELL   */
+#define GPIO_EXTIPINSELL_EXTIPINSEL0_OFFSET3         (_GPIO_EXTIPINSELL_EXTIPINSEL0_OFFSET3 << 0)  /**< Shifted mode OFFSET3 for GPIO_EXTIPINSELL   */
 #define _GPIO_EXTIPINSELL_EXTIPINSEL1_SHIFT          4                                             /**< Shift value for GPIO_EXTIPINSEL1            */
 #define _GPIO_EXTIPINSELL_EXTIPINSEL1_MASK           0x30UL                                        /**< Bit mask for GPIO_EXTIPINSEL1               */
 #define _GPIO_EXTIPINSELL_EXTIPINSEL1_DEFAULT        0x00000000UL                                  /**< Mode DEFAULT for GPIO_EXTIPINSELL           */
-#define _GPIO_EXTIPINSELL_EXTIPINSEL1_OFFSET0        0x00000000UL                                  /**< Mode OFFSET0 for GPIO_EXTIPINSELL            */
-#define _GPIO_EXTIPINSELL_EXTIPINSEL1_OFFSET1        0x00000001UL                                  /**< Mode OFFSET1 for GPIO_EXTIPINSELL            */
-#define _GPIO_EXTIPINSELL_EXTIPINSEL1_OFFSET2        0x00000002UL                                  /**< Mode OFFSET2 for GPIO_EXTIPINSELL            */
-#define _GPIO_EXTIPINSELL_EXTIPINSEL1_OFFSET3        0x00000003UL                                  /**< Mode OFFSET3 for GPIO_EXTIPINSELL            */
+#define _GPIO_EXTIPINSELL_EXTIPINSEL1_OFFSET0        0x00000000UL                                  /**< Mode OFFSET0 for GPIO_EXTIPINSELL           */
+#define _GPIO_EXTIPINSELL_EXTIPINSEL1_OFFSET1        0x00000001UL                                  /**< Mode OFFSET1 for GPIO_EXTIPINSELL           */
+#define _GPIO_EXTIPINSELL_EXTIPINSEL1_OFFSET2        0x00000002UL                                  /**< Mode OFFSET2 for GPIO_EXTIPINSELL           */
+#define _GPIO_EXTIPINSELL_EXTIPINSEL1_OFFSET3        0x00000003UL                                  /**< Mode OFFSET3 for GPIO_EXTIPINSELL           */
 #define GPIO_EXTIPINSELL_EXTIPINSEL1_DEFAULT         (_GPIO_EXTIPINSELL_EXTIPINSEL1_DEFAULT << 4)  /**< Shifted mode DEFAULT for GPIO_EXTIPINSELL   */
-#define GPIO_EXTIPINSELL_EXTIPINSEL1_OFFSET0         (_GPIO_EXTIPINSELL_EXTIPINSEL1_OFFSET0 << 4)  /**< Shifted mode OFFSET0 for GPIO_EXTIPINSELL    */
-#define GPIO_EXTIPINSELL_EXTIPINSEL1_OFFSET1         (_GPIO_EXTIPINSELL_EXTIPINSEL1_OFFSET1 << 4)  /**< Shifted mode OFFSET1 for GPIO_EXTIPINSELL    */
-#define GPIO_EXTIPINSELL_EXTIPINSEL1_OFFSET2         (_GPIO_EXTIPINSELL_EXTIPINSEL1_OFFSET2 << 4)  /**< Shifted mode OFFSET2 for GPIO_EXTIPINSELL    */
-#define GPIO_EXTIPINSELL_EXTIPINSEL1_OFFSET3         (_GPIO_EXTIPINSELL_EXTIPINSEL1_OFFSET3 << 4)  /**< Shifted mode OFFSET3 for GPIO_EXTIPINSELL    */
+#define GPIO_EXTIPINSELL_EXTIPINSEL1_OFFSET0         (_GPIO_EXTIPINSELL_EXTIPINSEL1_OFFSET0 << 4)  /**< Shifted mode OFFSET0 for GPIO_EXTIPINSELL   */
+#define GPIO_EXTIPINSELL_EXTIPINSEL1_OFFSET1         (_GPIO_EXTIPINSELL_EXTIPINSEL1_OFFSET1 << 4)  /**< Shifted mode OFFSET1 for GPIO_EXTIPINSELL   */
+#define GPIO_EXTIPINSELL_EXTIPINSEL1_OFFSET2         (_GPIO_EXTIPINSELL_EXTIPINSEL1_OFFSET2 << 4)  /**< Shifted mode OFFSET2 for GPIO_EXTIPINSELL   */
+#define GPIO_EXTIPINSELL_EXTIPINSEL1_OFFSET3         (_GPIO_EXTIPINSELL_EXTIPINSEL1_OFFSET3 << 4)  /**< Shifted mode OFFSET3 for GPIO_EXTIPINSELL   */
 #define _GPIO_EXTIPINSELL_EXTIPINSEL2_SHIFT          8                                             /**< Shift value for GPIO_EXTIPINSEL2            */
 #define _GPIO_EXTIPINSELL_EXTIPINSEL2_MASK           0x300UL                                       /**< Bit mask for GPIO_EXTIPINSEL2               */
 #define _GPIO_EXTIPINSELL_EXTIPINSEL2_DEFAULT        0x00000000UL                                  /**< Mode DEFAULT for GPIO_EXTIPINSELL           */
-#define _GPIO_EXTIPINSELL_EXTIPINSEL2_OFFSET0        0x00000000UL                                  /**< Mode OFFSET0 for GPIO_EXTIPINSELL            */
-#define _GPIO_EXTIPINSELL_EXTIPINSEL2_OFFSET1        0x00000001UL                                  /**< Mode OFFSET1 for GPIO_EXTIPINSELL            */
-#define _GPIO_EXTIPINSELL_EXTIPINSEL2_OFFSET2        0x00000002UL                                  /**< Mode OFFSET2 for GPIO_EXTIPINSELL            */
-#define _GPIO_EXTIPINSELL_EXTIPINSEL2_OFFSET3        0x00000003UL                                  /**< Mode OFFSET3 for GPIO_EXTIPINSELL            */
+#define _GPIO_EXTIPINSELL_EXTIPINSEL2_OFFSET0        0x00000000UL                                  /**< Mode OFFSET0 for GPIO_EXTIPINSELL           */
+#define _GPIO_EXTIPINSELL_EXTIPINSEL2_OFFSET1        0x00000001UL                                  /**< Mode OFFSET1 for GPIO_EXTIPINSELL           */
+#define _GPIO_EXTIPINSELL_EXTIPINSEL2_OFFSET2        0x00000002UL                                  /**< Mode OFFSET2 for GPIO_EXTIPINSELL           */
+#define _GPIO_EXTIPINSELL_EXTIPINSEL2_OFFSET3        0x00000003UL                                  /**< Mode OFFSET3 for GPIO_EXTIPINSELL           */
 #define GPIO_EXTIPINSELL_EXTIPINSEL2_DEFAULT         (_GPIO_EXTIPINSELL_EXTIPINSEL2_DEFAULT << 8)  /**< Shifted mode DEFAULT for GPIO_EXTIPINSELL   */
-#define GPIO_EXTIPINSELL_EXTIPINSEL2_OFFSET0         (_GPIO_EXTIPINSELL_EXTIPINSEL2_OFFSET0 << 8)  /**< Shifted mode OFFSET0 for GPIO_EXTIPINSELL    */
-#define GPIO_EXTIPINSELL_EXTIPINSEL2_OFFSET1         (_GPIO_EXTIPINSELL_EXTIPINSEL2_OFFSET1 << 8)  /**< Shifted mode OFFSET1 for GPIO_EXTIPINSELL    */
-#define GPIO_EXTIPINSELL_EXTIPINSEL2_OFFSET2         (_GPIO_EXTIPINSELL_EXTIPINSEL2_OFFSET2 << 8)  /**< Shifted mode OFFSET2 for GPIO_EXTIPINSELL    */
-#define GPIO_EXTIPINSELL_EXTIPINSEL2_OFFSET3         (_GPIO_EXTIPINSELL_EXTIPINSEL2_OFFSET3 << 8)  /**< Shifted mode OFFSET3 for GPIO_EXTIPINSELL    */
+#define GPIO_EXTIPINSELL_EXTIPINSEL2_OFFSET0         (_GPIO_EXTIPINSELL_EXTIPINSEL2_OFFSET0 << 8)  /**< Shifted mode OFFSET0 for GPIO_EXTIPINSELL   */
+#define GPIO_EXTIPINSELL_EXTIPINSEL2_OFFSET1         (_GPIO_EXTIPINSELL_EXTIPINSEL2_OFFSET1 << 8)  /**< Shifted mode OFFSET1 for GPIO_EXTIPINSELL   */
+#define GPIO_EXTIPINSELL_EXTIPINSEL2_OFFSET2         (_GPIO_EXTIPINSELL_EXTIPINSEL2_OFFSET2 << 8)  /**< Shifted mode OFFSET2 for GPIO_EXTIPINSELL   */
+#define GPIO_EXTIPINSELL_EXTIPINSEL2_OFFSET3         (_GPIO_EXTIPINSELL_EXTIPINSEL2_OFFSET3 << 8)  /**< Shifted mode OFFSET3 for GPIO_EXTIPINSELL   */
 #define _GPIO_EXTIPINSELL_EXTIPINSEL3_SHIFT          12                                            /**< Shift value for GPIO_EXTIPINSEL3            */
 #define _GPIO_EXTIPINSELL_EXTIPINSEL3_MASK           0x3000UL                                      /**< Bit mask for GPIO_EXTIPINSEL3               */
 #define _GPIO_EXTIPINSELL_EXTIPINSEL3_DEFAULT        0x00000000UL                                  /**< Mode DEFAULT for GPIO_EXTIPINSELL           */
-#define _GPIO_EXTIPINSELL_EXTIPINSEL3_OFFSET0        0x00000000UL                                  /**< Mode OFFSET0 for GPIO_EXTIPINSELL            */
-#define _GPIO_EXTIPINSELL_EXTIPINSEL3_OFFSET1        0x00000001UL                                  /**< Mode OFFSET1 for GPIO_EXTIPINSELL            */
-#define _GPIO_EXTIPINSELL_EXTIPINSEL3_OFFSET2        0x00000002UL                                  /**< Mode OFFSET2 for GPIO_EXTIPINSELL            */
-#define _GPIO_EXTIPINSELL_EXTIPINSEL3_OFFSET3        0x00000003UL                                  /**< Mode OFFSET3 for GPIO_EXTIPINSELL            */
+#define _GPIO_EXTIPINSELL_EXTIPINSEL3_OFFSET0        0x00000000UL                                  /**< Mode OFFSET0 for GPIO_EXTIPINSELL           */
+#define _GPIO_EXTIPINSELL_EXTIPINSEL3_OFFSET1        0x00000001UL                                  /**< Mode OFFSET1 for GPIO_EXTIPINSELL           */
+#define _GPIO_EXTIPINSELL_EXTIPINSEL3_OFFSET2        0x00000002UL                                  /**< Mode OFFSET2 for GPIO_EXTIPINSELL           */
+#define _GPIO_EXTIPINSELL_EXTIPINSEL3_OFFSET3        0x00000003UL                                  /**< Mode OFFSET3 for GPIO_EXTIPINSELL           */
 #define GPIO_EXTIPINSELL_EXTIPINSEL3_DEFAULT         (_GPIO_EXTIPINSELL_EXTIPINSEL3_DEFAULT << 12) /**< Shifted mode DEFAULT for GPIO_EXTIPINSELL   */
-#define GPIO_EXTIPINSELL_EXTIPINSEL3_OFFSET0         (_GPIO_EXTIPINSELL_EXTIPINSEL3_OFFSET0 << 12) /**< Shifted mode OFFSET0 for GPIO_EXTIPINSELL    */
-#define GPIO_EXTIPINSELL_EXTIPINSEL3_OFFSET1         (_GPIO_EXTIPINSELL_EXTIPINSEL3_OFFSET1 << 12) /**< Shifted mode OFFSET1 for GPIO_EXTIPINSELL    */
-#define GPIO_EXTIPINSELL_EXTIPINSEL3_OFFSET2         (_GPIO_EXTIPINSELL_EXTIPINSEL3_OFFSET2 << 12) /**< Shifted mode OFFSET2 for GPIO_EXTIPINSELL    */
-#define GPIO_EXTIPINSELL_EXTIPINSEL3_OFFSET3         (_GPIO_EXTIPINSELL_EXTIPINSEL3_OFFSET3 << 12) /**< Shifted mode OFFSET3 for GPIO_EXTIPINSELL    */
+#define GPIO_EXTIPINSELL_EXTIPINSEL3_OFFSET0         (_GPIO_EXTIPINSELL_EXTIPINSEL3_OFFSET0 << 12) /**< Shifted mode OFFSET0 for GPIO_EXTIPINSELL   */
+#define GPIO_EXTIPINSELL_EXTIPINSEL3_OFFSET1         (_GPIO_EXTIPINSELL_EXTIPINSEL3_OFFSET1 << 12) /**< Shifted mode OFFSET1 for GPIO_EXTIPINSELL   */
+#define GPIO_EXTIPINSELL_EXTIPINSEL3_OFFSET2         (_GPIO_EXTIPINSELL_EXTIPINSEL3_OFFSET2 << 12) /**< Shifted mode OFFSET2 for GPIO_EXTIPINSELL   */
+#define GPIO_EXTIPINSELL_EXTIPINSEL3_OFFSET3         (_GPIO_EXTIPINSELL_EXTIPINSEL3_OFFSET3 << 12) /**< Shifted mode OFFSET3 for GPIO_EXTIPINSELL   */
 #define _GPIO_EXTIPINSELL_EXTIPINSEL4_SHIFT          16                                            /**< Shift value for GPIO_EXTIPINSEL4            */
 #define _GPIO_EXTIPINSELL_EXTIPINSEL4_MASK           0x30000UL                                     /**< Bit mask for GPIO_EXTIPINSEL4               */
 #define _GPIO_EXTIPINSELL_EXTIPINSEL4_DEFAULT        0x00000000UL                                  /**< Mode DEFAULT for GPIO_EXTIPINSELL           */
-#define _GPIO_EXTIPINSELL_EXTIPINSEL4_OFFSET0        0x00000000UL                                  /**< Mode OFFSET0 for GPIO_EXTIPINSELL            */
-#define _GPIO_EXTIPINSELL_EXTIPINSEL4_OFFSET1        0x00000001UL                                  /**< Mode OFFSET1 for GPIO_EXTIPINSELL            */
-#define _GPIO_EXTIPINSELL_EXTIPINSEL4_OFFSET2        0x00000002UL                                  /**< Mode OFFSET2 for GPIO_EXTIPINSELL            */
-#define _GPIO_EXTIPINSELL_EXTIPINSEL4_OFFSET3        0x00000003UL                                  /**< Mode OFFSET3 for GPIO_EXTIPINSELL            */
+#define _GPIO_EXTIPINSELL_EXTIPINSEL4_OFFSET0        0x00000000UL                                  /**< Mode OFFSET0 for GPIO_EXTIPINSELL           */
+#define _GPIO_EXTIPINSELL_EXTIPINSEL4_OFFSET1        0x00000001UL                                  /**< Mode OFFSET1 for GPIO_EXTIPINSELL           */
+#define _GPIO_EXTIPINSELL_EXTIPINSEL4_OFFSET2        0x00000002UL                                  /**< Mode OFFSET2 for GPIO_EXTIPINSELL           */
+#define _GPIO_EXTIPINSELL_EXTIPINSEL4_OFFSET3        0x00000003UL                                  /**< Mode OFFSET3 for GPIO_EXTIPINSELL           */
 #define GPIO_EXTIPINSELL_EXTIPINSEL4_DEFAULT         (_GPIO_EXTIPINSELL_EXTIPINSEL4_DEFAULT << 16) /**< Shifted mode DEFAULT for GPIO_EXTIPINSELL   */
-#define GPIO_EXTIPINSELL_EXTIPINSEL4_OFFSET0         (_GPIO_EXTIPINSELL_EXTIPINSEL4_OFFSET0 << 16) /**< Shifted mode OFFSET0 for GPIO_EXTIPINSELL    */
-#define GPIO_EXTIPINSELL_EXTIPINSEL4_OFFSET1         (_GPIO_EXTIPINSELL_EXTIPINSEL4_OFFSET1 << 16) /**< Shifted mode OFFSET1 for GPIO_EXTIPINSELL    */
-#define GPIO_EXTIPINSELL_EXTIPINSEL4_OFFSET2         (_GPIO_EXTIPINSELL_EXTIPINSEL4_OFFSET2 << 16) /**< Shifted mode OFFSET2 for GPIO_EXTIPINSELL    */
-#define GPIO_EXTIPINSELL_EXTIPINSEL4_OFFSET3         (_GPIO_EXTIPINSELL_EXTIPINSEL4_OFFSET3 << 16) /**< Shifted mode OFFSET3 for GPIO_EXTIPINSELL    */
+#define GPIO_EXTIPINSELL_EXTIPINSEL4_OFFSET0         (_GPIO_EXTIPINSELL_EXTIPINSEL4_OFFSET0 << 16) /**< Shifted mode OFFSET0 for GPIO_EXTIPINSELL   */
+#define GPIO_EXTIPINSELL_EXTIPINSEL4_OFFSET1         (_GPIO_EXTIPINSELL_EXTIPINSEL4_OFFSET1 << 16) /**< Shifted mode OFFSET1 for GPIO_EXTIPINSELL   */
+#define GPIO_EXTIPINSELL_EXTIPINSEL4_OFFSET2         (_GPIO_EXTIPINSELL_EXTIPINSEL4_OFFSET2 << 16) /**< Shifted mode OFFSET2 for GPIO_EXTIPINSELL   */
+#define GPIO_EXTIPINSELL_EXTIPINSEL4_OFFSET3         (_GPIO_EXTIPINSELL_EXTIPINSEL4_OFFSET3 << 16) /**< Shifted mode OFFSET3 for GPIO_EXTIPINSELL   */
 #define _GPIO_EXTIPINSELL_EXTIPINSEL5_SHIFT          20                                            /**< Shift value for GPIO_EXTIPINSEL5            */
 #define _GPIO_EXTIPINSELL_EXTIPINSEL5_MASK           0x300000UL                                    /**< Bit mask for GPIO_EXTIPINSEL5               */
 #define _GPIO_EXTIPINSELL_EXTIPINSEL5_DEFAULT        0x00000000UL                                  /**< Mode DEFAULT for GPIO_EXTIPINSELL           */
-#define _GPIO_EXTIPINSELL_EXTIPINSEL5_OFFSET0        0x00000000UL                                  /**< Mode OFFSET0 for GPIO_EXTIPINSELL            */
-#define _GPIO_EXTIPINSELL_EXTIPINSEL5_OFFSET1        0x00000001UL                                  /**< Mode OFFSET1 for GPIO_EXTIPINSELL            */
-#define _GPIO_EXTIPINSELL_EXTIPINSEL5_OFFSET2        0x00000002UL                                  /**< Mode OFFSET2 for GPIO_EXTIPINSELL            */
-#define _GPIO_EXTIPINSELL_EXTIPINSEL5_OFFSET3        0x00000003UL                                  /**< Mode OFFSET3 for GPIO_EXTIPINSELL            */
+#define _GPIO_EXTIPINSELL_EXTIPINSEL5_OFFSET0        0x00000000UL                                  /**< Mode OFFSET0 for GPIO_EXTIPINSELL           */
+#define _GPIO_EXTIPINSELL_EXTIPINSEL5_OFFSET1        0x00000001UL                                  /**< Mode OFFSET1 for GPIO_EXTIPINSELL           */
+#define _GPIO_EXTIPINSELL_EXTIPINSEL5_OFFSET2        0x00000002UL                                  /**< Mode OFFSET2 for GPIO_EXTIPINSELL           */
+#define _GPIO_EXTIPINSELL_EXTIPINSEL5_OFFSET3        0x00000003UL                                  /**< Mode OFFSET3 for GPIO_EXTIPINSELL           */
 #define GPIO_EXTIPINSELL_EXTIPINSEL5_DEFAULT         (_GPIO_EXTIPINSELL_EXTIPINSEL5_DEFAULT << 20) /**< Shifted mode DEFAULT for GPIO_EXTIPINSELL   */
-#define GPIO_EXTIPINSELL_EXTIPINSEL5_OFFSET0         (_GPIO_EXTIPINSELL_EXTIPINSEL5_OFFSET0 << 20) /**< Shifted mode OFFSET0 for GPIO_EXTIPINSELL    */
-#define GPIO_EXTIPINSELL_EXTIPINSEL5_OFFSET1         (_GPIO_EXTIPINSELL_EXTIPINSEL5_OFFSET1 << 20) /**< Shifted mode OFFSET1 for GPIO_EXTIPINSELL    */
-#define GPIO_EXTIPINSELL_EXTIPINSEL5_OFFSET2         (_GPIO_EXTIPINSELL_EXTIPINSEL5_OFFSET2 << 20) /**< Shifted mode OFFSET2 for GPIO_EXTIPINSELL    */
-#define GPIO_EXTIPINSELL_EXTIPINSEL5_OFFSET3         (_GPIO_EXTIPINSELL_EXTIPINSEL5_OFFSET3 << 20) /**< Shifted mode OFFSET3 for GPIO_EXTIPINSELL    */
+#define GPIO_EXTIPINSELL_EXTIPINSEL5_OFFSET0         (_GPIO_EXTIPINSELL_EXTIPINSEL5_OFFSET0 << 20) /**< Shifted mode OFFSET0 for GPIO_EXTIPINSELL   */
+#define GPIO_EXTIPINSELL_EXTIPINSEL5_OFFSET1         (_GPIO_EXTIPINSELL_EXTIPINSEL5_OFFSET1 << 20) /**< Shifted mode OFFSET1 for GPIO_EXTIPINSELL   */
+#define GPIO_EXTIPINSELL_EXTIPINSEL5_OFFSET2         (_GPIO_EXTIPINSELL_EXTIPINSEL5_OFFSET2 << 20) /**< Shifted mode OFFSET2 for GPIO_EXTIPINSELL   */
+#define GPIO_EXTIPINSELL_EXTIPINSEL5_OFFSET3         (_GPIO_EXTIPINSELL_EXTIPINSEL5_OFFSET3 << 20) /**< Shifted mode OFFSET3 for GPIO_EXTIPINSELL   */
 #define _GPIO_EXTIPINSELL_EXTIPINSEL6_SHIFT          24                                            /**< Shift value for GPIO_EXTIPINSEL6            */
 #define _GPIO_EXTIPINSELL_EXTIPINSEL6_MASK           0x3000000UL                                   /**< Bit mask for GPIO_EXTIPINSEL6               */
 #define _GPIO_EXTIPINSELL_EXTIPINSEL6_DEFAULT        0x00000000UL                                  /**< Mode DEFAULT for GPIO_EXTIPINSELL           */
-#define _GPIO_EXTIPINSELL_EXTIPINSEL6_OFFSET0        0x00000000UL                                  /**< Mode OFFSET0 for GPIO_EXTIPINSELL            */
-#define _GPIO_EXTIPINSELL_EXTIPINSEL6_OFFSET1        0x00000001UL                                  /**< Mode OFFSET1 for GPIO_EXTIPINSELL            */
-#define _GPIO_EXTIPINSELL_EXTIPINSEL6_OFFSET2        0x00000002UL                                  /**< Mode OFFSET2 for GPIO_EXTIPINSELL            */
-#define _GPIO_EXTIPINSELL_EXTIPINSEL6_OFFSET3        0x00000003UL                                  /**< Mode OFFSET3 for GPIO_EXTIPINSELL            */
+#define _GPIO_EXTIPINSELL_EXTIPINSEL6_OFFSET0        0x00000000UL                                  /**< Mode OFFSET0 for GPIO_EXTIPINSELL           */
+#define _GPIO_EXTIPINSELL_EXTIPINSEL6_OFFSET1        0x00000001UL                                  /**< Mode OFFSET1 for GPIO_EXTIPINSELL           */
+#define _GPIO_EXTIPINSELL_EXTIPINSEL6_OFFSET2        0x00000002UL                                  /**< Mode OFFSET2 for GPIO_EXTIPINSELL           */
+#define _GPIO_EXTIPINSELL_EXTIPINSEL6_OFFSET3        0x00000003UL                                  /**< Mode OFFSET3 for GPIO_EXTIPINSELL           */
 #define GPIO_EXTIPINSELL_EXTIPINSEL6_DEFAULT         (_GPIO_EXTIPINSELL_EXTIPINSEL6_DEFAULT << 24) /**< Shifted mode DEFAULT for GPIO_EXTIPINSELL   */
-#define GPIO_EXTIPINSELL_EXTIPINSEL6_OFFSET0         (_GPIO_EXTIPINSELL_EXTIPINSEL6_OFFSET0 << 24) /**< Shifted mode OFFSET0 for GPIO_EXTIPINSELL    */
-#define GPIO_EXTIPINSELL_EXTIPINSEL6_OFFSET1         (_GPIO_EXTIPINSELL_EXTIPINSEL6_OFFSET1 << 24) /**< Shifted mode OFFSET1 for GPIO_EXTIPINSELL    */
-#define GPIO_EXTIPINSELL_EXTIPINSEL6_OFFSET2         (_GPIO_EXTIPINSELL_EXTIPINSEL6_OFFSET2 << 24) /**< Shifted mode OFFSET2 for GPIO_EXTIPINSELL    */
-#define GPIO_EXTIPINSELL_EXTIPINSEL6_OFFSET3         (_GPIO_EXTIPINSELL_EXTIPINSEL6_OFFSET3 << 24) /**< Shifted mode OFFSET3 for GPIO_EXTIPINSELL    */
+#define GPIO_EXTIPINSELL_EXTIPINSEL6_OFFSET0         (_GPIO_EXTIPINSELL_EXTIPINSEL6_OFFSET0 << 24) /**< Shifted mode OFFSET0 for GPIO_EXTIPINSELL   */
+#define GPIO_EXTIPINSELL_EXTIPINSEL6_OFFSET1         (_GPIO_EXTIPINSELL_EXTIPINSEL6_OFFSET1 << 24) /**< Shifted mode OFFSET1 for GPIO_EXTIPINSELL   */
+#define GPIO_EXTIPINSELL_EXTIPINSEL6_OFFSET2         (_GPIO_EXTIPINSELL_EXTIPINSEL6_OFFSET2 << 24) /**< Shifted mode OFFSET2 for GPIO_EXTIPINSELL   */
+#define GPIO_EXTIPINSELL_EXTIPINSEL6_OFFSET3         (_GPIO_EXTIPINSELL_EXTIPINSEL6_OFFSET3 << 24) /**< Shifted mode OFFSET3 for GPIO_EXTIPINSELL   */
 #define _GPIO_EXTIPINSELL_EXTIPINSEL7_SHIFT          28                                            /**< Shift value for GPIO_EXTIPINSEL7            */
 #define _GPIO_EXTIPINSELL_EXTIPINSEL7_MASK           0x30000000UL                                  /**< Bit mask for GPIO_EXTIPINSEL7               */
 #define _GPIO_EXTIPINSELL_EXTIPINSEL7_DEFAULT        0x00000000UL                                  /**< Mode DEFAULT for GPIO_EXTIPINSELL           */
-#define _GPIO_EXTIPINSELL_EXTIPINSEL7_OFFSET0        0x00000000UL                                  /**< Mode OFFSET0 for GPIO_EXTIPINSELL            */
-#define _GPIO_EXTIPINSELL_EXTIPINSEL7_OFFSET1        0x00000001UL                                  /**< Mode OFFSET1 for GPIO_EXTIPINSELL            */
-#define _GPIO_EXTIPINSELL_EXTIPINSEL7_OFFSET2        0x00000002UL                                  /**< Mode OFFSET2 for GPIO_EXTIPINSELL            */
-#define _GPIO_EXTIPINSELL_EXTIPINSEL7_OFFSET3        0x00000003UL                                  /**< Mode OFFSET3 for GPIO_EXTIPINSELL            */
+#define _GPIO_EXTIPINSELL_EXTIPINSEL7_OFFSET0        0x00000000UL                                  /**< Mode OFFSET0 for GPIO_EXTIPINSELL           */
+#define _GPIO_EXTIPINSELL_EXTIPINSEL7_OFFSET1        0x00000001UL                                  /**< Mode OFFSET1 for GPIO_EXTIPINSELL           */
+#define _GPIO_EXTIPINSELL_EXTIPINSEL7_OFFSET2        0x00000002UL                                  /**< Mode OFFSET2 for GPIO_EXTIPINSELL           */
+#define _GPIO_EXTIPINSELL_EXTIPINSEL7_OFFSET3        0x00000003UL                                  /**< Mode OFFSET3 for GPIO_EXTIPINSELL           */
 #define GPIO_EXTIPINSELL_EXTIPINSEL7_DEFAULT         (_GPIO_EXTIPINSELL_EXTIPINSEL7_DEFAULT << 28) /**< Shifted mode DEFAULT for GPIO_EXTIPINSELL   */
-#define GPIO_EXTIPINSELL_EXTIPINSEL7_OFFSET0         (_GPIO_EXTIPINSELL_EXTIPINSEL7_OFFSET0 << 28) /**< Shifted mode OFFSET0 for GPIO_EXTIPINSELL    */
-#define GPIO_EXTIPINSELL_EXTIPINSEL7_OFFSET1         (_GPIO_EXTIPINSELL_EXTIPINSEL7_OFFSET1 << 28) /**< Shifted mode OFFSET1 for GPIO_EXTIPINSELL    */
-#define GPIO_EXTIPINSELL_EXTIPINSEL7_OFFSET2         (_GPIO_EXTIPINSELL_EXTIPINSEL7_OFFSET2 << 28) /**< Shifted mode OFFSET2 for GPIO_EXTIPINSELL    */
-#define GPIO_EXTIPINSELL_EXTIPINSEL7_OFFSET3         (_GPIO_EXTIPINSELL_EXTIPINSEL7_OFFSET3 << 28) /**< Shifted mode OFFSET3 for GPIO_EXTIPINSELL    */
+#define GPIO_EXTIPINSELL_EXTIPINSEL7_OFFSET0         (_GPIO_EXTIPINSELL_EXTIPINSEL7_OFFSET0 << 28) /**< Shifted mode OFFSET0 for GPIO_EXTIPINSELL   */
+#define GPIO_EXTIPINSELL_EXTIPINSEL7_OFFSET1         (_GPIO_EXTIPINSELL_EXTIPINSEL7_OFFSET1 << 28) /**< Shifted mode OFFSET1 for GPIO_EXTIPINSELL   */
+#define GPIO_EXTIPINSELL_EXTIPINSEL7_OFFSET2         (_GPIO_EXTIPINSELL_EXTIPINSEL7_OFFSET2 << 28) /**< Shifted mode OFFSET2 for GPIO_EXTIPINSELL   */
+#define GPIO_EXTIPINSELL_EXTIPINSEL7_OFFSET3         (_GPIO_EXTIPINSELL_EXTIPINSEL7_OFFSET3 << 28) /**< Shifted mode OFFSET3 for GPIO_EXTIPINSELL   */
 
 /* Bit fields for GPIO EXTIRISE */
 #define _GPIO_EXTIRISE_RESETVALUE                    0x00000000UL                           /**< Default value for GPIO_EXTIRISE             */

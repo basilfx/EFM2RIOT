@@ -1,10 +1,9 @@
 /**************************************************************************//**
  * @file
  * @brief EFR32BG21 FRC register and bit field definitions
- * @version 5.7.0
  ******************************************************************************
  * # License
- * <b>Copyright 2018 Silicon Laboratories, Inc. www.silabs.com</b>
+ * <b>Copyright 2020 Silicon Laboratories, Inc. www.silabs.com</b>
  ******************************************************************************
  *
  * SPDX-License-Identifier: Zlib
@@ -88,9 +87,9 @@ typedef struct {
   __IOM uint32_t         IF;                    /**< Frame Controller Interrupt Flags                   */
   __IOM uint32_t         IEN;                   /**< Interrupt Enable Register                          */
   __IOM uint32_t         MIRRORIF;              /**< FRC Interrupt Flag Mirror Register                 */
-  uint32_t               RESERVED0[1U];         /**< Reserved for future use                      */
+  uint32_t               RESERVED0[1U];         /**< Reserved for future use                            */
   __IOM uint32_t         BUFFERMODE;            /**< FRC Buffer Control                                 */
-  uint32_t               RESERVED1[2U];         /**< Reserved for future use                      */
+  uint32_t               RESERVED1[2U];         /**< Reserved for future use                            */
   __IOM uint32_t         SNIFFCTRL;             /**< FRC Sniffer Control Register                       */
   __IOM uint32_t         AUXDATA;               /**< Auxiliary sniffer data output register             */
   __IOM uint32_t         RAWCTRL;               /**< Raw data control                                   */
@@ -103,10 +102,10 @@ typedef struct {
   __IOM uint32_t         AUTOCG;                /**< Automatic clock gating                             */
   __IOM uint32_t         CGCLKSTOP;             /**< Automatic clock gating                             */
   __IOM uint32_t         RAMBASEADDR;           /**< RAM Base Address                                   */
-  FRC_FCD_TypeDef        FCD[4U];               /**< Frame Descriptors                                 */
-  uint32_t               RESERVED2[15U];        /**< Reserved for future use*/
-  FRC_INTELEMENT_TypeDef INTELEMENT[16U];       /**< Interleaver element                               */
-  uint32_t               RESERVED3[944U];       /**< Reserved for future use*/
+  FRC_FCD_TypeDef        FCD[4U];               /**< Frame Descriptors                                  */
+  uint32_t               RESERVED2[15U];        /**< Reserved for future use                            */
+  FRC_INTELEMENT_TypeDef INTELEMENT[16U];       /**< Interleaver element                                */
+  uint32_t               RESERVED3[944U];       /**< Reserved for future use                            */
   __IM uint32_t          IPVERSION_SET;         /**< IP Version                                         */
   __IOM uint32_t         EN_SET;                /**< Enable peripheral clock to this module             */
   __IM uint32_t          STATUS_SET;            /**< FRC Status                                         */
@@ -136,9 +135,9 @@ typedef struct {
   __IOM uint32_t         IF_SET;                /**< Frame Controller Interrupt Flags                   */
   __IOM uint32_t         IEN_SET;               /**< Interrupt Enable Register                          */
   __IOM uint32_t         MIRRORIF_SET;          /**< FRC Interrupt Flag Mirror Register                 */
-  uint32_t               RESERVED4[1U];         /**< Reserved for future use                      */
+  uint32_t               RESERVED4[1U];         /**< Reserved for future use                            */
   __IOM uint32_t         BUFFERMODE_SET;        /**< FRC Buffer Control                                 */
-  uint32_t               RESERVED5[2U];         /**< Reserved for future use                      */
+  uint32_t               RESERVED5[2U];         /**< Reserved for future use                            */
   __IOM uint32_t         SNIFFCTRL_SET;         /**< FRC Sniffer Control Register                       */
   __IOM uint32_t         AUXDATA_SET;           /**< Auxiliary sniffer data output register             */
   __IOM uint32_t         RAWCTRL_SET;           /**< Raw data control                                   */
@@ -151,10 +150,10 @@ typedef struct {
   __IOM uint32_t         AUTOCG_SET;            /**< Automatic clock gating                             */
   __IOM uint32_t         CGCLKSTOP_SET;         /**< Automatic clock gating                             */
   __IOM uint32_t         RAMBASEADDR_SET;       /**< RAM Base Address                                   */
-  FRC_FCD_TypeDef        FCD_SET[4U];           /**< Frame Descriptors                                 */
-  uint32_t               RESERVED6[15U];        /**< Reserved for future use*/
-  FRC_INTELEMENT_TypeDef INTELEMENT_SET[16U];   /**< Interleaver element                               */
-  uint32_t               RESERVED7[944U];       /**< Reserved for future use*/
+  FRC_FCD_TypeDef        FCD_SET[4U];           /**< Frame Descriptors                                  */
+  uint32_t               RESERVED6[15U];        /**< Reserved for future use                            */
+  FRC_INTELEMENT_TypeDef INTELEMENT_SET[16U];   /**< Interleaver element                                */
+  uint32_t               RESERVED7[944U];       /**< Reserved for future use                            */
   __IM uint32_t          IPVERSION_CLR;         /**< IP Version                                         */
   __IOM uint32_t         EN_CLR;                /**< Enable peripheral clock to this module             */
   __IM uint32_t          STATUS_CLR;            /**< FRC Status                                         */
@@ -184,9 +183,9 @@ typedef struct {
   __IOM uint32_t         IF_CLR;                /**< Frame Controller Interrupt Flags                   */
   __IOM uint32_t         IEN_CLR;               /**< Interrupt Enable Register                          */
   __IOM uint32_t         MIRRORIF_CLR;          /**< FRC Interrupt Flag Mirror Register                 */
-  uint32_t               RESERVED8[1U];         /**< Reserved for future use                      */
+  uint32_t               RESERVED8[1U];         /**< Reserved for future use                            */
   __IOM uint32_t         BUFFERMODE_CLR;        /**< FRC Buffer Control                                 */
-  uint32_t               RESERVED9[2U];         /**< Reserved for future use                      */
+  uint32_t               RESERVED9[2U];         /**< Reserved for future use                            */
   __IOM uint32_t         SNIFFCTRL_CLR;         /**< FRC Sniffer Control Register                       */
   __IOM uint32_t         AUXDATA_CLR;           /**< Auxiliary sniffer data output register             */
   __IOM uint32_t         RAWCTRL_CLR;           /**< Raw data control                                   */
@@ -199,10 +198,10 @@ typedef struct {
   __IOM uint32_t         AUTOCG_CLR;            /**< Automatic clock gating                             */
   __IOM uint32_t         CGCLKSTOP_CLR;         /**< Automatic clock gating                             */
   __IOM uint32_t         RAMBASEADDR_CLR;       /**< RAM Base Address                                   */
-  FRC_FCD_TypeDef        FCD_CLR[4U];           /**< Frame Descriptors                                 */
-  uint32_t               RESERVED10[15U];       /**< Reserved for future use*/
-  FRC_INTELEMENT_TypeDef INTELEMENT_CLR[16U];   /**< Interleaver element                               */
-  uint32_t               RESERVED11[944U];      /**< Reserved for future use*/
+  FRC_FCD_TypeDef        FCD_CLR[4U];           /**< Frame Descriptors                                  */
+  uint32_t               RESERVED10[15U];       /**< Reserved for future use                            */
+  FRC_INTELEMENT_TypeDef INTELEMENT_CLR[16U];   /**< Interleaver element                                */
+  uint32_t               RESERVED11[944U];      /**< Reserved for future use                            */
   __IM uint32_t          IPVERSION_TGL;         /**< IP Version                                         */
   __IOM uint32_t         EN_TGL;                /**< Enable peripheral clock to this module             */
   __IM uint32_t          STATUS_TGL;            /**< FRC Status                                         */
@@ -232,9 +231,9 @@ typedef struct {
   __IOM uint32_t         IF_TGL;                /**< Frame Controller Interrupt Flags                   */
   __IOM uint32_t         IEN_TGL;               /**< Interrupt Enable Register                          */
   __IOM uint32_t         MIRRORIF_TGL;          /**< FRC Interrupt Flag Mirror Register                 */
-  uint32_t               RESERVED12[1U];        /**< Reserved for future use                      */
+  uint32_t               RESERVED12[1U];        /**< Reserved for future use                            */
   __IOM uint32_t         BUFFERMODE_TGL;        /**< FRC Buffer Control                                 */
-  uint32_t               RESERVED13[2U];        /**< Reserved for future use                      */
+  uint32_t               RESERVED13[2U];        /**< Reserved for future use                            */
   __IOM uint32_t         SNIFFCTRL_TGL;         /**< FRC Sniffer Control Register                       */
   __IOM uint32_t         AUXDATA_TGL;           /**< Auxiliary sniffer data output register             */
   __IOM uint32_t         RAWCTRL_TGL;           /**< Raw data control                                   */
@@ -247,9 +246,9 @@ typedef struct {
   __IOM uint32_t         AUTOCG_TGL;            /**< Automatic clock gating                             */
   __IOM uint32_t         CGCLKSTOP_TGL;         /**< Automatic clock gating                             */
   __IOM uint32_t         RAMBASEADDR_TGL;       /**< RAM Base Address                                   */
-  FRC_FCD_TypeDef        FCD_TGL[4U];           /**< Frame Descriptors                                 */
-  uint32_t               RESERVED14[15U];       /**< Reserved for future use*/
-  FRC_INTELEMENT_TypeDef INTELEMENT_TGL[16U];   /**< Interleaver element                               */
+  FRC_FCD_TypeDef        FCD_TGL[4U];           /**< Frame Descriptors                                  */
+  uint32_t               RESERVED14[15U];       /**< Reserved for future use                            */
+  FRC_INTELEMENT_TypeDef INTELEMENT_TGL[16U];   /**< Interleaver element                                */
 } FRC_TypeDef;
 /** @} End of group EFR32BG21_FRC */
 
@@ -288,20 +287,20 @@ typedef struct {
 #define _FRC_STATUS_ACTIVETXFCD_SHIFT                      5                                                 /**< Shift value for FRC_ACTIVETXFCD             */
 #define _FRC_STATUS_ACTIVETXFCD_MASK                       0x20UL                                            /**< Bit mask for FRC_ACTIVETXFCD                */
 #define _FRC_STATUS_ACTIVETXFCD_DEFAULT                    0x00000000UL                                      /**< Mode DEFAULT for FRC_STATUS                 */
-#define _FRC_STATUS_ACTIVETXFCD_FCD0                       0x00000000UL                                      /**< Mode FCD0 for FRC_STATUS                     */
-#define _FRC_STATUS_ACTIVETXFCD_FCD1                       0x00000001UL                                      /**< Mode FCD1 for FRC_STATUS                     */
+#define _FRC_STATUS_ACTIVETXFCD_FCD0                       0x00000000UL                                      /**< Mode FCD0 for FRC_STATUS                    */
+#define _FRC_STATUS_ACTIVETXFCD_FCD1                       0x00000001UL                                      /**< Mode FCD1 for FRC_STATUS                    */
 #define FRC_STATUS_ACTIVETXFCD_DEFAULT                     (_FRC_STATUS_ACTIVETXFCD_DEFAULT << 5)            /**< Shifted mode DEFAULT for FRC_STATUS         */
-#define FRC_STATUS_ACTIVETXFCD_FCD0                        (_FRC_STATUS_ACTIVETXFCD_FCD0 << 5)               /**< Shifted mode FCD0 for FRC_STATUS             */
-#define FRC_STATUS_ACTIVETXFCD_FCD1                        (_FRC_STATUS_ACTIVETXFCD_FCD1 << 5)               /**< Shifted mode FCD1 for FRC_STATUS             */
+#define FRC_STATUS_ACTIVETXFCD_FCD0                        (_FRC_STATUS_ACTIVETXFCD_FCD0 << 5)               /**< Shifted mode FCD0 for FRC_STATUS            */
+#define FRC_STATUS_ACTIVETXFCD_FCD1                        (_FRC_STATUS_ACTIVETXFCD_FCD1 << 5)               /**< Shifted mode FCD1 for FRC_STATUS            */
 #define FRC_STATUS_ACTIVERXFCD                             (0x1UL << 6)                                      /**< Active Receive Frame Descriptor             */
 #define _FRC_STATUS_ACTIVERXFCD_SHIFT                      6                                                 /**< Shift value for FRC_ACTIVERXFCD             */
 #define _FRC_STATUS_ACTIVERXFCD_MASK                       0x40UL                                            /**< Bit mask for FRC_ACTIVERXFCD                */
 #define _FRC_STATUS_ACTIVERXFCD_DEFAULT                    0x00000000UL                                      /**< Mode DEFAULT for FRC_STATUS                 */
-#define _FRC_STATUS_ACTIVERXFCD_FCD2                       0x00000000UL                                      /**< Mode FCD2 for FRC_STATUS                     */
-#define _FRC_STATUS_ACTIVERXFCD_FCD3                       0x00000001UL                                      /**< Mode FCD3 for FRC_STATUS                     */
+#define _FRC_STATUS_ACTIVERXFCD_FCD2                       0x00000000UL                                      /**< Mode FCD2 for FRC_STATUS                    */
+#define _FRC_STATUS_ACTIVERXFCD_FCD3                       0x00000001UL                                      /**< Mode FCD3 for FRC_STATUS                    */
 #define FRC_STATUS_ACTIVERXFCD_DEFAULT                     (_FRC_STATUS_ACTIVERXFCD_DEFAULT << 6)            /**< Shifted mode DEFAULT for FRC_STATUS         */
-#define FRC_STATUS_ACTIVERXFCD_FCD2                        (_FRC_STATUS_ACTIVERXFCD_FCD2 << 6)               /**< Shifted mode FCD2 for FRC_STATUS             */
-#define FRC_STATUS_ACTIVERXFCD_FCD3                        (_FRC_STATUS_ACTIVERXFCD_FCD3 << 6)               /**< Shifted mode FCD3 for FRC_STATUS             */
+#define FRC_STATUS_ACTIVERXFCD_FCD2                        (_FRC_STATUS_ACTIVERXFCD_FCD2 << 6)               /**< Shifted mode FCD2 for FRC_STATUS            */
+#define FRC_STATUS_ACTIVERXFCD_FCD3                        (_FRC_STATUS_ACTIVERXFCD_FCD3 << 6)               /**< Shifted mode FCD3 for FRC_STATUS            */
 #define FRC_STATUS_SNIFFDFRAME                             (0x1UL << 7)                                      /**< Sniffer data frame active status            */
 #define _FRC_STATUS_SNIFFDFRAME_SHIFT                      7                                                 /**< Shift value for FRC_SNIFFDFRAME             */
 #define _FRC_STATUS_SNIFFDFRAME_MASK                       0x80UL                                            /**< Bit mask for FRC_SNIFFDFRAME                */
@@ -374,30 +373,30 @@ typedef struct {
 #define _FRC_DFLCTRL_DFLMODE_SHIFT                         0                                            /**< Shift value for FRC_DFLMODE                 */
 #define _FRC_DFLCTRL_DFLMODE_MASK                          0x7UL                                        /**< Bit mask for FRC_DFLMODE                    */
 #define _FRC_DFLCTRL_DFLMODE_DEFAULT                       0x00000000UL                                 /**< Mode DEFAULT for FRC_DFLCTRL                */
-#define _FRC_DFLCTRL_DFLMODE_DISABLE                       0x00000000UL                                 /**< Mode DISABLE for FRC_DFLCTRL                 */
-#define _FRC_DFLCTRL_DFLMODE_SINGLEBYTE                    0x00000001UL                                 /**< Mode SINGLEBYTE for FRC_DFLCTRL              */
-#define _FRC_DFLCTRL_DFLMODE_SINGLEBYTEMSB                 0x00000002UL                                 /**< Mode SINGLEBYTEMSB for FRC_DFLCTRL           */
-#define _FRC_DFLCTRL_DFLMODE_DUALBYTELSBFIRST              0x00000003UL                                 /**< Mode DUALBYTELSBFIRST for FRC_DFLCTRL        */
-#define _FRC_DFLCTRL_DFLMODE_DUALBYTEMSBFIRST              0x00000004UL                                 /**< Mode DUALBYTEMSBFIRST for FRC_DFLCTRL        */
-#define _FRC_DFLCTRL_DFLMODE_INFINITE                      0x00000005UL                                 /**< Mode INFINITE for FRC_DFLCTRL                */
-#define _FRC_DFLCTRL_DFLMODE_BLOCKERROR                    0x00000006UL                                 /**< Mode BLOCKERROR for FRC_DFLCTRL              */
+#define _FRC_DFLCTRL_DFLMODE_DISABLE                       0x00000000UL                                 /**< Mode DISABLE for FRC_DFLCTRL                */
+#define _FRC_DFLCTRL_DFLMODE_SINGLEBYTE                    0x00000001UL                                 /**< Mode SINGLEBYTE for FRC_DFLCTRL             */
+#define _FRC_DFLCTRL_DFLMODE_SINGLEBYTEMSB                 0x00000002UL                                 /**< Mode SINGLEBYTEMSB for FRC_DFLCTRL          */
+#define _FRC_DFLCTRL_DFLMODE_DUALBYTELSBFIRST              0x00000003UL                                 /**< Mode DUALBYTELSBFIRST for FRC_DFLCTRL       */
+#define _FRC_DFLCTRL_DFLMODE_DUALBYTEMSBFIRST              0x00000004UL                                 /**< Mode DUALBYTEMSBFIRST for FRC_DFLCTRL       */
+#define _FRC_DFLCTRL_DFLMODE_INFINITE                      0x00000005UL                                 /**< Mode INFINITE for FRC_DFLCTRL               */
+#define _FRC_DFLCTRL_DFLMODE_BLOCKERROR                    0x00000006UL                                 /**< Mode BLOCKERROR for FRC_DFLCTRL             */
 #define FRC_DFLCTRL_DFLMODE_DEFAULT                        (_FRC_DFLCTRL_DFLMODE_DEFAULT << 0)          /**< Shifted mode DEFAULT for FRC_DFLCTRL        */
-#define FRC_DFLCTRL_DFLMODE_DISABLE                        (_FRC_DFLCTRL_DFLMODE_DISABLE << 0)          /**< Shifted mode DISABLE for FRC_DFLCTRL         */
-#define FRC_DFLCTRL_DFLMODE_SINGLEBYTE                     (_FRC_DFLCTRL_DFLMODE_SINGLEBYTE << 0)       /**< Shifted mode SINGLEBYTE for FRC_DFLCTRL      */
-#define FRC_DFLCTRL_DFLMODE_SINGLEBYTEMSB                  (_FRC_DFLCTRL_DFLMODE_SINGLEBYTEMSB << 0)    /**< Shifted mode SINGLEBYTEMSB for FRC_DFLCTRL   */
+#define FRC_DFLCTRL_DFLMODE_DISABLE                        (_FRC_DFLCTRL_DFLMODE_DISABLE << 0)          /**< Shifted mode DISABLE for FRC_DFLCTRL        */
+#define FRC_DFLCTRL_DFLMODE_SINGLEBYTE                     (_FRC_DFLCTRL_DFLMODE_SINGLEBYTE << 0)       /**< Shifted mode SINGLEBYTE for FRC_DFLCTRL     */
+#define FRC_DFLCTRL_DFLMODE_SINGLEBYTEMSB                  (_FRC_DFLCTRL_DFLMODE_SINGLEBYTEMSB << 0)    /**< Shifted mode SINGLEBYTEMSB for FRC_DFLCTRL  */
 #define FRC_DFLCTRL_DFLMODE_DUALBYTELSBFIRST               (_FRC_DFLCTRL_DFLMODE_DUALBYTELSBFIRST << 0) /**< Shifted mode DUALBYTELSBFIRST for FRC_DFLCTRL*/
 #define FRC_DFLCTRL_DFLMODE_DUALBYTEMSBFIRST               (_FRC_DFLCTRL_DFLMODE_DUALBYTEMSBFIRST << 0) /**< Shifted mode DUALBYTEMSBFIRST for FRC_DFLCTRL*/
-#define FRC_DFLCTRL_DFLMODE_INFINITE                       (_FRC_DFLCTRL_DFLMODE_INFINITE << 0)         /**< Shifted mode INFINITE for FRC_DFLCTRL        */
-#define FRC_DFLCTRL_DFLMODE_BLOCKERROR                     (_FRC_DFLCTRL_DFLMODE_BLOCKERROR << 0)       /**< Shifted mode BLOCKERROR for FRC_DFLCTRL      */
+#define FRC_DFLCTRL_DFLMODE_INFINITE                       (_FRC_DFLCTRL_DFLMODE_INFINITE << 0)         /**< Shifted mode INFINITE for FRC_DFLCTRL       */
+#define FRC_DFLCTRL_DFLMODE_BLOCKERROR                     (_FRC_DFLCTRL_DFLMODE_BLOCKERROR << 0)       /**< Shifted mode BLOCKERROR for FRC_DFLCTRL     */
 #define FRC_DFLCTRL_DFLBITORDER                            (0x1UL << 3)                                 /**< Dynamic Frame Length Bit order              */
 #define _FRC_DFLCTRL_DFLBITORDER_SHIFT                     3                                            /**< Shift value for FRC_DFLBITORDER             */
 #define _FRC_DFLCTRL_DFLBITORDER_MASK                      0x8UL                                        /**< Bit mask for FRC_DFLBITORDER                */
 #define _FRC_DFLCTRL_DFLBITORDER_DEFAULT                   0x00000000UL                                 /**< Mode DEFAULT for FRC_DFLCTRL                */
-#define _FRC_DFLCTRL_DFLBITORDER_NORMAL                    0x00000000UL                                 /**< Mode NORMAL for FRC_DFLCTRL                  */
-#define _FRC_DFLCTRL_DFLBITORDER_REVERSE                   0x00000001UL                                 /**< Mode REVERSE for FRC_DFLCTRL                 */
+#define _FRC_DFLCTRL_DFLBITORDER_NORMAL                    0x00000000UL                                 /**< Mode NORMAL for FRC_DFLCTRL                 */
+#define _FRC_DFLCTRL_DFLBITORDER_REVERSE                   0x00000001UL                                 /**< Mode REVERSE for FRC_DFLCTRL                */
 #define FRC_DFLCTRL_DFLBITORDER_DEFAULT                    (_FRC_DFLCTRL_DFLBITORDER_DEFAULT << 3)      /**< Shifted mode DEFAULT for FRC_DFLCTRL        */
-#define FRC_DFLCTRL_DFLBITORDER_NORMAL                     (_FRC_DFLCTRL_DFLBITORDER_NORMAL << 3)       /**< Shifted mode NORMAL for FRC_DFLCTRL          */
-#define FRC_DFLCTRL_DFLBITORDER_REVERSE                    (_FRC_DFLCTRL_DFLBITORDER_REVERSE << 3)      /**< Shifted mode REVERSE for FRC_DFLCTRL         */
+#define FRC_DFLCTRL_DFLBITORDER_NORMAL                     (_FRC_DFLCTRL_DFLBITORDER_NORMAL << 3)       /**< Shifted mode NORMAL for FRC_DFLCTRL         */
+#define FRC_DFLCTRL_DFLBITORDER_REVERSE                    (_FRC_DFLCTRL_DFLBITORDER_REVERSE << 3)      /**< Shifted mode REVERSE for FRC_DFLCTRL        */
 #define _FRC_DFLCTRL_DFLSHIFT_SHIFT                        4                                            /**< Shift value for FRC_DFLSHIFT                */
 #define _FRC_DFLCTRL_DFLSHIFT_MASK                         0x70UL                                       /**< Bit mask for FRC_DFLSHIFT                   */
 #define _FRC_DFLCTRL_DFLSHIFT_DEFAULT                      0x00000000UL                                 /**< Mode DEFAULT for FRC_DFLCTRL                */
@@ -418,11 +417,11 @@ typedef struct {
 #define _FRC_DFLCTRL_DFLINCLUDECRC_SHIFT                   20                                           /**< Shift value for FRC_DFLINCLUDECRC           */
 #define _FRC_DFLCTRL_DFLINCLUDECRC_MASK                    0x100000UL                                   /**< Bit mask for FRC_DFLINCLUDECRC              */
 #define _FRC_DFLCTRL_DFLINCLUDECRC_DEFAULT                 0x00000000UL                                 /**< Mode DEFAULT for FRC_DFLCTRL                */
-#define _FRC_DFLCTRL_DFLINCLUDECRC_X0                      0x00000000UL                                 /**< Mode X0 for FRC_DFLCTRL                      */
-#define _FRC_DFLCTRL_DFLINCLUDECRC_X1                      0x00000001UL                                 /**< Mode X1 for FRC_DFLCTRL                      */
+#define _FRC_DFLCTRL_DFLINCLUDECRC_X0                      0x00000000UL                                 /**< Mode X0 for FRC_DFLCTRL                     */
+#define _FRC_DFLCTRL_DFLINCLUDECRC_X1                      0x00000001UL                                 /**< Mode X1 for FRC_DFLCTRL                     */
 #define FRC_DFLCTRL_DFLINCLUDECRC_DEFAULT                  (_FRC_DFLCTRL_DFLINCLUDECRC_DEFAULT << 20)   /**< Shifted mode DEFAULT for FRC_DFLCTRL        */
-#define FRC_DFLCTRL_DFLINCLUDECRC_X0                       (_FRC_DFLCTRL_DFLINCLUDECRC_X0 << 20)        /**< Shifted mode X0 for FRC_DFLCTRL              */
-#define FRC_DFLCTRL_DFLINCLUDECRC_X1                       (_FRC_DFLCTRL_DFLINCLUDECRC_X1 << 20)        /**< Shifted mode X1 for FRC_DFLCTRL              */
+#define FRC_DFLCTRL_DFLINCLUDECRC_X0                       (_FRC_DFLCTRL_DFLINCLUDECRC_X0 << 20)        /**< Shifted mode X0 for FRC_DFLCTRL             */
+#define FRC_DFLCTRL_DFLINCLUDECRC_X1                       (_FRC_DFLCTRL_DFLINCLUDECRC_X1 << 20)        /**< Shifted mode X1 for FRC_DFLCTRL             */
 
 /* Bit fields for FRC MAXLENGTH */
 #define _FRC_MAXLENGTH_RESETVALUE                          0x00004FFFUL                             /**< Default value for FRC_MAXLENGTH             */
@@ -574,57 +573,57 @@ typedef struct {
 #define _FRC_WHITECTRL_FEEDBACKSEL_SHIFT                   0                                                /**< Shift value for FRC_FEEDBACKSEL             */
 #define _FRC_WHITECTRL_FEEDBACKSEL_MASK                    0x1FUL                                           /**< Bit mask for FRC_FEEDBACKSEL                */
 #define _FRC_WHITECTRL_FEEDBACKSEL_DEFAULT                 0x00000000UL                                     /**< Mode DEFAULT for FRC_WHITECTRL              */
-#define _FRC_WHITECTRL_FEEDBACKSEL_BIT0                    0x00000000UL                                     /**< Mode BIT0 for FRC_WHITECTRL                  */
-#define _FRC_WHITECTRL_FEEDBACKSEL_BIT1                    0x00000001UL                                     /**< Mode BIT1 for FRC_WHITECTRL                  */
-#define _FRC_WHITECTRL_FEEDBACKSEL_BIT2                    0x00000002UL                                     /**< Mode BIT2 for FRC_WHITECTRL                  */
-#define _FRC_WHITECTRL_FEEDBACKSEL_BIT3                    0x00000003UL                                     /**< Mode BIT3 for FRC_WHITECTRL                  */
-#define _FRC_WHITECTRL_FEEDBACKSEL_BIT4                    0x00000004UL                                     /**< Mode BIT4 for FRC_WHITECTRL                  */
-#define _FRC_WHITECTRL_FEEDBACKSEL_BIT5                    0x00000005UL                                     /**< Mode BIT5 for FRC_WHITECTRL                  */
-#define _FRC_WHITECTRL_FEEDBACKSEL_BIT6                    0x00000006UL                                     /**< Mode BIT6 for FRC_WHITECTRL                  */
-#define _FRC_WHITECTRL_FEEDBACKSEL_BIT7                    0x00000007UL                                     /**< Mode BIT7 for FRC_WHITECTRL                  */
-#define _FRC_WHITECTRL_FEEDBACKSEL_BIT8                    0x00000008UL                                     /**< Mode BIT8 for FRC_WHITECTRL                  */
-#define _FRC_WHITECTRL_FEEDBACKSEL_BIT9                    0x00000009UL                                     /**< Mode BIT9 for FRC_WHITECTRL                  */
-#define _FRC_WHITECTRL_FEEDBACKSEL_BIT10                   0x0000000AUL                                     /**< Mode BIT10 for FRC_WHITECTRL                 */
-#define _FRC_WHITECTRL_FEEDBACKSEL_BIT11                   0x0000000BUL                                     /**< Mode BIT11 for FRC_WHITECTRL                 */
-#define _FRC_WHITECTRL_FEEDBACKSEL_BIT12                   0x0000000CUL                                     /**< Mode BIT12 for FRC_WHITECTRL                 */
-#define _FRC_WHITECTRL_FEEDBACKSEL_BIT13                   0x0000000DUL                                     /**< Mode BIT13 for FRC_WHITECTRL                 */
-#define _FRC_WHITECTRL_FEEDBACKSEL_BIT14                   0x0000000EUL                                     /**< Mode BIT14 for FRC_WHITECTRL                 */
-#define _FRC_WHITECTRL_FEEDBACKSEL_BIT15                   0x0000000FUL                                     /**< Mode BIT15 for FRC_WHITECTRL                 */
-#define _FRC_WHITECTRL_FEEDBACKSEL_INPUT                   0x00000010UL                                     /**< Mode INPUT for FRC_WHITECTRL                 */
-#define _FRC_WHITECTRL_FEEDBACKSEL_ZERO                    0x00000011UL                                     /**< Mode ZERO for FRC_WHITECTRL                  */
-#define _FRC_WHITECTRL_FEEDBACKSEL_ONE                     0x00000012UL                                     /**< Mode ONE for FRC_WHITECTRL                   */
-#define _FRC_WHITECTRL_FEEDBACKSEL_TXLASTWORD              0x00000013UL                                     /**< Mode TXLASTWORD for FRC_WHITECTRL            */
+#define _FRC_WHITECTRL_FEEDBACKSEL_BIT0                    0x00000000UL                                     /**< Mode BIT0 for FRC_WHITECTRL                 */
+#define _FRC_WHITECTRL_FEEDBACKSEL_BIT1                    0x00000001UL                                     /**< Mode BIT1 for FRC_WHITECTRL                 */
+#define _FRC_WHITECTRL_FEEDBACKSEL_BIT2                    0x00000002UL                                     /**< Mode BIT2 for FRC_WHITECTRL                 */
+#define _FRC_WHITECTRL_FEEDBACKSEL_BIT3                    0x00000003UL                                     /**< Mode BIT3 for FRC_WHITECTRL                 */
+#define _FRC_WHITECTRL_FEEDBACKSEL_BIT4                    0x00000004UL                                     /**< Mode BIT4 for FRC_WHITECTRL                 */
+#define _FRC_WHITECTRL_FEEDBACKSEL_BIT5                    0x00000005UL                                     /**< Mode BIT5 for FRC_WHITECTRL                 */
+#define _FRC_WHITECTRL_FEEDBACKSEL_BIT6                    0x00000006UL                                     /**< Mode BIT6 for FRC_WHITECTRL                 */
+#define _FRC_WHITECTRL_FEEDBACKSEL_BIT7                    0x00000007UL                                     /**< Mode BIT7 for FRC_WHITECTRL                 */
+#define _FRC_WHITECTRL_FEEDBACKSEL_BIT8                    0x00000008UL                                     /**< Mode BIT8 for FRC_WHITECTRL                 */
+#define _FRC_WHITECTRL_FEEDBACKSEL_BIT9                    0x00000009UL                                     /**< Mode BIT9 for FRC_WHITECTRL                 */
+#define _FRC_WHITECTRL_FEEDBACKSEL_BIT10                   0x0000000AUL                                     /**< Mode BIT10 for FRC_WHITECTRL                */
+#define _FRC_WHITECTRL_FEEDBACKSEL_BIT11                   0x0000000BUL                                     /**< Mode BIT11 for FRC_WHITECTRL                */
+#define _FRC_WHITECTRL_FEEDBACKSEL_BIT12                   0x0000000CUL                                     /**< Mode BIT12 for FRC_WHITECTRL                */
+#define _FRC_WHITECTRL_FEEDBACKSEL_BIT13                   0x0000000DUL                                     /**< Mode BIT13 for FRC_WHITECTRL                */
+#define _FRC_WHITECTRL_FEEDBACKSEL_BIT14                   0x0000000EUL                                     /**< Mode BIT14 for FRC_WHITECTRL                */
+#define _FRC_WHITECTRL_FEEDBACKSEL_BIT15                   0x0000000FUL                                     /**< Mode BIT15 for FRC_WHITECTRL                */
+#define _FRC_WHITECTRL_FEEDBACKSEL_INPUT                   0x00000010UL                                     /**< Mode INPUT for FRC_WHITECTRL                */
+#define _FRC_WHITECTRL_FEEDBACKSEL_ZERO                    0x00000011UL                                     /**< Mode ZERO for FRC_WHITECTRL                 */
+#define _FRC_WHITECTRL_FEEDBACKSEL_ONE                     0x00000012UL                                     /**< Mode ONE for FRC_WHITECTRL                  */
+#define _FRC_WHITECTRL_FEEDBACKSEL_TXLASTWORD              0x00000013UL                                     /**< Mode TXLASTWORD for FRC_WHITECTRL           */
 #define FRC_WHITECTRL_FEEDBACKSEL_DEFAULT                  (_FRC_WHITECTRL_FEEDBACKSEL_DEFAULT << 0)        /**< Shifted mode DEFAULT for FRC_WHITECTRL      */
-#define FRC_WHITECTRL_FEEDBACKSEL_BIT0                     (_FRC_WHITECTRL_FEEDBACKSEL_BIT0 << 0)           /**< Shifted mode BIT0 for FRC_WHITECTRL          */
-#define FRC_WHITECTRL_FEEDBACKSEL_BIT1                     (_FRC_WHITECTRL_FEEDBACKSEL_BIT1 << 0)           /**< Shifted mode BIT1 for FRC_WHITECTRL          */
-#define FRC_WHITECTRL_FEEDBACKSEL_BIT2                     (_FRC_WHITECTRL_FEEDBACKSEL_BIT2 << 0)           /**< Shifted mode BIT2 for FRC_WHITECTRL          */
-#define FRC_WHITECTRL_FEEDBACKSEL_BIT3                     (_FRC_WHITECTRL_FEEDBACKSEL_BIT3 << 0)           /**< Shifted mode BIT3 for FRC_WHITECTRL          */
-#define FRC_WHITECTRL_FEEDBACKSEL_BIT4                     (_FRC_WHITECTRL_FEEDBACKSEL_BIT4 << 0)           /**< Shifted mode BIT4 for FRC_WHITECTRL          */
-#define FRC_WHITECTRL_FEEDBACKSEL_BIT5                     (_FRC_WHITECTRL_FEEDBACKSEL_BIT5 << 0)           /**< Shifted mode BIT5 for FRC_WHITECTRL          */
-#define FRC_WHITECTRL_FEEDBACKSEL_BIT6                     (_FRC_WHITECTRL_FEEDBACKSEL_BIT6 << 0)           /**< Shifted mode BIT6 for FRC_WHITECTRL          */
-#define FRC_WHITECTRL_FEEDBACKSEL_BIT7                     (_FRC_WHITECTRL_FEEDBACKSEL_BIT7 << 0)           /**< Shifted mode BIT7 for FRC_WHITECTRL          */
-#define FRC_WHITECTRL_FEEDBACKSEL_BIT8                     (_FRC_WHITECTRL_FEEDBACKSEL_BIT8 << 0)           /**< Shifted mode BIT8 for FRC_WHITECTRL          */
-#define FRC_WHITECTRL_FEEDBACKSEL_BIT9                     (_FRC_WHITECTRL_FEEDBACKSEL_BIT9 << 0)           /**< Shifted mode BIT9 for FRC_WHITECTRL          */
-#define FRC_WHITECTRL_FEEDBACKSEL_BIT10                    (_FRC_WHITECTRL_FEEDBACKSEL_BIT10 << 0)          /**< Shifted mode BIT10 for FRC_WHITECTRL         */
-#define FRC_WHITECTRL_FEEDBACKSEL_BIT11                    (_FRC_WHITECTRL_FEEDBACKSEL_BIT11 << 0)          /**< Shifted mode BIT11 for FRC_WHITECTRL         */
-#define FRC_WHITECTRL_FEEDBACKSEL_BIT12                    (_FRC_WHITECTRL_FEEDBACKSEL_BIT12 << 0)          /**< Shifted mode BIT12 for FRC_WHITECTRL         */
-#define FRC_WHITECTRL_FEEDBACKSEL_BIT13                    (_FRC_WHITECTRL_FEEDBACKSEL_BIT13 << 0)          /**< Shifted mode BIT13 for FRC_WHITECTRL         */
-#define FRC_WHITECTRL_FEEDBACKSEL_BIT14                    (_FRC_WHITECTRL_FEEDBACKSEL_BIT14 << 0)          /**< Shifted mode BIT14 for FRC_WHITECTRL         */
-#define FRC_WHITECTRL_FEEDBACKSEL_BIT15                    (_FRC_WHITECTRL_FEEDBACKSEL_BIT15 << 0)          /**< Shifted mode BIT15 for FRC_WHITECTRL         */
-#define FRC_WHITECTRL_FEEDBACKSEL_INPUT                    (_FRC_WHITECTRL_FEEDBACKSEL_INPUT << 0)          /**< Shifted mode INPUT for FRC_WHITECTRL         */
-#define FRC_WHITECTRL_FEEDBACKSEL_ZERO                     (_FRC_WHITECTRL_FEEDBACKSEL_ZERO << 0)           /**< Shifted mode ZERO for FRC_WHITECTRL          */
-#define FRC_WHITECTRL_FEEDBACKSEL_ONE                      (_FRC_WHITECTRL_FEEDBACKSEL_ONE << 0)            /**< Shifted mode ONE for FRC_WHITECTRL           */
-#define FRC_WHITECTRL_FEEDBACKSEL_TXLASTWORD               (_FRC_WHITECTRL_FEEDBACKSEL_TXLASTWORD << 0)     /**< Shifted mode TXLASTWORD for FRC_WHITECTRL    */
+#define FRC_WHITECTRL_FEEDBACKSEL_BIT0                     (_FRC_WHITECTRL_FEEDBACKSEL_BIT0 << 0)           /**< Shifted mode BIT0 for FRC_WHITECTRL         */
+#define FRC_WHITECTRL_FEEDBACKSEL_BIT1                     (_FRC_WHITECTRL_FEEDBACKSEL_BIT1 << 0)           /**< Shifted mode BIT1 for FRC_WHITECTRL         */
+#define FRC_WHITECTRL_FEEDBACKSEL_BIT2                     (_FRC_WHITECTRL_FEEDBACKSEL_BIT2 << 0)           /**< Shifted mode BIT2 for FRC_WHITECTRL         */
+#define FRC_WHITECTRL_FEEDBACKSEL_BIT3                     (_FRC_WHITECTRL_FEEDBACKSEL_BIT3 << 0)           /**< Shifted mode BIT3 for FRC_WHITECTRL         */
+#define FRC_WHITECTRL_FEEDBACKSEL_BIT4                     (_FRC_WHITECTRL_FEEDBACKSEL_BIT4 << 0)           /**< Shifted mode BIT4 for FRC_WHITECTRL         */
+#define FRC_WHITECTRL_FEEDBACKSEL_BIT5                     (_FRC_WHITECTRL_FEEDBACKSEL_BIT5 << 0)           /**< Shifted mode BIT5 for FRC_WHITECTRL         */
+#define FRC_WHITECTRL_FEEDBACKSEL_BIT6                     (_FRC_WHITECTRL_FEEDBACKSEL_BIT6 << 0)           /**< Shifted mode BIT6 for FRC_WHITECTRL         */
+#define FRC_WHITECTRL_FEEDBACKSEL_BIT7                     (_FRC_WHITECTRL_FEEDBACKSEL_BIT7 << 0)           /**< Shifted mode BIT7 for FRC_WHITECTRL         */
+#define FRC_WHITECTRL_FEEDBACKSEL_BIT8                     (_FRC_WHITECTRL_FEEDBACKSEL_BIT8 << 0)           /**< Shifted mode BIT8 for FRC_WHITECTRL         */
+#define FRC_WHITECTRL_FEEDBACKSEL_BIT9                     (_FRC_WHITECTRL_FEEDBACKSEL_BIT9 << 0)           /**< Shifted mode BIT9 for FRC_WHITECTRL         */
+#define FRC_WHITECTRL_FEEDBACKSEL_BIT10                    (_FRC_WHITECTRL_FEEDBACKSEL_BIT10 << 0)          /**< Shifted mode BIT10 for FRC_WHITECTRL        */
+#define FRC_WHITECTRL_FEEDBACKSEL_BIT11                    (_FRC_WHITECTRL_FEEDBACKSEL_BIT11 << 0)          /**< Shifted mode BIT11 for FRC_WHITECTRL        */
+#define FRC_WHITECTRL_FEEDBACKSEL_BIT12                    (_FRC_WHITECTRL_FEEDBACKSEL_BIT12 << 0)          /**< Shifted mode BIT12 for FRC_WHITECTRL        */
+#define FRC_WHITECTRL_FEEDBACKSEL_BIT13                    (_FRC_WHITECTRL_FEEDBACKSEL_BIT13 << 0)          /**< Shifted mode BIT13 for FRC_WHITECTRL        */
+#define FRC_WHITECTRL_FEEDBACKSEL_BIT14                    (_FRC_WHITECTRL_FEEDBACKSEL_BIT14 << 0)          /**< Shifted mode BIT14 for FRC_WHITECTRL        */
+#define FRC_WHITECTRL_FEEDBACKSEL_BIT15                    (_FRC_WHITECTRL_FEEDBACKSEL_BIT15 << 0)          /**< Shifted mode BIT15 for FRC_WHITECTRL        */
+#define FRC_WHITECTRL_FEEDBACKSEL_INPUT                    (_FRC_WHITECTRL_FEEDBACKSEL_INPUT << 0)          /**< Shifted mode INPUT for FRC_WHITECTRL        */
+#define FRC_WHITECTRL_FEEDBACKSEL_ZERO                     (_FRC_WHITECTRL_FEEDBACKSEL_ZERO << 0)           /**< Shifted mode ZERO for FRC_WHITECTRL         */
+#define FRC_WHITECTRL_FEEDBACKSEL_ONE                      (_FRC_WHITECTRL_FEEDBACKSEL_ONE << 0)            /**< Shifted mode ONE for FRC_WHITECTRL          */
+#define FRC_WHITECTRL_FEEDBACKSEL_TXLASTWORD               (_FRC_WHITECTRL_FEEDBACKSEL_TXLASTWORD << 0)     /**< Shifted mode TXLASTWORD for FRC_WHITECTRL   */
 #define _FRC_WHITECTRL_XORFEEDBACK_SHIFT                   5                                                /**< Shift value for FRC_XORFEEDBACK             */
 #define _FRC_WHITECTRL_XORFEEDBACK_MASK                    0x60UL                                           /**< Bit mask for FRC_XORFEEDBACK                */
 #define _FRC_WHITECTRL_XORFEEDBACK_DEFAULT                 0x00000000UL                                     /**< Mode DEFAULT for FRC_WHITECTRL              */
-#define _FRC_WHITECTRL_XORFEEDBACK_DIRECT                  0x00000000UL                                     /**< Mode DIRECT for FRC_WHITECTRL                */
-#define _FRC_WHITECTRL_XORFEEDBACK_XOR                     0x00000001UL                                     /**< Mode XOR for FRC_WHITECTRL                   */
-#define _FRC_WHITECTRL_XORFEEDBACK_ZERO                    0x00000002UL                                     /**< Mode ZERO for FRC_WHITECTRL                  */
+#define _FRC_WHITECTRL_XORFEEDBACK_DIRECT                  0x00000000UL                                     /**< Mode DIRECT for FRC_WHITECTRL               */
+#define _FRC_WHITECTRL_XORFEEDBACK_XOR                     0x00000001UL                                     /**< Mode XOR for FRC_WHITECTRL                  */
+#define _FRC_WHITECTRL_XORFEEDBACK_ZERO                    0x00000002UL                                     /**< Mode ZERO for FRC_WHITECTRL                 */
 #define FRC_WHITECTRL_XORFEEDBACK_DEFAULT                  (_FRC_WHITECTRL_XORFEEDBACK_DEFAULT << 5)        /**< Shifted mode DEFAULT for FRC_WHITECTRL      */
-#define FRC_WHITECTRL_XORFEEDBACK_DIRECT                   (_FRC_WHITECTRL_XORFEEDBACK_DIRECT << 5)         /**< Shifted mode DIRECT for FRC_WHITECTRL        */
-#define FRC_WHITECTRL_XORFEEDBACK_XOR                      (_FRC_WHITECTRL_XORFEEDBACK_XOR << 5)            /**< Shifted mode XOR for FRC_WHITECTRL           */
-#define FRC_WHITECTRL_XORFEEDBACK_ZERO                     (_FRC_WHITECTRL_XORFEEDBACK_ZERO << 5)           /**< Shifted mode ZERO for FRC_WHITECTRL          */
+#define FRC_WHITECTRL_XORFEEDBACK_DIRECT                   (_FRC_WHITECTRL_XORFEEDBACK_DIRECT << 5)         /**< Shifted mode DIRECT for FRC_WHITECTRL       */
+#define FRC_WHITECTRL_XORFEEDBACK_XOR                      (_FRC_WHITECTRL_XORFEEDBACK_XOR << 5)            /**< Shifted mode XOR for FRC_WHITECTRL          */
+#define FRC_WHITECTRL_XORFEEDBACK_ZERO                     (_FRC_WHITECTRL_XORFEEDBACK_ZERO << 5)           /**< Shifted mode ZERO for FRC_WHITECTRL         */
 #define _FRC_WHITECTRL_SHROUTPUTSEL_SHIFT                  8                                                /**< Shift value for FRC_SHROUTPUTSEL            */
 #define _FRC_WHITECTRL_SHROUTPUTSEL_MASK                   0xF00UL                                          /**< Bit mask for FRC_SHROUTPUTSEL               */
 #define _FRC_WHITECTRL_SHROUTPUTSEL_DEFAULT                0x00000000UL                                     /**< Mode DEFAULT for FRC_WHITECTRL              */
@@ -633,11 +632,11 @@ typedef struct {
 #define _FRC_WHITECTRL_BLOCKERRORCORRECT_SHIFT             12                                               /**< Shift value for FRC_BLOCKERRORCORRECT       */
 #define _FRC_WHITECTRL_BLOCKERRORCORRECT_MASK              0x1000UL                                         /**< Bit mask for FRC_BLOCKERRORCORRECT          */
 #define _FRC_WHITECTRL_BLOCKERRORCORRECT_DEFAULT           0x00000000UL                                     /**< Mode DEFAULT for FRC_WHITECTRL              */
-#define _FRC_WHITECTRL_BLOCKERRORCORRECT_X0                0x00000000UL                                     /**< Mode X0 for FRC_WHITECTRL                    */
-#define _FRC_WHITECTRL_BLOCKERRORCORRECT_X1                0x00000001UL                                     /**< Mode X1 for FRC_WHITECTRL                    */
+#define _FRC_WHITECTRL_BLOCKERRORCORRECT_X0                0x00000000UL                                     /**< Mode X0 for FRC_WHITECTRL                   */
+#define _FRC_WHITECTRL_BLOCKERRORCORRECT_X1                0x00000001UL                                     /**< Mode X1 for FRC_WHITECTRL                   */
 #define FRC_WHITECTRL_BLOCKERRORCORRECT_DEFAULT            (_FRC_WHITECTRL_BLOCKERRORCORRECT_DEFAULT << 12) /**< Shifted mode DEFAULT for FRC_WHITECTRL      */
-#define FRC_WHITECTRL_BLOCKERRORCORRECT_X0                 (_FRC_WHITECTRL_BLOCKERRORCORRECT_X0 << 12)      /**< Shifted mode X0 for FRC_WHITECTRL            */
-#define FRC_WHITECTRL_BLOCKERRORCORRECT_X1                 (_FRC_WHITECTRL_BLOCKERRORCORRECT_X1 << 12)      /**< Shifted mode X1 for FRC_WHITECTRL            */
+#define FRC_WHITECTRL_BLOCKERRORCORRECT_X0                 (_FRC_WHITECTRL_BLOCKERRORCORRECT_X0 << 12)      /**< Shifted mode X0 for FRC_WHITECTRL           */
+#define FRC_WHITECTRL_BLOCKERRORCORRECT_X1                 (_FRC_WHITECTRL_BLOCKERRORCORRECT_X1 << 12)      /**< Shifted mode X1 for FRC_WHITECTRL           */
 
 /* Bit fields for FRC WHITEPOLY */
 #define _FRC_WHITEPOLY_RESETVALUE                          0x00000000UL                       /**< Default value for FRC_WHITEPOLY             */
@@ -661,51 +660,51 @@ typedef struct {
 #define _FRC_FECCTRL_BLOCKWHITEMODE_SHIFT                  0                                                    /**< Shift value for FRC_BLOCKWHITEMODE          */
 #define _FRC_FECCTRL_BLOCKWHITEMODE_MASK                   0x7UL                                                /**< Bit mask for FRC_BLOCKWHITEMODE             */
 #define _FRC_FECCTRL_BLOCKWHITEMODE_DEFAULT                0x00000000UL                                         /**< Mode DEFAULT for FRC_FECCTRL                */
-#define _FRC_FECCTRL_BLOCKWHITEMODE_DIRECT                 0x00000000UL                                         /**< Mode DIRECT for FRC_FECCTRL                  */
-#define _FRC_FECCTRL_BLOCKWHITEMODE_WHITE                  0x00000001UL                                         /**< Mode WHITE for FRC_FECCTRL                   */
-#define _FRC_FECCTRL_BLOCKWHITEMODE_BYTEWHITE              0x00000002UL                                         /**< Mode BYTEWHITE for FRC_FECCTRL               */
-#define _FRC_FECCTRL_BLOCKWHITEMODE_INTERLEAVEDWHITE0      0x00000003UL                                         /**< Mode INTERLEAVEDWHITE0 for FRC_FECCTRL       */
-#define _FRC_FECCTRL_BLOCKWHITEMODE_INTERLEAVEDWHITE1      0x00000004UL                                         /**< Mode INTERLEAVEDWHITE1 for FRC_FECCTRL       */
-#define _FRC_FECCTRL_BLOCKWHITEMODE_BLOCKCODEINSERT        0x00000005UL                                         /**< Mode BLOCKCODEINSERT for FRC_FECCTRL         */
-#define _FRC_FECCTRL_BLOCKWHITEMODE_BLOCKCODEREPLACE       0x00000006UL                                         /**< Mode BLOCKCODEREPLACE for FRC_FECCTRL        */
-#define _FRC_FECCTRL_BLOCKWHITEMODE_BLOCKLOOKUP            0x00000007UL                                         /**< Mode BLOCKLOOKUP for FRC_FECCTRL             */
+#define _FRC_FECCTRL_BLOCKWHITEMODE_DIRECT                 0x00000000UL                                         /**< Mode DIRECT for FRC_FECCTRL                 */
+#define _FRC_FECCTRL_BLOCKWHITEMODE_WHITE                  0x00000001UL                                         /**< Mode WHITE for FRC_FECCTRL                  */
+#define _FRC_FECCTRL_BLOCKWHITEMODE_BYTEWHITE              0x00000002UL                                         /**< Mode BYTEWHITE for FRC_FECCTRL              */
+#define _FRC_FECCTRL_BLOCKWHITEMODE_INTERLEAVEDWHITE0      0x00000003UL                                         /**< Mode INTERLEAVEDWHITE0 for FRC_FECCTRL      */
+#define _FRC_FECCTRL_BLOCKWHITEMODE_INTERLEAVEDWHITE1      0x00000004UL                                         /**< Mode INTERLEAVEDWHITE1 for FRC_FECCTRL      */
+#define _FRC_FECCTRL_BLOCKWHITEMODE_BLOCKCODEINSERT        0x00000005UL                                         /**< Mode BLOCKCODEINSERT for FRC_FECCTRL        */
+#define _FRC_FECCTRL_BLOCKWHITEMODE_BLOCKCODEREPLACE       0x00000006UL                                         /**< Mode BLOCKCODEREPLACE for FRC_FECCTRL       */
+#define _FRC_FECCTRL_BLOCKWHITEMODE_BLOCKLOOKUP            0x00000007UL                                         /**< Mode BLOCKLOOKUP for FRC_FECCTRL            */
 #define FRC_FECCTRL_BLOCKWHITEMODE_DEFAULT                 (_FRC_FECCTRL_BLOCKWHITEMODE_DEFAULT << 0)           /**< Shifted mode DEFAULT for FRC_FECCTRL        */
-#define FRC_FECCTRL_BLOCKWHITEMODE_DIRECT                  (_FRC_FECCTRL_BLOCKWHITEMODE_DIRECT << 0)            /**< Shifted mode DIRECT for FRC_FECCTRL          */
-#define FRC_FECCTRL_BLOCKWHITEMODE_WHITE                   (_FRC_FECCTRL_BLOCKWHITEMODE_WHITE << 0)             /**< Shifted mode WHITE for FRC_FECCTRL           */
-#define FRC_FECCTRL_BLOCKWHITEMODE_BYTEWHITE               (_FRC_FECCTRL_BLOCKWHITEMODE_BYTEWHITE << 0)         /**< Shifted mode BYTEWHITE for FRC_FECCTRL       */
+#define FRC_FECCTRL_BLOCKWHITEMODE_DIRECT                  (_FRC_FECCTRL_BLOCKWHITEMODE_DIRECT << 0)            /**< Shifted mode DIRECT for FRC_FECCTRL         */
+#define FRC_FECCTRL_BLOCKWHITEMODE_WHITE                   (_FRC_FECCTRL_BLOCKWHITEMODE_WHITE << 0)             /**< Shifted mode WHITE for FRC_FECCTRL          */
+#define FRC_FECCTRL_BLOCKWHITEMODE_BYTEWHITE               (_FRC_FECCTRL_BLOCKWHITEMODE_BYTEWHITE << 0)         /**< Shifted mode BYTEWHITE for FRC_FECCTRL      */
 #define FRC_FECCTRL_BLOCKWHITEMODE_INTERLEAVEDWHITE0       (_FRC_FECCTRL_BLOCKWHITEMODE_INTERLEAVEDWHITE0 << 0) /**< Shifted mode INTERLEAVEDWHITE0 for FRC_FECCTRL*/
 #define FRC_FECCTRL_BLOCKWHITEMODE_INTERLEAVEDWHITE1       (_FRC_FECCTRL_BLOCKWHITEMODE_INTERLEAVEDWHITE1 << 0) /**< Shifted mode INTERLEAVEDWHITE1 for FRC_FECCTRL*/
-#define FRC_FECCTRL_BLOCKWHITEMODE_BLOCKCODEINSERT         (_FRC_FECCTRL_BLOCKWHITEMODE_BLOCKCODEINSERT << 0)   /**< Shifted mode BLOCKCODEINSERT for FRC_FECCTRL */
+#define FRC_FECCTRL_BLOCKWHITEMODE_BLOCKCODEINSERT         (_FRC_FECCTRL_BLOCKWHITEMODE_BLOCKCODEINSERT << 0)   /**< Shifted mode BLOCKCODEINSERT for FRC_FECCTRL*/
 #define FRC_FECCTRL_BLOCKWHITEMODE_BLOCKCODEREPLACE        (_FRC_FECCTRL_BLOCKWHITEMODE_BLOCKCODEREPLACE << 0)  /**< Shifted mode BLOCKCODEREPLACE for FRC_FECCTRL*/
-#define FRC_FECCTRL_BLOCKWHITEMODE_BLOCKLOOKUP             (_FRC_FECCTRL_BLOCKWHITEMODE_BLOCKLOOKUP << 0)       /**< Shifted mode BLOCKLOOKUP for FRC_FECCTRL     */
+#define FRC_FECCTRL_BLOCKWHITEMODE_BLOCKLOOKUP             (_FRC_FECCTRL_BLOCKWHITEMODE_BLOCKLOOKUP << 0)       /**< Shifted mode BLOCKLOOKUP for FRC_FECCTRL    */
 #define _FRC_FECCTRL_CONVMODE_SHIFT                        4                                                    /**< Shift value for FRC_CONVMODE                */
 #define _FRC_FECCTRL_CONVMODE_MASK                         0x30UL                                               /**< Bit mask for FRC_CONVMODE                   */
 #define _FRC_FECCTRL_CONVMODE_DEFAULT                      0x00000000UL                                         /**< Mode DEFAULT for FRC_FECCTRL                */
-#define _FRC_FECCTRL_CONVMODE_DISABLE                      0x00000000UL                                         /**< Mode DISABLE for FRC_FECCTRL                 */
-#define _FRC_FECCTRL_CONVMODE_CONVOLUTIONAL                0x00000001UL                                         /**< Mode CONVOLUTIONAL for FRC_FECCTRL           */
-#define _FRC_FECCTRL_CONVMODE_REPEAT                       0x00000002UL                                         /**< Mode REPEAT for FRC_FECCTRL                  */
+#define _FRC_FECCTRL_CONVMODE_DISABLE                      0x00000000UL                                         /**< Mode DISABLE for FRC_FECCTRL                */
+#define _FRC_FECCTRL_CONVMODE_CONVOLUTIONAL                0x00000001UL                                         /**< Mode CONVOLUTIONAL for FRC_FECCTRL          */
+#define _FRC_FECCTRL_CONVMODE_REPEAT                       0x00000002UL                                         /**< Mode REPEAT for FRC_FECCTRL                 */
 #define FRC_FECCTRL_CONVMODE_DEFAULT                       (_FRC_FECCTRL_CONVMODE_DEFAULT << 4)                 /**< Shifted mode DEFAULT for FRC_FECCTRL        */
-#define FRC_FECCTRL_CONVMODE_DISABLE                       (_FRC_FECCTRL_CONVMODE_DISABLE << 4)                 /**< Shifted mode DISABLE for FRC_FECCTRL         */
-#define FRC_FECCTRL_CONVMODE_CONVOLUTIONAL                 (_FRC_FECCTRL_CONVMODE_CONVOLUTIONAL << 4)           /**< Shifted mode CONVOLUTIONAL for FRC_FECCTRL   */
-#define FRC_FECCTRL_CONVMODE_REPEAT                        (_FRC_FECCTRL_CONVMODE_REPEAT << 4)                  /**< Shifted mode REPEAT for FRC_FECCTRL          */
+#define FRC_FECCTRL_CONVMODE_DISABLE                       (_FRC_FECCTRL_CONVMODE_DISABLE << 4)                 /**< Shifted mode DISABLE for FRC_FECCTRL        */
+#define FRC_FECCTRL_CONVMODE_CONVOLUTIONAL                 (_FRC_FECCTRL_CONVMODE_CONVOLUTIONAL << 4)           /**< Shifted mode CONVOLUTIONAL for FRC_FECCTRL  */
+#define FRC_FECCTRL_CONVMODE_REPEAT                        (_FRC_FECCTRL_CONVMODE_REPEAT << 4)                  /**< Shifted mode REPEAT for FRC_FECCTRL         */
 #define FRC_FECCTRL_CONVDECODEMODE                         (0x1UL << 6)                                         /**< Convolutional decoding mode setting.        */
 #define _FRC_FECCTRL_CONVDECODEMODE_SHIFT                  6                                                    /**< Shift value for FRC_CONVDECODEMODE          */
 #define _FRC_FECCTRL_CONVDECODEMODE_MASK                   0x40UL                                               /**< Bit mask for FRC_CONVDECODEMODE             */
 #define _FRC_FECCTRL_CONVDECODEMODE_DEFAULT                0x00000000UL                                         /**< Mode DEFAULT for FRC_FECCTRL                */
-#define _FRC_FECCTRL_CONVDECODEMODE_SOFT                   0x00000000UL                                         /**< Mode SOFT for FRC_FECCTRL                    */
-#define _FRC_FECCTRL_CONVDECODEMODE_HARD                   0x00000001UL                                         /**< Mode HARD for FRC_FECCTRL                    */
+#define _FRC_FECCTRL_CONVDECODEMODE_SOFT                   0x00000000UL                                         /**< Mode SOFT for FRC_FECCTRL                   */
+#define _FRC_FECCTRL_CONVDECODEMODE_HARD                   0x00000001UL                                         /**< Mode HARD for FRC_FECCTRL                   */
 #define FRC_FECCTRL_CONVDECODEMODE_DEFAULT                 (_FRC_FECCTRL_CONVDECODEMODE_DEFAULT << 6)           /**< Shifted mode DEFAULT for FRC_FECCTRL        */
-#define FRC_FECCTRL_CONVDECODEMODE_SOFT                    (_FRC_FECCTRL_CONVDECODEMODE_SOFT << 6)              /**< Shifted mode SOFT for FRC_FECCTRL            */
-#define FRC_FECCTRL_CONVDECODEMODE_HARD                    (_FRC_FECCTRL_CONVDECODEMODE_HARD << 6)              /**< Shifted mode HARD for FRC_FECCTRL            */
+#define FRC_FECCTRL_CONVDECODEMODE_SOFT                    (_FRC_FECCTRL_CONVDECODEMODE_SOFT << 6)              /**< Shifted mode SOFT for FRC_FECCTRL           */
+#define FRC_FECCTRL_CONVDECODEMODE_HARD                    (_FRC_FECCTRL_CONVDECODEMODE_HARD << 6)              /**< Shifted mode HARD for FRC_FECCTRL           */
 #define FRC_FECCTRL_CONVTRACEBACKDISABLE                   (0x1UL << 7)                                         /**< Convolutional traceback disabling           */
 #define _FRC_FECCTRL_CONVTRACEBACKDISABLE_SHIFT            7                                                    /**< Shift value for FRC_CONVTRACEBACKDISABLE    */
 #define _FRC_FECCTRL_CONVTRACEBACKDISABLE_MASK             0x80UL                                               /**< Bit mask for FRC_CONVTRACEBACKDISABLE       */
 #define _FRC_FECCTRL_CONVTRACEBACKDISABLE_DEFAULT          0x00000000UL                                         /**< Mode DEFAULT for FRC_FECCTRL                */
-#define _FRC_FECCTRL_CONVTRACEBACKDISABLE_X0               0x00000000UL                                         /**< Mode X0 for FRC_FECCTRL                      */
-#define _FRC_FECCTRL_CONVTRACEBACKDISABLE_X1               0x00000001UL                                         /**< Mode X1 for FRC_FECCTRL                      */
+#define _FRC_FECCTRL_CONVTRACEBACKDISABLE_X0               0x00000000UL                                         /**< Mode X0 for FRC_FECCTRL                     */
+#define _FRC_FECCTRL_CONVTRACEBACKDISABLE_X1               0x00000001UL                                         /**< Mode X1 for FRC_FECCTRL                     */
 #define FRC_FECCTRL_CONVTRACEBACKDISABLE_DEFAULT           (_FRC_FECCTRL_CONVTRACEBACKDISABLE_DEFAULT << 7)     /**< Shifted mode DEFAULT for FRC_FECCTRL        */
-#define FRC_FECCTRL_CONVTRACEBACKDISABLE_X0                (_FRC_FECCTRL_CONVTRACEBACKDISABLE_X0 << 7)          /**< Shifted mode X0 for FRC_FECCTRL              */
-#define FRC_FECCTRL_CONVTRACEBACKDISABLE_X1                (_FRC_FECCTRL_CONVTRACEBACKDISABLE_X1 << 7)          /**< Shifted mode X1 for FRC_FECCTRL              */
+#define FRC_FECCTRL_CONVTRACEBACKDISABLE_X0                (_FRC_FECCTRL_CONVTRACEBACKDISABLE_X0 << 7)          /**< Shifted mode X0 for FRC_FECCTRL             */
+#define FRC_FECCTRL_CONVTRACEBACKDISABLE_X1                (_FRC_FECCTRL_CONVTRACEBACKDISABLE_X1 << 7)          /**< Shifted mode X1 for FRC_FECCTRL             */
 #define _FRC_FECCTRL_CONVINV_SHIFT                         8                                                    /**< Shift value for FRC_CONVINV                 */
 #define _FRC_FECCTRL_CONVINV_MASK                          0x300UL                                              /**< Bit mask for FRC_CONVINV                    */
 #define _FRC_FECCTRL_CONVINV_DEFAULT                       0x00000000UL                                         /**< Mode DEFAULT for FRC_FECCTRL                */
@@ -713,15 +712,15 @@ typedef struct {
 #define _FRC_FECCTRL_INTERLEAVEMODE_SHIFT                  10                                                   /**< Shift value for FRC_INTERLEAVEMODE          */
 #define _FRC_FECCTRL_INTERLEAVEMODE_MASK                   0xC00UL                                              /**< Bit mask for FRC_INTERLEAVEMODE             */
 #define _FRC_FECCTRL_INTERLEAVEMODE_DEFAULT                0x00000000UL                                         /**< Mode DEFAULT for FRC_FECCTRL                */
-#define _FRC_FECCTRL_INTERLEAVEMODE_DISABLE                0x00000000UL                                         /**< Mode DISABLE for FRC_FECCTRL                 */
-#define _FRC_FECCTRL_INTERLEAVEMODE_ENABLE                 0x00000001UL                                         /**< Mode ENABLE for FRC_FECCTRL                  */
-#define _FRC_FECCTRL_INTERLEAVEMODE_RXBUFFER               0x00000002UL                                         /**< Mode RXBUFFER for FRC_FECCTRL                */
-#define _FRC_FECCTRL_INTERLEAVEMODE_RXTXBUFFER             0x00000003UL                                         /**< Mode RXTXBUFFER for FRC_FECCTRL              */
+#define _FRC_FECCTRL_INTERLEAVEMODE_DISABLE                0x00000000UL                                         /**< Mode DISABLE for FRC_FECCTRL                */
+#define _FRC_FECCTRL_INTERLEAVEMODE_ENABLE                 0x00000001UL                                         /**< Mode ENABLE for FRC_FECCTRL                 */
+#define _FRC_FECCTRL_INTERLEAVEMODE_RXBUFFER               0x00000002UL                                         /**< Mode RXBUFFER for FRC_FECCTRL               */
+#define _FRC_FECCTRL_INTERLEAVEMODE_RXTXBUFFER             0x00000003UL                                         /**< Mode RXTXBUFFER for FRC_FECCTRL             */
 #define FRC_FECCTRL_INTERLEAVEMODE_DEFAULT                 (_FRC_FECCTRL_INTERLEAVEMODE_DEFAULT << 10)          /**< Shifted mode DEFAULT for FRC_FECCTRL        */
-#define FRC_FECCTRL_INTERLEAVEMODE_DISABLE                 (_FRC_FECCTRL_INTERLEAVEMODE_DISABLE << 10)          /**< Shifted mode DISABLE for FRC_FECCTRL         */
-#define FRC_FECCTRL_INTERLEAVEMODE_ENABLE                  (_FRC_FECCTRL_INTERLEAVEMODE_ENABLE << 10)           /**< Shifted mode ENABLE for FRC_FECCTRL          */
-#define FRC_FECCTRL_INTERLEAVEMODE_RXBUFFER                (_FRC_FECCTRL_INTERLEAVEMODE_RXBUFFER << 10)         /**< Shifted mode RXBUFFER for FRC_FECCTRL        */
-#define FRC_FECCTRL_INTERLEAVEMODE_RXTXBUFFER              (_FRC_FECCTRL_INTERLEAVEMODE_RXTXBUFFER << 10)       /**< Shifted mode RXTXBUFFER for FRC_FECCTRL      */
+#define FRC_FECCTRL_INTERLEAVEMODE_DISABLE                 (_FRC_FECCTRL_INTERLEAVEMODE_DISABLE << 10)          /**< Shifted mode DISABLE for FRC_FECCTRL        */
+#define FRC_FECCTRL_INTERLEAVEMODE_ENABLE                  (_FRC_FECCTRL_INTERLEAVEMODE_ENABLE << 10)           /**< Shifted mode ENABLE for FRC_FECCTRL         */
+#define FRC_FECCTRL_INTERLEAVEMODE_RXBUFFER                (_FRC_FECCTRL_INTERLEAVEMODE_RXBUFFER << 10)         /**< Shifted mode RXBUFFER for FRC_FECCTRL       */
+#define FRC_FECCTRL_INTERLEAVEMODE_RXTXBUFFER              (_FRC_FECCTRL_INTERLEAVEMODE_RXTXBUFFER << 10)       /**< Shifted mode RXTXBUFFER for FRC_FECCTRL     */
 #define _FRC_FECCTRL_INTERLEAVEFIRSTINDEX_SHIFT            12                                                   /**< Shift value for FRC_INTERLEAVEFIRSTINDEX    */
 #define _FRC_FECCTRL_INTERLEAVEFIRSTINDEX_MASK             0xF000UL                                             /**< Bit mask for FRC_INTERLEAVEFIRSTINDEX       */
 #define _FRC_FECCTRL_INTERLEAVEFIRSTINDEX_DEFAULT          0x00000000UL                                         /**< Mode DEFAULT for FRC_FECCTRL                */
@@ -730,11 +729,11 @@ typedef struct {
 #define _FRC_FECCTRL_INTERLEAVEWIDTH_SHIFT                 16                                                   /**< Shift value for FRC_INTERLEAVEWIDTH         */
 #define _FRC_FECCTRL_INTERLEAVEWIDTH_MASK                  0x10000UL                                            /**< Bit mask for FRC_INTERLEAVEWIDTH            */
 #define _FRC_FECCTRL_INTERLEAVEWIDTH_DEFAULT               0x00000000UL                                         /**< Mode DEFAULT for FRC_FECCTRL                */
-#define _FRC_FECCTRL_INTERLEAVEWIDTH_ONE                   0x00000000UL                                         /**< Mode ONE for FRC_FECCTRL                     */
-#define _FRC_FECCTRL_INTERLEAVEWIDTH_TWO                   0x00000001UL                                         /**< Mode TWO for FRC_FECCTRL                     */
+#define _FRC_FECCTRL_INTERLEAVEWIDTH_ONE                   0x00000000UL                                         /**< Mode ONE for FRC_FECCTRL                    */
+#define _FRC_FECCTRL_INTERLEAVEWIDTH_TWO                   0x00000001UL                                         /**< Mode TWO for FRC_FECCTRL                    */
 #define FRC_FECCTRL_INTERLEAVEWIDTH_DEFAULT                (_FRC_FECCTRL_INTERLEAVEWIDTH_DEFAULT << 16)         /**< Shifted mode DEFAULT for FRC_FECCTRL        */
-#define FRC_FECCTRL_INTERLEAVEWIDTH_ONE                    (_FRC_FECCTRL_INTERLEAVEWIDTH_ONE << 16)             /**< Shifted mode ONE for FRC_FECCTRL             */
-#define FRC_FECCTRL_INTERLEAVEWIDTH_TWO                    (_FRC_FECCTRL_INTERLEAVEWIDTH_TWO << 16)             /**< Shifted mode TWO for FRC_FECCTRL             */
+#define FRC_FECCTRL_INTERLEAVEWIDTH_ONE                    (_FRC_FECCTRL_INTERLEAVEWIDTH_ONE << 16)             /**< Shifted mode ONE for FRC_FECCTRL            */
+#define FRC_FECCTRL_INTERLEAVEWIDTH_TWO                    (_FRC_FECCTRL_INTERLEAVEWIDTH_TWO << 16)             /**< Shifted mode TWO for FRC_FECCTRL            */
 #define FRC_FECCTRL_CONVBUSLOCK                            (0x1UL << 17)                                        /**< Convolutional decoding bus lock             */
 #define _FRC_FECCTRL_CONVBUSLOCK_SHIFT                     17                                                   /**< Shift value for FRC_CONVBUSLOCK             */
 #define _FRC_FECCTRL_CONVBUSLOCK_MASK                      0x20000UL                                            /**< Bit mask for FRC_CONVBUSLOCK                */
@@ -744,11 +743,11 @@ typedef struct {
 #define _FRC_FECCTRL_CONVSUBFRAMETERMINATE_SHIFT           18                                                   /**< Shift value for FRC_CONVSUBFRAMETERMINATE   */
 #define _FRC_FECCTRL_CONVSUBFRAMETERMINATE_MASK            0x40000UL                                            /**< Bit mask for FRC_CONVSUBFRAMETERMINATE      */
 #define _FRC_FECCTRL_CONVSUBFRAMETERMINATE_DEFAULT         0x00000000UL                                         /**< Mode DEFAULT for FRC_FECCTRL                */
-#define _FRC_FECCTRL_CONVSUBFRAMETERMINATE_X0              0x00000000UL                                         /**< Mode X0 for FRC_FECCTRL                      */
-#define _FRC_FECCTRL_CONVSUBFRAMETERMINATE_X1              0x00000001UL                                         /**< Mode X1 for FRC_FECCTRL                      */
+#define _FRC_FECCTRL_CONVSUBFRAMETERMINATE_X0              0x00000000UL                                         /**< Mode X0 for FRC_FECCTRL                     */
+#define _FRC_FECCTRL_CONVSUBFRAMETERMINATE_X1              0x00000001UL                                         /**< Mode X1 for FRC_FECCTRL                     */
 #define FRC_FECCTRL_CONVSUBFRAMETERMINATE_DEFAULT          (_FRC_FECCTRL_CONVSUBFRAMETERMINATE_DEFAULT << 18)   /**< Shifted mode DEFAULT for FRC_FECCTRL        */
-#define FRC_FECCTRL_CONVSUBFRAMETERMINATE_X0               (_FRC_FECCTRL_CONVSUBFRAMETERMINATE_X0 << 18)        /**< Shifted mode X0 for FRC_FECCTRL              */
-#define FRC_FECCTRL_CONVSUBFRAMETERMINATE_X1               (_FRC_FECCTRL_CONVSUBFRAMETERMINATE_X1 << 18)        /**< Shifted mode X1 for FRC_FECCTRL              */
+#define FRC_FECCTRL_CONVSUBFRAMETERMINATE_X0               (_FRC_FECCTRL_CONVSUBFRAMETERMINATE_X0 << 18)        /**< Shifted mode X0 for FRC_FECCTRL             */
+#define FRC_FECCTRL_CONVSUBFRAMETERMINATE_X1               (_FRC_FECCTRL_CONVSUBFRAMETERMINATE_X1 << 18)        /**< Shifted mode X1 for FRC_FECCTRL             */
 #define FRC_FECCTRL_SINGLEBLOCK                            (0x1UL << 19)                                        /**< Single block code per frame                 */
 #define _FRC_FECCTRL_SINGLEBLOCK_SHIFT                     19                                                   /**< Shift value for FRC_SINGLEBLOCK             */
 #define _FRC_FECCTRL_SINGLEBLOCK_MASK                      0x80000UL                                            /**< Bit mask for FRC_SINGLEBLOCK                */
@@ -763,11 +762,11 @@ typedef struct {
 #define _FRC_FECCTRL_CONVHARDERROR_SHIFT                   21                                                   /**< Shift value for FRC_CONVHARDERROR           */
 #define _FRC_FECCTRL_CONVHARDERROR_MASK                    0x200000UL                                           /**< Bit mask for FRC_CONVHARDERROR              */
 #define _FRC_FECCTRL_CONVHARDERROR_DEFAULT                 0x00000000UL                                         /**< Mode DEFAULT for FRC_FECCTRL                */
-#define _FRC_FECCTRL_CONVHARDERROR_X0                      0x00000000UL                                         /**< Mode X0 for FRC_FECCTRL                      */
-#define _FRC_FECCTRL_CONVHARDERROR_X1                      0x00000001UL                                         /**< Mode X1 for FRC_FECCTRL                      */
+#define _FRC_FECCTRL_CONVHARDERROR_X0                      0x00000000UL                                         /**< Mode X0 for FRC_FECCTRL                     */
+#define _FRC_FECCTRL_CONVHARDERROR_X1                      0x00000001UL                                         /**< Mode X1 for FRC_FECCTRL                     */
 #define FRC_FECCTRL_CONVHARDERROR_DEFAULT                  (_FRC_FECCTRL_CONVHARDERROR_DEFAULT << 21)           /**< Shifted mode DEFAULT for FRC_FECCTRL        */
-#define FRC_FECCTRL_CONVHARDERROR_X0                       (_FRC_FECCTRL_CONVHARDERROR_X0 << 21)                /**< Shifted mode X0 for FRC_FECCTRL              */
-#define FRC_FECCTRL_CONVHARDERROR_X1                       (_FRC_FECCTRL_CONVHARDERROR_X1 << 21)                /**< Shifted mode X1 for FRC_FECCTRL              */
+#define FRC_FECCTRL_CONVHARDERROR_X0                       (_FRC_FECCTRL_CONVHARDERROR_X0 << 21)                /**< Shifted mode X0 for FRC_FECCTRL             */
+#define FRC_FECCTRL_CONVHARDERROR_X1                       (_FRC_FECCTRL_CONVHARDERROR_X1 << 21)                /**< Shifted mode X1 for FRC_FECCTRL             */
 
 /* Bit fields for FRC BLOCKRAMADDR */
 #define _FRC_BLOCKRAMADDR_RESETVALUE                       0x00000000UL                                  /**< Default value for FRC_BLOCKRAMADDR          */
@@ -802,35 +801,35 @@ typedef struct {
 #define _FRC_CTRL_BITORDER_SHIFT                           2                                      /**< Shift value for FRC_BITORDER                */
 #define _FRC_CTRL_BITORDER_MASK                            0x4UL                                  /**< Bit mask for FRC_BITORDER                   */
 #define _FRC_CTRL_BITORDER_DEFAULT                         0x00000000UL                           /**< Mode DEFAULT for FRC_CTRL                   */
-#define _FRC_CTRL_BITORDER_LSBFIRST                        0x00000000UL                           /**< Mode LSBFIRST for FRC_CTRL                   */
-#define _FRC_CTRL_BITORDER_MSBFIRST                        0x00000001UL                           /**< Mode MSBFIRST for FRC_CTRL                   */
+#define _FRC_CTRL_BITORDER_LSBFIRST                        0x00000000UL                           /**< Mode LSBFIRST for FRC_CTRL                  */
+#define _FRC_CTRL_BITORDER_MSBFIRST                        0x00000001UL                           /**< Mode MSBFIRST for FRC_CTRL                  */
 #define FRC_CTRL_BITORDER_DEFAULT                          (_FRC_CTRL_BITORDER_DEFAULT << 2)      /**< Shifted mode DEFAULT for FRC_CTRL           */
-#define FRC_CTRL_BITORDER_LSBFIRST                         (_FRC_CTRL_BITORDER_LSBFIRST << 2)     /**< Shifted mode LSBFIRST for FRC_CTRL           */
-#define FRC_CTRL_BITORDER_MSBFIRST                         (_FRC_CTRL_BITORDER_MSBFIRST << 2)     /**< Shifted mode MSBFIRST for FRC_CTRL           */
+#define FRC_CTRL_BITORDER_LSBFIRST                         (_FRC_CTRL_BITORDER_LSBFIRST << 2)     /**< Shifted mode LSBFIRST for FRC_CTRL          */
+#define FRC_CTRL_BITORDER_MSBFIRST                         (_FRC_CTRL_BITORDER_MSBFIRST << 2)     /**< Shifted mode MSBFIRST for FRC_CTRL          */
 #define _FRC_CTRL_TXFCDMODE_SHIFT                          4                                      /**< Shift value for FRC_TXFCDMODE               */
 #define _FRC_CTRL_TXFCDMODE_MASK                           0x30UL                                 /**< Bit mask for FRC_TXFCDMODE                  */
 #define _FRC_CTRL_TXFCDMODE_DEFAULT                        0x00000000UL                           /**< Mode DEFAULT for FRC_CTRL                   */
-#define _FRC_CTRL_TXFCDMODE_FCDMODE0                       0x00000000UL                           /**< Mode FCDMODE0 for FRC_CTRL                   */
-#define _FRC_CTRL_TXFCDMODE_FCDMODE1                       0x00000001UL                           /**< Mode FCDMODE1 for FRC_CTRL                   */
-#define _FRC_CTRL_TXFCDMODE_FCDMODE2                       0x00000002UL                           /**< Mode FCDMODE2 for FRC_CTRL                   */
-#define _FRC_CTRL_TXFCDMODE_FCDMODE3                       0x00000003UL                           /**< Mode FCDMODE3 for FRC_CTRL                   */
+#define _FRC_CTRL_TXFCDMODE_FCDMODE0                       0x00000000UL                           /**< Mode FCDMODE0 for FRC_CTRL                  */
+#define _FRC_CTRL_TXFCDMODE_FCDMODE1                       0x00000001UL                           /**< Mode FCDMODE1 for FRC_CTRL                  */
+#define _FRC_CTRL_TXFCDMODE_FCDMODE2                       0x00000002UL                           /**< Mode FCDMODE2 for FRC_CTRL                  */
+#define _FRC_CTRL_TXFCDMODE_FCDMODE3                       0x00000003UL                           /**< Mode FCDMODE3 for FRC_CTRL                  */
 #define FRC_CTRL_TXFCDMODE_DEFAULT                         (_FRC_CTRL_TXFCDMODE_DEFAULT << 4)     /**< Shifted mode DEFAULT for FRC_CTRL           */
-#define FRC_CTRL_TXFCDMODE_FCDMODE0                        (_FRC_CTRL_TXFCDMODE_FCDMODE0 << 4)    /**< Shifted mode FCDMODE0 for FRC_CTRL           */
-#define FRC_CTRL_TXFCDMODE_FCDMODE1                        (_FRC_CTRL_TXFCDMODE_FCDMODE1 << 4)    /**< Shifted mode FCDMODE1 for FRC_CTRL           */
-#define FRC_CTRL_TXFCDMODE_FCDMODE2                        (_FRC_CTRL_TXFCDMODE_FCDMODE2 << 4)    /**< Shifted mode FCDMODE2 for FRC_CTRL           */
-#define FRC_CTRL_TXFCDMODE_FCDMODE3                        (_FRC_CTRL_TXFCDMODE_FCDMODE3 << 4)    /**< Shifted mode FCDMODE3 for FRC_CTRL           */
+#define FRC_CTRL_TXFCDMODE_FCDMODE0                        (_FRC_CTRL_TXFCDMODE_FCDMODE0 << 4)    /**< Shifted mode FCDMODE0 for FRC_CTRL          */
+#define FRC_CTRL_TXFCDMODE_FCDMODE1                        (_FRC_CTRL_TXFCDMODE_FCDMODE1 << 4)    /**< Shifted mode FCDMODE1 for FRC_CTRL          */
+#define FRC_CTRL_TXFCDMODE_FCDMODE2                        (_FRC_CTRL_TXFCDMODE_FCDMODE2 << 4)    /**< Shifted mode FCDMODE2 for FRC_CTRL          */
+#define FRC_CTRL_TXFCDMODE_FCDMODE3                        (_FRC_CTRL_TXFCDMODE_FCDMODE3 << 4)    /**< Shifted mode FCDMODE3 for FRC_CTRL          */
 #define _FRC_CTRL_RXFCDMODE_SHIFT                          6                                      /**< Shift value for FRC_RXFCDMODE               */
 #define _FRC_CTRL_RXFCDMODE_MASK                           0xC0UL                                 /**< Bit mask for FRC_RXFCDMODE                  */
 #define _FRC_CTRL_RXFCDMODE_DEFAULT                        0x00000000UL                           /**< Mode DEFAULT for FRC_CTRL                   */
-#define _FRC_CTRL_RXFCDMODE_FCDMODE0                       0x00000000UL                           /**< Mode FCDMODE0 for FRC_CTRL                   */
-#define _FRC_CTRL_RXFCDMODE_FCDMODE1                       0x00000001UL                           /**< Mode FCDMODE1 for FRC_CTRL                   */
-#define _FRC_CTRL_RXFCDMODE_FCDMODE2                       0x00000002UL                           /**< Mode FCDMODE2 for FRC_CTRL                   */
-#define _FRC_CTRL_RXFCDMODE_FCDMODE3                       0x00000003UL                           /**< Mode FCDMODE3 for FRC_CTRL                   */
+#define _FRC_CTRL_RXFCDMODE_FCDMODE0                       0x00000000UL                           /**< Mode FCDMODE0 for FRC_CTRL                  */
+#define _FRC_CTRL_RXFCDMODE_FCDMODE1                       0x00000001UL                           /**< Mode FCDMODE1 for FRC_CTRL                  */
+#define _FRC_CTRL_RXFCDMODE_FCDMODE2                       0x00000002UL                           /**< Mode FCDMODE2 for FRC_CTRL                  */
+#define _FRC_CTRL_RXFCDMODE_FCDMODE3                       0x00000003UL                           /**< Mode FCDMODE3 for FRC_CTRL                  */
 #define FRC_CTRL_RXFCDMODE_DEFAULT                         (_FRC_CTRL_RXFCDMODE_DEFAULT << 6)     /**< Shifted mode DEFAULT for FRC_CTRL           */
-#define FRC_CTRL_RXFCDMODE_FCDMODE0                        (_FRC_CTRL_RXFCDMODE_FCDMODE0 << 6)    /**< Shifted mode FCDMODE0 for FRC_CTRL           */
-#define FRC_CTRL_RXFCDMODE_FCDMODE1                        (_FRC_CTRL_RXFCDMODE_FCDMODE1 << 6)    /**< Shifted mode FCDMODE1 for FRC_CTRL           */
-#define FRC_CTRL_RXFCDMODE_FCDMODE2                        (_FRC_CTRL_RXFCDMODE_FCDMODE2 << 6)    /**< Shifted mode FCDMODE2 for FRC_CTRL           */
-#define FRC_CTRL_RXFCDMODE_FCDMODE3                        (_FRC_CTRL_RXFCDMODE_FCDMODE3 << 6)    /**< Shifted mode FCDMODE3 for FRC_CTRL           */
+#define FRC_CTRL_RXFCDMODE_FCDMODE0                        (_FRC_CTRL_RXFCDMODE_FCDMODE0 << 6)    /**< Shifted mode FCDMODE0 for FRC_CTRL          */
+#define FRC_CTRL_RXFCDMODE_FCDMODE1                        (_FRC_CTRL_RXFCDMODE_FCDMODE1 << 6)    /**< Shifted mode FCDMODE1 for FRC_CTRL          */
+#define FRC_CTRL_RXFCDMODE_FCDMODE2                        (_FRC_CTRL_RXFCDMODE_FCDMODE2 << 6)    /**< Shifted mode FCDMODE2 for FRC_CTRL          */
+#define FRC_CTRL_RXFCDMODE_FCDMODE3                        (_FRC_CTRL_RXFCDMODE_FCDMODE3 << 6)    /**< Shifted mode FCDMODE3 for FRC_CTRL          */
 #define _FRC_CTRL_BITSPERWORD_SHIFT                        8                                      /**< Shift value for FRC_BITSPERWORD             */
 #define _FRC_CTRL_BITSPERWORD_MASK                         0x700UL                                /**< Bit mask for FRC_BITSPERWORD                */
 #define _FRC_CTRL_BITSPERWORD_DEFAULT                      0x00000007UL                           /**< Mode DEFAULT for FRC_CTRL                   */
@@ -843,20 +842,20 @@ typedef struct {
 #define _FRC_CTRL_TXPREFETCH_SHIFT                         13                                     /**< Shift value for FRC_TXPREFETCH              */
 #define _FRC_CTRL_TXPREFETCH_MASK                          0x2000UL                               /**< Bit mask for FRC_TXPREFETCH                 */
 #define _FRC_CTRL_TXPREFETCH_DEFAULT                       0x00000000UL                           /**< Mode DEFAULT for FRC_CTRL                   */
-#define _FRC_CTRL_TXPREFETCH_X0                            0x00000000UL                           /**< Mode X0 for FRC_CTRL                         */
-#define _FRC_CTRL_TXPREFETCH_X1                            0x00000001UL                           /**< Mode X1 for FRC_CTRL                         */
+#define _FRC_CTRL_TXPREFETCH_X0                            0x00000000UL                           /**< Mode X0 for FRC_CTRL                        */
+#define _FRC_CTRL_TXPREFETCH_X1                            0x00000001UL                           /**< Mode X1 for FRC_CTRL                        */
 #define FRC_CTRL_TXPREFETCH_DEFAULT                        (_FRC_CTRL_TXPREFETCH_DEFAULT << 13)   /**< Shifted mode DEFAULT for FRC_CTRL           */
-#define FRC_CTRL_TXPREFETCH_X0                             (_FRC_CTRL_TXPREFETCH_X0 << 13)        /**< Shifted mode X0 for FRC_CTRL                 */
-#define FRC_CTRL_TXPREFETCH_X1                             (_FRC_CTRL_TXPREFETCH_X1 << 13)        /**< Shifted mode X1 for FRC_CTRL                 */
+#define FRC_CTRL_TXPREFETCH_X0                             (_FRC_CTRL_TXPREFETCH_X0 << 13)        /**< Shifted mode X0 for FRC_CTRL                */
+#define FRC_CTRL_TXPREFETCH_X1                             (_FRC_CTRL_TXPREFETCH_X1 << 13)        /**< Shifted mode X1 for FRC_CTRL                */
 #define FRC_CTRL_SEQHANDSHAKE                              (0x1UL << 16)                          /**< Sequencer data handshake                    */
 #define _FRC_CTRL_SEQHANDSHAKE_SHIFT                       16                                     /**< Shift value for FRC_SEQHANDSHAKE            */
 #define _FRC_CTRL_SEQHANDSHAKE_MASK                        0x10000UL                              /**< Bit mask for FRC_SEQHANDSHAKE               */
 #define _FRC_CTRL_SEQHANDSHAKE_DEFAULT                     0x00000000UL                           /**< Mode DEFAULT for FRC_CTRL                   */
-#define _FRC_CTRL_SEQHANDSHAKE_X0                          0x00000000UL                           /**< Mode X0 for FRC_CTRL                         */
-#define _FRC_CTRL_SEQHANDSHAKE_X1                          0x00000001UL                           /**< Mode X1 for FRC_CTRL                         */
+#define _FRC_CTRL_SEQHANDSHAKE_X0                          0x00000000UL                           /**< Mode X0 for FRC_CTRL                        */
+#define _FRC_CTRL_SEQHANDSHAKE_X1                          0x00000001UL                           /**< Mode X1 for FRC_CTRL                        */
 #define FRC_CTRL_SEQHANDSHAKE_DEFAULT                      (_FRC_CTRL_SEQHANDSHAKE_DEFAULT << 16) /**< Shifted mode DEFAULT for FRC_CTRL           */
-#define FRC_CTRL_SEQHANDSHAKE_X0                           (_FRC_CTRL_SEQHANDSHAKE_X0 << 16)      /**< Shifted mode X0 for FRC_CTRL                 */
-#define FRC_CTRL_SEQHANDSHAKE_X1                           (_FRC_CTRL_SEQHANDSHAKE_X1 << 16)      /**< Shifted mode X1 for FRC_CTRL                 */
+#define FRC_CTRL_SEQHANDSHAKE_X0                           (_FRC_CTRL_SEQHANDSHAKE_X0 << 16)      /**< Shifted mode X0 for FRC_CTRL                */
+#define FRC_CTRL_SEQHANDSHAKE_X1                           (_FRC_CTRL_SEQHANDSHAKE_X1 << 16)      /**< Shifted mode X1 for FRC_CTRL                */
 #define FRC_CTRL_PRBSTEST                                  (0x1UL << 17)                          /**< Pseudo-Random Bit Sequence Testmode         */
 #define _FRC_CTRL_PRBSTEST_SHIFT                           17                                     /**< Shift value for FRC_PRBSTEST                */
 #define _FRC_CTRL_PRBSTEST_MASK                            0x20000UL                              /**< Bit mask for FRC_PRBSTEST                   */
@@ -875,29 +874,29 @@ typedef struct {
 #define _FRC_RXCTRL_ACCEPTCRCERRORS_SHIFT                  1                                               /**< Shift value for FRC_ACCEPTCRCERRORS         */
 #define _FRC_RXCTRL_ACCEPTCRCERRORS_MASK                   0x2UL                                           /**< Bit mask for FRC_ACCEPTCRCERRORS            */
 #define _FRC_RXCTRL_ACCEPTCRCERRORS_DEFAULT                0x00000000UL                                    /**< Mode DEFAULT for FRC_RXCTRL                 */
-#define _FRC_RXCTRL_ACCEPTCRCERRORS_REJECT                 0x00000000UL                                    /**< Mode REJECT for FRC_RXCTRL                   */
-#define _FRC_RXCTRL_ACCEPTCRCERRORS_ACCEPT                 0x00000001UL                                    /**< Mode ACCEPT for FRC_RXCTRL                   */
+#define _FRC_RXCTRL_ACCEPTCRCERRORS_REJECT                 0x00000000UL                                    /**< Mode REJECT for FRC_RXCTRL                  */
+#define _FRC_RXCTRL_ACCEPTCRCERRORS_ACCEPT                 0x00000001UL                                    /**< Mode ACCEPT for FRC_RXCTRL                  */
 #define FRC_RXCTRL_ACCEPTCRCERRORS_DEFAULT                 (_FRC_RXCTRL_ACCEPTCRCERRORS_DEFAULT << 1)      /**< Shifted mode DEFAULT for FRC_RXCTRL         */
-#define FRC_RXCTRL_ACCEPTCRCERRORS_REJECT                  (_FRC_RXCTRL_ACCEPTCRCERRORS_REJECT << 1)       /**< Shifted mode REJECT for FRC_RXCTRL           */
-#define FRC_RXCTRL_ACCEPTCRCERRORS_ACCEPT                  (_FRC_RXCTRL_ACCEPTCRCERRORS_ACCEPT << 1)       /**< Shifted mode ACCEPT for FRC_RXCTRL           */
+#define FRC_RXCTRL_ACCEPTCRCERRORS_REJECT                  (_FRC_RXCTRL_ACCEPTCRCERRORS_REJECT << 1)       /**< Shifted mode REJECT for FRC_RXCTRL          */
+#define FRC_RXCTRL_ACCEPTCRCERRORS_ACCEPT                  (_FRC_RXCTRL_ACCEPTCRCERRORS_ACCEPT << 1)       /**< Shifted mode ACCEPT for FRC_RXCTRL          */
 #define FRC_RXCTRL_ACCEPTBLOCKERRORS                       (0x1UL << 2)                                    /**< Accept Block Decoding Errors.               */
 #define _FRC_RXCTRL_ACCEPTBLOCKERRORS_SHIFT                2                                               /**< Shift value for FRC_ACCEPTBLOCKERRORS       */
 #define _FRC_RXCTRL_ACCEPTBLOCKERRORS_MASK                 0x4UL                                           /**< Bit mask for FRC_ACCEPTBLOCKERRORS          */
 #define _FRC_RXCTRL_ACCEPTBLOCKERRORS_DEFAULT              0x00000000UL                                    /**< Mode DEFAULT for FRC_RXCTRL                 */
-#define _FRC_RXCTRL_ACCEPTBLOCKERRORS_REJECT               0x00000000UL                                    /**< Mode REJECT for FRC_RXCTRL                   */
-#define _FRC_RXCTRL_ACCEPTBLOCKERRORS_ACCEPT               0x00000001UL                                    /**< Mode ACCEPT for FRC_RXCTRL                   */
+#define _FRC_RXCTRL_ACCEPTBLOCKERRORS_REJECT               0x00000000UL                                    /**< Mode REJECT for FRC_RXCTRL                  */
+#define _FRC_RXCTRL_ACCEPTBLOCKERRORS_ACCEPT               0x00000001UL                                    /**< Mode ACCEPT for FRC_RXCTRL                  */
 #define FRC_RXCTRL_ACCEPTBLOCKERRORS_DEFAULT               (_FRC_RXCTRL_ACCEPTBLOCKERRORS_DEFAULT << 2)    /**< Shifted mode DEFAULT for FRC_RXCTRL         */
-#define FRC_RXCTRL_ACCEPTBLOCKERRORS_REJECT                (_FRC_RXCTRL_ACCEPTBLOCKERRORS_REJECT << 2)     /**< Shifted mode REJECT for FRC_RXCTRL           */
-#define FRC_RXCTRL_ACCEPTBLOCKERRORS_ACCEPT                (_FRC_RXCTRL_ACCEPTBLOCKERRORS_ACCEPT << 2)     /**< Shifted mode ACCEPT for FRC_RXCTRL           */
+#define FRC_RXCTRL_ACCEPTBLOCKERRORS_REJECT                (_FRC_RXCTRL_ACCEPTBLOCKERRORS_REJECT << 2)     /**< Shifted mode REJECT for FRC_RXCTRL          */
+#define FRC_RXCTRL_ACCEPTBLOCKERRORS_ACCEPT                (_FRC_RXCTRL_ACCEPTBLOCKERRORS_ACCEPT << 2)     /**< Shifted mode ACCEPT for FRC_RXCTRL          */
 #define FRC_RXCTRL_TRACKABFRAME                            (0x1UL << 3)                                    /**< Track Aborted RX Frame                      */
 #define _FRC_RXCTRL_TRACKABFRAME_SHIFT                     3                                               /**< Shift value for FRC_TRACKABFRAME            */
 #define _FRC_RXCTRL_TRACKABFRAME_MASK                      0x8UL                                           /**< Bit mask for FRC_TRACKABFRAME               */
 #define _FRC_RXCTRL_TRACKABFRAME_DEFAULT                   0x00000000UL                                    /**< Mode DEFAULT for FRC_RXCTRL                 */
-#define _FRC_RXCTRL_TRACKABFRAME_X0                        0x00000000UL                                    /**< Mode X0 for FRC_RXCTRL                       */
-#define _FRC_RXCTRL_TRACKABFRAME_X1                        0x00000001UL                                    /**< Mode X1 for FRC_RXCTRL                       */
+#define _FRC_RXCTRL_TRACKABFRAME_X0                        0x00000000UL                                    /**< Mode X0 for FRC_RXCTRL                      */
+#define _FRC_RXCTRL_TRACKABFRAME_X1                        0x00000001UL                                    /**< Mode X1 for FRC_RXCTRL                      */
 #define FRC_RXCTRL_TRACKABFRAME_DEFAULT                    (_FRC_RXCTRL_TRACKABFRAME_DEFAULT << 3)         /**< Shifted mode DEFAULT for FRC_RXCTRL         */
-#define FRC_RXCTRL_TRACKABFRAME_X0                         (_FRC_RXCTRL_TRACKABFRAME_X0 << 3)              /**< Shifted mode X0 for FRC_RXCTRL               */
-#define FRC_RXCTRL_TRACKABFRAME_X1                         (_FRC_RXCTRL_TRACKABFRAME_X1 << 3)              /**< Shifted mode X1 for FRC_RXCTRL               */
+#define FRC_RXCTRL_TRACKABFRAME_X0                         (_FRC_RXCTRL_TRACKABFRAME_X0 << 3)              /**< Shifted mode X0 for FRC_RXCTRL              */
+#define FRC_RXCTRL_TRACKABFRAME_X1                         (_FRC_RXCTRL_TRACKABFRAME_X1 << 3)              /**< Shifted mode X1 for FRC_RXCTRL              */
 #define FRC_RXCTRL_BUFCLEAR                                (0x1UL << 4)                                    /**< Buffer Clear                                */
 #define _FRC_RXCTRL_BUFCLEAR_SHIFT                         4                                               /**< Shift value for FRC_BUFCLEAR                */
 #define _FRC_RXCTRL_BUFCLEAR_MASK                          0x10UL                                          /**< Bit mask for FRC_BUFCLEAR                   */
@@ -933,11 +932,11 @@ typedef struct {
 #define _FRC_TRAILTXDATACTRL_TRAILTXDATAFORCE_SHIFT        11                                                    /**< Shift value for FRC_TRAILTXDATAFORCE        */
 #define _FRC_TRAILTXDATACTRL_TRAILTXDATAFORCE_MASK         0x800UL                                               /**< Bit mask for FRC_TRAILTXDATAFORCE           */
 #define _FRC_TRAILTXDATACTRL_TRAILTXDATAFORCE_DEFAULT      0x00000000UL                                          /**< Mode DEFAULT for FRC_TRAILTXDATACTRL        */
-#define _FRC_TRAILTXDATACTRL_TRAILTXDATAFORCE_X0           0x00000000UL                                          /**< Mode X0 for FRC_TRAILTXDATACTRL              */
-#define _FRC_TRAILTXDATACTRL_TRAILTXDATAFORCE_X1           0x00000001UL                                          /**< Mode X1 for FRC_TRAILTXDATACTRL              */
+#define _FRC_TRAILTXDATACTRL_TRAILTXDATAFORCE_X0           0x00000000UL                                          /**< Mode X0 for FRC_TRAILTXDATACTRL             */
+#define _FRC_TRAILTXDATACTRL_TRAILTXDATAFORCE_X1           0x00000001UL                                          /**< Mode X1 for FRC_TRAILTXDATACTRL             */
 #define FRC_TRAILTXDATACTRL_TRAILTXDATAFORCE_DEFAULT       (_FRC_TRAILTXDATACTRL_TRAILTXDATAFORCE_DEFAULT << 11) /**< Shifted mode DEFAULT for FRC_TRAILTXDATACTRL*/
-#define FRC_TRAILTXDATACTRL_TRAILTXDATAFORCE_X0            (_FRC_TRAILTXDATACTRL_TRAILTXDATAFORCE_X0 << 11)      /**< Shifted mode X0 for FRC_TRAILTXDATACTRL      */
-#define FRC_TRAILTXDATACTRL_TRAILTXDATAFORCE_X1            (_FRC_TRAILTXDATACTRL_TRAILTXDATAFORCE_X1 << 11)      /**< Shifted mode X1 for FRC_TRAILTXDATACTRL      */
+#define FRC_TRAILTXDATACTRL_TRAILTXDATAFORCE_X0            (_FRC_TRAILTXDATACTRL_TRAILTXDATAFORCE_X0 << 11)      /**< Shifted mode X0 for FRC_TRAILTXDATACTRL     */
+#define FRC_TRAILTXDATACTRL_TRAILTXDATAFORCE_X1            (_FRC_TRAILTXDATACTRL_TRAILTXDATAFORCE_X1 << 11)      /**< Shifted mode X1 for FRC_TRAILTXDATACTRL     */
 
 /* Bit fields for FRC TRAILRXDATA */
 #define _FRC_TRAILRXDATA_RESETVALUE                        0x00000000UL                                     /**< Default value for FRC_TRAILRXDATA           */
@@ -996,20 +995,20 @@ typedef struct {
 #define _FRC_CONVGENERATOR_RECURSIVE_SHIFT                 16                                               /**< Shift value for FRC_RECURSIVE               */
 #define _FRC_CONVGENERATOR_RECURSIVE_MASK                  0x10000UL                                        /**< Bit mask for FRC_RECURSIVE                  */
 #define _FRC_CONVGENERATOR_RECURSIVE_DEFAULT               0x00000000UL                                     /**< Mode DEFAULT for FRC_CONVGENERATOR          */
-#define _FRC_CONVGENERATOR_RECURSIVE_X0                    0x00000000UL                                     /**< Mode X0 for FRC_CONVGENERATOR                */
-#define _FRC_CONVGENERATOR_RECURSIVE_X1                    0x00000001UL                                     /**< Mode X1 for FRC_CONVGENERATOR                */
+#define _FRC_CONVGENERATOR_RECURSIVE_X0                    0x00000000UL                                     /**< Mode X0 for FRC_CONVGENERATOR               */
+#define _FRC_CONVGENERATOR_RECURSIVE_X1                    0x00000001UL                                     /**< Mode X1 for FRC_CONVGENERATOR               */
 #define FRC_CONVGENERATOR_RECURSIVE_DEFAULT                (_FRC_CONVGENERATOR_RECURSIVE_DEFAULT << 16)     /**< Shifted mode DEFAULT for FRC_CONVGENERATOR  */
-#define FRC_CONVGENERATOR_RECURSIVE_X0                     (_FRC_CONVGENERATOR_RECURSIVE_X0 << 16)          /**< Shifted mode X0 for FRC_CONVGENERATOR        */
-#define FRC_CONVGENERATOR_RECURSIVE_X1                     (_FRC_CONVGENERATOR_RECURSIVE_X1 << 16)          /**< Shifted mode X1 for FRC_CONVGENERATOR        */
+#define FRC_CONVGENERATOR_RECURSIVE_X0                     (_FRC_CONVGENERATOR_RECURSIVE_X0 << 16)          /**< Shifted mode X0 for FRC_CONVGENERATOR       */
+#define FRC_CONVGENERATOR_RECURSIVE_X1                     (_FRC_CONVGENERATOR_RECURSIVE_X1 << 16)          /**< Shifted mode X1 for FRC_CONVGENERATOR       */
 #define FRC_CONVGENERATOR_NONSYSTEMATIC                    (0x1UL << 17)                                    /**< Non systematic recursive code               */
 #define _FRC_CONVGENERATOR_NONSYSTEMATIC_SHIFT             17                                               /**< Shift value for FRC_NONSYSTEMATIC           */
 #define _FRC_CONVGENERATOR_NONSYSTEMATIC_MASK              0x20000UL                                        /**< Bit mask for FRC_NONSYSTEMATIC              */
 #define _FRC_CONVGENERATOR_NONSYSTEMATIC_DEFAULT           0x00000000UL                                     /**< Mode DEFAULT for FRC_CONVGENERATOR          */
-#define _FRC_CONVGENERATOR_NONSYSTEMATIC_X0                0x00000000UL                                     /**< Mode X0 for FRC_CONVGENERATOR                */
-#define _FRC_CONVGENERATOR_NONSYSTEMATIC_X1                0x00000001UL                                     /**< Mode X1 for FRC_CONVGENERATOR                */
+#define _FRC_CONVGENERATOR_NONSYSTEMATIC_X0                0x00000000UL                                     /**< Mode X0 for FRC_CONVGENERATOR               */
+#define _FRC_CONVGENERATOR_NONSYSTEMATIC_X1                0x00000001UL                                     /**< Mode X1 for FRC_CONVGENERATOR               */
 #define FRC_CONVGENERATOR_NONSYSTEMATIC_DEFAULT            (_FRC_CONVGENERATOR_NONSYSTEMATIC_DEFAULT << 17) /**< Shifted mode DEFAULT for FRC_CONVGENERATOR  */
-#define FRC_CONVGENERATOR_NONSYSTEMATIC_X0                 (_FRC_CONVGENERATOR_NONSYSTEMATIC_X0 << 17)      /**< Shifted mode X0 for FRC_CONVGENERATOR        */
-#define FRC_CONVGENERATOR_NONSYSTEMATIC_X1                 (_FRC_CONVGENERATOR_NONSYSTEMATIC_X1 << 17)      /**< Shifted mode X1 for FRC_CONVGENERATOR        */
+#define FRC_CONVGENERATOR_NONSYSTEMATIC_X0                 (_FRC_CONVGENERATOR_NONSYSTEMATIC_X0 << 17)      /**< Shifted mode X0 for FRC_CONVGENERATOR       */
+#define FRC_CONVGENERATOR_NONSYSTEMATIC_X1                 (_FRC_CONVGENERATOR_NONSYSTEMATIC_X1 << 17)      /**< Shifted mode X1 for FRC_CONVGENERATOR       */
 
 /* Bit fields for FRC PUNCTCTRL */
 #define _FRC_PUNCTCTRL_RESETVALUE                          0x00000101UL                         /**< Default value for FRC_PUNCTCTRL             */
@@ -1413,21 +1412,21 @@ typedef struct {
 #define _FRC_BUFFERMODE_TXBUFFERMODE_SHIFT                 0                                            /**< Shift value for FRC_TXBUFFERMODE            */
 #define _FRC_BUFFERMODE_TXBUFFERMODE_MASK                  0x1UL                                        /**< Bit mask for FRC_TXBUFFERMODE               */
 #define _FRC_BUFFERMODE_TXBUFFERMODE_DEFAULT               0x00000000UL                                 /**< Mode DEFAULT for FRC_BUFFERMODE             */
-#define _FRC_BUFFERMODE_TXBUFFERMODE_BUFC                  0x00000000UL                                 /**< Mode BUFC for FRC_BUFFERMODE                 */
-#define _FRC_BUFFERMODE_TXBUFFERMODE_REGISTER              0x00000001UL                                 /**< Mode REGISTER for FRC_BUFFERMODE             */
+#define _FRC_BUFFERMODE_TXBUFFERMODE_BUFC                  0x00000000UL                                 /**< Mode BUFC for FRC_BUFFERMODE                */
+#define _FRC_BUFFERMODE_TXBUFFERMODE_REGISTER              0x00000001UL                                 /**< Mode REGISTER for FRC_BUFFERMODE            */
 #define FRC_BUFFERMODE_TXBUFFERMODE_DEFAULT                (_FRC_BUFFERMODE_TXBUFFERMODE_DEFAULT << 0)  /**< Shifted mode DEFAULT for FRC_BUFFERMODE     */
-#define FRC_BUFFERMODE_TXBUFFERMODE_BUFC                   (_FRC_BUFFERMODE_TXBUFFERMODE_BUFC << 0)     /**< Shifted mode BUFC for FRC_BUFFERMODE         */
-#define FRC_BUFFERMODE_TXBUFFERMODE_REGISTER               (_FRC_BUFFERMODE_TXBUFFERMODE_REGISTER << 0) /**< Shifted mode REGISTER for FRC_BUFFERMODE     */
+#define FRC_BUFFERMODE_TXBUFFERMODE_BUFC                   (_FRC_BUFFERMODE_TXBUFFERMODE_BUFC << 0)     /**< Shifted mode BUFC for FRC_BUFFERMODE        */
+#define FRC_BUFFERMODE_TXBUFFERMODE_REGISTER               (_FRC_BUFFERMODE_TXBUFFERMODE_REGISTER << 0) /**< Shifted mode REGISTER for FRC_BUFFERMODE    */
 #define _FRC_BUFFERMODE_RXBUFFERMODE_SHIFT                 1                                            /**< Shift value for FRC_RXBUFFERMODE            */
 #define _FRC_BUFFERMODE_RXBUFFERMODE_MASK                  0x6UL                                        /**< Bit mask for FRC_RXBUFFERMODE               */
 #define _FRC_BUFFERMODE_RXBUFFERMODE_DEFAULT               0x00000000UL                                 /**< Mode DEFAULT for FRC_BUFFERMODE             */
-#define _FRC_BUFFERMODE_RXBUFFERMODE_BUFC                  0x00000000UL                                 /**< Mode BUFC for FRC_BUFFERMODE                 */
-#define _FRC_BUFFERMODE_RXBUFFERMODE_REGISTER              0x00000001UL                                 /**< Mode REGISTER for FRC_BUFFERMODE             */
-#define _FRC_BUFFERMODE_RXBUFFERMODE_DISABLE               0x00000002UL                                 /**< Mode DISABLE for FRC_BUFFERMODE              */
+#define _FRC_BUFFERMODE_RXBUFFERMODE_BUFC                  0x00000000UL                                 /**< Mode BUFC for FRC_BUFFERMODE                */
+#define _FRC_BUFFERMODE_RXBUFFERMODE_REGISTER              0x00000001UL                                 /**< Mode REGISTER for FRC_BUFFERMODE            */
+#define _FRC_BUFFERMODE_RXBUFFERMODE_DISABLE               0x00000002UL                                 /**< Mode DISABLE for FRC_BUFFERMODE             */
 #define FRC_BUFFERMODE_RXBUFFERMODE_DEFAULT                (_FRC_BUFFERMODE_RXBUFFERMODE_DEFAULT << 1)  /**< Shifted mode DEFAULT for FRC_BUFFERMODE     */
-#define FRC_BUFFERMODE_RXBUFFERMODE_BUFC                   (_FRC_BUFFERMODE_RXBUFFERMODE_BUFC << 1)     /**< Shifted mode BUFC for FRC_BUFFERMODE         */
-#define FRC_BUFFERMODE_RXBUFFERMODE_REGISTER               (_FRC_BUFFERMODE_RXBUFFERMODE_REGISTER << 1) /**< Shifted mode REGISTER for FRC_BUFFERMODE     */
-#define FRC_BUFFERMODE_RXBUFFERMODE_DISABLE                (_FRC_BUFFERMODE_RXBUFFERMODE_DISABLE << 1)  /**< Shifted mode DISABLE for FRC_BUFFERMODE      */
+#define FRC_BUFFERMODE_RXBUFFERMODE_BUFC                   (_FRC_BUFFERMODE_RXBUFFERMODE_BUFC << 1)     /**< Shifted mode BUFC for FRC_BUFFERMODE        */
+#define FRC_BUFFERMODE_RXBUFFERMODE_REGISTER               (_FRC_BUFFERMODE_RXBUFFERMODE_REGISTER << 1) /**< Shifted mode REGISTER for FRC_BUFFERMODE    */
+#define FRC_BUFFERMODE_RXBUFFERMODE_DISABLE                (_FRC_BUFFERMODE_RXBUFFERMODE_DISABLE << 1)  /**< Shifted mode DISABLE for FRC_BUFFERMODE     */
 #define FRC_BUFFERMODE_RXFRCBUFMUX                         (0x1UL << 3)                                 /**< RX FRC Buffer Mux                           */
 #define _FRC_BUFFERMODE_RXFRCBUFMUX_SHIFT                  3                                            /**< Shift value for FRC_RXFRCBUFMUX             */
 #define _FRC_BUFFERMODE_RXFRCBUFMUX_MASK                   0x8UL                                        /**< Bit mask for FRC_RXFRCBUFMUX                */
@@ -1440,22 +1439,22 @@ typedef struct {
 #define _FRC_SNIFFCTRL_SNIFFMODE_SHIFT                     0                                            /**< Shift value for FRC_SNIFFMODE               */
 #define _FRC_SNIFFCTRL_SNIFFMODE_MASK                      0x3UL                                        /**< Bit mask for FRC_SNIFFMODE                  */
 #define _FRC_SNIFFCTRL_SNIFFMODE_DEFAULT                   0x00000000UL                                 /**< Mode DEFAULT for FRC_SNIFFCTRL              */
-#define _FRC_SNIFFCTRL_SNIFFMODE_OFF                       0x00000000UL                                 /**< Mode OFF for FRC_SNIFFCTRL                   */
-#define _FRC_SNIFFCTRL_SNIFFMODE_UART                      0x00000001UL                                 /**< Mode UART for FRC_SNIFFCTRL                  */
-#define _FRC_SNIFFCTRL_SNIFFMODE_SPI                       0x00000002UL                                 /**< Mode SPI for FRC_SNIFFCTRL                   */
+#define _FRC_SNIFFCTRL_SNIFFMODE_OFF                       0x00000000UL                                 /**< Mode OFF for FRC_SNIFFCTRL                  */
+#define _FRC_SNIFFCTRL_SNIFFMODE_UART                      0x00000001UL                                 /**< Mode UART for FRC_SNIFFCTRL                 */
+#define _FRC_SNIFFCTRL_SNIFFMODE_SPI                       0x00000002UL                                 /**< Mode SPI for FRC_SNIFFCTRL                  */
 #define FRC_SNIFFCTRL_SNIFFMODE_DEFAULT                    (_FRC_SNIFFCTRL_SNIFFMODE_DEFAULT << 0)      /**< Shifted mode DEFAULT for FRC_SNIFFCTRL      */
-#define FRC_SNIFFCTRL_SNIFFMODE_OFF                        (_FRC_SNIFFCTRL_SNIFFMODE_OFF << 0)          /**< Shifted mode OFF for FRC_SNIFFCTRL           */
-#define FRC_SNIFFCTRL_SNIFFMODE_UART                       (_FRC_SNIFFCTRL_SNIFFMODE_UART << 0)         /**< Shifted mode UART for FRC_SNIFFCTRL          */
-#define FRC_SNIFFCTRL_SNIFFMODE_SPI                        (_FRC_SNIFFCTRL_SNIFFMODE_SPI << 0)          /**< Shifted mode SPI for FRC_SNIFFCTRL           */
+#define FRC_SNIFFCTRL_SNIFFMODE_OFF                        (_FRC_SNIFFCTRL_SNIFFMODE_OFF << 0)          /**< Shifted mode OFF for FRC_SNIFFCTRL          */
+#define FRC_SNIFFCTRL_SNIFFMODE_UART                       (_FRC_SNIFFCTRL_SNIFFMODE_UART << 0)         /**< Shifted mode UART for FRC_SNIFFCTRL         */
+#define FRC_SNIFFCTRL_SNIFFMODE_SPI                        (_FRC_SNIFFCTRL_SNIFFMODE_SPI << 0)          /**< Shifted mode SPI for FRC_SNIFFCTRL          */
 #define FRC_SNIFFCTRL_SNIFFBITS                            (0x1UL << 2)                                 /**< Data sniff data bits                        */
 #define _FRC_SNIFFCTRL_SNIFFBITS_SHIFT                     2                                            /**< Shift value for FRC_SNIFFBITS               */
 #define _FRC_SNIFFCTRL_SNIFFBITS_MASK                      0x4UL                                        /**< Bit mask for FRC_SNIFFBITS                  */
 #define _FRC_SNIFFCTRL_SNIFFBITS_DEFAULT                   0x00000001UL                                 /**< Mode DEFAULT for FRC_SNIFFCTRL              */
-#define _FRC_SNIFFCTRL_SNIFFBITS_EIGHT                     0x00000000UL                                 /**< Mode EIGHT for FRC_SNIFFCTRL                 */
-#define _FRC_SNIFFCTRL_SNIFFBITS_NINE                      0x00000001UL                                 /**< Mode NINE for FRC_SNIFFCTRL                  */
+#define _FRC_SNIFFCTRL_SNIFFBITS_EIGHT                     0x00000000UL                                 /**< Mode EIGHT for FRC_SNIFFCTRL                */
+#define _FRC_SNIFFCTRL_SNIFFBITS_NINE                      0x00000001UL                                 /**< Mode NINE for FRC_SNIFFCTRL                 */
 #define FRC_SNIFFCTRL_SNIFFBITS_DEFAULT                    (_FRC_SNIFFCTRL_SNIFFBITS_DEFAULT << 2)      /**< Shifted mode DEFAULT for FRC_SNIFFCTRL      */
-#define FRC_SNIFFCTRL_SNIFFBITS_EIGHT                      (_FRC_SNIFFCTRL_SNIFFBITS_EIGHT << 2)        /**< Shifted mode EIGHT for FRC_SNIFFCTRL         */
-#define FRC_SNIFFCTRL_SNIFFBITS_NINE                       (_FRC_SNIFFCTRL_SNIFFBITS_NINE << 2)         /**< Shifted mode NINE for FRC_SNIFFCTRL          */
+#define FRC_SNIFFCTRL_SNIFFBITS_EIGHT                      (_FRC_SNIFFCTRL_SNIFFBITS_EIGHT << 2)        /**< Shifted mode EIGHT for FRC_SNIFFCTRL        */
+#define FRC_SNIFFCTRL_SNIFFBITS_NINE                       (_FRC_SNIFFCTRL_SNIFFBITS_NINE << 2)         /**< Shifted mode NINE for FRC_SNIFFCTRL         */
 #define FRC_SNIFFCTRL_SNIFFRXDATA                          (0x1UL << 3)                                 /**< Enable sniffing of received data.           */
 #define _FRC_SNIFFCTRL_SNIFFRXDATA_SHIFT                   3                                            /**< Shift value for FRC_SNIFFRXDATA             */
 #define _FRC_SNIFFCTRL_SNIFFRXDATA_MASK                    0x8UL                                        /**< Bit mask for FRC_SNIFFRXDATA                */
@@ -1505,27 +1504,27 @@ typedef struct {
 #define _FRC_RAWCTRL_TXRAWMODE_SHIFT                       0                                                     /**< Shift value for FRC_TXRAWMODE               */
 #define _FRC_RAWCTRL_TXRAWMODE_MASK                        0x3UL                                                 /**< Bit mask for FRC_TXRAWMODE                  */
 #define _FRC_RAWCTRL_TXRAWMODE_DEFAULT                     0x00000000UL                                          /**< Mode DEFAULT for FRC_RAWCTRL                */
-#define _FRC_RAWCTRL_TXRAWMODE_DISABLE                     0x00000000UL                                          /**< Mode DISABLE for FRC_RAWCTRL                 */
-#define _FRC_RAWCTRL_TXRAWMODE_SINGLEBUFFER                0x00000001UL                                          /**< Mode SINGLEBUFFER for FRC_RAWCTRL            */
-#define _FRC_RAWCTRL_TXRAWMODE_REPEATBUFFER                0x00000002UL                                          /**< Mode REPEATBUFFER for FRC_RAWCTRL            */
+#define _FRC_RAWCTRL_TXRAWMODE_DISABLE                     0x00000000UL                                          /**< Mode DISABLE for FRC_RAWCTRL                */
+#define _FRC_RAWCTRL_TXRAWMODE_SINGLEBUFFER                0x00000001UL                                          /**< Mode SINGLEBUFFER for FRC_RAWCTRL           */
+#define _FRC_RAWCTRL_TXRAWMODE_REPEATBUFFER                0x00000002UL                                          /**< Mode REPEATBUFFER for FRC_RAWCTRL           */
 #define FRC_RAWCTRL_TXRAWMODE_DEFAULT                      (_FRC_RAWCTRL_TXRAWMODE_DEFAULT << 0)                 /**< Shifted mode DEFAULT for FRC_RAWCTRL        */
-#define FRC_RAWCTRL_TXRAWMODE_DISABLE                      (_FRC_RAWCTRL_TXRAWMODE_DISABLE << 0)                 /**< Shifted mode DISABLE for FRC_RAWCTRL         */
-#define FRC_RAWCTRL_TXRAWMODE_SINGLEBUFFER                 (_FRC_RAWCTRL_TXRAWMODE_SINGLEBUFFER << 0)            /**< Shifted mode SINGLEBUFFER for FRC_RAWCTRL    */
-#define FRC_RAWCTRL_TXRAWMODE_REPEATBUFFER                 (_FRC_RAWCTRL_TXRAWMODE_REPEATBUFFER << 0)            /**< Shifted mode REPEATBUFFER for FRC_RAWCTRL    */
+#define FRC_RAWCTRL_TXRAWMODE_DISABLE                      (_FRC_RAWCTRL_TXRAWMODE_DISABLE << 0)                 /**< Shifted mode DISABLE for FRC_RAWCTRL        */
+#define FRC_RAWCTRL_TXRAWMODE_SINGLEBUFFER                 (_FRC_RAWCTRL_TXRAWMODE_SINGLEBUFFER << 0)            /**< Shifted mode SINGLEBUFFER for FRC_RAWCTRL   */
+#define FRC_RAWCTRL_TXRAWMODE_REPEATBUFFER                 (_FRC_RAWCTRL_TXRAWMODE_REPEATBUFFER << 0)            /**< Shifted mode REPEATBUFFER for FRC_RAWCTRL   */
 #define _FRC_RAWCTRL_RXRAWMODE_SHIFT                       2                                                     /**< Shift value for FRC_RXRAWMODE               */
 #define _FRC_RAWCTRL_RXRAWMODE_MASK                        0x1CUL                                                /**< Bit mask for FRC_RXRAWMODE                  */
 #define _FRC_RAWCTRL_RXRAWMODE_DEFAULT                     0x00000000UL                                          /**< Mode DEFAULT for FRC_RAWCTRL                */
-#define _FRC_RAWCTRL_RXRAWMODE_DISABLE                     0x00000000UL                                          /**< Mode DISABLE for FRC_RAWCTRL                 */
-#define _FRC_RAWCTRL_RXRAWMODE_SINGLEITEM                  0x00000001UL                                          /**< Mode SINGLEITEM for FRC_RAWCTRL              */
-#define _FRC_RAWCTRL_RXRAWMODE_SINGLEBUFFER                0x00000002UL                                          /**< Mode SINGLEBUFFER for FRC_RAWCTRL            */
-#define _FRC_RAWCTRL_RXRAWMODE_SINGLEBUFFERFRAME           0x00000003UL                                          /**< Mode SINGLEBUFFERFRAME for FRC_RAWCTRL       */
-#define _FRC_RAWCTRL_RXRAWMODE_REPEATBUFFER                0x00000004UL                                          /**< Mode REPEATBUFFER for FRC_RAWCTRL            */
+#define _FRC_RAWCTRL_RXRAWMODE_DISABLE                     0x00000000UL                                          /**< Mode DISABLE for FRC_RAWCTRL                */
+#define _FRC_RAWCTRL_RXRAWMODE_SINGLEITEM                  0x00000001UL                                          /**< Mode SINGLEITEM for FRC_RAWCTRL             */
+#define _FRC_RAWCTRL_RXRAWMODE_SINGLEBUFFER                0x00000002UL                                          /**< Mode SINGLEBUFFER for FRC_RAWCTRL           */
+#define _FRC_RAWCTRL_RXRAWMODE_SINGLEBUFFERFRAME           0x00000003UL                                          /**< Mode SINGLEBUFFERFRAME for FRC_RAWCTRL      */
+#define _FRC_RAWCTRL_RXRAWMODE_REPEATBUFFER                0x00000004UL                                          /**< Mode REPEATBUFFER for FRC_RAWCTRL           */
 #define FRC_RAWCTRL_RXRAWMODE_DEFAULT                      (_FRC_RAWCTRL_RXRAWMODE_DEFAULT << 2)                 /**< Shifted mode DEFAULT for FRC_RAWCTRL        */
-#define FRC_RAWCTRL_RXRAWMODE_DISABLE                      (_FRC_RAWCTRL_RXRAWMODE_DISABLE << 2)                 /**< Shifted mode DISABLE for FRC_RAWCTRL         */
-#define FRC_RAWCTRL_RXRAWMODE_SINGLEITEM                   (_FRC_RAWCTRL_RXRAWMODE_SINGLEITEM << 2)              /**< Shifted mode SINGLEITEM for FRC_RAWCTRL      */
-#define FRC_RAWCTRL_RXRAWMODE_SINGLEBUFFER                 (_FRC_RAWCTRL_RXRAWMODE_SINGLEBUFFER << 2)            /**< Shifted mode SINGLEBUFFER for FRC_RAWCTRL    */
+#define FRC_RAWCTRL_RXRAWMODE_DISABLE                      (_FRC_RAWCTRL_RXRAWMODE_DISABLE << 2)                 /**< Shifted mode DISABLE for FRC_RAWCTRL        */
+#define FRC_RAWCTRL_RXRAWMODE_SINGLEITEM                   (_FRC_RAWCTRL_RXRAWMODE_SINGLEITEM << 2)              /**< Shifted mode SINGLEITEM for FRC_RAWCTRL     */
+#define FRC_RAWCTRL_RXRAWMODE_SINGLEBUFFER                 (_FRC_RAWCTRL_RXRAWMODE_SINGLEBUFFER << 2)            /**< Shifted mode SINGLEBUFFER for FRC_RAWCTRL   */
 #define FRC_RAWCTRL_RXRAWMODE_SINGLEBUFFERFRAME            (_FRC_RAWCTRL_RXRAWMODE_SINGLEBUFFERFRAME << 2)       /**< Shifted mode SINGLEBUFFERFRAME for FRC_RAWCTRL*/
-#define FRC_RAWCTRL_RXRAWMODE_REPEATBUFFER                 (_FRC_RAWCTRL_RXRAWMODE_REPEATBUFFER << 2)            /**< Shifted mode REPEATBUFFER for FRC_RAWCTRL    */
+#define FRC_RAWCTRL_RXRAWMODE_REPEATBUFFER                 (_FRC_RAWCTRL_RXRAWMODE_REPEATBUFFER << 2)            /**< Shifted mode REPEATBUFFER for FRC_RAWCTRL   */
 #define FRC_RAWCTRL_RXRAWRANDOM                            (0x1UL << 5)                                          /**< Receive raw data random number generator    */
 #define _FRC_RAWCTRL_RXRAWRANDOM_SHIFT                     5                                                     /**< Shift value for FRC_RXRAWRANDOM             */
 #define _FRC_RAWCTRL_RXRAWRANDOM_MASK                      0x20UL                                                /**< Bit mask for FRC_RXRAWRANDOM                */
@@ -1535,19 +1534,19 @@ typedef struct {
 #define _FRC_RAWCTRL_RXRAWTRIGGER_SHIFT                    7                                                     /**< Shift value for FRC_RXRAWTRIGGER            */
 #define _FRC_RAWCTRL_RXRAWTRIGGER_MASK                     0x80UL                                                /**< Bit mask for FRC_RXRAWTRIGGER               */
 #define _FRC_RAWCTRL_RXRAWTRIGGER_DEFAULT                  0x00000000UL                                          /**< Mode DEFAULT for FRC_RAWCTRL                */
-#define _FRC_RAWCTRL_RXRAWTRIGGER_IMMEDIATE                0x00000000UL                                          /**< Mode IMMEDIATE for FRC_RAWCTRL               */
-#define _FRC_RAWCTRL_RXRAWTRIGGER_PRS                      0x00000001UL                                          /**< Mode PRS for FRC_RAWCTRL                     */
+#define _FRC_RAWCTRL_RXRAWTRIGGER_IMMEDIATE                0x00000000UL                                          /**< Mode IMMEDIATE for FRC_RAWCTRL              */
+#define _FRC_RAWCTRL_RXRAWTRIGGER_PRS                      0x00000001UL                                          /**< Mode PRS for FRC_RAWCTRL                    */
 #define FRC_RAWCTRL_RXRAWTRIGGER_DEFAULT                   (_FRC_RAWCTRL_RXRAWTRIGGER_DEFAULT << 7)              /**< Shifted mode DEFAULT for FRC_RAWCTRL        */
-#define FRC_RAWCTRL_RXRAWTRIGGER_IMMEDIATE                 (_FRC_RAWCTRL_RXRAWTRIGGER_IMMEDIATE << 7)            /**< Shifted mode IMMEDIATE for FRC_RAWCTRL       */
-#define FRC_RAWCTRL_RXRAWTRIGGER_PRS                       (_FRC_RAWCTRL_RXRAWTRIGGER_PRS << 7)                  /**< Shifted mode PRS for FRC_RAWCTRL             */
+#define FRC_RAWCTRL_RXRAWTRIGGER_IMMEDIATE                 (_FRC_RAWCTRL_RXRAWTRIGGER_IMMEDIATE << 7)            /**< Shifted mode IMMEDIATE for FRC_RAWCTRL      */
+#define FRC_RAWCTRL_RXRAWTRIGGER_PRS                       (_FRC_RAWCTRL_RXRAWTRIGGER_PRS << 7)                  /**< Shifted mode PRS for FRC_RAWCTRL            */
 #define FRC_RAWCTRL_DEMODRAWDATAMUX                        (0x1UL << 13)                                         /**< Raw data mux control                        */
 #define _FRC_RAWCTRL_DEMODRAWDATAMUX_SHIFT                 13                                                    /**< Shift value for FRC_DEMODRAWDATAMUX         */
 #define _FRC_RAWCTRL_DEMODRAWDATAMUX_MASK                  0x2000UL                                              /**< Bit mask for FRC_DEMODRAWDATAMUX            */
 #define _FRC_RAWCTRL_DEMODRAWDATAMUX_DEFAULT               0x00000000UL                                          /**< Mode DEFAULT for FRC_RAWCTRL                */
-#define _FRC_RAWCTRL_DEMODRAWDATAMUX_DEMODRAWDATASEL       0x00000000UL                                          /**< Mode DEMODRAWDATASEL for FRC_RAWCTRL         */
-#define _FRC_RAWCTRL_DEMODRAWDATAMUX_DEMODRAWDATASEL2      0x00000001UL                                          /**< Mode DEMODRAWDATASEL2 for FRC_RAWCTRL        */
+#define _FRC_RAWCTRL_DEMODRAWDATAMUX_DEMODRAWDATASEL       0x00000000UL                                          /**< Mode DEMODRAWDATASEL for FRC_RAWCTRL        */
+#define _FRC_RAWCTRL_DEMODRAWDATAMUX_DEMODRAWDATASEL2      0x00000001UL                                          /**< Mode DEMODRAWDATASEL2 for FRC_RAWCTRL       */
 #define FRC_RAWCTRL_DEMODRAWDATAMUX_DEFAULT                (_FRC_RAWCTRL_DEMODRAWDATAMUX_DEFAULT << 13)          /**< Shifted mode DEFAULT for FRC_RAWCTRL        */
-#define FRC_RAWCTRL_DEMODRAWDATAMUX_DEMODRAWDATASEL        (_FRC_RAWCTRL_DEMODRAWDATAMUX_DEMODRAWDATASEL << 13)  /**< Shifted mode DEMODRAWDATASEL for FRC_RAWCTRL */
+#define FRC_RAWCTRL_DEMODRAWDATAMUX_DEMODRAWDATASEL        (_FRC_RAWCTRL_DEMODRAWDATAMUX_DEMODRAWDATASEL << 13)  /**< Shifted mode DEMODRAWDATASEL for FRC_RAWCTRL*/
 #define FRC_RAWCTRL_DEMODRAWDATAMUX_DEMODRAWDATASEL2       (_FRC_RAWCTRL_DEMODRAWDATAMUX_DEMODRAWDATASEL2 << 13) /**< Shifted mode DEMODRAWDATASEL2 for FRC_RAWCTRL*/
 
 /* Bit fields for FRC RXRAWDATA */

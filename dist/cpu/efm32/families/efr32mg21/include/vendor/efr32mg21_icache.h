@@ -1,10 +1,9 @@
 /**************************************************************************//**
  * @file
  * @brief EFR32MG21 ICACHE register and bit field definitions
- * @version 5.7.0
  ******************************************************************************
  * # License
- * <b>Copyright 2018 Silicon Laboratories, Inc. www.silabs.com</b>
+ * <b>Copyright 2020 Silicon Laboratories, Inc. www.silabs.com</b>
  ******************************************************************************
  *
  * SPDX-License-Identifier: Zlib
@@ -59,7 +58,7 @@ typedef struct {
   __IOM uint32_t LPMODE;                        /**< Low Power Mode                                     */
   __IOM uint32_t IF;                            /**< Interrupt Flag                                     */
   __IOM uint32_t IEN;                           /**< Interrupt Enable                                   */
-  uint32_t       RESERVED0[1014U];              /**< Reserved for future use*/
+  uint32_t       RESERVED0[1014U];              /**< Reserved for future use                            */
   __IM uint32_t  IPVERSION_SET;                 /**< IP Version                                         */
   __IOM uint32_t CTRL_SET;                      /**< Control Register                                   */
   __IM uint32_t  PCHITS_SET;                    /**< Performance Counter Hits                           */
@@ -70,7 +69,7 @@ typedef struct {
   __IOM uint32_t LPMODE_SET;                    /**< Low Power Mode                                     */
   __IOM uint32_t IF_SET;                        /**< Interrupt Flag                                     */
   __IOM uint32_t IEN_SET;                       /**< Interrupt Enable                                   */
-  uint32_t       RESERVED1[1014U];              /**< Reserved for future use*/
+  uint32_t       RESERVED1[1014U];              /**< Reserved for future use                            */
   __IM uint32_t  IPVERSION_CLR;                 /**< IP Version                                         */
   __IOM uint32_t CTRL_CLR;                      /**< Control Register                                   */
   __IM uint32_t  PCHITS_CLR;                    /**< Performance Counter Hits                           */
@@ -81,7 +80,7 @@ typedef struct {
   __IOM uint32_t LPMODE_CLR;                    /**< Low Power Mode                                     */
   __IOM uint32_t IF_CLR;                        /**< Interrupt Flag                                     */
   __IOM uint32_t IEN_CLR;                       /**< Interrupt Enable                                   */
-  uint32_t       RESERVED2[1014U];              /**< Reserved for future use*/
+  uint32_t       RESERVED2[1014U];              /**< Reserved for future use                            */
   __IM uint32_t  IPVERSION_TGL;                 /**< IP Version                                         */
   __IOM uint32_t CTRL_TGL;                      /**< Control Register                                   */
   __IM uint32_t  PCHITS_TGL;                    /**< Performance Counter Hits                           */
@@ -187,13 +186,13 @@ typedef struct {
 #define _ICACHE_LPMODE_LPLEVEL_SHIFT           0                                         /**< Shift value for ICACHE_LPLEVEL              */
 #define _ICACHE_LPMODE_LPLEVEL_MASK            0x3UL                                     /**< Bit mask for ICACHE_LPLEVEL                 */
 #define _ICACHE_LPMODE_LPLEVEL_DEFAULT         0x00000003UL                              /**< Mode DEFAULT for ICACHE_LPMODE              */
-#define _ICACHE_LPMODE_LPLEVEL_BASIC           0x00000000UL                              /**< Mode BASIC for ICACHE_LPMODE                 */
-#define _ICACHE_LPMODE_LPLEVEL_ADVANCED        0x00000001UL                              /**< Mode ADVANCED for ICACHE_LPMODE              */
-#define _ICACHE_LPMODE_LPLEVEL_MINACTIVITY     0x00000003UL                              /**< Mode MINACTIVITY for ICACHE_LPMODE           */
+#define _ICACHE_LPMODE_LPLEVEL_BASIC           0x00000000UL                              /**< Mode BASIC for ICACHE_LPMODE                */
+#define _ICACHE_LPMODE_LPLEVEL_ADVANCED        0x00000001UL                              /**< Mode ADVANCED for ICACHE_LPMODE             */
+#define _ICACHE_LPMODE_LPLEVEL_MINACTIVITY     0x00000003UL                              /**< Mode MINACTIVITY for ICACHE_LPMODE          */
 #define ICACHE_LPMODE_LPLEVEL_DEFAULT          (_ICACHE_LPMODE_LPLEVEL_DEFAULT << 0)     /**< Shifted mode DEFAULT for ICACHE_LPMODE      */
-#define ICACHE_LPMODE_LPLEVEL_BASIC            (_ICACHE_LPMODE_LPLEVEL_BASIC << 0)       /**< Shifted mode BASIC for ICACHE_LPMODE         */
-#define ICACHE_LPMODE_LPLEVEL_ADVANCED         (_ICACHE_LPMODE_LPLEVEL_ADVANCED << 0)    /**< Shifted mode ADVANCED for ICACHE_LPMODE      */
-#define ICACHE_LPMODE_LPLEVEL_MINACTIVITY      (_ICACHE_LPMODE_LPLEVEL_MINACTIVITY << 0) /**< Shifted mode MINACTIVITY for ICACHE_LPMODE   */
+#define ICACHE_LPMODE_LPLEVEL_BASIC            (_ICACHE_LPMODE_LPLEVEL_BASIC << 0)       /**< Shifted mode BASIC for ICACHE_LPMODE        */
+#define ICACHE_LPMODE_LPLEVEL_ADVANCED         (_ICACHE_LPMODE_LPLEVEL_ADVANCED << 0)    /**< Shifted mode ADVANCED for ICACHE_LPMODE     */
+#define ICACHE_LPMODE_LPLEVEL_MINACTIVITY      (_ICACHE_LPMODE_LPLEVEL_MINACTIVITY << 0) /**< Shifted mode MINACTIVITY for ICACHE_LPMODE  */
 #define _ICACHE_LPMODE_NESTFACTOR_SHIFT        4                                         /**< Shift value for ICACHE_NESTFACTOR           */
 #define _ICACHE_LPMODE_NESTFACTOR_MASK         0xF0UL                                    /**< Bit mask for ICACHE_NESTFACTOR              */
 #define _ICACHE_LPMODE_NESTFACTOR_DEFAULT      0x00000002UL                              /**< Mode DEFAULT for ICACHE_LPMODE              */
