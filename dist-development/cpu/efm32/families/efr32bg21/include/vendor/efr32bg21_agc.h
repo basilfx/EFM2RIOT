@@ -1,10 +1,9 @@
 /**************************************************************************//**
  * @file
  * @brief EFR32BG21 AGC register and bit field definitions
- * @version 5.7.0
  ******************************************************************************
  * # License
- * <b>Copyright 2018 Silicon Laboratories, Inc. www.silabs.com</b>
+ * <b>Copyright 2020 Silicon Laboratories, Inc. www.silabs.com</b>
  ******************************************************************************
  *
  * SPDX-License-Identifier: Zlib
@@ -52,25 +51,25 @@ typedef struct {
   __IM uint32_t  IPVERSION;                     /**< IP Version                                         */
   __IOM uint32_t EN;                            /**< Enable peripheral clock to this module             */
   __IOM uint32_t STATUS0;                       /**< Status register 0                                  */
-  uint32_t       RESERVED0[1U];                 /**< Reserved for future use                      */
+  uint32_t       RESERVED0[1U];                 /**< Reserved for future use                            */
   __IM uint32_t  RSSI;                          /**< Received Signal Strength Indicator                 */
   __IM uint32_t  FRAMERSSI;                     /**< FRAME RSSI value                                   */
-  uint32_t       RESERVED1[1U];                 /**< Reserved for future use                      */
+  uint32_t       RESERVED1[1U];                 /**< Reserved for future use                            */
   __IOM uint32_t CTRL0;                         /**< Control register 0                                 */
   __IOM uint32_t CTRL1;                         /**< Control register 1                                 */
   __IOM uint32_t CTRL2;                         /**< Control register 2                                 */
   __IOM uint32_t CTRL3;                         /**< Control register 3                                 */
   __IOM uint32_t RSSISTEPTHR;                   /**< RSSI step threshold                                */
-  uint32_t       RESERVED2[2U];                 /**< Reserved for future use                      */
+  uint32_t       RESERVED2[2U];                 /**< Reserved for future use                            */
   __IOM uint32_t IF;                            /**< Interrupt Flags Register                           */
-  uint32_t       RESERVED3[2U];                 /**< Reserved for future use                      */
+  uint32_t       RESERVED3[2U];                 /**< Reserved for future use                            */
   __IOM uint32_t IEN;                           /**< Interrupt Enable Register                          */
-  uint32_t       RESERVED4[2U];                 /**< Reserved for future use                      */
+  uint32_t       RESERVED4[2U];                 /**< Reserved for future use                            */
   __IOM uint32_t GAINRANGE;                     /**< Range of RX Gain to use in AGC                     */
   __IOM uint32_t AGCPERIOD;                     /**< AGC period                                         */
   __IOM uint32_t HICNTREGION;                   /**< Hi-counter region                                  */
   __IOM uint32_t STEPDWN;                       /**< Hi-counter region-2                                */
-  uint32_t       RESERVED5[1U];                 /**< Reserved for future use                      */
+  uint32_t       RESERVED5[1U];                 /**< Reserved for future use                            */
   __IOM uint32_t GAINSTEPLIM;                   /**< Limits for Gain Steps                              */
   __IOM uint32_t PNRFATT0;                      /**< PN RF attenuation code group 0                     */
   __IOM uint32_t PNRFATT1;                      /**< PN RF attenuation code group 1                     */
@@ -79,32 +78,32 @@ typedef struct {
   __IOM uint32_t LNAMIXCODE1;                   /**< LNA/MIX slice code group 1                         */
   __IOM uint32_t PGACODE0;                      /**< PGA gain code group 0                              */
   __IOM uint32_t PGACODE1;                      /**< PGA gain code group 1                              */
-  uint32_t       RESERVED6[1U];                 /**< Reserved for future use                      */
+  uint32_t       RESERVED6[1U];                 /**< Reserved for future use                            */
   __IOM uint32_t LBT;                           /**< Configure AGC for (ETSI) LBT                       */
   __IOM uint32_t MIRRORIF;                      /**< Mirror Interrupt Flags Register                    */
-  uint32_t       RESERVED7[988U];               /**< Reserved for future use*/
+  uint32_t       RESERVED7[988U];               /**< Reserved for future use                            */
   __IM uint32_t  IPVERSION_SET;                 /**< IP Version                                         */
   __IOM uint32_t EN_SET;                        /**< Enable peripheral clock to this module             */
   __IOM uint32_t STATUS0_SET;                   /**< Status register 0                                  */
-  uint32_t       RESERVED8[1U];                 /**< Reserved for future use                      */
+  uint32_t       RESERVED8[1U];                 /**< Reserved for future use                            */
   __IM uint32_t  RSSI_SET;                      /**< Received Signal Strength Indicator                 */
   __IM uint32_t  FRAMERSSI_SET;                 /**< FRAME RSSI value                                   */
-  uint32_t       RESERVED9[1U];                 /**< Reserved for future use                      */
+  uint32_t       RESERVED9[1U];                 /**< Reserved for future use                            */
   __IOM uint32_t CTRL0_SET;                     /**< Control register 0                                 */
   __IOM uint32_t CTRL1_SET;                     /**< Control register 1                                 */
   __IOM uint32_t CTRL2_SET;                     /**< Control register 2                                 */
   __IOM uint32_t CTRL3_SET;                     /**< Control register 3                                 */
   __IOM uint32_t RSSISTEPTHR_SET;               /**< RSSI step threshold                                */
-  uint32_t       RESERVED10[2U];                /**< Reserved for future use                      */
+  uint32_t       RESERVED10[2U];                /**< Reserved for future use                            */
   __IOM uint32_t IF_SET;                        /**< Interrupt Flags Register                           */
-  uint32_t       RESERVED11[2U];                /**< Reserved for future use                      */
+  uint32_t       RESERVED11[2U];                /**< Reserved for future use                            */
   __IOM uint32_t IEN_SET;                       /**< Interrupt Enable Register                          */
-  uint32_t       RESERVED12[2U];                /**< Reserved for future use                      */
+  uint32_t       RESERVED12[2U];                /**< Reserved for future use                            */
   __IOM uint32_t GAINRANGE_SET;                 /**< Range of RX Gain to use in AGC                     */
   __IOM uint32_t AGCPERIOD_SET;                 /**< AGC period                                         */
   __IOM uint32_t HICNTREGION_SET;               /**< Hi-counter region                                  */
   __IOM uint32_t STEPDWN_SET;                   /**< Hi-counter region-2                                */
-  uint32_t       RESERVED13[1U];                /**< Reserved for future use                      */
+  uint32_t       RESERVED13[1U];                /**< Reserved for future use                            */
   __IOM uint32_t GAINSTEPLIM_SET;               /**< Limits for Gain Steps                              */
   __IOM uint32_t PNRFATT0_SET;                  /**< PN RF attenuation code group 0                     */
   __IOM uint32_t PNRFATT1_SET;                  /**< PN RF attenuation code group 1                     */
@@ -113,32 +112,32 @@ typedef struct {
   __IOM uint32_t LNAMIXCODE1_SET;               /**< LNA/MIX slice code group 1                         */
   __IOM uint32_t PGACODE0_SET;                  /**< PGA gain code group 0                              */
   __IOM uint32_t PGACODE1_SET;                  /**< PGA gain code group 1                              */
-  uint32_t       RESERVED14[1U];                /**< Reserved for future use                      */
+  uint32_t       RESERVED14[1U];                /**< Reserved for future use                            */
   __IOM uint32_t LBT_SET;                       /**< Configure AGC for (ETSI) LBT                       */
   __IOM uint32_t MIRRORIF_SET;                  /**< Mirror Interrupt Flags Register                    */
-  uint32_t       RESERVED15[988U];              /**< Reserved for future use*/
+  uint32_t       RESERVED15[988U];              /**< Reserved for future use                            */
   __IM uint32_t  IPVERSION_CLR;                 /**< IP Version                                         */
   __IOM uint32_t EN_CLR;                        /**< Enable peripheral clock to this module             */
   __IOM uint32_t STATUS0_CLR;                   /**< Status register 0                                  */
-  uint32_t       RESERVED16[1U];                /**< Reserved for future use                      */
+  uint32_t       RESERVED16[1U];                /**< Reserved for future use                            */
   __IM uint32_t  RSSI_CLR;                      /**< Received Signal Strength Indicator                 */
   __IM uint32_t  FRAMERSSI_CLR;                 /**< FRAME RSSI value                                   */
-  uint32_t       RESERVED17[1U];                /**< Reserved for future use                      */
+  uint32_t       RESERVED17[1U];                /**< Reserved for future use                            */
   __IOM uint32_t CTRL0_CLR;                     /**< Control register 0                                 */
   __IOM uint32_t CTRL1_CLR;                     /**< Control register 1                                 */
   __IOM uint32_t CTRL2_CLR;                     /**< Control register 2                                 */
   __IOM uint32_t CTRL3_CLR;                     /**< Control register 3                                 */
   __IOM uint32_t RSSISTEPTHR_CLR;               /**< RSSI step threshold                                */
-  uint32_t       RESERVED18[2U];                /**< Reserved for future use                      */
+  uint32_t       RESERVED18[2U];                /**< Reserved for future use                            */
   __IOM uint32_t IF_CLR;                        /**< Interrupt Flags Register                           */
-  uint32_t       RESERVED19[2U];                /**< Reserved for future use                      */
+  uint32_t       RESERVED19[2U];                /**< Reserved for future use                            */
   __IOM uint32_t IEN_CLR;                       /**< Interrupt Enable Register                          */
-  uint32_t       RESERVED20[2U];                /**< Reserved for future use                      */
+  uint32_t       RESERVED20[2U];                /**< Reserved for future use                            */
   __IOM uint32_t GAINRANGE_CLR;                 /**< Range of RX Gain to use in AGC                     */
   __IOM uint32_t AGCPERIOD_CLR;                 /**< AGC period                                         */
   __IOM uint32_t HICNTREGION_CLR;               /**< Hi-counter region                                  */
   __IOM uint32_t STEPDWN_CLR;                   /**< Hi-counter region-2                                */
-  uint32_t       RESERVED21[1U];                /**< Reserved for future use                      */
+  uint32_t       RESERVED21[1U];                /**< Reserved for future use                            */
   __IOM uint32_t GAINSTEPLIM_CLR;               /**< Limits for Gain Steps                              */
   __IOM uint32_t PNRFATT0_CLR;                  /**< PN RF attenuation code group 0                     */
   __IOM uint32_t PNRFATT1_CLR;                  /**< PN RF attenuation code group 1                     */
@@ -147,32 +146,32 @@ typedef struct {
   __IOM uint32_t LNAMIXCODE1_CLR;               /**< LNA/MIX slice code group 1                         */
   __IOM uint32_t PGACODE0_CLR;                  /**< PGA gain code group 0                              */
   __IOM uint32_t PGACODE1_CLR;                  /**< PGA gain code group 1                              */
-  uint32_t       RESERVED22[1U];                /**< Reserved for future use                      */
+  uint32_t       RESERVED22[1U];                /**< Reserved for future use                            */
   __IOM uint32_t LBT_CLR;                       /**< Configure AGC for (ETSI) LBT                       */
   __IOM uint32_t MIRRORIF_CLR;                  /**< Mirror Interrupt Flags Register                    */
-  uint32_t       RESERVED23[988U];              /**< Reserved for future use*/
+  uint32_t       RESERVED23[988U];              /**< Reserved for future use                            */
   __IM uint32_t  IPVERSION_TGL;                 /**< IP Version                                         */
   __IOM uint32_t EN_TGL;                        /**< Enable peripheral clock to this module             */
   __IOM uint32_t STATUS0_TGL;                   /**< Status register 0                                  */
-  uint32_t       RESERVED24[1U];                /**< Reserved for future use                      */
+  uint32_t       RESERVED24[1U];                /**< Reserved for future use                            */
   __IM uint32_t  RSSI_TGL;                      /**< Received Signal Strength Indicator                 */
   __IM uint32_t  FRAMERSSI_TGL;                 /**< FRAME RSSI value                                   */
-  uint32_t       RESERVED25[1U];                /**< Reserved for future use                      */
+  uint32_t       RESERVED25[1U];                /**< Reserved for future use                            */
   __IOM uint32_t CTRL0_TGL;                     /**< Control register 0                                 */
   __IOM uint32_t CTRL1_TGL;                     /**< Control register 1                                 */
   __IOM uint32_t CTRL2_TGL;                     /**< Control register 2                                 */
   __IOM uint32_t CTRL3_TGL;                     /**< Control register 3                                 */
   __IOM uint32_t RSSISTEPTHR_TGL;               /**< RSSI step threshold                                */
-  uint32_t       RESERVED26[2U];                /**< Reserved for future use                      */
+  uint32_t       RESERVED26[2U];                /**< Reserved for future use                            */
   __IOM uint32_t IF_TGL;                        /**< Interrupt Flags Register                           */
-  uint32_t       RESERVED27[2U];                /**< Reserved for future use                      */
+  uint32_t       RESERVED27[2U];                /**< Reserved for future use                            */
   __IOM uint32_t IEN_TGL;                       /**< Interrupt Enable Register                          */
-  uint32_t       RESERVED28[2U];                /**< Reserved for future use                      */
+  uint32_t       RESERVED28[2U];                /**< Reserved for future use                            */
   __IOM uint32_t GAINRANGE_TGL;                 /**< Range of RX Gain to use in AGC                     */
   __IOM uint32_t AGCPERIOD_TGL;                 /**< AGC period                                         */
   __IOM uint32_t HICNTREGION_TGL;               /**< Hi-counter region                                  */
   __IOM uint32_t STEPDWN_TGL;                   /**< Hi-counter region-2                                */
-  uint32_t       RESERVED29[1U];                /**< Reserved for future use                      */
+  uint32_t       RESERVED29[1U];                /**< Reserved for future use                            */
   __IOM uint32_t GAINSTEPLIM_TGL;               /**< Limits for Gain Steps                              */
   __IOM uint32_t PNRFATT0_TGL;                  /**< PN RF attenuation code group 0                     */
   __IOM uint32_t PNRFATT1_TGL;                  /**< PN RF attenuation code group 1                     */
@@ -181,7 +180,7 @@ typedef struct {
   __IOM uint32_t LNAMIXCODE1_TGL;               /**< LNA/MIX slice code group 1                         */
   __IOM uint32_t PGACODE0_TGL;                  /**< PGA gain code group 0                              */
   __IOM uint32_t PGACODE1_TGL;                  /**< PGA gain code group 1                              */
-  uint32_t       RESERVED30[1U];                /**< Reserved for future use                      */
+  uint32_t       RESERVED30[1U];                /**< Reserved for future use                            */
   __IOM uint32_t LBT_TGL;                       /**< Configure AGC for (ETSI) LBT                       */
   __IOM uint32_t MIRRORIF_TGL;                  /**< Mirror Interrupt Flags Register                    */
 } AGC_TypeDef;
@@ -294,15 +293,15 @@ typedef struct {
 #define _AGC_CTRL0_MODE_SHIFT                       8                                          /**< Shift value for AGC_MODE                    */
 #define _AGC_CTRL0_MODE_MASK                        0x700UL                                    /**< Bit mask for AGC_MODE                       */
 #define _AGC_CTRL0_MODE_DEFAULT                     0x00000002UL                               /**< Mode DEFAULT for AGC_CTRL0                  */
-#define _AGC_CTRL0_MODE_CONT                        0x00000000UL                               /**< Mode CONT for AGC_CTRL0                      */
-#define _AGC_CTRL0_MODE_LOCKPREDET                  0x00000001UL                               /**< Mode LOCKPREDET for AGC_CTRL0                */
-#define _AGC_CTRL0_MODE_LOCKFRAMEDET                0x00000002UL                               /**< Mode LOCKFRAMEDET for AGC_CTRL0              */
-#define _AGC_CTRL0_MODE_LOCKDSA                     0x00000003UL                               /**< Mode LOCKDSA for AGC_CTRL0                   */
+#define _AGC_CTRL0_MODE_CONT                        0x00000000UL                               /**< Mode CONT for AGC_CTRL0                     */
+#define _AGC_CTRL0_MODE_LOCKPREDET                  0x00000001UL                               /**< Mode LOCKPREDET for AGC_CTRL0               */
+#define _AGC_CTRL0_MODE_LOCKFRAMEDET                0x00000002UL                               /**< Mode LOCKFRAMEDET for AGC_CTRL0             */
+#define _AGC_CTRL0_MODE_LOCKDSA                     0x00000003UL                               /**< Mode LOCKDSA for AGC_CTRL0                  */
 #define AGC_CTRL0_MODE_DEFAULT                      (_AGC_CTRL0_MODE_DEFAULT << 8)             /**< Shifted mode DEFAULT for AGC_CTRL0          */
-#define AGC_CTRL0_MODE_CONT                         (_AGC_CTRL0_MODE_CONT << 8)                /**< Shifted mode CONT for AGC_CTRL0              */
-#define AGC_CTRL0_MODE_LOCKPREDET                   (_AGC_CTRL0_MODE_LOCKPREDET << 8)          /**< Shifted mode LOCKPREDET for AGC_CTRL0        */
-#define AGC_CTRL0_MODE_LOCKFRAMEDET                 (_AGC_CTRL0_MODE_LOCKFRAMEDET << 8)        /**< Shifted mode LOCKFRAMEDET for AGC_CTRL0      */
-#define AGC_CTRL0_MODE_LOCKDSA                      (_AGC_CTRL0_MODE_LOCKDSA << 8)             /**< Shifted mode LOCKDSA for AGC_CTRL0           */
+#define AGC_CTRL0_MODE_CONT                         (_AGC_CTRL0_MODE_CONT << 8)                /**< Shifted mode CONT for AGC_CTRL0             */
+#define AGC_CTRL0_MODE_LOCKPREDET                   (_AGC_CTRL0_MODE_LOCKPREDET << 8)          /**< Shifted mode LOCKPREDET for AGC_CTRL0       */
+#define AGC_CTRL0_MODE_LOCKFRAMEDET                 (_AGC_CTRL0_MODE_LOCKFRAMEDET << 8)        /**< Shifted mode LOCKFRAMEDET for AGC_CTRL0     */
+#define AGC_CTRL0_MODE_LOCKDSA                      (_AGC_CTRL0_MODE_LOCKDSA << 8)             /**< Shifted mode LOCKDSA for AGC_CTRL0          */
 #define _AGC_CTRL0_RSSISHIFT_SHIFT                  11                                         /**< Shift value for AGC_RSSISHIFT               */
 #define _AGC_CTRL0_RSSISHIFT_MASK                   0x7F800UL                                  /**< Bit mask for AGC_RSSISHIFT                  */
 #define _AGC_CTRL0_RSSISHIFT_DEFAULT                0x0000004EUL                               /**< Mode DEFAULT for AGC_CTRL0                  */
@@ -326,11 +325,11 @@ typedef struct {
 #define _AGC_CTRL0_ADCATTENMODE_SHIFT               23                                         /**< Shift value for AGC_ADCATTENMODE            */
 #define _AGC_CTRL0_ADCATTENMODE_MASK                0x800000UL                                 /**< Bit mask for AGC_ADCATTENMODE               */
 #define _AGC_CTRL0_ADCATTENMODE_DEFAULT             0x00000000UL                               /**< Mode DEFAULT for AGC_CTRL0                  */
-#define _AGC_CTRL0_ADCATTENMODE_DISABLE             0x00000000UL                               /**< Mode DISABLE for AGC_CTRL0                   */
-#define _AGC_CTRL0_ADCATTENMODE_NOTMAXGAIN          0x00000001UL                               /**< Mode NOTMAXGAIN for AGC_CTRL0                */
+#define _AGC_CTRL0_ADCATTENMODE_DISABLE             0x00000000UL                               /**< Mode DISABLE for AGC_CTRL0                  */
+#define _AGC_CTRL0_ADCATTENMODE_NOTMAXGAIN          0x00000001UL                               /**< Mode NOTMAXGAIN for AGC_CTRL0               */
 #define AGC_CTRL0_ADCATTENMODE_DEFAULT              (_AGC_CTRL0_ADCATTENMODE_DEFAULT << 23)    /**< Shifted mode DEFAULT for AGC_CTRL0          */
-#define AGC_CTRL0_ADCATTENMODE_DISABLE              (_AGC_CTRL0_ADCATTENMODE_DISABLE << 23)    /**< Shifted mode DISABLE for AGC_CTRL0           */
-#define AGC_CTRL0_ADCATTENMODE_NOTMAXGAIN           (_AGC_CTRL0_ADCATTENMODE_NOTMAXGAIN << 23) /**< Shifted mode NOTMAXGAIN for AGC_CTRL0        */
+#define AGC_CTRL0_ADCATTENMODE_DISABLE              (_AGC_CTRL0_ADCATTENMODE_DISABLE << 23)    /**< Shifted mode DISABLE for AGC_CTRL0          */
+#define AGC_CTRL0_ADCATTENMODE_NOTMAXGAIN           (_AGC_CTRL0_ADCATTENMODE_NOTMAXGAIN << 23) /**< Shifted mode NOTMAXGAIN for AGC_CTRL0       */
 #define _AGC_CTRL0_ADCATTENCODE_SHIFT               25                                         /**< Shift value for AGC_ADCATTENCODE            */
 #define _AGC_CTRL0_ADCATTENCODE_MASK                0x6000000UL                                /**< Bit mask for AGC_ADCATTENCODE               */
 #define _AGC_CTRL0_ADCATTENCODE_DEFAULT             0x00000000UL                               /**< Mode DEFAULT for AGC_CTRL0                  */
@@ -401,11 +400,11 @@ typedef struct {
 #define _AGC_CTRL2_DMASEL_SHIFT                     0                                            /**< Shift value for AGC_DMASEL                  */
 #define _AGC_CTRL2_DMASEL_MASK                      0x1UL                                        /**< Bit mask for AGC_DMASEL                     */
 #define _AGC_CTRL2_DMASEL_DEFAULT                   0x00000000UL                                 /**< Mode DEFAULT for AGC_CTRL2                  */
-#define _AGC_CTRL2_DMASEL_RSSI                      0x00000000UL                                 /**< Mode RSSI for AGC_CTRL2                      */
-#define _AGC_CTRL2_DMASEL_GAIN                      0x00000001UL                                 /**< Mode GAIN for AGC_CTRL2                      */
+#define _AGC_CTRL2_DMASEL_RSSI                      0x00000000UL                                 /**< Mode RSSI for AGC_CTRL2                     */
+#define _AGC_CTRL2_DMASEL_GAIN                      0x00000001UL                                 /**< Mode GAIN for AGC_CTRL2                     */
 #define AGC_CTRL2_DMASEL_DEFAULT                    (_AGC_CTRL2_DMASEL_DEFAULT << 0)             /**< Shifted mode DEFAULT for AGC_CTRL2          */
-#define AGC_CTRL2_DMASEL_RSSI                       (_AGC_CTRL2_DMASEL_RSSI << 0)                /**< Shifted mode RSSI for AGC_CTRL2              */
-#define AGC_CTRL2_DMASEL_GAIN                       (_AGC_CTRL2_DMASEL_GAIN << 0)                /**< Shifted mode GAIN for AGC_CTRL2              */
+#define AGC_CTRL2_DMASEL_RSSI                       (_AGC_CTRL2_DMASEL_RSSI << 0)                /**< Shifted mode RSSI for AGC_CTRL2             */
+#define AGC_CTRL2_DMASEL_GAIN                       (_AGC_CTRL2_DMASEL_GAIN << 0)                /**< Shifted mode GAIN for AGC_CTRL2             */
 #define AGC_CTRL2_SAFEMODE                          (0x1UL << 1)                                 /**< AGC safe mode                               */
 #define _AGC_CTRL2_SAFEMODE_SHIFT                   1                                            /**< Shift value for AGC_SAFEMODE                */
 #define _AGC_CTRL2_SAFEMODE_MASK                    0x2UL                                        /**< Bit mask for AGC_SAFEMODE                   */
@@ -426,15 +425,15 @@ typedef struct {
 #define _AGC_CTRL2_RELBYCHPWR_SHIFT                 16                                           /**< Shift value for AGC_RELBYCHPWR              */
 #define _AGC_CTRL2_RELBYCHPWR_MASK                  0x30000UL                                    /**< Bit mask for AGC_RELBYCHPWR                 */
 #define _AGC_CTRL2_RELBYCHPWR_DEFAULT               0x00000000UL                                 /**< Mode DEFAULT for AGC_CTRL2                  */
-#define _AGC_CTRL2_RELBYCHPWR_LO_CNT                0x00000000UL                                 /**< Mode LO_CNT for AGC_CTRL2                    */
-#define _AGC_CTRL2_RELBYCHPWR_PWR                   0x00000001UL                                 /**< Mode PWR for AGC_CTRL2                       */
-#define _AGC_CTRL2_RELBYCHPWR_LO_CNT_PWR            0x00000002UL                                 /**< Mode LO_CNT_PWR for AGC_CTRL2                */
-#define _AGC_CTRL2_RELBYCHPWR_LO_CNT_AND_PWR        0x00000003UL                                 /**< Mode LO_CNT_AND_PWR for AGC_CTRL2            */
+#define _AGC_CTRL2_RELBYCHPWR_LO_CNT                0x00000000UL                                 /**< Mode LO_CNT for AGC_CTRL2                   */
+#define _AGC_CTRL2_RELBYCHPWR_PWR                   0x00000001UL                                 /**< Mode PWR for AGC_CTRL2                      */
+#define _AGC_CTRL2_RELBYCHPWR_LO_CNT_PWR            0x00000002UL                                 /**< Mode LO_CNT_PWR for AGC_CTRL2               */
+#define _AGC_CTRL2_RELBYCHPWR_LO_CNT_AND_PWR        0x00000003UL                                 /**< Mode LO_CNT_AND_PWR for AGC_CTRL2           */
 #define AGC_CTRL2_RELBYCHPWR_DEFAULT                (_AGC_CTRL2_RELBYCHPWR_DEFAULT << 16)        /**< Shifted mode DEFAULT for AGC_CTRL2          */
-#define AGC_CTRL2_RELBYCHPWR_LO_CNT                 (_AGC_CTRL2_RELBYCHPWR_LO_CNT << 16)         /**< Shifted mode LO_CNT for AGC_CTRL2            */
-#define AGC_CTRL2_RELBYCHPWR_PWR                    (_AGC_CTRL2_RELBYCHPWR_PWR << 16)            /**< Shifted mode PWR for AGC_CTRL2               */
-#define AGC_CTRL2_RELBYCHPWR_LO_CNT_PWR             (_AGC_CTRL2_RELBYCHPWR_LO_CNT_PWR << 16)     /**< Shifted mode LO_CNT_PWR for AGC_CTRL2        */
-#define AGC_CTRL2_RELBYCHPWR_LO_CNT_AND_PWR         (_AGC_CTRL2_RELBYCHPWR_LO_CNT_AND_PWR << 16) /**< Shifted mode LO_CNT_AND_PWR for AGC_CTRL2    */
+#define AGC_CTRL2_RELBYCHPWR_LO_CNT                 (_AGC_CTRL2_RELBYCHPWR_LO_CNT << 16)         /**< Shifted mode LO_CNT for AGC_CTRL2           */
+#define AGC_CTRL2_RELBYCHPWR_PWR                    (_AGC_CTRL2_RELBYCHPWR_PWR << 16)            /**< Shifted mode PWR for AGC_CTRL2              */
+#define AGC_CTRL2_RELBYCHPWR_LO_CNT_PWR             (_AGC_CTRL2_RELBYCHPWR_LO_CNT_PWR << 16)     /**< Shifted mode LO_CNT_PWR for AGC_CTRL2       */
+#define AGC_CTRL2_RELBYCHPWR_LO_CNT_AND_PWR         (_AGC_CTRL2_RELBYCHPWR_LO_CNT_AND_PWR << 16) /**< Shifted mode LO_CNT_AND_PWR for AGC_CTRL2   */
 #define _AGC_CTRL2_RELTARGETPWR_SHIFT               18                                           /**< Shift value for AGC_RELTARGETPWR            */
 #define _AGC_CTRL2_RELTARGETPWR_MASK                0x3FC0000UL                                  /**< Bit mask for AGC_RELTARGETPWR               */
 #define _AGC_CTRL2_RELTARGETPWR_DEFAULT             0x00000000UL                                 /**< Mode DEFAULT for AGC_CTRL2                  */

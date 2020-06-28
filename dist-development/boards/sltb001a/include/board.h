@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2015-2018 Freie Universität Berlin
+ * Copyright (C) 2015-2020 Freie Universität Berlin
  *
  * This file is subject to the terms and conditions of the GNU Lesser
  * General Public License v2.1. See the file LICENSE in the top level
@@ -73,8 +73,8 @@ extern "C" {
  * Pin for enabling environmental sensors (BMP280, Si1133, Si7021, Si7210).
  * @{
  */
-#define ENV_SENSE_PIC_ADDR      (0x01)
-#define ENV_SENSE_PIC_BIT       (0)
+#define ENV_SENSE_PIC_ADDR  (0x01)
+#define ENV_SENSE_PIC_BIT   (0)
 /** @} */
 
 /**
@@ -94,13 +94,10 @@ extern "C" {
  * Connection to the on-board air quality/gas sensor (CCS811).
  * @{
  */
-#ifndef CCS811_ENABLED
-#define CCS811_ENABLED          (0)
-#endif
-#define CCS811_I2C              I2C_DEV(0)
-#define CCS811_PIC_ADDR         (0x03)
-#define CCS811_PIC_EN_BIT       (0x00)
-#define CCS811_PIC_WAKE_BIT     (0x01)
+#define CCS811_I2C          I2C_DEV(0)
+#define CCS811_PIC_ADDR     (0x03)
+#define CCS811_PIC_EN_BIT   (0x00)
+#define CCS811_PIC_WAKE_BIT (0x01)
 /** @} */
 
 /**
@@ -109,12 +106,9 @@ extern "C" {
  * Connection to the on-board IMU sensor (ICM-20648).
  * @{
  */
-#ifndef ICM20648_ENABLED
-#define ICM20648_ENABLED        (0)
-#endif
-#define ICM20648_SPI            SPI_DEV(0)
-#define ICM20648_PIC_ADDR       (0x00)
-#define ICM20648_PIC_EN_BIT     (0x00)
+#define ICM20648_SPI        SPI_DEV(0)
+#define ICM20648_PIC_ADDR   (0x00)
+#define ICM20648_PIC_EN_BIT (0x00)
 /** @} */
 
 /**
@@ -123,9 +117,9 @@ extern "C" {
  * Pin for communication with the Power and Interrupt Controller.
  * @{
  */
-#define PIC_INT_WAKE_PIN        GPIO_PIN(PD, 10)
-#define PIC_I2C                 I2C_DEV(0)
-#define PIC_I2C_ADDR            (0x48)
+#define PIC_INT_WAKE_PIN    GPIO_PIN(PD, 10)
+#define PIC_I2C             I2C_DEV(0)
+#define PIC_I2C_ADDR        (0x48)
 /** @} */
 
 /**
@@ -134,24 +128,12 @@ extern "C" {
  * There are four RGB leds on the board.
  * @{
  */
-#ifndef RGB_LED1_ENABLED
-#define RGB_LED1_ENABLED        (1)
-#endif
-#ifndef RGB_LED2_ENABLED
-#define RGB_LED2_ENABLED        (1)
-#endif
-#ifndef RGB_LED3_ENABLED
-#define RGB_LED3_ENABLED        (1)
-#endif
-#ifndef RGB_LED4_ENABLED
-#define RGB_LED4_ENABLED        (1)
-#endif
-#define RGB_LED_ADDR            (0x04)
-#define RGB_LED_EN_BIT          (0x00)
-#define RGB_LED1_EN_BIT         (0x07)
-#define RGB_LED2_EN_BIT         (0x06)
-#define RGB_LED3_EN_BIT         (0x05)
-#define RGB_LED4_EN_BIT         (0x04)
+#define RGB_LED_ADDR        (0x04)
+#define RGB_LED_EN_BIT      (0x00)
+#define RGB_LED1_EN_BIT     (0x07)
+#define RGB_LED2_EN_BIT     (0x06)
+#define RGB_LED3_EN_BIT     (0x05)
+#define RGB_LED4_EN_BIT     (0x04)
 /** @} */
 
 /**
@@ -160,10 +142,7 @@ extern "C" {
  * Connection to the on-board UV/ambient light sensor (Si1133).
  * @{
  */
-#ifndef SI1133_ENABLED
-#define SI1133_ENABLED          (0)
-#endif
-#define SI1133_I2C              I2C_DEV(0)
+#define SI1133_I2C          I2C_DEV(0)
 /** @} */
 
 /**
@@ -184,10 +163,7 @@ extern "C" {
  * boards only.
  * @{
  */
-#ifndef SI7210_ENABLED
-#define SI7210_ENABLED          (0)
-#endif
-#define SI7210_I2C              I2C_DEV(0)
+#define SI7210_I2C          I2C_DEV(0)
 /** @} */
 
 /**

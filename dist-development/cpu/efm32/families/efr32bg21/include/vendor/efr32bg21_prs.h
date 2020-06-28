@@ -1,10 +1,9 @@
 /**************************************************************************//**
  * @file
  * @brief EFR32BG21 PRS register and bit field definitions
- * @version 5.7.0
  ******************************************************************************
  * # License
- * <b>Copyright 2018 Silicon Laboratories, Inc. www.silabs.com</b>
+ * <b>Copyright 2020 Silicon Laboratories, Inc. www.silabs.com</b>
  ******************************************************************************
  *
  * SPDX-License-Identifier: Zlib
@@ -60,26 +59,26 @@ typedef struct {
 /** PRS Register Declaration. */
 typedef struct {
   __IM uint32_t        IPVERSION;                        /**< IP version ID                                      */
-  uint32_t             RESERVED0[1U];                    /**< Reserved for future use                      */
+  uint32_t             RESERVED0[1U];                    /**< Reserved for future use                            */
   __IOM uint32_t       ASYNC_SWPULSE;                    /**< Software Pulse Register                            */
   __IOM uint32_t       ASYNC_SWLEVEL;                    /**< Software Level Register                            */
   __IM uint32_t        ASYNC_PEEK;                       /**< Async Channel Values                               */
   __IM uint32_t        SYNC_PEEK;                        /**< Sync Channel Values                                */
-  PRS_ASYNC_CH_TypeDef ASYNC_CH[12U];                    /**< Async Channel registers                           */
-  PRS_SYNC_CH_TypeDef  SYNC_CH[4U];                      /**< Sync Channel registers                            */
+  PRS_ASYNC_CH_TypeDef ASYNC_CH[12U];                    /**< Async Channel registers                            */
+  PRS_SYNC_CH_TypeDef  SYNC_CH[4U];                      /**< Sync Channel registers                             */
   __IOM uint32_t       CONSUMER_CMU_CALDN;               /**< CMU CALDN Consumer Selection                       */
   __IOM uint32_t       CONSUMER_CMU_CALUP;               /**< CMU CALUP Consumer Selection                       */
-  uint32_t             RESERVED1[1U];                    /**< Reserved for future use                      */
+  uint32_t             RESERVED1[1U];                    /**< Reserved for future use                            */
   __IOM uint32_t       CONSUMER_IADC0_SCANTRIGGER;       /**< IADC0 SCANTRIGGER Consumer Selection               */
   __IOM uint32_t       CONSUMER_IADC0_SINGLETRIGGER;     /**< IADC0 SINGLETRIGGER Consumer Selection             */
   __IOM uint32_t       CONSUMER_LDMAXBAR_DMAREQ0;        /**< DMAREQ0 Consumer Selection                         */
   __IOM uint32_t       CONSUMER_LDMAXBAR_DMAREQ1;        /**< DMAREQ1 Consumer Selection                         */
-  __IOM uint32_t       CONSUMER_LETIMER_CLEAR;           /**< LETIMER CLEAR Consumer Selection                   */
-  __IOM uint32_t       CONSUMER_LETIMER_START;           /**< LETIMER START Consumer Selection                   */
-  __IOM uint32_t       CONSUMER_LETIMER_STOP;            /**< LETIMER STOP Consumer Selection                    */
+  __IOM uint32_t       CONSUMER_LETIMER0_CLEAR;          /**< LETIMER CLEAR Consumer Selection                   */
+  __IOM uint32_t       CONSUMER_LETIMER0_START;          /**< LETIMER START Consumer Selection                   */
+  __IOM uint32_t       CONSUMER_LETIMER0_STOP;           /**< LETIMER STOP Consumer Selection                    */
   __IOM uint32_t       CONSUMER_MODEM_DIN;               /**< MODEM DIN Consumer Selection                       */
-  uint32_t             RESERVED2[2U];                    /**< Reserved for future use                      */
-  uint32_t             RESERVED3[11U];                   /**< Reserved for future use                      */
+  uint32_t             RESERVED2[2U];                    /**< Reserved for future use                            */
+  uint32_t             RESERVED3[11U];                   /**< Reserved for future use                            */
   __IOM uint32_t       CONSUMER_RAC_CLR;                 /**< RAC CLR Consumer Selection                         */
   __IOM uint32_t       CONSUMER_RAC_FORCETX;             /**< RAC FORCETX Consumer Selection                     */
   __IOM uint32_t       CONSUMER_RAC_RXDIS;               /**< RAC RXDIS Consumer Selection                       */
@@ -89,7 +88,7 @@ typedef struct {
   __IOM uint32_t       CONSUMER_RTCC_CC0;                /**< RTCC CC0 Consumer Selection                        */
   __IOM uint32_t       CONSUMER_RTCC_CC1;                /**< RTCC CC1 Consumer Selection                        */
   __IOM uint32_t       CONSUMER_RTCC_CC2;                /**< RTCC CC2 Consumer Selection                        */
-  uint32_t             RESERVED4[1U];                    /**< Reserved for future use                      */
+  uint32_t             RESERVED4[1U];                    /**< Reserved for future use                            */
   __IOM uint32_t       CONSUMER_SE_TAMPERSRC0;           /**< SE TAMPERSRC0 Consumer Selection                   */
   __IOM uint32_t       CONSUMER_SE_TAMPERSRC1;           /**< SE TAMPERSRC1 Consumer Selection                   */
   __IOM uint32_t       CONSUMER_SE_TAMPERSRC2;           /**< SE TAMPERSRC2 Consumer Selection                   */
@@ -98,7 +97,7 @@ typedef struct {
   __IOM uint32_t       CONSUMER_SE_TAMPERSRC5;           /**< SE TAMPERSRC5 Consumer Selection                   */
   __IOM uint32_t       CONSUMER_SE_TAMPERSRC6;           /**< SE TAMPERSRC6 Consumer Selection                   */
   __IOM uint32_t       CONSUMER_SE_TAMPERSRC7;           /**< SE TAMPERSRC7 Consumer Selection                   */
-  uint32_t             RESERVED5[2U];                    /**< Reserved for future use                      */
+  uint32_t             RESERVED5[2U];                    /**< Reserved for future use                            */
   __IOM uint32_t       CONSUMER_CORE_CTIIN0;             /**< CTI0 Consumer Selection                            */
   __IOM uint32_t       CONSUMER_CORE_CTIIN1;             /**< CTI1 Consumer Selection                            */
   __IOM uint32_t       CONSUMER_CORE_CTIIN2;             /**< CTI2 Consumer Selection                            */
@@ -144,28 +143,28 @@ typedef struct {
   __IOM uint32_t       CONSUMER_WDOG0_SRC1;              /**< WDOG0 SRC1 Consumer Selection                      */
   __IOM uint32_t       CONSUMER_WDOG1_SRC0;              /**< WDOG1 SRC0 Consumer Selection                      */
   __IOM uint32_t       CONSUMER_WDOG1_SRC1;              /**< WDOG1 SRC1 Consumer Selection                      */
-  uint32_t             RESERVED6[913U];                  /**< Reserved for future use*/
+  uint32_t             RESERVED6[913U];                  /**< Reserved for future use                            */
   __IM uint32_t        IPVERSION_SET;                    /**< IP version ID                                      */
-  uint32_t             RESERVED7[1U];                    /**< Reserved for future use                      */
+  uint32_t             RESERVED7[1U];                    /**< Reserved for future use                            */
   __IOM uint32_t       ASYNC_SWPULSE_SET;                /**< Software Pulse Register                            */
   __IOM uint32_t       ASYNC_SWLEVEL_SET;                /**< Software Level Register                            */
   __IM uint32_t        ASYNC_PEEK_SET;                   /**< Async Channel Values                               */
   __IM uint32_t        SYNC_PEEK_SET;                    /**< Sync Channel Values                                */
-  PRS_ASYNC_CH_TypeDef ASYNC_CH_SET[12U];                /**< Async Channel registers                           */
-  PRS_SYNC_CH_TypeDef  SYNC_CH_SET[4U];                  /**< Sync Channel registers                            */
+  PRS_ASYNC_CH_TypeDef ASYNC_CH_SET[12U];                /**< Async Channel registers                            */
+  PRS_SYNC_CH_TypeDef  SYNC_CH_SET[4U];                  /**< Sync Channel registers                             */
   __IOM uint32_t       CONSUMER_CMU_CALDN_SET;           /**< CMU CALDN Consumer Selection                       */
   __IOM uint32_t       CONSUMER_CMU_CALUP_SET;           /**< CMU CALUP Consumer Selection                       */
-  uint32_t             RESERVED8[1U];                    /**< Reserved for future use                      */
+  uint32_t             RESERVED8[1U];                    /**< Reserved for future use                            */
   __IOM uint32_t       CONSUMER_IADC0_SCANTRIGGER_SET;   /**< IADC0 SCANTRIGGER Consumer Selection               */
   __IOM uint32_t       CONSUMER_IADC0_SINGLETRIGGER_SET; /**< IADC0 SINGLETRIGGER Consumer Selection             */
   __IOM uint32_t       CONSUMER_LDMAXBAR_DMAREQ0_SET;    /**< DMAREQ0 Consumer Selection                         */
   __IOM uint32_t       CONSUMER_LDMAXBAR_DMAREQ1_SET;    /**< DMAREQ1 Consumer Selection                         */
-  __IOM uint32_t       CONSUMER_LETIMER_CLEAR_SET;       /**< LETIMER CLEAR Consumer Selection                   */
-  __IOM uint32_t       CONSUMER_LETIMER_START_SET;       /**< LETIMER START Consumer Selection                   */
-  __IOM uint32_t       CONSUMER_LETIMER_STOP_SET;        /**< LETIMER STOP Consumer Selection                    */
+  __IOM uint32_t       CONSUMER_LETIMER0_CLEAR_SET;      /**< LETIMER CLEAR Consumer Selection                   */
+  __IOM uint32_t       CONSUMER_LETIMER0_START_SET;      /**< LETIMER START Consumer Selection                   */
+  __IOM uint32_t       CONSUMER_LETIMER0_STOP_SET;       /**< LETIMER STOP Consumer Selection                    */
   __IOM uint32_t       CONSUMER_MODEM_DIN_SET;           /**< MODEM DIN Consumer Selection                       */
-  uint32_t             RESERVED9[2U];                    /**< Reserved for future use                      */
-  uint32_t             RESERVED10[11U];                  /**< Reserved for future use                      */
+  uint32_t             RESERVED9[2U];                    /**< Reserved for future use                            */
+  uint32_t             RESERVED10[11U];                  /**< Reserved for future use                            */
   __IOM uint32_t       CONSUMER_RAC_CLR_SET;             /**< RAC CLR Consumer Selection                         */
   __IOM uint32_t       CONSUMER_RAC_FORCETX_SET;         /**< RAC FORCETX Consumer Selection                     */
   __IOM uint32_t       CONSUMER_RAC_RXDIS_SET;           /**< RAC RXDIS Consumer Selection                       */
@@ -175,7 +174,7 @@ typedef struct {
   __IOM uint32_t       CONSUMER_RTCC_CC0_SET;            /**< RTCC CC0 Consumer Selection                        */
   __IOM uint32_t       CONSUMER_RTCC_CC1_SET;            /**< RTCC CC1 Consumer Selection                        */
   __IOM uint32_t       CONSUMER_RTCC_CC2_SET;            /**< RTCC CC2 Consumer Selection                        */
-  uint32_t             RESERVED11[1U];                   /**< Reserved for future use                      */
+  uint32_t             RESERVED11[1U];                   /**< Reserved for future use                            */
   __IOM uint32_t       CONSUMER_SE_TAMPERSRC0_SET;       /**< SE TAMPERSRC0 Consumer Selection                   */
   __IOM uint32_t       CONSUMER_SE_TAMPERSRC1_SET;       /**< SE TAMPERSRC1 Consumer Selection                   */
   __IOM uint32_t       CONSUMER_SE_TAMPERSRC2_SET;       /**< SE TAMPERSRC2 Consumer Selection                   */
@@ -184,7 +183,7 @@ typedef struct {
   __IOM uint32_t       CONSUMER_SE_TAMPERSRC5_SET;       /**< SE TAMPERSRC5 Consumer Selection                   */
   __IOM uint32_t       CONSUMER_SE_TAMPERSRC6_SET;       /**< SE TAMPERSRC6 Consumer Selection                   */
   __IOM uint32_t       CONSUMER_SE_TAMPERSRC7_SET;       /**< SE TAMPERSRC7 Consumer Selection                   */
-  uint32_t             RESERVED12[2U];                   /**< Reserved for future use                      */
+  uint32_t             RESERVED12[2U];                   /**< Reserved for future use                            */
   __IOM uint32_t       CONSUMER_CORE_CTIIN0_SET;         /**< CTI0 Consumer Selection                            */
   __IOM uint32_t       CONSUMER_CORE_CTIIN1_SET;         /**< CTI1 Consumer Selection                            */
   __IOM uint32_t       CONSUMER_CORE_CTIIN2_SET;         /**< CTI2 Consumer Selection                            */
@@ -230,28 +229,28 @@ typedef struct {
   __IOM uint32_t       CONSUMER_WDOG0_SRC1_SET;          /**< WDOG0 SRC1 Consumer Selection                      */
   __IOM uint32_t       CONSUMER_WDOG1_SRC0_SET;          /**< WDOG1 SRC0 Consumer Selection                      */
   __IOM uint32_t       CONSUMER_WDOG1_SRC1_SET;          /**< WDOG1 SRC1 Consumer Selection                      */
-  uint32_t             RESERVED13[913U];                 /**< Reserved for future use*/
+  uint32_t             RESERVED13[913U];                 /**< Reserved for future use                            */
   __IM uint32_t        IPVERSION_CLR;                    /**< IP version ID                                      */
-  uint32_t             RESERVED14[1U];                   /**< Reserved for future use                      */
+  uint32_t             RESERVED14[1U];                   /**< Reserved for future use                            */
   __IOM uint32_t       ASYNC_SWPULSE_CLR;                /**< Software Pulse Register                            */
   __IOM uint32_t       ASYNC_SWLEVEL_CLR;                /**< Software Level Register                            */
   __IM uint32_t        ASYNC_PEEK_CLR;                   /**< Async Channel Values                               */
   __IM uint32_t        SYNC_PEEK_CLR;                    /**< Sync Channel Values                                */
-  PRS_ASYNC_CH_TypeDef ASYNC_CH_CLR[12U];                /**< Async Channel registers                           */
-  PRS_SYNC_CH_TypeDef  SYNC_CH_CLR[4U];                  /**< Sync Channel registers                            */
+  PRS_ASYNC_CH_TypeDef ASYNC_CH_CLR[12U];                /**< Async Channel registers                            */
+  PRS_SYNC_CH_TypeDef  SYNC_CH_CLR[4U];                  /**< Sync Channel registers                             */
   __IOM uint32_t       CONSUMER_CMU_CALDN_CLR;           /**< CMU CALDN Consumer Selection                       */
   __IOM uint32_t       CONSUMER_CMU_CALUP_CLR;           /**< CMU CALUP Consumer Selection                       */
-  uint32_t             RESERVED15[1U];                   /**< Reserved for future use                      */
+  uint32_t             RESERVED15[1U];                   /**< Reserved for future use                            */
   __IOM uint32_t       CONSUMER_IADC0_SCANTRIGGER_CLR;   /**< IADC0 SCANTRIGGER Consumer Selection               */
   __IOM uint32_t       CONSUMER_IADC0_SINGLETRIGGER_CLR; /**< IADC0 SINGLETRIGGER Consumer Selection             */
   __IOM uint32_t       CONSUMER_LDMAXBAR_DMAREQ0_CLR;    /**< DMAREQ0 Consumer Selection                         */
   __IOM uint32_t       CONSUMER_LDMAXBAR_DMAREQ1_CLR;    /**< DMAREQ1 Consumer Selection                         */
-  __IOM uint32_t       CONSUMER_LETIMER_CLEAR_CLR;       /**< LETIMER CLEAR Consumer Selection                   */
-  __IOM uint32_t       CONSUMER_LETIMER_START_CLR;       /**< LETIMER START Consumer Selection                   */
-  __IOM uint32_t       CONSUMER_LETIMER_STOP_CLR;        /**< LETIMER STOP Consumer Selection                    */
+  __IOM uint32_t       CONSUMER_LETIMER0_CLEAR_CLR;      /**< LETIMER CLEAR Consumer Selection                   */
+  __IOM uint32_t       CONSUMER_LETIMER0_START_CLR;      /**< LETIMER START Consumer Selection                   */
+  __IOM uint32_t       CONSUMER_LETIMER0_STOP_CLR;       /**< LETIMER STOP Consumer Selection                    */
   __IOM uint32_t       CONSUMER_MODEM_DIN_CLR;           /**< MODEM DIN Consumer Selection                       */
-  uint32_t             RESERVED16[2U];                   /**< Reserved for future use                      */
-  uint32_t             RESERVED17[11U];                  /**< Reserved for future use                      */
+  uint32_t             RESERVED16[2U];                   /**< Reserved for future use                            */
+  uint32_t             RESERVED17[11U];                  /**< Reserved for future use                            */
   __IOM uint32_t       CONSUMER_RAC_CLR_CLR;             /**< RAC CLR Consumer Selection                         */
   __IOM uint32_t       CONSUMER_RAC_FORCETX_CLR;         /**< RAC FORCETX Consumer Selection                     */
   __IOM uint32_t       CONSUMER_RAC_RXDIS_CLR;           /**< RAC RXDIS Consumer Selection                       */
@@ -261,7 +260,7 @@ typedef struct {
   __IOM uint32_t       CONSUMER_RTCC_CC0_CLR;            /**< RTCC CC0 Consumer Selection                        */
   __IOM uint32_t       CONSUMER_RTCC_CC1_CLR;            /**< RTCC CC1 Consumer Selection                        */
   __IOM uint32_t       CONSUMER_RTCC_CC2_CLR;            /**< RTCC CC2 Consumer Selection                        */
-  uint32_t             RESERVED18[1U];                   /**< Reserved for future use                      */
+  uint32_t             RESERVED18[1U];                   /**< Reserved for future use                            */
   __IOM uint32_t       CONSUMER_SE_TAMPERSRC0_CLR;       /**< SE TAMPERSRC0 Consumer Selection                   */
   __IOM uint32_t       CONSUMER_SE_TAMPERSRC1_CLR;       /**< SE TAMPERSRC1 Consumer Selection                   */
   __IOM uint32_t       CONSUMER_SE_TAMPERSRC2_CLR;       /**< SE TAMPERSRC2 Consumer Selection                   */
@@ -270,7 +269,7 @@ typedef struct {
   __IOM uint32_t       CONSUMER_SE_TAMPERSRC5_CLR;       /**< SE TAMPERSRC5 Consumer Selection                   */
   __IOM uint32_t       CONSUMER_SE_TAMPERSRC6_CLR;       /**< SE TAMPERSRC6 Consumer Selection                   */
   __IOM uint32_t       CONSUMER_SE_TAMPERSRC7_CLR;       /**< SE TAMPERSRC7 Consumer Selection                   */
-  uint32_t             RESERVED19[2U];                   /**< Reserved for future use                      */
+  uint32_t             RESERVED19[2U];                   /**< Reserved for future use                            */
   __IOM uint32_t       CONSUMER_CORE_CTIIN0_CLR;         /**< CTI0 Consumer Selection                            */
   __IOM uint32_t       CONSUMER_CORE_CTIIN1_CLR;         /**< CTI1 Consumer Selection                            */
   __IOM uint32_t       CONSUMER_CORE_CTIIN2_CLR;         /**< CTI2 Consumer Selection                            */
@@ -316,28 +315,28 @@ typedef struct {
   __IOM uint32_t       CONSUMER_WDOG0_SRC1_CLR;          /**< WDOG0 SRC1 Consumer Selection                      */
   __IOM uint32_t       CONSUMER_WDOG1_SRC0_CLR;          /**< WDOG1 SRC0 Consumer Selection                      */
   __IOM uint32_t       CONSUMER_WDOG1_SRC1_CLR;          /**< WDOG1 SRC1 Consumer Selection                      */
-  uint32_t             RESERVED20[913U];                 /**< Reserved for future use*/
+  uint32_t             RESERVED20[913U];                 /**< Reserved for future use                            */
   __IM uint32_t        IPVERSION_TGL;                    /**< IP version ID                                      */
-  uint32_t             RESERVED21[1U];                   /**< Reserved for future use                      */
+  uint32_t             RESERVED21[1U];                   /**< Reserved for future use                            */
   __IOM uint32_t       ASYNC_SWPULSE_TGL;                /**< Software Pulse Register                            */
   __IOM uint32_t       ASYNC_SWLEVEL_TGL;                /**< Software Level Register                            */
   __IM uint32_t        ASYNC_PEEK_TGL;                   /**< Async Channel Values                               */
   __IM uint32_t        SYNC_PEEK_TGL;                    /**< Sync Channel Values                                */
-  PRS_ASYNC_CH_TypeDef ASYNC_CH_TGL[12U];                /**< Async Channel registers                           */
-  PRS_SYNC_CH_TypeDef  SYNC_CH_TGL[4U];                  /**< Sync Channel registers                            */
+  PRS_ASYNC_CH_TypeDef ASYNC_CH_TGL[12U];                /**< Async Channel registers                            */
+  PRS_SYNC_CH_TypeDef  SYNC_CH_TGL[4U];                  /**< Sync Channel registers                             */
   __IOM uint32_t       CONSUMER_CMU_CALDN_TGL;           /**< CMU CALDN Consumer Selection                       */
   __IOM uint32_t       CONSUMER_CMU_CALUP_TGL;           /**< CMU CALUP Consumer Selection                       */
-  uint32_t             RESERVED22[1U];                   /**< Reserved for future use                      */
+  uint32_t             RESERVED22[1U];                   /**< Reserved for future use                            */
   __IOM uint32_t       CONSUMER_IADC0_SCANTRIGGER_TGL;   /**< IADC0 SCANTRIGGER Consumer Selection               */
   __IOM uint32_t       CONSUMER_IADC0_SINGLETRIGGER_TGL; /**< IADC0 SINGLETRIGGER Consumer Selection             */
   __IOM uint32_t       CONSUMER_LDMAXBAR_DMAREQ0_TGL;    /**< DMAREQ0 Consumer Selection                         */
   __IOM uint32_t       CONSUMER_LDMAXBAR_DMAREQ1_TGL;    /**< DMAREQ1 Consumer Selection                         */
-  __IOM uint32_t       CONSUMER_LETIMER_CLEAR_TGL;       /**< LETIMER CLEAR Consumer Selection                   */
-  __IOM uint32_t       CONSUMER_LETIMER_START_TGL;       /**< LETIMER START Consumer Selection                   */
-  __IOM uint32_t       CONSUMER_LETIMER_STOP_TGL;        /**< LETIMER STOP Consumer Selection                    */
+  __IOM uint32_t       CONSUMER_LETIMER0_CLEAR_TGL;      /**< LETIMER CLEAR Consumer Selection                   */
+  __IOM uint32_t       CONSUMER_LETIMER0_START_TGL;      /**< LETIMER START Consumer Selection                   */
+  __IOM uint32_t       CONSUMER_LETIMER0_STOP_TGL;       /**< LETIMER STOP Consumer Selection                    */
   __IOM uint32_t       CONSUMER_MODEM_DIN_TGL;           /**< MODEM DIN Consumer Selection                       */
-  uint32_t             RESERVED23[2U];                   /**< Reserved for future use                      */
-  uint32_t             RESERVED24[11U];                  /**< Reserved for future use                      */
+  uint32_t             RESERVED23[2U];                   /**< Reserved for future use                            */
+  uint32_t             RESERVED24[11U];                  /**< Reserved for future use                            */
   __IOM uint32_t       CONSUMER_RAC_CLR_TGL;             /**< RAC CLR Consumer Selection                         */
   __IOM uint32_t       CONSUMER_RAC_FORCETX_TGL;         /**< RAC FORCETX Consumer Selection                     */
   __IOM uint32_t       CONSUMER_RAC_RXDIS_TGL;           /**< RAC RXDIS Consumer Selection                       */
@@ -347,7 +346,7 @@ typedef struct {
   __IOM uint32_t       CONSUMER_RTCC_CC0_TGL;            /**< RTCC CC0 Consumer Selection                        */
   __IOM uint32_t       CONSUMER_RTCC_CC1_TGL;            /**< RTCC CC1 Consumer Selection                        */
   __IOM uint32_t       CONSUMER_RTCC_CC2_TGL;            /**< RTCC CC2 Consumer Selection                        */
-  uint32_t             RESERVED25[1U];                   /**< Reserved for future use                      */
+  uint32_t             RESERVED25[1U];                   /**< Reserved for future use                            */
   __IOM uint32_t       CONSUMER_SE_TAMPERSRC0_TGL;       /**< SE TAMPERSRC0 Consumer Selection                   */
   __IOM uint32_t       CONSUMER_SE_TAMPERSRC1_TGL;       /**< SE TAMPERSRC1 Consumer Selection                   */
   __IOM uint32_t       CONSUMER_SE_TAMPERSRC2_TGL;       /**< SE TAMPERSRC2 Consumer Selection                   */
@@ -356,7 +355,7 @@ typedef struct {
   __IOM uint32_t       CONSUMER_SE_TAMPERSRC5_TGL;       /**< SE TAMPERSRC5 Consumer Selection                   */
   __IOM uint32_t       CONSUMER_SE_TAMPERSRC6_TGL;       /**< SE TAMPERSRC6 Consumer Selection                   */
   __IOM uint32_t       CONSUMER_SE_TAMPERSRC7_TGL;       /**< SE TAMPERSRC7 Consumer Selection                   */
-  uint32_t             RESERVED26[2U];                   /**< Reserved for future use                      */
+  uint32_t             RESERVED26[2U];                   /**< Reserved for future use                            */
   __IOM uint32_t       CONSUMER_CORE_CTIIN0_TGL;         /**< CTI0 Consumer Selection                            */
   __IOM uint32_t       CONSUMER_CORE_CTIIN1_TGL;         /**< CTI1 Consumer Selection                            */
   __IOM uint32_t       CONSUMER_CORE_CTIIN2_TGL;         /**< CTI2 Consumer Selection                            */
@@ -642,9 +641,9 @@ typedef struct {
 #define _PRS_ASYNC_CH_CTRL_SIGSEL_SHIFT                      0                                             /**< Shift value for PRS_SIGSEL                  */
 #define _PRS_ASYNC_CH_CTRL_SIGSEL_MASK                       0x7UL                                         /**< Bit mask for PRS_SIGSEL                     */
 #define _PRS_ASYNC_CH_CTRL_SIGSEL_DEFAULT                    0x00000000UL                                  /**< Mode DEFAULT for PRS_ASYNC_CH_CTRL          */
-#define _PRS_ASYNC_CH_CTRL_SIGSEL_NONE                       0x00000000UL                                  /**< Mode NONE for PRS_ASYNC_CH_CTRL              */
+#define _PRS_ASYNC_CH_CTRL_SIGSEL_NONE                       0x00000000UL                                  /**< Mode NONE for PRS_ASYNC_CH_CTRL             */
 #define PRS_ASYNC_CH_CTRL_SIGSEL_DEFAULT                     (_PRS_ASYNC_CH_CTRL_SIGSEL_DEFAULT << 0)      /**< Shifted mode DEFAULT for PRS_ASYNC_CH_CTRL  */
-#define PRS_ASYNC_CH_CTRL_SIGSEL_NONE                        (_PRS_ASYNC_CH_CTRL_SIGSEL_NONE << 0)         /**< Shifted mode NONE for PRS_ASYNC_CH_CTRL      */
+#define PRS_ASYNC_CH_CTRL_SIGSEL_NONE                        (_PRS_ASYNC_CH_CTRL_SIGSEL_NONE << 0)         /**< Shifted mode NONE for PRS_ASYNC_CH_CTRL     */
 #define _PRS_ASYNC_CH_CTRL_SOURCESEL_SHIFT                   8                                             /**< Shift value for PRS_SOURCESEL               */
 #define _PRS_ASYNC_CH_CTRL_SOURCESEL_MASK                    0x7F00UL                                      /**< Bit mask for PRS_SOURCESEL                  */
 #define _PRS_ASYNC_CH_CTRL_SOURCESEL_DEFAULT                 0x00000000UL                                  /**< Mode DEFAULT for PRS_ASYNC_CH_CTRL          */
@@ -652,38 +651,38 @@ typedef struct {
 #define _PRS_ASYNC_CH_CTRL_FNSEL_SHIFT                       16                                            /**< Shift value for PRS_FNSEL                   */
 #define _PRS_ASYNC_CH_CTRL_FNSEL_MASK                        0xF0000UL                                     /**< Bit mask for PRS_FNSEL                      */
 #define _PRS_ASYNC_CH_CTRL_FNSEL_DEFAULT                     0x0000000CUL                                  /**< Mode DEFAULT for PRS_ASYNC_CH_CTRL          */
-#define _PRS_ASYNC_CH_CTRL_FNSEL_LOGICAL_ZERO                0x00000000UL                                  /**< Mode LOGICAL_ZERO for PRS_ASYNC_CH_CTRL      */
-#define _PRS_ASYNC_CH_CTRL_FNSEL_A_NOR_B                     0x00000001UL                                  /**< Mode A_NOR_B for PRS_ASYNC_CH_CTRL           */
-#define _PRS_ASYNC_CH_CTRL_FNSEL_NOT_A_AND_B                 0x00000002UL                                  /**< Mode NOT_A_AND_B for PRS_ASYNC_CH_CTRL       */
-#define _PRS_ASYNC_CH_CTRL_FNSEL_NOT_A                       0x00000003UL                                  /**< Mode NOT_A for PRS_ASYNC_CH_CTRL             */
-#define _PRS_ASYNC_CH_CTRL_FNSEL_A_AND_NOT_B                 0x00000004UL                                  /**< Mode A_AND_NOT_B for PRS_ASYNC_CH_CTRL       */
-#define _PRS_ASYNC_CH_CTRL_FNSEL_NOT_B                       0x00000005UL                                  /**< Mode NOT_B for PRS_ASYNC_CH_CTRL             */
-#define _PRS_ASYNC_CH_CTRL_FNSEL_A_XOR_B                     0x00000006UL                                  /**< Mode A_XOR_B for PRS_ASYNC_CH_CTRL           */
-#define _PRS_ASYNC_CH_CTRL_FNSEL_A_NAND_B                    0x00000007UL                                  /**< Mode A_NAND_B for PRS_ASYNC_CH_CTRL          */
-#define _PRS_ASYNC_CH_CTRL_FNSEL_A_AND_B                     0x00000008UL                                  /**< Mode A_AND_B for PRS_ASYNC_CH_CTRL           */
-#define _PRS_ASYNC_CH_CTRL_FNSEL_A_XNOR_B                    0x00000009UL                                  /**< Mode A_XNOR_B for PRS_ASYNC_CH_CTRL          */
-#define _PRS_ASYNC_CH_CTRL_FNSEL_B                           0x0000000AUL                                  /**< Mode B for PRS_ASYNC_CH_CTRL                 */
-#define _PRS_ASYNC_CH_CTRL_FNSEL_NOT_A_OR_B                  0x0000000BUL                                  /**< Mode NOT_A_OR_B for PRS_ASYNC_CH_CTRL        */
-#define _PRS_ASYNC_CH_CTRL_FNSEL_A                           0x0000000CUL                                  /**< Mode A for PRS_ASYNC_CH_CTRL                 */
-#define _PRS_ASYNC_CH_CTRL_FNSEL_A_OR_NOT_B                  0x0000000DUL                                  /**< Mode A_OR_NOT_B for PRS_ASYNC_CH_CTRL        */
-#define _PRS_ASYNC_CH_CTRL_FNSEL_A_OR_B                      0x0000000EUL                                  /**< Mode A_OR_B for PRS_ASYNC_CH_CTRL            */
-#define _PRS_ASYNC_CH_CTRL_FNSEL_LOGICAL_ONE                 0x0000000FUL                                  /**< Mode LOGICAL_ONE for PRS_ASYNC_CH_CTRL       */
+#define _PRS_ASYNC_CH_CTRL_FNSEL_LOGICAL_ZERO                0x00000000UL                                  /**< Mode LOGICAL_ZERO for PRS_ASYNC_CH_CTRL     */
+#define _PRS_ASYNC_CH_CTRL_FNSEL_A_NOR_B                     0x00000001UL                                  /**< Mode A_NOR_B for PRS_ASYNC_CH_CTRL          */
+#define _PRS_ASYNC_CH_CTRL_FNSEL_NOT_A_AND_B                 0x00000002UL                                  /**< Mode NOT_A_AND_B for PRS_ASYNC_CH_CTRL      */
+#define _PRS_ASYNC_CH_CTRL_FNSEL_NOT_A                       0x00000003UL                                  /**< Mode NOT_A for PRS_ASYNC_CH_CTRL            */
+#define _PRS_ASYNC_CH_CTRL_FNSEL_A_AND_NOT_B                 0x00000004UL                                  /**< Mode A_AND_NOT_B for PRS_ASYNC_CH_CTRL      */
+#define _PRS_ASYNC_CH_CTRL_FNSEL_NOT_B                       0x00000005UL                                  /**< Mode NOT_B for PRS_ASYNC_CH_CTRL            */
+#define _PRS_ASYNC_CH_CTRL_FNSEL_A_XOR_B                     0x00000006UL                                  /**< Mode A_XOR_B for PRS_ASYNC_CH_CTRL          */
+#define _PRS_ASYNC_CH_CTRL_FNSEL_A_NAND_B                    0x00000007UL                                  /**< Mode A_NAND_B for PRS_ASYNC_CH_CTRL         */
+#define _PRS_ASYNC_CH_CTRL_FNSEL_A_AND_B                     0x00000008UL                                  /**< Mode A_AND_B for PRS_ASYNC_CH_CTRL          */
+#define _PRS_ASYNC_CH_CTRL_FNSEL_A_XNOR_B                    0x00000009UL                                  /**< Mode A_XNOR_B for PRS_ASYNC_CH_CTRL         */
+#define _PRS_ASYNC_CH_CTRL_FNSEL_B                           0x0000000AUL                                  /**< Mode B for PRS_ASYNC_CH_CTRL                */
+#define _PRS_ASYNC_CH_CTRL_FNSEL_NOT_A_OR_B                  0x0000000BUL                                  /**< Mode NOT_A_OR_B for PRS_ASYNC_CH_CTRL       */
+#define _PRS_ASYNC_CH_CTRL_FNSEL_A                           0x0000000CUL                                  /**< Mode A for PRS_ASYNC_CH_CTRL                */
+#define _PRS_ASYNC_CH_CTRL_FNSEL_A_OR_NOT_B                  0x0000000DUL                                  /**< Mode A_OR_NOT_B for PRS_ASYNC_CH_CTRL       */
+#define _PRS_ASYNC_CH_CTRL_FNSEL_A_OR_B                      0x0000000EUL                                  /**< Mode A_OR_B for PRS_ASYNC_CH_CTRL           */
+#define _PRS_ASYNC_CH_CTRL_FNSEL_LOGICAL_ONE                 0x0000000FUL                                  /**< Mode LOGICAL_ONE for PRS_ASYNC_CH_CTRL      */
 #define PRS_ASYNC_CH_CTRL_FNSEL_DEFAULT                      (_PRS_ASYNC_CH_CTRL_FNSEL_DEFAULT << 16)      /**< Shifted mode DEFAULT for PRS_ASYNC_CH_CTRL  */
 #define PRS_ASYNC_CH_CTRL_FNSEL_LOGICAL_ZERO                 (_PRS_ASYNC_CH_CTRL_FNSEL_LOGICAL_ZERO << 16) /**< Shifted mode LOGICAL_ZERO for PRS_ASYNC_CH_CTRL*/
-#define PRS_ASYNC_CH_CTRL_FNSEL_A_NOR_B                      (_PRS_ASYNC_CH_CTRL_FNSEL_A_NOR_B << 16)      /**< Shifted mode A_NOR_B for PRS_ASYNC_CH_CTRL   */
+#define PRS_ASYNC_CH_CTRL_FNSEL_A_NOR_B                      (_PRS_ASYNC_CH_CTRL_FNSEL_A_NOR_B << 16)      /**< Shifted mode A_NOR_B for PRS_ASYNC_CH_CTRL  */
 #define PRS_ASYNC_CH_CTRL_FNSEL_NOT_A_AND_B                  (_PRS_ASYNC_CH_CTRL_FNSEL_NOT_A_AND_B << 16)  /**< Shifted mode NOT_A_AND_B for PRS_ASYNC_CH_CTRL*/
-#define PRS_ASYNC_CH_CTRL_FNSEL_NOT_A                        (_PRS_ASYNC_CH_CTRL_FNSEL_NOT_A << 16)        /**< Shifted mode NOT_A for PRS_ASYNC_CH_CTRL     */
+#define PRS_ASYNC_CH_CTRL_FNSEL_NOT_A                        (_PRS_ASYNC_CH_CTRL_FNSEL_NOT_A << 16)        /**< Shifted mode NOT_A for PRS_ASYNC_CH_CTRL    */
 #define PRS_ASYNC_CH_CTRL_FNSEL_A_AND_NOT_B                  (_PRS_ASYNC_CH_CTRL_FNSEL_A_AND_NOT_B << 16)  /**< Shifted mode A_AND_NOT_B for PRS_ASYNC_CH_CTRL*/
-#define PRS_ASYNC_CH_CTRL_FNSEL_NOT_B                        (_PRS_ASYNC_CH_CTRL_FNSEL_NOT_B << 16)        /**< Shifted mode NOT_B for PRS_ASYNC_CH_CTRL     */
-#define PRS_ASYNC_CH_CTRL_FNSEL_A_XOR_B                      (_PRS_ASYNC_CH_CTRL_FNSEL_A_XOR_B << 16)      /**< Shifted mode A_XOR_B for PRS_ASYNC_CH_CTRL   */
-#define PRS_ASYNC_CH_CTRL_FNSEL_A_NAND_B                     (_PRS_ASYNC_CH_CTRL_FNSEL_A_NAND_B << 16)     /**< Shifted mode A_NAND_B for PRS_ASYNC_CH_CTRL  */
-#define PRS_ASYNC_CH_CTRL_FNSEL_A_AND_B                      (_PRS_ASYNC_CH_CTRL_FNSEL_A_AND_B << 16)      /**< Shifted mode A_AND_B for PRS_ASYNC_CH_CTRL   */
-#define PRS_ASYNC_CH_CTRL_FNSEL_A_XNOR_B                     (_PRS_ASYNC_CH_CTRL_FNSEL_A_XNOR_B << 16)     /**< Shifted mode A_XNOR_B for PRS_ASYNC_CH_CTRL  */
-#define PRS_ASYNC_CH_CTRL_FNSEL_B                            (_PRS_ASYNC_CH_CTRL_FNSEL_B << 16)            /**< Shifted mode B for PRS_ASYNC_CH_CTRL         */
+#define PRS_ASYNC_CH_CTRL_FNSEL_NOT_B                        (_PRS_ASYNC_CH_CTRL_FNSEL_NOT_B << 16)        /**< Shifted mode NOT_B for PRS_ASYNC_CH_CTRL    */
+#define PRS_ASYNC_CH_CTRL_FNSEL_A_XOR_B                      (_PRS_ASYNC_CH_CTRL_FNSEL_A_XOR_B << 16)      /**< Shifted mode A_XOR_B for PRS_ASYNC_CH_CTRL  */
+#define PRS_ASYNC_CH_CTRL_FNSEL_A_NAND_B                     (_PRS_ASYNC_CH_CTRL_FNSEL_A_NAND_B << 16)     /**< Shifted mode A_NAND_B for PRS_ASYNC_CH_CTRL */
+#define PRS_ASYNC_CH_CTRL_FNSEL_A_AND_B                      (_PRS_ASYNC_CH_CTRL_FNSEL_A_AND_B << 16)      /**< Shifted mode A_AND_B for PRS_ASYNC_CH_CTRL  */
+#define PRS_ASYNC_CH_CTRL_FNSEL_A_XNOR_B                     (_PRS_ASYNC_CH_CTRL_FNSEL_A_XNOR_B << 16)     /**< Shifted mode A_XNOR_B for PRS_ASYNC_CH_CTRL */
+#define PRS_ASYNC_CH_CTRL_FNSEL_B                            (_PRS_ASYNC_CH_CTRL_FNSEL_B << 16)            /**< Shifted mode B for PRS_ASYNC_CH_CTRL        */
 #define PRS_ASYNC_CH_CTRL_FNSEL_NOT_A_OR_B                   (_PRS_ASYNC_CH_CTRL_FNSEL_NOT_A_OR_B << 16)   /**< Shifted mode NOT_A_OR_B for PRS_ASYNC_CH_CTRL*/
-#define PRS_ASYNC_CH_CTRL_FNSEL_A                            (_PRS_ASYNC_CH_CTRL_FNSEL_A << 16)            /**< Shifted mode A for PRS_ASYNC_CH_CTRL         */
+#define PRS_ASYNC_CH_CTRL_FNSEL_A                            (_PRS_ASYNC_CH_CTRL_FNSEL_A << 16)            /**< Shifted mode A for PRS_ASYNC_CH_CTRL        */
 #define PRS_ASYNC_CH_CTRL_FNSEL_A_OR_NOT_B                   (_PRS_ASYNC_CH_CTRL_FNSEL_A_OR_NOT_B << 16)   /**< Shifted mode A_OR_NOT_B for PRS_ASYNC_CH_CTRL*/
-#define PRS_ASYNC_CH_CTRL_FNSEL_A_OR_B                       (_PRS_ASYNC_CH_CTRL_FNSEL_A_OR_B << 16)       /**< Shifted mode A_OR_B for PRS_ASYNC_CH_CTRL    */
+#define PRS_ASYNC_CH_CTRL_FNSEL_A_OR_B                       (_PRS_ASYNC_CH_CTRL_FNSEL_A_OR_B << 16)       /**< Shifted mode A_OR_B for PRS_ASYNC_CH_CTRL   */
 #define PRS_ASYNC_CH_CTRL_FNSEL_LOGICAL_ONE                  (_PRS_ASYNC_CH_CTRL_FNSEL_LOGICAL_ONE << 16)  /**< Shifted mode LOGICAL_ONE for PRS_ASYNC_CH_CTRL*/
 
 /* Bit fields for PRS SYNC_CH_CTRL */
@@ -692,9 +691,9 @@ typedef struct {
 #define _PRS_SYNC_CH_CTRL_SIGSEL_SHIFT                       0                                          /**< Shift value for PRS_SIGSEL                  */
 #define _PRS_SYNC_CH_CTRL_SIGSEL_MASK                        0x7UL                                      /**< Bit mask for PRS_SIGSEL                     */
 #define _PRS_SYNC_CH_CTRL_SIGSEL_DEFAULT                     0x00000000UL                               /**< Mode DEFAULT for PRS_SYNC_CH_CTRL           */
-#define _PRS_SYNC_CH_CTRL_SIGSEL_NONE                        0x00000000UL                               /**< Mode NONE for PRS_SYNC_CH_CTRL               */
+#define _PRS_SYNC_CH_CTRL_SIGSEL_NONE                        0x00000000UL                               /**< Mode NONE for PRS_SYNC_CH_CTRL              */
 #define PRS_SYNC_CH_CTRL_SIGSEL_DEFAULT                      (_PRS_SYNC_CH_CTRL_SIGSEL_DEFAULT << 0)    /**< Shifted mode DEFAULT for PRS_SYNC_CH_CTRL   */
-#define PRS_SYNC_CH_CTRL_SIGSEL_NONE                         (_PRS_SYNC_CH_CTRL_SIGSEL_NONE << 0)       /**< Shifted mode NONE for PRS_SYNC_CH_CTRL       */
+#define PRS_SYNC_CH_CTRL_SIGSEL_NONE                         (_PRS_SYNC_CH_CTRL_SIGSEL_NONE << 0)       /**< Shifted mode NONE for PRS_SYNC_CH_CTRL      */
 #define _PRS_SYNC_CH_CTRL_SOURCESEL_SHIFT                    8                                          /**< Shift value for PRS_SOURCESEL               */
 #define _PRS_SYNC_CH_CTRL_SOURCESEL_MASK                     0x7F00UL                                   /**< Bit mask for PRS_SOURCESEL                  */
 #define _PRS_SYNC_CH_CTRL_SOURCESEL_DEFAULT                  0x00000000UL                               /**< Mode DEFAULT for PRS_SYNC_CH_CTRL           */
@@ -756,29 +755,29 @@ typedef struct {
 #define _PRS_CONSUMER_LDMAXBAR_DMAREQ1_PRSSEL_DEFAULT        0x00000000UL                                         /**< Mode DEFAULT for PRS_CONSUMER_LDMAXBAR_DMAREQ1*/
 #define PRS_CONSUMER_LDMAXBAR_DMAREQ1_PRSSEL_DEFAULT         (_PRS_CONSUMER_LDMAXBAR_DMAREQ1_PRSSEL_DEFAULT << 0) /**< Shifted mode DEFAULT for PRS_CONSUMER_LDMAXBAR_DMAREQ1*/
 
-/* Bit fields for PRS CONSUMER_LETIMER_CLEAR */
-#define _PRS_CONSUMER_LETIMER_CLEAR_RESETVALUE               0x00000000UL                                      /**< Default value for PRS_CONSUMER_LETIMER_CLEAR*/
-#define _PRS_CONSUMER_LETIMER_CLEAR_MASK                     0x0000000FUL                                      /**< Mask for PRS_CONSUMER_LETIMER_CLEAR         */
-#define _PRS_CONSUMER_LETIMER_CLEAR_PRSSEL_SHIFT             0                                                 /**< Shift value for PRS_PRSSEL                  */
-#define _PRS_CONSUMER_LETIMER_CLEAR_PRSSEL_MASK              0xFUL                                             /**< Bit mask for PRS_PRSSEL                     */
-#define _PRS_CONSUMER_LETIMER_CLEAR_PRSSEL_DEFAULT           0x00000000UL                                      /**< Mode DEFAULT for PRS_CONSUMER_LETIMER_CLEAR */
-#define PRS_CONSUMER_LETIMER_CLEAR_PRSSEL_DEFAULT            (_PRS_CONSUMER_LETIMER_CLEAR_PRSSEL_DEFAULT << 0) /**< Shifted mode DEFAULT for PRS_CONSUMER_LETIMER_CLEAR*/
+/* Bit fields for PRS CONSUMER_LETIMER0_CLEAR */
+#define _PRS_CONSUMER_LETIMER0_CLEAR_RESETVALUE              0x00000000UL                                       /**< Default value for PRS_CONSUMER_LETIMER0_CLEAR*/
+#define _PRS_CONSUMER_LETIMER0_CLEAR_MASK                    0x0000000FUL                                       /**< Mask for PRS_CONSUMER_LETIMER0_CLEAR        */
+#define _PRS_CONSUMER_LETIMER0_CLEAR_PRSSEL_SHIFT            0                                                  /**< Shift value for PRS_PRSSEL                  */
+#define _PRS_CONSUMER_LETIMER0_CLEAR_PRSSEL_MASK             0xFUL                                              /**< Bit mask for PRS_PRSSEL                     */
+#define _PRS_CONSUMER_LETIMER0_CLEAR_PRSSEL_DEFAULT          0x00000000UL                                       /**< Mode DEFAULT for PRS_CONSUMER_LETIMER0_CLEAR*/
+#define PRS_CONSUMER_LETIMER0_CLEAR_PRSSEL_DEFAULT           (_PRS_CONSUMER_LETIMER0_CLEAR_PRSSEL_DEFAULT << 0) /**< Shifted mode DEFAULT for PRS_CONSUMER_LETIMER0_CLEAR*/
 
-/* Bit fields for PRS CONSUMER_LETIMER_START */
-#define _PRS_CONSUMER_LETIMER_START_RESETVALUE               0x00000000UL                                      /**< Default value for PRS_CONSUMER_LETIMER_START*/
-#define _PRS_CONSUMER_LETIMER_START_MASK                     0x0000000FUL                                      /**< Mask for PRS_CONSUMER_LETIMER_START         */
-#define _PRS_CONSUMER_LETIMER_START_PRSSEL_SHIFT             0                                                 /**< Shift value for PRS_PRSSEL                  */
-#define _PRS_CONSUMER_LETIMER_START_PRSSEL_MASK              0xFUL                                             /**< Bit mask for PRS_PRSSEL                     */
-#define _PRS_CONSUMER_LETIMER_START_PRSSEL_DEFAULT           0x00000000UL                                      /**< Mode DEFAULT for PRS_CONSUMER_LETIMER_START */
-#define PRS_CONSUMER_LETIMER_START_PRSSEL_DEFAULT            (_PRS_CONSUMER_LETIMER_START_PRSSEL_DEFAULT << 0) /**< Shifted mode DEFAULT for PRS_CONSUMER_LETIMER_START*/
+/* Bit fields for PRS CONSUMER_LETIMER0_START */
+#define _PRS_CONSUMER_LETIMER0_START_RESETVALUE              0x00000000UL                                       /**< Default value for PRS_CONSUMER_LETIMER0_START*/
+#define _PRS_CONSUMER_LETIMER0_START_MASK                    0x0000000FUL                                       /**< Mask for PRS_CONSUMER_LETIMER0_START        */
+#define _PRS_CONSUMER_LETIMER0_START_PRSSEL_SHIFT            0                                                  /**< Shift value for PRS_PRSSEL                  */
+#define _PRS_CONSUMER_LETIMER0_START_PRSSEL_MASK             0xFUL                                              /**< Bit mask for PRS_PRSSEL                     */
+#define _PRS_CONSUMER_LETIMER0_START_PRSSEL_DEFAULT          0x00000000UL                                       /**< Mode DEFAULT for PRS_CONSUMER_LETIMER0_START*/
+#define PRS_CONSUMER_LETIMER0_START_PRSSEL_DEFAULT           (_PRS_CONSUMER_LETIMER0_START_PRSSEL_DEFAULT << 0) /**< Shifted mode DEFAULT for PRS_CONSUMER_LETIMER0_START*/
 
-/* Bit fields for PRS CONSUMER_LETIMER_STOP */
-#define _PRS_CONSUMER_LETIMER_STOP_RESETVALUE                0x00000000UL                                     /**< Default value for PRS_CONSUMER_LETIMER_STOP */
-#define _PRS_CONSUMER_LETIMER_STOP_MASK                      0x0000000FUL                                     /**< Mask for PRS_CONSUMER_LETIMER_STOP          */
-#define _PRS_CONSUMER_LETIMER_STOP_PRSSEL_SHIFT              0                                                /**< Shift value for PRS_PRSSEL                  */
-#define _PRS_CONSUMER_LETIMER_STOP_PRSSEL_MASK               0xFUL                                            /**< Bit mask for PRS_PRSSEL                     */
-#define _PRS_CONSUMER_LETIMER_STOP_PRSSEL_DEFAULT            0x00000000UL                                     /**< Mode DEFAULT for PRS_CONSUMER_LETIMER_STOP  */
-#define PRS_CONSUMER_LETIMER_STOP_PRSSEL_DEFAULT             (_PRS_CONSUMER_LETIMER_STOP_PRSSEL_DEFAULT << 0) /**< Shifted mode DEFAULT for PRS_CONSUMER_LETIMER_STOP*/
+/* Bit fields for PRS CONSUMER_LETIMER0_STOP */
+#define _PRS_CONSUMER_LETIMER0_STOP_RESETVALUE               0x00000000UL                                      /**< Default value for PRS_CONSUMER_LETIMER0_STOP*/
+#define _PRS_CONSUMER_LETIMER0_STOP_MASK                     0x0000000FUL                                      /**< Mask for PRS_CONSUMER_LETIMER0_STOP         */
+#define _PRS_CONSUMER_LETIMER0_STOP_PRSSEL_SHIFT             0                                                 /**< Shift value for PRS_PRSSEL                  */
+#define _PRS_CONSUMER_LETIMER0_STOP_PRSSEL_MASK              0xFUL                                             /**< Bit mask for PRS_PRSSEL                     */
+#define _PRS_CONSUMER_LETIMER0_STOP_PRSSEL_DEFAULT           0x00000000UL                                      /**< Mode DEFAULT for PRS_CONSUMER_LETIMER0_STOP */
+#define PRS_CONSUMER_LETIMER0_STOP_PRSSEL_DEFAULT            (_PRS_CONSUMER_LETIMER0_STOP_PRSSEL_DEFAULT << 0) /**< Shifted mode DEFAULT for PRS_CONSUMER_LETIMER0_STOP*/
 
 /* Bit fields for PRS CONSUMER_MODEM_DIN */
 #define _PRS_CONSUMER_MODEM_DIN_RESETVALUE                   0x00000000UL                                  /**< Default value for PRS_CONSUMER_MODEM_DIN    */

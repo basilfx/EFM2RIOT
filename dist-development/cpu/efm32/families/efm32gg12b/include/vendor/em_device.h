@@ -11,10 +11,9 @@
  *          Add "#include "em_device.h" to your source files
  * @endverbatim
  *
- * @version 5.7.0
  *******************************************************************************
  * # License
- * <b>Copyright 2018 Silicon Laboratories Inc. www.silabs.com</b>
+ * <b>Copyright 2020 Silicon Laboratories Inc. www.silabs.com</b>
  *******************************************************************************
  *
  * SPDX-License-Identifier: Zlib
@@ -82,6 +81,9 @@ extern "C" {
 
 #elif defined(EFM32GG12B330F512GQ100)
 #include "efm32gg12b330f512gq100.h"
+
+#elif defined(EFM32GG12B390F1024GL112)
+#include "efm32gg12b390f1024gl112.h"
 
 #elif defined(EFM32GG12B390F512GL112)
 #include "efm32gg12b390f512gl112.h"
@@ -161,6 +163,9 @@ extern "C" {
 #elif defined(EFM32GG12B510F1024GQ64)
 #include "efm32gg12b510f1024gq64.h"
 
+#elif defined(EFM32GG12B510F1024IL112)
+#include "efm32gg12b510f1024il112.h"
+
 #elif defined(EFM32GG12B510F1024IL120)
 #include "efm32gg12b510f1024il120.h"
 
@@ -187,6 +192,9 @@ extern "C" {
 
 #elif defined(EFM32GG12B530F512GQ64)
 #include "efm32gg12b530f512gq64.h"
+
+#elif defined(EFM32GG12B530F512IL112)
+#include "efm32gg12b530f512il112.h"
 
 #elif defined(EFM32GG12B530F512IL120)
 #include "efm32gg12b530f512il120.h"
@@ -215,6 +223,9 @@ extern "C" {
 #elif defined(EFM32GG12B810F1024GQ64)
 #include "efm32gg12b810f1024gq64.h"
 
+#elif defined(EFM32GG12B810F1024IL112)
+#include "efm32gg12b810f1024il112.h"
+
 #elif defined(EFM32GG12B810F1024IL120)
 #include "efm32gg12b810f1024il120.h"
 
@@ -241,6 +252,9 @@ extern "C" {
 
 #elif defined(EFM32GG12B830F512GQ64)
 #include "efm32gg12b830f512gq64.h"
+
+#elif defined(EFM32GG12B830F512IL112)
+#include "efm32gg12b830f512il112.h"
 
 #elif defined(EFM32GG12B830F512IL120)
 #include "efm32gg12b830f512il120.h"

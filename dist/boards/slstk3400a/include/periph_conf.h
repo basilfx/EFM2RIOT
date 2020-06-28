@@ -15,6 +15,7 @@
  *
  * @author      Hauke Petersen <hauke.petersen@fu-berlin.de>
  * @author      Bas Stottelaar <basstottelaar@gmail.com>
+ * @author      Akshai M <mail@akshaim.in>
  */
 
 #ifndef PERIPH_CONF_H
@@ -73,8 +74,7 @@ static const i2c_conf_t i2c_config[] = {
         .dev = I2C0,
         .sda_pin = GPIO_PIN(PD, 6),
         .scl_pin = GPIO_PIN(PD, 7),
-        .loc = I2C_ROUTELOC0_SDALOC_LOC1 |
-               I2C_ROUTELOC0_SCLLOC_LOC1,
+        .loc = I2C_ROUTE_LOCATION_LOC1,
         .cmu = cmuClock_I2C0,
         .irq = I2C0_IRQn,
         .speed = I2C_SPEED_NORMAL
@@ -100,14 +100,12 @@ static const i2c_conf_t i2c_config[] = {
 static const spi_dev_t spi_config[] = {
     {
         .dev = USART0,
-        .mosi_pin = GPIO_PIN(PC, 11),
-        .miso_pin = GPIO_PIN(PC, 10),
-        .clk_pin = GPIO_PIN(PA, 12),
-        .loc = USART_ROUTELOC0_RXLOC_LOC2 |
-               USART_ROUTELOC0_TXLOC_LOC2 |
-               USART_ROUTELOC0_CLKLOC_LOC5,
+        .mosi_pin = GPIO_PIN(PE, 10),
+        .miso_pin = GPIO_PIN(PE, 11),
+        .clk_pin = GPIO_PIN(PE, 12),
+        .loc = USART_ROUTE_LOCATION_LOC0,
         .cmu = cmuClock_USART0,
-        .irq = USART0_IRQn
+        .irq = USART0_RX_IRQn
     }
 };
 
@@ -147,15 +145,23 @@ static const uart_conf_t uart_config[] = {
         .dev = USART1,
         .rx_pin = GPIO_PIN(PA, 0),
         .tx_pin = GPIO_PIN(PF, 2),
-        .loc = USART_ROUTELOC0_RXLOC_LOC4 |
-               USART_ROUTELOC0_TXLOC_LOC4,
+        .loc = USART_ROUTE_LOCATION_LOC4,
         .cmu = cmuClock_USART1,
-        .irq = USART1_IRQn
+        .irq = USART1_RX_IRQn
+    },
+    {
+        .dev = LEUART0,
+        .rx_pin = GPIO_PIN(PD, 5),
+        .tx_pin = GPIO_PIN(PD, 4),
+        .loc = LEUART_ROUTE_LOCATION_LOC0,
+        .cmu = cmuClock_LEUART0,
+        .irq = LEUART0_IRQn
     }
 };
 
 #define UART_NUMOF          ARRAY_SIZE(uart_config)
-#define UART_0_ISR_RX       isr_usart1
+#define UART_0_ISR_RX       isr_usart1_rx
+#define UART_1_ISR_RX       isr_leuart0
 /** @} */
 
 #ifdef __cplusplus

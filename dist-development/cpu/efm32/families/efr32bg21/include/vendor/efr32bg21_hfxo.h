@@ -1,10 +1,9 @@
 /**************************************************************************//**
  * @file
  * @brief EFR32BG21 HFXO register and bit field definitions
- * @version 5.7.0
  ******************************************************************************
  * # License
- * <b>Copyright 2018 Silicon Laboratories, Inc. www.silabs.com</b>
+ * <b>Copyright 2020 Silicon Laboratories, Inc. www.silabs.com</b>
  ******************************************************************************
  *
  * SPDX-License-Identifier: Zlib
@@ -50,79 +49,79 @@ extern "C" {
 /** HFXO Register Declaration. */
 typedef struct {
   __IM uint32_t  IPVERSION;                     /**< IP version ID                                      */
-  uint32_t       RESERVED0[3U];                 /**< Reserved for future use                      */
+  uint32_t       RESERVED0[3U];                 /**< Reserved for future use                            */
   __IOM uint32_t XTALCFG;                       /**< Crystal Configuration Register                     */
-  uint32_t       RESERVED1[1U];                 /**< Reserved for future use                      */
+  uint32_t       RESERVED1[1U];                 /**< Reserved for future use                            */
   __IOM uint32_t XTALCTRL;                      /**< Crystal Control Register                           */
-  uint32_t       RESERVED2[1U];                 /**< Reserved for future use                      */
+  uint32_t       RESERVED2[1U];                 /**< Reserved for future use                            */
   __IOM uint32_t CFG;                           /**< Configuration Register                             */
-  uint32_t       RESERVED3[1U];                 /**< Reserved for future use                      */
+  uint32_t       RESERVED3[1U];                 /**< Reserved for future use                            */
   __IOM uint32_t CTRL;                          /**< Control Register                                   */
-  uint32_t       RESERVED4[9U];                 /**< Reserved for future use                      */
+  uint32_t       RESERVED4[9U];                 /**< Reserved for future use                            */
   __IOM uint32_t CMD;                           /**< Command Register                                   */
-  uint32_t       RESERVED5[1U];                 /**< Reserved for future use                      */
+  uint32_t       RESERVED5[1U];                 /**< Reserved for future use                            */
   __IM uint32_t  STATUS;                        /**< Status Register                                    */
-  uint32_t       RESERVED6[5U];                 /**< Reserved for future use                      */
+  uint32_t       RESERVED6[5U];                 /**< Reserved for future use                            */
   __IOM uint32_t IF;                            /**< Interrupt Flag Register                            */
   __IOM uint32_t IEN;                           /**< Interrupt Enable Register                          */
-  uint32_t       RESERVED7[2U];                 /**< Reserved for future use                      */
+  uint32_t       RESERVED7[2U];                 /**< Reserved for future use                            */
   __IOM uint32_t LOCK;                          /**< Configuration Lock Register                        */
-  uint32_t       RESERVED8[991U];               /**< Reserved for future use*/
+  uint32_t       RESERVED8[991U];               /**< Reserved for future use                            */
   __IM uint32_t  IPVERSION_SET;                 /**< IP version ID                                      */
-  uint32_t       RESERVED9[3U];                 /**< Reserved for future use                      */
+  uint32_t       RESERVED9[3U];                 /**< Reserved for future use                            */
   __IOM uint32_t XTALCFG_SET;                   /**< Crystal Configuration Register                     */
-  uint32_t       RESERVED10[1U];                /**< Reserved for future use                      */
+  uint32_t       RESERVED10[1U];                /**< Reserved for future use                            */
   __IOM uint32_t XTALCTRL_SET;                  /**< Crystal Control Register                           */
-  uint32_t       RESERVED11[1U];                /**< Reserved for future use                      */
+  uint32_t       RESERVED11[1U];                /**< Reserved for future use                            */
   __IOM uint32_t CFG_SET;                       /**< Configuration Register                             */
-  uint32_t       RESERVED12[1U];                /**< Reserved for future use                      */
+  uint32_t       RESERVED12[1U];                /**< Reserved for future use                            */
   __IOM uint32_t CTRL_SET;                      /**< Control Register                                   */
-  uint32_t       RESERVED13[9U];                /**< Reserved for future use                      */
+  uint32_t       RESERVED13[9U];                /**< Reserved for future use                            */
   __IOM uint32_t CMD_SET;                       /**< Command Register                                   */
-  uint32_t       RESERVED14[1U];                /**< Reserved for future use                      */
+  uint32_t       RESERVED14[1U];                /**< Reserved for future use                            */
   __IM uint32_t  STATUS_SET;                    /**< Status Register                                    */
-  uint32_t       RESERVED15[5U];                /**< Reserved for future use                      */
+  uint32_t       RESERVED15[5U];                /**< Reserved for future use                            */
   __IOM uint32_t IF_SET;                        /**< Interrupt Flag Register                            */
   __IOM uint32_t IEN_SET;                       /**< Interrupt Enable Register                          */
-  uint32_t       RESERVED16[2U];                /**< Reserved for future use                      */
+  uint32_t       RESERVED16[2U];                /**< Reserved for future use                            */
   __IOM uint32_t LOCK_SET;                      /**< Configuration Lock Register                        */
-  uint32_t       RESERVED17[991U];              /**< Reserved for future use*/
+  uint32_t       RESERVED17[991U];              /**< Reserved for future use                            */
   __IM uint32_t  IPVERSION_CLR;                 /**< IP version ID                                      */
-  uint32_t       RESERVED18[3U];                /**< Reserved for future use                      */
+  uint32_t       RESERVED18[3U];                /**< Reserved for future use                            */
   __IOM uint32_t XTALCFG_CLR;                   /**< Crystal Configuration Register                     */
-  uint32_t       RESERVED19[1U];                /**< Reserved for future use                      */
+  uint32_t       RESERVED19[1U];                /**< Reserved for future use                            */
   __IOM uint32_t XTALCTRL_CLR;                  /**< Crystal Control Register                           */
-  uint32_t       RESERVED20[1U];                /**< Reserved for future use                      */
+  uint32_t       RESERVED20[1U];                /**< Reserved for future use                            */
   __IOM uint32_t CFG_CLR;                       /**< Configuration Register                             */
-  uint32_t       RESERVED21[1U];                /**< Reserved for future use                      */
+  uint32_t       RESERVED21[1U];                /**< Reserved for future use                            */
   __IOM uint32_t CTRL_CLR;                      /**< Control Register                                   */
-  uint32_t       RESERVED22[9U];                /**< Reserved for future use                      */
+  uint32_t       RESERVED22[9U];                /**< Reserved for future use                            */
   __IOM uint32_t CMD_CLR;                       /**< Command Register                                   */
-  uint32_t       RESERVED23[1U];                /**< Reserved for future use                      */
+  uint32_t       RESERVED23[1U];                /**< Reserved for future use                            */
   __IM uint32_t  STATUS_CLR;                    /**< Status Register                                    */
-  uint32_t       RESERVED24[5U];                /**< Reserved for future use                      */
+  uint32_t       RESERVED24[5U];                /**< Reserved for future use                            */
   __IOM uint32_t IF_CLR;                        /**< Interrupt Flag Register                            */
   __IOM uint32_t IEN_CLR;                       /**< Interrupt Enable Register                          */
-  uint32_t       RESERVED25[2U];                /**< Reserved for future use                      */
+  uint32_t       RESERVED25[2U];                /**< Reserved for future use                            */
   __IOM uint32_t LOCK_CLR;                      /**< Configuration Lock Register                        */
-  uint32_t       RESERVED26[991U];              /**< Reserved for future use*/
+  uint32_t       RESERVED26[991U];              /**< Reserved for future use                            */
   __IM uint32_t  IPVERSION_TGL;                 /**< IP version ID                                      */
-  uint32_t       RESERVED27[3U];                /**< Reserved for future use                      */
+  uint32_t       RESERVED27[3U];                /**< Reserved for future use                            */
   __IOM uint32_t XTALCFG_TGL;                   /**< Crystal Configuration Register                     */
-  uint32_t       RESERVED28[1U];                /**< Reserved for future use                      */
+  uint32_t       RESERVED28[1U];                /**< Reserved for future use                            */
   __IOM uint32_t XTALCTRL_TGL;                  /**< Crystal Control Register                           */
-  uint32_t       RESERVED29[1U];                /**< Reserved for future use                      */
+  uint32_t       RESERVED29[1U];                /**< Reserved for future use                            */
   __IOM uint32_t CFG_TGL;                       /**< Configuration Register                             */
-  uint32_t       RESERVED30[1U];                /**< Reserved for future use                      */
+  uint32_t       RESERVED30[1U];                /**< Reserved for future use                            */
   __IOM uint32_t CTRL_TGL;                      /**< Control Register                                   */
-  uint32_t       RESERVED31[9U];                /**< Reserved for future use                      */
+  uint32_t       RESERVED31[9U];                /**< Reserved for future use                            */
   __IOM uint32_t CMD_TGL;                       /**< Command Register                                   */
-  uint32_t       RESERVED32[1U];                /**< Reserved for future use                      */
+  uint32_t       RESERVED32[1U];                /**< Reserved for future use                            */
   __IM uint32_t  STATUS_TGL;                    /**< Status Register                                    */
-  uint32_t       RESERVED33[5U];                /**< Reserved for future use                      */
+  uint32_t       RESERVED33[5U];                /**< Reserved for future use                            */
   __IOM uint32_t IF_TGL;                        /**< Interrupt Flag Register                            */
   __IOM uint32_t IEN_TGL;                       /**< Interrupt Enable Register                          */
-  uint32_t       RESERVED34[2U];                /**< Reserved for future use                      */
+  uint32_t       RESERVED34[2U];                /**< Reserved for future use                            */
   __IOM uint32_t LOCK_TGL;                      /**< Configuration Lock Register                        */
 } HFXO_TypeDef;
 /** @} End of group EFR32BG21_HFXO */
@@ -164,75 +163,75 @@ typedef struct {
 #define _HFXO_XTALCFG_TIMEOUTSTEADY_SHIFT         20                                            /**< Shift value for HFXO_TIMEOUTSTEADY          */
 #define _HFXO_XTALCFG_TIMEOUTSTEADY_MASK          0xF00000UL                                    /**< Bit mask for HFXO_TIMEOUTSTEADY             */
 #define _HFXO_XTALCFG_TIMEOUTSTEADY_DEFAULT       0x00000004UL                                  /**< Mode DEFAULT for HFXO_XTALCFG               */
-#define _HFXO_XTALCFG_TIMEOUTSTEADY_T16US         0x00000000UL                                  /**< Mode T16US for HFXO_XTALCFG                  */
-#define _HFXO_XTALCFG_TIMEOUTSTEADY_T41US         0x00000001UL                                  /**< Mode T41US for HFXO_XTALCFG                  */
-#define _HFXO_XTALCFG_TIMEOUTSTEADY_T83US         0x00000002UL                                  /**< Mode T83US for HFXO_XTALCFG                  */
-#define _HFXO_XTALCFG_TIMEOUTSTEADY_T125US        0x00000003UL                                  /**< Mode T125US for HFXO_XTALCFG                 */
-#define _HFXO_XTALCFG_TIMEOUTSTEADY_T166US        0x00000004UL                                  /**< Mode T166US for HFXO_XTALCFG                 */
-#define _HFXO_XTALCFG_TIMEOUTSTEADY_T208US        0x00000005UL                                  /**< Mode T208US for HFXO_XTALCFG                 */
-#define _HFXO_XTALCFG_TIMEOUTSTEADY_T250US        0x00000006UL                                  /**< Mode T250US for HFXO_XTALCFG                 */
-#define _HFXO_XTALCFG_TIMEOUTSTEADY_T333US        0x00000007UL                                  /**< Mode T333US for HFXO_XTALCFG                 */
-#define _HFXO_XTALCFG_TIMEOUTSTEADY_T416US        0x00000008UL                                  /**< Mode T416US for HFXO_XTALCFG                 */
-#define _HFXO_XTALCFG_TIMEOUTSTEADY_T500US        0x00000009UL                                  /**< Mode T500US for HFXO_XTALCFG                 */
-#define _HFXO_XTALCFG_TIMEOUTSTEADY_T666US        0x0000000AUL                                  /**< Mode T666US for HFXO_XTALCFG                 */
-#define _HFXO_XTALCFG_TIMEOUTSTEADY_T833US        0x0000000BUL                                  /**< Mode T833US for HFXO_XTALCFG                 */
-#define _HFXO_XTALCFG_TIMEOUTSTEADY_T1666US       0x0000000CUL                                  /**< Mode T1666US for HFXO_XTALCFG                */
-#define _HFXO_XTALCFG_TIMEOUTSTEADY_T2500US       0x0000000DUL                                  /**< Mode T2500US for HFXO_XTALCFG                */
-#define _HFXO_XTALCFG_TIMEOUTSTEADY_T4166US       0x0000000EUL                                  /**< Mode T4166US for HFXO_XTALCFG                */
-#define _HFXO_XTALCFG_TIMEOUTSTEADY_T7500US       0x0000000FUL                                  /**< Mode T7500US for HFXO_XTALCFG                */
+#define _HFXO_XTALCFG_TIMEOUTSTEADY_T16US         0x00000000UL                                  /**< Mode T16US for HFXO_XTALCFG                 */
+#define _HFXO_XTALCFG_TIMEOUTSTEADY_T41US         0x00000001UL                                  /**< Mode T41US for HFXO_XTALCFG                 */
+#define _HFXO_XTALCFG_TIMEOUTSTEADY_T83US         0x00000002UL                                  /**< Mode T83US for HFXO_XTALCFG                 */
+#define _HFXO_XTALCFG_TIMEOUTSTEADY_T125US        0x00000003UL                                  /**< Mode T125US for HFXO_XTALCFG                */
+#define _HFXO_XTALCFG_TIMEOUTSTEADY_T166US        0x00000004UL                                  /**< Mode T166US for HFXO_XTALCFG                */
+#define _HFXO_XTALCFG_TIMEOUTSTEADY_T208US        0x00000005UL                                  /**< Mode T208US for HFXO_XTALCFG                */
+#define _HFXO_XTALCFG_TIMEOUTSTEADY_T250US        0x00000006UL                                  /**< Mode T250US for HFXO_XTALCFG                */
+#define _HFXO_XTALCFG_TIMEOUTSTEADY_T333US        0x00000007UL                                  /**< Mode T333US for HFXO_XTALCFG                */
+#define _HFXO_XTALCFG_TIMEOUTSTEADY_T416US        0x00000008UL                                  /**< Mode T416US for HFXO_XTALCFG                */
+#define _HFXO_XTALCFG_TIMEOUTSTEADY_T500US        0x00000009UL                                  /**< Mode T500US for HFXO_XTALCFG                */
+#define _HFXO_XTALCFG_TIMEOUTSTEADY_T666US        0x0000000AUL                                  /**< Mode T666US for HFXO_XTALCFG                */
+#define _HFXO_XTALCFG_TIMEOUTSTEADY_T833US        0x0000000BUL                                  /**< Mode T833US for HFXO_XTALCFG                */
+#define _HFXO_XTALCFG_TIMEOUTSTEADY_T1666US       0x0000000CUL                                  /**< Mode T1666US for HFXO_XTALCFG               */
+#define _HFXO_XTALCFG_TIMEOUTSTEADY_T2500US       0x0000000DUL                                  /**< Mode T2500US for HFXO_XTALCFG               */
+#define _HFXO_XTALCFG_TIMEOUTSTEADY_T4166US       0x0000000EUL                                  /**< Mode T4166US for HFXO_XTALCFG               */
+#define _HFXO_XTALCFG_TIMEOUTSTEADY_T7500US       0x0000000FUL                                  /**< Mode T7500US for HFXO_XTALCFG               */
 #define HFXO_XTALCFG_TIMEOUTSTEADY_DEFAULT        (_HFXO_XTALCFG_TIMEOUTSTEADY_DEFAULT << 20)   /**< Shifted mode DEFAULT for HFXO_XTALCFG       */
-#define HFXO_XTALCFG_TIMEOUTSTEADY_T16US          (_HFXO_XTALCFG_TIMEOUTSTEADY_T16US << 20)     /**< Shifted mode T16US for HFXO_XTALCFG          */
-#define HFXO_XTALCFG_TIMEOUTSTEADY_T41US          (_HFXO_XTALCFG_TIMEOUTSTEADY_T41US << 20)     /**< Shifted mode T41US for HFXO_XTALCFG          */
-#define HFXO_XTALCFG_TIMEOUTSTEADY_T83US          (_HFXO_XTALCFG_TIMEOUTSTEADY_T83US << 20)     /**< Shifted mode T83US for HFXO_XTALCFG          */
-#define HFXO_XTALCFG_TIMEOUTSTEADY_T125US         (_HFXO_XTALCFG_TIMEOUTSTEADY_T125US << 20)    /**< Shifted mode T125US for HFXO_XTALCFG         */
-#define HFXO_XTALCFG_TIMEOUTSTEADY_T166US         (_HFXO_XTALCFG_TIMEOUTSTEADY_T166US << 20)    /**< Shifted mode T166US for HFXO_XTALCFG         */
-#define HFXO_XTALCFG_TIMEOUTSTEADY_T208US         (_HFXO_XTALCFG_TIMEOUTSTEADY_T208US << 20)    /**< Shifted mode T208US for HFXO_XTALCFG         */
-#define HFXO_XTALCFG_TIMEOUTSTEADY_T250US         (_HFXO_XTALCFG_TIMEOUTSTEADY_T250US << 20)    /**< Shifted mode T250US for HFXO_XTALCFG         */
-#define HFXO_XTALCFG_TIMEOUTSTEADY_T333US         (_HFXO_XTALCFG_TIMEOUTSTEADY_T333US << 20)    /**< Shifted mode T333US for HFXO_XTALCFG         */
-#define HFXO_XTALCFG_TIMEOUTSTEADY_T416US         (_HFXO_XTALCFG_TIMEOUTSTEADY_T416US << 20)    /**< Shifted mode T416US for HFXO_XTALCFG         */
-#define HFXO_XTALCFG_TIMEOUTSTEADY_T500US         (_HFXO_XTALCFG_TIMEOUTSTEADY_T500US << 20)    /**< Shifted mode T500US for HFXO_XTALCFG         */
-#define HFXO_XTALCFG_TIMEOUTSTEADY_T666US         (_HFXO_XTALCFG_TIMEOUTSTEADY_T666US << 20)    /**< Shifted mode T666US for HFXO_XTALCFG         */
-#define HFXO_XTALCFG_TIMEOUTSTEADY_T833US         (_HFXO_XTALCFG_TIMEOUTSTEADY_T833US << 20)    /**< Shifted mode T833US for HFXO_XTALCFG         */
-#define HFXO_XTALCFG_TIMEOUTSTEADY_T1666US        (_HFXO_XTALCFG_TIMEOUTSTEADY_T1666US << 20)   /**< Shifted mode T1666US for HFXO_XTALCFG        */
-#define HFXO_XTALCFG_TIMEOUTSTEADY_T2500US        (_HFXO_XTALCFG_TIMEOUTSTEADY_T2500US << 20)   /**< Shifted mode T2500US for HFXO_XTALCFG        */
-#define HFXO_XTALCFG_TIMEOUTSTEADY_T4166US        (_HFXO_XTALCFG_TIMEOUTSTEADY_T4166US << 20)   /**< Shifted mode T4166US for HFXO_XTALCFG        */
-#define HFXO_XTALCFG_TIMEOUTSTEADY_T7500US        (_HFXO_XTALCFG_TIMEOUTSTEADY_T7500US << 20)   /**< Shifted mode T7500US for HFXO_XTALCFG        */
+#define HFXO_XTALCFG_TIMEOUTSTEADY_T16US          (_HFXO_XTALCFG_TIMEOUTSTEADY_T16US << 20)     /**< Shifted mode T16US for HFXO_XTALCFG         */
+#define HFXO_XTALCFG_TIMEOUTSTEADY_T41US          (_HFXO_XTALCFG_TIMEOUTSTEADY_T41US << 20)     /**< Shifted mode T41US for HFXO_XTALCFG         */
+#define HFXO_XTALCFG_TIMEOUTSTEADY_T83US          (_HFXO_XTALCFG_TIMEOUTSTEADY_T83US << 20)     /**< Shifted mode T83US for HFXO_XTALCFG         */
+#define HFXO_XTALCFG_TIMEOUTSTEADY_T125US         (_HFXO_XTALCFG_TIMEOUTSTEADY_T125US << 20)    /**< Shifted mode T125US for HFXO_XTALCFG        */
+#define HFXO_XTALCFG_TIMEOUTSTEADY_T166US         (_HFXO_XTALCFG_TIMEOUTSTEADY_T166US << 20)    /**< Shifted mode T166US for HFXO_XTALCFG        */
+#define HFXO_XTALCFG_TIMEOUTSTEADY_T208US         (_HFXO_XTALCFG_TIMEOUTSTEADY_T208US << 20)    /**< Shifted mode T208US for HFXO_XTALCFG        */
+#define HFXO_XTALCFG_TIMEOUTSTEADY_T250US         (_HFXO_XTALCFG_TIMEOUTSTEADY_T250US << 20)    /**< Shifted mode T250US for HFXO_XTALCFG        */
+#define HFXO_XTALCFG_TIMEOUTSTEADY_T333US         (_HFXO_XTALCFG_TIMEOUTSTEADY_T333US << 20)    /**< Shifted mode T333US for HFXO_XTALCFG        */
+#define HFXO_XTALCFG_TIMEOUTSTEADY_T416US         (_HFXO_XTALCFG_TIMEOUTSTEADY_T416US << 20)    /**< Shifted mode T416US for HFXO_XTALCFG        */
+#define HFXO_XTALCFG_TIMEOUTSTEADY_T500US         (_HFXO_XTALCFG_TIMEOUTSTEADY_T500US << 20)    /**< Shifted mode T500US for HFXO_XTALCFG        */
+#define HFXO_XTALCFG_TIMEOUTSTEADY_T666US         (_HFXO_XTALCFG_TIMEOUTSTEADY_T666US << 20)    /**< Shifted mode T666US for HFXO_XTALCFG        */
+#define HFXO_XTALCFG_TIMEOUTSTEADY_T833US         (_HFXO_XTALCFG_TIMEOUTSTEADY_T833US << 20)    /**< Shifted mode T833US for HFXO_XTALCFG        */
+#define HFXO_XTALCFG_TIMEOUTSTEADY_T1666US        (_HFXO_XTALCFG_TIMEOUTSTEADY_T1666US << 20)   /**< Shifted mode T1666US for HFXO_XTALCFG       */
+#define HFXO_XTALCFG_TIMEOUTSTEADY_T2500US        (_HFXO_XTALCFG_TIMEOUTSTEADY_T2500US << 20)   /**< Shifted mode T2500US for HFXO_XTALCFG       */
+#define HFXO_XTALCFG_TIMEOUTSTEADY_T4166US        (_HFXO_XTALCFG_TIMEOUTSTEADY_T4166US << 20)   /**< Shifted mode T4166US for HFXO_XTALCFG       */
+#define HFXO_XTALCFG_TIMEOUTSTEADY_T7500US        (_HFXO_XTALCFG_TIMEOUTSTEADY_T7500US << 20)   /**< Shifted mode T7500US for HFXO_XTALCFG       */
 #define _HFXO_XTALCFG_TIMEOUTCBLSB_SHIFT          24                                            /**< Shift value for HFXO_TIMEOUTCBLSB           */
 #define _HFXO_XTALCFG_TIMEOUTCBLSB_MASK           0xF000000UL                                   /**< Bit mask for HFXO_TIMEOUTCBLSB              */
 #define _HFXO_XTALCFG_TIMEOUTCBLSB_DEFAULT        0x00000004UL                                  /**< Mode DEFAULT for HFXO_XTALCFG               */
-#define _HFXO_XTALCFG_TIMEOUTCBLSB_T8US           0x00000000UL                                  /**< Mode T8US for HFXO_XTALCFG                   */
-#define _HFXO_XTALCFG_TIMEOUTCBLSB_T20US          0x00000001UL                                  /**< Mode T20US for HFXO_XTALCFG                  */
-#define _HFXO_XTALCFG_TIMEOUTCBLSB_T41US          0x00000002UL                                  /**< Mode T41US for HFXO_XTALCFG                  */
-#define _HFXO_XTALCFG_TIMEOUTCBLSB_T62US          0x00000003UL                                  /**< Mode T62US for HFXO_XTALCFG                  */
-#define _HFXO_XTALCFG_TIMEOUTCBLSB_T83US          0x00000004UL                                  /**< Mode T83US for HFXO_XTALCFG                  */
-#define _HFXO_XTALCFG_TIMEOUTCBLSB_T104US         0x00000005UL                                  /**< Mode T104US for HFXO_XTALCFG                 */
-#define _HFXO_XTALCFG_TIMEOUTCBLSB_T125US         0x00000006UL                                  /**< Mode T125US for HFXO_XTALCFG                 */
-#define _HFXO_XTALCFG_TIMEOUTCBLSB_T166US         0x00000007UL                                  /**< Mode T166US for HFXO_XTALCFG                 */
-#define _HFXO_XTALCFG_TIMEOUTCBLSB_T208US         0x00000008UL                                  /**< Mode T208US for HFXO_XTALCFG                 */
-#define _HFXO_XTALCFG_TIMEOUTCBLSB_T250US         0x00000009UL                                  /**< Mode T250US for HFXO_XTALCFG                 */
-#define _HFXO_XTALCFG_TIMEOUTCBLSB_T333US         0x0000000AUL                                  /**< Mode T333US for HFXO_XTALCFG                 */
-#define _HFXO_XTALCFG_TIMEOUTCBLSB_T416US         0x0000000BUL                                  /**< Mode T416US for HFXO_XTALCFG                 */
-#define _HFXO_XTALCFG_TIMEOUTCBLSB_T833US         0x0000000CUL                                  /**< Mode T833US for HFXO_XTALCFG                 */
-#define _HFXO_XTALCFG_TIMEOUTCBLSB_T1250US        0x0000000DUL                                  /**< Mode T1250US for HFXO_XTALCFG                */
-#define _HFXO_XTALCFG_TIMEOUTCBLSB_T2083US        0x0000000EUL                                  /**< Mode T2083US for HFXO_XTALCFG                */
-#define _HFXO_XTALCFG_TIMEOUTCBLSB_T3750US        0x0000000FUL                                  /**< Mode T3750US for HFXO_XTALCFG                */
+#define _HFXO_XTALCFG_TIMEOUTCBLSB_T8US           0x00000000UL                                  /**< Mode T8US for HFXO_XTALCFG                  */
+#define _HFXO_XTALCFG_TIMEOUTCBLSB_T20US          0x00000001UL                                  /**< Mode T20US for HFXO_XTALCFG                 */
+#define _HFXO_XTALCFG_TIMEOUTCBLSB_T41US          0x00000002UL                                  /**< Mode T41US for HFXO_XTALCFG                 */
+#define _HFXO_XTALCFG_TIMEOUTCBLSB_T62US          0x00000003UL                                  /**< Mode T62US for HFXO_XTALCFG                 */
+#define _HFXO_XTALCFG_TIMEOUTCBLSB_T83US          0x00000004UL                                  /**< Mode T83US for HFXO_XTALCFG                 */
+#define _HFXO_XTALCFG_TIMEOUTCBLSB_T104US         0x00000005UL                                  /**< Mode T104US for HFXO_XTALCFG                */
+#define _HFXO_XTALCFG_TIMEOUTCBLSB_T125US         0x00000006UL                                  /**< Mode T125US for HFXO_XTALCFG                */
+#define _HFXO_XTALCFG_TIMEOUTCBLSB_T166US         0x00000007UL                                  /**< Mode T166US for HFXO_XTALCFG                */
+#define _HFXO_XTALCFG_TIMEOUTCBLSB_T208US         0x00000008UL                                  /**< Mode T208US for HFXO_XTALCFG                */
+#define _HFXO_XTALCFG_TIMEOUTCBLSB_T250US         0x00000009UL                                  /**< Mode T250US for HFXO_XTALCFG                */
+#define _HFXO_XTALCFG_TIMEOUTCBLSB_T333US         0x0000000AUL                                  /**< Mode T333US for HFXO_XTALCFG                */
+#define _HFXO_XTALCFG_TIMEOUTCBLSB_T416US         0x0000000BUL                                  /**< Mode T416US for HFXO_XTALCFG                */
+#define _HFXO_XTALCFG_TIMEOUTCBLSB_T833US         0x0000000CUL                                  /**< Mode T833US for HFXO_XTALCFG                */
+#define _HFXO_XTALCFG_TIMEOUTCBLSB_T1250US        0x0000000DUL                                  /**< Mode T1250US for HFXO_XTALCFG               */
+#define _HFXO_XTALCFG_TIMEOUTCBLSB_T2083US        0x0000000EUL                                  /**< Mode T2083US for HFXO_XTALCFG               */
+#define _HFXO_XTALCFG_TIMEOUTCBLSB_T3750US        0x0000000FUL                                  /**< Mode T3750US for HFXO_XTALCFG               */
 #define HFXO_XTALCFG_TIMEOUTCBLSB_DEFAULT         (_HFXO_XTALCFG_TIMEOUTCBLSB_DEFAULT << 24)    /**< Shifted mode DEFAULT for HFXO_XTALCFG       */
-#define HFXO_XTALCFG_TIMEOUTCBLSB_T8US            (_HFXO_XTALCFG_TIMEOUTCBLSB_T8US << 24)       /**< Shifted mode T8US for HFXO_XTALCFG           */
-#define HFXO_XTALCFG_TIMEOUTCBLSB_T20US           (_HFXO_XTALCFG_TIMEOUTCBLSB_T20US << 24)      /**< Shifted mode T20US for HFXO_XTALCFG          */
-#define HFXO_XTALCFG_TIMEOUTCBLSB_T41US           (_HFXO_XTALCFG_TIMEOUTCBLSB_T41US << 24)      /**< Shifted mode T41US for HFXO_XTALCFG          */
-#define HFXO_XTALCFG_TIMEOUTCBLSB_T62US           (_HFXO_XTALCFG_TIMEOUTCBLSB_T62US << 24)      /**< Shifted mode T62US for HFXO_XTALCFG          */
-#define HFXO_XTALCFG_TIMEOUTCBLSB_T83US           (_HFXO_XTALCFG_TIMEOUTCBLSB_T83US << 24)      /**< Shifted mode T83US for HFXO_XTALCFG          */
-#define HFXO_XTALCFG_TIMEOUTCBLSB_T104US          (_HFXO_XTALCFG_TIMEOUTCBLSB_T104US << 24)     /**< Shifted mode T104US for HFXO_XTALCFG         */
-#define HFXO_XTALCFG_TIMEOUTCBLSB_T125US          (_HFXO_XTALCFG_TIMEOUTCBLSB_T125US << 24)     /**< Shifted mode T125US for HFXO_XTALCFG         */
-#define HFXO_XTALCFG_TIMEOUTCBLSB_T166US          (_HFXO_XTALCFG_TIMEOUTCBLSB_T166US << 24)     /**< Shifted mode T166US for HFXO_XTALCFG         */
-#define HFXO_XTALCFG_TIMEOUTCBLSB_T208US          (_HFXO_XTALCFG_TIMEOUTCBLSB_T208US << 24)     /**< Shifted mode T208US for HFXO_XTALCFG         */
-#define HFXO_XTALCFG_TIMEOUTCBLSB_T250US          (_HFXO_XTALCFG_TIMEOUTCBLSB_T250US << 24)     /**< Shifted mode T250US for HFXO_XTALCFG         */
-#define HFXO_XTALCFG_TIMEOUTCBLSB_T333US          (_HFXO_XTALCFG_TIMEOUTCBLSB_T333US << 24)     /**< Shifted mode T333US for HFXO_XTALCFG         */
-#define HFXO_XTALCFG_TIMEOUTCBLSB_T416US          (_HFXO_XTALCFG_TIMEOUTCBLSB_T416US << 24)     /**< Shifted mode T416US for HFXO_XTALCFG         */
-#define HFXO_XTALCFG_TIMEOUTCBLSB_T833US          (_HFXO_XTALCFG_TIMEOUTCBLSB_T833US << 24)     /**< Shifted mode T833US for HFXO_XTALCFG         */
-#define HFXO_XTALCFG_TIMEOUTCBLSB_T1250US         (_HFXO_XTALCFG_TIMEOUTCBLSB_T1250US << 24)    /**< Shifted mode T1250US for HFXO_XTALCFG        */
-#define HFXO_XTALCFG_TIMEOUTCBLSB_T2083US         (_HFXO_XTALCFG_TIMEOUTCBLSB_T2083US << 24)    /**< Shifted mode T2083US for HFXO_XTALCFG        */
-#define HFXO_XTALCFG_TIMEOUTCBLSB_T3750US         (_HFXO_XTALCFG_TIMEOUTCBLSB_T3750US << 24)    /**< Shifted mode T3750US for HFXO_XTALCFG        */
+#define HFXO_XTALCFG_TIMEOUTCBLSB_T8US            (_HFXO_XTALCFG_TIMEOUTCBLSB_T8US << 24)       /**< Shifted mode T8US for HFXO_XTALCFG          */
+#define HFXO_XTALCFG_TIMEOUTCBLSB_T20US           (_HFXO_XTALCFG_TIMEOUTCBLSB_T20US << 24)      /**< Shifted mode T20US for HFXO_XTALCFG         */
+#define HFXO_XTALCFG_TIMEOUTCBLSB_T41US           (_HFXO_XTALCFG_TIMEOUTCBLSB_T41US << 24)      /**< Shifted mode T41US for HFXO_XTALCFG         */
+#define HFXO_XTALCFG_TIMEOUTCBLSB_T62US           (_HFXO_XTALCFG_TIMEOUTCBLSB_T62US << 24)      /**< Shifted mode T62US for HFXO_XTALCFG         */
+#define HFXO_XTALCFG_TIMEOUTCBLSB_T83US           (_HFXO_XTALCFG_TIMEOUTCBLSB_T83US << 24)      /**< Shifted mode T83US for HFXO_XTALCFG         */
+#define HFXO_XTALCFG_TIMEOUTCBLSB_T104US          (_HFXO_XTALCFG_TIMEOUTCBLSB_T104US << 24)     /**< Shifted mode T104US for HFXO_XTALCFG        */
+#define HFXO_XTALCFG_TIMEOUTCBLSB_T125US          (_HFXO_XTALCFG_TIMEOUTCBLSB_T125US << 24)     /**< Shifted mode T125US for HFXO_XTALCFG        */
+#define HFXO_XTALCFG_TIMEOUTCBLSB_T166US          (_HFXO_XTALCFG_TIMEOUTCBLSB_T166US << 24)     /**< Shifted mode T166US for HFXO_XTALCFG        */
+#define HFXO_XTALCFG_TIMEOUTCBLSB_T208US          (_HFXO_XTALCFG_TIMEOUTCBLSB_T208US << 24)     /**< Shifted mode T208US for HFXO_XTALCFG        */
+#define HFXO_XTALCFG_TIMEOUTCBLSB_T250US          (_HFXO_XTALCFG_TIMEOUTCBLSB_T250US << 24)     /**< Shifted mode T250US for HFXO_XTALCFG        */
+#define HFXO_XTALCFG_TIMEOUTCBLSB_T333US          (_HFXO_XTALCFG_TIMEOUTCBLSB_T333US << 24)     /**< Shifted mode T333US for HFXO_XTALCFG        */
+#define HFXO_XTALCFG_TIMEOUTCBLSB_T416US          (_HFXO_XTALCFG_TIMEOUTCBLSB_T416US << 24)     /**< Shifted mode T416US for HFXO_XTALCFG        */
+#define HFXO_XTALCFG_TIMEOUTCBLSB_T833US          (_HFXO_XTALCFG_TIMEOUTCBLSB_T833US << 24)     /**< Shifted mode T833US for HFXO_XTALCFG        */
+#define HFXO_XTALCFG_TIMEOUTCBLSB_T1250US         (_HFXO_XTALCFG_TIMEOUTCBLSB_T1250US << 24)    /**< Shifted mode T1250US for HFXO_XTALCFG       */
+#define HFXO_XTALCFG_TIMEOUTCBLSB_T2083US         (_HFXO_XTALCFG_TIMEOUTCBLSB_T2083US << 24)    /**< Shifted mode T2083US for HFXO_XTALCFG       */
+#define HFXO_XTALCFG_TIMEOUTCBLSB_T3750US         (_HFXO_XTALCFG_TIMEOUTCBLSB_T3750US << 24)    /**< Shifted mode T3750US for HFXO_XTALCFG       */
 
 /* Bit fields for HFXO XTALCTRL */
 #define _HFXO_XTALCTRL_RESETVALUE                 0x0F8C8C10UL                                   /**< Default value for HFXO_XTALCTRL             */
@@ -252,27 +251,27 @@ typedef struct {
 #define _HFXO_XTALCTRL_CTUNEFIXANA_SHIFT          24                                             /**< Shift value for HFXO_CTUNEFIXANA            */
 #define _HFXO_XTALCTRL_CTUNEFIXANA_MASK           0x3000000UL                                    /**< Bit mask for HFXO_CTUNEFIXANA               */
 #define _HFXO_XTALCTRL_CTUNEFIXANA_DEFAULT        0x00000003UL                                   /**< Mode DEFAULT for HFXO_XTALCTRL              */
-#define _HFXO_XTALCTRL_CTUNEFIXANA_NONE           0x00000000UL                                   /**< Mode NONE for HFXO_XTALCTRL                  */
-#define _HFXO_XTALCTRL_CTUNEFIXANA_XI             0x00000001UL                                   /**< Mode XI for HFXO_XTALCTRL                    */
-#define _HFXO_XTALCTRL_CTUNEFIXANA_XO             0x00000002UL                                   /**< Mode XO for HFXO_XTALCTRL                    */
-#define _HFXO_XTALCTRL_CTUNEFIXANA_BOTH           0x00000003UL                                   /**< Mode BOTH for HFXO_XTALCTRL                  */
+#define _HFXO_XTALCTRL_CTUNEFIXANA_NONE           0x00000000UL                                   /**< Mode NONE for HFXO_XTALCTRL                 */
+#define _HFXO_XTALCTRL_CTUNEFIXANA_XI             0x00000001UL                                   /**< Mode XI for HFXO_XTALCTRL                   */
+#define _HFXO_XTALCTRL_CTUNEFIXANA_XO             0x00000002UL                                   /**< Mode XO for HFXO_XTALCTRL                   */
+#define _HFXO_XTALCTRL_CTUNEFIXANA_BOTH           0x00000003UL                                   /**< Mode BOTH for HFXO_XTALCTRL                 */
 #define HFXO_XTALCTRL_CTUNEFIXANA_DEFAULT         (_HFXO_XTALCTRL_CTUNEFIXANA_DEFAULT << 24)     /**< Shifted mode DEFAULT for HFXO_XTALCTRL      */
-#define HFXO_XTALCTRL_CTUNEFIXANA_NONE            (_HFXO_XTALCTRL_CTUNEFIXANA_NONE << 24)        /**< Shifted mode NONE for HFXO_XTALCTRL          */
-#define HFXO_XTALCTRL_CTUNEFIXANA_XI              (_HFXO_XTALCTRL_CTUNEFIXANA_XI << 24)          /**< Shifted mode XI for HFXO_XTALCTRL            */
-#define HFXO_XTALCTRL_CTUNEFIXANA_XO              (_HFXO_XTALCTRL_CTUNEFIXANA_XO << 24)          /**< Shifted mode XO for HFXO_XTALCTRL            */
-#define HFXO_XTALCTRL_CTUNEFIXANA_BOTH            (_HFXO_XTALCTRL_CTUNEFIXANA_BOTH << 24)        /**< Shifted mode BOTH for HFXO_XTALCTRL          */
+#define HFXO_XTALCTRL_CTUNEFIXANA_NONE            (_HFXO_XTALCTRL_CTUNEFIXANA_NONE << 24)        /**< Shifted mode NONE for HFXO_XTALCTRL         */
+#define HFXO_XTALCTRL_CTUNEFIXANA_XI              (_HFXO_XTALCTRL_CTUNEFIXANA_XI << 24)          /**< Shifted mode XI for HFXO_XTALCTRL           */
+#define HFXO_XTALCTRL_CTUNEFIXANA_XO              (_HFXO_XTALCTRL_CTUNEFIXANA_XO << 24)          /**< Shifted mode XO for HFXO_XTALCTRL           */
+#define HFXO_XTALCTRL_CTUNEFIXANA_BOTH            (_HFXO_XTALCTRL_CTUNEFIXANA_BOTH << 24)        /**< Shifted mode BOTH for HFXO_XTALCTRL         */
 #define _HFXO_XTALCTRL_COREDGENANA_SHIFT          26                                             /**< Shift value for HFXO_COREDGENANA            */
 #define _HFXO_XTALCTRL_COREDGENANA_MASK           0xC000000UL                                    /**< Bit mask for HFXO_COREDGENANA               */
 #define _HFXO_XTALCTRL_COREDGENANA_DEFAULT        0x00000003UL                                   /**< Mode DEFAULT for HFXO_XTALCTRL              */
-#define _HFXO_XTALCTRL_COREDGENANA_NONE           0x00000000UL                                   /**< Mode NONE for HFXO_XTALCTRL                  */
-#define _HFXO_XTALCTRL_COREDGENANA_DGEN33         0x00000001UL                                   /**< Mode DGEN33 for HFXO_XTALCTRL                */
-#define _HFXO_XTALCTRL_COREDGENANA_DGEN50         0x00000002UL                                   /**< Mode DGEN50 for HFXO_XTALCTRL                */
-#define _HFXO_XTALCTRL_COREDGENANA_DGEN100        0x00000003UL                                   /**< Mode DGEN100 for HFXO_XTALCTRL               */
+#define _HFXO_XTALCTRL_COREDGENANA_NONE           0x00000000UL                                   /**< Mode NONE for HFXO_XTALCTRL                 */
+#define _HFXO_XTALCTRL_COREDGENANA_DGEN33         0x00000001UL                                   /**< Mode DGEN33 for HFXO_XTALCTRL               */
+#define _HFXO_XTALCTRL_COREDGENANA_DGEN50         0x00000002UL                                   /**< Mode DGEN50 for HFXO_XTALCTRL               */
+#define _HFXO_XTALCTRL_COREDGENANA_DGEN100        0x00000003UL                                   /**< Mode DGEN100 for HFXO_XTALCTRL              */
 #define HFXO_XTALCTRL_COREDGENANA_DEFAULT         (_HFXO_XTALCTRL_COREDGENANA_DEFAULT << 26)     /**< Shifted mode DEFAULT for HFXO_XTALCTRL      */
-#define HFXO_XTALCTRL_COREDGENANA_NONE            (_HFXO_XTALCTRL_COREDGENANA_NONE << 26)        /**< Shifted mode NONE for HFXO_XTALCTRL          */
-#define HFXO_XTALCTRL_COREDGENANA_DGEN33          (_HFXO_XTALCTRL_COREDGENANA_DGEN33 << 26)      /**< Shifted mode DGEN33 for HFXO_XTALCTRL        */
-#define HFXO_XTALCTRL_COREDGENANA_DGEN50          (_HFXO_XTALCTRL_COREDGENANA_DGEN50 << 26)      /**< Shifted mode DGEN50 for HFXO_XTALCTRL        */
-#define HFXO_XTALCTRL_COREDGENANA_DGEN100         (_HFXO_XTALCTRL_COREDGENANA_DGEN100 << 26)     /**< Shifted mode DGEN100 for HFXO_XTALCTRL       */
+#define HFXO_XTALCTRL_COREDGENANA_NONE            (_HFXO_XTALCTRL_COREDGENANA_NONE << 26)        /**< Shifted mode NONE for HFXO_XTALCTRL         */
+#define HFXO_XTALCTRL_COREDGENANA_DGEN33          (_HFXO_XTALCTRL_COREDGENANA_DGEN33 << 26)      /**< Shifted mode DGEN33 for HFXO_XTALCTRL       */
+#define HFXO_XTALCTRL_COREDGENANA_DGEN50          (_HFXO_XTALCTRL_COREDGENANA_DGEN50 << 26)      /**< Shifted mode DGEN50 for HFXO_XTALCTRL       */
+#define HFXO_XTALCTRL_COREDGENANA_DGEN100         (_HFXO_XTALCTRL_COREDGENANA_DGEN100 << 26)     /**< Shifted mode DGEN100 for HFXO_XTALCTRL      */
 #define HFXO_XTALCTRL_SKIPCOREBIASOPT             (0x1UL << 31)                                  /**< Skip Core Bias Optimization                 */
 #define _HFXO_XTALCTRL_SKIPCOREBIASOPT_SHIFT      31                                             /**< Shift value for HFXO_SKIPCOREBIASOPT        */
 #define _HFXO_XTALCTRL_SKIPCOREBIASOPT_MASK       0x80000000UL                                   /**< Bit mask for HFXO_SKIPCOREBIASOPT           */
@@ -286,11 +285,11 @@ typedef struct {
 #define _HFXO_CFG_MODE_SHIFT                      0                                       /**< Shift value for HFXO_MODE                   */
 #define _HFXO_CFG_MODE_MASK                       0x1UL                                   /**< Bit mask for HFXO_MODE                      */
 #define _HFXO_CFG_MODE_DEFAULT                    0x00000000UL                            /**< Mode DEFAULT for HFXO_CFG                   */
-#define _HFXO_CFG_MODE_XTAL                       0x00000000UL                            /**< Mode XTAL for HFXO_CFG                       */
-#define _HFXO_CFG_MODE_EXTCLK                     0x00000001UL                            /**< Mode EXTCLK for HFXO_CFG                     */
+#define _HFXO_CFG_MODE_XTAL                       0x00000000UL                            /**< Mode XTAL for HFXO_CFG                      */
+#define _HFXO_CFG_MODE_EXTCLK                     0x00000001UL                            /**< Mode EXTCLK for HFXO_CFG                    */
 #define HFXO_CFG_MODE_DEFAULT                     (_HFXO_CFG_MODE_DEFAULT << 0)           /**< Shifted mode DEFAULT for HFXO_CFG           */
-#define HFXO_CFG_MODE_XTAL                        (_HFXO_CFG_MODE_XTAL << 0)              /**< Shifted mode XTAL for HFXO_CFG               */
-#define HFXO_CFG_MODE_EXTCLK                      (_HFXO_CFG_MODE_EXTCLK << 0)            /**< Shifted mode EXTCLK for HFXO_CFG             */
+#define HFXO_CFG_MODE_XTAL                        (_HFXO_CFG_MODE_XTAL << 0)              /**< Shifted mode XTAL for HFXO_CFG              */
+#define HFXO_CFG_MODE_EXTCLK                      (_HFXO_CFG_MODE_EXTCLK << 0)            /**< Shifted mode EXTCLK for HFXO_CFG            */
 #define HFXO_CFG_ENXIDCBIASANA                    (0x1UL << 2)                            /**< Enable XI Internal DC Bias                  */
 #define _HFXO_CFG_ENXIDCBIASANA_SHIFT             2                                       /**< Shift value for HFXO_ENXIDCBIASANA          */
 #define _HFXO_CFG_ENXIDCBIASANA_MASK              0x4UL                                   /**< Bit mask for HFXO_ENXIDCBIASANA             */
@@ -300,11 +299,11 @@ typedef struct {
 #define _HFXO_CFG_SQBUFSCHTRGANA_SHIFT            3                                       /**< Shift value for HFXO_SQBUFSCHTRGANA         */
 #define _HFXO_CFG_SQBUFSCHTRGANA_MASK             0x8UL                                   /**< Bit mask for HFXO_SQBUFSCHTRGANA            */
 #define _HFXO_CFG_SQBUFSCHTRGANA_DEFAULT          0x00000000UL                            /**< Mode DEFAULT for HFXO_CFG                   */
-#define _HFXO_CFG_SQBUFSCHTRGANA_DISABLE          0x00000000UL                            /**< Mode DISABLE for HFXO_CFG                    */
-#define _HFXO_CFG_SQBUFSCHTRGANA_ENABLE           0x00000001UL                            /**< Mode ENABLE for HFXO_CFG                     */
+#define _HFXO_CFG_SQBUFSCHTRGANA_DISABLE          0x00000000UL                            /**< Mode DISABLE for HFXO_CFG                   */
+#define _HFXO_CFG_SQBUFSCHTRGANA_ENABLE           0x00000001UL                            /**< Mode ENABLE for HFXO_CFG                    */
 #define HFXO_CFG_SQBUFSCHTRGANA_DEFAULT           (_HFXO_CFG_SQBUFSCHTRGANA_DEFAULT << 3) /**< Shifted mode DEFAULT for HFXO_CFG           */
-#define HFXO_CFG_SQBUFSCHTRGANA_DISABLE           (_HFXO_CFG_SQBUFSCHTRGANA_DISABLE << 3) /**< Shifted mode DISABLE for HFXO_CFG            */
-#define HFXO_CFG_SQBUFSCHTRGANA_ENABLE            (_HFXO_CFG_SQBUFSCHTRGANA_ENABLE << 3)  /**< Shifted mode ENABLE for HFXO_CFG             */
+#define HFXO_CFG_SQBUFSCHTRGANA_DISABLE           (_HFXO_CFG_SQBUFSCHTRGANA_DISABLE << 3) /**< Shifted mode DISABLE for HFXO_CFG           */
+#define HFXO_CFG_SQBUFSCHTRGANA_ENABLE            (_HFXO_CFG_SQBUFSCHTRGANA_ENABLE << 3)  /**< Shifted mode ENABLE for HFXO_CFG            */
 
 /* Bit fields for HFXO CTRL */
 #define _HFXO_CTRL_RESETVALUE                     0x00000002UL                             /**< Default value for HFXO_CTRL                 */
@@ -323,20 +322,20 @@ typedef struct {
 #define _HFXO_CTRL_FORCEXI2GNDANA_SHIFT           4                                        /**< Shift value for HFXO_FORCEXI2GNDANA         */
 #define _HFXO_CTRL_FORCEXI2GNDANA_MASK            0x10UL                                   /**< Bit mask for HFXO_FORCEXI2GNDANA            */
 #define _HFXO_CTRL_FORCEXI2GNDANA_DEFAULT         0x00000000UL                             /**< Mode DEFAULT for HFXO_CTRL                  */
-#define _HFXO_CTRL_FORCEXI2GNDANA_DISABLE         0x00000000UL                             /**< Mode DISABLE for HFXO_CTRL                   */
-#define _HFXO_CTRL_FORCEXI2GNDANA_ENABLE          0x00000001UL                             /**< Mode ENABLE for HFXO_CTRL                    */
+#define _HFXO_CTRL_FORCEXI2GNDANA_DISABLE         0x00000000UL                             /**< Mode DISABLE for HFXO_CTRL                  */
+#define _HFXO_CTRL_FORCEXI2GNDANA_ENABLE          0x00000001UL                             /**< Mode ENABLE for HFXO_CTRL                   */
 #define HFXO_CTRL_FORCEXI2GNDANA_DEFAULT          (_HFXO_CTRL_FORCEXI2GNDANA_DEFAULT << 4) /**< Shifted mode DEFAULT for HFXO_CTRL          */
-#define HFXO_CTRL_FORCEXI2GNDANA_DISABLE          (_HFXO_CTRL_FORCEXI2GNDANA_DISABLE << 4) /**< Shifted mode DISABLE for HFXO_CTRL           */
-#define HFXO_CTRL_FORCEXI2GNDANA_ENABLE           (_HFXO_CTRL_FORCEXI2GNDANA_ENABLE << 4)  /**< Shifted mode ENABLE for HFXO_CTRL            */
+#define HFXO_CTRL_FORCEXI2GNDANA_DISABLE          (_HFXO_CTRL_FORCEXI2GNDANA_DISABLE << 4) /**< Shifted mode DISABLE for HFXO_CTRL          */
+#define HFXO_CTRL_FORCEXI2GNDANA_ENABLE           (_HFXO_CTRL_FORCEXI2GNDANA_ENABLE << 4)  /**< Shifted mode ENABLE for HFXO_CTRL           */
 #define HFXO_CTRL_FORCEXO2GNDANA                  (0x1UL << 5)                             /**< Force XO Pin to Ground                      */
 #define _HFXO_CTRL_FORCEXO2GNDANA_SHIFT           5                                        /**< Shift value for HFXO_FORCEXO2GNDANA         */
 #define _HFXO_CTRL_FORCEXO2GNDANA_MASK            0x20UL                                   /**< Bit mask for HFXO_FORCEXO2GNDANA            */
 #define _HFXO_CTRL_FORCEXO2GNDANA_DEFAULT         0x00000000UL                             /**< Mode DEFAULT for HFXO_CTRL                  */
-#define _HFXO_CTRL_FORCEXO2GNDANA_DISABLE         0x00000000UL                             /**< Mode DISABLE for HFXO_CTRL                   */
-#define _HFXO_CTRL_FORCEXO2GNDANA_ENABLE          0x00000001UL                             /**< Mode ENABLE for HFXO_CTRL                    */
+#define _HFXO_CTRL_FORCEXO2GNDANA_DISABLE         0x00000000UL                             /**< Mode DISABLE for HFXO_CTRL                  */
+#define _HFXO_CTRL_FORCEXO2GNDANA_ENABLE          0x00000001UL                             /**< Mode ENABLE for HFXO_CTRL                   */
 #define HFXO_CTRL_FORCEXO2GNDANA_DEFAULT          (_HFXO_CTRL_FORCEXO2GNDANA_DEFAULT << 5) /**< Shifted mode DEFAULT for HFXO_CTRL          */
-#define HFXO_CTRL_FORCEXO2GNDANA_DISABLE          (_HFXO_CTRL_FORCEXO2GNDANA_DISABLE << 5) /**< Shifted mode DISABLE for HFXO_CTRL           */
-#define HFXO_CTRL_FORCEXO2GNDANA_ENABLE           (_HFXO_CTRL_FORCEXO2GNDANA_ENABLE << 5)  /**< Shifted mode ENABLE for HFXO_CTRL            */
+#define HFXO_CTRL_FORCEXO2GNDANA_DISABLE          (_HFXO_CTRL_FORCEXO2GNDANA_DISABLE << 5) /**< Shifted mode DISABLE for HFXO_CTRL          */
+#define HFXO_CTRL_FORCEXO2GNDANA_ENABLE           (_HFXO_CTRL_FORCEXO2GNDANA_ENABLE << 5)  /**< Shifted mode ENABLE for HFXO_CTRL           */
 
 /* Bit fields for HFXO CMD */
 #define _HFXO_CMD_RESETVALUE                      0x00000000UL                          /**< Default value for HFXO_CMD                  */
@@ -374,20 +373,20 @@ typedef struct {
 #define _HFXO_STATUS_FSMLOCK_SHIFT                30                                         /**< Shift value for HFXO_FSMLOCK                */
 #define _HFXO_STATUS_FSMLOCK_MASK                 0x40000000UL                               /**< Bit mask for HFXO_FSMLOCK                   */
 #define _HFXO_STATUS_FSMLOCK_DEFAULT              0x00000000UL                               /**< Mode DEFAULT for HFXO_STATUS                */
-#define _HFXO_STATUS_FSMLOCK_UNLOCKED             0x00000000UL                               /**< Mode UNLOCKED for HFXO_STATUS                */
-#define _HFXO_STATUS_FSMLOCK_LOCKED               0x00000001UL                               /**< Mode LOCKED for HFXO_STATUS                  */
+#define _HFXO_STATUS_FSMLOCK_UNLOCKED             0x00000000UL                               /**< Mode UNLOCKED for HFXO_STATUS               */
+#define _HFXO_STATUS_FSMLOCK_LOCKED               0x00000001UL                               /**< Mode LOCKED for HFXO_STATUS                 */
 #define HFXO_STATUS_FSMLOCK_DEFAULT               (_HFXO_STATUS_FSMLOCK_DEFAULT << 30)       /**< Shifted mode DEFAULT for HFXO_STATUS        */
-#define HFXO_STATUS_FSMLOCK_UNLOCKED              (_HFXO_STATUS_FSMLOCK_UNLOCKED << 30)      /**< Shifted mode UNLOCKED for HFXO_STATUS        */
-#define HFXO_STATUS_FSMLOCK_LOCKED                (_HFXO_STATUS_FSMLOCK_LOCKED << 30)        /**< Shifted mode LOCKED for HFXO_STATUS          */
+#define HFXO_STATUS_FSMLOCK_UNLOCKED              (_HFXO_STATUS_FSMLOCK_UNLOCKED << 30)      /**< Shifted mode UNLOCKED for HFXO_STATUS       */
+#define HFXO_STATUS_FSMLOCK_LOCKED                (_HFXO_STATUS_FSMLOCK_LOCKED << 30)        /**< Shifted mode LOCKED for HFXO_STATUS         */
 #define HFXO_STATUS_LOCK                          (0x1UL << 31)                              /**< Configuration Lock Status                   */
 #define _HFXO_STATUS_LOCK_SHIFT                   31                                         /**< Shift value for HFXO_LOCK                   */
 #define _HFXO_STATUS_LOCK_MASK                    0x80000000UL                               /**< Bit mask for HFXO_LOCK                      */
 #define _HFXO_STATUS_LOCK_DEFAULT                 0x00000000UL                               /**< Mode DEFAULT for HFXO_STATUS                */
-#define _HFXO_STATUS_LOCK_UNLOCKED                0x00000000UL                               /**< Mode UNLOCKED for HFXO_STATUS                */
-#define _HFXO_STATUS_LOCK_LOCKED                  0x00000001UL                               /**< Mode LOCKED for HFXO_STATUS                  */
+#define _HFXO_STATUS_LOCK_UNLOCKED                0x00000000UL                               /**< Mode UNLOCKED for HFXO_STATUS               */
+#define _HFXO_STATUS_LOCK_LOCKED                  0x00000001UL                               /**< Mode LOCKED for HFXO_STATUS                 */
 #define HFXO_STATUS_LOCK_DEFAULT                  (_HFXO_STATUS_LOCK_DEFAULT << 31)          /**< Shifted mode DEFAULT for HFXO_STATUS        */
-#define HFXO_STATUS_LOCK_UNLOCKED                 (_HFXO_STATUS_LOCK_UNLOCKED << 31)         /**< Shifted mode UNLOCKED for HFXO_STATUS        */
-#define HFXO_STATUS_LOCK_LOCKED                   (_HFXO_STATUS_LOCK_LOCKED << 31)           /**< Shifted mode LOCKED for HFXO_STATUS          */
+#define HFXO_STATUS_LOCK_UNLOCKED                 (_HFXO_STATUS_LOCK_UNLOCKED << 31)         /**< Shifted mode UNLOCKED for HFXO_STATUS       */
+#define HFXO_STATUS_LOCK_LOCKED                   (_HFXO_STATUS_LOCK_LOCKED << 31)           /**< Shifted mode LOCKED for HFXO_STATUS         */
 
 /* Bit fields for HFXO IF */
 #define _HFXO_IF_RESETVALUE                       0x00000000UL                            /**< Default value for HFXO_IF                   */
@@ -443,9 +442,9 @@ typedef struct {
 #define _HFXO_LOCK_LOCKKEY_SHIFT                  0                                     /**< Shift value for HFXO_LOCKKEY                */
 #define _HFXO_LOCK_LOCKKEY_MASK                   0xFFFFUL                              /**< Bit mask for HFXO_LOCKKEY                   */
 #define _HFXO_LOCK_LOCKKEY_DEFAULT                0x0000580EUL                          /**< Mode DEFAULT for HFXO_LOCK                  */
-#define _HFXO_LOCK_LOCKKEY_UNLOCK                 0x0000580EUL                          /**< Mode UNLOCK for HFXO_LOCK                    */
+#define _HFXO_LOCK_LOCKKEY_UNLOCK                 0x0000580EUL                          /**< Mode UNLOCK for HFXO_LOCK                   */
 #define HFXO_LOCK_LOCKKEY_DEFAULT                 (_HFXO_LOCK_LOCKKEY_DEFAULT << 0)     /**< Shifted mode DEFAULT for HFXO_LOCK          */
-#define HFXO_LOCK_LOCKKEY_UNLOCK                  (_HFXO_LOCK_LOCKKEY_UNLOCK << 0)      /**< Shifted mode UNLOCK for HFXO_LOCK            */
+#define HFXO_LOCK_LOCKKEY_UNLOCK                  (_HFXO_LOCK_LOCKKEY_UNLOCK << 0)      /**< Shifted mode UNLOCK for HFXO_LOCK           */
 
 /** @} End of group EFR32BG21_HFXO_BitFields */
 /** @} End of group EFR32BG21_HFXO */

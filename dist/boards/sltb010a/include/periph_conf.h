@@ -103,9 +103,6 @@ static const spi_dev_t spi_config[] = {
         .mosi_pin = GPIO_PIN(PC, 6),
         .miso_pin = GPIO_PIN(PC, 7),
         .clk_pin = GPIO_PIN(PC, 8),
-        .loc = USART_ROUTELOC0_RXLOC_LOC11 |
-               USART_ROUTELOC0_TXLOC_LOC11 |
-               USART_ROUTELOC0_CLKLOC_LOC11,
         .cmu = cmuClock_USART1,
         .irq = USART1_RX_IRQn
     }
@@ -144,16 +141,16 @@ static const timer_conf_t timer_config[] = {
  */
 static const uart_conf_t uart_config[] = {
     {
-        .dev = USART0,
+        .dev = USART1,
         .rx_pin = GPIO_PIN(PA, 6),
         .tx_pin = GPIO_PIN(PA, 5),
-        .cmu = cmuClock_USART0,
-        .irq = USART0_RX_IRQn
+        .cmu = cmuClock_USART1,
+        .irq = USART1_RX_IRQn
     }
 };
 
 #define UART_NUMOF          ARRAY_SIZE(uart_config)
-#define UART_0_ISR_RX       isr_usart0_rx
+#define UART_0_ISR_RX       isr_usart1_rx
 /** @} */
 
 #ifdef __cplusplus

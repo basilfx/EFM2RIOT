@@ -59,8 +59,8 @@ PIN 1 is the bottom-left contact when the header faces  you horizontally.
 **Note:** some pins are connected to the board controller, when enabled!
 
 ### Peripheral mapping
-| Peripheral | Number  | Hardware        | Pins                            | Comments                                                  |
-|------------|---------|-----------------|---------------------------------|-----------------------------------------------------------|
+| Peripheral | Number  | Hardware        | Pins                              | Comments                                                  |
+|------------|---------|-----------------|-----------------------------------|-----------------------------------------------------------|
 
 ### User interface
 | Peripheral | Mapped to | Pin  | Comments   |

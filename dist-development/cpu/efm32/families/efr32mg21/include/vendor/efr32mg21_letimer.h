@@ -1,10 +1,9 @@
 /**************************************************************************//**
  * @file
  * @brief EFR32MG21 LETIMER register and bit field definitions
- * @version 5.7.0
  ******************************************************************************
  * # License
- * <b>Copyright 2018 Silicon Laboratories, Inc. www.silabs.com</b>
+ * <b>Copyright 2020 Silicon Laboratories, Inc. www.silabs.com</b>
  ******************************************************************************
  *
  * SPDX-License-Identifier: Zlib
@@ -54,7 +53,7 @@ typedef struct {
   __IOM uint32_t CTRL;                          /**< Control Register                                   */
   __IOM uint32_t CMD;                           /**< Command Register                                   */
   __IM uint32_t  STATUS;                        /**< Status Register                                    */
-  uint32_t       RESERVED0[1U];                 /**< Reserved for future use                      */
+  uint32_t       RESERVED0[1U];                 /**< Reserved for future use                            */
   __IOM uint32_t CNT;                           /**< Counter Value Register                             */
   __IOM uint32_t COMP0;                         /**< Compare Value Register 0                           */
   __IOM uint32_t COMP1;                         /**< Compare Value Register 1                           */
@@ -64,17 +63,17 @@ typedef struct {
   __IOM uint32_t REP1;                          /**< Repeat Counter Register 1                          */
   __IOM uint32_t IF;                            /**< Interrupt Flag Register                            */
   __IOM uint32_t IEN;                           /**< Interrupt Enable Register                          */
-  uint32_t       RESERVED1[1U];                 /**< Reserved for future use*/
+  uint32_t       RESERVED1[1U];                 /**< Reserved for future use                            */
   __IM uint32_t  SYNCBUSY;                      /**< Synchronization Busy Register                      */
-  uint32_t       RESERVED2[3U];                 /**< Reserved for future use*/
+  uint32_t       RESERVED2[3U];                 /**< Reserved for future use                            */
   __IOM uint32_t PRSMODE;                       /**< PRS Input mode select Register                     */
-  uint32_t       RESERVED3[1003U];              /**< Reserved for future use*/
+  uint32_t       RESERVED3[1003U];              /**< Reserved for future use                            */
   __IM uint32_t  IPVERSION_SET;                 /**< IP version                                         */
   __IOM uint32_t EN_SET;                        /**< module en                                          */
   __IOM uint32_t CTRL_SET;                      /**< Control Register                                   */
   __IOM uint32_t CMD_SET;                       /**< Command Register                                   */
   __IM uint32_t  STATUS_SET;                    /**< Status Register                                    */
-  uint32_t       RESERVED4[1U];                 /**< Reserved for future use                      */
+  uint32_t       RESERVED4[1U];                 /**< Reserved for future use                            */
   __IOM uint32_t CNT_SET;                       /**< Counter Value Register                             */
   __IOM uint32_t COMP0_SET;                     /**< Compare Value Register 0                           */
   __IOM uint32_t COMP1_SET;                     /**< Compare Value Register 1                           */
@@ -84,17 +83,17 @@ typedef struct {
   __IOM uint32_t REP1_SET;                      /**< Repeat Counter Register 1                          */
   __IOM uint32_t IF_SET;                        /**< Interrupt Flag Register                            */
   __IOM uint32_t IEN_SET;                       /**< Interrupt Enable Register                          */
-  uint32_t       RESERVED5[1U];                 /**< Reserved for future use*/
+  uint32_t       RESERVED5[1U];                 /**< Reserved for future use                            */
   __IM uint32_t  SYNCBUSY_SET;                  /**< Synchronization Busy Register                      */
-  uint32_t       RESERVED6[3U];                 /**< Reserved for future use*/
+  uint32_t       RESERVED6[3U];                 /**< Reserved for future use                            */
   __IOM uint32_t PRSMODE_SET;                   /**< PRS Input mode select Register                     */
-  uint32_t       RESERVED7[1003U];              /**< Reserved for future use*/
+  uint32_t       RESERVED7[1003U];              /**< Reserved for future use                            */
   __IM uint32_t  IPVERSION_CLR;                 /**< IP version                                         */
   __IOM uint32_t EN_CLR;                        /**< module en                                          */
   __IOM uint32_t CTRL_CLR;                      /**< Control Register                                   */
   __IOM uint32_t CMD_CLR;                       /**< Command Register                                   */
   __IM uint32_t  STATUS_CLR;                    /**< Status Register                                    */
-  uint32_t       RESERVED8[1U];                 /**< Reserved for future use                      */
+  uint32_t       RESERVED8[1U];                 /**< Reserved for future use                            */
   __IOM uint32_t CNT_CLR;                       /**< Counter Value Register                             */
   __IOM uint32_t COMP0_CLR;                     /**< Compare Value Register 0                           */
   __IOM uint32_t COMP1_CLR;                     /**< Compare Value Register 1                           */
@@ -104,17 +103,17 @@ typedef struct {
   __IOM uint32_t REP1_CLR;                      /**< Repeat Counter Register 1                          */
   __IOM uint32_t IF_CLR;                        /**< Interrupt Flag Register                            */
   __IOM uint32_t IEN_CLR;                       /**< Interrupt Enable Register                          */
-  uint32_t       RESERVED9[1U];                 /**< Reserved for future use*/
+  uint32_t       RESERVED9[1U];                 /**< Reserved for future use                            */
   __IM uint32_t  SYNCBUSY_CLR;                  /**< Synchronization Busy Register                      */
-  uint32_t       RESERVED10[3U];                /**< Reserved for future use*/
+  uint32_t       RESERVED10[3U];                /**< Reserved for future use                            */
   __IOM uint32_t PRSMODE_CLR;                   /**< PRS Input mode select Register                     */
-  uint32_t       RESERVED11[1003U];             /**< Reserved for future use*/
+  uint32_t       RESERVED11[1003U];             /**< Reserved for future use                            */
   __IM uint32_t  IPVERSION_TGL;                 /**< IP version                                         */
   __IOM uint32_t EN_TGL;                        /**< module en                                          */
   __IOM uint32_t CTRL_TGL;                      /**< Control Register                                   */
   __IOM uint32_t CMD_TGL;                       /**< Command Register                                   */
   __IM uint32_t  STATUS_TGL;                    /**< Status Register                                    */
-  uint32_t       RESERVED12[1U];                /**< Reserved for future use                      */
+  uint32_t       RESERVED12[1U];                /**< Reserved for future use                            */
   __IOM uint32_t CNT_TGL;                       /**< Counter Value Register                             */
   __IOM uint32_t COMP0_TGL;                     /**< Compare Value Register 0                           */
   __IOM uint32_t COMP1_TGL;                     /**< Compare Value Register 1                           */
@@ -124,9 +123,9 @@ typedef struct {
   __IOM uint32_t REP1_TGL;                      /**< Repeat Counter Register 1                          */
   __IOM uint32_t IF_TGL;                        /**< Interrupt Flag Register                            */
   __IOM uint32_t IEN_TGL;                       /**< Interrupt Enable Register                          */
-  uint32_t       RESERVED13[1U];                /**< Reserved for future use*/
+  uint32_t       RESERVED13[1U];                /**< Reserved for future use                            */
   __IM uint32_t  SYNCBUSY_TGL;                  /**< Synchronization Busy Register                      */
-  uint32_t       RESERVED14[3U];                /**< Reserved for future use*/
+  uint32_t       RESERVED14[3U];                /**< Reserved for future use                            */
   __IOM uint32_t PRSMODE_TGL;                   /**< PRS Input mode select Register                     */
 } LETIMER_TypeDef;
 /** @} End of group EFR32MG21_LETIMER */
@@ -161,39 +160,39 @@ typedef struct {
 #define _LETIMER_CTRL_REPMODE_SHIFT              0                                      /**< Shift value for LETIMER_REPMODE             */
 #define _LETIMER_CTRL_REPMODE_MASK               0x3UL                                  /**< Bit mask for LETIMER_REPMODE                */
 #define _LETIMER_CTRL_REPMODE_DEFAULT            0x00000000UL                           /**< Mode DEFAULT for LETIMER_CTRL               */
-#define _LETIMER_CTRL_REPMODE_FREE               0x00000000UL                           /**< Mode FREE for LETIMER_CTRL                   */
-#define _LETIMER_CTRL_REPMODE_ONESHOT            0x00000001UL                           /**< Mode ONESHOT for LETIMER_CTRL                */
-#define _LETIMER_CTRL_REPMODE_BUFFERED           0x00000002UL                           /**< Mode BUFFERED for LETIMER_CTRL               */
-#define _LETIMER_CTRL_REPMODE_DOUBLE             0x00000003UL                           /**< Mode DOUBLE for LETIMER_CTRL                 */
+#define _LETIMER_CTRL_REPMODE_FREE               0x00000000UL                           /**< Mode FREE for LETIMER_CTRL                  */
+#define _LETIMER_CTRL_REPMODE_ONESHOT            0x00000001UL                           /**< Mode ONESHOT for LETIMER_CTRL               */
+#define _LETIMER_CTRL_REPMODE_BUFFERED           0x00000002UL                           /**< Mode BUFFERED for LETIMER_CTRL              */
+#define _LETIMER_CTRL_REPMODE_DOUBLE             0x00000003UL                           /**< Mode DOUBLE for LETIMER_CTRL                */
 #define LETIMER_CTRL_REPMODE_DEFAULT             (_LETIMER_CTRL_REPMODE_DEFAULT << 0)   /**< Shifted mode DEFAULT for LETIMER_CTRL       */
-#define LETIMER_CTRL_REPMODE_FREE                (_LETIMER_CTRL_REPMODE_FREE << 0)      /**< Shifted mode FREE for LETIMER_CTRL           */
-#define LETIMER_CTRL_REPMODE_ONESHOT             (_LETIMER_CTRL_REPMODE_ONESHOT << 0)   /**< Shifted mode ONESHOT for LETIMER_CTRL        */
-#define LETIMER_CTRL_REPMODE_BUFFERED            (_LETIMER_CTRL_REPMODE_BUFFERED << 0)  /**< Shifted mode BUFFERED for LETIMER_CTRL       */
-#define LETIMER_CTRL_REPMODE_DOUBLE              (_LETIMER_CTRL_REPMODE_DOUBLE << 0)    /**< Shifted mode DOUBLE for LETIMER_CTRL         */
+#define LETIMER_CTRL_REPMODE_FREE                (_LETIMER_CTRL_REPMODE_FREE << 0)      /**< Shifted mode FREE for LETIMER_CTRL          */
+#define LETIMER_CTRL_REPMODE_ONESHOT             (_LETIMER_CTRL_REPMODE_ONESHOT << 0)   /**< Shifted mode ONESHOT for LETIMER_CTRL       */
+#define LETIMER_CTRL_REPMODE_BUFFERED            (_LETIMER_CTRL_REPMODE_BUFFERED << 0)  /**< Shifted mode BUFFERED for LETIMER_CTRL      */
+#define LETIMER_CTRL_REPMODE_DOUBLE              (_LETIMER_CTRL_REPMODE_DOUBLE << 0)    /**< Shifted mode DOUBLE for LETIMER_CTRL        */
 #define _LETIMER_CTRL_UFOA0_SHIFT                2                                      /**< Shift value for LETIMER_UFOA0               */
 #define _LETIMER_CTRL_UFOA0_MASK                 0xCUL                                  /**< Bit mask for LETIMER_UFOA0                  */
 #define _LETIMER_CTRL_UFOA0_DEFAULT              0x00000000UL                           /**< Mode DEFAULT for LETIMER_CTRL               */
-#define _LETIMER_CTRL_UFOA0_NONE                 0x00000000UL                           /**< Mode NONE for LETIMER_CTRL                   */
-#define _LETIMER_CTRL_UFOA0_TOGGLE               0x00000001UL                           /**< Mode TOGGLE for LETIMER_CTRL                 */
-#define _LETIMER_CTRL_UFOA0_PULSE                0x00000002UL                           /**< Mode PULSE for LETIMER_CTRL                  */
-#define _LETIMER_CTRL_UFOA0_PWM                  0x00000003UL                           /**< Mode PWM for LETIMER_CTRL                    */
+#define _LETIMER_CTRL_UFOA0_NONE                 0x00000000UL                           /**< Mode NONE for LETIMER_CTRL                  */
+#define _LETIMER_CTRL_UFOA0_TOGGLE               0x00000001UL                           /**< Mode TOGGLE for LETIMER_CTRL                */
+#define _LETIMER_CTRL_UFOA0_PULSE                0x00000002UL                           /**< Mode PULSE for LETIMER_CTRL                 */
+#define _LETIMER_CTRL_UFOA0_PWM                  0x00000003UL                           /**< Mode PWM for LETIMER_CTRL                   */
 #define LETIMER_CTRL_UFOA0_DEFAULT               (_LETIMER_CTRL_UFOA0_DEFAULT << 2)     /**< Shifted mode DEFAULT for LETIMER_CTRL       */
-#define LETIMER_CTRL_UFOA0_NONE                  (_LETIMER_CTRL_UFOA0_NONE << 2)        /**< Shifted mode NONE for LETIMER_CTRL           */
-#define LETIMER_CTRL_UFOA0_TOGGLE                (_LETIMER_CTRL_UFOA0_TOGGLE << 2)      /**< Shifted mode TOGGLE for LETIMER_CTRL         */
-#define LETIMER_CTRL_UFOA0_PULSE                 (_LETIMER_CTRL_UFOA0_PULSE << 2)       /**< Shifted mode PULSE for LETIMER_CTRL          */
-#define LETIMER_CTRL_UFOA0_PWM                   (_LETIMER_CTRL_UFOA0_PWM << 2)         /**< Shifted mode PWM for LETIMER_CTRL            */
+#define LETIMER_CTRL_UFOA0_NONE                  (_LETIMER_CTRL_UFOA0_NONE << 2)        /**< Shifted mode NONE for LETIMER_CTRL          */
+#define LETIMER_CTRL_UFOA0_TOGGLE                (_LETIMER_CTRL_UFOA0_TOGGLE << 2)      /**< Shifted mode TOGGLE for LETIMER_CTRL        */
+#define LETIMER_CTRL_UFOA0_PULSE                 (_LETIMER_CTRL_UFOA0_PULSE << 2)       /**< Shifted mode PULSE for LETIMER_CTRL         */
+#define LETIMER_CTRL_UFOA0_PWM                   (_LETIMER_CTRL_UFOA0_PWM << 2)         /**< Shifted mode PWM for LETIMER_CTRL           */
 #define _LETIMER_CTRL_UFOA1_SHIFT                4                                      /**< Shift value for LETIMER_UFOA1               */
 #define _LETIMER_CTRL_UFOA1_MASK                 0x30UL                                 /**< Bit mask for LETIMER_UFOA1                  */
 #define _LETIMER_CTRL_UFOA1_DEFAULT              0x00000000UL                           /**< Mode DEFAULT for LETIMER_CTRL               */
-#define _LETIMER_CTRL_UFOA1_NONE                 0x00000000UL                           /**< Mode NONE for LETIMER_CTRL                   */
-#define _LETIMER_CTRL_UFOA1_TOGGLE               0x00000001UL                           /**< Mode TOGGLE for LETIMER_CTRL                 */
-#define _LETIMER_CTRL_UFOA1_PULSE                0x00000002UL                           /**< Mode PULSE for LETIMER_CTRL                  */
-#define _LETIMER_CTRL_UFOA1_PWM                  0x00000003UL                           /**< Mode PWM for LETIMER_CTRL                    */
+#define _LETIMER_CTRL_UFOA1_NONE                 0x00000000UL                           /**< Mode NONE for LETIMER_CTRL                  */
+#define _LETIMER_CTRL_UFOA1_TOGGLE               0x00000001UL                           /**< Mode TOGGLE for LETIMER_CTRL                */
+#define _LETIMER_CTRL_UFOA1_PULSE                0x00000002UL                           /**< Mode PULSE for LETIMER_CTRL                 */
+#define _LETIMER_CTRL_UFOA1_PWM                  0x00000003UL                           /**< Mode PWM for LETIMER_CTRL                   */
 #define LETIMER_CTRL_UFOA1_DEFAULT               (_LETIMER_CTRL_UFOA1_DEFAULT << 4)     /**< Shifted mode DEFAULT for LETIMER_CTRL       */
-#define LETIMER_CTRL_UFOA1_NONE                  (_LETIMER_CTRL_UFOA1_NONE << 4)        /**< Shifted mode NONE for LETIMER_CTRL           */
-#define LETIMER_CTRL_UFOA1_TOGGLE                (_LETIMER_CTRL_UFOA1_TOGGLE << 4)      /**< Shifted mode TOGGLE for LETIMER_CTRL         */
-#define LETIMER_CTRL_UFOA1_PULSE                 (_LETIMER_CTRL_UFOA1_PULSE << 4)       /**< Shifted mode PULSE for LETIMER_CTRL          */
-#define LETIMER_CTRL_UFOA1_PWM                   (_LETIMER_CTRL_UFOA1_PWM << 4)         /**< Shifted mode PWM for LETIMER_CTRL            */
+#define LETIMER_CTRL_UFOA1_NONE                  (_LETIMER_CTRL_UFOA1_NONE << 4)        /**< Shifted mode NONE for LETIMER_CTRL          */
+#define LETIMER_CTRL_UFOA1_TOGGLE                (_LETIMER_CTRL_UFOA1_TOGGLE << 4)      /**< Shifted mode TOGGLE for LETIMER_CTRL        */
+#define LETIMER_CTRL_UFOA1_PULSE                 (_LETIMER_CTRL_UFOA1_PULSE << 4)       /**< Shifted mode PULSE for LETIMER_CTRL         */
+#define LETIMER_CTRL_UFOA1_PWM                   (_LETIMER_CTRL_UFOA1_PWM << 4)         /**< Shifted mode PWM for LETIMER_CTRL           */
 #define LETIMER_CTRL_OPOL0                       (0x1UL << 6)                           /**< Output 0 Polarity                           */
 #define _LETIMER_CTRL_OPOL0_SHIFT                6                                      /**< Shift value for LETIMER_OPOL0               */
 #define _LETIMER_CTRL_OPOL0_MASK                 0x40UL                                 /**< Bit mask for LETIMER_OPOL0                  */
@@ -208,51 +207,51 @@ typedef struct {
 #define _LETIMER_CTRL_BUFTOP_SHIFT               8                                      /**< Shift value for LETIMER_BUFTOP              */
 #define _LETIMER_CTRL_BUFTOP_MASK                0x100UL                                /**< Bit mask for LETIMER_BUFTOP                 */
 #define _LETIMER_CTRL_BUFTOP_DEFAULT             0x00000000UL                           /**< Mode DEFAULT for LETIMER_CTRL               */
-#define _LETIMER_CTRL_BUFTOP_DISABLE             0x00000000UL                           /**< Mode DISABLE for LETIMER_CTRL                */
-#define _LETIMER_CTRL_BUFTOP_ENABLE              0x00000001UL                           /**< Mode ENABLE for LETIMER_CTRL                 */
+#define _LETIMER_CTRL_BUFTOP_DISABLE             0x00000000UL                           /**< Mode DISABLE for LETIMER_CTRL               */
+#define _LETIMER_CTRL_BUFTOP_ENABLE              0x00000001UL                           /**< Mode ENABLE for LETIMER_CTRL                */
 #define LETIMER_CTRL_BUFTOP_DEFAULT              (_LETIMER_CTRL_BUFTOP_DEFAULT << 8)    /**< Shifted mode DEFAULT for LETIMER_CTRL       */
-#define LETIMER_CTRL_BUFTOP_DISABLE              (_LETIMER_CTRL_BUFTOP_DISABLE << 8)    /**< Shifted mode DISABLE for LETIMER_CTRL        */
-#define LETIMER_CTRL_BUFTOP_ENABLE               (_LETIMER_CTRL_BUFTOP_ENABLE << 8)     /**< Shifted mode ENABLE for LETIMER_CTRL         */
+#define LETIMER_CTRL_BUFTOP_DISABLE              (_LETIMER_CTRL_BUFTOP_DISABLE << 8)    /**< Shifted mode DISABLE for LETIMER_CTRL       */
+#define LETIMER_CTRL_BUFTOP_ENABLE               (_LETIMER_CTRL_BUFTOP_ENABLE << 8)     /**< Shifted mode ENABLE for LETIMER_CTRL        */
 #define LETIMER_CTRL_CNTTOPEN                    (0x1UL << 9)                           /**< Compare Value 0 Is Top Value                */
 #define _LETIMER_CTRL_CNTTOPEN_SHIFT             9                                      /**< Shift value for LETIMER_CNTTOPEN            */
 #define _LETIMER_CTRL_CNTTOPEN_MASK              0x200UL                                /**< Bit mask for LETIMER_CNTTOPEN               */
 #define _LETIMER_CTRL_CNTTOPEN_DEFAULT           0x00000000UL                           /**< Mode DEFAULT for LETIMER_CTRL               */
-#define _LETIMER_CTRL_CNTTOPEN_DISABLE           0x00000000UL                           /**< Mode DISABLE for LETIMER_CTRL                */
-#define _LETIMER_CTRL_CNTTOPEN_ENABLE            0x00000001UL                           /**< Mode ENABLE for LETIMER_CTRL                 */
+#define _LETIMER_CTRL_CNTTOPEN_DISABLE           0x00000000UL                           /**< Mode DISABLE for LETIMER_CTRL               */
+#define _LETIMER_CTRL_CNTTOPEN_ENABLE            0x00000001UL                           /**< Mode ENABLE for LETIMER_CTRL                */
 #define LETIMER_CTRL_CNTTOPEN_DEFAULT            (_LETIMER_CTRL_CNTTOPEN_DEFAULT << 9)  /**< Shifted mode DEFAULT for LETIMER_CTRL       */
-#define LETIMER_CTRL_CNTTOPEN_DISABLE            (_LETIMER_CTRL_CNTTOPEN_DISABLE << 9)  /**< Shifted mode DISABLE for LETIMER_CTRL        */
-#define LETIMER_CTRL_CNTTOPEN_ENABLE             (_LETIMER_CTRL_CNTTOPEN_ENABLE << 9)   /**< Shifted mode ENABLE for LETIMER_CTRL         */
+#define LETIMER_CTRL_CNTTOPEN_DISABLE            (_LETIMER_CTRL_CNTTOPEN_DISABLE << 9)  /**< Shifted mode DISABLE for LETIMER_CTRL       */
+#define LETIMER_CTRL_CNTTOPEN_ENABLE             (_LETIMER_CTRL_CNTTOPEN_ENABLE << 9)   /**< Shifted mode ENABLE for LETIMER_CTRL        */
 #define LETIMER_CTRL_DEBUGRUN                    (0x1UL << 12)                          /**< Debug Mode Run Enable                       */
 #define _LETIMER_CTRL_DEBUGRUN_SHIFT             12                                     /**< Shift value for LETIMER_DEBUGRUN            */
 #define _LETIMER_CTRL_DEBUGRUN_MASK              0x1000UL                               /**< Bit mask for LETIMER_DEBUGRUN               */
 #define _LETIMER_CTRL_DEBUGRUN_DEFAULT           0x00000000UL                           /**< Mode DEFAULT for LETIMER_CTRL               */
-#define _LETIMER_CTRL_DEBUGRUN_DISABLE           0x00000000UL                           /**< Mode DISABLE for LETIMER_CTRL                */
-#define _LETIMER_CTRL_DEBUGRUN_ENABLE            0x00000001UL                           /**< Mode ENABLE for LETIMER_CTRL                 */
+#define _LETIMER_CTRL_DEBUGRUN_DISABLE           0x00000000UL                           /**< Mode DISABLE for LETIMER_CTRL               */
+#define _LETIMER_CTRL_DEBUGRUN_ENABLE            0x00000001UL                           /**< Mode ENABLE for LETIMER_CTRL                */
 #define LETIMER_CTRL_DEBUGRUN_DEFAULT            (_LETIMER_CTRL_DEBUGRUN_DEFAULT << 12) /**< Shifted mode DEFAULT for LETIMER_CTRL       */
-#define LETIMER_CTRL_DEBUGRUN_DISABLE            (_LETIMER_CTRL_DEBUGRUN_DISABLE << 12) /**< Shifted mode DISABLE for LETIMER_CTRL        */
-#define LETIMER_CTRL_DEBUGRUN_ENABLE             (_LETIMER_CTRL_DEBUGRUN_ENABLE << 12)  /**< Shifted mode ENABLE for LETIMER_CTRL         */
+#define LETIMER_CTRL_DEBUGRUN_DISABLE            (_LETIMER_CTRL_DEBUGRUN_DISABLE << 12) /**< Shifted mode DISABLE for LETIMER_CTRL       */
+#define LETIMER_CTRL_DEBUGRUN_ENABLE             (_LETIMER_CTRL_DEBUGRUN_ENABLE << 12)  /**< Shifted mode ENABLE for LETIMER_CTRL        */
 #define _LETIMER_CTRL_CNTPRESC_SHIFT             16                                     /**< Shift value for LETIMER_CNTPRESC            */
 #define _LETIMER_CTRL_CNTPRESC_MASK              0xF0000UL                              /**< Bit mask for LETIMER_CNTPRESC               */
 #define _LETIMER_CTRL_CNTPRESC_DEFAULT           0x00000000UL                           /**< Mode DEFAULT for LETIMER_CTRL               */
-#define _LETIMER_CTRL_CNTPRESC_DIV1              0x00000000UL                           /**< Mode DIV1 for LETIMER_CTRL                   */
-#define _LETIMER_CTRL_CNTPRESC_DIV2              0x00000001UL                           /**< Mode DIV2 for LETIMER_CTRL                   */
-#define _LETIMER_CTRL_CNTPRESC_DIV4              0x00000002UL                           /**< Mode DIV4 for LETIMER_CTRL                   */
-#define _LETIMER_CTRL_CNTPRESC_DIV8              0x00000003UL                           /**< Mode DIV8 for LETIMER_CTRL                   */
-#define _LETIMER_CTRL_CNTPRESC_DIV16             0x00000004UL                           /**< Mode DIV16 for LETIMER_CTRL                  */
-#define _LETIMER_CTRL_CNTPRESC_DIV32             0x00000005UL                           /**< Mode DIV32 for LETIMER_CTRL                  */
-#define _LETIMER_CTRL_CNTPRESC_DIV64             0x00000006UL                           /**< Mode DIV64 for LETIMER_CTRL                  */
-#define _LETIMER_CTRL_CNTPRESC_DIV128            0x00000007UL                           /**< Mode DIV128 for LETIMER_CTRL                 */
-#define _LETIMER_CTRL_CNTPRESC_DIV256            0x00000008UL                           /**< Mode DIV256 for LETIMER_CTRL                 */
+#define _LETIMER_CTRL_CNTPRESC_DIV1              0x00000000UL                           /**< Mode DIV1 for LETIMER_CTRL                  */
+#define _LETIMER_CTRL_CNTPRESC_DIV2              0x00000001UL                           /**< Mode DIV2 for LETIMER_CTRL                  */
+#define _LETIMER_CTRL_CNTPRESC_DIV4              0x00000002UL                           /**< Mode DIV4 for LETIMER_CTRL                  */
+#define _LETIMER_CTRL_CNTPRESC_DIV8              0x00000003UL                           /**< Mode DIV8 for LETIMER_CTRL                  */
+#define _LETIMER_CTRL_CNTPRESC_DIV16             0x00000004UL                           /**< Mode DIV16 for LETIMER_CTRL                 */
+#define _LETIMER_CTRL_CNTPRESC_DIV32             0x00000005UL                           /**< Mode DIV32 for LETIMER_CTRL                 */
+#define _LETIMER_CTRL_CNTPRESC_DIV64             0x00000006UL                           /**< Mode DIV64 for LETIMER_CTRL                 */
+#define _LETIMER_CTRL_CNTPRESC_DIV128            0x00000007UL                           /**< Mode DIV128 for LETIMER_CTRL                */
+#define _LETIMER_CTRL_CNTPRESC_DIV256            0x00000008UL                           /**< Mode DIV256 for LETIMER_CTRL                */
 #define LETIMER_CTRL_CNTPRESC_DEFAULT            (_LETIMER_CTRL_CNTPRESC_DEFAULT << 16) /**< Shifted mode DEFAULT for LETIMER_CTRL       */
-#define LETIMER_CTRL_CNTPRESC_DIV1               (_LETIMER_CTRL_CNTPRESC_DIV1 << 16)    /**< Shifted mode DIV1 for LETIMER_CTRL           */
-#define LETIMER_CTRL_CNTPRESC_DIV2               (_LETIMER_CTRL_CNTPRESC_DIV2 << 16)    /**< Shifted mode DIV2 for LETIMER_CTRL           */
-#define LETIMER_CTRL_CNTPRESC_DIV4               (_LETIMER_CTRL_CNTPRESC_DIV4 << 16)    /**< Shifted mode DIV4 for LETIMER_CTRL           */
-#define LETIMER_CTRL_CNTPRESC_DIV8               (_LETIMER_CTRL_CNTPRESC_DIV8 << 16)    /**< Shifted mode DIV8 for LETIMER_CTRL           */
-#define LETIMER_CTRL_CNTPRESC_DIV16              (_LETIMER_CTRL_CNTPRESC_DIV16 << 16)   /**< Shifted mode DIV16 for LETIMER_CTRL          */
-#define LETIMER_CTRL_CNTPRESC_DIV32              (_LETIMER_CTRL_CNTPRESC_DIV32 << 16)   /**< Shifted mode DIV32 for LETIMER_CTRL          */
-#define LETIMER_CTRL_CNTPRESC_DIV64              (_LETIMER_CTRL_CNTPRESC_DIV64 << 16)   /**< Shifted mode DIV64 for LETIMER_CTRL          */
-#define LETIMER_CTRL_CNTPRESC_DIV128             (_LETIMER_CTRL_CNTPRESC_DIV128 << 16)  /**< Shifted mode DIV128 for LETIMER_CTRL         */
-#define LETIMER_CTRL_CNTPRESC_DIV256             (_LETIMER_CTRL_CNTPRESC_DIV256 << 16)  /**< Shifted mode DIV256 for LETIMER_CTRL         */
+#define LETIMER_CTRL_CNTPRESC_DIV1               (_LETIMER_CTRL_CNTPRESC_DIV1 << 16)    /**< Shifted mode DIV1 for LETIMER_CTRL          */
+#define LETIMER_CTRL_CNTPRESC_DIV2               (_LETIMER_CTRL_CNTPRESC_DIV2 << 16)    /**< Shifted mode DIV2 for LETIMER_CTRL          */
+#define LETIMER_CTRL_CNTPRESC_DIV4               (_LETIMER_CTRL_CNTPRESC_DIV4 << 16)    /**< Shifted mode DIV4 for LETIMER_CTRL          */
+#define LETIMER_CTRL_CNTPRESC_DIV8               (_LETIMER_CTRL_CNTPRESC_DIV8 << 16)    /**< Shifted mode DIV8 for LETIMER_CTRL          */
+#define LETIMER_CTRL_CNTPRESC_DIV16              (_LETIMER_CTRL_CNTPRESC_DIV16 << 16)   /**< Shifted mode DIV16 for LETIMER_CTRL         */
+#define LETIMER_CTRL_CNTPRESC_DIV32              (_LETIMER_CTRL_CNTPRESC_DIV32 << 16)   /**< Shifted mode DIV32 for LETIMER_CTRL         */
+#define LETIMER_CTRL_CNTPRESC_DIV64              (_LETIMER_CTRL_CNTPRESC_DIV64 << 16)   /**< Shifted mode DIV64 for LETIMER_CTRL         */
+#define LETIMER_CTRL_CNTPRESC_DIV128             (_LETIMER_CTRL_CNTPRESC_DIV128 << 16)  /**< Shifted mode DIV128 for LETIMER_CTRL        */
+#define LETIMER_CTRL_CNTPRESC_DIV256             (_LETIMER_CTRL_CNTPRESC_DIV256 << 16)  /**< Shifted mode DIV256 for LETIMER_CTRL        */
 
 /* Bit fields for LETIMER CMD */
 #define _LETIMER_CMD_RESETVALUE                  0x00000000UL                           /**< Default value for LETIMER_CMD               */
@@ -461,39 +460,39 @@ typedef struct {
 #define _LETIMER_PRSMODE_PRSSTARTMODE_SHIFT      18                                            /**< Shift value for LETIMER_PRSSTARTMODE        */
 #define _LETIMER_PRSMODE_PRSSTARTMODE_MASK       0xC0000UL                                     /**< Bit mask for LETIMER_PRSSTARTMODE           */
 #define _LETIMER_PRSMODE_PRSSTARTMODE_DEFAULT    0x00000000UL                                  /**< Mode DEFAULT for LETIMER_PRSMODE            */
-#define _LETIMER_PRSMODE_PRSSTARTMODE_NONE       0x00000000UL                                  /**< Mode NONE for LETIMER_PRSMODE                */
-#define _LETIMER_PRSMODE_PRSSTARTMODE_RISING     0x00000001UL                                  /**< Mode RISING for LETIMER_PRSMODE              */
-#define _LETIMER_PRSMODE_PRSSTARTMODE_FALLING    0x00000002UL                                  /**< Mode FALLING for LETIMER_PRSMODE             */
-#define _LETIMER_PRSMODE_PRSSTARTMODE_BOTH       0x00000003UL                                  /**< Mode BOTH for LETIMER_PRSMODE                */
+#define _LETIMER_PRSMODE_PRSSTARTMODE_NONE       0x00000000UL                                  /**< Mode NONE for LETIMER_PRSMODE               */
+#define _LETIMER_PRSMODE_PRSSTARTMODE_RISING     0x00000001UL                                  /**< Mode RISING for LETIMER_PRSMODE             */
+#define _LETIMER_PRSMODE_PRSSTARTMODE_FALLING    0x00000002UL                                  /**< Mode FALLING for LETIMER_PRSMODE            */
+#define _LETIMER_PRSMODE_PRSSTARTMODE_BOTH       0x00000003UL                                  /**< Mode BOTH for LETIMER_PRSMODE               */
 #define LETIMER_PRSMODE_PRSSTARTMODE_DEFAULT     (_LETIMER_PRSMODE_PRSSTARTMODE_DEFAULT << 18) /**< Shifted mode DEFAULT for LETIMER_PRSMODE    */
-#define LETIMER_PRSMODE_PRSSTARTMODE_NONE        (_LETIMER_PRSMODE_PRSSTARTMODE_NONE << 18)    /**< Shifted mode NONE for LETIMER_PRSMODE        */
-#define LETIMER_PRSMODE_PRSSTARTMODE_RISING      (_LETIMER_PRSMODE_PRSSTARTMODE_RISING << 18)  /**< Shifted mode RISING for LETIMER_PRSMODE      */
-#define LETIMER_PRSMODE_PRSSTARTMODE_FALLING     (_LETIMER_PRSMODE_PRSSTARTMODE_FALLING << 18) /**< Shifted mode FALLING for LETIMER_PRSMODE     */
-#define LETIMER_PRSMODE_PRSSTARTMODE_BOTH        (_LETIMER_PRSMODE_PRSSTARTMODE_BOTH << 18)    /**< Shifted mode BOTH for LETIMER_PRSMODE        */
+#define LETIMER_PRSMODE_PRSSTARTMODE_NONE        (_LETIMER_PRSMODE_PRSSTARTMODE_NONE << 18)    /**< Shifted mode NONE for LETIMER_PRSMODE       */
+#define LETIMER_PRSMODE_PRSSTARTMODE_RISING      (_LETIMER_PRSMODE_PRSSTARTMODE_RISING << 18)  /**< Shifted mode RISING for LETIMER_PRSMODE     */
+#define LETIMER_PRSMODE_PRSSTARTMODE_FALLING     (_LETIMER_PRSMODE_PRSSTARTMODE_FALLING << 18) /**< Shifted mode FALLING for LETIMER_PRSMODE    */
+#define LETIMER_PRSMODE_PRSSTARTMODE_BOTH        (_LETIMER_PRSMODE_PRSSTARTMODE_BOTH << 18)    /**< Shifted mode BOTH for LETIMER_PRSMODE       */
 #define _LETIMER_PRSMODE_PRSSTOPMODE_SHIFT       22                                            /**< Shift value for LETIMER_PRSSTOPMODE         */
 #define _LETIMER_PRSMODE_PRSSTOPMODE_MASK        0xC00000UL                                    /**< Bit mask for LETIMER_PRSSTOPMODE            */
 #define _LETIMER_PRSMODE_PRSSTOPMODE_DEFAULT     0x00000000UL                                  /**< Mode DEFAULT for LETIMER_PRSMODE            */
-#define _LETIMER_PRSMODE_PRSSTOPMODE_NONE        0x00000000UL                                  /**< Mode NONE for LETIMER_PRSMODE                */
-#define _LETIMER_PRSMODE_PRSSTOPMODE_RISING      0x00000001UL                                  /**< Mode RISING for LETIMER_PRSMODE              */
-#define _LETIMER_PRSMODE_PRSSTOPMODE_FALLING     0x00000002UL                                  /**< Mode FALLING for LETIMER_PRSMODE             */
-#define _LETIMER_PRSMODE_PRSSTOPMODE_BOTH        0x00000003UL                                  /**< Mode BOTH for LETIMER_PRSMODE                */
+#define _LETIMER_PRSMODE_PRSSTOPMODE_NONE        0x00000000UL                                  /**< Mode NONE for LETIMER_PRSMODE               */
+#define _LETIMER_PRSMODE_PRSSTOPMODE_RISING      0x00000001UL                                  /**< Mode RISING for LETIMER_PRSMODE             */
+#define _LETIMER_PRSMODE_PRSSTOPMODE_FALLING     0x00000002UL                                  /**< Mode FALLING for LETIMER_PRSMODE            */
+#define _LETIMER_PRSMODE_PRSSTOPMODE_BOTH        0x00000003UL                                  /**< Mode BOTH for LETIMER_PRSMODE               */
 #define LETIMER_PRSMODE_PRSSTOPMODE_DEFAULT      (_LETIMER_PRSMODE_PRSSTOPMODE_DEFAULT << 22)  /**< Shifted mode DEFAULT for LETIMER_PRSMODE    */
-#define LETIMER_PRSMODE_PRSSTOPMODE_NONE         (_LETIMER_PRSMODE_PRSSTOPMODE_NONE << 22)     /**< Shifted mode NONE for LETIMER_PRSMODE        */
-#define LETIMER_PRSMODE_PRSSTOPMODE_RISING       (_LETIMER_PRSMODE_PRSSTOPMODE_RISING << 22)   /**< Shifted mode RISING for LETIMER_PRSMODE      */
-#define LETIMER_PRSMODE_PRSSTOPMODE_FALLING      (_LETIMER_PRSMODE_PRSSTOPMODE_FALLING << 22)  /**< Shifted mode FALLING for LETIMER_PRSMODE     */
-#define LETIMER_PRSMODE_PRSSTOPMODE_BOTH         (_LETIMER_PRSMODE_PRSSTOPMODE_BOTH << 22)     /**< Shifted mode BOTH for LETIMER_PRSMODE        */
+#define LETIMER_PRSMODE_PRSSTOPMODE_NONE         (_LETIMER_PRSMODE_PRSSTOPMODE_NONE << 22)     /**< Shifted mode NONE for LETIMER_PRSMODE       */
+#define LETIMER_PRSMODE_PRSSTOPMODE_RISING       (_LETIMER_PRSMODE_PRSSTOPMODE_RISING << 22)   /**< Shifted mode RISING for LETIMER_PRSMODE     */
+#define LETIMER_PRSMODE_PRSSTOPMODE_FALLING      (_LETIMER_PRSMODE_PRSSTOPMODE_FALLING << 22)  /**< Shifted mode FALLING for LETIMER_PRSMODE    */
+#define LETIMER_PRSMODE_PRSSTOPMODE_BOTH         (_LETIMER_PRSMODE_PRSSTOPMODE_BOTH << 22)     /**< Shifted mode BOTH for LETIMER_PRSMODE       */
 #define _LETIMER_PRSMODE_PRSCLEARMODE_SHIFT      26                                            /**< Shift value for LETIMER_PRSCLEARMODE        */
 #define _LETIMER_PRSMODE_PRSCLEARMODE_MASK       0xC000000UL                                   /**< Bit mask for LETIMER_PRSCLEARMODE           */
 #define _LETIMER_PRSMODE_PRSCLEARMODE_DEFAULT    0x00000000UL                                  /**< Mode DEFAULT for LETIMER_PRSMODE            */
-#define _LETIMER_PRSMODE_PRSCLEARMODE_NONE       0x00000000UL                                  /**< Mode NONE for LETIMER_PRSMODE                */
-#define _LETIMER_PRSMODE_PRSCLEARMODE_RISING     0x00000001UL                                  /**< Mode RISING for LETIMER_PRSMODE              */
-#define _LETIMER_PRSMODE_PRSCLEARMODE_FALLING    0x00000002UL                                  /**< Mode FALLING for LETIMER_PRSMODE             */
-#define _LETIMER_PRSMODE_PRSCLEARMODE_BOTH       0x00000003UL                                  /**< Mode BOTH for LETIMER_PRSMODE                */
+#define _LETIMER_PRSMODE_PRSCLEARMODE_NONE       0x00000000UL                                  /**< Mode NONE for LETIMER_PRSMODE               */
+#define _LETIMER_PRSMODE_PRSCLEARMODE_RISING     0x00000001UL                                  /**< Mode RISING for LETIMER_PRSMODE             */
+#define _LETIMER_PRSMODE_PRSCLEARMODE_FALLING    0x00000002UL                                  /**< Mode FALLING for LETIMER_PRSMODE            */
+#define _LETIMER_PRSMODE_PRSCLEARMODE_BOTH       0x00000003UL                                  /**< Mode BOTH for LETIMER_PRSMODE               */
 #define LETIMER_PRSMODE_PRSCLEARMODE_DEFAULT     (_LETIMER_PRSMODE_PRSCLEARMODE_DEFAULT << 26) /**< Shifted mode DEFAULT for LETIMER_PRSMODE    */
-#define LETIMER_PRSMODE_PRSCLEARMODE_NONE        (_LETIMER_PRSMODE_PRSCLEARMODE_NONE << 26)    /**< Shifted mode NONE for LETIMER_PRSMODE        */
-#define LETIMER_PRSMODE_PRSCLEARMODE_RISING      (_LETIMER_PRSMODE_PRSCLEARMODE_RISING << 26)  /**< Shifted mode RISING for LETIMER_PRSMODE      */
-#define LETIMER_PRSMODE_PRSCLEARMODE_FALLING     (_LETIMER_PRSMODE_PRSCLEARMODE_FALLING << 26) /**< Shifted mode FALLING for LETIMER_PRSMODE     */
-#define LETIMER_PRSMODE_PRSCLEARMODE_BOTH        (_LETIMER_PRSMODE_PRSCLEARMODE_BOTH << 26)    /**< Shifted mode BOTH for LETIMER_PRSMODE        */
+#define LETIMER_PRSMODE_PRSCLEARMODE_NONE        (_LETIMER_PRSMODE_PRSCLEARMODE_NONE << 26)    /**< Shifted mode NONE for LETIMER_PRSMODE       */
+#define LETIMER_PRSMODE_PRSCLEARMODE_RISING      (_LETIMER_PRSMODE_PRSCLEARMODE_RISING << 26)  /**< Shifted mode RISING for LETIMER_PRSMODE     */
+#define LETIMER_PRSMODE_PRSCLEARMODE_FALLING     (_LETIMER_PRSMODE_PRSCLEARMODE_FALLING << 26) /**< Shifted mode FALLING for LETIMER_PRSMODE    */
+#define LETIMER_PRSMODE_PRSCLEARMODE_BOTH        (_LETIMER_PRSMODE_PRSCLEARMODE_BOTH << 26)    /**< Shifted mode BOTH for LETIMER_PRSMODE       */
 
 /** @} End of group EFR32MG21_LETIMER_BitFields */
 /** @} End of group EFR32MG21_LETIMER */

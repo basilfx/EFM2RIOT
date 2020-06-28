@@ -59,12 +59,12 @@ PIN 1 is the bottom-left contact when the header faces  you horizontally.
 **Note:** some pins are connected to the board controller, when enabled!
 
 ### Peripheral mapping
-| Peripheral | Number  | Hardware        | Pins                            | Comments                                                  |
-|------------|---------|-----------------|---------------------------------|-----------------------------------------------------------|
-| ADC        | 0       | ADC0            | CHAN0: internal temperature     | Ports are fixed, 14/16-bit resolution not supported       |
-| DAC        | 0       | DAC0            | CHAN0: PB11                     | Ports are fixed, shared with I2C                          |
-| HWCRYPTO   | &mdash; | &mdash;         |                                 | AES128/AES256 only                                        |
-| PWM        | 0       | TIMER0          | CHAN0: PF6, CHAN1: PF7          | Mapped to LED0 and LED1                                   |
+| Peripheral | Number  | Hardware        | Pins                              | Comments                                                  |
+|------------|---------|-----------------|-----------------------------------|-----------------------------------------------------------|
+| ADC        | 0       | ADC0            | CHAN0: internal temperature       | Ports are fixed, 14/16-bit resolution not supported       |
+| DAC        | 0       | DAC0            | CHAN0: PB11                       | Ports are fixed, shared with I2C                          |
+| HWCRYPTO   | &mdash; | &mdash;         |                                   | AES128/AES256 only                                        |
+| PWM        | 0       | TIMER0          | CHAN0: PF6, CHAN1: PF7            | Mapped to LED0 and LED1                                   |
 
 ### User interface
 | Peripheral | Mapped to | Pin  | Comments   |
@@ -90,7 +90,7 @@ PIN 1 is the bottom-left contact when the header faces  you horizontally.
 |                               | Timer                               | yes       |                                                                |
 |                               | UART                                | yes       | USART is shared with SPI. LEUART baud rate limited (see below) |
 |                               | USB                                 | no        |                                                                |
-| LCD driver                    | LS013B7DH03                         | yes       | Sharp Low Power Memory LCD                                     |
+| LCD driver                    | LS013B7DH03                         | yes       | Sharp Low Power Memory LCD via the U8g2 package                |
 | Temperature + humidity sensor | Si7021                              | yes       | Silicon Labs Temperature + Humidity sensor                     |
 
 

@@ -1,10 +1,9 @@
 /**************************************************************************//**
  * @file
  * @brief EFR32BG21 GPCRC register and bit field definitions
- * @version 5.7.0
  ******************************************************************************
  * # License
- * <b>Copyright 2018 Silicon Laboratories, Inc. www.silabs.com</b>
+ * <b>Copyright 2020 Silicon Laboratories, Inc. www.silabs.com</b>
  ******************************************************************************
  *
  * SPDX-License-Identifier: Zlib
@@ -61,7 +60,7 @@ typedef struct {
   __IM uint32_t  DATA;                          /**< CRC Data Register                                  */
   __IM uint32_t  DATAREV;                       /**< CRC Data Reverse Register                          */
   __IM uint32_t  DATABYTEREV;                   /**< CRC Data Byte Reverse Register                     */
-  uint32_t       RESERVED0[1012U];              /**< Reserved for future use*/
+  uint32_t       RESERVED0[1012U];              /**< Reserved for future use                            */
   __IM uint32_t  IPVERSION_SET;                 /**< IP Version ID                                      */
   __IOM uint32_t EN_SET;                        /**< CRC Enable                                         */
   __IOM uint32_t CTRL_SET;                      /**< Control Register                                   */
@@ -74,7 +73,7 @@ typedef struct {
   __IM uint32_t  DATA_SET;                      /**< CRC Data Register                                  */
   __IM uint32_t  DATAREV_SET;                   /**< CRC Data Reverse Register                          */
   __IM uint32_t  DATABYTEREV_SET;               /**< CRC Data Byte Reverse Register                     */
-  uint32_t       RESERVED1[1012U];              /**< Reserved for future use*/
+  uint32_t       RESERVED1[1012U];              /**< Reserved for future use                            */
   __IM uint32_t  IPVERSION_CLR;                 /**< IP Version ID                                      */
   __IOM uint32_t EN_CLR;                        /**< CRC Enable                                         */
   __IOM uint32_t CTRL_CLR;                      /**< Control Register                                   */
@@ -87,7 +86,7 @@ typedef struct {
   __IM uint32_t  DATA_CLR;                      /**< CRC Data Register                                  */
   __IM uint32_t  DATAREV_CLR;                   /**< CRC Data Reverse Register                          */
   __IM uint32_t  DATABYTEREV_CLR;               /**< CRC Data Byte Reverse Register                     */
-  uint32_t       RESERVED2[1012U];              /**< Reserved for future use*/
+  uint32_t       RESERVED2[1012U];              /**< Reserved for future use                            */
   __IM uint32_t  IPVERSION_TGL;                 /**< IP Version ID                                      */
   __IOM uint32_t EN_TGL;                        /**< CRC Enable                                         */
   __IOM uint32_t CTRL_TGL;                      /**< Control Register                                   */
@@ -125,11 +124,11 @@ typedef struct {
 #define _GPCRC_EN_EN_SHIFT                              0                               /**< Shift value for GPCRC_EN                    */
 #define _GPCRC_EN_EN_MASK                               0x1UL                           /**< Bit mask for GPCRC_EN                       */
 #define _GPCRC_EN_EN_DEFAULT                            0x00000000UL                    /**< Mode DEFAULT for GPCRC_EN                   */
-#define _GPCRC_EN_EN_DISABLE                            0x00000000UL                    /**< Mode DISABLE for GPCRC_EN                    */
-#define _GPCRC_EN_EN_ENABLE                             0x00000001UL                    /**< Mode ENABLE for GPCRC_EN                     */
+#define _GPCRC_EN_EN_DISABLE                            0x00000000UL                    /**< Mode DISABLE for GPCRC_EN                   */
+#define _GPCRC_EN_EN_ENABLE                             0x00000001UL                    /**< Mode ENABLE for GPCRC_EN                    */
 #define GPCRC_EN_EN_DEFAULT                             (_GPCRC_EN_EN_DEFAULT << 0)     /**< Shifted mode DEFAULT for GPCRC_EN           */
-#define GPCRC_EN_EN_DISABLE                             (_GPCRC_EN_EN_DISABLE << 0)     /**< Shifted mode DISABLE for GPCRC_EN            */
-#define GPCRC_EN_EN_ENABLE                              (_GPCRC_EN_EN_ENABLE << 0)      /**< Shifted mode ENABLE for GPCRC_EN             */
+#define GPCRC_EN_EN_DISABLE                             (_GPCRC_EN_EN_DISABLE << 0)     /**< Shifted mode DISABLE for GPCRC_EN           */
+#define GPCRC_EN_EN_ENABLE                              (_GPCRC_EN_EN_ENABLE << 0)      /**< Shifted mode ENABLE for GPCRC_EN            */
 
 /* Bit fields for GPCRC CTRL */
 #define _GPCRC_CTRL_RESETVALUE                          0x00000000UL                             /**< Default value for GPCRC_CTRL                */
@@ -138,11 +137,11 @@ typedef struct {
 #define _GPCRC_CTRL_POLYSEL_SHIFT                       4                                        /**< Shift value for GPCRC_POLYSEL               */
 #define _GPCRC_CTRL_POLYSEL_MASK                        0x10UL                                   /**< Bit mask for GPCRC_POLYSEL                  */
 #define _GPCRC_CTRL_POLYSEL_DEFAULT                     0x00000000UL                             /**< Mode DEFAULT for GPCRC_CTRL                 */
-#define _GPCRC_CTRL_POLYSEL_CRC32                       0x00000000UL                             /**< Mode CRC32 for GPCRC_CTRL                    */
-#define _GPCRC_CTRL_POLYSEL_CRC16                       0x00000001UL                             /**< Mode CRC16 for GPCRC_CTRL                    */
+#define _GPCRC_CTRL_POLYSEL_CRC32                       0x00000000UL                             /**< Mode CRC32 for GPCRC_CTRL                   */
+#define _GPCRC_CTRL_POLYSEL_CRC16                       0x00000001UL                             /**< Mode CRC16 for GPCRC_CTRL                   */
 #define GPCRC_CTRL_POLYSEL_DEFAULT                      (_GPCRC_CTRL_POLYSEL_DEFAULT << 4)       /**< Shifted mode DEFAULT for GPCRC_CTRL         */
-#define GPCRC_CTRL_POLYSEL_CRC32                        (_GPCRC_CTRL_POLYSEL_CRC32 << 4)         /**< Shifted mode CRC32 for GPCRC_CTRL            */
-#define GPCRC_CTRL_POLYSEL_CRC16                        (_GPCRC_CTRL_POLYSEL_CRC16 << 4)         /**< Shifted mode CRC16 for GPCRC_CTRL            */
+#define GPCRC_CTRL_POLYSEL_CRC32                        (_GPCRC_CTRL_POLYSEL_CRC32 << 4)         /**< Shifted mode CRC32 for GPCRC_CTRL           */
+#define GPCRC_CTRL_POLYSEL_CRC16                        (_GPCRC_CTRL_POLYSEL_CRC16 << 4)         /**< Shifted mode CRC16 for GPCRC_CTRL           */
 #define GPCRC_CTRL_BYTEMODE                             (0x1UL << 8)                             /**< Byte Mode Enable                            */
 #define _GPCRC_CTRL_BYTEMODE_SHIFT                      8                                        /**< Shift value for GPCRC_BYTEMODE              */
 #define _GPCRC_CTRL_BYTEMODE_MASK                       0x100UL                                  /**< Bit mask for GPCRC_BYTEMODE                 */
@@ -152,20 +151,20 @@ typedef struct {
 #define _GPCRC_CTRL_BITREVERSE_SHIFT                    9                                        /**< Shift value for GPCRC_BITREVERSE            */
 #define _GPCRC_CTRL_BITREVERSE_MASK                     0x200UL                                  /**< Bit mask for GPCRC_BITREVERSE               */
 #define _GPCRC_CTRL_BITREVERSE_DEFAULT                  0x00000000UL                             /**< Mode DEFAULT for GPCRC_CTRL                 */
-#define _GPCRC_CTRL_BITREVERSE_NORMAL                   0x00000000UL                             /**< Mode NORMAL for GPCRC_CTRL                   */
-#define _GPCRC_CTRL_BITREVERSE_REVERSED                 0x00000001UL                             /**< Mode REVERSED for GPCRC_CTRL                 */
+#define _GPCRC_CTRL_BITREVERSE_NORMAL                   0x00000000UL                             /**< Mode NORMAL for GPCRC_CTRL                  */
+#define _GPCRC_CTRL_BITREVERSE_REVERSED                 0x00000001UL                             /**< Mode REVERSED for GPCRC_CTRL                */
 #define GPCRC_CTRL_BITREVERSE_DEFAULT                   (_GPCRC_CTRL_BITREVERSE_DEFAULT << 9)    /**< Shifted mode DEFAULT for GPCRC_CTRL         */
-#define GPCRC_CTRL_BITREVERSE_NORMAL                    (_GPCRC_CTRL_BITREVERSE_NORMAL << 9)     /**< Shifted mode NORMAL for GPCRC_CTRL           */
-#define GPCRC_CTRL_BITREVERSE_REVERSED                  (_GPCRC_CTRL_BITREVERSE_REVERSED << 9)   /**< Shifted mode REVERSED for GPCRC_CTRL         */
+#define GPCRC_CTRL_BITREVERSE_NORMAL                    (_GPCRC_CTRL_BITREVERSE_NORMAL << 9)     /**< Shifted mode NORMAL for GPCRC_CTRL          */
+#define GPCRC_CTRL_BITREVERSE_REVERSED                  (_GPCRC_CTRL_BITREVERSE_REVERSED << 9)   /**< Shifted mode REVERSED for GPCRC_CTRL        */
 #define GPCRC_CTRL_BYTEREVERSE                          (0x1UL << 10)                            /**< Byte Reverse Mode                           */
 #define _GPCRC_CTRL_BYTEREVERSE_SHIFT                   10                                       /**< Shift value for GPCRC_BYTEREVERSE           */
 #define _GPCRC_CTRL_BYTEREVERSE_MASK                    0x400UL                                  /**< Bit mask for GPCRC_BYTEREVERSE              */
 #define _GPCRC_CTRL_BYTEREVERSE_DEFAULT                 0x00000000UL                             /**< Mode DEFAULT for GPCRC_CTRL                 */
-#define _GPCRC_CTRL_BYTEREVERSE_NORMAL                  0x00000000UL                             /**< Mode NORMAL for GPCRC_CTRL                   */
-#define _GPCRC_CTRL_BYTEREVERSE_REVERSED                0x00000001UL                             /**< Mode REVERSED for GPCRC_CTRL                 */
+#define _GPCRC_CTRL_BYTEREVERSE_NORMAL                  0x00000000UL                             /**< Mode NORMAL for GPCRC_CTRL                  */
+#define _GPCRC_CTRL_BYTEREVERSE_REVERSED                0x00000001UL                             /**< Mode REVERSED for GPCRC_CTRL                */
 #define GPCRC_CTRL_BYTEREVERSE_DEFAULT                  (_GPCRC_CTRL_BYTEREVERSE_DEFAULT << 10)  /**< Shifted mode DEFAULT for GPCRC_CTRL         */
-#define GPCRC_CTRL_BYTEREVERSE_NORMAL                   (_GPCRC_CTRL_BYTEREVERSE_NORMAL << 10)   /**< Shifted mode NORMAL for GPCRC_CTRL           */
-#define GPCRC_CTRL_BYTEREVERSE_REVERSED                 (_GPCRC_CTRL_BYTEREVERSE_REVERSED << 10) /**< Shifted mode REVERSED for GPCRC_CTRL         */
+#define GPCRC_CTRL_BYTEREVERSE_NORMAL                   (_GPCRC_CTRL_BYTEREVERSE_NORMAL << 10)   /**< Shifted mode NORMAL for GPCRC_CTRL          */
+#define GPCRC_CTRL_BYTEREVERSE_REVERSED                 (_GPCRC_CTRL_BYTEREVERSE_REVERSED << 10) /**< Shifted mode REVERSED for GPCRC_CTRL        */
 #define GPCRC_CTRL_AUTOINIT                             (0x1UL << 13)                            /**< Auto Init Enable                            */
 #define _GPCRC_CTRL_AUTOINIT_SHIFT                      13                                       /**< Shift value for GPCRC_AUTOINIT              */
 #define _GPCRC_CTRL_AUTOINIT_MASK                       0x2000UL                                 /**< Bit mask for GPCRC_AUTOINIT                 */

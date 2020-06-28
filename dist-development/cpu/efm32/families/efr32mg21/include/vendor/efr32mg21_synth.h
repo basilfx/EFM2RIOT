@@ -1,10 +1,9 @@
 /**************************************************************************//**
  * @file
  * @brief EFR32MG21 SYNTH register and bit field definitions
- * @version 5.7.0
  ******************************************************************************
  * # License
- * <b>Copyright 2018 Silicon Laboratories, Inc. www.silabs.com</b>
+ * <b>Copyright 2020 Silicon Laboratories, Inc. www.silabs.com</b>
  ******************************************************************************
  *
  * SPDX-License-Identifier: Zlib
@@ -54,9 +53,9 @@ typedef struct {
   __IM uint32_t  STATUS;                        /**< Frequency Synthesizer Status                       */
   __IOM uint32_t CMD;                           /**< Command Register                                   */
   __IOM uint32_t CTRL;                          /**< Frequency Synthesizer Control register             */
-  uint32_t       RESERVED0[6U];                 /**< Reserved for future use                      */
+  uint32_t       RESERVED0[6U];                 /**< Reserved for future use                            */
   __IOM uint32_t VCDACCTRL;                     /**< VCDAC Control register                             */
-  uint32_t       RESERVED1[1U];                 /**< Reserved for future use                      */
+  uint32_t       RESERVED1[1U];                 /**< Reserved for future use                            */
   __IOM uint32_t FREQ;                          /**< Frequency Word                                     */
   __IOM uint32_t IFFREQ;                        /**< IF frequency                                       */
   __IOM uint32_t DIVCTRL;                       /**< Frequency division control                         */
@@ -64,11 +63,11 @@ typedef struct {
   __IOM uint32_t CHSP;                          /**< Channel spacing                                    */
   __IOM uint32_t CALOFFSET;                     /**< Calibration offset                                 */
   __IOM uint32_t VCOTUNING;                     /**< VCO Frequency tuning                               */
-  uint32_t       RESERVED2[2U];                 /**< Reserved for future use                      */
+  uint32_t       RESERVED2[2U];                 /**< Reserved for future use                            */
   __IOM uint32_t VCOGAIN;                       /**< Calibration values for VCO gain                    */
-  uint32_t       RESERVED3[7U];                 /**< Reserved for future use                      */
+  uint32_t       RESERVED3[7U];                 /**< Reserved for future use                            */
   __IOM uint32_t IF;                            /**< Interrupt Flag Register                            */
-  uint32_t       RESERVED4[2U];                 /**< Reserved for future use                      */
+  uint32_t       RESERVED4[2U];                 /**< Reserved for future use                            */
   __IOM uint32_t IEN;                           /**< Interrupt Enable Register                          */
   __IOM uint32_t LOCNTCTRL;                     /**< LO Counter Control Register                        */
   __IM uint32_t  LOCNTSTATUS;                   /**< LO Counter Status Register                         */
@@ -82,15 +81,15 @@ typedef struct {
   __IOM uint32_t LPFCTRL2TX;                    /**< LPF control register 2 for TX mode                 */
   __IOM uint32_t DSMCTRLRX;                     /**< DSM Control register for RX mode                   */
   __IOM uint32_t DSMCTRLTX;                     /**< DSM Control register for TX mode                   */
-  uint32_t       RESERVED5[978U];               /**< Reserved for future use*/
+  uint32_t       RESERVED5[978U];               /**< Reserved for future use                            */
   __IM uint32_t  IPVERSION_SET;                 /**< IP Version                                         */
   __IOM uint32_t EN_SET;                        /**< Enable peripheral clock to this module             */
   __IM uint32_t  STATUS_SET;                    /**< Frequency Synthesizer Status                       */
   __IOM uint32_t CMD_SET;                       /**< Command Register                                   */
   __IOM uint32_t CTRL_SET;                      /**< Frequency Synthesizer Control register             */
-  uint32_t       RESERVED6[6U];                 /**< Reserved for future use                      */
+  uint32_t       RESERVED6[6U];                 /**< Reserved for future use                            */
   __IOM uint32_t VCDACCTRL_SET;                 /**< VCDAC Control register                             */
-  uint32_t       RESERVED7[1U];                 /**< Reserved for future use                      */
+  uint32_t       RESERVED7[1U];                 /**< Reserved for future use                            */
   __IOM uint32_t FREQ_SET;                      /**< Frequency Word                                     */
   __IOM uint32_t IFFREQ_SET;                    /**< IF frequency                                       */
   __IOM uint32_t DIVCTRL_SET;                   /**< Frequency division control                         */
@@ -98,11 +97,11 @@ typedef struct {
   __IOM uint32_t CHSP_SET;                      /**< Channel spacing                                    */
   __IOM uint32_t CALOFFSET_SET;                 /**< Calibration offset                                 */
   __IOM uint32_t VCOTUNING_SET;                 /**< VCO Frequency tuning                               */
-  uint32_t       RESERVED8[2U];                 /**< Reserved for future use                      */
+  uint32_t       RESERVED8[2U];                 /**< Reserved for future use                            */
   __IOM uint32_t VCOGAIN_SET;                   /**< Calibration values for VCO gain                    */
-  uint32_t       RESERVED9[7U];                 /**< Reserved for future use                      */
+  uint32_t       RESERVED9[7U];                 /**< Reserved for future use                            */
   __IOM uint32_t IF_SET;                        /**< Interrupt Flag Register                            */
-  uint32_t       RESERVED10[2U];                /**< Reserved for future use                      */
+  uint32_t       RESERVED10[2U];                /**< Reserved for future use                            */
   __IOM uint32_t IEN_SET;                       /**< Interrupt Enable Register                          */
   __IOM uint32_t LOCNTCTRL_SET;                 /**< LO Counter Control Register                        */
   __IM uint32_t  LOCNTSTATUS_SET;               /**< LO Counter Status Register                         */
@@ -116,15 +115,15 @@ typedef struct {
   __IOM uint32_t LPFCTRL2TX_SET;                /**< LPF control register 2 for TX mode                 */
   __IOM uint32_t DSMCTRLRX_SET;                 /**< DSM Control register for RX mode                   */
   __IOM uint32_t DSMCTRLTX_SET;                 /**< DSM Control register for TX mode                   */
-  uint32_t       RESERVED11[978U];              /**< Reserved for future use*/
+  uint32_t       RESERVED11[978U];              /**< Reserved for future use                            */
   __IM uint32_t  IPVERSION_CLR;                 /**< IP Version                                         */
   __IOM uint32_t EN_CLR;                        /**< Enable peripheral clock to this module             */
   __IM uint32_t  STATUS_CLR;                    /**< Frequency Synthesizer Status                       */
   __IOM uint32_t CMD_CLR;                       /**< Command Register                                   */
   __IOM uint32_t CTRL_CLR;                      /**< Frequency Synthesizer Control register             */
-  uint32_t       RESERVED12[6U];                /**< Reserved for future use                      */
+  uint32_t       RESERVED12[6U];                /**< Reserved for future use                            */
   __IOM uint32_t VCDACCTRL_CLR;                 /**< VCDAC Control register                             */
-  uint32_t       RESERVED13[1U];                /**< Reserved for future use                      */
+  uint32_t       RESERVED13[1U];                /**< Reserved for future use                            */
   __IOM uint32_t FREQ_CLR;                      /**< Frequency Word                                     */
   __IOM uint32_t IFFREQ_CLR;                    /**< IF frequency                                       */
   __IOM uint32_t DIVCTRL_CLR;                   /**< Frequency division control                         */
@@ -132,11 +131,11 @@ typedef struct {
   __IOM uint32_t CHSP_CLR;                      /**< Channel spacing                                    */
   __IOM uint32_t CALOFFSET_CLR;                 /**< Calibration offset                                 */
   __IOM uint32_t VCOTUNING_CLR;                 /**< VCO Frequency tuning                               */
-  uint32_t       RESERVED14[2U];                /**< Reserved for future use                      */
+  uint32_t       RESERVED14[2U];                /**< Reserved for future use                            */
   __IOM uint32_t VCOGAIN_CLR;                   /**< Calibration values for VCO gain                    */
-  uint32_t       RESERVED15[7U];                /**< Reserved for future use                      */
+  uint32_t       RESERVED15[7U];                /**< Reserved for future use                            */
   __IOM uint32_t IF_CLR;                        /**< Interrupt Flag Register                            */
-  uint32_t       RESERVED16[2U];                /**< Reserved for future use                      */
+  uint32_t       RESERVED16[2U];                /**< Reserved for future use                            */
   __IOM uint32_t IEN_CLR;                       /**< Interrupt Enable Register                          */
   __IOM uint32_t LOCNTCTRL_CLR;                 /**< LO Counter Control Register                        */
   __IM uint32_t  LOCNTSTATUS_CLR;               /**< LO Counter Status Register                         */
@@ -150,15 +149,15 @@ typedef struct {
   __IOM uint32_t LPFCTRL2TX_CLR;                /**< LPF control register 2 for TX mode                 */
   __IOM uint32_t DSMCTRLRX_CLR;                 /**< DSM Control register for RX mode                   */
   __IOM uint32_t DSMCTRLTX_CLR;                 /**< DSM Control register for TX mode                   */
-  uint32_t       RESERVED17[978U];              /**< Reserved for future use*/
+  uint32_t       RESERVED17[978U];              /**< Reserved for future use                            */
   __IM uint32_t  IPVERSION_TGL;                 /**< IP Version                                         */
   __IOM uint32_t EN_TGL;                        /**< Enable peripheral clock to this module             */
   __IM uint32_t  STATUS_TGL;                    /**< Frequency Synthesizer Status                       */
   __IOM uint32_t CMD_TGL;                       /**< Command Register                                   */
   __IOM uint32_t CTRL_TGL;                      /**< Frequency Synthesizer Control register             */
-  uint32_t       RESERVED18[6U];                /**< Reserved for future use                      */
+  uint32_t       RESERVED18[6U];                /**< Reserved for future use                            */
   __IOM uint32_t VCDACCTRL_TGL;                 /**< VCDAC Control register                             */
-  uint32_t       RESERVED19[1U];                /**< Reserved for future use                      */
+  uint32_t       RESERVED19[1U];                /**< Reserved for future use                            */
   __IOM uint32_t FREQ_TGL;                      /**< Frequency Word                                     */
   __IOM uint32_t IFFREQ_TGL;                    /**< IF frequency                                       */
   __IOM uint32_t DIVCTRL_TGL;                   /**< Frequency division control                         */
@@ -166,11 +165,11 @@ typedef struct {
   __IOM uint32_t CHSP_TGL;                      /**< Channel spacing                                    */
   __IOM uint32_t CALOFFSET_TGL;                 /**< Calibration offset                                 */
   __IOM uint32_t VCOTUNING_TGL;                 /**< VCO Frequency tuning                               */
-  uint32_t       RESERVED20[2U];                /**< Reserved for future use                      */
+  uint32_t       RESERVED20[2U];                /**< Reserved for future use                            */
   __IOM uint32_t VCOGAIN_TGL;                   /**< Calibration values for VCO gain                    */
-  uint32_t       RESERVED21[7U];                /**< Reserved for future use                      */
+  uint32_t       RESERVED21[7U];                /**< Reserved for future use                            */
   __IOM uint32_t IF_TGL;                        /**< Interrupt Flag Register                            */
-  uint32_t       RESERVED22[2U];                /**< Reserved for future use                      */
+  uint32_t       RESERVED22[2U];                /**< Reserved for future use                            */
   __IOM uint32_t IEN_TGL;                       /**< Interrupt Enable Register                          */
   __IOM uint32_t LOCNTCTRL_TGL;                 /**< LO Counter Control Register                        */
   __IM uint32_t  LOCNTSTATUS_TGL;               /**< LO Counter Status Register                         */
@@ -264,57 +263,57 @@ typedef struct {
 #define _SYNTH_CTRL_PRSMUX0_SHIFT                     16                                                /**< Shift value for SYNTH_PRSMUX0               */
 #define _SYNTH_CTRL_PRSMUX0_MASK                      0x70000UL                                         /**< Bit mask for SYNTH_PRSMUX0                  */
 #define _SYNTH_CTRL_PRSMUX0_DEFAULT                   0x00000000UL                                      /**< Mode DEFAULT for SYNTH_CTRL                 */
-#define _SYNTH_CTRL_PRSMUX0_DISABLED                  0x00000000UL                                      /**< Mode DISABLED for SYNTH_CTRL                 */
-#define _SYNTH_CTRL_PRSMUX0_INLOCK                    0x00000001UL                                      /**< Mode INLOCK for SYNTH_CTRL                   */
-#define _SYNTH_CTRL_PRSMUX0_LOCK_WINDOW               0x00000002UL                                      /**< Mode LOCK_WINDOW for SYNTH_CTRL              */
-#define _SYNTH_CTRL_PRSMUX0_FPLL                      0x00000003UL                                      /**< Mode FPLL for SYNTH_CTRL                     */
-#define _SYNTH_CTRL_PRSMUX0_VCCMP_HI                  0x00000004UL                                      /**< Mode VCCMP_HI for SYNTH_CTRL                 */
-#define _SYNTH_CTRL_PRSMUX0_VCO_AMPLITUDE_OK          0x00000005UL                                      /**< Mode VCO_AMPLITUDE_OK for SYNTH_CTRL         */
-#define _SYNTH_CTRL_PRSMUX0_VCO_DET_OUT_D             0x00000006UL                                      /**< Mode VCO_DET_OUT_D for SYNTH_CTRL            */
+#define _SYNTH_CTRL_PRSMUX0_DISABLED                  0x00000000UL                                      /**< Mode DISABLED for SYNTH_CTRL                */
+#define _SYNTH_CTRL_PRSMUX0_INLOCK                    0x00000001UL                                      /**< Mode INLOCK for SYNTH_CTRL                  */
+#define _SYNTH_CTRL_PRSMUX0_LOCK_WINDOW               0x00000002UL                                      /**< Mode LOCK_WINDOW for SYNTH_CTRL             */
+#define _SYNTH_CTRL_PRSMUX0_FPLL                      0x00000003UL                                      /**< Mode FPLL for SYNTH_CTRL                    */
+#define _SYNTH_CTRL_PRSMUX0_VCCMP_HI                  0x00000004UL                                      /**< Mode VCCMP_HI for SYNTH_CTRL                */
+#define _SYNTH_CTRL_PRSMUX0_VCO_AMPLITUDE_OK          0x00000005UL                                      /**< Mode VCO_AMPLITUDE_OK for SYNTH_CTRL        */
+#define _SYNTH_CTRL_PRSMUX0_VCO_DET_OUT_D             0x00000006UL                                      /**< Mode VCO_DET_OUT_D for SYNTH_CTRL           */
 #define SYNTH_CTRL_PRSMUX0_DEFAULT                    (_SYNTH_CTRL_PRSMUX0_DEFAULT << 16)               /**< Shifted mode DEFAULT for SYNTH_CTRL         */
-#define SYNTH_CTRL_PRSMUX0_DISABLED                   (_SYNTH_CTRL_PRSMUX0_DISABLED << 16)              /**< Shifted mode DISABLED for SYNTH_CTRL         */
-#define SYNTH_CTRL_PRSMUX0_INLOCK                     (_SYNTH_CTRL_PRSMUX0_INLOCK << 16)                /**< Shifted mode INLOCK for SYNTH_CTRL           */
-#define SYNTH_CTRL_PRSMUX0_LOCK_WINDOW                (_SYNTH_CTRL_PRSMUX0_LOCK_WINDOW << 16)           /**< Shifted mode LOCK_WINDOW for SYNTH_CTRL      */
-#define SYNTH_CTRL_PRSMUX0_FPLL                       (_SYNTH_CTRL_PRSMUX0_FPLL << 16)                  /**< Shifted mode FPLL for SYNTH_CTRL             */
-#define SYNTH_CTRL_PRSMUX0_VCCMP_HI                   (_SYNTH_CTRL_PRSMUX0_VCCMP_HI << 16)              /**< Shifted mode VCCMP_HI for SYNTH_CTRL         */
-#define SYNTH_CTRL_PRSMUX0_VCO_AMPLITUDE_OK           (_SYNTH_CTRL_PRSMUX0_VCO_AMPLITUDE_OK << 16)      /**< Shifted mode VCO_AMPLITUDE_OK for SYNTH_CTRL */
-#define SYNTH_CTRL_PRSMUX0_VCO_DET_OUT_D              (_SYNTH_CTRL_PRSMUX0_VCO_DET_OUT_D << 16)         /**< Shifted mode VCO_DET_OUT_D for SYNTH_CTRL    */
+#define SYNTH_CTRL_PRSMUX0_DISABLED                   (_SYNTH_CTRL_PRSMUX0_DISABLED << 16)              /**< Shifted mode DISABLED for SYNTH_CTRL        */
+#define SYNTH_CTRL_PRSMUX0_INLOCK                     (_SYNTH_CTRL_PRSMUX0_INLOCK << 16)                /**< Shifted mode INLOCK for SYNTH_CTRL          */
+#define SYNTH_CTRL_PRSMUX0_LOCK_WINDOW                (_SYNTH_CTRL_PRSMUX0_LOCK_WINDOW << 16)           /**< Shifted mode LOCK_WINDOW for SYNTH_CTRL     */
+#define SYNTH_CTRL_PRSMUX0_FPLL                       (_SYNTH_CTRL_PRSMUX0_FPLL << 16)                  /**< Shifted mode FPLL for SYNTH_CTRL            */
+#define SYNTH_CTRL_PRSMUX0_VCCMP_HI                   (_SYNTH_CTRL_PRSMUX0_VCCMP_HI << 16)              /**< Shifted mode VCCMP_HI for SYNTH_CTRL        */
+#define SYNTH_CTRL_PRSMUX0_VCO_AMPLITUDE_OK           (_SYNTH_CTRL_PRSMUX0_VCO_AMPLITUDE_OK << 16)      /**< Shifted mode VCO_AMPLITUDE_OK for SYNTH_CTRL*/
+#define SYNTH_CTRL_PRSMUX0_VCO_DET_OUT_D              (_SYNTH_CTRL_PRSMUX0_VCO_DET_OUT_D << 16)         /**< Shifted mode VCO_DET_OUT_D for SYNTH_CTRL   */
 #define _SYNTH_CTRL_PRSMUX1_SHIFT                     20                                                /**< Shift value for SYNTH_PRSMUX1               */
 #define _SYNTH_CTRL_PRSMUX1_MASK                      0x700000UL                                        /**< Bit mask for SYNTH_PRSMUX1                  */
 #define _SYNTH_CTRL_PRSMUX1_DEFAULT                   0x00000000UL                                      /**< Mode DEFAULT for SYNTH_CTRL                 */
-#define _SYNTH_CTRL_PRSMUX1_DISABLED                  0x00000000UL                                      /**< Mode DISABLED for SYNTH_CTRL                 */
-#define _SYNTH_CTRL_PRSMUX1_AUXINLOCK                 0x00000001UL                                      /**< Mode AUXINLOCK for SYNTH_CTRL                */
-#define _SYNTH_CTRL_PRSMUX1_REF_IS_LEADING            0x00000002UL                                      /**< Mode REF_IS_LEADING for SYNTH_CTRL           */
-#define _SYNTH_CTRL_PRSMUX1_FPLL                      0x00000003UL                                      /**< Mode FPLL for SYNTH_CTRL                     */
-#define _SYNTH_CTRL_PRSMUX1_VCCMP_LOW                 0x00000004UL                                      /**< Mode VCCMP_LOW for SYNTH_CTRL                */
-#define _SYNTH_CTRL_PRSMUX1_MMD_PRESCALER_RESET_N     0x00000005UL                                      /**< Mode MMD_PRESCALER_RESET_N for SYNTH_CTRL    */
-#define _SYNTH_CTRL_PRSMUX1_CLK_SYNTH_DIV2            0x00000006UL                                      /**< Mode CLK_SYNTH_DIV2 for SYNTH_CTRL           */
+#define _SYNTH_CTRL_PRSMUX1_DISABLED                  0x00000000UL                                      /**< Mode DISABLED for SYNTH_CTRL                */
+#define _SYNTH_CTRL_PRSMUX1_AUXINLOCK                 0x00000001UL                                      /**< Mode AUXINLOCK for SYNTH_CTRL               */
+#define _SYNTH_CTRL_PRSMUX1_REF_IS_LEADING            0x00000002UL                                      /**< Mode REF_IS_LEADING for SYNTH_CTRL          */
+#define _SYNTH_CTRL_PRSMUX1_FPLL                      0x00000003UL                                      /**< Mode FPLL for SYNTH_CTRL                    */
+#define _SYNTH_CTRL_PRSMUX1_VCCMP_LOW                 0x00000004UL                                      /**< Mode VCCMP_LOW for SYNTH_CTRL               */
+#define _SYNTH_CTRL_PRSMUX1_MMD_PRESCALER_RESET_N     0x00000005UL                                      /**< Mode MMD_PRESCALER_RESET_N for SYNTH_CTRL   */
+#define _SYNTH_CTRL_PRSMUX1_CLK_SYNTH_DIV2            0x00000006UL                                      /**< Mode CLK_SYNTH_DIV2 for SYNTH_CTRL          */
 #define SYNTH_CTRL_PRSMUX1_DEFAULT                    (_SYNTH_CTRL_PRSMUX1_DEFAULT << 20)               /**< Shifted mode DEFAULT for SYNTH_CTRL         */
-#define SYNTH_CTRL_PRSMUX1_DISABLED                   (_SYNTH_CTRL_PRSMUX1_DISABLED << 20)              /**< Shifted mode DISABLED for SYNTH_CTRL         */
-#define SYNTH_CTRL_PRSMUX1_AUXINLOCK                  (_SYNTH_CTRL_PRSMUX1_AUXINLOCK << 20)             /**< Shifted mode AUXINLOCK for SYNTH_CTRL        */
-#define SYNTH_CTRL_PRSMUX1_REF_IS_LEADING             (_SYNTH_CTRL_PRSMUX1_REF_IS_LEADING << 20)        /**< Shifted mode REF_IS_LEADING for SYNTH_CTRL   */
-#define SYNTH_CTRL_PRSMUX1_FPLL                       (_SYNTH_CTRL_PRSMUX1_FPLL << 20)                  /**< Shifted mode FPLL for SYNTH_CTRL             */
-#define SYNTH_CTRL_PRSMUX1_VCCMP_LOW                  (_SYNTH_CTRL_PRSMUX1_VCCMP_LOW << 20)             /**< Shifted mode VCCMP_LOW for SYNTH_CTRL        */
+#define SYNTH_CTRL_PRSMUX1_DISABLED                   (_SYNTH_CTRL_PRSMUX1_DISABLED << 20)              /**< Shifted mode DISABLED for SYNTH_CTRL        */
+#define SYNTH_CTRL_PRSMUX1_AUXINLOCK                  (_SYNTH_CTRL_PRSMUX1_AUXINLOCK << 20)             /**< Shifted mode AUXINLOCK for SYNTH_CTRL       */
+#define SYNTH_CTRL_PRSMUX1_REF_IS_LEADING             (_SYNTH_CTRL_PRSMUX1_REF_IS_LEADING << 20)        /**< Shifted mode REF_IS_LEADING for SYNTH_CTRL  */
+#define SYNTH_CTRL_PRSMUX1_FPLL                       (_SYNTH_CTRL_PRSMUX1_FPLL << 20)                  /**< Shifted mode FPLL for SYNTH_CTRL            */
+#define SYNTH_CTRL_PRSMUX1_VCCMP_LOW                  (_SYNTH_CTRL_PRSMUX1_VCCMP_LOW << 20)             /**< Shifted mode VCCMP_LOW for SYNTH_CTRL       */
 #define SYNTH_CTRL_PRSMUX1_MMD_PRESCALER_RESET_N      (_SYNTH_CTRL_PRSMUX1_MMD_PRESCALER_RESET_N << 20) /**< Shifted mode MMD_PRESCALER_RESET_N for SYNTH_CTRL*/
-#define SYNTH_CTRL_PRSMUX1_CLK_SYNTH_DIV2             (_SYNTH_CTRL_PRSMUX1_CLK_SYNTH_DIV2 << 20)        /**< Shifted mode CLK_SYNTH_DIV2 for SYNTH_CTRL   */
+#define SYNTH_CTRL_PRSMUX1_CLK_SYNTH_DIV2             (_SYNTH_CTRL_PRSMUX1_CLK_SYNTH_DIV2 << 20)        /**< Shifted mode CLK_SYNTH_DIV2 for SYNTH_CTRL  */
 #define SYNTH_CTRL_MMDRSTNOVERRIDEEN                  (0x1UL << 30)                                     /**< Enable MMD reset override                   */
 #define _SYNTH_CTRL_MMDRSTNOVERRIDEEN_SHIFT           30                                                /**< Shift value for SYNTH_MMDRSTNOVERRIDEEN     */
 #define _SYNTH_CTRL_MMDRSTNOVERRIDEEN_MASK            0x40000000UL                                      /**< Bit mask for SYNTH_MMDRSTNOVERRIDEEN        */
 #define _SYNTH_CTRL_MMDRSTNOVERRIDEEN_DEFAULT         0x00000000UL                                      /**< Mode DEFAULT for SYNTH_CTRL                 */
-#define _SYNTH_CTRL_MMDRSTNOVERRIDEEN_DISABLE         0x00000000UL                                      /**< Mode DISABLE for SYNTH_CTRL                  */
-#define _SYNTH_CTRL_MMDRSTNOVERRIDEEN_ENABLE          0x00000001UL                                      /**< Mode ENABLE for SYNTH_CTRL                   */
+#define _SYNTH_CTRL_MMDRSTNOVERRIDEEN_DISABLE         0x00000000UL                                      /**< Mode DISABLE for SYNTH_CTRL                 */
+#define _SYNTH_CTRL_MMDRSTNOVERRIDEEN_ENABLE          0x00000001UL                                      /**< Mode ENABLE for SYNTH_CTRL                  */
 #define SYNTH_CTRL_MMDRSTNOVERRIDEEN_DEFAULT          (_SYNTH_CTRL_MMDRSTNOVERRIDEEN_DEFAULT << 30)     /**< Shifted mode DEFAULT for SYNTH_CTRL         */
-#define SYNTH_CTRL_MMDRSTNOVERRIDEEN_DISABLE          (_SYNTH_CTRL_MMDRSTNOVERRIDEEN_DISABLE << 30)     /**< Shifted mode DISABLE for SYNTH_CTRL          */
-#define SYNTH_CTRL_MMDRSTNOVERRIDEEN_ENABLE           (_SYNTH_CTRL_MMDRSTNOVERRIDEEN_ENABLE << 30)      /**< Shifted mode ENABLE for SYNTH_CTRL           */
+#define SYNTH_CTRL_MMDRSTNOVERRIDEEN_DISABLE          (_SYNTH_CTRL_MMDRSTNOVERRIDEEN_DISABLE << 30)     /**< Shifted mode DISABLE for SYNTH_CTRL         */
+#define SYNTH_CTRL_MMDRSTNOVERRIDEEN_ENABLE           (_SYNTH_CTRL_MMDRSTNOVERRIDEEN_ENABLE << 30)      /**< Shifted mode ENABLE for SYNTH_CTRL          */
 #define SYNTH_CTRL_MMDMANRSTN                         (0x1UL << 31)                                     /**< Manual MMD reset                            */
 #define _SYNTH_CTRL_MMDMANRSTN_SHIFT                  31                                                /**< Shift value for SYNTH_MMDMANRSTN            */
 #define _SYNTH_CTRL_MMDMANRSTN_MASK                   0x80000000UL                                      /**< Bit mask for SYNTH_MMDMANRSTN               */
 #define _SYNTH_CTRL_MMDMANRSTN_DEFAULT                0x00000000UL                                      /**< Mode DEFAULT for SYNTH_CTRL                 */
-#define _SYNTH_CTRL_MMDMANRSTN_RESET                  0x00000000UL                                      /**< Mode RESET for SYNTH_CTRL                    */
-#define _SYNTH_CTRL_MMDMANRSTN_NORESET                0x00000001UL                                      /**< Mode NORESET for SYNTH_CTRL                  */
+#define _SYNTH_CTRL_MMDMANRSTN_RESET                  0x00000000UL                                      /**< Mode RESET for SYNTH_CTRL                   */
+#define _SYNTH_CTRL_MMDMANRSTN_NORESET                0x00000001UL                                      /**< Mode NORESET for SYNTH_CTRL                 */
 #define SYNTH_CTRL_MMDMANRSTN_DEFAULT                 (_SYNTH_CTRL_MMDMANRSTN_DEFAULT << 31)            /**< Shifted mode DEFAULT for SYNTH_CTRL         */
-#define SYNTH_CTRL_MMDMANRSTN_RESET                   (_SYNTH_CTRL_MMDMANRSTN_RESET << 31)              /**< Shifted mode RESET for SYNTH_CTRL            */
-#define SYNTH_CTRL_MMDMANRSTN_NORESET                 (_SYNTH_CTRL_MMDMANRSTN_NORESET << 31)            /**< Shifted mode NORESET for SYNTH_CTRL          */
+#define SYNTH_CTRL_MMDMANRSTN_RESET                   (_SYNTH_CTRL_MMDMANRSTN_RESET << 31)              /**< Shifted mode RESET for SYNTH_CTRL           */
+#define SYNTH_CTRL_MMDMANRSTN_NORESET                 (_SYNTH_CTRL_MMDMANRSTN_NORESET << 31)            /**< Shifted mode NORESET for SYNTH_CTRL         */
 
 /* Bit fields for SYNTH VCDACCTRL */
 #define _SYNTH_VCDACCTRL_RESETVALUE                   0x00000020UL                             /**< Default value for SYNTH_VCDACCTRL           */
@@ -327,29 +326,29 @@ typedef struct {
 #define _SYNTH_VCDACCTRL_VCDACEN_SHIFT                6                                        /**< Shift value for SYNTH_VCDACEN               */
 #define _SYNTH_VCDACCTRL_VCDACEN_MASK                 0x40UL                                   /**< Bit mask for SYNTH_VCDACEN                  */
 #define _SYNTH_VCDACCTRL_VCDACEN_DEFAULT              0x00000000UL                             /**< Mode DEFAULT for SYNTH_VCDACCTRL            */
-#define _SYNTH_VCDACCTRL_VCDACEN_DISABLE              0x00000000UL                             /**< Mode DISABLE for SYNTH_VCDACCTRL             */
-#define _SYNTH_VCDACCTRL_VCDACEN_ENABLE               0x00000001UL                             /**< Mode ENABLE for SYNTH_VCDACCTRL              */
+#define _SYNTH_VCDACCTRL_VCDACEN_DISABLE              0x00000000UL                             /**< Mode DISABLE for SYNTH_VCDACCTRL            */
+#define _SYNTH_VCDACCTRL_VCDACEN_ENABLE               0x00000001UL                             /**< Mode ENABLE for SYNTH_VCDACCTRL             */
 #define SYNTH_VCDACCTRL_VCDACEN_DEFAULT               (_SYNTH_VCDACCTRL_VCDACEN_DEFAULT << 6)  /**< Shifted mode DEFAULT for SYNTH_VCDACCTRL    */
-#define SYNTH_VCDACCTRL_VCDACEN_DISABLE               (_SYNTH_VCDACCTRL_VCDACEN_DISABLE << 6)  /**< Shifted mode DISABLE for SYNTH_VCDACCTRL     */
-#define SYNTH_VCDACCTRL_VCDACEN_ENABLE                (_SYNTH_VCDACCTRL_VCDACEN_ENABLE << 6)   /**< Shifted mode ENABLE for SYNTH_VCDACCTRL      */
+#define SYNTH_VCDACCTRL_VCDACEN_DISABLE               (_SYNTH_VCDACCTRL_VCDACEN_DISABLE << 6)  /**< Shifted mode DISABLE for SYNTH_VCDACCTRL    */
+#define SYNTH_VCDACCTRL_VCDACEN_ENABLE                (_SYNTH_VCDACCTRL_VCDACEN_ENABLE << 6)   /**< Shifted mode ENABLE for SYNTH_VCDACCTRL     */
 #define SYNTH_VCDACCTRL_LPFEN                         (0x1UL << 7)                             /**< LPF Enable Control                          */
 #define _SYNTH_VCDACCTRL_LPFEN_SHIFT                  7                                        /**< Shift value for SYNTH_LPFEN                 */
 #define _SYNTH_VCDACCTRL_LPFEN_MASK                   0x80UL                                   /**< Bit mask for SYNTH_LPFEN                    */
 #define _SYNTH_VCDACCTRL_LPFEN_DEFAULT                0x00000000UL                             /**< Mode DEFAULT for SYNTH_VCDACCTRL            */
-#define _SYNTH_VCDACCTRL_LPFEN_DISABLE                0x00000000UL                             /**< Mode DISABLE for SYNTH_VCDACCTRL             */
-#define _SYNTH_VCDACCTRL_LPFEN_ENABLE                 0x00000001UL                             /**< Mode ENABLE for SYNTH_VCDACCTRL              */
+#define _SYNTH_VCDACCTRL_LPFEN_DISABLE                0x00000000UL                             /**< Mode DISABLE for SYNTH_VCDACCTRL            */
+#define _SYNTH_VCDACCTRL_LPFEN_ENABLE                 0x00000001UL                             /**< Mode ENABLE for SYNTH_VCDACCTRL             */
 #define SYNTH_VCDACCTRL_LPFEN_DEFAULT                 (_SYNTH_VCDACCTRL_LPFEN_DEFAULT << 7)    /**< Shifted mode DEFAULT for SYNTH_VCDACCTRL    */
-#define SYNTH_VCDACCTRL_LPFEN_DISABLE                 (_SYNTH_VCDACCTRL_LPFEN_DISABLE << 7)    /**< Shifted mode DISABLE for SYNTH_VCDACCTRL     */
-#define SYNTH_VCDACCTRL_LPFEN_ENABLE                  (_SYNTH_VCDACCTRL_LPFEN_ENABLE << 7)     /**< Shifted mode ENABLE for SYNTH_VCDACCTRL      */
+#define SYNTH_VCDACCTRL_LPFEN_DISABLE                 (_SYNTH_VCDACCTRL_LPFEN_DISABLE << 7)    /**< Shifted mode DISABLE for SYNTH_VCDACCTRL    */
+#define SYNTH_VCDACCTRL_LPFEN_ENABLE                  (_SYNTH_VCDACCTRL_LPFEN_ENABLE << 7)     /**< Shifted mode ENABLE for SYNTH_VCDACCTRL     */
 #define SYNTH_VCDACCTRL_LPFQSEN                       (0x1UL << 8)                             /**< LPF Quickstart Control                      */
 #define _SYNTH_VCDACCTRL_LPFQSEN_SHIFT                8                                        /**< Shift value for SYNTH_LPFQSEN               */
 #define _SYNTH_VCDACCTRL_LPFQSEN_MASK                 0x100UL                                  /**< Bit mask for SYNTH_LPFQSEN                  */
 #define _SYNTH_VCDACCTRL_LPFQSEN_DEFAULT              0x00000000UL                             /**< Mode DEFAULT for SYNTH_VCDACCTRL            */
-#define _SYNTH_VCDACCTRL_LPFQSEN_DISABLE              0x00000000UL                             /**< Mode DISABLE for SYNTH_VCDACCTRL             */
-#define _SYNTH_VCDACCTRL_LPFQSEN_ENABLE               0x00000001UL                             /**< Mode ENABLE for SYNTH_VCDACCTRL              */
+#define _SYNTH_VCDACCTRL_LPFQSEN_DISABLE              0x00000000UL                             /**< Mode DISABLE for SYNTH_VCDACCTRL            */
+#define _SYNTH_VCDACCTRL_LPFQSEN_ENABLE               0x00000001UL                             /**< Mode ENABLE for SYNTH_VCDACCTRL             */
 #define SYNTH_VCDACCTRL_LPFQSEN_DEFAULT               (_SYNTH_VCDACCTRL_LPFQSEN_DEFAULT << 8)  /**< Shifted mode DEFAULT for SYNTH_VCDACCTRL    */
-#define SYNTH_VCDACCTRL_LPFQSEN_DISABLE               (_SYNTH_VCDACCTRL_LPFQSEN_DISABLE << 8)  /**< Shifted mode DISABLE for SYNTH_VCDACCTRL     */
-#define SYNTH_VCDACCTRL_LPFQSEN_ENABLE                (_SYNTH_VCDACCTRL_LPFQSEN_ENABLE << 8)   /**< Shifted mode ENABLE for SYNTH_VCDACCTRL      */
+#define SYNTH_VCDACCTRL_LPFQSEN_DISABLE               (_SYNTH_VCDACCTRL_LPFQSEN_DISABLE << 8)  /**< Shifted mode DISABLE for SYNTH_VCDACCTRL    */
+#define SYNTH_VCDACCTRL_LPFQSEN_ENABLE                (_SYNTH_VCDACCTRL_LPFQSEN_ENABLE << 8)   /**< Shifted mode ENABLE for SYNTH_VCDACCTRL     */
 
 /* Bit fields for SYNTH FREQ */
 #define _SYNTH_FREQ_RESETVALUE                        0x00000000UL                      /**< Default value for SYNTH_FREQ                */
@@ -370,11 +369,11 @@ typedef struct {
 #define _SYNTH_IFFREQ_LOSIDE_SHIFT                    20                                   /**< Shift value for SYNTH_LOSIDE                */
 #define _SYNTH_IFFREQ_LOSIDE_MASK                     0x100000UL                           /**< Bit mask for SYNTH_LOSIDE                   */
 #define _SYNTH_IFFREQ_LOSIDE_DEFAULT                  0x00000000UL                         /**< Mode DEFAULT for SYNTH_IFFREQ               */
-#define _SYNTH_IFFREQ_LOSIDE_LOW                      0x00000000UL                         /**< Mode LOW for SYNTH_IFFREQ                    */
-#define _SYNTH_IFFREQ_LOSIDE_HIGH                     0x00000001UL                         /**< Mode HIGH for SYNTH_IFFREQ                   */
+#define _SYNTH_IFFREQ_LOSIDE_LOW                      0x00000000UL                         /**< Mode LOW for SYNTH_IFFREQ                   */
+#define _SYNTH_IFFREQ_LOSIDE_HIGH                     0x00000001UL                         /**< Mode HIGH for SYNTH_IFFREQ                  */
 #define SYNTH_IFFREQ_LOSIDE_DEFAULT                   (_SYNTH_IFFREQ_LOSIDE_DEFAULT << 20) /**< Shifted mode DEFAULT for SYNTH_IFFREQ       */
-#define SYNTH_IFFREQ_LOSIDE_LOW                       (_SYNTH_IFFREQ_LOSIDE_LOW << 20)     /**< Shifted mode LOW for SYNTH_IFFREQ            */
-#define SYNTH_IFFREQ_LOSIDE_HIGH                      (_SYNTH_IFFREQ_LOSIDE_HIGH << 20)    /**< Shifted mode HIGH for SYNTH_IFFREQ           */
+#define SYNTH_IFFREQ_LOSIDE_LOW                       (_SYNTH_IFFREQ_LOSIDE_LOW << 20)     /**< Shifted mode LOW for SYNTH_IFFREQ           */
+#define SYNTH_IFFREQ_LOSIDE_HIGH                      (_SYNTH_IFFREQ_LOSIDE_HIGH << 20)    /**< Shifted mode HIGH for SYNTH_IFFREQ          */
 
 /* Bit fields for SYNTH DIVCTRL */
 #define _SYNTH_DIVCTRL_RESETVALUE                     0x00000001UL                                /**< Default value for SYNTH_DIVCTRL             */
@@ -382,41 +381,41 @@ typedef struct {
 #define _SYNTH_DIVCTRL_LODIVFREQCTRL_SHIFT            0                                           /**< Shift value for SYNTH_LODIVFREQCTRL         */
 #define _SYNTH_DIVCTRL_LODIVFREQCTRL_MASK             0x1FFUL                                     /**< Bit mask for SYNTH_LODIVFREQCTRL            */
 #define _SYNTH_DIVCTRL_LODIVFREQCTRL_DEFAULT          0x00000001UL                                /**< Mode DEFAULT for SYNTH_DIVCTRL              */
-#define _SYNTH_DIVCTRL_LODIVFREQCTRL_LODIV1           0x00000001UL                                /**< Mode LODIV1 for SYNTH_DIVCTRL                */
-#define _SYNTH_DIVCTRL_LODIVFREQCTRL_LODIV2           0x00000002UL                                /**< Mode LODIV2 for SYNTH_DIVCTRL                */
-#define _SYNTH_DIVCTRL_LODIVFREQCTRL_LODIV3           0x00000003UL                                /**< Mode LODIV3 for SYNTH_DIVCTRL                */
-#define _SYNTH_DIVCTRL_LODIVFREQCTRL_LODIV4           0x00000004UL                                /**< Mode LODIV4 for SYNTH_DIVCTRL                */
-#define _SYNTH_DIVCTRL_LODIVFREQCTRL_LODIV5           0x00000005UL                                /**< Mode LODIV5 for SYNTH_DIVCTRL                */
-#define _SYNTH_DIVCTRL_LODIVFREQCTRL_LODIV7           0x00000007UL                                /**< Mode LODIV7 for SYNTH_DIVCTRL                */
-#define _SYNTH_DIVCTRL_LODIVFREQCTRL_LODIV6           0x00000013UL                                /**< Mode LODIV6 for SYNTH_DIVCTRL                */
-#define _SYNTH_DIVCTRL_LODIVFREQCTRL_LODIV8           0x00000014UL                                /**< Mode LODIV8 for SYNTH_DIVCTRL                */
-#define _SYNTH_DIVCTRL_LODIVFREQCTRL_LODIV10          0x00000015UL                                /**< Mode LODIV10 for SYNTH_DIVCTRL               */
-#define _SYNTH_DIVCTRL_LODIVFREQCTRL_LODIV14          0x00000017UL                                /**< Mode LODIV14 for SYNTH_DIVCTRL               */
-#define _SYNTH_DIVCTRL_LODIVFREQCTRL_LODIV9           0x0000001BUL                                /**< Mode LODIV9 for SYNTH_DIVCTRL                */
-#define _SYNTH_DIVCTRL_LODIVFREQCTRL_LODIV12          0x0000001CUL                                /**< Mode LODIV12 for SYNTH_DIVCTRL               */
-#define _SYNTH_DIVCTRL_LODIVFREQCTRL_LODIV15          0x0000001DUL                                /**< Mode LODIV15 for SYNTH_DIVCTRL               */
-#define _SYNTH_DIVCTRL_LODIVFREQCTRL_LODIV16          0x00000024UL                                /**< Mode LODIV16 for SYNTH_DIVCTRL               */
-#define _SYNTH_DIVCTRL_LODIVFREQCTRL_LODIV20          0x00000025UL                                /**< Mode LODIV20 for SYNTH_DIVCTRL               */
-#define _SYNTH_DIVCTRL_LODIVFREQCTRL_LODIV18          0x0000009BUL                                /**< Mode LODIV18 for SYNTH_DIVCTRL               */
-#define _SYNTH_DIVCTRL_LODIVFREQCTRL_LODIV24          0x0000009CUL                                /**< Mode LODIV24 for SYNTH_DIVCTRL               */
+#define _SYNTH_DIVCTRL_LODIVFREQCTRL_LODIV1           0x00000001UL                                /**< Mode LODIV1 for SYNTH_DIVCTRL               */
+#define _SYNTH_DIVCTRL_LODIVFREQCTRL_LODIV2           0x00000002UL                                /**< Mode LODIV2 for SYNTH_DIVCTRL               */
+#define _SYNTH_DIVCTRL_LODIVFREQCTRL_LODIV3           0x00000003UL                                /**< Mode LODIV3 for SYNTH_DIVCTRL               */
+#define _SYNTH_DIVCTRL_LODIVFREQCTRL_LODIV4           0x00000004UL                                /**< Mode LODIV4 for SYNTH_DIVCTRL               */
+#define _SYNTH_DIVCTRL_LODIVFREQCTRL_LODIV5           0x00000005UL                                /**< Mode LODIV5 for SYNTH_DIVCTRL               */
+#define _SYNTH_DIVCTRL_LODIVFREQCTRL_LODIV7           0x00000007UL                                /**< Mode LODIV7 for SYNTH_DIVCTRL               */
+#define _SYNTH_DIVCTRL_LODIVFREQCTRL_LODIV6           0x00000013UL                                /**< Mode LODIV6 for SYNTH_DIVCTRL               */
+#define _SYNTH_DIVCTRL_LODIVFREQCTRL_LODIV8           0x00000014UL                                /**< Mode LODIV8 for SYNTH_DIVCTRL               */
+#define _SYNTH_DIVCTRL_LODIVFREQCTRL_LODIV10          0x00000015UL                                /**< Mode LODIV10 for SYNTH_DIVCTRL              */
+#define _SYNTH_DIVCTRL_LODIVFREQCTRL_LODIV14          0x00000017UL                                /**< Mode LODIV14 for SYNTH_DIVCTRL              */
+#define _SYNTH_DIVCTRL_LODIVFREQCTRL_LODIV9           0x0000001BUL                                /**< Mode LODIV9 for SYNTH_DIVCTRL               */
+#define _SYNTH_DIVCTRL_LODIVFREQCTRL_LODIV12          0x0000001CUL                                /**< Mode LODIV12 for SYNTH_DIVCTRL              */
+#define _SYNTH_DIVCTRL_LODIVFREQCTRL_LODIV15          0x0000001DUL                                /**< Mode LODIV15 for SYNTH_DIVCTRL              */
+#define _SYNTH_DIVCTRL_LODIVFREQCTRL_LODIV16          0x00000024UL                                /**< Mode LODIV16 for SYNTH_DIVCTRL              */
+#define _SYNTH_DIVCTRL_LODIVFREQCTRL_LODIV20          0x00000025UL                                /**< Mode LODIV20 for SYNTH_DIVCTRL              */
+#define _SYNTH_DIVCTRL_LODIVFREQCTRL_LODIV18          0x0000009BUL                                /**< Mode LODIV18 for SYNTH_DIVCTRL              */
+#define _SYNTH_DIVCTRL_LODIVFREQCTRL_LODIV24          0x0000009CUL                                /**< Mode LODIV24 for SYNTH_DIVCTRL              */
 #define SYNTH_DIVCTRL_LODIVFREQCTRL_DEFAULT           (_SYNTH_DIVCTRL_LODIVFREQCTRL_DEFAULT << 0) /**< Shifted mode DEFAULT for SYNTH_DIVCTRL      */
-#define SYNTH_DIVCTRL_LODIVFREQCTRL_LODIV1            (_SYNTH_DIVCTRL_LODIVFREQCTRL_LODIV1 << 0)  /**< Shifted mode LODIV1 for SYNTH_DIVCTRL        */
-#define SYNTH_DIVCTRL_LODIVFREQCTRL_LODIV2            (_SYNTH_DIVCTRL_LODIVFREQCTRL_LODIV2 << 0)  /**< Shifted mode LODIV2 for SYNTH_DIVCTRL        */
-#define SYNTH_DIVCTRL_LODIVFREQCTRL_LODIV3            (_SYNTH_DIVCTRL_LODIVFREQCTRL_LODIV3 << 0)  /**< Shifted mode LODIV3 for SYNTH_DIVCTRL        */
-#define SYNTH_DIVCTRL_LODIVFREQCTRL_LODIV4            (_SYNTH_DIVCTRL_LODIVFREQCTRL_LODIV4 << 0)  /**< Shifted mode LODIV4 for SYNTH_DIVCTRL        */
-#define SYNTH_DIVCTRL_LODIVFREQCTRL_LODIV5            (_SYNTH_DIVCTRL_LODIVFREQCTRL_LODIV5 << 0)  /**< Shifted mode LODIV5 for SYNTH_DIVCTRL        */
-#define SYNTH_DIVCTRL_LODIVFREQCTRL_LODIV7            (_SYNTH_DIVCTRL_LODIVFREQCTRL_LODIV7 << 0)  /**< Shifted mode LODIV7 for SYNTH_DIVCTRL        */
-#define SYNTH_DIVCTRL_LODIVFREQCTRL_LODIV6            (_SYNTH_DIVCTRL_LODIVFREQCTRL_LODIV6 << 0)  /**< Shifted mode LODIV6 for SYNTH_DIVCTRL        */
-#define SYNTH_DIVCTRL_LODIVFREQCTRL_LODIV8            (_SYNTH_DIVCTRL_LODIVFREQCTRL_LODIV8 << 0)  /**< Shifted mode LODIV8 for SYNTH_DIVCTRL        */
-#define SYNTH_DIVCTRL_LODIVFREQCTRL_LODIV10           (_SYNTH_DIVCTRL_LODIVFREQCTRL_LODIV10 << 0) /**< Shifted mode LODIV10 for SYNTH_DIVCTRL       */
-#define SYNTH_DIVCTRL_LODIVFREQCTRL_LODIV14           (_SYNTH_DIVCTRL_LODIVFREQCTRL_LODIV14 << 0) /**< Shifted mode LODIV14 for SYNTH_DIVCTRL       */
-#define SYNTH_DIVCTRL_LODIVFREQCTRL_LODIV9            (_SYNTH_DIVCTRL_LODIVFREQCTRL_LODIV9 << 0)  /**< Shifted mode LODIV9 for SYNTH_DIVCTRL        */
-#define SYNTH_DIVCTRL_LODIVFREQCTRL_LODIV12           (_SYNTH_DIVCTRL_LODIVFREQCTRL_LODIV12 << 0) /**< Shifted mode LODIV12 for SYNTH_DIVCTRL       */
-#define SYNTH_DIVCTRL_LODIVFREQCTRL_LODIV15           (_SYNTH_DIVCTRL_LODIVFREQCTRL_LODIV15 << 0) /**< Shifted mode LODIV15 for SYNTH_DIVCTRL       */
-#define SYNTH_DIVCTRL_LODIVFREQCTRL_LODIV16           (_SYNTH_DIVCTRL_LODIVFREQCTRL_LODIV16 << 0) /**< Shifted mode LODIV16 for SYNTH_DIVCTRL       */
-#define SYNTH_DIVCTRL_LODIVFREQCTRL_LODIV20           (_SYNTH_DIVCTRL_LODIVFREQCTRL_LODIV20 << 0) /**< Shifted mode LODIV20 for SYNTH_DIVCTRL       */
-#define SYNTH_DIVCTRL_LODIVFREQCTRL_LODIV18           (_SYNTH_DIVCTRL_LODIVFREQCTRL_LODIV18 << 0) /**< Shifted mode LODIV18 for SYNTH_DIVCTRL       */
-#define SYNTH_DIVCTRL_LODIVFREQCTRL_LODIV24           (_SYNTH_DIVCTRL_LODIVFREQCTRL_LODIV24 << 0) /**< Shifted mode LODIV24 for SYNTH_DIVCTRL       */
+#define SYNTH_DIVCTRL_LODIVFREQCTRL_LODIV1            (_SYNTH_DIVCTRL_LODIVFREQCTRL_LODIV1 << 0)  /**< Shifted mode LODIV1 for SYNTH_DIVCTRL       */
+#define SYNTH_DIVCTRL_LODIVFREQCTRL_LODIV2            (_SYNTH_DIVCTRL_LODIVFREQCTRL_LODIV2 << 0)  /**< Shifted mode LODIV2 for SYNTH_DIVCTRL       */
+#define SYNTH_DIVCTRL_LODIVFREQCTRL_LODIV3            (_SYNTH_DIVCTRL_LODIVFREQCTRL_LODIV3 << 0)  /**< Shifted mode LODIV3 for SYNTH_DIVCTRL       */
+#define SYNTH_DIVCTRL_LODIVFREQCTRL_LODIV4            (_SYNTH_DIVCTRL_LODIVFREQCTRL_LODIV4 << 0)  /**< Shifted mode LODIV4 for SYNTH_DIVCTRL       */
+#define SYNTH_DIVCTRL_LODIVFREQCTRL_LODIV5            (_SYNTH_DIVCTRL_LODIVFREQCTRL_LODIV5 << 0)  /**< Shifted mode LODIV5 for SYNTH_DIVCTRL       */
+#define SYNTH_DIVCTRL_LODIVFREQCTRL_LODIV7            (_SYNTH_DIVCTRL_LODIVFREQCTRL_LODIV7 << 0)  /**< Shifted mode LODIV7 for SYNTH_DIVCTRL       */
+#define SYNTH_DIVCTRL_LODIVFREQCTRL_LODIV6            (_SYNTH_DIVCTRL_LODIVFREQCTRL_LODIV6 << 0)  /**< Shifted mode LODIV6 for SYNTH_DIVCTRL       */
+#define SYNTH_DIVCTRL_LODIVFREQCTRL_LODIV8            (_SYNTH_DIVCTRL_LODIVFREQCTRL_LODIV8 << 0)  /**< Shifted mode LODIV8 for SYNTH_DIVCTRL       */
+#define SYNTH_DIVCTRL_LODIVFREQCTRL_LODIV10           (_SYNTH_DIVCTRL_LODIVFREQCTRL_LODIV10 << 0) /**< Shifted mode LODIV10 for SYNTH_DIVCTRL      */
+#define SYNTH_DIVCTRL_LODIVFREQCTRL_LODIV14           (_SYNTH_DIVCTRL_LODIVFREQCTRL_LODIV14 << 0) /**< Shifted mode LODIV14 for SYNTH_DIVCTRL      */
+#define SYNTH_DIVCTRL_LODIVFREQCTRL_LODIV9            (_SYNTH_DIVCTRL_LODIVFREQCTRL_LODIV9 << 0)  /**< Shifted mode LODIV9 for SYNTH_DIVCTRL       */
+#define SYNTH_DIVCTRL_LODIVFREQCTRL_LODIV12           (_SYNTH_DIVCTRL_LODIVFREQCTRL_LODIV12 << 0) /**< Shifted mode LODIV12 for SYNTH_DIVCTRL      */
+#define SYNTH_DIVCTRL_LODIVFREQCTRL_LODIV15           (_SYNTH_DIVCTRL_LODIVFREQCTRL_LODIV15 << 0) /**< Shifted mode LODIV15 for SYNTH_DIVCTRL      */
+#define SYNTH_DIVCTRL_LODIVFREQCTRL_LODIV16           (_SYNTH_DIVCTRL_LODIVFREQCTRL_LODIV16 << 0) /**< Shifted mode LODIV16 for SYNTH_DIVCTRL      */
+#define SYNTH_DIVCTRL_LODIVFREQCTRL_LODIV20           (_SYNTH_DIVCTRL_LODIVFREQCTRL_LODIV20 << 0) /**< Shifted mode LODIV20 for SYNTH_DIVCTRL      */
+#define SYNTH_DIVCTRL_LODIVFREQCTRL_LODIV18           (_SYNTH_DIVCTRL_LODIVFREQCTRL_LODIV18 << 0) /**< Shifted mode LODIV18 for SYNTH_DIVCTRL      */
+#define SYNTH_DIVCTRL_LODIVFREQCTRL_LODIV24           (_SYNTH_DIVCTRL_LODIVFREQCTRL_LODIV24 << 0) /**< Shifted mode LODIV24 for SYNTH_DIVCTRL      */
 
 /* Bit fields for SYNTH CHCTRL */
 #define _SYNTH_CHCTRL_RESETVALUE                      0x00000000UL                      /**< Default value for SYNTH_CHCTRL              */
@@ -541,95 +540,95 @@ typedef struct {
 #define _SYNTH_LOCNTCTRL_ENABLE_SHIFT                 0                                               /**< Shift value for SYNTH_ENABLE                */
 #define _SYNTH_LOCNTCTRL_ENABLE_MASK                  0x1UL                                           /**< Bit mask for SYNTH_ENABLE                   */
 #define _SYNTH_LOCNTCTRL_ENABLE_DEFAULT               0x00000000UL                                    /**< Mode DEFAULT for SYNTH_LOCNTCTRL            */
-#define _SYNTH_LOCNTCTRL_ENABLE_OFF                   0x00000000UL                                    /**< Mode OFF for SYNTH_LOCNTCTRL                 */
-#define _SYNTH_LOCNTCTRL_ENABLE_ON                    0x00000001UL                                    /**< Mode ON for SYNTH_LOCNTCTRL                  */
+#define _SYNTH_LOCNTCTRL_ENABLE_OFF                   0x00000000UL                                    /**< Mode OFF for SYNTH_LOCNTCTRL                */
+#define _SYNTH_LOCNTCTRL_ENABLE_ON                    0x00000001UL                                    /**< Mode ON for SYNTH_LOCNTCTRL                 */
 #define SYNTH_LOCNTCTRL_ENABLE_DEFAULT                (_SYNTH_LOCNTCTRL_ENABLE_DEFAULT << 0)          /**< Shifted mode DEFAULT for SYNTH_LOCNTCTRL    */
-#define SYNTH_LOCNTCTRL_ENABLE_OFF                    (_SYNTH_LOCNTCTRL_ENABLE_OFF << 0)              /**< Shifted mode OFF for SYNTH_LOCNTCTRL         */
-#define SYNTH_LOCNTCTRL_ENABLE_ON                     (_SYNTH_LOCNTCTRL_ENABLE_ON << 0)               /**< Shifted mode ON for SYNTH_LOCNTCTRL          */
+#define SYNTH_LOCNTCTRL_ENABLE_OFF                    (_SYNTH_LOCNTCTRL_ENABLE_OFF << 0)              /**< Shifted mode OFF for SYNTH_LOCNTCTRL        */
+#define SYNTH_LOCNTCTRL_ENABLE_ON                     (_SYNTH_LOCNTCTRL_ENABLE_ON << 0)               /**< Shifted mode ON for SYNTH_LOCNTCTRL         */
 #define SYNTH_LOCNTCTRL_CLEAR                         (0x1UL << 1)                                    /**< Clear LO Counter                            */
 #define _SYNTH_LOCNTCTRL_CLEAR_SHIFT                  1                                               /**< Shift value for SYNTH_CLEAR                 */
 #define _SYNTH_LOCNTCTRL_CLEAR_MASK                   0x2UL                                           /**< Bit mask for SYNTH_CLEAR                    */
 #define _SYNTH_LOCNTCTRL_CLEAR_DEFAULT                0x00000000UL                                    /**< Mode DEFAULT for SYNTH_LOCNTCTRL            */
-#define _SYNTH_LOCNTCTRL_CLEAR_OFF                    0x00000000UL                                    /**< Mode OFF for SYNTH_LOCNTCTRL                 */
-#define _SYNTH_LOCNTCTRL_CLEAR_ON                     0x00000001UL                                    /**< Mode ON for SYNTH_LOCNTCTRL                  */
+#define _SYNTH_LOCNTCTRL_CLEAR_OFF                    0x00000000UL                                    /**< Mode OFF for SYNTH_LOCNTCTRL                */
+#define _SYNTH_LOCNTCTRL_CLEAR_ON                     0x00000001UL                                    /**< Mode ON for SYNTH_LOCNTCTRL                 */
 #define SYNTH_LOCNTCTRL_CLEAR_DEFAULT                 (_SYNTH_LOCNTCTRL_CLEAR_DEFAULT << 1)           /**< Shifted mode DEFAULT for SYNTH_LOCNTCTRL    */
-#define SYNTH_LOCNTCTRL_CLEAR_OFF                     (_SYNTH_LOCNTCTRL_CLEAR_OFF << 1)               /**< Shifted mode OFF for SYNTH_LOCNTCTRL         */
-#define SYNTH_LOCNTCTRL_CLEAR_ON                      (_SYNTH_LOCNTCTRL_CLEAR_ON << 1)                /**< Shifted mode ON for SYNTH_LOCNTCTRL          */
+#define SYNTH_LOCNTCTRL_CLEAR_OFF                     (_SYNTH_LOCNTCTRL_CLEAR_OFF << 1)               /**< Shifted mode OFF for SYNTH_LOCNTCTRL        */
+#define SYNTH_LOCNTCTRL_CLEAR_ON                      (_SYNTH_LOCNTCTRL_CLEAR_ON << 1)                /**< Shifted mode ON for SYNTH_LOCNTCTRL         */
 #define SYNTH_LOCNTCTRL_RUN                           (0x1UL << 2)                                    /**< Run LO Counter                              */
 #define _SYNTH_LOCNTCTRL_RUN_SHIFT                    2                                               /**< Shift value for SYNTH_RUN                   */
 #define _SYNTH_LOCNTCTRL_RUN_MASK                     0x4UL                                           /**< Bit mask for SYNTH_RUN                      */
 #define _SYNTH_LOCNTCTRL_RUN_DEFAULT                  0x00000000UL                                    /**< Mode DEFAULT for SYNTH_LOCNTCTRL            */
-#define _SYNTH_LOCNTCTRL_RUN_OFF                      0x00000000UL                                    /**< Mode OFF for SYNTH_LOCNTCTRL                 */
-#define _SYNTH_LOCNTCTRL_RUN_ON                       0x00000001UL                                    /**< Mode ON for SYNTH_LOCNTCTRL                  */
+#define _SYNTH_LOCNTCTRL_RUN_OFF                      0x00000000UL                                    /**< Mode OFF for SYNTH_LOCNTCTRL                */
+#define _SYNTH_LOCNTCTRL_RUN_ON                       0x00000001UL                                    /**< Mode ON for SYNTH_LOCNTCTRL                 */
 #define SYNTH_LOCNTCTRL_RUN_DEFAULT                   (_SYNTH_LOCNTCTRL_RUN_DEFAULT << 2)             /**< Shifted mode DEFAULT for SYNTH_LOCNTCTRL    */
-#define SYNTH_LOCNTCTRL_RUN_OFF                       (_SYNTH_LOCNTCTRL_RUN_OFF << 2)                 /**< Shifted mode OFF for SYNTH_LOCNTCTRL         */
-#define SYNTH_LOCNTCTRL_RUN_ON                        (_SYNTH_LOCNTCTRL_RUN_ON << 2)                  /**< Shifted mode ON for SYNTH_LOCNTCTRL          */
+#define SYNTH_LOCNTCTRL_RUN_OFF                       (_SYNTH_LOCNTCTRL_RUN_OFF << 2)                 /**< Shifted mode OFF for SYNTH_LOCNTCTRL        */
+#define SYNTH_LOCNTCTRL_RUN_ON                        (_SYNTH_LOCNTCTRL_RUN_ON << 2)                  /**< Shifted mode ON for SYNTH_LOCNTCTRL         */
 #define SYNTH_LOCNTCTRL_READ                          (0x1UL << 3)                                    /**< Read LO Counter                             */
 #define _SYNTH_LOCNTCTRL_READ_SHIFT                   3                                               /**< Shift value for SYNTH_READ                  */
 #define _SYNTH_LOCNTCTRL_READ_MASK                    0x8UL                                           /**< Bit mask for SYNTH_READ                     */
 #define _SYNTH_LOCNTCTRL_READ_DEFAULT                 0x00000000UL                                    /**< Mode DEFAULT for SYNTH_LOCNTCTRL            */
-#define _SYNTH_LOCNTCTRL_READ_OFF                     0x00000000UL                                    /**< Mode OFF for SYNTH_LOCNTCTRL                 */
-#define _SYNTH_LOCNTCTRL_READ_ON                      0x00000001UL                                    /**< Mode ON for SYNTH_LOCNTCTRL                  */
+#define _SYNTH_LOCNTCTRL_READ_OFF                     0x00000000UL                                    /**< Mode OFF for SYNTH_LOCNTCTRL                */
+#define _SYNTH_LOCNTCTRL_READ_ON                      0x00000001UL                                    /**< Mode ON for SYNTH_LOCNTCTRL                 */
 #define SYNTH_LOCNTCTRL_READ_DEFAULT                  (_SYNTH_LOCNTCTRL_READ_DEFAULT << 3)            /**< Shifted mode DEFAULT for SYNTH_LOCNTCTRL    */
-#define SYNTH_LOCNTCTRL_READ_OFF                      (_SYNTH_LOCNTCTRL_READ_OFF << 3)                /**< Shifted mode OFF for SYNTH_LOCNTCTRL         */
-#define SYNTH_LOCNTCTRL_READ_ON                       (_SYNTH_LOCNTCTRL_READ_ON << 3)                 /**< Shifted mode ON for SYNTH_LOCNTCTRL          */
+#define SYNTH_LOCNTCTRL_READ_OFF                      (_SYNTH_LOCNTCTRL_READ_OFF << 3)                /**< Shifted mode OFF for SYNTH_LOCNTCTRL        */
+#define SYNTH_LOCNTCTRL_READ_ON                       (_SYNTH_LOCNTCTRL_READ_ON << 3)                 /**< Shifted mode ON for SYNTH_LOCNTCTRL         */
 #define _SYNTH_LOCNTCTRL_NUMCYCLE_SHIFT               4                                               /**< Shift value for SYNTH_NUMCYCLE              */
 #define _SYNTH_LOCNTCTRL_NUMCYCLE_MASK                0xF0UL                                          /**< Bit mask for SYNTH_NUMCYCLE                 */
 #define _SYNTH_LOCNTCTRL_NUMCYCLE_DEFAULT             0x00000000UL                                    /**< Mode DEFAULT for SYNTH_LOCNTCTRL            */
-#define _SYNTH_LOCNTCTRL_NUMCYCLE_CNT_2               0x00000000UL                                    /**< Mode CNT_2 for SYNTH_LOCNTCTRL               */
-#define _SYNTH_LOCNTCTRL_NUMCYCLE_CNT_4               0x00000001UL                                    /**< Mode CNT_4 for SYNTH_LOCNTCTRL               */
-#define _SYNTH_LOCNTCTRL_NUMCYCLE_CNT_8               0x00000002UL                                    /**< Mode CNT_8 for SYNTH_LOCNTCTRL               */
-#define _SYNTH_LOCNTCTRL_NUMCYCLE_CNT_16              0x00000003UL                                    /**< Mode CNT_16 for SYNTH_LOCNTCTRL              */
-#define _SYNTH_LOCNTCTRL_NUMCYCLE_CNT_32              0x00000004UL                                    /**< Mode CNT_32 for SYNTH_LOCNTCTRL              */
-#define _SYNTH_LOCNTCTRL_NUMCYCLE_CNT_64              0x00000005UL                                    /**< Mode CNT_64 for SYNTH_LOCNTCTRL              */
-#define _SYNTH_LOCNTCTRL_NUMCYCLE_CNT_128             0x00000006UL                                    /**< Mode CNT_128 for SYNTH_LOCNTCTRL             */
-#define _SYNTH_LOCNTCTRL_NUMCYCLE_CNT_256             0x00000007UL                                    /**< Mode CNT_256 for SYNTH_LOCNTCTRL             */
-#define _SYNTH_LOCNTCTRL_NUMCYCLE_CNT_512             0x00000008UL                                    /**< Mode CNT_512 for SYNTH_LOCNTCTRL             */
-#define _SYNTH_LOCNTCTRL_NUMCYCLE_CNT_1024            0x00000009UL                                    /**< Mode CNT_1024 for SYNTH_LOCNTCTRL            */
-#define _SYNTH_LOCNTCTRL_NUMCYCLE_CNT_2048            0x0000000AUL                                    /**< Mode CNT_2048 for SYNTH_LOCNTCTRL            */
-#define _SYNTH_LOCNTCTRL_NUMCYCLE_CNT_4096            0x0000000BUL                                    /**< Mode CNT_4096 for SYNTH_LOCNTCTRL            */
-#define _SYNTH_LOCNTCTRL_NUMCYCLE_CNT_8192            0x0000000CUL                                    /**< Mode CNT_8192 for SYNTH_LOCNTCTRL            */
+#define _SYNTH_LOCNTCTRL_NUMCYCLE_CNT_2               0x00000000UL                                    /**< Mode CNT_2 for SYNTH_LOCNTCTRL              */
+#define _SYNTH_LOCNTCTRL_NUMCYCLE_CNT_4               0x00000001UL                                    /**< Mode CNT_4 for SYNTH_LOCNTCTRL              */
+#define _SYNTH_LOCNTCTRL_NUMCYCLE_CNT_8               0x00000002UL                                    /**< Mode CNT_8 for SYNTH_LOCNTCTRL              */
+#define _SYNTH_LOCNTCTRL_NUMCYCLE_CNT_16              0x00000003UL                                    /**< Mode CNT_16 for SYNTH_LOCNTCTRL             */
+#define _SYNTH_LOCNTCTRL_NUMCYCLE_CNT_32              0x00000004UL                                    /**< Mode CNT_32 for SYNTH_LOCNTCTRL             */
+#define _SYNTH_LOCNTCTRL_NUMCYCLE_CNT_64              0x00000005UL                                    /**< Mode CNT_64 for SYNTH_LOCNTCTRL             */
+#define _SYNTH_LOCNTCTRL_NUMCYCLE_CNT_128             0x00000006UL                                    /**< Mode CNT_128 for SYNTH_LOCNTCTRL            */
+#define _SYNTH_LOCNTCTRL_NUMCYCLE_CNT_256             0x00000007UL                                    /**< Mode CNT_256 for SYNTH_LOCNTCTRL            */
+#define _SYNTH_LOCNTCTRL_NUMCYCLE_CNT_512             0x00000008UL                                    /**< Mode CNT_512 for SYNTH_LOCNTCTRL            */
+#define _SYNTH_LOCNTCTRL_NUMCYCLE_CNT_1024            0x00000009UL                                    /**< Mode CNT_1024 for SYNTH_LOCNTCTRL           */
+#define _SYNTH_LOCNTCTRL_NUMCYCLE_CNT_2048            0x0000000AUL                                    /**< Mode CNT_2048 for SYNTH_LOCNTCTRL           */
+#define _SYNTH_LOCNTCTRL_NUMCYCLE_CNT_4096            0x0000000BUL                                    /**< Mode CNT_4096 for SYNTH_LOCNTCTRL           */
+#define _SYNTH_LOCNTCTRL_NUMCYCLE_CNT_8192            0x0000000CUL                                    /**< Mode CNT_8192 for SYNTH_LOCNTCTRL           */
 #define SYNTH_LOCNTCTRL_NUMCYCLE_DEFAULT              (_SYNTH_LOCNTCTRL_NUMCYCLE_DEFAULT << 4)        /**< Shifted mode DEFAULT for SYNTH_LOCNTCTRL    */
-#define SYNTH_LOCNTCTRL_NUMCYCLE_CNT_2                (_SYNTH_LOCNTCTRL_NUMCYCLE_CNT_2 << 4)          /**< Shifted mode CNT_2 for SYNTH_LOCNTCTRL       */
-#define SYNTH_LOCNTCTRL_NUMCYCLE_CNT_4                (_SYNTH_LOCNTCTRL_NUMCYCLE_CNT_4 << 4)          /**< Shifted mode CNT_4 for SYNTH_LOCNTCTRL       */
-#define SYNTH_LOCNTCTRL_NUMCYCLE_CNT_8                (_SYNTH_LOCNTCTRL_NUMCYCLE_CNT_8 << 4)          /**< Shifted mode CNT_8 for SYNTH_LOCNTCTRL       */
-#define SYNTH_LOCNTCTRL_NUMCYCLE_CNT_16               (_SYNTH_LOCNTCTRL_NUMCYCLE_CNT_16 << 4)         /**< Shifted mode CNT_16 for SYNTH_LOCNTCTRL      */
-#define SYNTH_LOCNTCTRL_NUMCYCLE_CNT_32               (_SYNTH_LOCNTCTRL_NUMCYCLE_CNT_32 << 4)         /**< Shifted mode CNT_32 for SYNTH_LOCNTCTRL      */
-#define SYNTH_LOCNTCTRL_NUMCYCLE_CNT_64               (_SYNTH_LOCNTCTRL_NUMCYCLE_CNT_64 << 4)         /**< Shifted mode CNT_64 for SYNTH_LOCNTCTRL      */
-#define SYNTH_LOCNTCTRL_NUMCYCLE_CNT_128              (_SYNTH_LOCNTCTRL_NUMCYCLE_CNT_128 << 4)        /**< Shifted mode CNT_128 for SYNTH_LOCNTCTRL     */
-#define SYNTH_LOCNTCTRL_NUMCYCLE_CNT_256              (_SYNTH_LOCNTCTRL_NUMCYCLE_CNT_256 << 4)        /**< Shifted mode CNT_256 for SYNTH_LOCNTCTRL     */
-#define SYNTH_LOCNTCTRL_NUMCYCLE_CNT_512              (_SYNTH_LOCNTCTRL_NUMCYCLE_CNT_512 << 4)        /**< Shifted mode CNT_512 for SYNTH_LOCNTCTRL     */
-#define SYNTH_LOCNTCTRL_NUMCYCLE_CNT_1024             (_SYNTH_LOCNTCTRL_NUMCYCLE_CNT_1024 << 4)       /**< Shifted mode CNT_1024 for SYNTH_LOCNTCTRL    */
-#define SYNTH_LOCNTCTRL_NUMCYCLE_CNT_2048             (_SYNTH_LOCNTCTRL_NUMCYCLE_CNT_2048 << 4)       /**< Shifted mode CNT_2048 for SYNTH_LOCNTCTRL    */
-#define SYNTH_LOCNTCTRL_NUMCYCLE_CNT_4096             (_SYNTH_LOCNTCTRL_NUMCYCLE_CNT_4096 << 4)       /**< Shifted mode CNT_4096 for SYNTH_LOCNTCTRL    */
-#define SYNTH_LOCNTCTRL_NUMCYCLE_CNT_8192             (_SYNTH_LOCNTCTRL_NUMCYCLE_CNT_8192 << 4)       /**< Shifted mode CNT_8192 for SYNTH_LOCNTCTRL    */
+#define SYNTH_LOCNTCTRL_NUMCYCLE_CNT_2                (_SYNTH_LOCNTCTRL_NUMCYCLE_CNT_2 << 4)          /**< Shifted mode CNT_2 for SYNTH_LOCNTCTRL      */
+#define SYNTH_LOCNTCTRL_NUMCYCLE_CNT_4                (_SYNTH_LOCNTCTRL_NUMCYCLE_CNT_4 << 4)          /**< Shifted mode CNT_4 for SYNTH_LOCNTCTRL      */
+#define SYNTH_LOCNTCTRL_NUMCYCLE_CNT_8                (_SYNTH_LOCNTCTRL_NUMCYCLE_CNT_8 << 4)          /**< Shifted mode CNT_8 for SYNTH_LOCNTCTRL      */
+#define SYNTH_LOCNTCTRL_NUMCYCLE_CNT_16               (_SYNTH_LOCNTCTRL_NUMCYCLE_CNT_16 << 4)         /**< Shifted mode CNT_16 for SYNTH_LOCNTCTRL     */
+#define SYNTH_LOCNTCTRL_NUMCYCLE_CNT_32               (_SYNTH_LOCNTCTRL_NUMCYCLE_CNT_32 << 4)         /**< Shifted mode CNT_32 for SYNTH_LOCNTCTRL     */
+#define SYNTH_LOCNTCTRL_NUMCYCLE_CNT_64               (_SYNTH_LOCNTCTRL_NUMCYCLE_CNT_64 << 4)         /**< Shifted mode CNT_64 for SYNTH_LOCNTCTRL     */
+#define SYNTH_LOCNTCTRL_NUMCYCLE_CNT_128              (_SYNTH_LOCNTCTRL_NUMCYCLE_CNT_128 << 4)        /**< Shifted mode CNT_128 for SYNTH_LOCNTCTRL    */
+#define SYNTH_LOCNTCTRL_NUMCYCLE_CNT_256              (_SYNTH_LOCNTCTRL_NUMCYCLE_CNT_256 << 4)        /**< Shifted mode CNT_256 for SYNTH_LOCNTCTRL    */
+#define SYNTH_LOCNTCTRL_NUMCYCLE_CNT_512              (_SYNTH_LOCNTCTRL_NUMCYCLE_CNT_512 << 4)        /**< Shifted mode CNT_512 for SYNTH_LOCNTCTRL    */
+#define SYNTH_LOCNTCTRL_NUMCYCLE_CNT_1024             (_SYNTH_LOCNTCTRL_NUMCYCLE_CNT_1024 << 4)       /**< Shifted mode CNT_1024 for SYNTH_LOCNTCTRL   */
+#define SYNTH_LOCNTCTRL_NUMCYCLE_CNT_2048             (_SYNTH_LOCNTCTRL_NUMCYCLE_CNT_2048 << 4)       /**< Shifted mode CNT_2048 for SYNTH_LOCNTCTRL   */
+#define SYNTH_LOCNTCTRL_NUMCYCLE_CNT_4096             (_SYNTH_LOCNTCTRL_NUMCYCLE_CNT_4096 << 4)       /**< Shifted mode CNT_4096 for SYNTH_LOCNTCTRL   */
+#define SYNTH_LOCNTCTRL_NUMCYCLE_CNT_8192             (_SYNTH_LOCNTCTRL_NUMCYCLE_CNT_8192 << 4)       /**< Shifted mode CNT_8192 for SYNTH_LOCNTCTRL   */
 #define SYNTH_LOCNTCTRL_LOCNTOVERRIDEEN               (0x1UL << 8)                                    /**< Enable manual override of CLEAR and RUN     */
 #define _SYNTH_LOCNTCTRL_LOCNTOVERRIDEEN_SHIFT        8                                               /**< Shift value for SYNTH_LOCNTOVERRIDEEN       */
 #define _SYNTH_LOCNTCTRL_LOCNTOVERRIDEEN_MASK         0x100UL                                         /**< Bit mask for SYNTH_LOCNTOVERRIDEEN          */
 #define _SYNTH_LOCNTCTRL_LOCNTOVERRIDEEN_DEFAULT      0x00000000UL                                    /**< Mode DEFAULT for SYNTH_LOCNTCTRL            */
-#define _SYNTH_LOCNTCTRL_LOCNTOVERRIDEEN_DISABLE      0x00000000UL                                    /**< Mode DISABLE for SYNTH_LOCNTCTRL             */
-#define _SYNTH_LOCNTCTRL_LOCNTOVERRIDEEN_ENABLE       0x00000001UL                                    /**< Mode ENABLE for SYNTH_LOCNTCTRL              */
+#define _SYNTH_LOCNTCTRL_LOCNTOVERRIDEEN_DISABLE      0x00000000UL                                    /**< Mode DISABLE for SYNTH_LOCNTCTRL            */
+#define _SYNTH_LOCNTCTRL_LOCNTOVERRIDEEN_ENABLE       0x00000001UL                                    /**< Mode ENABLE for SYNTH_LOCNTCTRL             */
 #define SYNTH_LOCNTCTRL_LOCNTOVERRIDEEN_DEFAULT       (_SYNTH_LOCNTCTRL_LOCNTOVERRIDEEN_DEFAULT << 8) /**< Shifted mode DEFAULT for SYNTH_LOCNTCTRL    */
-#define SYNTH_LOCNTCTRL_LOCNTOVERRIDEEN_DISABLE       (_SYNTH_LOCNTCTRL_LOCNTOVERRIDEEN_DISABLE << 8) /**< Shifted mode DISABLE for SYNTH_LOCNTCTRL     */
-#define SYNTH_LOCNTCTRL_LOCNTOVERRIDEEN_ENABLE        (_SYNTH_LOCNTCTRL_LOCNTOVERRIDEEN_ENABLE << 8)  /**< Shifted mode ENABLE for SYNTH_LOCNTCTRL      */
+#define SYNTH_LOCNTCTRL_LOCNTOVERRIDEEN_DISABLE       (_SYNTH_LOCNTCTRL_LOCNTOVERRIDEEN_DISABLE << 8) /**< Shifted mode DISABLE for SYNTH_LOCNTCTRL    */
+#define SYNTH_LOCNTCTRL_LOCNTOVERRIDEEN_ENABLE        (_SYNTH_LOCNTCTRL_LOCNTOVERRIDEEN_ENABLE << 8)  /**< Shifted mode ENABLE for SYNTH_LOCNTCTRL     */
 #define SYNTH_LOCNTCTRL_LOCNTMANCLEAR                 (0x1UL << 9)                                    /**< Manual Control of LO counter CLEAR          */
 #define _SYNTH_LOCNTCTRL_LOCNTMANCLEAR_SHIFT          9                                               /**< Shift value for SYNTH_LOCNTMANCLEAR         */
 #define _SYNTH_LOCNTCTRL_LOCNTMANCLEAR_MASK           0x200UL                                         /**< Bit mask for SYNTH_LOCNTMANCLEAR            */
 #define _SYNTH_LOCNTCTRL_LOCNTMANCLEAR_DEFAULT        0x00000000UL                                    /**< Mode DEFAULT for SYNTH_LOCNTCTRL            */
-#define _SYNTH_LOCNTCTRL_LOCNTMANCLEAR_NOCLEAR        0x00000000UL                                    /**< Mode NOCLEAR for SYNTH_LOCNTCTRL             */
-#define _SYNTH_LOCNTCTRL_LOCNTMANCLEAR_CLEAR          0x00000001UL                                    /**< Mode CLEAR for SYNTH_LOCNTCTRL               */
+#define _SYNTH_LOCNTCTRL_LOCNTMANCLEAR_NOCLEAR        0x00000000UL                                    /**< Mode NOCLEAR for SYNTH_LOCNTCTRL            */
+#define _SYNTH_LOCNTCTRL_LOCNTMANCLEAR_CLEAR          0x00000001UL                                    /**< Mode CLEAR for SYNTH_LOCNTCTRL              */
 #define SYNTH_LOCNTCTRL_LOCNTMANCLEAR_DEFAULT         (_SYNTH_LOCNTCTRL_LOCNTMANCLEAR_DEFAULT << 9)   /**< Shifted mode DEFAULT for SYNTH_LOCNTCTRL    */
-#define SYNTH_LOCNTCTRL_LOCNTMANCLEAR_NOCLEAR         (_SYNTH_LOCNTCTRL_LOCNTMANCLEAR_NOCLEAR << 9)   /**< Shifted mode NOCLEAR for SYNTH_LOCNTCTRL     */
-#define SYNTH_LOCNTCTRL_LOCNTMANCLEAR_CLEAR           (_SYNTH_LOCNTCTRL_LOCNTMANCLEAR_CLEAR << 9)     /**< Shifted mode CLEAR for SYNTH_LOCNTCTRL       */
+#define SYNTH_LOCNTCTRL_LOCNTMANCLEAR_NOCLEAR         (_SYNTH_LOCNTCTRL_LOCNTMANCLEAR_NOCLEAR << 9)   /**< Shifted mode NOCLEAR for SYNTH_LOCNTCTRL    */
+#define SYNTH_LOCNTCTRL_LOCNTMANCLEAR_CLEAR           (_SYNTH_LOCNTCTRL_LOCNTMANCLEAR_CLEAR << 9)     /**< Shifted mode CLEAR for SYNTH_LOCNTCTRL      */
 #define SYNTH_LOCNTCTRL_LOCNTMANRUN                   (0x1UL << 10)                                   /**< Manual Control of the LO counter RUN        */
 #define _SYNTH_LOCNTCTRL_LOCNTMANRUN_SHIFT            10                                              /**< Shift value for SYNTH_LOCNTMANRUN           */
 #define _SYNTH_LOCNTCTRL_LOCNTMANRUN_MASK             0x400UL                                         /**< Bit mask for SYNTH_LOCNTMANRUN              */
 #define _SYNTH_LOCNTCTRL_LOCNTMANRUN_DEFAULT          0x00000000UL                                    /**< Mode DEFAULT for SYNTH_LOCNTCTRL            */
-#define _SYNTH_LOCNTCTRL_LOCNTMANRUN_NORUN            0x00000000UL                                    /**< Mode NORUN for SYNTH_LOCNTCTRL               */
-#define _SYNTH_LOCNTCTRL_LOCNTMANRUN_RUN              0x00000001UL                                    /**< Mode RUN for SYNTH_LOCNTCTRL                 */
+#define _SYNTH_LOCNTCTRL_LOCNTMANRUN_NORUN            0x00000000UL                                    /**< Mode NORUN for SYNTH_LOCNTCTRL              */
+#define _SYNTH_LOCNTCTRL_LOCNTMANRUN_RUN              0x00000001UL                                    /**< Mode RUN for SYNTH_LOCNTCTRL                */
 #define SYNTH_LOCNTCTRL_LOCNTMANRUN_DEFAULT           (_SYNTH_LOCNTCTRL_LOCNTMANRUN_DEFAULT << 10)    /**< Shifted mode DEFAULT for SYNTH_LOCNTCTRL    */
-#define SYNTH_LOCNTCTRL_LOCNTMANRUN_NORUN             (_SYNTH_LOCNTCTRL_LOCNTMANRUN_NORUN << 10)      /**< Shifted mode NORUN for SYNTH_LOCNTCTRL       */
-#define SYNTH_LOCNTCTRL_LOCNTMANRUN_RUN               (_SYNTH_LOCNTCTRL_LOCNTMANRUN_RUN << 10)        /**< Shifted mode RUN for SYNTH_LOCNTCTRL         */
+#define SYNTH_LOCNTCTRL_LOCNTMANRUN_NORUN             (_SYNTH_LOCNTCTRL_LOCNTMANRUN_NORUN << 10)      /**< Shifted mode NORUN for SYNTH_LOCNTCTRL      */
+#define SYNTH_LOCNTCTRL_LOCNTMANRUN_RUN               (_SYNTH_LOCNTCTRL_LOCNTMANRUN_RUN << 10)        /**< Shifted mode RUN for SYNTH_LOCNTCTRL        */
 
 /* Bit fields for SYNTH LOCNTSTATUS */
 #define _SYNTH_LOCNTSTATUS_RESETVALUE                 0x00000000UL                              /**< Default value for SYNTH_LOCNTSTATUS         */
@@ -755,11 +754,11 @@ typedef struct {
 #define _SYNTH_LPFCTRL2RX_LPFSWENRX_SHIFT             0                                             /**< Shift value for SYNTH_LPFSWENRX             */
 #define _SYNTH_LPFCTRL2RX_LPFSWENRX_MASK              0x1UL                                         /**< Bit mask for SYNTH_LPFSWENRX                */
 #define _SYNTH_LPFCTRL2RX_LPFSWENRX_DEFAULT           0x00000000UL                                  /**< Mode DEFAULT for SYNTH_LPFCTRL2RX           */
-#define _SYNTH_LPFCTRL2RX_LPFSWENRX_DISABLE           0x00000000UL                                  /**< Mode DISABLE for SYNTH_LPFCTRL2RX            */
-#define _SYNTH_LPFCTRL2RX_LPFSWENRX_ENABLE            0x00000001UL                                  /**< Mode ENABLE for SYNTH_LPFCTRL2RX             */
+#define _SYNTH_LPFCTRL2RX_LPFSWENRX_DISABLE           0x00000000UL                                  /**< Mode DISABLE for SYNTH_LPFCTRL2RX           */
+#define _SYNTH_LPFCTRL2RX_LPFSWENRX_ENABLE            0x00000001UL                                  /**< Mode ENABLE for SYNTH_LPFCTRL2RX            */
 #define SYNTH_LPFCTRL2RX_LPFSWENRX_DEFAULT            (_SYNTH_LPFCTRL2RX_LPFSWENRX_DEFAULT << 0)    /**< Shifted mode DEFAULT for SYNTH_LPFCTRL2RX   */
-#define SYNTH_LPFCTRL2RX_LPFSWENRX_DISABLE            (_SYNTH_LPFCTRL2RX_LPFSWENRX_DISABLE << 0)    /**< Shifted mode DISABLE for SYNTH_LPFCTRL2RX    */
-#define SYNTH_LPFCTRL2RX_LPFSWENRX_ENABLE             (_SYNTH_LPFCTRL2RX_LPFSWENRX_ENABLE << 0)     /**< Shifted mode ENABLE for SYNTH_LPFCTRL2RX     */
+#define SYNTH_LPFCTRL2RX_LPFSWENRX_DISABLE            (_SYNTH_LPFCTRL2RX_LPFSWENRX_DISABLE << 0)    /**< Shifted mode DISABLE for SYNTH_LPFCTRL2RX   */
+#define SYNTH_LPFCTRL2RX_LPFSWENRX_ENABLE             (_SYNTH_LPFCTRL2RX_LPFSWENRX_ENABLE << 0)     /**< Shifted mode ENABLE for SYNTH_LPFCTRL2RX    */
 #define _SYNTH_LPFCTRL2RX_LPFINCAPRX_SHIFT            1                                             /**< Shift value for SYNTH_LPFINCAPRX            */
 #define _SYNTH_LPFCTRL2RX_LPFINCAPRX_MASK             0x6UL                                         /**< Bit mask for SYNTH_LPFINCAPRX               */
 #define _SYNTH_LPFCTRL2RX_LPFINCAPRX_DEFAULT          0x00000000UL                                  /**< Mode DEFAULT for SYNTH_LPFCTRL2RX           */
@@ -768,11 +767,11 @@ typedef struct {
 #define _SYNTH_LPFCTRL2RX_LPFGNDSWENRX_SHIFT          3                                             /**< Shift value for SYNTH_LPFGNDSWENRX          */
 #define _SYNTH_LPFCTRL2RX_LPFGNDSWENRX_MASK           0x8UL                                         /**< Bit mask for SYNTH_LPFGNDSWENRX             */
 #define _SYNTH_LPFCTRL2RX_LPFGNDSWENRX_DEFAULT        0x00000000UL                                  /**< Mode DEFAULT for SYNTH_LPFCTRL2RX           */
-#define _SYNTH_LPFCTRL2RX_LPFGNDSWENRX_DISABLE        0x00000000UL                                  /**< Mode DISABLE for SYNTH_LPFCTRL2RX            */
-#define _SYNTH_LPFCTRL2RX_LPFGNDSWENRX_ENABLE         0x00000001UL                                  /**< Mode ENABLE for SYNTH_LPFCTRL2RX             */
+#define _SYNTH_LPFCTRL2RX_LPFGNDSWENRX_DISABLE        0x00000000UL                                  /**< Mode DISABLE for SYNTH_LPFCTRL2RX           */
+#define _SYNTH_LPFCTRL2RX_LPFGNDSWENRX_ENABLE         0x00000001UL                                  /**< Mode ENABLE for SYNTH_LPFCTRL2RX            */
 #define SYNTH_LPFCTRL2RX_LPFGNDSWENRX_DEFAULT         (_SYNTH_LPFCTRL2RX_LPFGNDSWENRX_DEFAULT << 3) /**< Shifted mode DEFAULT for SYNTH_LPFCTRL2RX   */
-#define SYNTH_LPFCTRL2RX_LPFGNDSWENRX_DISABLE         (_SYNTH_LPFCTRL2RX_LPFGNDSWENRX_DISABLE << 3) /**< Shifted mode DISABLE for SYNTH_LPFCTRL2RX    */
-#define SYNTH_LPFCTRL2RX_LPFGNDSWENRX_ENABLE          (_SYNTH_LPFCTRL2RX_LPFGNDSWENRX_ENABLE << 3)  /**< Shifted mode ENABLE for SYNTH_LPFCTRL2RX     */
+#define SYNTH_LPFCTRL2RX_LPFGNDSWENRX_DISABLE         (_SYNTH_LPFCTRL2RX_LPFGNDSWENRX_DISABLE << 3) /**< Shifted mode DISABLE for SYNTH_LPFCTRL2RX   */
+#define SYNTH_LPFCTRL2RX_LPFGNDSWENRX_ENABLE          (_SYNTH_LPFCTRL2RX_LPFGNDSWENRX_ENABLE << 3)  /**< Shifted mode ENABLE for SYNTH_LPFCTRL2RX    */
 #define _SYNTH_LPFCTRL2RX_CALCRX_SHIFT                4                                             /**< Shift value for SYNTH_CALCRX                */
 #define _SYNTH_LPFCTRL2RX_CALCRX_MASK                 0x1F0UL                                       /**< Bit mask for SYNTH_CALCRX                   */
 #define _SYNTH_LPFCTRL2RX_CALCRX_DEFAULT              0x00000000UL                                  /**< Mode DEFAULT for SYNTH_LPFCTRL2RX           */
@@ -781,11 +780,11 @@ typedef struct {
 #define _SYNTH_LPFCTRL2RX_CASELRX_SHIFT               9                                             /**< Shift value for SYNTH_CASELRX               */
 #define _SYNTH_LPFCTRL2RX_CASELRX_MASK                0x200UL                                       /**< Bit mask for SYNTH_CASELRX                  */
 #define _SYNTH_LPFCTRL2RX_CASELRX_DEFAULT             0x00000000UL                                  /**< Mode DEFAULT for SYNTH_LPFCTRL2RX           */
-#define _SYNTH_LPFCTRL2RX_CASELRX_DISABLE             0x00000000UL                                  /**< Mode DISABLE for SYNTH_LPFCTRL2RX            */
-#define _SYNTH_LPFCTRL2RX_CASELRX_ENABLE              0x00000001UL                                  /**< Mode ENABLE for SYNTH_LPFCTRL2RX             */
+#define _SYNTH_LPFCTRL2RX_CASELRX_DISABLE             0x00000000UL                                  /**< Mode DISABLE for SYNTH_LPFCTRL2RX           */
+#define _SYNTH_LPFCTRL2RX_CASELRX_ENABLE              0x00000001UL                                  /**< Mode ENABLE for SYNTH_LPFCTRL2RX            */
 #define SYNTH_LPFCTRL2RX_CASELRX_DEFAULT              (_SYNTH_LPFCTRL2RX_CASELRX_DEFAULT << 9)      /**< Shifted mode DEFAULT for SYNTH_LPFCTRL2RX   */
-#define SYNTH_LPFCTRL2RX_CASELRX_DISABLE              (_SYNTH_LPFCTRL2RX_CASELRX_DISABLE << 9)      /**< Shifted mode DISABLE for SYNTH_LPFCTRL2RX    */
-#define SYNTH_LPFCTRL2RX_CASELRX_ENABLE               (_SYNTH_LPFCTRL2RX_CASELRX_ENABLE << 9)       /**< Shifted mode ENABLE for SYNTH_LPFCTRL2RX     */
+#define SYNTH_LPFCTRL2RX_CASELRX_DISABLE              (_SYNTH_LPFCTRL2RX_CASELRX_DISABLE << 9)      /**< Shifted mode DISABLE for SYNTH_LPFCTRL2RX   */
+#define SYNTH_LPFCTRL2RX_CASELRX_ENABLE               (_SYNTH_LPFCTRL2RX_CASELRX_ENABLE << 9)       /**< Shifted mode ENABLE for SYNTH_LPFCTRL2RX    */
 #define _SYNTH_LPFCTRL2RX_CAVALRX_SHIFT               10                                            /**< Shift value for SYNTH_CAVALRX               */
 #define _SYNTH_LPFCTRL2RX_CAVALRX_MASK                0x7C00UL                                      /**< Bit mask for SYNTH_CAVALRX                  */
 #define _SYNTH_LPFCTRL2RX_CAVALRX_DEFAULT             0x00000000UL                                  /**< Mode DEFAULT for SYNTH_LPFCTRL2RX           */
@@ -794,20 +793,20 @@ typedef struct {
 #define _SYNTH_LPFCTRL2RX_CFBSELRX_SHIFT              15                                            /**< Shift value for SYNTH_CFBSELRX              */
 #define _SYNTH_LPFCTRL2RX_CFBSELRX_MASK               0x8000UL                                      /**< Bit mask for SYNTH_CFBSELRX                 */
 #define _SYNTH_LPFCTRL2RX_CFBSELRX_DEFAULT            0x00000000UL                                  /**< Mode DEFAULT for SYNTH_LPFCTRL2RX           */
-#define _SYNTH_LPFCTRL2RX_CFBSELRX_DISABLE            0x00000000UL                                  /**< Mode DISABLE for SYNTH_LPFCTRL2RX            */
-#define _SYNTH_LPFCTRL2RX_CFBSELRX_ENABLE             0x00000001UL                                  /**< Mode ENABLE for SYNTH_LPFCTRL2RX             */
+#define _SYNTH_LPFCTRL2RX_CFBSELRX_DISABLE            0x00000000UL                                  /**< Mode DISABLE for SYNTH_LPFCTRL2RX           */
+#define _SYNTH_LPFCTRL2RX_CFBSELRX_ENABLE             0x00000001UL                                  /**< Mode ENABLE for SYNTH_LPFCTRL2RX            */
 #define SYNTH_LPFCTRL2RX_CFBSELRX_DEFAULT             (_SYNTH_LPFCTRL2RX_CFBSELRX_DEFAULT << 15)    /**< Shifted mode DEFAULT for SYNTH_LPFCTRL2RX   */
-#define SYNTH_LPFCTRL2RX_CFBSELRX_DISABLE             (_SYNTH_LPFCTRL2RX_CFBSELRX_DISABLE << 15)    /**< Shifted mode DISABLE for SYNTH_LPFCTRL2RX    */
-#define SYNTH_LPFCTRL2RX_CFBSELRX_ENABLE              (_SYNTH_LPFCTRL2RX_CFBSELRX_ENABLE << 15)     /**< Shifted mode ENABLE for SYNTH_LPFCTRL2RX     */
+#define SYNTH_LPFCTRL2RX_CFBSELRX_DISABLE             (_SYNTH_LPFCTRL2RX_CFBSELRX_DISABLE << 15)    /**< Shifted mode DISABLE for SYNTH_LPFCTRL2RX   */
+#define SYNTH_LPFCTRL2RX_CFBSELRX_ENABLE              (_SYNTH_LPFCTRL2RX_CFBSELRX_ENABLE << 15)     /**< Shifted mode ENABLE for SYNTH_LPFCTRL2RX    */
 #define SYNTH_LPFCTRL2RX_CZSELRX                      (0x1UL << 16)                                 /**< LPF Cz Select in RX Mode                    */
 #define _SYNTH_LPFCTRL2RX_CZSELRX_SHIFT               16                                            /**< Shift value for SYNTH_CZSELRX               */
 #define _SYNTH_LPFCTRL2RX_CZSELRX_MASK                0x10000UL                                     /**< Bit mask for SYNTH_CZSELRX                  */
 #define _SYNTH_LPFCTRL2RX_CZSELRX_DEFAULT             0x00000000UL                                  /**< Mode DEFAULT for SYNTH_LPFCTRL2RX           */
-#define _SYNTH_LPFCTRL2RX_CZSELRX_DISABLE             0x00000000UL                                  /**< Mode DISABLE for SYNTH_LPFCTRL2RX            */
-#define _SYNTH_LPFCTRL2RX_CZSELRX_ENABLE              0x00000001UL                                  /**< Mode ENABLE for SYNTH_LPFCTRL2RX             */
+#define _SYNTH_LPFCTRL2RX_CZSELRX_DISABLE             0x00000000UL                                  /**< Mode DISABLE for SYNTH_LPFCTRL2RX           */
+#define _SYNTH_LPFCTRL2RX_CZSELRX_ENABLE              0x00000001UL                                  /**< Mode ENABLE for SYNTH_LPFCTRL2RX            */
 #define SYNTH_LPFCTRL2RX_CZSELRX_DEFAULT              (_SYNTH_LPFCTRL2RX_CZSELRX_DEFAULT << 16)     /**< Shifted mode DEFAULT for SYNTH_LPFCTRL2RX   */
-#define SYNTH_LPFCTRL2RX_CZSELRX_DISABLE              (_SYNTH_LPFCTRL2RX_CZSELRX_DISABLE << 16)     /**< Shifted mode DISABLE for SYNTH_LPFCTRL2RX    */
-#define SYNTH_LPFCTRL2RX_CZSELRX_ENABLE               (_SYNTH_LPFCTRL2RX_CZSELRX_ENABLE << 16)      /**< Shifted mode ENABLE for SYNTH_LPFCTRL2RX     */
+#define SYNTH_LPFCTRL2RX_CZSELRX_DISABLE              (_SYNTH_LPFCTRL2RX_CZSELRX_DISABLE << 16)     /**< Shifted mode DISABLE for SYNTH_LPFCTRL2RX   */
+#define SYNTH_LPFCTRL2RX_CZSELRX_ENABLE               (_SYNTH_LPFCTRL2RX_CZSELRX_ENABLE << 16)      /**< Shifted mode ENABLE for SYNTH_LPFCTRL2RX    */
 #define _SYNTH_LPFCTRL2RX_CZVALRX_SHIFT               17                                            /**< Shift value for SYNTH_CZVALRX               */
 #define _SYNTH_LPFCTRL2RX_CZVALRX_MASK                0x1FE0000UL                                   /**< Bit mask for SYNTH_CZVALRX                  */
 #define _SYNTH_LPFCTRL2RX_CZVALRX_DEFAULT             0x00000000UL                                  /**< Mode DEFAULT for SYNTH_LPFCTRL2RX           */
@@ -816,11 +815,11 @@ typedef struct {
 #define _SYNTH_LPFCTRL2RX_MODESELRX_SHIFT             25                                            /**< Shift value for SYNTH_MODESELRX             */
 #define _SYNTH_LPFCTRL2RX_MODESELRX_MASK              0x2000000UL                                   /**< Bit mask for SYNTH_MODESELRX                */
 #define _SYNTH_LPFCTRL2RX_MODESELRX_DEFAULT           0x00000000UL                                  /**< Mode DEFAULT for SYNTH_LPFCTRL2RX           */
-#define _SYNTH_LPFCTRL2RX_MODESELRX_ONEOP             0x00000000UL                                  /**< Mode ONEOP for SYNTH_LPFCTRL2RX              */
-#define _SYNTH_LPFCTRL2RX_MODESELRX_TWOOP             0x00000001UL                                  /**< Mode TWOOP for SYNTH_LPFCTRL2RX              */
+#define _SYNTH_LPFCTRL2RX_MODESELRX_ONEOP             0x00000000UL                                  /**< Mode ONEOP for SYNTH_LPFCTRL2RX             */
+#define _SYNTH_LPFCTRL2RX_MODESELRX_TWOOP             0x00000001UL                                  /**< Mode TWOOP for SYNTH_LPFCTRL2RX             */
 #define SYNTH_LPFCTRL2RX_MODESELRX_DEFAULT            (_SYNTH_LPFCTRL2RX_MODESELRX_DEFAULT << 25)   /**< Shifted mode DEFAULT for SYNTH_LPFCTRL2RX   */
-#define SYNTH_LPFCTRL2RX_MODESELRX_ONEOP              (_SYNTH_LPFCTRL2RX_MODESELRX_ONEOP << 25)     /**< Shifted mode ONEOP for SYNTH_LPFCTRL2RX      */
-#define SYNTH_LPFCTRL2RX_MODESELRX_TWOOP              (_SYNTH_LPFCTRL2RX_MODESELRX_TWOOP << 25)     /**< Shifted mode TWOOP for SYNTH_LPFCTRL2RX      */
+#define SYNTH_LPFCTRL2RX_MODESELRX_ONEOP              (_SYNTH_LPFCTRL2RX_MODESELRX_ONEOP << 25)     /**< Shifted mode ONEOP for SYNTH_LPFCTRL2RX     */
+#define SYNTH_LPFCTRL2RX_MODESELRX_TWOOP              (_SYNTH_LPFCTRL2RX_MODESELRX_TWOOP << 25)     /**< Shifted mode TWOOP for SYNTH_LPFCTRL2RX     */
 #define _SYNTH_LPFCTRL2RX_VCMLVLRX_SHIFT              26                                            /**< Shift value for SYNTH_VCMLVLRX              */
 #define _SYNTH_LPFCTRL2RX_VCMLVLRX_MASK               0x1C000000UL                                  /**< Bit mask for SYNTH_VCMLVLRX                 */
 #define _SYNTH_LPFCTRL2RX_VCMLVLRX_DEFAULT            0x00000000UL                                  /**< Mode DEFAULT for SYNTH_LPFCTRL2RX           */
@@ -833,11 +832,11 @@ typedef struct {
 #define _SYNTH_LPFCTRL2TX_LPFSWENTX_SHIFT             0                                             /**< Shift value for SYNTH_LPFSWENTX             */
 #define _SYNTH_LPFCTRL2TX_LPFSWENTX_MASK              0x1UL                                         /**< Bit mask for SYNTH_LPFSWENTX                */
 #define _SYNTH_LPFCTRL2TX_LPFSWENTX_DEFAULT           0x00000000UL                                  /**< Mode DEFAULT for SYNTH_LPFCTRL2TX           */
-#define _SYNTH_LPFCTRL2TX_LPFSWENTX_DISABLE           0x00000000UL                                  /**< Mode DISABLE for SYNTH_LPFCTRL2TX            */
-#define _SYNTH_LPFCTRL2TX_LPFSWENTX_ENABLE            0x00000001UL                                  /**< Mode ENABLE for SYNTH_LPFCTRL2TX             */
+#define _SYNTH_LPFCTRL2TX_LPFSWENTX_DISABLE           0x00000000UL                                  /**< Mode DISABLE for SYNTH_LPFCTRL2TX           */
+#define _SYNTH_LPFCTRL2TX_LPFSWENTX_ENABLE            0x00000001UL                                  /**< Mode ENABLE for SYNTH_LPFCTRL2TX            */
 #define SYNTH_LPFCTRL2TX_LPFSWENTX_DEFAULT            (_SYNTH_LPFCTRL2TX_LPFSWENTX_DEFAULT << 0)    /**< Shifted mode DEFAULT for SYNTH_LPFCTRL2TX   */
-#define SYNTH_LPFCTRL2TX_LPFSWENTX_DISABLE            (_SYNTH_LPFCTRL2TX_LPFSWENTX_DISABLE << 0)    /**< Shifted mode DISABLE for SYNTH_LPFCTRL2TX    */
-#define SYNTH_LPFCTRL2TX_LPFSWENTX_ENABLE             (_SYNTH_LPFCTRL2TX_LPFSWENTX_ENABLE << 0)     /**< Shifted mode ENABLE for SYNTH_LPFCTRL2TX     */
+#define SYNTH_LPFCTRL2TX_LPFSWENTX_DISABLE            (_SYNTH_LPFCTRL2TX_LPFSWENTX_DISABLE << 0)    /**< Shifted mode DISABLE for SYNTH_LPFCTRL2TX   */
+#define SYNTH_LPFCTRL2TX_LPFSWENTX_ENABLE             (_SYNTH_LPFCTRL2TX_LPFSWENTX_ENABLE << 0)     /**< Shifted mode ENABLE for SYNTH_LPFCTRL2TX    */
 #define _SYNTH_LPFCTRL2TX_LPFINCAPTX_SHIFT            1                                             /**< Shift value for SYNTH_LPFINCAPTX            */
 #define _SYNTH_LPFCTRL2TX_LPFINCAPTX_MASK             0x6UL                                         /**< Bit mask for SYNTH_LPFINCAPTX               */
 #define _SYNTH_LPFCTRL2TX_LPFINCAPTX_DEFAULT          0x00000000UL                                  /**< Mode DEFAULT for SYNTH_LPFCTRL2TX           */
@@ -846,11 +845,11 @@ typedef struct {
 #define _SYNTH_LPFCTRL2TX_LPFGNDSWENTX_SHIFT          3                                             /**< Shift value for SYNTH_LPFGNDSWENTX          */
 #define _SYNTH_LPFCTRL2TX_LPFGNDSWENTX_MASK           0x8UL                                         /**< Bit mask for SYNTH_LPFGNDSWENTX             */
 #define _SYNTH_LPFCTRL2TX_LPFGNDSWENTX_DEFAULT        0x00000000UL                                  /**< Mode DEFAULT for SYNTH_LPFCTRL2TX           */
-#define _SYNTH_LPFCTRL2TX_LPFGNDSWENTX_DISABLE        0x00000000UL                                  /**< Mode DISABLE for SYNTH_LPFCTRL2TX            */
-#define _SYNTH_LPFCTRL2TX_LPFGNDSWENTX_ENABLE         0x00000001UL                                  /**< Mode ENABLE for SYNTH_LPFCTRL2TX             */
+#define _SYNTH_LPFCTRL2TX_LPFGNDSWENTX_DISABLE        0x00000000UL                                  /**< Mode DISABLE for SYNTH_LPFCTRL2TX           */
+#define _SYNTH_LPFCTRL2TX_LPFGNDSWENTX_ENABLE         0x00000001UL                                  /**< Mode ENABLE for SYNTH_LPFCTRL2TX            */
 #define SYNTH_LPFCTRL2TX_LPFGNDSWENTX_DEFAULT         (_SYNTH_LPFCTRL2TX_LPFGNDSWENTX_DEFAULT << 3) /**< Shifted mode DEFAULT for SYNTH_LPFCTRL2TX   */
-#define SYNTH_LPFCTRL2TX_LPFGNDSWENTX_DISABLE         (_SYNTH_LPFCTRL2TX_LPFGNDSWENTX_DISABLE << 3) /**< Shifted mode DISABLE for SYNTH_LPFCTRL2TX    */
-#define SYNTH_LPFCTRL2TX_LPFGNDSWENTX_ENABLE          (_SYNTH_LPFCTRL2TX_LPFGNDSWENTX_ENABLE << 3)  /**< Shifted mode ENABLE for SYNTH_LPFCTRL2TX     */
+#define SYNTH_LPFCTRL2TX_LPFGNDSWENTX_DISABLE         (_SYNTH_LPFCTRL2TX_LPFGNDSWENTX_DISABLE << 3) /**< Shifted mode DISABLE for SYNTH_LPFCTRL2TX   */
+#define SYNTH_LPFCTRL2TX_LPFGNDSWENTX_ENABLE          (_SYNTH_LPFCTRL2TX_LPFGNDSWENTX_ENABLE << 3)  /**< Shifted mode ENABLE for SYNTH_LPFCTRL2TX    */
 #define _SYNTH_LPFCTRL2TX_CALCTX_SHIFT                4                                             /**< Shift value for SYNTH_CALCTX                */
 #define _SYNTH_LPFCTRL2TX_CALCTX_MASK                 0x1F0UL                                       /**< Bit mask for SYNTH_CALCTX                   */
 #define _SYNTH_LPFCTRL2TX_CALCTX_DEFAULT              0x00000000UL                                  /**< Mode DEFAULT for SYNTH_LPFCTRL2TX           */
@@ -859,11 +858,11 @@ typedef struct {
 #define _SYNTH_LPFCTRL2TX_CASELTX_SHIFT               9                                             /**< Shift value for SYNTH_CASELTX               */
 #define _SYNTH_LPFCTRL2TX_CASELTX_MASK                0x200UL                                       /**< Bit mask for SYNTH_CASELTX                  */
 #define _SYNTH_LPFCTRL2TX_CASELTX_DEFAULT             0x00000000UL                                  /**< Mode DEFAULT for SYNTH_LPFCTRL2TX           */
-#define _SYNTH_LPFCTRL2TX_CASELTX_DISABLE             0x00000000UL                                  /**< Mode DISABLE for SYNTH_LPFCTRL2TX            */
-#define _SYNTH_LPFCTRL2TX_CASELTX_ENABLE              0x00000001UL                                  /**< Mode ENABLE for SYNTH_LPFCTRL2TX             */
+#define _SYNTH_LPFCTRL2TX_CASELTX_DISABLE             0x00000000UL                                  /**< Mode DISABLE for SYNTH_LPFCTRL2TX           */
+#define _SYNTH_LPFCTRL2TX_CASELTX_ENABLE              0x00000001UL                                  /**< Mode ENABLE for SYNTH_LPFCTRL2TX            */
 #define SYNTH_LPFCTRL2TX_CASELTX_DEFAULT              (_SYNTH_LPFCTRL2TX_CASELTX_DEFAULT << 9)      /**< Shifted mode DEFAULT for SYNTH_LPFCTRL2TX   */
-#define SYNTH_LPFCTRL2TX_CASELTX_DISABLE              (_SYNTH_LPFCTRL2TX_CASELTX_DISABLE << 9)      /**< Shifted mode DISABLE for SYNTH_LPFCTRL2TX    */
-#define SYNTH_LPFCTRL2TX_CASELTX_ENABLE               (_SYNTH_LPFCTRL2TX_CASELTX_ENABLE << 9)       /**< Shifted mode ENABLE for SYNTH_LPFCTRL2TX     */
+#define SYNTH_LPFCTRL2TX_CASELTX_DISABLE              (_SYNTH_LPFCTRL2TX_CASELTX_DISABLE << 9)      /**< Shifted mode DISABLE for SYNTH_LPFCTRL2TX   */
+#define SYNTH_LPFCTRL2TX_CASELTX_ENABLE               (_SYNTH_LPFCTRL2TX_CASELTX_ENABLE << 9)       /**< Shifted mode ENABLE for SYNTH_LPFCTRL2TX    */
 #define _SYNTH_LPFCTRL2TX_CAVALTX_SHIFT               10                                            /**< Shift value for SYNTH_CAVALTX               */
 #define _SYNTH_LPFCTRL2TX_CAVALTX_MASK                0x7C00UL                                      /**< Bit mask for SYNTH_CAVALTX                  */
 #define _SYNTH_LPFCTRL2TX_CAVALTX_DEFAULT             0x00000000UL                                  /**< Mode DEFAULT for SYNTH_LPFCTRL2TX           */
@@ -872,20 +871,20 @@ typedef struct {
 #define _SYNTH_LPFCTRL2TX_CFBSELTX_SHIFT              15                                            /**< Shift value for SYNTH_CFBSELTX              */
 #define _SYNTH_LPFCTRL2TX_CFBSELTX_MASK               0x8000UL                                      /**< Bit mask for SYNTH_CFBSELTX                 */
 #define _SYNTH_LPFCTRL2TX_CFBSELTX_DEFAULT            0x00000000UL                                  /**< Mode DEFAULT for SYNTH_LPFCTRL2TX           */
-#define _SYNTH_LPFCTRL2TX_CFBSELTX_DISABLE            0x00000000UL                                  /**< Mode DISABLE for SYNTH_LPFCTRL2TX            */
-#define _SYNTH_LPFCTRL2TX_CFBSELTX_ENABLE             0x00000001UL                                  /**< Mode ENABLE for SYNTH_LPFCTRL2TX             */
+#define _SYNTH_LPFCTRL2TX_CFBSELTX_DISABLE            0x00000000UL                                  /**< Mode DISABLE for SYNTH_LPFCTRL2TX           */
+#define _SYNTH_LPFCTRL2TX_CFBSELTX_ENABLE             0x00000001UL                                  /**< Mode ENABLE for SYNTH_LPFCTRL2TX            */
 #define SYNTH_LPFCTRL2TX_CFBSELTX_DEFAULT             (_SYNTH_LPFCTRL2TX_CFBSELTX_DEFAULT << 15)    /**< Shifted mode DEFAULT for SYNTH_LPFCTRL2TX   */
-#define SYNTH_LPFCTRL2TX_CFBSELTX_DISABLE             (_SYNTH_LPFCTRL2TX_CFBSELTX_DISABLE << 15)    /**< Shifted mode DISABLE for SYNTH_LPFCTRL2TX    */
-#define SYNTH_LPFCTRL2TX_CFBSELTX_ENABLE              (_SYNTH_LPFCTRL2TX_CFBSELTX_ENABLE << 15)     /**< Shifted mode ENABLE for SYNTH_LPFCTRL2TX     */
+#define SYNTH_LPFCTRL2TX_CFBSELTX_DISABLE             (_SYNTH_LPFCTRL2TX_CFBSELTX_DISABLE << 15)    /**< Shifted mode DISABLE for SYNTH_LPFCTRL2TX   */
+#define SYNTH_LPFCTRL2TX_CFBSELTX_ENABLE              (_SYNTH_LPFCTRL2TX_CFBSELTX_ENABLE << 15)     /**< Shifted mode ENABLE for SYNTH_LPFCTRL2TX    */
 #define SYNTH_LPFCTRL2TX_CZSELTX                      (0x1UL << 16)                                 /**< LPF Cz Select in TX Mode                    */
 #define _SYNTH_LPFCTRL2TX_CZSELTX_SHIFT               16                                            /**< Shift value for SYNTH_CZSELTX               */
 #define _SYNTH_LPFCTRL2TX_CZSELTX_MASK                0x10000UL                                     /**< Bit mask for SYNTH_CZSELTX                  */
 #define _SYNTH_LPFCTRL2TX_CZSELTX_DEFAULT             0x00000000UL                                  /**< Mode DEFAULT for SYNTH_LPFCTRL2TX           */
-#define _SYNTH_LPFCTRL2TX_CZSELTX_DISABLE             0x00000000UL                                  /**< Mode DISABLE for SYNTH_LPFCTRL2TX            */
-#define _SYNTH_LPFCTRL2TX_CZSELTX_ENABLE              0x00000001UL                                  /**< Mode ENABLE for SYNTH_LPFCTRL2TX             */
+#define _SYNTH_LPFCTRL2TX_CZSELTX_DISABLE             0x00000000UL                                  /**< Mode DISABLE for SYNTH_LPFCTRL2TX           */
+#define _SYNTH_LPFCTRL2TX_CZSELTX_ENABLE              0x00000001UL                                  /**< Mode ENABLE for SYNTH_LPFCTRL2TX            */
 #define SYNTH_LPFCTRL2TX_CZSELTX_DEFAULT              (_SYNTH_LPFCTRL2TX_CZSELTX_DEFAULT << 16)     /**< Shifted mode DEFAULT for SYNTH_LPFCTRL2TX   */
-#define SYNTH_LPFCTRL2TX_CZSELTX_DISABLE              (_SYNTH_LPFCTRL2TX_CZSELTX_DISABLE << 16)     /**< Shifted mode DISABLE for SYNTH_LPFCTRL2TX    */
-#define SYNTH_LPFCTRL2TX_CZSELTX_ENABLE               (_SYNTH_LPFCTRL2TX_CZSELTX_ENABLE << 16)      /**< Shifted mode ENABLE for SYNTH_LPFCTRL2TX     */
+#define SYNTH_LPFCTRL2TX_CZSELTX_DISABLE              (_SYNTH_LPFCTRL2TX_CZSELTX_DISABLE << 16)     /**< Shifted mode DISABLE for SYNTH_LPFCTRL2TX   */
+#define SYNTH_LPFCTRL2TX_CZSELTX_ENABLE               (_SYNTH_LPFCTRL2TX_CZSELTX_ENABLE << 16)      /**< Shifted mode ENABLE for SYNTH_LPFCTRL2TX    */
 #define _SYNTH_LPFCTRL2TX_CZVALTX_SHIFT               17                                            /**< Shift value for SYNTH_CZVALTX               */
 #define _SYNTH_LPFCTRL2TX_CZVALTX_MASK                0x1FE0000UL                                   /**< Bit mask for SYNTH_CZVALTX                  */
 #define _SYNTH_LPFCTRL2TX_CZVALTX_DEFAULT             0x00000000UL                                  /**< Mode DEFAULT for SYNTH_LPFCTRL2TX           */
@@ -894,11 +893,11 @@ typedef struct {
 #define _SYNTH_LPFCTRL2TX_MODESELTX_SHIFT             25                                            /**< Shift value for SYNTH_MODESELTX             */
 #define _SYNTH_LPFCTRL2TX_MODESELTX_MASK              0x2000000UL                                   /**< Bit mask for SYNTH_MODESELTX                */
 #define _SYNTH_LPFCTRL2TX_MODESELTX_DEFAULT           0x00000000UL                                  /**< Mode DEFAULT for SYNTH_LPFCTRL2TX           */
-#define _SYNTH_LPFCTRL2TX_MODESELTX_ONEOP             0x00000000UL                                  /**< Mode ONEOP for SYNTH_LPFCTRL2TX              */
-#define _SYNTH_LPFCTRL2TX_MODESELTX_TWOOP             0x00000001UL                                  /**< Mode TWOOP for SYNTH_LPFCTRL2TX              */
+#define _SYNTH_LPFCTRL2TX_MODESELTX_ONEOP             0x00000000UL                                  /**< Mode ONEOP for SYNTH_LPFCTRL2TX             */
+#define _SYNTH_LPFCTRL2TX_MODESELTX_TWOOP             0x00000001UL                                  /**< Mode TWOOP for SYNTH_LPFCTRL2TX             */
 #define SYNTH_LPFCTRL2TX_MODESELTX_DEFAULT            (_SYNTH_LPFCTRL2TX_MODESELTX_DEFAULT << 25)   /**< Shifted mode DEFAULT for SYNTH_LPFCTRL2TX   */
-#define SYNTH_LPFCTRL2TX_MODESELTX_ONEOP              (_SYNTH_LPFCTRL2TX_MODESELTX_ONEOP << 25)     /**< Shifted mode ONEOP for SYNTH_LPFCTRL2TX      */
-#define SYNTH_LPFCTRL2TX_MODESELTX_TWOOP              (_SYNTH_LPFCTRL2TX_MODESELTX_TWOOP << 25)     /**< Shifted mode TWOOP for SYNTH_LPFCTRL2TX      */
+#define SYNTH_LPFCTRL2TX_MODESELTX_ONEOP              (_SYNTH_LPFCTRL2TX_MODESELTX_ONEOP << 25)     /**< Shifted mode ONEOP for SYNTH_LPFCTRL2TX     */
+#define SYNTH_LPFCTRL2TX_MODESELTX_TWOOP              (_SYNTH_LPFCTRL2TX_MODESELTX_TWOOP << 25)     /**< Shifted mode TWOOP for SYNTH_LPFCTRL2TX     */
 #define _SYNTH_LPFCTRL2TX_VCMLVLTX_SHIFT              26                                            /**< Shift value for SYNTH_VCMLVLTX              */
 #define _SYNTH_LPFCTRL2TX_VCMLVLTX_MASK               0x1C000000UL                                  /**< Bit mask for SYNTH_VCMLVLTX                 */
 #define _SYNTH_LPFCTRL2TX_VCMLVLTX_DEFAULT            0x00000000UL                                  /**< Mode DEFAULT for SYNTH_LPFCTRL2TX           */
@@ -924,11 +923,11 @@ typedef struct {
 #define _SYNTH_DSMCTRLRX_DSMMODERX_SHIFT              8                                                 /**< Shift value for SYNTH_DSMMODERX             */
 #define _SYNTH_DSMCTRLRX_DSMMODERX_MASK               0x100UL                                           /**< Bit mask for SYNTH_DSMMODERX                */
 #define _SYNTH_DSMCTRLRX_DSMMODERX_DEFAULT            0x00000000UL                                      /**< Mode DEFAULT for SYNTH_DSMCTRLRX            */
-#define _SYNTH_DSMCTRLRX_DSMMODERX_FEEDFORWARD        0x00000000UL                                      /**< Mode FEEDFORWARD for SYNTH_DSMCTRLRX         */
-#define _SYNTH_DSMCTRLRX_DSMMODERX_MASH               0x00000001UL                                      /**< Mode MASH for SYNTH_DSMCTRLRX                */
+#define _SYNTH_DSMCTRLRX_DSMMODERX_FEEDFORWARD        0x00000000UL                                      /**< Mode FEEDFORWARD for SYNTH_DSMCTRLRX        */
+#define _SYNTH_DSMCTRLRX_DSMMODERX_MASH               0x00000001UL                                      /**< Mode MASH for SYNTH_DSMCTRLRX               */
 #define SYNTH_DSMCTRLRX_DSMMODERX_DEFAULT             (_SYNTH_DSMCTRLRX_DSMMODERX_DEFAULT << 8)         /**< Shifted mode DEFAULT for SYNTH_DSMCTRLRX    */
-#define SYNTH_DSMCTRLRX_DSMMODERX_FEEDFORWARD         (_SYNTH_DSMCTRLRX_DSMMODERX_FEEDFORWARD << 8)     /**< Shifted mode FEEDFORWARD for SYNTH_DSMCTRLRX */
-#define SYNTH_DSMCTRLRX_DSMMODERX_MASH                (_SYNTH_DSMCTRLRX_DSMMODERX_MASH << 8)            /**< Shifted mode MASH for SYNTH_DSMCTRLRX        */
+#define SYNTH_DSMCTRLRX_DSMMODERX_FEEDFORWARD         (_SYNTH_DSMCTRLRX_DSMMODERX_FEEDFORWARD << 8)     /**< Shifted mode FEEDFORWARD for SYNTH_DSMCTRLRX*/
+#define SYNTH_DSMCTRLRX_DSMMODERX_MASH                (_SYNTH_DSMCTRLRX_DSMMODERX_MASH << 8)            /**< Shifted mode MASH for SYNTH_DSMCTRLRX       */
 #define SYNTH_DSMCTRLRX_LSBFORCERX                    (0x1UL << 9)                                      /**< Delta-sigma input force LSB for RX mode     */
 #define _SYNTH_DSMCTRLRX_LSBFORCERX_SHIFT             9                                                 /**< Shift value for SYNTH_LSBFORCERX            */
 #define _SYNTH_DSMCTRLRX_LSBFORCERX_MASK              0x200UL                                           /**< Bit mask for SYNTH_LSBFORCERX               */
@@ -938,29 +937,29 @@ typedef struct {
 #define _SYNTH_DSMCTRLRX_DEMMODERX_SHIFT              24                                                /**< Shift value for SYNTH_DEMMODERX             */
 #define _SYNTH_DSMCTRLRX_DEMMODERX_MASK               0x1000000UL                                       /**< Bit mask for SYNTH_DEMMODERX                */
 #define _SYNTH_DSMCTRLRX_DEMMODERX_DEFAULT            0x00000000UL                                      /**< Mode DEFAULT for SYNTH_DSMCTRLRX            */
-#define _SYNTH_DSMCTRLRX_DEMMODERX_DISABLED           0x00000000UL                                      /**< Mode DISABLED for SYNTH_DSMCTRLRX            */
-#define _SYNTH_DSMCTRLRX_DEMMODERX_ENABLED            0x00000001UL                                      /**< Mode ENABLED for SYNTH_DSMCTRLRX             */
+#define _SYNTH_DSMCTRLRX_DEMMODERX_DISABLED           0x00000000UL                                      /**< Mode DISABLED for SYNTH_DSMCTRLRX           */
+#define _SYNTH_DSMCTRLRX_DEMMODERX_ENABLED            0x00000001UL                                      /**< Mode ENABLED for SYNTH_DSMCTRLRX            */
 #define SYNTH_DSMCTRLRX_DEMMODERX_DEFAULT             (_SYNTH_DSMCTRLRX_DEMMODERX_DEFAULT << 24)        /**< Shifted mode DEFAULT for SYNTH_DSMCTRLRX    */
-#define SYNTH_DSMCTRLRX_DEMMODERX_DISABLED            (_SYNTH_DSMCTRLRX_DEMMODERX_DISABLED << 24)       /**< Shifted mode DISABLED for SYNTH_DSMCTRLRX    */
-#define SYNTH_DSMCTRLRX_DEMMODERX_ENABLED             (_SYNTH_DSMCTRLRX_DEMMODERX_ENABLED << 24)        /**< Shifted mode ENABLED for SYNTH_DSMCTRLRX     */
+#define SYNTH_DSMCTRLRX_DEMMODERX_DISABLED            (_SYNTH_DSMCTRLRX_DEMMODERX_DISABLED << 24)       /**< Shifted mode DISABLED for SYNTH_DSMCTRLRX   */
+#define SYNTH_DSMCTRLRX_DEMMODERX_ENABLED             (_SYNTH_DSMCTRLRX_DEMMODERX_ENABLED << 24)        /**< Shifted mode ENABLED for SYNTH_DSMCTRLRX    */
 #define SYNTH_DSMCTRLRX_MASHORDERRX                   (0x1UL << 25)                                     /**< MASH order for RX mode                      */
 #define _SYNTH_DSMCTRLRX_MASHORDERRX_SHIFT            25                                                /**< Shift value for SYNTH_MASHORDERRX           */
 #define _SYNTH_DSMCTRLRX_MASHORDERRX_MASK             0x2000000UL                                       /**< Bit mask for SYNTH_MASHORDERRX              */
 #define _SYNTH_DSMCTRLRX_MASHORDERRX_DEFAULT          0x00000000UL                                      /**< Mode DEFAULT for SYNTH_DSMCTRLRX            */
-#define _SYNTH_DSMCTRLRX_MASHORDERRX_SECOND           0x00000000UL                                      /**< Mode SECOND for SYNTH_DSMCTRLRX              */
-#define _SYNTH_DSMCTRLRX_MASHORDERRX_THIRD            0x00000001UL                                      /**< Mode THIRD for SYNTH_DSMCTRLRX               */
+#define _SYNTH_DSMCTRLRX_MASHORDERRX_SECOND           0x00000000UL                                      /**< Mode SECOND for SYNTH_DSMCTRLRX             */
+#define _SYNTH_DSMCTRLRX_MASHORDERRX_THIRD            0x00000001UL                                      /**< Mode THIRD for SYNTH_DSMCTRLRX              */
 #define SYNTH_DSMCTRLRX_MASHORDERRX_DEFAULT           (_SYNTH_DSMCTRLRX_MASHORDERRX_DEFAULT << 25)      /**< Shifted mode DEFAULT for SYNTH_DSMCTRLRX    */
-#define SYNTH_DSMCTRLRX_MASHORDERRX_SECOND            (_SYNTH_DSMCTRLRX_MASHORDERRX_SECOND << 25)       /**< Shifted mode SECOND for SYNTH_DSMCTRLRX      */
-#define SYNTH_DSMCTRLRX_MASHORDERRX_THIRD             (_SYNTH_DSMCTRLRX_MASHORDERRX_THIRD << 25)        /**< Shifted mode THIRD for SYNTH_DSMCTRLRX       */
+#define SYNTH_DSMCTRLRX_MASHORDERRX_SECOND            (_SYNTH_DSMCTRLRX_MASHORDERRX_SECOND << 25)       /**< Shifted mode SECOND for SYNTH_DSMCTRLRX     */
+#define SYNTH_DSMCTRLRX_MASHORDERRX_THIRD             (_SYNTH_DSMCTRLRX_MASHORDERRX_THIRD << 25)        /**< Shifted mode THIRD for SYNTH_DSMCTRLRX      */
 #define SYNTH_DSMCTRLRX_REQORDERRX                    (0x1UL << 26)                                     /**< ReQuant order for RX mode                   */
 #define _SYNTH_DSMCTRLRX_REQORDERRX_SHIFT             26                                                /**< Shift value for SYNTH_REQORDERRX            */
 #define _SYNTH_DSMCTRLRX_REQORDERRX_MASK              0x4000000UL                                       /**< Bit mask for SYNTH_REQORDERRX               */
 #define _SYNTH_DSMCTRLRX_REQORDERRX_DEFAULT           0x00000000UL                                      /**< Mode DEFAULT for SYNTH_DSMCTRLRX            */
-#define _SYNTH_DSMCTRLRX_REQORDERRX_FIRST             0x00000000UL                                      /**< Mode FIRST for SYNTH_DSMCTRLRX               */
-#define _SYNTH_DSMCTRLRX_REQORDERRX_SECOND            0x00000001UL                                      /**< Mode SECOND for SYNTH_DSMCTRLRX              */
+#define _SYNTH_DSMCTRLRX_REQORDERRX_FIRST             0x00000000UL                                      /**< Mode FIRST for SYNTH_DSMCTRLRX              */
+#define _SYNTH_DSMCTRLRX_REQORDERRX_SECOND            0x00000001UL                                      /**< Mode SECOND for SYNTH_DSMCTRLRX             */
 #define SYNTH_DSMCTRLRX_REQORDERRX_DEFAULT            (_SYNTH_DSMCTRLRX_REQORDERRX_DEFAULT << 26)       /**< Shifted mode DEFAULT for SYNTH_DSMCTRLRX    */
-#define SYNTH_DSMCTRLRX_REQORDERRX_FIRST              (_SYNTH_DSMCTRLRX_REQORDERRX_FIRST << 26)         /**< Shifted mode FIRST for SYNTH_DSMCTRLRX       */
-#define SYNTH_DSMCTRLRX_REQORDERRX_SECOND             (_SYNTH_DSMCTRLRX_REQORDERRX_SECOND << 26)        /**< Shifted mode SECOND for SYNTH_DSMCTRLRX      */
+#define SYNTH_DSMCTRLRX_REQORDERRX_FIRST              (_SYNTH_DSMCTRLRX_REQORDERRX_FIRST << 26)         /**< Shifted mode FIRST for SYNTH_DSMCTRLRX      */
+#define SYNTH_DSMCTRLRX_REQORDERRX_SECOND             (_SYNTH_DSMCTRLRX_REQORDERRX_SECOND << 26)        /**< Shifted mode SECOND for SYNTH_DSMCTRLRX     */
 
 /* Bit fields for SYNTH DSMCTRLTX */
 #define _SYNTH_DSMCTRLTX_RESETVALUE                   0x00000013UL                                      /**< Default value for SYNTH_DSMCTRLTX           */
@@ -982,11 +981,11 @@ typedef struct {
 #define _SYNTH_DSMCTRLTX_DSMMODETX_SHIFT              8                                                 /**< Shift value for SYNTH_DSMMODETX             */
 #define _SYNTH_DSMCTRLTX_DSMMODETX_MASK               0x100UL                                           /**< Bit mask for SYNTH_DSMMODETX                */
 #define _SYNTH_DSMCTRLTX_DSMMODETX_DEFAULT            0x00000000UL                                      /**< Mode DEFAULT for SYNTH_DSMCTRLTX            */
-#define _SYNTH_DSMCTRLTX_DSMMODETX_FEEDFORWARD        0x00000000UL                                      /**< Mode FEEDFORWARD for SYNTH_DSMCTRLTX         */
-#define _SYNTH_DSMCTRLTX_DSMMODETX_MASH               0x00000001UL                                      /**< Mode MASH for SYNTH_DSMCTRLTX                */
+#define _SYNTH_DSMCTRLTX_DSMMODETX_FEEDFORWARD        0x00000000UL                                      /**< Mode FEEDFORWARD for SYNTH_DSMCTRLTX        */
+#define _SYNTH_DSMCTRLTX_DSMMODETX_MASH               0x00000001UL                                      /**< Mode MASH for SYNTH_DSMCTRLTX               */
 #define SYNTH_DSMCTRLTX_DSMMODETX_DEFAULT             (_SYNTH_DSMCTRLTX_DSMMODETX_DEFAULT << 8)         /**< Shifted mode DEFAULT for SYNTH_DSMCTRLTX    */
-#define SYNTH_DSMCTRLTX_DSMMODETX_FEEDFORWARD         (_SYNTH_DSMCTRLTX_DSMMODETX_FEEDFORWARD << 8)     /**< Shifted mode FEEDFORWARD for SYNTH_DSMCTRLTX */
-#define SYNTH_DSMCTRLTX_DSMMODETX_MASH                (_SYNTH_DSMCTRLTX_DSMMODETX_MASH << 8)            /**< Shifted mode MASH for SYNTH_DSMCTRLTX        */
+#define SYNTH_DSMCTRLTX_DSMMODETX_FEEDFORWARD         (_SYNTH_DSMCTRLTX_DSMMODETX_FEEDFORWARD << 8)     /**< Shifted mode FEEDFORWARD for SYNTH_DSMCTRLTX*/
+#define SYNTH_DSMCTRLTX_DSMMODETX_MASH                (_SYNTH_DSMCTRLTX_DSMMODETX_MASH << 8)            /**< Shifted mode MASH for SYNTH_DSMCTRLTX       */
 #define SYNTH_DSMCTRLTX_LSBFORCETX                    (0x1UL << 9)                                      /**< Delta-sigma input force LSB for TX mode     */
 #define _SYNTH_DSMCTRLTX_LSBFORCETX_SHIFT             9                                                 /**< Shift value for SYNTH_LSBFORCETX            */
 #define _SYNTH_DSMCTRLTX_LSBFORCETX_MASK              0x200UL                                           /**< Bit mask for SYNTH_LSBFORCETX               */
@@ -996,29 +995,29 @@ typedef struct {
 #define _SYNTH_DSMCTRLTX_DEMMODETX_SHIFT              24                                                /**< Shift value for SYNTH_DEMMODETX             */
 #define _SYNTH_DSMCTRLTX_DEMMODETX_MASK               0x1000000UL                                       /**< Bit mask for SYNTH_DEMMODETX                */
 #define _SYNTH_DSMCTRLTX_DEMMODETX_DEFAULT            0x00000000UL                                      /**< Mode DEFAULT for SYNTH_DSMCTRLTX            */
-#define _SYNTH_DSMCTRLTX_DEMMODETX_DISABLED           0x00000000UL                                      /**< Mode DISABLED for SYNTH_DSMCTRLTX            */
-#define _SYNTH_DSMCTRLTX_DEMMODETX_ENABLED            0x00000001UL                                      /**< Mode ENABLED for SYNTH_DSMCTRLTX             */
+#define _SYNTH_DSMCTRLTX_DEMMODETX_DISABLED           0x00000000UL                                      /**< Mode DISABLED for SYNTH_DSMCTRLTX           */
+#define _SYNTH_DSMCTRLTX_DEMMODETX_ENABLED            0x00000001UL                                      /**< Mode ENABLED for SYNTH_DSMCTRLTX            */
 #define SYNTH_DSMCTRLTX_DEMMODETX_DEFAULT             (_SYNTH_DSMCTRLTX_DEMMODETX_DEFAULT << 24)        /**< Shifted mode DEFAULT for SYNTH_DSMCTRLTX    */
-#define SYNTH_DSMCTRLTX_DEMMODETX_DISABLED            (_SYNTH_DSMCTRLTX_DEMMODETX_DISABLED << 24)       /**< Shifted mode DISABLED for SYNTH_DSMCTRLTX    */
-#define SYNTH_DSMCTRLTX_DEMMODETX_ENABLED             (_SYNTH_DSMCTRLTX_DEMMODETX_ENABLED << 24)        /**< Shifted mode ENABLED for SYNTH_DSMCTRLTX     */
+#define SYNTH_DSMCTRLTX_DEMMODETX_DISABLED            (_SYNTH_DSMCTRLTX_DEMMODETX_DISABLED << 24)       /**< Shifted mode DISABLED for SYNTH_DSMCTRLTX   */
+#define SYNTH_DSMCTRLTX_DEMMODETX_ENABLED             (_SYNTH_DSMCTRLTX_DEMMODETX_ENABLED << 24)        /**< Shifted mode ENABLED for SYNTH_DSMCTRLTX    */
 #define SYNTH_DSMCTRLTX_MASHORDERTX                   (0x1UL << 25)                                     /**< MASH order for TX mode                      */
 #define _SYNTH_DSMCTRLTX_MASHORDERTX_SHIFT            25                                                /**< Shift value for SYNTH_MASHORDERTX           */
 #define _SYNTH_DSMCTRLTX_MASHORDERTX_MASK             0x2000000UL                                       /**< Bit mask for SYNTH_MASHORDERTX              */
 #define _SYNTH_DSMCTRLTX_MASHORDERTX_DEFAULT          0x00000000UL                                      /**< Mode DEFAULT for SYNTH_DSMCTRLTX            */
-#define _SYNTH_DSMCTRLTX_MASHORDERTX_SECOND           0x00000000UL                                      /**< Mode SECOND for SYNTH_DSMCTRLTX              */
-#define _SYNTH_DSMCTRLTX_MASHORDERTX_THIRD            0x00000001UL                                      /**< Mode THIRD for SYNTH_DSMCTRLTX               */
+#define _SYNTH_DSMCTRLTX_MASHORDERTX_SECOND           0x00000000UL                                      /**< Mode SECOND for SYNTH_DSMCTRLTX             */
+#define _SYNTH_DSMCTRLTX_MASHORDERTX_THIRD            0x00000001UL                                      /**< Mode THIRD for SYNTH_DSMCTRLTX              */
 #define SYNTH_DSMCTRLTX_MASHORDERTX_DEFAULT           (_SYNTH_DSMCTRLTX_MASHORDERTX_DEFAULT << 25)      /**< Shifted mode DEFAULT for SYNTH_DSMCTRLTX    */
-#define SYNTH_DSMCTRLTX_MASHORDERTX_SECOND            (_SYNTH_DSMCTRLTX_MASHORDERTX_SECOND << 25)       /**< Shifted mode SECOND for SYNTH_DSMCTRLTX      */
-#define SYNTH_DSMCTRLTX_MASHORDERTX_THIRD             (_SYNTH_DSMCTRLTX_MASHORDERTX_THIRD << 25)        /**< Shifted mode THIRD for SYNTH_DSMCTRLTX       */
+#define SYNTH_DSMCTRLTX_MASHORDERTX_SECOND            (_SYNTH_DSMCTRLTX_MASHORDERTX_SECOND << 25)       /**< Shifted mode SECOND for SYNTH_DSMCTRLTX     */
+#define SYNTH_DSMCTRLTX_MASHORDERTX_THIRD             (_SYNTH_DSMCTRLTX_MASHORDERTX_THIRD << 25)        /**< Shifted mode THIRD for SYNTH_DSMCTRLTX      */
 #define SYNTH_DSMCTRLTX_REQORDERTX                    (0x1UL << 26)                                     /**< ReQuant order for TX mode                   */
 #define _SYNTH_DSMCTRLTX_REQORDERTX_SHIFT             26                                                /**< Shift value for SYNTH_REQORDERTX            */
 #define _SYNTH_DSMCTRLTX_REQORDERTX_MASK              0x4000000UL                                       /**< Bit mask for SYNTH_REQORDERTX               */
 #define _SYNTH_DSMCTRLTX_REQORDERTX_DEFAULT           0x00000000UL                                      /**< Mode DEFAULT for SYNTH_DSMCTRLTX            */
-#define _SYNTH_DSMCTRLTX_REQORDERTX_FIRST             0x00000000UL                                      /**< Mode FIRST for SYNTH_DSMCTRLTX               */
-#define _SYNTH_DSMCTRLTX_REQORDERTX_SECOND            0x00000001UL                                      /**< Mode SECOND for SYNTH_DSMCTRLTX              */
+#define _SYNTH_DSMCTRLTX_REQORDERTX_FIRST             0x00000000UL                                      /**< Mode FIRST for SYNTH_DSMCTRLTX              */
+#define _SYNTH_DSMCTRLTX_REQORDERTX_SECOND            0x00000001UL                                      /**< Mode SECOND for SYNTH_DSMCTRLTX             */
 #define SYNTH_DSMCTRLTX_REQORDERTX_DEFAULT            (_SYNTH_DSMCTRLTX_REQORDERTX_DEFAULT << 26)       /**< Shifted mode DEFAULT for SYNTH_DSMCTRLTX    */
-#define SYNTH_DSMCTRLTX_REQORDERTX_FIRST              (_SYNTH_DSMCTRLTX_REQORDERTX_FIRST << 26)         /**< Shifted mode FIRST for SYNTH_DSMCTRLTX       */
-#define SYNTH_DSMCTRLTX_REQORDERTX_SECOND             (_SYNTH_DSMCTRLTX_REQORDERTX_SECOND << 26)        /**< Shifted mode SECOND for SYNTH_DSMCTRLTX      */
+#define SYNTH_DSMCTRLTX_REQORDERTX_FIRST              (_SYNTH_DSMCTRLTX_REQORDERTX_FIRST << 26)         /**< Shifted mode FIRST for SYNTH_DSMCTRLTX      */
+#define SYNTH_DSMCTRLTX_REQORDERTX_SECOND             (_SYNTH_DSMCTRLTX_REQORDERTX_SECOND << 26)        /**< Shifted mode SECOND for SYNTH_DSMCTRLTX     */
 
 /** @} End of group EFR32MG21_SYNTH_BitFields */
 /** @} End of group EFR32MG21_SYNTH */

@@ -1,10 +1,9 @@
 /**************************************************************************//**
  * @file
  * @brief EFR32MG21 LFXO register and bit field definitions
- * @version 5.7.0
  ******************************************************************************
  * # License
- * <b>Copyright 2018 Silicon Laboratories, Inc. www.silabs.com</b>
+ * <b>Copyright 2020 Silicon Laboratories, Inc. www.silabs.com</b>
  ******************************************************************************
  *
  * SPDX-License-Identifier: Zlib
@@ -52,40 +51,40 @@ typedef struct {
   __IM uint32_t  IPVERSION;                     /**< LFXO IP version                                    */
   __IOM uint32_t CTRL;                          /**< LFXO Control Register                              */
   __IOM uint32_t CFG;                           /**< LFXO Configuration Register                        */
-  uint32_t       RESERVED0[1U];                 /**< Reserved for future use                      */
+  uint32_t       RESERVED0[1U];                 /**< Reserved for future use                            */
   __IM uint32_t  STATUS;                        /**< LFXO Status Register                               */
   __IOM uint32_t CAL;                           /**< LFXO Calibration Register                          */
   __IOM uint32_t IF;                            /**< Interrupt Flag Register                            */
   __IOM uint32_t IEN;                           /**< Interrupt Enable Register                          */
   __IM uint32_t  SYNCBUSY;                      /**< LFXO Sync Busy Register                            */
   __IOM uint32_t LOCK;                          /**< Configuration Lock Register                        */
-  uint32_t       RESERVED1[1014U];              /**< Reserved for future use*/
+  uint32_t       RESERVED1[1014U];              /**< Reserved for future use                            */
   __IM uint32_t  IPVERSION_SET;                 /**< LFXO IP version                                    */
   __IOM uint32_t CTRL_SET;                      /**< LFXO Control Register                              */
   __IOM uint32_t CFG_SET;                       /**< LFXO Configuration Register                        */
-  uint32_t       RESERVED2[1U];                 /**< Reserved for future use                      */
+  uint32_t       RESERVED2[1U];                 /**< Reserved for future use                            */
   __IM uint32_t  STATUS_SET;                    /**< LFXO Status Register                               */
   __IOM uint32_t CAL_SET;                       /**< LFXO Calibration Register                          */
   __IOM uint32_t IF_SET;                        /**< Interrupt Flag Register                            */
   __IOM uint32_t IEN_SET;                       /**< Interrupt Enable Register                          */
   __IM uint32_t  SYNCBUSY_SET;                  /**< LFXO Sync Busy Register                            */
   __IOM uint32_t LOCK_SET;                      /**< Configuration Lock Register                        */
-  uint32_t       RESERVED3[1014U];              /**< Reserved for future use*/
+  uint32_t       RESERVED3[1014U];              /**< Reserved for future use                            */
   __IM uint32_t  IPVERSION_CLR;                 /**< LFXO IP version                                    */
   __IOM uint32_t CTRL_CLR;                      /**< LFXO Control Register                              */
   __IOM uint32_t CFG_CLR;                       /**< LFXO Configuration Register                        */
-  uint32_t       RESERVED4[1U];                 /**< Reserved for future use                      */
+  uint32_t       RESERVED4[1U];                 /**< Reserved for future use                            */
   __IM uint32_t  STATUS_CLR;                    /**< LFXO Status Register                               */
   __IOM uint32_t CAL_CLR;                       /**< LFXO Calibration Register                          */
   __IOM uint32_t IF_CLR;                        /**< Interrupt Flag Register                            */
   __IOM uint32_t IEN_CLR;                       /**< Interrupt Enable Register                          */
   __IM uint32_t  SYNCBUSY_CLR;                  /**< LFXO Sync Busy Register                            */
   __IOM uint32_t LOCK_CLR;                      /**< Configuration Lock Register                        */
-  uint32_t       RESERVED5[1014U];              /**< Reserved for future use*/
+  uint32_t       RESERVED5[1014U];              /**< Reserved for future use                            */
   __IM uint32_t  IPVERSION_TGL;                 /**< LFXO IP version                                    */
   __IOM uint32_t CTRL_TGL;                      /**< LFXO Control Register                              */
   __IOM uint32_t CFG_TGL;                       /**< LFXO Configuration Register                        */
-  uint32_t       RESERVED6[1U];                 /**< Reserved for future use                      */
+  uint32_t       RESERVED6[1U];                 /**< Reserved for future use                            */
   __IM uint32_t  STATUS_TGL;                    /**< LFXO Status Register                               */
   __IOM uint32_t CAL_TGL;                       /**< LFXO Calibration Register                          */
   __IOM uint32_t IF_TGL;                        /**< Interrupt Flag Register                            */
@@ -150,33 +149,33 @@ typedef struct {
 #define _LFXO_CFG_MODE_SHIFT                 4                                          /**< Shift value for LFXO_MODE                   */
 #define _LFXO_CFG_MODE_MASK                  0x30UL                                     /**< Bit mask for LFXO_MODE                      */
 #define _LFXO_CFG_MODE_DEFAULT               0x00000000UL                               /**< Mode DEFAULT for LFXO_CFG                   */
-#define _LFXO_CFG_MODE_XTAL                  0x00000000UL                               /**< Mode XTAL for LFXO_CFG                       */
-#define _LFXO_CFG_MODE_BUFEXTCLK             0x00000001UL                               /**< Mode BUFEXTCLK for LFXO_CFG                  */
-#define _LFXO_CFG_MODE_DIGEXTCLK             0x00000002UL                               /**< Mode DIGEXTCLK for LFXO_CFG                  */
+#define _LFXO_CFG_MODE_XTAL                  0x00000000UL                               /**< Mode XTAL for LFXO_CFG                      */
+#define _LFXO_CFG_MODE_BUFEXTCLK             0x00000001UL                               /**< Mode BUFEXTCLK for LFXO_CFG                 */
+#define _LFXO_CFG_MODE_DIGEXTCLK             0x00000002UL                               /**< Mode DIGEXTCLK for LFXO_CFG                 */
 #define LFXO_CFG_MODE_DEFAULT                (_LFXO_CFG_MODE_DEFAULT << 4)              /**< Shifted mode DEFAULT for LFXO_CFG           */
-#define LFXO_CFG_MODE_XTAL                   (_LFXO_CFG_MODE_XTAL << 4)                 /**< Shifted mode XTAL for LFXO_CFG               */
-#define LFXO_CFG_MODE_BUFEXTCLK              (_LFXO_CFG_MODE_BUFEXTCLK << 4)            /**< Shifted mode BUFEXTCLK for LFXO_CFG          */
-#define LFXO_CFG_MODE_DIGEXTCLK              (_LFXO_CFG_MODE_DIGEXTCLK << 4)            /**< Shifted mode DIGEXTCLK for LFXO_CFG          */
+#define LFXO_CFG_MODE_XTAL                   (_LFXO_CFG_MODE_XTAL << 4)                 /**< Shifted mode XTAL for LFXO_CFG              */
+#define LFXO_CFG_MODE_BUFEXTCLK              (_LFXO_CFG_MODE_BUFEXTCLK << 4)            /**< Shifted mode BUFEXTCLK for LFXO_CFG         */
+#define LFXO_CFG_MODE_DIGEXTCLK              (_LFXO_CFG_MODE_DIGEXTCLK << 4)            /**< Shifted mode DIGEXTCLK for LFXO_CFG         */
 #define _LFXO_CFG_TIMEOUT_SHIFT              8                                          /**< Shift value for LFXO_TIMEOUT                */
 #define _LFXO_CFG_TIMEOUT_MASK               0x700UL                                    /**< Bit mask for LFXO_TIMEOUT                   */
 #define _LFXO_CFG_TIMEOUT_DEFAULT            0x00000007UL                               /**< Mode DEFAULT for LFXO_CFG                   */
-#define _LFXO_CFG_TIMEOUT_CYCLES2            0x00000000UL                               /**< Mode CYCLES2 for LFXO_CFG                    */
-#define _LFXO_CFG_TIMEOUT_CYCLES256          0x00000001UL                               /**< Mode CYCLES256 for LFXO_CFG                  */
-#define _LFXO_CFG_TIMEOUT_CYCLES1K           0x00000002UL                               /**< Mode CYCLES1K for LFXO_CFG                   */
-#define _LFXO_CFG_TIMEOUT_CYCLES2K           0x00000003UL                               /**< Mode CYCLES2K for LFXO_CFG                   */
-#define _LFXO_CFG_TIMEOUT_CYCLES4K           0x00000004UL                               /**< Mode CYCLES4K for LFXO_CFG                   */
-#define _LFXO_CFG_TIMEOUT_CYCLES8K           0x00000005UL                               /**< Mode CYCLES8K for LFXO_CFG                   */
-#define _LFXO_CFG_TIMEOUT_CYCLES16K          0x00000006UL                               /**< Mode CYCLES16K for LFXO_CFG                  */
-#define _LFXO_CFG_TIMEOUT_CYCLES32K          0x00000007UL                               /**< Mode CYCLES32K for LFXO_CFG                  */
+#define _LFXO_CFG_TIMEOUT_CYCLES2            0x00000000UL                               /**< Mode CYCLES2 for LFXO_CFG                   */
+#define _LFXO_CFG_TIMEOUT_CYCLES256          0x00000001UL                               /**< Mode CYCLES256 for LFXO_CFG                 */
+#define _LFXO_CFG_TIMEOUT_CYCLES1K           0x00000002UL                               /**< Mode CYCLES1K for LFXO_CFG                  */
+#define _LFXO_CFG_TIMEOUT_CYCLES2K           0x00000003UL                               /**< Mode CYCLES2K for LFXO_CFG                  */
+#define _LFXO_CFG_TIMEOUT_CYCLES4K           0x00000004UL                               /**< Mode CYCLES4K for LFXO_CFG                  */
+#define _LFXO_CFG_TIMEOUT_CYCLES8K           0x00000005UL                               /**< Mode CYCLES8K for LFXO_CFG                  */
+#define _LFXO_CFG_TIMEOUT_CYCLES16K          0x00000006UL                               /**< Mode CYCLES16K for LFXO_CFG                 */
+#define _LFXO_CFG_TIMEOUT_CYCLES32K          0x00000007UL                               /**< Mode CYCLES32K for LFXO_CFG                 */
 #define LFXO_CFG_TIMEOUT_DEFAULT             (_LFXO_CFG_TIMEOUT_DEFAULT << 8)           /**< Shifted mode DEFAULT for LFXO_CFG           */
-#define LFXO_CFG_TIMEOUT_CYCLES2             (_LFXO_CFG_TIMEOUT_CYCLES2 << 8)           /**< Shifted mode CYCLES2 for LFXO_CFG            */
-#define LFXO_CFG_TIMEOUT_CYCLES256           (_LFXO_CFG_TIMEOUT_CYCLES256 << 8)         /**< Shifted mode CYCLES256 for LFXO_CFG          */
-#define LFXO_CFG_TIMEOUT_CYCLES1K            (_LFXO_CFG_TIMEOUT_CYCLES1K << 8)          /**< Shifted mode CYCLES1K for LFXO_CFG           */
-#define LFXO_CFG_TIMEOUT_CYCLES2K            (_LFXO_CFG_TIMEOUT_CYCLES2K << 8)          /**< Shifted mode CYCLES2K for LFXO_CFG           */
-#define LFXO_CFG_TIMEOUT_CYCLES4K            (_LFXO_CFG_TIMEOUT_CYCLES4K << 8)          /**< Shifted mode CYCLES4K for LFXO_CFG           */
-#define LFXO_CFG_TIMEOUT_CYCLES8K            (_LFXO_CFG_TIMEOUT_CYCLES8K << 8)          /**< Shifted mode CYCLES8K for LFXO_CFG           */
-#define LFXO_CFG_TIMEOUT_CYCLES16K           (_LFXO_CFG_TIMEOUT_CYCLES16K << 8)         /**< Shifted mode CYCLES16K for LFXO_CFG          */
-#define LFXO_CFG_TIMEOUT_CYCLES32K           (_LFXO_CFG_TIMEOUT_CYCLES32K << 8)         /**< Shifted mode CYCLES32K for LFXO_CFG          */
+#define LFXO_CFG_TIMEOUT_CYCLES2             (_LFXO_CFG_TIMEOUT_CYCLES2 << 8)           /**< Shifted mode CYCLES2 for LFXO_CFG           */
+#define LFXO_CFG_TIMEOUT_CYCLES256           (_LFXO_CFG_TIMEOUT_CYCLES256 << 8)         /**< Shifted mode CYCLES256 for LFXO_CFG         */
+#define LFXO_CFG_TIMEOUT_CYCLES1K            (_LFXO_CFG_TIMEOUT_CYCLES1K << 8)          /**< Shifted mode CYCLES1K for LFXO_CFG          */
+#define LFXO_CFG_TIMEOUT_CYCLES2K            (_LFXO_CFG_TIMEOUT_CYCLES2K << 8)          /**< Shifted mode CYCLES2K for LFXO_CFG          */
+#define LFXO_CFG_TIMEOUT_CYCLES4K            (_LFXO_CFG_TIMEOUT_CYCLES4K << 8)          /**< Shifted mode CYCLES4K for LFXO_CFG          */
+#define LFXO_CFG_TIMEOUT_CYCLES8K            (_LFXO_CFG_TIMEOUT_CYCLES8K << 8)          /**< Shifted mode CYCLES8K for LFXO_CFG          */
+#define LFXO_CFG_TIMEOUT_CYCLES16K           (_LFXO_CFG_TIMEOUT_CYCLES16K << 8)         /**< Shifted mode CYCLES16K for LFXO_CFG         */
+#define LFXO_CFG_TIMEOUT_CYCLES32K           (_LFXO_CFG_TIMEOUT_CYCLES32K << 8)         /**< Shifted mode CYCLES32K for LFXO_CFG         */
 
 /* Bit fields for LFXO STATUS */
 #define _LFXO_STATUS_RESETVALUE              0x00000000UL                               /**< Default value for LFXO_STATUS               */
@@ -195,11 +194,11 @@ typedef struct {
 #define _LFXO_STATUS_LOCK_SHIFT              31                                         /**< Shift value for LFXO_LOCK                   */
 #define _LFXO_STATUS_LOCK_MASK               0x80000000UL                               /**< Bit mask for LFXO_LOCK                      */
 #define _LFXO_STATUS_LOCK_DEFAULT            0x00000000UL                               /**< Mode DEFAULT for LFXO_STATUS                */
-#define _LFXO_STATUS_LOCK_UNLOCKED           0x00000000UL                               /**< Mode UNLOCKED for LFXO_STATUS                */
-#define _LFXO_STATUS_LOCK_LOCKED             0x00000001UL                               /**< Mode LOCKED for LFXO_STATUS                  */
+#define _LFXO_STATUS_LOCK_UNLOCKED           0x00000000UL                               /**< Mode UNLOCKED for LFXO_STATUS               */
+#define _LFXO_STATUS_LOCK_LOCKED             0x00000001UL                               /**< Mode LOCKED for LFXO_STATUS                 */
 #define LFXO_STATUS_LOCK_DEFAULT             (_LFXO_STATUS_LOCK_DEFAULT << 31)          /**< Shifted mode DEFAULT for LFXO_STATUS        */
-#define LFXO_STATUS_LOCK_UNLOCKED            (_LFXO_STATUS_LOCK_UNLOCKED << 31)         /**< Shifted mode UNLOCKED for LFXO_STATUS        */
-#define LFXO_STATUS_LOCK_LOCKED              (_LFXO_STATUS_LOCK_LOCKED << 31)           /**< Shifted mode LOCKED for LFXO_STATUS          */
+#define LFXO_STATUS_LOCK_UNLOCKED            (_LFXO_STATUS_LOCK_UNLOCKED << 31)         /**< Shifted mode UNLOCKED for LFXO_STATUS       */
+#define LFXO_STATUS_LOCK_LOCKED              (_LFXO_STATUS_LOCK_LOCKED << 31)           /**< Shifted mode LOCKED for LFXO_STATUS         */
 
 /* Bit fields for LFXO CAL */
 #define _LFXO_CAL_RESETVALUE                 0x00000200UL                               /**< Default value for LFXO_CAL                  */
@@ -276,9 +275,9 @@ typedef struct {
 #define _LFXO_LOCK_LOCKKEY_SHIFT             0                                          /**< Shift value for LFXO_LOCKKEY                */
 #define _LFXO_LOCK_LOCKKEY_MASK              0xFFFFUL                                   /**< Bit mask for LFXO_LOCKKEY                   */
 #define _LFXO_LOCK_LOCKKEY_DEFAULT           0x00001A20UL                               /**< Mode DEFAULT for LFXO_LOCK                  */
-#define _LFXO_LOCK_LOCKKEY_UNLOCK            0x00001A20UL                               /**< Mode UNLOCK for LFXO_LOCK                    */
+#define _LFXO_LOCK_LOCKKEY_UNLOCK            0x00001A20UL                               /**< Mode UNLOCK for LFXO_LOCK                   */
 #define LFXO_LOCK_LOCKKEY_DEFAULT            (_LFXO_LOCK_LOCKKEY_DEFAULT << 0)          /**< Shifted mode DEFAULT for LFXO_LOCK          */
-#define LFXO_LOCK_LOCKKEY_UNLOCK             (_LFXO_LOCK_LOCKKEY_UNLOCK << 0)           /**< Shifted mode UNLOCK for LFXO_LOCK            */
+#define LFXO_LOCK_LOCKKEY_UNLOCK             (_LFXO_LOCK_LOCKKEY_UNLOCK << 0)           /**< Shifted mode UNLOCK for LFXO_LOCK           */
 
 /** @} End of group EFR32MG21_LFXO_BitFields */
 /** @} End of group EFR32MG21_LFXO */

@@ -1,0 +1,33 @@
+# Copyright (c) 2020 HAW Hamburg
+#
+# This file is subject to the terms and conditions of the GNU Lesser
+# General Public License v2.1. See the file LICENSE in the top level
+# directory for more details.
+
+config CPU_FAM_EFR32ZG13P
+    bool
+    select CPU_CORE_CORTEX_M4F
+    select CPU_COMMON_EFM32
+    select HAS_PERIPH_HWRNG
+
+## CPU Models
+config CPU_MODEL_EFR32ZG13P531F512GM32
+    bool
+    select CPU_FAM_EFR32ZG13P
+
+config CPU_MODEL_EFR32ZG13P231F512GM64
+    bool
+    select CPU_FAM_EFR32ZG13P
+
+config CPU_MODEL_EFR32ZG13P531F512GM48
+    bool
+    select CPU_FAM_EFR32ZG13P
+
+## Common CPU symbols
+config CPU_FAM
+    default "efr32zg13p" if CPU_FAM_EFR32ZG13P
+
+config CPU_MODEL
+    default "efr32zg13p531f512gm32" if CPU_MODEL_EFR32ZG13P531F512GM32
+    default "efr32zg13p231f512gm64" if CPU_MODEL_EFR32ZG13P231F512GM64
+    default "efr32zg13p531f512gm48" if CPU_MODEL_EFR32ZG13P531F512GM48

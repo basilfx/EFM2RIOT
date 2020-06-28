@@ -88,9 +88,9 @@ namespace Emul8.Peripherals
             EUI64H           = 0x048, // EUI64 High                                        
             CALTEMP          = 0x04c, // Calibration temperature Information               
             EMUTEMP          = 0x050, // EMU Temperature Sensor Calibration Information    
-            HFRCODPLLCAL[18U] = 0x054, //                                                  
-            HFRCOEM23CAL[18U] = 0x058, //                                                  
-            HFRCOSECAL[18U]  = 0x05c, //                                                  
+            HFRCODPLLCAL[18U] = 0x054, //                                                   
+            HFRCOEM23CAL[18U] = 0x058, //                                                   
+            HFRCOSECAL[18U]  = 0x05c, //                                                   
             MODULENAME0      = 0x060, // Module Name Information                           
             MODULENAME1      = 0x064, // Module Name Information                           
             MODULENAME2      = 0x068, // Module Name Information                           

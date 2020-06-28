@@ -1,10 +1,9 @@
 /**************************************************************************//**
  * @file
  * @brief EFR32BG21 LDMAXBAR register and bit field definitions
- * @version 5.7.0
  ******************************************************************************
  * # License
- * <b>Copyright 2018 Silicon Laboratories, Inc. www.silabs.com</b>
+ * <b>Copyright 2020 Silicon Laboratories, Inc. www.silabs.com</b>
  ******************************************************************************
  *
  * SPDX-License-Identifier: Zlib
@@ -54,13 +53,13 @@ typedef struct {
 
 /** LDMAXBAR Register Declaration. */
 typedef struct {
-  LDMAXBAR_CH_TypeDef CH[8U];                   /**< DMA Channel Registers                             */
-  uint32_t            RESERVED0[1016U];         /**< Reserved for future use*/
-  LDMAXBAR_CH_TypeDef CH_SET[8U];               /**< DMA Channel Registers                             */
-  uint32_t            RESERVED1[1016U];         /**< Reserved for future use*/
-  LDMAXBAR_CH_TypeDef CH_CLR[8U];               /**< DMA Channel Registers                             */
-  uint32_t            RESERVED2[1016U];         /**< Reserved for future use*/
-  LDMAXBAR_CH_TypeDef CH_TGL[8U];               /**< DMA Channel Registers                             */
+  LDMAXBAR_CH_TypeDef CH[8U];                   /**< DMA Channel Registers                              */
+  uint32_t            RESERVED0[1016U];         /**< Reserved for future use                            */
+  LDMAXBAR_CH_TypeDef CH_SET[8U];               /**< DMA Channel Registers                              */
+  uint32_t            RESERVED1[1016U];         /**< Reserved for future use                            */
+  LDMAXBAR_CH_TypeDef CH_CLR[8U];               /**< DMA Channel Registers                              */
+  uint32_t            RESERVED2[1016U];         /**< Reserved for future use                            */
+  LDMAXBAR_CH_TypeDef CH_TGL[8U];               /**< DMA Channel Registers                              */
 } LDMAXBAR_TypeDef;
 /** @} End of group EFR32BG21_LDMAXBAR */
 
