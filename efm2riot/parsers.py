@@ -223,6 +223,10 @@ def parse_cpus(sdk_directory, svds_directory, family):
                         cpu_series = 1
                     elif "_SILICON_LABS_32B_SERIES_2" in line:
                         cpu_series = 2
+
+                        # Series 2 have the following peripherals by default.
+                        crypto = True
+                        trng = True
                     elif "CRYPTO_PRESENT" in line:
                         crypto = True
                     elif "TRNG_PRESENT" in line:
@@ -235,6 +239,9 @@ def parse_cpus(sdk_directory, svds_directory, family):
                         fpu = True
                     elif "DEVINFO_BASE" in line and "0x" in line:
                         devinfo_base = int(re_hex.match(line).group(1), 16)
+                    elif "__CM33_REV" in line:
+                        architecture = "m33"
+                        architecture_short = "m33"
 
                 elif "Cortex-M4" in line:
                     architecture = "m4"
