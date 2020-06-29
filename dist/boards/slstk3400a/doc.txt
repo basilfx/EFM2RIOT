@@ -22,20 +22,20 @@ actively measure the power consumption of your hardware and code, in real-time.
 | RAM             | 8.0KiB                                               |
 | Flash           | 64.0KiB                                              |
 | EEPROM          | no                                                   |
-| Frequency       | up to 24 MHz                                         |
+| Frequency       | up to 25 MHz                                         |
 | FPU             | no                                                   |
 | MPU             | no                                                   |
-| DMA             | 8 channels                                           |
-| Timers          | 3x 16-bit + 1x 16-bit (low power)                    |
+| DMA             | 6 channels                                           |
+| Timers          | 2x 16-bit + 1x 16-bit (low power)                    |
 | ADCs            | 12-bit ADC                                           |
-| UARTs           | 2x USART, 3x UART, 1x LEUART                         |
+| UARTs           | 2x USART, 1x LEUART                                  |
 | SPIs            | 2x USART                                             |
 | I2Cs            | 1x                                                   |
 | Vcc             | 1.98V - 3.8V                                         |
-| Datasheet       | [Datasheet](https://www.silabs.com/documents/public/data-sheets/efm32hg-datasheet.pdf)                                   |
-| Manual          | [Manual](https://www.silabs.com/documents/public/reference-manuals/efm32hg-rm.pdf)                                       |
-| Board Manual    | [Board Manual](https://www.silabs.com/documents/public/user-guides/ug255-stk3400-user-guide.pdf)                         |
-| Board Schematic | Can be downloaded using Silicon Labs' Simplicity Studio         |
+| Datasheet       | [Datasheet](https://www.silabs.com/documents/public/data-sheets/efm32hg-datasheet.pdf)                    |
+| Manual          | [Manual](https://www.silabs.com/documents/public/reference-manuals/efm32hg-rm.pdf)                        |
+| Board Manual    | [Board Manual](https://www.silabs.com/documents/public/user-guides/ug255-stk3400-user-guide.pdf)          |
+| Board Schematic | [Board Schematic](https://www.silabs.com/documents/public/schematic-files/efm32hg-stk3400-schematics.pdf) |
 
 ### Pinout
 This is the pinout of the expansion header on the right side of the board.
@@ -59,9 +59,17 @@ PIN 1 is the bottom-left contact when the header faces  you horizontally.
 **Note:** some pins are connected to the board controller, when enabled!
 
 ### Peripheral mapping
-| Peripheral | Number  | Hardware        | Pins                            | Comments                                                  |
-|------------|---------|-----------------|---------------------------------|-----------------------------------------------------------|
-
+| Peripheral | Number  | Hardware        | Pins                              | Comments                                                 |
+|------------|---------|-----------------|-----------------------------------|----------------------------------------------------------|
+| ADC        | 0       | ADC0            | CHAN0: internal temperature       | Ports are fixed, 14/16-bit resolution not supported      |
+| I2C        | 0       | I2C0            | SDA: PD6,  CLK: PD7               | `I2C_SPEED_LOW` and `I2C_SPEED_HIGH` clock speed deviate |
+| HWCRYPTO   | &mdash; | &mdash;         |                                   | AES128                                                   |
+| RTT        | &mdash; | RTCC            |                                   | 1 Hz interval. Either RTT or RTC (see below)             |
+| RTC        | &mdash; | RTCC            |                                   | 1 Hz interval. Either RTC or RTT (see below)             |
+| SPI        | 0       | USART0          | MOSI: PE10, MISO: PE11, CLK: PE12 |                                                          |
+| Timer      | 0       | TIMER0 + TIMER1 |                                   | TIMER0 is used as prescaler (must be adjecent)           |
+| UART       | 0       | USART0          | RX: PE11, TX: PE10                | Default STDIO output                                     |
+|            | 1       | LEUART0         | RX: PD5, TX: PD4                  | Baud rate limited (see below)                            |
 ### User interface
 | Peripheral | Mapped to | Pin  | Comments   |
 |------------|-----------|------|------------|
@@ -85,6 +93,7 @@ PIN 1 is the bottom-left contact when the header faces  you horizontally.
 |                               | Timer                               | yes       |                                                                |
 |                               | UART                                | yes       | USART is shared with SPI. LEUART baud rate limited (see below) |
 |                               | USB                                 | no        |                                                                |
+| LCD driver                    | LS013B7DH0                          | &mdash;   |                                                                |
 | Temperature + humidity sensor | Si7021                              | yes       | Silicon Labs Temperature + Humidity sensor                     |
 
 
@@ -161,7 +170,7 @@ Configured at 1 Hz interval, the RTC will overflow each 194 days. When using
 the ticker-to-calendar mode, this interval is extended artificially.
 
 ### Hardware crypto
-    This MCUs has support for hardware-accelerated AES128 and AES256.
+    This MCUs has support for hardware-accelerated AES128.
 
 A peripheral driver interface for RIOT-OS is proposed, but not yet implemented.
 
