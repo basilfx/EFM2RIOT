@@ -99,12 +99,12 @@ static const i2c_conf_t i2c_config[] = {
 static const spi_dev_t spi_config[] = {
     {
         .dev = USART0,
-        .mosi_pin = GPIO_PIN(PC, 11),
-        .miso_pin = GPIO_PIN(PC, 10),
-        .clk_pin = GPIO_PIN(PA, 12),
+        .mosi_pin = GPIO_PIN(PE, 10),
+        .miso_pin = GPIO_PIN(PE, 11),
+        .clk_pin = GPIO_PIN(PE, 12),
         .loc = USART_ROUTE_LOCATION_LOC0,
         .cmu = cmuClock_USART0,
-        .irq = USART0_IRQn
+        .irq = USART0_RX_IRQn
     }
 };
 
@@ -147,11 +147,21 @@ static const uart_conf_t uart_config[] = {
         .loc = USART_ROUTE_LOCATION_LOC4,
         .cmu = cmuClock_USART1,
         .irq = USART1_RX_IRQn
+    },
+    {
+        .dev = LEUART0,
+        .rx_pin = GPIO_PIN(PD, 5),
+        .tx_pin = GPIO_PIN(PD, 4),
+        .loc = LEUART_ROUTE_LOCATION_LOC0,
+        .cmu = cmuClock_LEUART0,
+        .irq = LEUART0_IRQn
     }
 };
 
 #define UART_NUMOF          ARRAY_SIZE(uart_config)
-#define UART_0_ISR_RX       isr_usart1_rx
+#define UART_0_ISR_RX       isr_usart0_rx
+#define UART_1_ISR_RX       isr_usart1_rx
+#define UART_2_ISR_RX       isr_leuart0
 /** @} */
 
 #ifdef __cplusplus
