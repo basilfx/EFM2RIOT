@@ -159,9 +159,8 @@ static const uart_conf_t uart_config[] = {
 };
 
 #define UART_NUMOF          ARRAY_SIZE(uart_config)
-#define UART_0_ISR_RX       isr_usart0_rx
-#define UART_1_ISR_RX       isr_usart1_rx
-#define UART_2_ISR_RX       isr_leuart0
+#define UART_0_ISR_RX       isr_usart1_rx
+#define UART_1_ISR_RX       isr_leuart0
 /** @} */
 
 #ifdef __cplusplus
