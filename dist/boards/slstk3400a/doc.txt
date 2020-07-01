@@ -35,7 +35,7 @@ actively measure the power consumption of your hardware and code, in real-time.
 | Datasheet       | [Datasheet](https://www.silabs.com/documents/public/data-sheets/efm32hg-datasheet.pdf)                    |
 | Manual          | [Manual](https://www.silabs.com/documents/public/reference-manuals/efm32hg-rm.pdf)                        |
 | Board Manual    | [Board Manual](https://www.silabs.com/documents/public/user-guides/ug255-stk3400-user-guide.pdf)          |
-| Board Schematic | [Board Schematic](https://www.silabs.com/documents/public/schematic-files/efm32hg-stk3400-schematics.pdf) |
+| Board Schematic | Can be downloaded using Silicon Labs' Simplicity Studio         |
 
 ### Pinout
 This is the pinout of the expansion header on the right side of the board.
