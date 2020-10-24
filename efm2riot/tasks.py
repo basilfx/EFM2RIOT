@@ -62,7 +62,7 @@ def copy_templates(root_directory, dist_directory, sdk_directory,
     Copy all the templates.
     """
 
-    def _process(when, contexts):
+    def _process(when, contexts, label_func):
         for context in contexts:
             for template in configuration.TEMPLATES:
                 if template["when"] == when:
@@ -89,7 +89,9 @@ def copy_templates(root_directory, dist_directory, sdk_directory,
                                 template["filters"][expression]
 
                     # Perform the action.
-                    sys.stdout.write("Processing '%s'\n" % source)
+                    sys.stdout.write(
+                        "Processing '%s' for '%s'\n" % (
+                            source, label_func(context)))
 
                     if template["type"] == "file":
                         if source in filters:
@@ -113,14 +115,17 @@ def copy_templates(root_directory, dist_directory, sdk_directory,
                         raise Exception(
                             "Unsupported template: %s", template["type"])
 
-    _process("per_family", families)
-    _process("per_cpu", cpus)
-    _process("per_board", boards)
-    _process("once", [{
-        "families": [family["family"] for family in families],
-        "cpus": [cpu["cpu"] for cpu in cpus],
-        "boards": [board["board"] for board in boards]
-    }])
+    _process("per_family", families, lambda c: c["family"])
+    _process("per_cpu", cpus, lambda c: c["cpu"])
+    _process("per_board", boards, lambda c: c["board"])
+    _process(
+        "once",
+        [{
+            "families": [family["family"] for family in families],
+            "cpus": [cpu["cpu"] for cpu in cpus],
+            "boards": [board["board"] for board in boards]
+        }],
+        lambda c: "once")
 
 
 def copy_patches(root_directory, dist_directory, sdk_directory,
@@ -129,7 +134,7 @@ def copy_patches(root_directory, dist_directory, sdk_directory,
     Copy all the patches.
     """
 
-    def _process(when, contexts):
+    def _process(when, contexts, label_func):
         for context in contexts:
             for patch in configuration.PATCHES:
                 if patch["when"] == when:
@@ -144,7 +149,9 @@ def copy_patches(root_directory, dist_directory, sdk_directory,
                     target = os.path.join(dist_directory, target)
 
                     # Perform the action.
-                    sys.stdout.write("Patching '%s'\n" % source)
+                    sys.stdout.write(
+                        "Patching '%s' for '%s'\n" % (
+                            source, label_func(context)))
 
                     if patch["type"] == "file":
                         with open(source, "r") as fp:
@@ -178,14 +185,17 @@ def copy_patches(root_directory, dist_directory, sdk_directory,
                     else:
                         raise Exception("Not supported")
 
-    _process("per_family", families)
-    _process("per_cpu", cpus)
-    _process("per_board", boards)
-    _process("once", [{
-        "families": [family["family"] for family in families],
-        "cpus": [cpu["cpu"] for cpu in cpus],
-        "boards": [board["board"] for board in boards]
-    }])
+    _process("per_family", families, lambda c: c["family"])
+    _process("per_cpu", cpus, lambda c: c["cpu"])
+    _process("per_board", boards, lambda c: c["board"])
+    _process(
+        "once",
+        [{
+            "families": [family["family"] for family in families],
+            "cpus": [cpu["cpu"] for cpu in cpus],
+            "boards": [board["board"] for board in boards]
+        }],
+        lambda c: "once")
 
 
 def recursive_overwrite(source, target, ignored=None):
