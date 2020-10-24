@@ -20,8 +20,6 @@ include $(RIOTMAKE)/tools/serial.inc.mk
     JLINK_DEVICE = EFR32MG1PxxxF256
   {% elif board in ["slwstk6000b"] %}
     JLINK_DEVICE = $(MODULE_JLINK_DEVICE)
-  {% else %}
-    JLINK_DEVICE = $(CPU_MODEL)
   {% endif %}
 {% endstrip %}
 JLINK_PRE_FLASH = r

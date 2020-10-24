@@ -57,7 +57,7 @@ void board_init(void)
     {% strip 3, "<" %}
         {% if board in ["sltb001a"] %}
             #ifdef MODULE_SILABS_PIC
-            #if CCS811_ENABLED
+            #ifdef MODULE_CCS811
                 /* enable the CCS811 air quality/gas sensor */
                 pic_write(CCS811_PIC_ADDR, (1 << CCS811_PIC_EN_BIT) | (1 << CCS811_PIC_WAKE_BIT));
             #endif

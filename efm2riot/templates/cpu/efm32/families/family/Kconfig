@@ -8,9 +8,15 @@ config CPU_FAM_{{ family|upper }}
     bool
     select CPU_CORE_CORTEX_{{ architecture|upper }}
     select CPU_COMMON_EFM32
+    select CPU_EFM32_SERIES{{ cpu_series }}
     {% strip 2 %}
         {% if trng %}
             select HAS_PERIPH_HWRNG
+        {% endif %}
+    {% endstrip %}
+    {% strip 2 %}
+        {% if mpu %}
+            select HAS_CORTEXM_MPU
         {% endif %}
     {% endstrip %}
 
