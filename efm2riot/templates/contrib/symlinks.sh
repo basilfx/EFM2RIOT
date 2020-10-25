@@ -12,7 +12,7 @@ do
     ln -sf "$(realpath "$SOURCE/boards/$board")" "$TARGET/boards/$board"
 done
 
-# Symlink the families folder into `RIOT_ROOT/cpu/families/`.
+# Symlink all families into `RIOT_ROOT/cpu/families/`.
 for family in $FAMILIES
 do
     ln -sf "$(realpath "$SOURCE/cpu/efm32/families/$family")" "$TARGET/cpu/efm32/families/$family"
