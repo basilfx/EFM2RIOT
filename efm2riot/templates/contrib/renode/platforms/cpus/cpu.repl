@@ -1,21 +1,21 @@
 {% macro getIndex(peripheral) %}{{ (peripheral.name|search("(\d+)$")).0 }}{% endmacro %}
 
 {% strip 2, "<" %}
-    {% for peripheral in peripherals|select(name='^I2C\d+$') %}
+    {% for peripheral in svd|select(name='^I2C\d+$') %}
         i2c{{ getIndex(peripheral) }}: I2C.EFM32GGI2CController @ sysbus <{{ peripheral.base_address|hex(8) }}, +{{ peripheral.address_block.size|hex }}>
             -> nvic@{{ peripheral.interrupts.0.value }}
     {% endfor %}
 {% endstrip %}
 
 {% strip 2, "<" %}
-    {%- for peripheral in peripherals|select(name='^TIMER\d+$') %}
+    {%- for peripheral in svd|select(name='^TIMER\d+$') %}
         timer{{ getIndex(peripheral) }}: Timers.Efm32Timer @ sysbus <{{ peripheral.base_address|hex(8) }}, +{{ peripheral.address_block.size|hex }}>
             -> nvic@{{ peripheral.interrupts.0.value }}
     {% endfor %}
 {% endstrip %}
 
 {% strip 2, "<" %}
-    {%- for peripheral in peripherals|select(name='^UART\d+$') %}
+    {%- for peripheral in svd|select(name='^UART\d+$') %}
         uart{{ getIndex(peripheral) }}: UART.EFM32_UART @ sysbus <{{ peripheral.base_address|hex(8) }}, +{{ peripheral.address_block.size|hex }}>
             ReceiveIRQ -> nvic@{{ peripheral.interrupts.0.value }}
             {% strip 2 %}
@@ -27,26 +27,26 @@
 {% endstrip %}
 
 {% strip 2, "<" %}
-    {%- for peripheral in peripherals|select(name='^USART\d+$') %}
+    {%- for peripheral in svd|select(name='^USART\d+$') %}
         usart{{ getIndex(peripheral) }}: UART.EFM32_UART @ sysbus <{{ peripheral.base_address|hex(8) }}, +{{ peripheral.address_block.size|hex }}>
             ReceiveIRQ -> nvic@{{ peripheral.interrupts.0.value }}
             {% strip 2 %}
                 {% if peripheral.interrupts|length > 1 %}
                     TransmitIRQ -> nvic@{{ peripheral.interrupts.1.value }}
                 {% endif %}
-            {% endstrip %}    
+            {% endstrip %}
     {% endfor %}
 {% endstrip %}
 
 {% strip 2, "<" %}
-    {%- for peripheral in peripherals|select(name='^LEUART\d+$') %}
+    {%- for peripheral in svd|select(name='^LEUART\d+$') %}
         leUart{{ getIndex(peripheral) }}: UART.LEUART @ sysbus <{{ peripheral.base_address|hex(8) }}, +{{ peripheral.address_block.size|hex }}>
             -> nvic@{{ peripheral.interrupts.0.value }}
     {% endfor %}
 {% endstrip %}
 
 {% strip 3, "<" %}
-    {% with peripheral=peripherals|find(name='GPIO') %}
+    {% with peripheral=svd|find(name='GPIO') %}
         {% if peripheral %}
             {% strip 2 %}
                 {% if cpu_series == 0 %}
@@ -85,7 +85,7 @@ deviceInformation: {{ family|upper }}DeviceInformation @ sysbus {{ devinfo_base|
 sysbus:
     init:
         {% strip 2 %}
-            {% for peripheral in peripherals %}
+            {% for peripheral in svd %}
                 Tag <{{ peripheral.base_address|hex(8) }},{{ (peripheral.base_address + peripheral.address_block.size - 1)|hex(8) }}> "{{ peripheral.name }}"
             {% endfor %}
         {% endstrip %}

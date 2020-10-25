@@ -273,7 +273,7 @@ def parse_cpus(sdk_directory, svds_directory, family):
             "sram_size": sram_size,
             "devinfo_base": devinfo_base,
             "devinfo_size": devinfo_size,
-            "peripherals": parse_svd(
+            "svd": parse_svd(
                 svds_directory, family["family"], cpu_name),
         }
 
