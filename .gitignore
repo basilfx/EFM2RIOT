@@ -12,3 +12,6 @@ efm2riot/static/examples/**/bin
 # Benchmark files
 benchmark/*.json
 benchmark/*.js
+
+# IDE files
+.vscode
