@@ -1,9 +1,10 @@
+from efm2riot import target
+
 from jinja2 import Environment, FileSystemLoader, StrictUndefined, nodes
 from jinja2.ext import Extension
 
 import os
 import re
-
 
 class AlignWithExtension(Extension):
     tags = ["align_with"]
@@ -183,6 +184,51 @@ def create_environment():
             else:
                 return item
 
+    def _riot(value):
+        kind, parameters = value
+
+        if kind == "pin":
+            if parameters is None:
+                return "GPIO_UNDEF"
+            else:
+                port, pin = parameters
+
+                return f"GPIO_PIN({target.PORTS[port]}, {pin})"
+        elif kind == "alias":
+            return parameters
+        else:
+            raise ValueError(f"Unsupported kind: {kind}")
+
+    def _renode(value):
+        kind, parameters = value
+
+        if kind == "pin":
+            if parameters is None:
+                raise ValueError("Undefined pin not supported.")
+            else:
+                port, pin = parameters
+
+                return (port << 4) | (pin & 0x0f)
+        elif kind == "alias":
+            raise ValueError("Alias not supported.")
+        else:
+            raise ValueError(f"Unsupported kind: {kind}")
+
+    def _doc(value):
+        kind, parameters = value
+
+        if kind == "pin":
+            if parameters is None:
+                return "&mdash;"
+            else:
+                port, pin = parameters
+
+                return f"{target.PORTS[port]}{pin}"
+        elif kind == "alias":
+            return parameters
+        else:
+            raise ValueError(f"Unsupported kind: {kind}")
+
     root_dir = os.path.join(os.path.dirname(__file__), "..")
     file_dir = os.path.abspath(os.path.dirname(__file__))
     environment = Environment(
@@ -201,6 +247,10 @@ def create_environment():
     environment.filters["match"] = _match
     environment.filters["select"] = _select
     environment.filters["find"] = _find
+
+    environment.filters["riot"] = _riot
+    environment.filters["renode"] = _renode
+    environment.filters["doc"] = _doc
 
     return environment
 
