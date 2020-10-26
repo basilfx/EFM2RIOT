@@ -21,7 +21,7 @@ the `dist/` folder. Copy the desired CPU and board folder from `cpu/` and
 `boards/` to your RIOT-OS project.
 
 ### As a developer
-You will need Python 3.7 and the Gecko SDK v5.x (can be installed via
+You will need Python 3.7 and the 32-bit MCU SDK 5.9.7.0 (can be installed via
 [Simplicity Studio v4](https://www.silabs.com/products/development-tools/software/simplicity-studio)).
 
 * The `efm2riot/configuration.py` defines all the jobs and boards.
