@@ -28,7 +28,7 @@ TEMPLATES = [
     {
         "type": "file",
         "when": "per_family",
-        "source": "{{ root }}/templates/cpu/efm32/families/family/efm32-info.mk",
+        "source": "{{ root }}/templates/cpu/efm32/families/family/efm32-info.mk",  # noqa
         "target": "cpu/efm32/families/{{ family }}/efm32-info.mk"
     },
     {
@@ -46,7 +46,7 @@ TEMPLATES = [
     {
         "type": "file",
         "when": "per_family",
-        "source": "{{ root }}/templates/cpu/efm32/families/family/Makefile.include",
+        "source": "{{ root }}/templates/cpu/efm32/families/family/Makefile.include", # noqa
         "target": "cpu/efm32/families/{{ family }}/Makefile.include"
     },
     {

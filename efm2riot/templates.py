@@ -6,6 +6,7 @@ from jinja2.ext import Extension
 import os
 import re
 
+
 class AlignWithExtension(Extension):
     tags = ["align_with"]
 

@@ -142,7 +142,8 @@ def parse_device_info(sdk_directory, family):
         if not register_line:
             continue
 
-        if "uint32_t" not in register_line and "DEVINFO_HFRCO" not in register_line:
+        if "uint32_t" not in register_line and \
+                "DEVINFO_HFRCO" not in register_line:
             raise Exception("Missing size (expected uint32_t).")
 
         if "RESERVED" in register_line:
