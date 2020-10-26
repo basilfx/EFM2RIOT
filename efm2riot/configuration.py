@@ -593,13 +593,13 @@ BOARDS = [
             ],
             "spi": [
                 {
-                    "peripheral": "USART2",
-                    "mosi_pin": gpio_pin(PA, 6),
-                    "mosi_loc": "USART_ROUTELOC0_RXLOC_LOC1",
-                    "miso_pin": gpio_pin(PA, 7),
-                    "miso_loc": "USART_ROUTELOC0_TXLOC_LOC1",
-                    "clk_pin": gpio_pin(PA, 8),
-                    "clk_loc": "USART_ROUTELOC0_CLKLOC_LOC1",
+                    "peripheral": "USART1",
+                    "mosi_pin": gpio_pin(PC, 6),
+                    "mosi_loc": "USART_ROUTELOC0_RXLOC_LOC11",
+                    "miso_pin": gpio_pin(PC, 7),
+                    "miso_loc": "USART_ROUTELOC0_TXLOC_LOC11",
+                    "clk_pin": gpio_pin(PC, 8),
+                    "clk_loc": "USART_ROUTELOC0_CLKLOC_LOC11",
                 }
             ],
             "timer": [

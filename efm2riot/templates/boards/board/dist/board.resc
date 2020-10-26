@@ -1,28 +1,16 @@
-mach create
+:name: {{ board|upper }}
+:description: Silicon Labs {{ board|upper }} starter kit
+
+$name?="{{ board| upper }}"
+
 using sysbus
+mach create $name
+
 machine LoadPlatformDescription @platforms/boards/{{ board }}.repl
 machine SetClockSource cpu
 
 # show the UART output
-{% strip 2 %}
-    {% if board in ["slstk3301a"] %}
-        showAnalyzer usart1
-    {% elif board in ["slstk3401a", "slstk3402a"] %}
-        showAnalyzer usart0
-    {% elif board in ["slstk3701a"] %}
-        showAnalyzer usart4
-    {% elif board in ["sltb001a"] %}
-        showAnalyzer usart0
-    {% elif board in ["slwstk6000b"] %}
-        showAnalyzer usart0
-    {% elif board in ["slwstk6220a"] %}
-        showAnalyzer usart2
-    {% elif board in ["stk3200"] %}
-        showAnalyzer leUart0
-    {% elif board in ["stk3600", "stk3700", "stk3800"] %}
-        showAnalyzer uart0
-    {% endif %}
-{% endstrip %}
+showAnalyzer {{ peripherals.uart.0.peripheral|lower }}
 
 # generate a unique device id
 $unique_id = `next_value 1`
@@ -34,4 +22,3 @@ macro reset
 """
 
 runMacro $reset
-start

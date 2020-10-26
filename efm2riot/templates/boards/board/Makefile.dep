@@ -1,7 +1,7 @@
 ifneq (,$(filter saul_default,$(USEMODULE)))
   USEMODULE += saul_gpio
   {% strip 2, "", 2 %}
-    {% if board in ["slstk3301a", "slstk3401a", "slstk3402a", "slwstk6000b", "slwstk6220a"] %}
+    {% if "si7021" in mappings %}
       USEMODULE += si7021
     {% endif %}
     {% if board in ["sltb001a"] %}

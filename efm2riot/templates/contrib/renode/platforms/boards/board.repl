@@ -1,72 +1,44 @@
 using "platforms/cpus/{{ cpu }}.repl"
 
-{% strip 2, "<" %}
-    {% if board in ["slwstk6000b"] %}
-        led0: Miscellaneous.LED @ gpioPort 66
-        led1: Miscellaneous.LED @ gpioPort 67
-    {% elif board in ["slstk3401a", "slstk3402a"] %}
-        led0: Miscellaneous.LED @ gpioPort 66
-        led1: Miscellaneous.LED @ gpioPort 67
-    {% elif board in ["slstk3701a"] %}
-        led0r: Miscellaneous.LED @ gpioPort 66
-        led0g: Miscellaneous.LED @ gpioPort 67
-        led0b: Miscellaneous.LED @ gpioPort 68
-        led1r: Miscellaneous.LED @ gpioPort 69
-        led1g: Miscellaneous.LED @ gpioPort 70
-        led1b: Miscellaneous.LED @ gpioPort 71
-    {% elif board in ["sltb001a"] %}
-        led0: Miscellaneous.LED @ gpioPort 66
-        led1: Miscellaneous.LED @ gpioPort 67
-    {% elif board in ["slwstk6220a"] %}
-        led0: Miscellaneous.LED @ gpioPort 66
-        led1: Miscellaneous.LED @ gpioPort 67
-    {% elif board in ["stk3200"] %}
-        led0: Miscellaneous.LED @ gpioPort 66
-        led1: Miscellaneous.LED @ gpioPort 67
-    {% elif board in ["stk3600", "stk3700", "stk3800"] %}
-        led0: Miscellaneous.LED @ gpioPort 66
-        led1: Miscellaneous.LED @ gpioPort 67
+{% strip 3, "<" %}
+    {% if "bc" in mappings %}
+        {% if mappings.bc.pin.0 == "pin" and mappings.bc.pin.1 %}
+            bc: Miscellaneous.LED @ gpioPort {{ mappings.bc.pin|renode }}
+        {% endif %}
     {% endif %}
 {% endstrip %}
 
-{% strip 2, "<" %}
-    {% if board in ["slwstk6000b"] %}
-        button0: Miscellaneous.Button @ gpioPort 64
-        button1: Miscellaneous.Button @ gpioPort 65
-    {% elif board in ["slstk3401a", "slstk3402a"] %}
-        button0: Miscellaneous.Button @ gpioPort 64
-        button1: Miscellaneous.Button @ gpioPort 65
-    {% elif board in ["slstk3701a"] %}
-        button0: Miscellaneous.Button @ gpioPort 64
-        button1: Miscellaneous.Button @ gpioPort 65
-    {% elif board in ["sltb001a"] %}
-        button0: Miscellaneous.Button @ gpioPort 64
-        button1: Miscellaneous.Button @ gpioPort 65
-    {% elif board in ["slwstk6220a"] %}
-        button0: Miscellaneous.Button @ gpioPort 64
-        button1: Miscellaneous.Button @ gpioPort 65
-    {% elif board in ["stk3200"] %}
-        button0: Miscellaneous.Button @ gpioPort 64
-        button1: Miscellaneous.Button @ gpioPort 65
-    {% elif board in ["stk3600", "stk3700", "stk3800"] %}
-        button0: Miscellaneous.Button @ gpioPort 64
-        button1: Miscellaneous.Button @ gpioPort 65
-    {% endif %}
+{% strip 3, "<" %}
+    {% for led in mappings.leds %}
+        {% if led.pin.0 == "pin" and led.pin.1 %}
+            {{ led.name|lower }}: Miscellaneous.LED @ gpioPort {{ led.pin|renode }}
+        {% endif %}
+    {% endfor %}
+{% endstrip %}
+
+{% strip 3, "<" %}
+    {% for button in mappings.buttons %}
+        {% if button.pin.0 == "pin" and button.pin.1 %}
+            {{ button.name|lower }}: Miscellaneous.Button @ gpioPort {{ button.pin|renode }}
+        {% endif %}
+    {% endfor %}
 {% endstrip %}
 
 {% strip 2, "<" %}
-    {% if board in ["slstk3401a", "slstk3402a", "slwstk6220a", "stk3200"] %}
+    {% if "ls013b7dh03" in mappings %}
         // TODO
         // ls013b7dh03: Video.LS013B7DH03 @ spi0
     {% endif %}
 {% endstrip %}
 
 {% strip 2, "<" %}
-    {% if board in ["slstk3401a", "slstk3402a", "sltb001a", "slwstk6220a"] %}
+    {% if "si7021" in mappings %}
         si7021: Sensors.SI70xx @ i2c0 0x80
             model: Model.SI7021
-    {% elif board in ["slstk3701a"] %}
-        si7021: Sensors.SI70xx @ i2c2 0x80
-            model: Model.SI7021
+            {% strip 2 %}
+                {% if mappings.si7021.en_pin == "pin" and mappings.si7021.en_pin.1 %}
+                    // enable: gpioPort {{ mappings.si7021.en_pin|renode }}
+                {% endif %}
+            {% endstrip %}
     {% endif %}
 {% endstrip %}

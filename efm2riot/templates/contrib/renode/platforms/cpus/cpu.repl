@@ -61,8 +61,11 @@
     {% endwith %}
 {% endstrip %}
 
-bitband: Miscellaneous.BitBanding @ sysbus <0x42000000, +0x2000000>
+bitband_peripherals: Miscellaneous.BitBanding @ sysbus <0x42000000, +0x2000000>
     peripheralBase: 0x40000000
+
+bitband_sram: Miscellaneous.BitBanding @ sysbus <0x22000000, +0x2000000>
+    peripheralBase: 0x20000000
 
 sram: Memory.MappedMemory @ sysbus {{ sram_base|hex(8) }}
     size: {{ sram_size|hex(8) }}
@@ -77,10 +80,25 @@ cpu: CPU.CortexM @ sysbus
     nvic: nvic
     cpuType: "cortex-{{ architecture_short }}"
 
-deviceInformation: {{ family|upper }}DeviceInformation @ sysbus {{ devinfo_base|hex(8) }}
-    deviceNumber: 1
-    flashSize: {{ flash_size // 1024 }}
-    sramSize: {{ sram_size // 1024 }}
+{% strip 2 %}
+    {% if family.startswith("efr32") %}
+        deviceInformation: Miscellaneous.SiLabs.EFR32DeviceInformation @ sysbus {{ devinfo_base|hex(8) }}
+    {% elif family.startswith("ezr32") %}
+        deviceInformation: Miscellaneous.SiLabs.EZR32DeviceInformation @ sysbus {{ devinfo_base|hex(8) }}
+    {% else %}
+        deviceInformation: Miscellaneous.SiLabs.EFM32xGDeviceInformation @ sysbus {{ devinfo_base|hex(8) }}
+    {% endif %}
+{% endstrip %}
+    deviceFamily: DeviceFamily.{{ family|upper }}
+    {% strip 2 %}
+        {% if part_number is defined %}
+            deviceNumber: {{ part_number }}
+        {% else %}
+            deviceNumber: 1
+        {% endif %}
+    {% endstrip %}
+    flashDevice: flash
+    sramDevice: sram
 
 sysbus:
     init:
