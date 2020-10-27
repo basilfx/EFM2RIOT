@@ -19,8 +19,8 @@ actively measure the power consumption of your hardware and code, in real-time.
 | Family          | ARM Cortex-M4F                                       |
 | Vendor          | Silicon Labs                                         |
 | Vendor Family   | EFM32 Pearl Gecko 12B                                |
-| RAM             | 256.0KiB                                             |
-| Flash           | 1024.0KiB                                            |
+| RAM             | 256.0 KiB                                            |
+| Flash           | 1024.0 KiB                                           |
 | EEPROM          | no                                                   |
 | Frequency       | up to 40 MHz                                         |
 | FPU             | yes                                                  |
@@ -31,7 +31,7 @@ actively measure the power consumption of your hardware and code, in real-time.
 | UARTs           | 2x USART, 1x LEUART                                  |
 | SPIs            | 2x USART                                             |
 | I2Cs            | 1x                                                   |
-| Vcc             | 1.85V - 3.8V                                         |
+| Vcc             | 1.85 V - 3.8 V                                       |
 | Datasheet       | [Datasheet](https://www.silabs.com/documents/public/data-sheets/efm32pg12-datasheet.pdf)                                 |
 | Manual          | [Manual](https://www.silabs.com/documents/public/reference-manuals/efm32pg12-rm.pdf)                                     |
 | Board Manual    | [Board Manual](https://www.silabs.com/documents/public/user-guides/ug257-stk3402-usersguide.pdf)                         |
@@ -59,27 +59,28 @@ PIN 1 is the bottom-left contact when the header faces  you horizontally.
 **Note:** some pins are connected to the board controller, when enabled!
 
 ### Peripheral mapping
-| Peripheral | Number  | Hardware        | Pins                              | Comments                                                  |
-|------------|---------|-----------------|-----------------------------------|-----------------------------------------------------------|
-| ADC        | 0       | ADC0            | CHAN0: internal temperature       | Ports are fixed, 14/16-bit resolution not supported       |
-| I2C        | 0       | I2C0            | SDA: PC10, CLK: PC11              | `I2C_SPEED_LOW` and `I2C_SPEED_HIGH` clock speed deviate  |
-| HWCRYPTO   | &mdash; | &mdash;         |                                   | AES128/AES256, SHA1, SHA256                               |
-| HWRNG      | &mdash; | TNRG0           |                                   | Hardware-based true random number generator               |
-| RTT        | &mdash; | RTCC            |                                   | 1 Hz interval. Either RTT or RTC (see below)              |
-| RTC        | &mdash; | RTCC            |                                   | 1 Hz interval. Either RTC or RTT (see below)              |
-| SPI        | 0       | USART1          | MOSI: PC6, MISO: PC7, CLK: PC8    |                                                           |
-| Timer      | 0       | TIMER0 + TIMER1 |                                   | TIMER0 is used as prescaler (must be adjecent)            |
-| UART       | 0       | USART0          | RX: PA1, TX: PA0                  | Default STDIO output                                      |
-|            | 1       | USART1          | RX: PC6, TX: PC7                  |                                                           |
-|            | 2       | LEUART0         | RX: PD11, TX: PD10                | Baud rate limited (see below)                             |
+| Peripheral | Number  | Hardware          | Pins                              | Comments                                                  |
+|------------|---------|-------------------|-----------------------------------|-----------------------------------------------------------|
+| ADC        | 0       | ADC0              | CHAN0: internal temperature       | Ports are fixed, 14/16-bit resolution not supported       |
+| I2C        | 0       | I2C0              | SDA: PC10, CLK: PC11              | `I2C_SPEED_LOW` and `I2C_SPEED_HIGH` clock speed deviate  |
+| HWCRYPTO   | &mdash; | &mdash;           |                                   | AES128/AES256, SHA1, SHA256                               |
+| HWRNG      | &mdash; | TNRG0             |                                   | Hardware-based true random number generator               |
+| RTT        | &mdash; | RTCC              |                                   | 1 Hz interval. Either RTT or RTC (see below)              |
+| RTC        | &mdash; | RTCC              |                                   | 1 Hz interval. Either RTC or RTT (see below)              |
+| SPI        | 0       | USART1            | MOSI: PC6, MISO: PC7, CLK: PC8    |                                                           |
+| Timer      | 0       | WTIMER0 + WTIMER1 |                                   | WTIMER0 is used as prescaler (must be adjecent)           |
+| Timer      | 1       | TIMER0 + TIMER1   |                                   | TIMER0 is used as prescaler (must be adjecent)            |
+|            | 2       | LETIMER0          |                                   |                                                           |
+| UART       | 0       | USART0            | RX: PA1, TX: PA0                  | Default STDIO output                                      |
+|            | 1       | LEUART0           | RX: PD11, TX: PD10                | Baud rate limited (see below)                             |
 
 ### User interface
 | Peripheral | Mapped to | Pin  | Comments   |
 |------------|-----------|------|------------|
-| Button     | PB0       | PF6  |            |
-|            | PB1       | PF7  |            |
-| LED        | LED0      | PF4  | Yellow LED |
-|            | LED1      | PF5  | Yellow LED |
+| Button     | PB0_PIN   | PF6  |            |
+|            | PB1_PIN   | PF7  |            |
+| LED        | LED0_PIN  | PF4  |            |
+|            | LED1_PIN  | PF5  |            |
 
 ## Implementation Status
 | Device                        | ID                                  | Supported | Comments                                                       |
@@ -99,7 +100,6 @@ PIN 1 is the bottom-left contact when the header faces  you horizontally.
 |                               | USB                                 | no        |                                                                |
 | LCD driver                    | LS013B7DH03                         | yes       | Sharp Low Power Memory LCD via the U8g2 package                |
 | Temperature + humidity sensor | Si7021                              | yes       | Silicon Labs Temperature + Humidity sensor                     |
-
 
 ## Board configuration
 
@@ -151,7 +151,7 @@ to get familiar with the different clocks.
 | HFXO   | No       | 40 MHz     |                                    |
 | LFRCO  | Yes      | 32.768 kHz |                                    |
 | LFXO   | No       | 32.768 kHz |                                    |
-| ULFRCO | No       | 1.000 kHz  | Not very reliable as a time source |
+| ULFRCO | No       | 1 kHz      | Not very reliable as a time source |
 
 The sources can be used to clock following branches:
 
@@ -200,7 +200,7 @@ This MCU is equipped with a hardware-accelerated crypto peripheral that can
 speed up AES128, AES256, SHA1, SHA256 and several other cryptographic
 computations.
 
-A peripheral driver interface for RIOT-OS is proposed, but not yet implemented.
+A peripheral driver interface is proposed, but not yet implemented.
 
 ### Usage of EMLIB
 This port makes uses of EMLIB by Silicon Labs to abstract peripheral registers.

@@ -32,11 +32,20 @@ extern "C" {
 /**
  * @name    Xtimer configuration
  *
- * The timer runs at 250 KHz to increase accuracy.
+ * The timer runs at 250 kHz to increase accuracy, or at 32.768 kHz if
+ * LETIMER is used.
  * @{
  */
+#if IS_ACTIVE(CONFIG_EFM32_XTIMER_USE_LETIMER)
+#define XTIMER_DEV          (TIMER_DEV(1))
+#define XTIMER_HZ           (32768UL)
+#define XTIMER_WIDTH        (16)
+#else
+#define XTIMER_DEV          (TIMER_DEV(0))
 #define XTIMER_HZ           (250000UL)
 #define XTIMER_WIDTH        (16)
+#endif
+#define XTIMER_CHAN         (0)
 /** @} */
 
 /**
@@ -57,7 +66,6 @@ extern "C" {
 #define LED1R_PIN           GPIO_PIN(PD, 6)
 #define LED1G_PIN           GPIO_PIN(PF, 12)
 #define LED1B_PIN           GPIO_PIN(PE, 12)
-
 #define LED0_PIN            LED0R_PIN
 #define LED1_PIN            LED1R_PIN
 /** @} */
@@ -90,6 +98,9 @@ extern "C" {
  * Connection to the on-board IMU sensor (ICM-20648).
  * @{
  */
+#ifndef ICM20648_ENABLED
+#define ICM20648_ENABLED    0
+#endif
 #define ICM20648_SPI        SPI_DEV(0)
 #define ICM20648_PIC_ADDR   (0x00)
 #define ICM20648_PIC_EN_BIT (0x00)
@@ -112,6 +123,9 @@ extern "C" {
  * Connection to the on-board UV/ambient light sensor (Si1133).
  * @{
  */
+#ifndef SI1133_ENABLED
+#define SI1133_ENABLED      0
+#endif
 #define SI1133_I2C          I2C_DEV(0)
 /** @} */
 

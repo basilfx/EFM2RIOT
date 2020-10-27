@@ -19,8 +19,8 @@ actively measure the power consumption of your hardware and code, in real-time.
 | Family          | ARM Cortex-M4F                                       |
 | Vendor          | Silicon Labs                                         |
 | Vendor Family   | EFM32 Giant Gecko 12B                                |
-| RAM             | 192.0KiB                                             |
-| Flash           | 1024.0KiB                                            |
+| RAM             | 192.0 KiB                                            |
+| Flash           | 1024.0 KiB                                           |
 | EEPROM          | no                                                   |
 | Frequency       | up to 50 MHz                                         |
 | FPU             | yes                                                  |
@@ -31,7 +31,7 @@ actively measure the power consumption of your hardware and code, in real-time.
 | UARTs           | 2x UART, 5x USART, 1x LEUART                         |
 | SPIs            | 5x USART                                             |
 | I2Cs            | 2x                                                   |
-| Vcc             | 1.8V - 3.8V                                          |
+| Vcc             | 1.8 V - 3.8 V                                        |
 | Datasheet       | [Datasheet](https://www.silabs.com/documents/public/data-sheets/efm32gg12-datasheet.pdf)                                 |
 | Manual          | [Manual](https://www.silabs.com/documents/public/reference-manuals/efm32gg12-rm.pdf)                                     |
 | Board Manual    | [Board Manual](https://www.silabs.com/documents/public/user-guides/ug371-sltb009a-user-guide.pdf)                        |
@@ -63,18 +63,23 @@ PIN 1 is the bottom-left contact when the header faces  you horizontally.
 
 **Note**: not all starter kits by Silicon Labs share the same pinout!
 
-
 ### Peripheral mapping
-| Peripheral | Number  | Hardware        | Pins                              | Comments                                                  |
-|------------|---------|-----------------|-----------------------------------|-----------------------------------------------------------|
+| Peripheral | Number  | Hardware          | Pins                              | Comments                                                  |
+|------------|---------|-------------------|-----------------------------------|-----------------------------------------------------------|
 
 ### User interface
 | Peripheral | Mapped to | Pin  | Comments   |
 |------------|-----------|------|------------|
-| Button     | PB0       | PD5  |            |
-|            | PB1       | PD8  |            |
-| LED        | LED0      | PA12 | Red LED    |
-|            | LED1      | PD6  | Red LED    |
+| Button     | PB0_PIN   | PD5  |            |
+|            | PB1_PIN   | PD8  |            |
+| LED        | LED0R_PIN | PA12 |            |
+|            | LED0G_PIN | PA13 |            |
+|            | LED0B_PIN | PA14 |            |
+|            | LED1R_PIN | PD6  |            |
+|            | LED1G_PIN | PF12 |            |
+|            | LED1B_PIN | PE12 |            |
+|            | LED0_PIN  | LED0R_PIN |            |
+|            | LED1_PIN  | LED1R_PIN |            |
 
 ## Implementation Status
 | Device                        | ID                                  | Supported | Comments                                                       |
@@ -91,7 +96,6 @@ PIN 1 is the bottom-left contact when the header faces  you horizontally.
 |                               | Timer                               | yes       |                                                                |
 |                               | UART                                | yes       | USART is shared with SPI. LEUART baud rate limited (see below) |
 |                               | USB                                 | no        |                                                                |
-
 
 ## Board configuration
 
@@ -114,7 +118,7 @@ to get familiar with the different clocks.
 | HFXO   | No       | 50 MHz     |                                    |
 | LFRCO  | Yes      | 32.768 kHz |                                    |
 | LFXO   | No       | 32.768 kHz |                                    |
-| ULFRCO | No       | 1.000 kHz  | Not very reliable as a time source |
+| ULFRCO | No       | 1 kHz      | Not very reliable as a time source |
 
 The sources can be used to clock following branches:
 
@@ -163,7 +167,7 @@ This MCU is equipped with a hardware-accelerated crypto peripheral that can
 speed up AES128, AES256, SHA1, SHA256 and several other cryptographic
 computations.
 
-A peripheral driver interface for RIOT-OS is proposed, but not yet implemented.
+A peripheral driver interface is proposed, but not yet implemented.
 
 ### Usage of EMLIB
 This port makes uses of EMLIB by Silicon Labs to abstract peripheral registers.

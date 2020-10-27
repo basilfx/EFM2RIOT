@@ -19,8 +19,8 @@ actively measure the power consumption of your hardware and code, in real-time.
 | Family          | ARM Cortex-M0PLUS                                    |
 | Vendor          | Silicon Labs                                         |
 | Vendor Family   | EFM32 Tiny Gecko 11B                                 |
-| RAM             | 32.0KiB                                              |
-| Flash           | 128.0KiB                                             |
+| RAM             | 32.0 KiB                                             |
+| Flash           | 128.0 KiB                                            |
 | EEPROM          | no                                                   |
 | Frequency       | up to 48 MHz                                         |
 | FPU             | no                                                   |
@@ -31,7 +31,7 @@ actively measure the power consumption of your hardware and code, in real-time.
 | UARTs           | 4x USART, 1x UART, 1x LEUART                         |
 | SPIs            | 4x USART                                             |
 | I2Cs            | 2x                                                   |
-| Vcc             | 1.8V - 3.8V                                          |
+| Vcc             | 1.8 V - 3.8 V                                        |
 | Datasheet       | [Datasheet](https://www.silabs.com/documents/public/data-sheets/efm32tg11-datasheet.pdf)                                 |
 | Manual          | [Manual](https://www.silabs.com/documents/public/reference-manuals/efm32tg11-rm.pdf)                                     |
 | Board Manual    | [Board Manual](https://www.silabs.com/documents/public/user-guides/ug303-stk3301.pdf)                                    |
@@ -59,16 +59,16 @@ PIN 1 is the bottom-left contact when the header faces  you horizontally.
 **Note:** some pins are connected to the board controller, when enabled!
 
 ### Peripheral mapping
-| Peripheral | Number  | Hardware        | Pins                              | Comments                                                  |
-|------------|---------|-----------------|-----------------------------------|-----------------------------------------------------------|
+| Peripheral | Number  | Hardware          | Pins                              | Comments                                                  |
+|------------|---------|-------------------|-----------------------------------|-----------------------------------------------------------|
 
 ### User interface
 | Peripheral | Mapped to | Pin  | Comments   |
 |------------|-----------|------|------------|
-| Button     | PB0       | PD5  |            |
-|            | PB1       | PC9  |            |
-| LED        | LED0      | PD2  | Yellow LED |
-|            | LED1      | PC2  | Yellow LED |
+| Button     | PB0_PIN   | PD5  |            |
+|            | PB1_PIN   | PC9  |            |
+| LED        | LED0_PIN  | PD2  |            |
+|            | LED1_PIN  | PC2  |            |
 
 ## Implementation Status
 | Device                        | ID                                  | Supported | Comments                                                       |
@@ -85,7 +85,6 @@ PIN 1 is the bottom-left contact when the header faces  you horizontally.
 |                               | Timer                               | yes       |                                                                |
 |                               | UART                                | yes       | USART is shared with SPI. LEUART baud rate limited (see below) |
 |                               | USB                                 | no        |                                                                |
-
 
 ## Board configuration
 
@@ -114,7 +113,7 @@ to get familiar with the different clocks.
 | HFXO   | No       | 48 MHz     |                                    |
 | LFRCO  | Yes      | 32.768 kHz |                                    |
 | LFXO   | No       | 32.768 kHz |                                    |
-| ULFRCO | No       | 1.000 kHz  | Not very reliable as a time source |
+| ULFRCO | No       | 1 kHz      | Not very reliable as a time source |
 
 The sources can be used to clock following branches:
 
@@ -163,7 +162,7 @@ This MCU is equipped with a hardware-accelerated crypto peripheral that can
 speed up AES128, AES256, SHA1, SHA256 and several other cryptographic
 computations.
 
-A peripheral driver interface for RIOT-OS is proposed, but not yet implemented.
+A peripheral driver interface is proposed, but not yet implemented.
 
 ### Usage of EMLIB
 This port makes uses of EMLIB by Silicon Labs to abstract peripheral registers.

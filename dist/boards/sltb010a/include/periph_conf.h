@@ -58,6 +58,18 @@ static const adc_conf_t adc_config[] = {
 };
 
 static const adc_chan_conf_t adc_channel_config[] = {
+    {
+        .dev = 0,
+        .input = adcPosSelTEMP,
+        .reference = adcRef1V25,
+        .acq_time = adcAcqTime8
+    },
+    {
+        .dev = 0,
+        .input = adcPosSelAVDD,
+        .reference = adcRef5V,
+        .acq_time = adcAcqTime8
+    }
 };
 
 #define ADC_DEV_NUMOF       ARRAY_SIZE(adc_config)
@@ -73,8 +85,6 @@ static const i2c_conf_t i2c_config[] = {
         .dev = I2C0,
         .sda_pin = GPIO_PIN(PC, 10),
         .scl_pin = GPIO_PIN(PC, 11),
-        .loc = I2C_ROUTELOC0_SDALOC_LOC15 |
-               I2C_ROUTELOC0_SCLLOC_LOC15,
         .cmu = cmuClock_I2C0,
         .irq = I2C0_IRQn,
         .speed = I2C_SPEED_NORMAL
@@ -119,20 +129,34 @@ static const spi_dev_t spi_config[] = {
  */
 static const timer_conf_t timer_config[] = {
     {
-        {
+        .prescaler = {
             .dev = TIMER0,
             .cmu = cmuClock_TIMER0
         },
-        {
+        .timer = {
             .dev = TIMER1,
             .cmu = cmuClock_TIMER1
         },
-        .irq = TIMER1_IRQn
+        .irq = TIMER1_IRQn,
+        .channel_numof = 3
+    },
+    {
+        .prescaler = {
+            .dev = NULL,
+            .cmu = cmuClock_LETIMER0
+        },
+        .timer = {
+            .dev = LETIMER0,
+            .cmu = cmuClock_LETIMER0
+        },
+        .irq = LETIMER0_IRQn,
+        .channel_numof = 2
     }
 };
 
 #define TIMER_NUMOF         ARRAY_SIZE(timer_config)
 #define TIMER_0_ISR         isr_timer1
+#define TIMER_1_ISR         isr_letimer0
 /** @} */
 
 /**
@@ -146,11 +170,19 @@ static const uart_conf_t uart_config[] = {
         .tx_pin = GPIO_PIN(PA, 5),
         .cmu = cmuClock_USART1,
         .irq = USART1_RX_IRQn
+    },
+    {
+        .dev = LEUART0,
+        .rx_pin = GPIO_PIN(PD, 11),
+        .tx_pin = GPIO_PIN(PD, 10),
+        .cmu = cmuClock_LEUART0,
+        .irq = LEUART0_IRQn
     }
 };
 
 #define UART_NUMOF          ARRAY_SIZE(uart_config)
 #define UART_0_ISR_RX       isr_usart1_rx
+#define UART_1_ISR_RX       isr_leuart0
 /** @} */
 
 #ifdef __cplusplus

@@ -1,0 +1,10 @@
+bc: Miscellaneous.LED @ gpioPort 8
+
+led0_pin: Miscellaneous.LED @ gpioPort 50
+led1_pin: Miscellaneous.LED @ gpioPort 34
+
+pb0_pin: Miscellaneous.Button @ gpioPort 53
+pb1_pin: Miscellaneous.Button @ gpioPort 41
+
+si7021: Sensors.SI70xx @ i2c0 0x80
+    model: Model.SI7021

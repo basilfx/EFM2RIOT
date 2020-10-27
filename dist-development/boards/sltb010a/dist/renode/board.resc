@@ -1,0 +1,25 @@
+:name: SLTB010A
+:description: Silicon Labs SLTB010A starter kit
+
+$name?="SLTB010A"
+
+using sysbus
+mach create $name
+
+machine LoadPlatformDescription $RIOTCPU/efm32/families/efr32bg22/dist/renode/efr32bg22c224f512im40.repl
+machine LoadPlatformDescription $RIOTBOARD/sltb010a/dist/renode/sltb010a.repl
+
+# show the UART output
+showAnalyzer usart1
+
+# generate a unique device id
+$unique_id = `next_value 1`
+
+macro reset
+"""
+    sysbus LoadELF $ELFFILE
+    deviceInformation Unique $unique_id
+"""
+
+runMacro $reset
+start

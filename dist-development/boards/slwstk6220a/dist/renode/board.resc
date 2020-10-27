@@ -1,0 +1,25 @@
+:name: SLWSTK6220A
+:description: Silicon Labs SLWSTK6220A starter kit
+
+$name?="SLWSTK6220A"
+
+using sysbus
+mach create $name
+
+machine LoadPlatformDescription $RIOTCPU/efm32/families/ezr32wg/dist/renode/ezr32wg330f256r60.repl
+machine LoadPlatformDescription $RIOTBOARD/slwstk6220a/dist/renode/slwstk6220a.repl
+
+# show the UART output
+showAnalyzer usart2
+
+# generate a unique device id
+$unique_id = `next_value 1`
+
+macro reset
+"""
+    sysbus LoadELF $ELFFILE
+    deviceInformation Unique $unique_id
+"""
+
+runMacro $reset
+start

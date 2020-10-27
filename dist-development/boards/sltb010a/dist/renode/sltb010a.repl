@@ -1,0 +1,4 @@
+
+led0_pin: Miscellaneous.LED @ gpioPort 16
+
+pb0_pin: Miscellaneous.Button @ gpioPort 17

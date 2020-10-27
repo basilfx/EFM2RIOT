@@ -59,6 +59,18 @@ static const adc_conf_t adc_config[] = {
 };
 
 static const adc_chan_conf_t adc_channel_config[] = {
+    {
+        .dev = 0,
+        .input = adcSingleInputTemp,
+        .reference = adcRef1V25,
+        .acq_time = adcAcqTime8
+    },
+    {
+        .dev = 0,
+        .input = adcSingleInputVDDDiv3,
+        .reference = adcRef1V25,
+        .acq_time = adcAcqTime8
+    }
 };
 
 #define ADC_DEV_NUMOF       ARRAY_SIZE(adc_config)
@@ -120,15 +132,16 @@ static const spi_dev_t spi_config[] = {
  */
 static const timer_conf_t timer_config[] = {
     {
-        {
+        .prescaler = {
             .dev = TIMER0,
             .cmu = cmuClock_TIMER0
         },
-        {
+        .timer = {
             .dev = TIMER1,
             .cmu = cmuClock_TIMER1
         },
-        .irq = TIMER1_IRQn
+        .irq = TIMER1_IRQn,
+        .channel_numof = 3
     }
 };
 

@@ -19,8 +19,8 @@ actively measure the power consumption of your hardware and code, in real-time.
 | Family          | ARM Cortex-M0PLUS                                    |
 | Vendor          | Silicon Labs                                         |
 | Vendor Family   | EFM32 Happy Gecko                                    |
-| RAM             | 8.0KiB                                               |
-| Flash           | 64.0KiB                                              |
+| RAM             | 8.0 KiB                                              |
+| Flash           | 64.0 KiB                                             |
 | EEPROM          | no                                                   |
 | Frequency       | up to 24 MHz                                         |
 | FPU             | no                                                   |
@@ -31,7 +31,7 @@ actively measure the power consumption of your hardware and code, in real-time.
 | UARTs           | 2x USART, 1x LEUART                                  |
 | SPIs            | 2x USART                                             |
 | I2Cs            | 1x                                                   |
-| Vcc             | 1.98V - 3.8V                                         |
+| Vcc             | 1.98 V - 3.8 V                                       |
 | Datasheet       | [Datasheet](https://www.silabs.com/documents/public/data-sheets/efm32hg-datasheet.pdf)                                   |
 | Manual          | [Manual](https://www.silabs.com/documents/public/reference-manuals/efm32hg-rm.pdf)                                       |
 | Board Manual    | [Board Manual](https://www.silabs.com/documents/public/user-guides/ug255-stk3400-user-guide.pdf)                         |
@@ -59,25 +59,25 @@ PIN 1 is the bottom-left contact when the header faces  you horizontally.
 **Note:** some pins are connected to the board controller, when enabled!
 
 ### Peripheral mapping
-| Peripheral | Number  | Hardware        | Pins                              | Comments                                                  |
-|------------|---------|-----------------|-----------------------------------|-----------------------------------------------------------|
-| ADC        | 0       | ADC0            | CHAN0: internal temperature       | Ports are fixed, 14/16-bit resolution not supported       |
-| I2C        | 0       | I2C0            | SDA: PD6,  CLK: PD7               | `I2C_SPEED_LOW` and `I2C_SPEED_HIGH` clock speed deviate  |
-| HWCRYPTO   | &mdash; | &mdash;         |                                   | AES128                                                    |
-| RTT        | &mdash; | RTCC            |                                   | 1 Hz interval. Either RTT or RTC (see below)              |
-| RTC        | &mdash; | RTCC            |                                   | 1 Hz interval. Either RTC or RTT (see below)              |
-| SPI        | 0       | USART0          | MOSI: PE10, MISO: PE11, CLK: PE12 |                                                           |
-| Timer      | 0       | TIMER0 + TIMER1 |                                   | TIMER0 is used as prescaler (must be adjecent)            |
-| UART       | 0       | USART1          | RX: PA0, TX: PF2                  | Default STDIO output                                      |
-|            | 1       | LEUART0         | RX: PD5, TX: PD4                  | Baud rate limited (see below)                             |
+| Peripheral | Number  | Hardware          | Pins                              | Comments                                                  |
+|------------|---------|-------------------|-----------------------------------|-----------------------------------------------------------|
+| ADC        | 0       | ADC0              | CHAN0: internal temperature       | Ports are fixed, 14/16-bit resolution not supported       |
+| I2C        | 0       | I2C0              | SDA: PD6,  CLK: PD7               | `I2C_SPEED_LOW` and `I2C_SPEED_HIGH` clock speed deviate  |
+| HWCRYPTO   | &mdash; | &mdash;           |                                   | AES128                                                    |
+| RTT        | &mdash; | RTCC              |                                   | 1 Hz interval. Either RTT or RTC (see below)              |
+| RTC        | &mdash; | RTCC              |                                   | 1 Hz interval. Either RTC or RTT (see below)              |
+| SPI        | 0       | USART0            | MOSI: PE10, MISO: PE11, CLK: PE12 |                                                           |
+| Timer      | 0       | TIMER0 + TIMER1   |                                   | TIMER0 is used as prescaler (must be adjecent)            |
+| UART       | 0       | USART1            | RX: PA0, TX: PF2                  | Default STDIO output                                      |
+|            | 1       | LEUART0           | RX: PD5, TX: PD4                  | Baud rate limited (see below)                             |
 
 ### User interface
 | Peripheral | Mapped to | Pin  | Comments   |
 |------------|-----------|------|------------|
-| Button     | PB0       | PC9  |            |
-|            | PB1       | PC10 |            |
-| LED        | LED0      | PF4  | Yellow LED |
-|            | LED1      | PF5  | Yellow LED |
+| Button     | PB0_PIN   | PC9  |            |
+|            | PB1_PIN   | PC10 |            |
+| LED        | LED0_PIN  | PF4  |            |
+|            | LED1_PIN  | PF5  |            |
 
 ## Implementation Status
 | Device                        | ID                                  | Supported | Comments                                                       |
@@ -96,7 +96,6 @@ PIN 1 is the bottom-left contact when the header faces  you horizontally.
 |                               | USB                                 | no        |                                                                |
 | LCD driver                    | LS013B7DH03                         | yes       | Sharp Low Power Memory LCD via the U8g2 package                |
 | Temperature + humidity sensor | Si7021                              | yes       | Silicon Labs Temperature + Humidity sensor                     |
-
 
 ## Board configuration
 
@@ -125,7 +124,7 @@ to get familiar with the different clocks.
 | HFXO   | No       | 24 MHz     |                                    |
 | LFRCO  | Yes      | 32.768 kHz |                                    |
 | LFXO   | No       | 32.768 kHz |                                    |
-| ULFRCO | No       | 1.000 kHz  | Not very reliable as a time source |
+| ULFRCO | No       | 1 kHz      | Not very reliable as a time source |
 
 The sources can be used to clock following branches:
 
@@ -171,9 +170,9 @@ Configured at 1 Hz interval, the RTC will overflow each 194 days. When using
 the ticker-to-calendar mode, this interval is extended artificially.
 
 ### Hardware crypto
-    This MCUs has support for hardware-accelerated AES128.
+This MCUs has support for hardware-accelerated AES128.
 
-A peripheral driver interface for RIOT-OS is proposed, but not yet implemented.
+A peripheral driver interface is proposed, but not yet implemented.
 
 ### Usage of EMLIB
 This port makes uses of EMLIB by Silicon Labs to abstract peripheral registers.

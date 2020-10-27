@@ -1,0 +1,13 @@
+bc: Miscellaneous.LED @ gpioPort 12
+
+led0_pin: Miscellaneous.LED @ gpioPort 86
+led1_pin: Miscellaneous.LED @ gpioPort 87
+
+pb0_pin: Miscellaneous.Button @ gpioPort 67
+pb1_pin: Miscellaneous.Button @ gpioPort 66
+
+// TODO
+// ls013b7dh03: Video.LS013B7DH03 @ spi0
+
+si7021: Sensors.SI70xx @ i2c0 0x80
+    model: Model.SI7021

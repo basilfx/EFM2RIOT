@@ -6,7 +6,6 @@ PORT_DARWIN ?= $(firstword $(sort $(wildcard /dev/tty.usbmodem*)))
 include $(RIOTMAKE)/tools/serial.inc.mk
 
 # setup JLink for flashing
-JLINK_DEVICE = $(CPU_MODEL)
 JLINK_PRE_FLASH = r
 
 # include board common

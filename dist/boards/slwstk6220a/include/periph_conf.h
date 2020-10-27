@@ -185,20 +185,34 @@ static const spi_dev_t spi_config[] = {
  */
 static const timer_conf_t timer_config[] = {
     {
-        {
+        .prescaler = {
             .dev = TIMER1,
             .cmu = cmuClock_TIMER1
         },
-        {
+        .timer = {
             .dev = TIMER2,
             .cmu = cmuClock_TIMER2
         },
-        .irq = TIMER2_IRQn
+        .irq = TIMER2_IRQn,
+        .channel_numof = 3
+    },
+    {
+        .prescaler = {
+            .dev = NULL,
+            .cmu = cmuClock_LETIMER0
+        },
+        .timer = {
+            .dev = LETIMER0,
+            .cmu = cmuClock_LETIMER0
+        },
+        .irq = LETIMER0_IRQn,
+        .channel_numof = 2
     }
 };
 
 #define TIMER_NUMOF         ARRAY_SIZE(timer_config)
 #define TIMER_0_ISR         isr_timer2
+#define TIMER_1_ISR         isr_letimer0
 /** @} */
 
 /**
@@ -215,14 +229,6 @@ static const uart_conf_t uart_config[] = {
         .irq = USART2_RX_IRQn
     },
     {
-        .dev = USART1,
-        .rx_pin = GPIO_PIN(PD, 1),
-        .tx_pin = GPIO_PIN(PD, 0),
-        .loc = USART_ROUTE_LOCATION_LOC1,
-        .cmu = cmuClock_USART1,
-        .irq = USART1_RX_IRQn
-    },
-    {
         .dev = LEUART0,
         .rx_pin = GPIO_PIN(PD, 5),
         .tx_pin = GPIO_PIN(PD, 4),
@@ -233,9 +239,8 @@ static const uart_conf_t uart_config[] = {
 };
 
 #define UART_NUMOF          ARRAY_SIZE(uart_config)
-#define UART_0_ISR_RX       isr_usart1_rx
-#define UART_1_ISR_RX       isr_usart2_rx
-#define UART_2_ISR_RX       isr_leuart0
+#define UART_0_ISR_RX       isr_usart2_rx
+#define UART_1_ISR_RX       isr_leuart0
 /** @} */
 
 #ifdef __cplusplus

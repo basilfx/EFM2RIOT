@@ -8,7 +8,9 @@ config CPU_FAM_EFR32BG22
     bool
     select CPU_CORE_CORTEX_M33
     select CPU_COMMON_EFM32
+    select CPU_EFM32_SERIES2
     select HAS_PERIPH_HWRNG
+    select HAS_CORTEXM_MPU
 
 ## CPU Models
 config CPU_MODEL_EFR32BG22C224F512IM40

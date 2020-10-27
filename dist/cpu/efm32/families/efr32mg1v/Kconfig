@@ -8,6 +8,8 @@ config CPU_FAM_EFR32MG1V
     bool
     select CPU_CORE_CORTEX_M4F
     select CPU_COMMON_EFM32
+    select CPU_EFM32_SERIES1
+    select HAS_CORTEXM_MPU
 
 ## CPU Models
 config CPU_MODEL_EFR32MG1V131F256GM32
