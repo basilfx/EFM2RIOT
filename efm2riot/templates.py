@@ -156,6 +156,8 @@ def create_environment():
             return "%d MHz" % (freq / 1000000)
         elif freq > 1000000:
             return "%.1f MHz" % (freq / 1000000.0)
+        elif freq % 1000 == 0:
+            return "%d kHz" % (freq / 1000)
         else:
             return "%.3f kHz" % (freq / 1000.0)
 
