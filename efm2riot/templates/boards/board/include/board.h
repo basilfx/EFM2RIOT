@@ -201,10 +201,13 @@ extern "C" {
          * Connection to the on-board air quality/gas sensor (CCS811).
          * @{
          */
-        #define CCS811_I2C          I2C_DEV(0)
-        #define CCS811_PIC_ADDR     (0x03)
-        #define CCS811_PIC_EN_BIT   (0x00)
-        #define CCS811_PIC_WAKE_BIT (0x01)
+        #define CCS811_I2C              I2C_DEV(0)
+
+        #define CCS811_PIC_ADDR         (0x03)
+        #define CCS811_PIC_EN_BIT       (0x00)
+        #define CCS811_PIC_WAKE_BIT     (0x01)
+
+        #define CCS811_PARAM_I2C_DEV    CCS811_I2C
         /** @} */
 
         /**
@@ -213,6 +216,9 @@ extern "C" {
          * Connection to the on-board IMU sensor (ICM-20648).
          * @{
          */
+        #ifndef ICM20648_ENABLED
+        #define ICM20648_ENABLED    0
+        #endif
         #define ICM20648_SPI        SPI_DEV(0)
         #define ICM20648_PIC_ADDR   (0x00)
         #define ICM20648_PIC_EN_BIT (0x00)
@@ -235,6 +241,18 @@ extern "C" {
          * There are four RGB leds on the board.
          * @{
          */
+        #ifndef RGB_LED1_ENABLED
+        #define RGB_LED1_ENABLED    1
+        #endif
+        #ifndef RGB_LED2_ENABLED
+        #define RGB_LED2_ENABLED    1
+        #endif
+        #ifndef RGB_LED3_ENABLED
+        #define RGB_LED3_ENABLED    1
+        #endif
+        #ifndef RGB_LED4_ENABLED
+        #define RGB_LED4_ENABLED    1
+        #endif
         #define RGB_LED_ADDR        (0x04)
         #define RGB_LED_EN_BIT      (0x00)
         #define RGB_LED1_EN_BIT     (0x07)
@@ -249,6 +267,9 @@ extern "C" {
          * Connection to the on-board UV/ambient light sensor (Si1133).
          * @{
          */
+        #ifndef SI1133_ENABLED
+        #define SI1133_ENABLED      0
+        #endif
         #define SI1133_I2C          I2C_DEV(0)
         /** @} */
 
@@ -266,10 +287,13 @@ extern "C" {
         /**
          * @name    Hall-effect sensor configuration
          *
-         * Connection to the on-board hall-effect sensor (Si7210). Available on Rev. A02
-         * boards only.
+         * Connection to the on-board hall-effect sensor (Si7210). Available on
+         * Rev. A02 boards only.
          * @{
          */
+        #ifndef SI7210_ENABLED
+        #define SI7210_ENABLED      0
+        #endif
         #define SI7210_I2C          I2C_DEV(0)
         /** @} */
     {% elif board in ["sltb004a"] %}
@@ -312,6 +336,9 @@ extern "C" {
          * Connection to the on-board IMU sensor (ICM-20648).
          * @{
          */
+        #ifndef ICM20648_ENABLED
+        #define ICM20648_ENABLED    0
+        #endif
         #define ICM20648_SPI        SPI_DEV(0)
         #define ICM20648_PIC_ADDR   (0x00)
         #define ICM20648_PIC_EN_BIT (0x00)
@@ -334,6 +361,18 @@ extern "C" {
          * There are four RGB leds on the board.
          * @{
          */
+        #ifndef RGB_LED1_ENABLED
+        #define RGB_LED1_ENABLED    1
+        #endif
+        #ifndef RGB_LED2_ENABLED
+        #define RGB_LED2_ENABLED    1
+        #endif
+        #ifndef RGB_LED3_ENABLED
+        #define RGB_LED3_ENABLED    1
+        #endif
+        #ifndef RGB_LED4_ENABLED
+        #define RGB_LED4_ENABLED    1
+        #endif
         #define RGB_LED_ADDR        (0x04)
         #define RGB_LED_EN_BIT      (0x00)
         #define RGB_LED1_EN_BIT     (0x07)
@@ -348,6 +387,9 @@ extern "C" {
          * Connection to the on-board UV/ambient light sensor (Si1133).
          * @{
          */
+        #ifndef SI1133_ENABLED
+        #define SI1133_ENABLED      0
+        #endif
         #define SI1133_I2C          I2C_DEV(0)
         /** @} */
 
@@ -368,6 +410,9 @@ extern "C" {
          * Connection to the on-board hall-effect sensor (Si7210).
          * @{
          */
+        #ifndef SI7210_ENABLED
+        #define SI7210_ENABLED      0
+        #endif
         #define SI7210_I2C          I2C_DEV(0)
         /** @} */
     {% elif board in ["sltb009a"] %}
@@ -387,6 +432,9 @@ extern "C" {
          * Connection to the on-board IMU sensor (ICM-20648).
          * @{
          */
+        #ifndef ICM20648_ENABLED
+        #define ICM20648_ENABLED    0
+        #endif
         #define ICM20648_SPI        SPI_DEV(0)
         #define ICM20648_PIC_ADDR   (0x00)
         #define ICM20648_PIC_EN_BIT (0x00)
@@ -409,6 +457,9 @@ extern "C" {
          * Connection to the on-board UV/ambient light sensor (Si1133).
          * @{
          */
+        #ifndef SI1133_ENABLED
+        #define SI1133_ENABLED      0
+        #endif
         #define SI1133_I2C          I2C_DEV(0)
         /** @} */
 
@@ -448,6 +499,9 @@ extern "C" {
          * Connection to the on-board IMU sensor (ICM-20648).
          * @{
          */
+        #ifndef ICM20648_ENABLED
+        #define ICM20648_ENABLED    0
+        #endif
         #define ICM20648_SPI        SPI_DEV(0)
         #define ICM20648_PIC_ADDR   (0x00)
         #define ICM20648_PIC_EN_BIT (0x00)
@@ -470,6 +524,9 @@ extern "C" {
          * Connection to the on-board UV/ambient light sensor (Si1133).
          * @{
          */
+        #ifndef SI1133_ENABLED
+        #define SI1133_ENABLED      0
+        #endif
         #define SI1133_I2C          I2C_DEV(0)
         /** @} */
 
@@ -490,6 +547,9 @@ extern "C" {
          * Connection to the on-board hall-effect sensor (Si7210).
          * @{
          */
+        #ifndef SI7210_ENABLED
+        #define SI7210_ENABLED      0
+        #endif
         #define SI7210_I2C          I2C_DEV(0)
         /** @} */
     {% endif %}
