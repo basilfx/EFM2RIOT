@@ -6,19 +6,20 @@ $name?="{{ board| upper }}"
 using sysbus
 mach create $name
 
-machine LoadPlatformDescription @platforms/boards/{{ board }}.repl
-machine SetClockSource cpu
+machine LoadPlatformDescription $RIOTCPU/efm32/families/{{ family }}/dist/renode/{{ cpu }}.repl
+machine LoadPlatformDescription $RIOTBOARD/{{ board }}/dist/renode/{{ board }}.repl
 
 # show the UART output
-showAnalyzer {{ peripherals.uart.0.peripheral|lower }}
+showAnalyzer {{ peripherals.uart.0.peripheral|lower|replace("leuart", "leUart") }}
 
 # generate a unique device id
 $unique_id = `next_value 1`
 
 macro reset
 """
-    sysbus LoadELF $image_file
+    sysbus LoadELF $ELFFILE
     deviceInformation Unique $unique_id
 """
 
 runMacro $reset
+start

@@ -27,6 +27,15 @@ TEMPLATES = [
     },
     {
         "type": "file",
+        "when": "per_cpu",
+        "source": "{{ root }}/templates/cpu/efm32/families/family/dist/renode/cpu.repl",  # noqa
+        "target": "cpu/efm32/families/{{ family }}/dist/renode/{{ cpu }}.repl",
+        "filters": {
+            "{{ root }}/templates/cpu/efm32/families/family/dist/renode/cpu.repl": filters.only_for_development(),  # noqa
+        }
+    },
+    {
+        "type": "file",
         "when": "per_family",
         "source": "{{ root }}/templates/cpu/efm32/families/family/efm32-info.mk",  # noqa
         "target": "cpu/efm32/families/{{ family }}/efm32-info.mk"
@@ -56,12 +65,21 @@ TEMPLATES = [
         "target": "cpu/efm32/families/{{ family }}/vectors.c"
     },
     {
-        "type": "glob",
+        "type": "file",
         "when": "per_board",
-        "source": "{{ root }}/templates/boards/board/dist/*",
-        "target": "boards/{{ board }}/dist",
+        "source": "{{ root }}/templates/boards/board/dist/renode/board.repl",
+        "target": "boards/{{ board }}/dist/renode/{{ board }}.repl",
         "filters": {
-            "{{ root }}/templates/boards/board/dist/board.resc": filters.only_for_development(),  # noqa
+            "{{ root }}/templates/boards/board/dist/renode/board.repl": filters.only_for_development(),  # noqa
+        }
+    },
+    {
+        "type": "file",
+        "when": "per_board",
+        "source": "{{ root }}/templates/boards/board/dist/renode/board.resc",
+        "target": "boards/{{ board }}/dist/renode/board.resc",
+        "filters": {
+            "{{ root }}/templates/boards/board/dist/renode/board.resc": filters.only_for_development(),  # noqa
         }
     },
     {
@@ -89,24 +107,6 @@ TEMPLATES = [
         "target": "contrib/emul8/{{ family|upper }}DeviceInformation.cs",
         "filters": {
             "{{ root }}/templates/contrib/emul8/DeviceInformation.cs": filters.only_for_development(),  # noqa
-        }
-    },
-    {
-        "type": "file",
-        "when": "per_board",
-        "source": "{{ root }}/templates/contrib/renode/platforms/boards/board.repl",  # noqa
-        "target": "contrib/renode/platforms/boards/{{ board }}.repl",
-        "filters": {
-            "{{ root }}/templates/contrib/renode/platforms/boards/board.repl": filters.only_for_development(),  # noqa
-        }
-    },
-    {
-        "type": "file",
-        "when": "per_cpu",
-        "source": "{{ root }}/templates/contrib/renode/platforms/cpus/cpu.repl",  # noqa
-        "target": "contrib/renode/platforms/cpus/{{ cpu }}.repl",
-        "filters": {
-            "{{ root }}/templates/contrib/renode/platforms/cpus/cpu.repl": filters.only_for_development(),  # noqa
         }
     },
 ]

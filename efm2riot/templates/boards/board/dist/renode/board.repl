@@ -1,5 +1,3 @@
-using "platforms/cpus/{{ cpu }}.repl"
-
 {% strip 3, "<" %}
     {% if "bc" in mappings %}
         {% if mappings.bc.pin.0 == "pin" and mappings.bc.pin.1 %}
